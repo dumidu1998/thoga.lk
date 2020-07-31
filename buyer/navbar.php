@@ -15,7 +15,7 @@
   <div class = "nav-right">
     <a href="#About us">About us</a>
 
-    <button class="button_signup" onclick="location.href = '';">Sign Up/Register</button>
+    <img src="b.png" alt="" class = "user_pic" width=50px>
     
 
   </div>
@@ -23,7 +23,6 @@
     <i class="fa fa-bars"></i>
   </a>
 </div>
-
 
 
 
