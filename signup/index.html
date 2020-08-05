@@ -26,11 +26,52 @@
           <div class="lable">Last Name</div>
             <input type="text" class="inpbox"  name="ln"  required>
         </div>
+        <div class="row">
+          <div class="lable">Gender</div>
+            <select id="gender" class="inpbox"  name="gender" style="font-size: 17px;" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="row">
+          <div class="lable">Date of Birth</div>
+            <input type="date" class="inpbox"  name="dob" max="2002-01-01" required>
+        </div>
+        <div class="row">
+          <div class="lable">NIC Number</div>
+            <input type="text" class="inpbox"  name="nic" 
+            pattern="^(?:19|20)?\d{2}(?:[0-35-8]\d\d(?<!(?:000|500|36[7-9]|3[7-9]\d|86[7-9]|8[7-9]\d)))\d{4}(?:[VX])$" 
+            title="Format Should be 123123123V or 123123123X or 12312312312V" required>
+        </div>
+        <div class="row">
+          <div class="lable">Mobile Number 1</div>
+            <input type="text" class="inpbox"  name="contactno1"  required>
+        </div>
+        <div class="row">
+          <div class="lable">Mobile Number 2</div>
+            <input type="text" class="inpbox"  name="contactno2" >
+        </div>
       </form>
     </div>
     <div class="tabPanel">Tab 2:Content</div>
     <div class="tabPanel">Tab 3:Content</div>
-    <div class="tabPanel">Tab 4:Content</div>
+    <div class="tabPanel">
+      <div class="row">
+        <div class="lable">First Name</div>
+        <input type="text" class="inpbox" name="fn" required>
+      </div>
+      <div class="row">
+        <div class="lable">Last Name</div>
+          <input type="text" class="inpbox"  name="ln"  required>
+      </div>
+      <div class="row">
+        <div class="lable">Gender</div>
+          <select id="gender" class="inpbox"  name="gender"  required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+      </div>
+    </div>
 </div>
 
 <script src="script.js"></script>
