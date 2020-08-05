@@ -1,0 +1,38 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="padding: 20px">
+<h1 class="title">Sign Up</h1>
+<div class="tabContainer">
+    <div class="buttonContainer">
+        <button onclick="showPanel(0,'#a9a9a9')">Farmer</button>
+        <button onclick="showPanel(1,'#a9a9a9')">Buyer</button>
+        <button onclick="showPanel(2,'#a9a9a9')">Driver</button>
+        <button onclick="showPanel(3,'#a9a9a9')">Mentor</button>
+    </div> 
+    <div class="tabPanel">
+      <form >
+        <div class="row">
+          <div class="lable">First Name</div>
+          <input type="text" class="inpbox" name="fn" required>
+        </div>
+        <div class="row">
+          <div class="lable">Last Name</div>
+            <input type="text" class="inpbox"  name="ln"  required>
+        </div>
+      </form>
+    </div>
+    <div class="tabPanel">Tab 2:Content</div>
+    <div class="tabPanel">Tab 3:Content</div>
+    <div class="tabPanel">Tab 4:Content</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

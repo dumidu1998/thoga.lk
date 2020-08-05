@@ -12,7 +12,7 @@
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
-  <div class = "nav-right">
+  <div class = "nav-right" id="nav-right">
     <a href="#About us">About us</a>
 
     <button class="button_signup" onclick="location.href = '';">Sign Up/Register</button>
@@ -34,6 +34,13 @@ function myFunction() {
     x.className += " responsive";
   } else {
     x.className = "topnav";
+  }
+
+  var y = document.getElementById("nav-right");
+  if (x.className === "nav-right") {
+    x.className += " responsive";
+  } else {
+    x.className = "nav-right";
   }
 }
 </script>
