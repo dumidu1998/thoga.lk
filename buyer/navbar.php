@@ -12,14 +12,10 @@
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
-<<<<<<< HEAD
   <div class = "nav-right">
-=======
-  <div class = "nav-right" id="nav-right">
->>>>>>> 17e430156934e919098ec38ceaad2d072cbe00a9
     <a href="#About us">About us</a>
 
-    <button class="button_signup" onclick="location.href = '';">Sign Up/Register</button>
+    <img src="b.png" alt="" class = "user_pic" width=50px>
     
 
   </div>
@@ -30,10 +26,6 @@
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 17e430156934e919098ec38ceaad2d072cbe00a9
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -42,16 +34,6 @@ function myFunction() {
   } else {
     x.className = "topnav";
   }
-<<<<<<< HEAD
-=======
-
-  var y = document.getElementById("nav-right");
-  if (x.className === "nav-right") {
-    x.className += " responsive";
-  } else {
-    x.className = "nav-right";
-  }
->>>>>>> 17e430156934e919098ec38ceaad2d072cbe00a9
 }
 </script>
 
