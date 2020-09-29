@@ -12,6 +12,7 @@
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   <div class = "nav-right">
 =======
@@ -20,6 +21,12 @@
     <a href="#About us">About us</a>
 
     <button class="button_signup" onclick="location.href = '';">Sign Up/Register</button>
+=======
+  <div class = "nav-right">
+    <a href="#About us">About us</a>
+
+    <button class="button_signup" onclick="location.href = 'signup.php';">Sign Up/Register</button>
+>>>>>>> Stashed changes
     
 
   </div>
@@ -30,10 +37,13 @@
 
 
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 
 >>>>>>> 17e430156934e919098ec38ceaad2d072cbe00a9
+=======
+>>>>>>> Stashed changes
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -42,6 +52,7 @@ function myFunction() {
   } else {
     x.className = "topnav";
   }
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 
@@ -52,6 +63,8 @@ function myFunction() {
     x.className = "nav-right";
   }
 >>>>>>> 17e430156934e919098ec38ceaad2d072cbe00a9
+=======
+>>>>>>> Stashed changes
 }
 </script>
 
