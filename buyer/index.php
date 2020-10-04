@@ -6,12 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../css/style.css">
-
-    <div>
-    <div>
-    <?php include("navbar.php"); ?>
-    </div>
-</div>
     
 </head>
 <body style="background-image: url('../imgs/background.jpg');">

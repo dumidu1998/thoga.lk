@@ -111,8 +111,8 @@
 
   /* -Buyer */
 .organic_container{
-    height: 55px;
-    margin-top: 600px;
+    display: inline-flex;
+    height: 90px;   
     width: 75%;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
@@ -126,20 +126,18 @@
     border: 1px;
     border-color: red;
     font-size: large;
-    text-align: center;
-      
-    
+    text-align: center;   
 }
+
 .btn_organic{
   display: inline;
   margin: 10px;
-  padding: 35px;
+  padding: 30px;
   border-radius: 6px;
 
 }
 .org_active {
   background-image: url("../imgs/organic.jpg");
-  
-
+  display: inline;
 }
 
