@@ -1,9 +1,12 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0;
+    margin-top: 60px;
   }
   
 .topnav {
+    top: 0;
     width: 100%;
     position: fixed;
     overflow: hidden;

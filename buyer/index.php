@@ -11,6 +11,7 @@
 <body style="background-image: url('../imgs/background.jpg');">
 
 
+<?php include("navbar.php"); ?>
 
 
 <div class="organic_container">
@@ -22,6 +23,8 @@
 
     </div>
 </div>
+
+<?php include("item_non_org.php"); ?>
 
 
 
