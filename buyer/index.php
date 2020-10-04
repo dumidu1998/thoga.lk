@@ -6,16 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../css/style.css">
+
+    <div>
+    <div>
+    <?php include("navbar.php"); ?>
+    </div>
+</div>
     
 </head>
 <body style="background-image: url('../imgs/background.jpg');">
 
 
-<?php include("navbar.php"); ?>
 
 
 <div class="organic_container">
-    <div class="btn_organic active">
+    <div class="btn_organic org_active">
         <a href="">Non-Organic</a>
     </div>
     <div class="btn_organic" >
@@ -23,6 +28,8 @@
 
     </div>
 </div>
+
+
 
 
 
