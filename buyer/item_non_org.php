@@ -13,8 +13,8 @@
     <div class="card">
       <img src="../imgs/item.jpg" alt="Avatar" style="width:100%">
       <div class="container">
-        <h4><b>John Doe</b></h4> 
-        <p>Architect & Engineer</p> 
+        <h4><b>Carrot</b></h4> 
+        <p>Selling by farmer Dumidu price:- 40/kg</p> 
       </div>
       <div>
           <button>View Details</button>
