@@ -4,6 +4,11 @@ body {
     margin-left: 0;
     margin-top: 60px;
   }
+@media (min-width : 768px){
+  body{
+    margin-top: 100px;
+  }
+}
   
 .topnav {
     top: 0;
