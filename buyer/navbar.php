@@ -2,6 +2,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
+
+<link href="font-awesome.min.css" rel="stylesheet">	
+<link href="animate.min.css" rel="stylesheet">
 </head>
 <body>
 <div>
