@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <!-- <div class="card">
       <img src="../imgs/item.jpg" alt="Avatar" style="width:100%">
       <div class="container">
         <h4><b>John Doe</b></h4> 
@@ -52,7 +52,7 @@
       <div>
           <button>View Details</button>
       </div>
-    </div>
+    </div> -->
     
 </div>
 
