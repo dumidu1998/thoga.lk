@@ -17,7 +17,7 @@
         <p>Selling by farmer Dumidu price:- 40/kg</p> 
       </div>
       <div>
-          <button>View Details</button>
+          <button id="myBtn">View Details</button>
       </div>
     </div>
 

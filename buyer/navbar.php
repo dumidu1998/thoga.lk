@@ -9,9 +9,9 @@
 <body>
 <div>
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="navlogo"><img src="" alt="" class = "logo">Thoga.lk</a>
-  <a href="#home" class="active">Home</a>
-  <a href="#news">News</a>
+  <a href="index.php" class="navlogo"><img src="" alt="" class = "logo">Thoga.lk</a>
+  <a href="index.php" class="active">Home</a>
+  <a href="news.php">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
   <div class = "nav-right">
