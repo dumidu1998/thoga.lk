@@ -17,7 +17,7 @@
         <span class="close">&times;</span>
         <div class="item-img">
             <!-- image -->
-            <img src="../imgs/item.jpg" alt="Avatar" style="width:50%">
+            <img src="../imgs/item.jpg" alt="Avatar" style="width:60%">
         </div>
 
         <div class="container">
@@ -27,20 +27,33 @@
                     <h1><a href="">Carrot</a></h1>
                     
                 </div>
-                <div>
+                <div class="farmer_icon">
                     <!-- farmer name -->
-                    <h2><a href="">dumidu</a></h2>
+                    <img width=60px src="../imgs/icons/farmer.png" alt="">
+
+                    <h2><a href="">Dumidu Kasun</a></h2>
                 </div>
 
             </div>
-            <div>
+
+            <hr>
+
+            <div class="item_des">
                 <!-- description -->
-                This is great carrot from nuwaraeliya
+                This is great carrot from nuwaraeliya nuwaraeliya is a best city to crop plants
             </div>
-            <div>
+            <div class="user_address">
                 <!-- location details of the farmer -->
-                388/54 waikkala nuwara eliya
+                <img src="../imgs/icons/location.png" alt="">
+               <p> 388/54 waikkala nuwara eliya</p>
             </div>
+
+            <div class="user_no">
+                <!-- location details of the farmer -->
+                <img src="../imgs/icons/telephone.png" alt="">
+               <p> 0775509830</p>
+            </div>
+
         </div>
         <div>
             <!-- quantity/price -->
