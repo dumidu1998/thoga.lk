@@ -26,11 +26,18 @@
 </head>
 
 <body>
+<?php include("navbar.php"); ?>
 <header class="header-section">
     
 	
 </header>
-	
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
 	<table  align="center">
 		<tr>
 			<td colspan="5"><h1>Driver Dashboard</h1></td>
