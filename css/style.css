@@ -282,7 +282,16 @@
   text-decoration: none;
   cursor: pointer;
 }
-
+.checkout_icon{
+  display: none;
+  width: 20px;
+  margin-top: 25px;
+}
+@media(max-width:768px){
+  .checkout_icon{
+    display: inline;
+  }
+}
 
 
 

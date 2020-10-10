@@ -27,6 +27,12 @@
       <a href="">Organic</a>
 
     </div>
+    <div class="checkout_icon">
+      <a href="checkout.php">
+        <img width=35px align="center" src="../imgs/icons/cart.png" alt="">
+
+      </a>
+    </div>
 
     
 
