@@ -121,8 +121,6 @@
 @media (max-width: 768px){
   .organic_container{
     margin-top: 55px;
-    
-   
   }
 }
 .organic_container a{
@@ -235,6 +233,7 @@
   grid-template-columns: 3.5fr 1fr;
   grid-gap: 10px;
 }
+
 @media (max-width:768px){
   .cart{
     display: none;
