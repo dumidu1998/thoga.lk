@@ -1,5 +1,23 @@
-body{
-    width: fit-content;
+@media (max-width : 768px){
+
+    body{
+        width: fit-content;
+    }
+}
+.container-driver{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    margin-top: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+    margin-bottom: 3%;
+
+}
+.container-driver h1{
+ text-align: center;
+ 
 }
 .container{
     
@@ -7,8 +25,7 @@ body{
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 100%;
-    margin-left: 38%;
+    width: 80%;
     margin-top: 10%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
     margin-bottom: 3%;
@@ -39,9 +56,7 @@ th {
 .check h1{
     color: rgb(54, 53, 53);
 }
-.summary{
-    
-}
+
 @media screen and (max-width:768px){
     .container{
         width: 100%;
