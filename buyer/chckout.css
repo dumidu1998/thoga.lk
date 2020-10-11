@@ -1,18 +1,18 @@
+body{
+    width: fit-content;
+}
 .container{
     
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 100%;
+    margin-left: 38%;
     margin-top: 10%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+    margin-bottom: 3%;
        
-}
-@media(max-width:768px){
-    .container{
-        width: 100%;
-    }
 }
 table {
     font-family: arial, sans-serif;
@@ -42,10 +42,11 @@ th {
 .summary{
     
 }
-@media(max-width:768px){
+@media screen and (max-width:768px){
     .container{
         width: 100%;
         margin-top: 30%;
+        margin-left: 0%;
     }
     .check{
         display: block;
@@ -78,7 +79,7 @@ th {
     grid-template-columns: 1fr 1fr; 
     margin-left: 80px;
 }
-@media(max-width:768px){
+@media screen and (max-width:768px){
     .delivery_option-address{
         display: none;
         margin: 0%;
