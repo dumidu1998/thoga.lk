@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2020 at 04:58 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Generation Time: Oct 12, 2020 at 07:57 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `thoga.lkdb`
+-- Database: `thoga_lkdb`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `address` (
-  `user-id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
   `address_line1` varchar(20) NOT NULL,
   `address_line2` varchar(20) NOT NULL,
   `city` varchar(20) NOT NULL,
@@ -113,6 +112,14 @@ CREATE TABLE `driver` (
   `verified_state` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `driver`
+--
+
+INSERT INTO `driver` (`driver_id`, `current_location`, `unavailable_dates`, `license_no`, `verified_state`) VALUES
+(1, 'sdd', '0000-00-00', '123', '123'),
+(2, 'sdd', '0000-00-00', '123', '123');
+
 -- --------------------------------------------------------
 
 --
@@ -160,10 +167,10 @@ CREATE TABLE `forum post` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum rreplies`
+-- Table structure for table `forum replies`
 --
 
-CREATE TABLE `forum rreplies` (
+CREATE TABLE `forum replies` (
   `reply_id` int(11) NOT NULL,
   `reply` varchar(500) NOT NULL,
   `date/time` datetime NOT NULL,
@@ -179,14 +186,14 @@ CREATE TABLE `forum rreplies` (
 CREATE TABLE `item` (
   `item_id` int(11) NOT NULL,
   `Item_type` varchar(20) NOT NULL,
-  `veg_Id` int(11) NOT NULL,
+  `veg_id` int(11) NOT NULL,
   `min_weight` varchar(20) NOT NULL,
   `avail_weight` varchar(20) NOT NULL,
   `item_start` varchar(20) NOT NULL,
   `item_end` varchar(20) NOT NULL,
   `price/kg` varchar(20) NOT NULL,
-  `farmer_Id` int(11) NOT NULL,
-  `mentor_Id` int(11) NOT NULL
+  `farmer_id` int(11) NOT NULL,
+  `mentor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -228,8 +235,17 @@ CREATE TABLE `order_details` (
   `pickup_date` date NOT NULL,
   `item_id` int(11) NOT NULL,
   `buyer_id` int(11) NOT NULL,
-  `driver_Id` int(11) DEFAULT NULL
+  `driver_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_id`, `weight`, `pickup_location`, `total_cost`, `deliver_location`, `order_date`, `pickup_date`, `item_id`, `buyer_id`, `driver_id`) VALUES
+(1, 11, 'sdf', 200, 'svf', '2020-10-20', '2020-10-20', 222, 333, 444),
+(2, 34, 'sdfg', 400, 'grtt', '2020-10-13', '2020-10-07', 23, 44, 2),
+(3, 1500, 'fsfrgw', 1000, 'fsgr', '2020-10-14', '2020-10-08', 333, 445, 5);
 
 -- --------------------------------------------------------
 
@@ -260,7 +276,7 @@ CREATE TABLE `status` (
 --
 
 CREATE TABLE `user` (
-  `user-id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `usename` varchar(10) NOT NULL,
@@ -380,9 +396,9 @@ ALTER TABLE `forum post`
   ADD PRIMARY KEY (`post_id`);
 
 --
--- Indexes for table `forum rreplies`
+-- Indexes for table `forum replies`
 --
-ALTER TABLE `forum rreplies`
+ALTER TABLE `forum replies`
   ADD PRIMARY KEY (`reply_id`);
 
 --
@@ -425,7 +441,7 @@ ALTER TABLE `status`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user-id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `usertype`
@@ -483,7 +499,7 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `farmer`
@@ -504,9 +520,9 @@ ALTER TABLE `forum post`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `forum rreplies`
+-- AUTO_INCREMENT for table `forum replies`
 --
-ALTER TABLE `forum rreplies`
+ALTER TABLE `forum replies`
   MODIFY `reply_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -531,7 +547,7 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `province`
@@ -549,7 +565,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user-id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `usertype`
