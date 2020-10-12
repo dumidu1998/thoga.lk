@@ -1,35 +1,41 @@
+.title{
+    font-family: sans-serif;
+    color: #dc2d5e;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .tabContainer{
     width: 70%;
-    height: 1800px;
+    height: 1000px;
     margin-left: 15%;
 
 }
 
-
-/*.tabContainer .tabPanel{
-    height: 85%;
-    background-color: gray;
-    color: white;
-    text-align: left;
-    padding-top: 55px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    font-size: 22px;
-    display: none;
+.date{
+  display: inline-flex;
+  margin: 
+  
 }
-*/
-input[type=text], select, textarea {
+.id{
+  display: inline-flex;
+}
+
+input[type=text],input[type=date],input[type=file], select, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 4px;
   resize: vertical;
+
 }
 
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
+  margin-right: 40px;
+  
 }
 
 button {
@@ -51,12 +57,16 @@ button:hover {
 .cancelbtn {
   padding: 14px 20px;
   background-color: #f44336;
+
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
+.cancelbtn, .submitbtn {
+  float: center;
+  width: 30%;
+  border-radius: 10px;
+  margin-top: 10px;
+
 }
 
 .clearfix::after {
@@ -67,21 +77,55 @@ button:hover {
 
 
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px;
+  color: white;
+  text-align: center;
+  width:70%;
+  background:rgba(0,0,0,0.5);
+  position:absolute;
+  top:54%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+  font-size:18px;
+  border-radius: 50px;
+  box-shadow:0 5px 15px rgba(0,0,0,.9);
+  font-style: bold;
+  margin-top: 30px;
+
+
+}
+@media screen and (max-width:768px){
+  .container{
+    margin-top: 100%;
+    width: 90%;
+  }
+  .date{
+    display: block;
+
+  }
+  .id{
+    display: block;
+  }
+  label{
+    margin-right: 100px;
+  }
+  input[type=text],input[type=date],input[type=file], select{
+    margin-left: 40px;
+  }
+
 }
 
 .col-25 {
   float: left;
   width: 25%;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .col-75 {
   float: left;
   width: 60%;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 /* Clear floats after the columns */
@@ -93,9 +137,9 @@ button:hover {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .col-25, .col-75,  {
+  .col-25, .col-75, {
     width: 100%;
-    margin-top: 0;
+    margin-top: 5px;
   }
 }
 

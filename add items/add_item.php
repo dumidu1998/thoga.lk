@@ -6,22 +6,23 @@
 if (isset($_POST["submit"])) {
 
 	# code...
-	$item_name=$_POST["im"];
-	$veg_id=$_POST["vid"];
-	$minimum_weight=$_POST["mw"];
-	$available_weight=$_POST["aw"];
+	$item_name=$_POST["itemname"];
+	$veg_id=$_POST["vegid"];
+	$minimum_weight=$_POST["minweight"];
+	$available_weight=$_POST["avaiweight"];
 	
 	 $target_dir = "uploads/";
      $target_file = $target_dir . basename($_FILES["pic"]["name"]);
      $uploadOk = 1;
      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-	$item_type=$_POST["itype"];
-	$item_start=$_POST["istart"];
-	$item_end=$_POST["iend"];
+	
+	$item_start=$_POST["startdate"];
+	$item_end=$_POST["enddate"];
+	$item_type=$_POST["itemtype"];
 	$price=$_POST["price"];
-	$mentor_id=$_POST["mid"];
-	$farmer1_id=$_POST["fid"];
+	$farmer1_id=$_POST["farmerid"];
+	$mentor_id=$_POST["mentorid"];
 
 
 
@@ -70,7 +71,7 @@ if (isset($_POST["submit"])) {
 
 
 						$add="INSERT INTO item
-							(item_name,item_type,minimum_weight,available_weight,item_start,item_end,price,farmer_id,mentor_id,item_image) VALUES ('".$_POST['in']."','".$_POST['itype']."','".$_POST['vid']."','".$_POST['mw']."','".$_POST['aw']."','".$_POST['istart']."','".$_POST['iend']."','".$_POST['price']."','".$_POST['fid']."','".$_POST['mid']."','$imgname')";
+							(item_name,item_type,minimum_weight,available_weight,item_start,item_end,price,farmer_id,mentor_id,item_image) VALUES ('".$_POST['itemname']."','".$_POST['itemtype']."','".$_POST['vegid']."','".$_POST['minweight']."','".$_POST['avaiweight']."','".$_POST['startdate']."','".$_POST['enddate']."','".$_POST['price']."','".$_POST['farmerid']."','".$_POST['menterid']."','$itemimage')";
 
 							$y=mysqli_query($con,$add);
 
@@ -114,33 +115,29 @@ if (isset($_POST["submit"])) {
 
 <html>
 <head>
+<title>Add Item</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="add_item.css">
 
 </head>
+<?php include 'add_item_navbar.php';?>
 
-
-<body background= "inex.jpg">
-	<?php include 'add_item_navbar.php';?>
-
+<body background= "index.jpg">
+<?php include 'add_item_navbar.php';?>
 <br>
 <br>
-				
+<h1 class="title">Add your item here....</h1>
 
 
-<div class="tabContainer">		
 
-
-<br>
-<br>
 <div class="container">
-  <form action="action_page.php">
+  <form>
     <div class="row">
       <div class="col-25">
         <label for="iname">Item Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="iname" name="itemname" >
+        <input type="text" id="iname" name="itemname" required>
       </div>
     </div>
     <div class="row">
@@ -148,7 +145,7 @@ if (isset($_POST["submit"])) {
         <label for="vid">Vegetable ID</label>
       </div>
       <div class="col-75">
-        <input type="text" id="vid" name="vegid">
+        <input type="text" id="vid" name="vegid" required>
       </div>
     </div>
     <div class="row">
@@ -156,7 +153,7 @@ if (isset($_POST["submit"])) {
         <label for="aw">Available Weight</label>
       </div>
       <div class="col-75">
-        <input type="text" id="aw" name="avaiweight">
+        <input type="text" id="aw" name="avaiweight" required>
       </div>
     </div>
     <div class="row">
@@ -164,31 +161,33 @@ if (isset($_POST["submit"])) {
         <label for="mw">Minimum Weight</label>
       </div>
       <div class="col-75">
-        <input type="text" id="mw" name="minweight">
+        <input type="text" id="mw" name="minweight" required>
       </div>
     </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="sdate">Starting Date</label>
-      </div>
-      <div class="col-75">
-        <input type="date" id="sdate" name="startdate">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="edate">Ending Date</label>
-      </div>
-      <div class="col-75">
-        <input type="date" id="edate" name="enddate">
-      </div>
+    <div class="date">
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="sdate">Starting Date</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="date" id="sdate" name="startdate" required>
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="edate">Ending Date</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="date" id="edate" name="enddate" required>
+	      </div>
+	    </div>
     </div>
     <div class="row">
       <div class="col-25">
         <label for="itype">Item Type</label>
       </div>
       <div class="col-75">
-        <select id="itype" name="itemtype">
+        <select id="itype" name="itemtype" required>
           <option value="organic">Organic</option>
           <option value="inorganic">Inorganic</option>
           
@@ -200,15 +199,16 @@ if (isset($_POST["submit"])) {
         <label for="price">Price</label>
       </div>
       <div class="col-75">
-        <input type="text" id="price" name="price">
+        <input type="text" id="price" name="price" required>
       </div>
     </div>
+    <div class="id">
     <div class="row">
       <div class="col-25">
         <label for="fid">Farmer ID</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fid" name="farmerid">
+        <input type="text" id="fid" name="farmerid" required>
       </div>
     </div>
     <div class="row">
@@ -216,8 +216,9 @@ if (isset($_POST["submit"])) {
         <label for="mid">Mentor ID</label>
       </div>
       <div class="col-75">
-        <input type="text" id="mid" name="mentorid">
+        <input type="text" id="mid" name="mentorid" required>
       </div>
+    </div>
     </div>
     <div class="row">
       <div class="col-25">
@@ -227,16 +228,17 @@ if (isset($_POST["submit"])) {
         <input type="file" id="pic" name="itemimage">
       </div>
     </div>
-    <br>
-    <br>
+    
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+      <button type="submit" class="submitbtn">Submit</button>
     </div>
+
+    </form>
     
-  </form>
+  
 </div> 
-</div>
+
 
 
 <script src="add_item.js"></script>
