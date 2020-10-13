@@ -6,8 +6,12 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="margin-top:150px">
+<body style="margin-top:100px">
     <?php include("navbar.php"); ?>
+    <div class="buttonContainer">
+        <a href="#"><button class="admin-btn" >View Orders</button></a>
+        <a href="#"><button class="admin-btn" >Manage Users</button></a>
+    </div>
     <div class="ut-hr-txt">
         <hr><span>30 Days Summary</span>
     </div>
@@ -73,6 +77,93 @@
         </table>
 
     </div>
+
+    <div>
+        <table>
+        <div class="ut-hr-txt">
+            <hr><span>Mentor Applications</span>
+        </div>
+            <thead>
+                <tr>
+                <th >Mentor ID</th>
+                <th >District</th>
+                <th >Request Date</th>
+                <th >Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td data-label="Mentor ID">001</td>
+                <td data-label="District">Anuradhapura</td>
+                <td data-label="Request Date">2020/10/10</td>
+                <td data-label="Action"><a href="#"> View More</a></td>
+                </tr>
+                <tr>
+                <td data-label="Mentor ID">002</td>
+                <td data-label="District">Kandy</td>
+                <td data-label="Request Date">2020/10/01</td>
+                <td data-label="Action"><a href="#"> View More</a></td>
+                </tr>
+                <tr>
+                <td data-label="Mentor ID">003</td>
+                <td data-label="District">Jaffna</td>
+                <td data-label="Request Date">2020/10/02</td>
+                <td data-label="Action"><a href="#"> View More</a></td>
+                </tr>
+                <tr>
+                <td data-label="Mentor ID">004</td>
+                <td data-label="District">Haputhale</td>
+                <td data-label="Request Date">2020/09/30</td>
+                <td data-label="Action"><a href="#"> View More</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+        <table>
+        <div class="ut-hr-txt">
+            <hr><span>Mentor Requests</span>
+        </div>
+            <thead>
+                <tr>
+                <th >Farmer Name</th>
+                <th >District</th>
+                <th >City</th>
+                <th >Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td data-label="Farmer Name">A.D. Rathnayaka</td>
+                <td data-label="District">Ampara</td>
+                <td data-label="City">Kattankudi</td>
+                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                </tr>
+                <tr>
+                <td data-label="Farmer Name">K.D. Bandara</td>
+                <td data-label="District">Batticola</td>
+                <td data-label="City">Pasikuda</td>
+                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                </tr>
+                <tr>
+                <td data-label="Farmer Name">A.S. Kumara</td>
+                <td data-label="District">Vavniya</td>
+                <td data-label="City">Punewa</td>
+                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                </tr>
+                <tr>
+                <td data-label="Farmer Name">S.S. Ariyapala</td>
+                <td data-label="District">Galle</td>
+                <td data-label="City ">Matara</td>
+                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    
 
 </body> 
 </html>

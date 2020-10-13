@@ -48,7 +48,7 @@ body {
     display: none;
   }
   
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
       float: right;
@@ -56,7 +56,7 @@ body {
     }
   }
   
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
       position: absolute;
@@ -112,10 +112,10 @@ a.button_signup{
 }
 
 .statcard{
-    width: 300px;
+    width: 250px;
     height: 180px;
     background: #ddd;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     color: black;
     margin:20px;
@@ -136,22 +136,64 @@ a.button_signup{
   margin-top: 1px;
   font-size: 40px;
   margin-bottom: 20px;
-  font-weight: 600;
-  color: #233;
+  font-weight: 400;
+  color: #423f3f;
   letter-spacing: 1.2px;
 }
 
 @media screen and (max-width: 600px) {
-  .statcard{width: 200px;height: 90px;margin:5px}
-  .card-title{font-size: 20px;margin-bottom: 10px;}
-  .card-content{font-size: 22px;}
+  .statcard{width: 120px;height: 90px;margin:5px}
+  .card-title{font-size: 15px;margin-bottom: 10px;}
+  .card-content{font-size: 18px;}
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
   
   }
 
   .ut-hr-txt {
     color: #000000;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     text-align: center;
@@ -204,47 +246,50 @@ table th {
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
-  }
+.admin-btn {
+  margin: 0px 80px 80px 80px;
+  padding: 10px 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #000;
+  width: 200px;
+  height: 80px;
+}
 
-  table caption {
-    font-size: 1.3em;
+.admin-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+.buttonContainer {
+  width: 100%;
+  max-height:80px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 725px) {
+  .buttonContainer {
+    max-height:150px;
+    /* height: 50px; */
   }
-  
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-  }
-  
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: right;
-  }
-  
-  table td::before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  table td:last-child {
-    border-bottom: 0;
+  .admin-btn {
+    width: 100px;
+    height: 50px;
+    margin: 0px 10px 20px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 10px 10px;
+
+
   }
 }
+
