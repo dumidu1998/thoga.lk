@@ -53,7 +53,7 @@
                 <td><button type="submit">Select</button></td>
             </tr>
             </table>
-            <button href=""  class="checkout_btn">Continue</button>
+            <a href="summary.php"><button  class="checkout_btn">Continue</button></a>
 
     </div>
     
