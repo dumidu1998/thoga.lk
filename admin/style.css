@@ -141,10 +141,12 @@ a.button_signup{
   letter-spacing: 1.2px;
 }
 
+
 @media screen and (max-width: 600px) {
   .statcard{width: 120px;height: 90px;margin:5px}
   .card-title{font-size: 15px;margin-bottom: 10px;}
   .card-content{font-size: 18px;}
+  .cardimg{display: none;}
   table {
     border: 0;
   }
@@ -199,6 +201,7 @@ a.button_signup{
     text-align: center;
     font-size: 18px;
     font-weight: bolder;
+
   }
 
   .ut-hr-txt hr {
@@ -207,7 +210,6 @@ a.button_signup{
     margin-top: 0.7em !important;
     margin-bottom: 0px !important;
     width: 100%;
-    background-color: rgba(0,0,0,0.1);
 
   }
   
@@ -217,6 +219,7 @@ a.button_signup{
     text-align: center;
     position: relative;
     top: -0.8em;
+    background-color: rgba(245, 246, 248, 1);
   }
 
 table {

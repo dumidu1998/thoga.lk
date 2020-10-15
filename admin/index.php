@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
   
-<body style="margin-top:100px;background-image: url(a.jpg); "  >
+<body style="margin-top:100px;background-image: url(a.jpg); background-repeat:repeat"  >
     <?php include("navbar.php"); ?>
     <div class="buttonContainer">
         <a href="#"><button class="admin-btn" >View Orders</button></a>
@@ -18,20 +18,18 @@
     </div>
     <div class="statcontainer" style="margin-top:30px">
         
-        <img width= 200px height=100px src="icon3.png" alt="">
-        <div class="card-content">7,500</div>
-       
         <div class="statcard">
-        <div class="card-title">Orders</div>
+        
+        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="ordicon.png" alt=""> Orders</div>
         <div class="card-content">7,500</div>
         </div>
         <div class="statcard">
-        <div class="card-title">Sales</div>
+        <div class="card-title"><img class="cardimg" width= 40px height=35px src="salesicon.png" alt=""> Sales</div>
             <div class="card-content">Rs. 7,500</div>
 
         </div>
         <div class="statcard">
-        <div class="card-title">Today Sales**</div>
+        <div class="card-title"><img class="cardimg" width= 40px height=35px src="tsalesicon.png" alt=""> Today Sales**</div>
         <div class="card-content">Rs. 500</div>
 
         </div>
