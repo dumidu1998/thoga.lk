@@ -10,16 +10,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="farmer_dash.css">
 
+
 </head>
  
 <body background="index.jpg">
   <?php include 'navbar_dash.php';?>
+
+
   <br>
   <br>
   <h1 class="title">Upcoming Orders</h1>
-<br>
-<br>
 
+<?php include 'verticalnavbar.php';?>
 
 <div class="container">
 
@@ -31,7 +33,62 @@
       <th>Total Weight</th>
       <th>Price</th>
       <th>Buyer Name</th>
+      <th>More Details</th>
+      
+      
+    </tr>
+
+<?php
+
+
+    $sql="SELECT * from order_details ";
+    $result=mysqli_query($con,$sql);
+    while($row=mysqli_fetch_assoc($result)){
+
+      echo "<tr>";
+
+      echo "<td>".$row['order_id']."</td>";
+      
+      echo "<td>".$row['pickup_date']."</td>";
+
+      echo "<td>".$row['weight']."</td>";
+
+      echo "<td>".$row['total_cost']."</td>";
+
+      echo "<td>".$row['buyer_name']."</td>";
+
+      echo "<td>"
+      ?>
+      <a href="#view_more">view more</a>
+    <?php
+      
+
+      echo "</tr>";
+       
+
+
+      
+    }
+
+
+?>
+
+
+  </table>
+</div>
+</div>
+<h1 class="title2">Listed Items</h1>
+<div class="container2">
+
+<div style="overflow-x:auto;">
+  <table align="center">
+    <tr>
+      <th>Order Id</th>
+      <th>Pickup Date</th>
+      <th>Total Weight</th>
+      <th>Price</th>
       <th>Buyer Name</th>
+      <th>More Details</th>
       
       
     </tr>
@@ -52,6 +109,11 @@
       echo "<td>".$row['total_cost']."</td>";
 
       echo "<td>".$row['buyer_name']."</td>";
+
+      echo "<td>"
+      ?>
+      <a href="#view_more">view more</a>
+    <?php
 
       echo "</tr>";
        
