@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-//tets
+//tet
 session_start();
   $_SESSION['dd']=1;
     
