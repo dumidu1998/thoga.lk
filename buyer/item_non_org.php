@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="Item_Details.css">
    
 </head>
 <body>
@@ -81,6 +82,7 @@ $id2 =200;
                       <!-- quantity/price -->
                       <input type="hidden" name="hidden_name" value="Carrot" />  
                       <input type="hidden" name="hidden_price" value="100" />  
+                      <input type="hidden" name="id" value="<?php echo $id1 ?>" />  
 
                       <input type="number" name="price" value="100" /> 
                       <input type="text" name="quantity" class="form-control" value="1" />  
@@ -160,6 +162,8 @@ $id2 =200;
                       <!-- quantity/price -->
                       <input type="hidden" name="hidden_name" value="Carrot" />  
                       <input type="hidden" name="hidden_price" value="100" />  
+                      <input type="hidden" name="id" value="<?php echo $id2 ?>" />  
+
 
                       <input type="number" name="price" value="100" /> 
                       <input type="text" name="quantity" class="form-control" value="1" />  

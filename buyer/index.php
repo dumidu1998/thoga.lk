@@ -9,8 +9,8 @@ session_start();
         { echo"aaa"; 
              if(isset($_SESSION["shopping_cart"]))  
              {  
-                  $item_array_id = array_column($_SESSION["shopping_cart"], "item_price");  
-                  if(!in_array($_GET["price"], $item_array_id))  
+                  $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");  
+                  if(!in_array($_GET["id"], $item_array_id))  
                   {  
                        $count = count($_SESSION["shopping_cart"]);  
                        $item_array = array(  
@@ -50,6 +50,8 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="shopping_Cart.css">
+
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -96,11 +98,28 @@ session_start();
         <?php 
         // print_r($item_array);
         print_r($_SESSION["shopping_cart"][0]);
-        
-        // echo "z";
-        // echo $_GET['quantity']; 
-
+        print_r($_SESSION["shopping_cart"][1]);
         ?>
+      <div class="cart_item_row">
+        <div>
+          <!-- name -->
+          caroot  
+          <div>
+            <!-- unit price -->
+            Rs. 1000
+          </div>
+        </div>
+        <div>
+          <!-- quantity -->
+          100kg
+        </div>
+        <div>
+          <!-- remove -->
+          <input type="button" name="action" value="remove">
+        </div>
+
+      </div>
+
     </div>
 
   </div>
