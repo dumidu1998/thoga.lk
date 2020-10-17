@@ -1,0 +1,118 @@
+.wrapper{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 100px ;
+}
+.user_details{
+   margin-top: auto;
+
+
+}
+.user_details label{
+    font-size: large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-right: 20px;
+
+
+}
+@media screen and (max-width:768px){
+    .wrapper{
+        display: block;
+    }
+    .wrapper img{
+        width: 100%;
+    }
+}
+.data_wrapper{
+    margin: 30px;
+}
+input[type = text]{
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+  
+  table {
+    
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table tr {
+    background-color:white;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration:underline ;
+
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
