@@ -7,8 +7,19 @@
     <link rel="stylesheet" href="b_user_profile.css">
 </head>
 <?php
+$status = "disabled";
+$color = "black";
 
 if(isset($_GET["edit"])){
+    $status = "enabled";
+    $color = "red";
+   
+    
+  
+}
+if(isset($_GET["update"])){
+   
+   echo "fuck"; 
   
 }
 
@@ -27,20 +38,20 @@ if(isset($_GET["edit"])){
         
         <div class="user_details">
             <!-- user details -->
-            <!-- <form action="Buyer_user_profile.php" method="get"> -->
+            <form action="Buyer_user_profile.php" method="get">
                 <div class="data_wrapper">
-                    <label for="">first name</label>
-                    <input type="text" disabled>
+                    <label style="color : <?php echo $color ?>" for="">first name</label>
+                    <input type="text" <?php echo $status ?>> 
                 </div>
 
                 <div class="data_wrapper">
-                    <label for="">Last name</label>
-                    <input type="text" disabled>
+                    <label style="color : <?php echo $color ?>" for="">Last name</label>
+                    <input type="text" <?php echo $status ?>>
                 </div>
 
                 <div class="data_wrapper">
-                    <label for="">Email Adress</label>
-                    <input type="text" disabled>
+                    <label style="color : <?php echo $color ?>" for="">Email Adress</label>
+                    <input type="text" <?php echo $status ?>>
                 </div>
 
                 <div>
@@ -51,13 +62,13 @@ if(isset($_GET["edit"])){
 
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label for="">Mobile number</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">Mobile number</label>
+                        <input type="text" <?php echo $status ?>>
 
                     </div>
                     <div>
-                        <label for="">Mobile number</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">Mobile number</label>
+                        <input type="text" <?php echo $status ?>>
 
                     </div>
                 </div>
@@ -70,13 +81,13 @@ if(isset($_GET["edit"])){
 
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label for="">Farm no</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">Farm no</label>
+                        <input type="text" <?php echo $status ?>>
 
                     </div>
                     <div>
-                        <label for="">District</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">District</label>
+                        <input type="text" <?php echo $status ?>>
 
                     </div>
                 </div>
@@ -84,84 +95,37 @@ if(isset($_GET["edit"])){
                 
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label for="">City</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">City</label>
+                        <input type="text" <?php echo $status ?>>
                     </div>
 
                     <div>
-                        <label for="">zip code</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">zip code</label>
+                        <input type="text" <?php echo $status ?>>
                     </div>
                     
                 </div>
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label for="">Nearest City1</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">Nearest City1</label>
+                        <input type="text" <?php echo $status ?>>
                     </div>
                     <div>
-                        <label for="">Nearest City 2</label>
-                        <input type="text" disabled>
+                        <label style="color : <?php echo $color ?>" for="">Nearest City 2</label>
+                        <input type="text" <?php echo $status ?>>
                     </div>
 
                 </div>
 
+                <hr>
+                <br>
+                <button id="myBtn" name="edit">Edit</button>
+                <button name="update" class="updt_btn" <?php echo $status ?>>Update</button>
 
-                <button id="myBtn">Edit</button>
-
-            <!-- </form> -->
-
-        </div>
-
-        <div  id="myModal" class="modal">
-            <!-- user details -->
-            <div class="modal-content">
-            <span class="close">&times;</span>
-
-
-                <form action="Buyer_user_profile.php" method="get">
-                    <div class="data_wrapper">
-                        <label for="">name</label>
-                        <input type="text" disabled>
-                    </div>
-    
-                    <div class="data_wrapper">
-                        <label for="">name</label>
-                        <input type="text" disabled>
-                    </div>
-    
-                    <div class="data_wrapper">
-                        <label for="">name</label>
-                        <input type="text" disabled>
-                    </div>
-    
-                    <div class="data_wrapper">
-                        <label for="">name</label>
-                        <input type="text" disabled>
-                    </div>
-    
-                    <div class="data_wrapper">
-                        <label for="">name</label>
-                        <input type="text" disabled>
-                    </div>
-    
-                    <div class="data_wrapper">
-                        <label for="">name</label>
-                        <input type="text" disabled>
-    
-                    </div>
-
-                    <div class="data_wrapper">
-                        <input type="submit" value="ddds">
-    
-                    </div>
-    
-    
-                </form>
-
-            </div>
+            </form>
 
         </div>
+
         <div>
             <!-- Advertistment -->
             <img width="300px" src="../imgs/ads/a.jpg" alt="">
@@ -227,23 +191,14 @@ if(isset($_GET["edit"])){
 </body>
 
 <script>
-var modal = document.getElementById("myModal");
+var upBtn = document.getElementById("upBtn");
 var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
-  modal.style.display = "block";
+    upBtn.style.display = "block";
+    btn.style.display = "none";
 }
 
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 </script>
 </html>
