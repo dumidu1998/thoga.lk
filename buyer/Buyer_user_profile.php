@@ -6,6 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="b_user_profile.css">
 </head>
+<?php
+
+if(isset($_GET["edit"])){
+  
+}
+
+
+?>
 <body>
     <?php include("navbar.php");?>
 
@@ -19,49 +27,139 @@
         
         <div class="user_details">
             <!-- user details -->
-            <form action="">
+            <!-- <form action="Buyer_user_profile.php" method="get"> -->
                 <div class="data_wrapper">
-                    <label for="">name</label>
-                    <input type="text">
-                    <input type="button" >edit
-
+                    <label for="">first name</label>
+                    <input type="text" disabled>
                 </div>
 
                 <div class="data_wrapper">
-                    <label for="">name</label>
-                    <input type="text">
-                    <input type="button" >edit
-
+                    <label for="">Last name</label>
+                    <input type="text" disabled>
                 </div>
 
                 <div class="data_wrapper">
-                    <label for="">name</label>
-                    <input type="text">
-                    <input type="button" >edit
+                    <label for="">Email Adress</label>
+                    <input type="text" disabled>
+                </div>
+
+                <div>
+                    <br>
+                    <label for="">Contact Numbers</label>
 
                 </div>
 
-                <div class="data_wrapper">
-                    <label for="">name</label>
-                    <input type="text">
-                    <input type="button" >edit
+                <div class="data_wrapper adress_data">
+                    <div>
+                        <label for="">Mobile number</label>
+                        <input type="text" disabled>
+
+                    </div>
+                    <div>
+                        <label for="">Mobile number</label>
+                        <input type="text" disabled>
+
+                    </div>
+                </div>
+                <div>
+                    <br>
+                    <label for="">Location</label>
 
                 </div>
 
-                <div class="data_wrapper">
-                    <label for="">name</label>
-                    <input type="text">
-                    <input type="button" >edit
+
+                <div class="data_wrapper adress_data">
+                    <div>
+                        <label for="">Farm no</label>
+                        <input type="text" disabled>
+
+                    </div>
+                    <div>
+                        <label for="">District</label>
+                        <input type="text" disabled>
+
+                    </div>
+                </div>
+                
+                
+                <div class="data_wrapper adress_data">
+                    <div>
+                        <label for="">City</label>
+                        <input type="text" disabled>
+                    </div>
+
+                    <div>
+                        <label for="">zip code</label>
+                        <input type="text" disabled>
+                    </div>
+                    
+                </div>
+                <div class="data_wrapper adress_data">
+                    <div>
+                        <label for="">Nearest City1</label>
+                        <input type="text" disabled>
+                    </div>
+                    <div>
+                        <label for="">Nearest City 2</label>
+                        <input type="text" disabled>
+                    </div>
 
                 </div>
 
-                <div class="data_wrapper">
-                    <label for="">name</label>
-                    <input type="text">
-                    <input type="button" value="edit">
 
-                </div>
-            </form>
+                <button id="myBtn">Edit</button>
+
+            <!-- </form> -->
+
+        </div>
+
+        <div  id="myModal" class="modal">
+            <!-- user details -->
+            <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+                <form action="Buyer_user_profile.php" method="get">
+                    <div class="data_wrapper">
+                        <label for="">name</label>
+                        <input type="text" disabled>
+                    </div>
+    
+                    <div class="data_wrapper">
+                        <label for="">name</label>
+                        <input type="text" disabled>
+                    </div>
+    
+                    <div class="data_wrapper">
+                        <label for="">name</label>
+                        <input type="text" disabled>
+                    </div>
+    
+                    <div class="data_wrapper">
+                        <label for="">name</label>
+                        <input type="text" disabled>
+                    </div>
+    
+                    <div class="data_wrapper">
+                        <label for="">name</label>
+                        <input type="text" disabled>
+                    </div>
+    
+                    <div class="data_wrapper">
+                        <label for="">name</label>
+                        <input type="text" disabled>
+    
+                    </div>
+
+                    <div class="data_wrapper">
+                        <input type="submit" value="ddds">
+    
+                    </div>
+    
+    
+                </form>
+
+            </div>
 
         </div>
         <div>
@@ -71,6 +169,8 @@
         </div>
 
     </div>
+
+
 
     <h1 align="center">Order History</h1>
     <hr>
@@ -89,39 +189,33 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td data-label="Account">Visa - 3412</td>
-                <td data-label="Due Date">04/01/2016</td>
-                <td data-label="Amount">$1,190</td>
-                <td data-label="Period">03/01/2016 - 03/31/2016</td>
-                <td data-label="Amount">$1,190</td>
-                <td> <button type="submit">edit</button> </td>
-                </tr>
-                <tr>
-                <td scope="row" data-label="Account">Visa - 6076</td>
-                <td data-label="Due Date">03/01/2016</td>
-                <td data-label="Amount">$2,443</td>
-                <td data-label="Period">02/01/2016 - 02/29/2016</td>
-                <td data-label="Amount">$1,190</td>
-                <td> <button type="submit">edit</button> </td>
+            <tr>
+                <td >Visa - 3412</td>
+                <td >02/01/2016</td>
+                <td >$842</td>
+                <td >01/01/2016 - 01/31/2016</td>
+                <td >$1,190</td>
+                <td> <button type="submit">view more</button> </td>
 
                 </tr>
+
                 <tr>
-                <td scope="row" data-label="Account">Corporate AMEX</td>
-                <td data-label="Due Date">03/01/2016</td>
-                <td data-label="Amount">$1,181</td>
-                <td data-label="Period">02/01/2016 - 02/29/2016</td>
-                <td data-label="Amount">$1,190</td>
-                <td> <button type="submit">edit</button> </td>
+                <td >Visa - 3412</td>
+                <td >02/01/2016</td>
+                <td >$842</td>
+                <td >01/01/2016 - 01/31/2016</td>
+                <td >$1,190</td>
+                <td> <button type="submit">view more</button> </td>
 
                 </tr>
+                
                 <tr>
-                <td scope="row" data-label="Acount">Visa - 3412</td>
-                <td data-label="Due Date">02/01/2016</td>
-                <td data-label="Amount">$842</td>
-                <td data-label="Period">01/01/2016 - 01/31/2016</td>
-                <td data-label="Amount">$1,190</td>
-                <td> <button type="submit">edit</button> </td>
+                <td >Visa - 3412</td>
+                <td >02/01/2016</td>
+                <td >$842</td>
+                <td >01/01/2016 - 01/31/2016</td>
+                <td >$1,190</td>
+                <td> <button type="submit">view more</button> </td>
 
                 </tr>
             </tbody>
@@ -131,6 +225,27 @@
     </div>
     
 </body>
+
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+</script>
 </html>
 
 -
