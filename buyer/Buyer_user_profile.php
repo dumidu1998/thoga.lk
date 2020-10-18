@@ -154,31 +154,31 @@ if(isset($_GET["update"])){
             </thead>
             <tbody>
             <tr>
-                <td >Visa - 3412</td>
-                <td >02/01/2016</td>
-                <td >$842</td>
-                <td >01/01/2016 - 01/31/2016</td>
-                <td >$1,190</td>
-                <td> <button type="submit">view more</button> </td>
+                <td data-label="Order id">Visa - 3412</td>
+                <td data-label="Buyer Name">Akila de silva</td>
+                <td data-label="Pickup date">01/11/2020</td>
+                <td data-label="Total Weight">2500kg</td>
+                <td data-label= "Total Price">$1,190</td>
+                <td data-label> <button type="submit">view more</button> </td>
 
                 </tr>
 
                 <tr>
-                <td >Visa - 3412</td>
-                <td >02/01/2016</td>
-                <td >$842</td>
-                <td >01/01/2016 - 01/31/2016</td>
-                <td >$1,190</td>
-                <td> <button type="submit">view more</button> </td>
+                <td data-label="Order id">Visa - 3412</td>
+                <td data-label="Buyer Name">Akila de silva</td>
+                <td data-label="Pickup date">01/11/2020</td>
+                <td data-label="Total Weight">2500kg</td>
+                <td data-label= "Total Price">$1,190</td>
+                <td data-label> <button type="submit">view more</button> </td>
 
                 </tr>
                 
                 <tr>
-                <td >Visa - 3412</td>
-                <td >02/01/2016</td>
-                <td >$842</td>
-                <td >01/01/2016 - 01/31/2016</td>
-                <td >$1,190</td>
+                <td data-label="Order id">Visa - 3412</td>
+                <td data-label="Buyer Name">Akila de silva</td>
+                <td data-label="Pickup date">01/11/2020</td>
+                <td data-label="Total Weight">2500kg</td>
+                <td data-label= "Total Price">$1,190</td>
                 <td> <button type="submit">view more</button> </td>
 
                 </tr>
