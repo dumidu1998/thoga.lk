@@ -18,7 +18,7 @@
   <div class = "nav-right">
     <a href="#About us">About us</a>
 
-    <img src="b.png" alt="" class = "user_pic" width=50px>
+    <a href="Buyer_user_profile.php"><img src="b.png" alt="" class = "user_pic" width=50px></a>
     
 
   </div>

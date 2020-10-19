@@ -137,6 +137,7 @@
 
             </div>
         </div>
+        <a href="index.php"><button class="checkout_btn_back">Back to shopping</button></a>
 
         <a href="selectDriver.php"><button class="checkout_btn">Continue</button></a>
     </div>

@@ -101,24 +101,25 @@ session_start();
         print_r($_SESSION["shopping_cart"][1]);
         ?>
       <div class="cart_item_row">
-        <div>
+        <div class="cart_item_row-name">
           <!-- name -->
           caroot  
-          <div>
+          <div class="cart_item_row-up">
             <!-- unit price -->
             Rs. 1000
           </div>
         </div>
-        <div>
+        <div class="">
           <!-- quantity -->
-          100kg
+          100 kg
         </div>
         <div>
           <!-- remove -->
-          <input type="button" name="action" value="remove">
+          <input type="submit" name="action" value="remove">
         </div>
 
       </div>
+      <a href="checkout.php"><button class="checkout_btn">Checkout </button></a>
 
     </div>
 
@@ -130,23 +131,7 @@ session_start();
 
   
 <script>
-// var modal = document.getElementById("myModal");
-// var btn = document.getElementById("myBtn");
-// var span = document.getElementsByClassName("close")[0];
 
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// }
-
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
 
 function closeModal(id) {
   var mod = document.querySelector("#myModal"+id);
@@ -162,24 +147,6 @@ function openModal(id) {
 
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>
