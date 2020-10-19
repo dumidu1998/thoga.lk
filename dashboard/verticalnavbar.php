@@ -63,7 +63,7 @@ div.content {
 
 <div class="sidebar">
   <a class="active" href="#li_items">List Items</a>
-  <a href="#menotr">Request Mentor</a>
+  <a href="#mentor">Request Mentor</a>
   
 </div>
 </body>
