@@ -11,9 +11,13 @@
     font-size: small;
     color: gray;
 }
+.cart_item_row-quantity{
+    font-weight: bolder;
+}
 .checkout_btn{
    
-    width: 100%;
+    width: 98%;
+    align-self: center;
     background-color: #4CAF50; 
     border: none;
     color: white;
@@ -26,4 +30,12 @@
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.emptynote{
+    color: rgb(55, 54, 63);
+    font-size: 12px;
+    text-align: center;
+    font-weight: lighter;
+    
 }
