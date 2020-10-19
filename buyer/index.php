@@ -101,24 +101,25 @@ session_start();
         print_r($_SESSION["shopping_cart"][1]);
         ?>
       <div class="cart_item_row">
-        <div>
+        <div class="cart_item_row-name">
           <!-- name -->
           caroot  
-          <div>
+          <div class="cart_item_row-up">
             <!-- unit price -->
             Rs. 1000
           </div>
         </div>
-        <div>
+        <div class="">
           <!-- quantity -->
-          100kg
+          100 kg
         </div>
         <div>
           <!-- remove -->
-          <input type="button" name="action" value="remove">
+          <input type="submit" name="action" value="remove">
         </div>
 
       </div>
+      <a href="checkout.php"><button class="checkout_btn">Checkout </button></a>
 
     </div>
 
@@ -146,24 +147,6 @@ function openModal(id) {
 
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>
