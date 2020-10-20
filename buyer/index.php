@@ -3,10 +3,9 @@
 <?php 
 //tet
 session_start();
-  $_SESSION['dd']=1;
-    
+  $total=0;
         if(isset($_GET["add_to_cart"]))  
-        { echo"aaa"; 
+        { 
              if(isset($_SESSION["shopping_cart"]))  
              {  
                   $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");  
@@ -20,15 +19,11 @@ session_start();
                             'item_quantity'          =>     $_GET["quantity"]  
                        );  
                        $_SESSION["shopping_cart"][$count] = $item_array;  
-                       echo "hey";
-
-
                   }  
                   else  
                   {  
                        echo '<script>alert("Item Already Added")</script>';  
                        echo '<script>window.location="index.php"</script>';  
-                       echo "hello";
                   }  
              }  
              else  
@@ -40,10 +35,22 @@ session_start();
                     'item_quantity'          =>     $_GET["quantity"]   
                   );  
                   $_SESSION["shopping_cart"][0] = $item_array;  
-                  print_r($_SESSION["shopping_cart"]);
              } 
-             print_r($_SESSION["shopping_cart"]); 
         }  
+        if(isset($_GET["action"]))  
+          {  
+                if($_GET["action"] == "delete")  
+                {  
+                    foreach($_SESSION["shopping_cart"] as $keys => $values)  
+                    {  
+                          if($values["item_id"] == $_GET["id"])  
+                          {  
+                              unset($_SESSION["shopping_cart"][$keys]);  
+                              echo '<script>window.location="index.php"</script>';  
+                          }  
+                    }  
+                }  
+          }  
     ?>
 <head>
   <meta charset="UTF-8">
@@ -91,37 +98,58 @@ session_start();
 
 
   <div>
+    
     <!-- shopping cart -->
     <div class="cart">
       <h1>Shopping Cart</h1>
       <hr>
+      <div style="height:65vh;"> 
         <?php 
         // print_r($item_array);
-        print_r($_SESSION["shopping_cart"][0]);
-        print_r($_SESSION["shopping_cart"][1]);
-        ?>
+        if(!empty($_SESSION["shopping_cart"]))  
+                          {  
+                               $total = 0;  
+                               foreach($_SESSION["shopping_cart"] as $keys => $values)  
+                               {  
+                          ?>  
+
       <div class="cart_item_row">
         <div class="cart_item_row-name">
           <!-- name -->
-          caroot  
+          <?php echo $values["item_name"]; ?>  
           <div class="cart_item_row-up">
             <!-- unit price -->
-            Rs. 1000
+            <?php echo $values["item_price"]; ?>
           </div>
         </div>
-        <div class="">
+        <div class="cart_item_row-quantity">
           <!-- quantity -->
-          100 kg
+            <?php echo $values["item_quantity"]; ?>
         </div>
         <div>
           <!-- remove -->
-          <input type="submit" name="action" value="remove">
+          <form action="index.php" method="get">
+            <input type="hidden" name="id" value="<?php echo $values["item_id"];?>">
+            <input type="submit" name="action" value="delete">
+
+          </form>
         </div>
 
       </div>
-      <a href="checkout.php"><button class="checkout_btn">Checkout </button></a>
+      <?php
+      $total = $total + ($values["item_quantity"] * $values["item_price"]);  
+                               }
+                              }
+                              else{
+                                echo "<div class='emptynote'>Your Cart looks a little Empty</div>";
+                              }
+        ?>
 
     </div>
+    <a href="checkout.php"><button class="checkout_btn">Checkout &nbsp;&nbsp; Rs: <?php echo $total?></button></a>
+
+  </div>
+
 
   </div>
 </div>
@@ -145,6 +173,22 @@ function openModal(id) {
   var mod = document.querySelector("#myModal"+id);
   mod.style.display = 'block';
 
+}
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 </script>
 
