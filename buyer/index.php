@@ -119,18 +119,18 @@ session_start();
           <?php echo $values["item_name"]; ?>  
           <div class="cart_item_row-up">
             <!-- unit price -->
-            <?php echo $values["item_price"]; ?>
+            Rs. <?php echo $values["item_price"] * $values["item_quantity"] ; ?>
           </div>
         </div>
         <div class="cart_item_row-quantity">
           <!-- quantity -->
-            <?php echo $values["item_quantity"]; ?>
+            <?php echo $values["item_quantity"]; ?> kg
         </div>
         <div>
           <!-- remove -->
           <form action="index.php" method="get">
             <input type="hidden" name="id" value="<?php echo $values["item_id"];?>">
-            <input type="submit" name="action" value="delete">
+            <input class="input_s" type="submit" name="action" value="delete">
 
           </form>
         </div>
@@ -141,7 +141,7 @@ session_start();
                                }
                               }
                               else{
-                                echo "<div class='emptynote'>Your Cart looks a little Empty</div>";
+                                echo "<div class='emptynote'>Your Cart looks a little Empty </div>";
                               }
         ?>
 
@@ -174,20 +174,10 @@ function openModal(id) {
   mod.style.display = 'block';
 
 }
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
 
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == mod) {
+    mod.style.display = "none";
   }
 }
 </script>
