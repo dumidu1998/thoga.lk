@@ -124,7 +124,7 @@ if (isset($_POST["submit"])) {
 
 <body background= "index.jpg">
 <?php include 'add_item_navbar.php';?>
-
+s
 <h1 class="title">Add your item here....</h1>
 
 

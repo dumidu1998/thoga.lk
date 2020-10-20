@@ -7,7 +7,7 @@
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="navlogo"><img width=100px src="logo.png" alt="" class = "logo"></a>
+  <a href="#home" class="navlogo"><img width=100px src="logo1.png" alt="" class = "logo"></a>
   <a href="#home" class="active">Dashboard</a>
   <a href="#news">Price List</a>
   <a href="#contact">Forum</a>
