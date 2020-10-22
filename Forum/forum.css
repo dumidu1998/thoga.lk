@@ -1,0 +1,53 @@
+.container{
+    background-color: rgb(255, 255, 255);
+    height: 300px;
+    margin: 10px 0px;
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-gap: 50px;
+}
+
+.grid-item {
+    background-color: rgba(243, 243, 243, 0.596);
+    text-align: left;
+    padding: 20px 10px;
+    font-size: 30px;
+}
+
+.filter-screen{
+    grid-area: topics;
+    display: contents;
+}
+
+.content{
+    grid-area: items;
+    color:  blue;
+}
+
+@media screen and (max-width: 600px) {
+    .filter-screen{display: none;}
+    .content{width: 0.7vw;margin: 0px 0px;}
+    .container{grid-gap: 0px;}
+}
+
+.filter-topic{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.filter-items{
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: light;
+}
+
+.filter-topic ::before{
+    content:"\f007";
+}
+
+.forum-topic{
+    font-size: 25px;
+    font-weight: bold;
+}
+
