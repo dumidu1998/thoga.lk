@@ -3,15 +3,25 @@
     height: 300px;
     margin: 10px 0px;
     display: grid;
-    grid-template-columns: 20% auto;
+    grid-template-columns: 15% auto 20%;
     grid-gap: 50px;
 }
 
-.grid-item {
+.grid-item0{
     background-color: rgba(243, 243, 243, 0.596);
     text-align: left;
     padding: 20px 10px;
     font-size: 30px;
+    height: 300px;
+    position: sticky;
+}
+
+.grid-item1{
+    background-color: rgba(243, 243, 243, 0.596);
+    text-align: left;
+    padding: 20px 10px;
+    font-size: 30px;
+    height: auto;
 }
 
 .filter-screen{
@@ -46,8 +56,41 @@
     content:"\f007";
 }
 
+.forum-container{
+    padding:10px;
+    margin: 0px 30px;
+    background-color: rgb(221, 226, 226);
+    height: 300px;
+    margin-bottom: 20px;
+
+}
+.forum-contols{
+    background-color: rgb(207, 206, 206);
+    font-size: 15px;
+    height: 125px;
+    width: 100px;
+    float: left;
+    margin: 20px 30px 0px 10px ;
+    padding-top: 20px;
+}
+.forum-content{
+    padding: 20px 30px;
+    font-size: 18px;
+}
+
 .forum-topic{
     font-size: 25px;
     font-weight: bold;
 }
 
+.ad{
+    height: auto;
+    width: 100%;
+}
+
+.reply{
+    border:1px solid rgb(0, 0, 0);
+    font-size: 17px;
+    margin-left: 130px;
+    padding-left: 8px;
+}
