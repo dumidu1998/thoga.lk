@@ -119,11 +119,6 @@ body{
     box-shadow: 5px 5px #888888;
 }
 
-.forum-contols > input:first-child {
-    height: 40px;
-    box-shadow: 1px 1px 1px 1px #dcdbe0;
-}
-
 @media screen and (max-width: 600px) {
     .container{grid-template-columns: repeat(auto-fill, minmax(350px, 100%));}
     .grid-item0{width: 40%;}

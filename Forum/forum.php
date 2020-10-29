@@ -27,7 +27,7 @@
 
         <div class="grid-item1">
             <div class="forum-container">
-                <div class="forum-topic"><a class="links" href="#">My Tomato plants are damaged by insects</a></div>
+                <div class="forum-topic"><a class="links" href="forumq.php">My Tomato plants are damaged by insects</a></div>
                 <div class="forum-contols">
                     <center style="font-size:35px;">0</center>
                     <center style="font-size:20;">Votes</center><br>
