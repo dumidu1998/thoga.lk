@@ -35,7 +35,7 @@ $id2 =200;
       <div id="myModal<?php echo $id1 ?>" class="modal">
 
           <!-- Modal content -->
-          <form action="index.php" method="get"  2>
+          <form action="index.php" method="get"  >
               <div class="modal-content">
                   <span class="close" onclick="closeModal(<?= $id1 ?>)">&times;</span>
                   <div class="item-img">
