@@ -12,6 +12,12 @@
 
 $id1 = 101;
 $price = 1000;
+$min_val = 200;
+$avail_we = 300;
+$d="31-10-2020";
+
+
+
 
 $id2 =200;
 
@@ -71,11 +77,11 @@ $id2 =200;
                         <p> 388/54 waikkala nuwara eliya</p>
                       </div>
           
-                      <div class="user_no">
-                          <!-- location details of the farmer -->
+                      <!-- <div class="user_no">
+                          location details of the farmer
                           <img src="../imgs/icons/telephone.png" alt="">
                         <p> 0775509830</p>
-                      </div>
+                      </div> -->
           
                   </div>
                   <div>
@@ -84,8 +90,15 @@ $id2 =200;
                       <input type="hidden" name="hidden_price" value="100" />  
                       <input type="hidden" name="id" value="<?php echo $id1 ?>" />  
 
-                      <input type="number" name="price" value="100" /> 
-                      <input type="text" name="quantity" class="form-control" value="1" />  
+                        <label for="price">Price/kg</label>
+                      <input type="number" id="price" name="price" value="100" disabled/> 
+                      <label for="qnty">Quantity</label>
+                      <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
+                      <label for="s_date">Start Date</label>
+                      <input type="text" name= "s_date" value="<?php echo $d ?>"/>
+                      <label for="e_date">End Date</label>
+                      <input type="text" name= "e_date" value="<?php echo $d ?>"/>
+
                       <button name="add_to_cart" class="checkout_btn">Add to cart</button>
                   </div>
                   
