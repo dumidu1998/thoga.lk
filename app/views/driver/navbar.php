@@ -14,18 +14,13 @@
   <a href="#about">About</a>
   <div class = "nav-right">
     <a href="#About us">About us</a>
-
     <img src="b.png" alt="" class = "user_pic" width=50px>
     
-
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
 </div>
-
-
-
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -36,7 +31,5 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
-

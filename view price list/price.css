@@ -1,0 +1,225 @@
+<<<<<<< HEAD
+.title{
+    font-family: sans-serif;
+    color: #dc2d5e;
+    text-align: center;
+    margin-top: 70px;
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  padding: 20px;
+  color: white;
+  text-align: center;
+  width:70%;
+  background:rgba(0,0,0,0.2);
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+  font-size:18px;
+  border-radius: 50px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+  font-style: bold;
+  margin-top: 50px;
+
+
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+
+@media screen and (max-width:768px){
+  .container{
+    
+    width: 60%;
+    margin-top: 70%
+    }
+
+  .container2{
+    width: 60%;
+    margin-top: 250%
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 2px solid #ddd;
+  margin-top: 30px;
+
+}
+th{
+  background-color: #4CAF50;
+    color: white;
+}
+
+
+
+th, td {
+  text-align: center;
+  padding: 15px;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2
+}
+
+
+
+@media screen and (max-width: 768px){
+  table{
+    margin-top: 40px;
+  }
+  .title{
+    margin-top: 130px
+  }
+  
+}
+
+=======
+.title{
+    font-family: sans-serif;
+    color: #dc2d5e;
+    text-align: center;
+    margin-top: 70px;
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  padding: 20px;
+  color: white;
+  text-align: center;
+  width:70%;
+  background:rgba(0,0,0,0.2);
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+  font-size:18px;
+  border-radius: 50px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+  font-style: bold;
+  margin-top: 50px;
+
+
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+
+@media screen and (max-width:768px){
+  .container{
+    
+    width: 60%;
+    margin-top: 70%
+    }
+
+  .container2{
+    width: 60%;
+    margin-top: 250%
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 2px solid #ddd;
+  margin-top: 30px;
+
+}
+th{
+  background-color: #4CAF50;
+    color: white;
+}
+
+
+
+th, td {
+  text-align: center;
+  padding: 15px;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2
+}
+
+
+
+@media screen and (max-width: 768px){
+  table{
+    margin-top: 40px;
+  }
+  .title{
+    margin-top: 130px
+  }
+  
+}
+
+>>>>>>> e5db6bc00f60f68fa82d399a610b530f3a14ee44
