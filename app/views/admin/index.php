@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/adminindexstyle.css">
 </head>
   
-<body style="margin-top:100px;background-image: url(a.jpg); background-repeat:repeat"  onload="numberAnimation()">
+<body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat"  onload="numberAnimation()">
     <?php include("navbar.php"); ?>
     <div class="buttonContainer">
         <a href="#"><button class="admin-btn" >View Orders</button></a>
@@ -19,22 +19,22 @@
     <div class="statcontainer" style="margin-top:30px">
     
         <div class="statcard">
-        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="usericon.png" alt=""> Users</div>
+        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div>
         <div class="card-content" ><span class="cardd"  data-end-value="500" data-increment="1" data-duration="1000">10</span></div>
         </div>
 
         <div class="statcard">
-        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="ordicon.png" alt=""> Orders</div>
+        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div>
         <div class="card-content">7,500</div>
         </div>
 
         <div class="statcard">
-        <div class="card-title"><img class="cardimg" width= 40px height=35px src="salesicon.png" alt=""> Sales</div>
+        <div class="card-title"><img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div>
             <div class="card-content">Rs. 7,500</div>
 
         </div>
         <div class="statcard">
-        <div class="card-title"><img class="cardimg" width= 40px height=35px src="tsalesicon.png" alt=""> Today Sales**</div>
+        <div class="card-title"><img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/tsalesicon.png" alt=""> Today Sales**</div>
         <div class="card-content">Rs. 500</div>
 
         </div>
@@ -179,7 +179,7 @@
     if (endValue) numberAnimation(el, endValue, incrementValue, durationValue);
   
     function numberAnimation(el, endValue, incrementor, duration) {
-          alert(endValue);
+          //alert(endValue);
 
     anime({
     targets: el,

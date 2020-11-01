@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta name="viewport">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/adminindexstyle.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="font-awesome.min.css" rel="stylesheet">	
@@ -10,7 +10,7 @@
 <body>
 <div>
 <div class="topnav" id="myTopnav">
-  <a href="#" class="navlogo"><img  width=100px src="../imgs/logo/logo thoga.png" alt="" class = "logo"></a>
+  <a href="#" class="navlogo"><img  width=100px src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class = "logo"></a>
   <a href="#" class="active">Dashboard</a>
   <a href="#">Requests</a>
   <a href="#contact">Ad Management</a>
@@ -18,7 +18,7 @@
   <div class = "nav-right">
     <a href="#About us">Log Out</a>
 
-    <img src="b.png" alt="" class = "user_pic" width=50px>
+    <img src="/thoga.lk/public/images/admin/b.png" alt="" class = "user_pic" width=50px>
     
 
   </div>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="forum.css" type='text/css'>
-    <link rel="stylesheet" href="font-awesome.min.css" type='text/css'>
-    <link rel="stylesheet" href="font-awesome.css" type='text/css'>
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/forum/forum.css" type='text/css'>
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.min.css" type='text/css'>
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.css" type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Forum</title>
@@ -31,8 +31,8 @@
                 <div class="forum-contols">
                     <center style="font-size:35px;">0</center>
                     <center style="font-size:20;">Votes</center><br>
-                    <input type="image" class="like-unlike" id="lbtn" src="thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
-                    <input type="image" class="like-unlike" id="ulbtn" src="thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
+                    <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
+                    <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
                     <br> Like &nbsp &nbsp &nbsp  Unlike
                 </div>
                 <div class="forum-content">
@@ -52,8 +52,8 @@
                 <div class="forum-contols">
                     <center style="font-size:35px;">0</center>
                     <center style="font-size:20;">Votes</center><br>
-                    <input type="image" class="like-unlike" id="lbtn" src="thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
-                    <input type="image" class="like-unlike" id="ulbtn" src="thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
+                    <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
+                    <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
                     <br> Like &nbsp &nbsp &nbsp  Unlike
                 </div>
                 <div class="forum-content">
@@ -71,7 +71,7 @@
             
         </div>
         <div >
-            <img class="ad" src="../imgs/ads/a.jpg" alt="ad">
+            <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
 
         </div>
     </div>
