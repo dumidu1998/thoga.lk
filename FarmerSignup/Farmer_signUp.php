@@ -6,8 +6,9 @@
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="padding: 20px">
-<h1 class="title">Sign Up</h1>
+<body style="padding: 20px" background="index1.jpg">
+<h1 class="title">Thoga.lk</h1>
+
 <div class="tabContainer">
     <div class="buttonContainer">
         <button onclick="showPanel(0,'#a9a9a9')">Farmer</button>
@@ -74,13 +75,21 @@
               <option value="central">Central Province</option>
               <option value="eastern">Eastern Province</option>
               <option value="northcentral">North-Central Province</option>
+
+        
               
             </select>
         </div>
+        
+        
+       <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
       </form>
     </div>
     
-//his
+</div>
 <script src="Farmer_signUp.js"></script>
 </body>
 </html>

@@ -1,3 +1,109 @@
+<<<<<<< HEAD
+.title2{
+    font-family: sans-serif;
+    color: #dc2d5e;
+    text-align: center;
+    margin-top: 80px;
+}
+
+
+
+.container2 {
+  padding: 20px;
+  color: white;
+  text-align: center;
+  width:70%;
+  background:rgba(0,0,0,0.2);
+  position:fixed;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+  font-size:18px;
+  border-radius: 50px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+  font-style: bold;
+  margin-top: 10px;
+
+
+}
+
+/*.container2 {
+  padding: 20px;
+  color: white;
+  text-align: center;
+  width:70%;
+  background:rgba(0,0,0,0.2);
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+  font-size:18px;
+  border-radius: 50px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+  font-style: bold;
+  margin-top:500px;
+
+
+}
+*/
+
+
+
+
+@media screen and (max-width:768px){
+  .container{
+    
+    width: 60%;
+    margin-top: 70%
+    }
+
+  /*.container2{
+  	width: 60%;
+    margin-top: 250%
+  }*/
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 2px solid #ddd;
+  margin-top: 30px;
+
+}
+th{
+	background-color: #4CAF50;
+  	color: white;
+}
+
+
+
+th, td {
+  text-align: center;
+  padding: 15px;
+}
+
+tr:nth-child(even){
+	background-color: #f2f2f2
+}
+
+
+
+@media screen and (max-width: 768px){
+	table{
+		margin-top: 40px;
+	}
+	/*.title{
+		margin-top: 90px
+	}*/
+	.title2{
+		margin-top:90px
+	}
+}
+}
+=======
 .title2{
     font-family: sans-serif;
     color: #dc2d5e;
@@ -102,3 +208,4 @@ tr:nth-child(even){
 	}
 }
 }
+>>>>>>> e5db6bc00f60f68fa82d399a610b530f3a14ee44
