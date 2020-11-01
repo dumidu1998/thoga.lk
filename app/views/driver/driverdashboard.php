@@ -1,19 +1,19 @@
 
-<?php require_once("../db/db.php"); ?>
+<?php require_once("../../../db/db.php"); ?>
 <html>
 <head>
 	<title>Driver Dashboard</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="driverdashboard.css">
+	<link rel="stylesheet" href="../../../public/stylesheets/driver/driverdashboard.css">
 </head>
 
-<body style="background-image: url('x.jpg');">
+<body style="background-image: url('../../../public/images/driver/9999.jpg');">
 <?php include("navdriverdashboard.php"); ?>
 
     <header>
-		
-			<h1>Upcoming Orders</h1>
-		
+		<div class="topic">
+			<h2>Upcoming Orders</h2>
+		</div>
 	</header>
 	
 	<div class="menu">
@@ -51,7 +51,7 @@
 		<div class="transbox">
 			<p class >
 				<h2 style="color:mediumblue">Driver Dashboard</h2>
-				<img src="del.png" alt="order" width="150" height="150" ><br>
+				<img src="../../../public/images/driver/del.png" alt="order" width="150" height="150" ><br>
 			Upcoming Orders of the Driver are displayed here.
 			</p>
 		</div>	
