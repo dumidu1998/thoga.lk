@@ -10,15 +10,15 @@
 <body>
 <div>
 <div class="topnav" id="myTopnav">
-  <a href="index.php" class="navlogo"><img  width=100px src="../imgs/logo/logo thoga.png" alt="" class = "logo"></a>
-  <a href="index.php" class="active">Home</a>
-  <a href="news.php">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a href="#" class="navlogo"><img  width=100px src="../imgs/logo/logo thoga.png" alt="" class = "logo"></a>
+  <a href="#" class="active">Dashboard</a>
+  <a href="#">Requests</a>
+  <a href="#contact">Ad Management</a>
+  <a href="#about">Forum</a>
   <div class = "nav-right">
-    <a href="#About us">About us</a>
+    <a href="#About us">Log Out</a>
 
-    <a href="Buyer_user_profile.php"><img src="b.png" alt="" class = "user_pic" width=50px></a>
+    <img src="b.png" alt="" class = "user_pic" width=50px>
     
 
   </div>
