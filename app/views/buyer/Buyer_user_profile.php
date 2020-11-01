@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="b_user_profile.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/b_user_profile.css">
 </head>
 <?php
 $status = "disabled";
@@ -19,7 +19,7 @@ if(isset($_GET["edit"])){
 }
 if(isset($_GET["update"])){
    
-   echo "fuck"; 
+   
   
 }
 
@@ -28,10 +28,10 @@ if(isset($_GET["update"])){
 <body>
     <?php include("navbar.php");?>
 
-    <div class="wrapper">
+    <div class="wrapper2">
         <div class="user_pp">
             <!-- img -->
-            <img width="300px" src="../imgs/a.jpg" alt="">
+            <img width="300px" src="/thoga.lk/public/images/buyer/a.jpg" alt="">
             <input type="file" value="upload image">
 
         </div>
@@ -128,7 +128,7 @@ if(isset($_GET["update"])){
 
         <div>
             <!-- Advertistment -->
-            <img width="300px" src="../imgs/ads/a.jpg" alt="">
+            <img width="300px" src="/thoga.lk/public/images/buyer/ads/a.jpg" alt="">
 
         </div>
 

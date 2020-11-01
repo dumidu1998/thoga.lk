@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta name="viewport">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="font-awesome.min.css" rel="stylesheet">	
@@ -10,7 +10,7 @@
 <body>
 <div>
 <div class="topnav" id="myTopnav">
-  <a href="index.php" class="navlogo"><img  width=100px src="../imgs/logo/logo thoga.png" alt="" class = "logo"></a>
+  <a href="index.php" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
   <a href="index.php" class="active">Home</a>
   <a href="news.php">News</a>
   <a href="#contact">Contact</a>
@@ -18,7 +18,7 @@
   <div class = "nav-right">
     <a href="#About us">About us</a>
 
-    <img src="b.png" alt="" class = "user_pic" width=50px>
+    <img src="/thoga.lk/public/images/buyer/b.png" alt="" class = "user_pic" width=50px>
 
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
