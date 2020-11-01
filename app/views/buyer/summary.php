@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="summary.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/summary.css">
     <title>Document</title>
 </head>
-<body style="background-image: url('../imgs/background.jpg');">
+<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
     <?php include("navbar.php") ?>
     <div class="container">
         <p>Invoice no : 12345</p>
@@ -93,7 +93,7 @@
     <hr>
     <div class="container-2">
         <div class="card">
-            <img width= 300px src="../imgs/a.jpg" alt="Avatar" style="width:100%">
+            <img width= 300px src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
             <div class="container-2">
                 <h4><b>John Doe</b></h4> 
                 <p>Architect & Engineer</p> 
@@ -107,7 +107,7 @@
     
     <div class="card-group">
     <div class="card">
-      <img src="../imgs/a.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
       <div class="container-2">
         <h4><b>Carrot</b></h4> 
         <p>Selling by farmer Dumidu price:- 40/kg</p> 
@@ -117,7 +117,7 @@
     </div>
 
     <div class="card">
-      <img src="../imgs/a.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
       <div class="container-2">
         <h4><b>John Doe</b></h4> 
         <p>Architect & Engineer</p> 
@@ -127,7 +127,7 @@
     </div>
 
     <div class="card">
-      <img src="../imgs/a.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
       <div class="container-2">
         <h4><b>John Doe</b></h4> 
         <p>Architect & Engineer</p> 
