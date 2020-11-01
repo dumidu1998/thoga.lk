@@ -25,8 +25,12 @@
     <a href="#About us">About us</a>
 
 <<<<<<< Updated upstream:buyer/navbar.php
+<<<<<<< Updated upstream:buyer/navbar.php
     <a href="Buyer_user_profile.php"><img src="b.png" alt="" class = "user_pic" width=50px></a>
     
+=======
+    <img src="/thoga.lk/public/images/buyer/b.png" alt="" class = "user_pic" width=50px>
+>>>>>>> Stashed changes:app/views/buyer/navbar.php
 =======
     <img src="/thoga.lk/public/images/buyer/b.png" alt="" class = "user_pic" width=50px>
 >>>>>>> Stashed changes:app/views/buyer/navbar.php
