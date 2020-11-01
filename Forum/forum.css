@@ -1,0 +1,131 @@
+body{
+    background-image: url(../imgs/forum-bg.jpg);
+}
+.container{
+    height: 300px;
+    margin: 10px 0px;
+    display: grid;
+    grid-template-columns: 15% auto 20%;
+    grid-gap: 50px;
+}
+
+.grid-item0{
+    background-color: rgba(141, 141, 141, 0.712);
+    text-align: left;
+    padding: 20px 10px;
+    font-size: 30px;
+    height: 300px;
+    position: sticky;
+    width: 100%;
+}
+
+.grid-item1{
+    background-color: rgba(243, 243, 243, 0);
+    text-align: left;
+    padding: 20px 10px;
+    font-size: 30px;
+    height: auto;
+}
+
+.filter-screen{
+    grid-area: topics;
+    display: contents;
+}
+
+.content{
+    grid-area: items;
+    color:  blue;
+}
+
+.filter-topic{
+    
+    font-size: 23px;
+    font-weight: bold;
+
+}
+
+.filter-items{
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: light;
+}
+
+.filter-topic ::before{
+    content:"\f007";
+}
+
+.forum-container{
+    padding:10px;
+    margin: 0px 30px;
+    background-color: rgba(236, 235, 235, 0.89);
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 10px 11px 8px #888888;
+
+
+}
+.forum-contols{
+    background-color:  rgba(236, 235, 235, 0.89);
+    font-size: 15px;
+    height: 125px;
+    width: 100px;
+    float: left;
+    margin: 20px 30px 0px 10px ;
+    padding-top: 20px;
+}
+.forum-content{
+    padding: 20px 30px;
+    font-size: 18px;
+}
+
+.forum-topic{
+    margin-left: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.links:link{
+    color: black;
+}
+
+.links:visited{
+    color: rgb(32, 27, 27);
+}
+
+.links:hover{
+    color: #241c69;
+}
+
+.ad{
+    margin-top: 50px;
+    height: auto;
+    width: 100%;
+}
+
+.reply{
+    border:1px groove rgb(0, 0, 0);
+    font-size: 17px;
+    margin-left: 130px;
+    padding-left: 8px;
+}
+
+.like-unlike{
+    padding: 0px 2px;
+    box-shadow: 1px 1px 1px 1px #2c2266;
+    height: 30px;
+}
+
+.like-unlike:hover{
+    box-shadow: 5px 5px #888888;
+}
+
+@media screen and (max-width: 600px) {
+    .container{grid-template-columns: repeat(auto-fill, minmax(350px, 100%));}
+    .grid-item0{width: 40%;}
+    .container{grid-gap: 0px;}
+    .forum-container{height: 250px;}
+    .forum-content{display: none;}
+    .reply{display: none;}
+    .ad{width:50%;height: 30%;margin-left: 25%;}
+    .forum-contols{margin-left: 30%;}
+}
