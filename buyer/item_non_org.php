@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="Item_Details.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/style.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/Item_Details.css">
    
 </head>
 <body>
@@ -27,7 +27,7 @@ $id2 =200;
 <div class="card-group">
   <!-- card start -->
     <div class="card">
-      <img src="../imgs/item.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:100%">
       <div class="container">
         <h4><b>Carrot</b></h4> 
         <p>Selling by farmer Dumidu price:- 40/kg</p> 
@@ -46,7 +46,7 @@ $id2 =200;
                   <span class="close" onclick="closeModal(<?= $id1 ?>)">&times;</span>
                   <div class="item-img">
                       <!-- image -->
-                      <img src="../imgs/item.jpg" alt="Avatar" style="width:60%">
+                      <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:60%">
                   </div>
           
                   <div class="container">
@@ -58,7 +58,7 @@ $id2 =200;
                           </div>
                           <div class="farmer_icon">
                               <!-- farmer name -->
-                              <img width=60px src="../imgs/icons/farmer.png" alt="">
+                              <img width=60px src="/thoga.lk/public/images/buyer/farmer.png" alt="">
           
                               <h2><a href="">Dumidu Kasun</a></h2>
                           </div>
@@ -73,7 +73,7 @@ $id2 =200;
                       </div>
                       <div class="user_address">
                           <!-- location details of the farmer -->
-                          <img src="../imgs/icons/location.png" alt="">
+                          <img src="/thoga.lk/public/images/buyer/icons/location.png" alt="">
                         <p> 388/54 waikkala nuwara eliya</p>
                       </div>
           
@@ -114,7 +114,7 @@ $id2 =200;
     <!-- card end -->
 
     <div class="card">
-      <img src="../imgs/item.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:100%">
       <div class="container">
         <h4><b>Carrot</b></h4> 
         <p>Selling by farmer Dumidu price:- 40/kg</p> 
@@ -133,7 +133,7 @@ $id2 =200;
                   <span class="close" onclick="closeModal(<?= $id2 ?>)">&times;</span>
                   <div class="item-img">
                       <!-- image -->
-                      <img src="../imgs/item.jpg" alt="Avatar" style="width:60%">
+                      <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:60%">
                   </div>
           
                   <div class="container">
@@ -145,7 +145,7 @@ $id2 =200;
                           </div>
                           <div class="farmer_icon">
                               <!-- farmer name -->
-                              <img width=60px src="../imgs/icons/farmer.png" alt="">
+                              <img width=60px src="/thoga.lk/public/images/buyer/farmer.png" alt="">
           
                               <h2><a href="">Dumidu Kasun</a></h2>
                           </div>
@@ -160,13 +160,13 @@ $id2 =200;
                       </div>
                       <div class="user_address">
                           <!-- location details of the farmer -->
-                          <img src="../imgs/icons/location.png" alt="">
+                          <img src="/thoga.lk/public/images/buyer/icons/location.png" alt="">
                         <p> 388/54 waikkala nuwara eliya</p>
                       </div>
           
                       <div class="user_no">
                           <!-- location details of the farmer -->
-                          <img src="../imgs/icons/telephone.png" alt="">
+                          <img src="/thoga.lk/public/images/buyer/icons/telephone.png" alt="">
                         <p> 0775509830</p>
                       </div>
           
