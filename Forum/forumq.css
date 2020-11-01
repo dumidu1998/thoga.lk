@@ -1,0 +1,156 @@
+.container{
+    margin: 10px 0px;
+    display: grid;
+    grid-template-columns: 75% auto;
+    grid-gap: 10px;
+}
+
+.maincontainer{
+    height: auto;
+}
+
+.adcontainer{
+    height: auto;
+}
+
+.ad{
+    margin-top: 20px;
+    height: auto;
+    max-width: 100%;
+    width: auto;
+}
+
+
+
+.forum-container{
+    padding:10px;
+    margin: 0px 30px;
+    background-color: rgba(236, 235, 235, 0.89);
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 10px 11px 8px #888888;
+    display: inline-block;
+}
+
+.reply-container{
+    padding:10px;
+    margin: 0px 30px;
+    background-color: rgba(236, 235, 235, 0.89);
+    height: auto;
+    width: 90%;
+    margin-bottom: 20px;
+    box-shadow: 10px 11px 8px #888888;
+    display: inline-block;
+}
+
+.profile{
+    border-radius: 50%;
+    width: 50px;
+}
+
+.reply-content{
+    margin: 1% 12%;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.re-vote{
+    float: right;
+    margin-top: 2%;
+    margin-right: 3%;
+    width: auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.rname{
+    margin-left: 5px;
+    position: relative;
+    top:-12px;
+}
+.forum-contols{
+    background-color:  rgba(236, 235, 235, 0.89);
+    font-size: 15px;
+    height: 125px;
+    width: 100px;
+    float: left;
+    margin: 20px 30px 0px 10px ;
+    padding-top: 20px;
+   
+}
+.forum-content{
+    padding: 20px 30px;
+    font-size: 18px;
+}
+
+.forum-topic{
+    margin-left: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.links:link{
+    color: black;
+}
+
+.links:visited{
+    color: rgb(32, 27, 27);
+}
+
+.links:hover{
+    color: #241c69;
+}
+
+.like-unlike{
+    padding: 0px 2px;
+    box-shadow: 1px 1px 1px 1px #2c2266;
+    height: 28px;
+}
+
+.like-unlike:hover{
+    box-shadow: 5px 5px #888888;
+}
+
+hr{
+    background-color: rgb(44, 44, 44);
+    box-shadow: 0px 3px #a9a9ac1a;
+    height: 1.5px;
+}
+.nreply{
+margin-left: 60px;
+font-size: 18px;
+font-weight: bold;
+color: rgb(83, 82, 82);
+}
+
+.back-button {
+    background: rgb(70, 71, 71);
+    color: white;
+    font-size: 25px;
+    line-height: 0.3;
+    padding: 20px 20px 15px 15px;
+    text-decoration: none;
+    transition: all 0.9s;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+  
+.back-button:hover {
+    background: rgba(131, 134, 134, 0.8);
+}
+
+@media screen and (max-width: 600px) {
+    .rname{font-size: 10px;}
+    .profile{width: 30px;}
+    .re-vote{margin-top: 0px;
+    font-size: 16px;}
+    .forum-container{margin: 0px 5px 20px 5px;}
+    .reply-container{margin: 3px 15px 15px 5px;}
+} 
+
+@media screen and (max-width: 600px) {
+    .container{grid-template-columns: repeat(auto-fill, minmax(350px, 100%));}
+    .ad{width:50%;height: 30%;margin-left: 25%;max-width: 200px;}
+}
+
+
