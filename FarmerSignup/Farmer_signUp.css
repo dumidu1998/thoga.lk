@@ -1,3 +1,4 @@
+
 .title{
     font-family: sans-serif;
     color: #dc2d5e;
@@ -5,7 +6,7 @@
 }
 .tabContainer{
     width: 70%;
-    height: 1500px;
+    height: 1100px;
     margin-left: 15%;
 }
 .tabContainer .buttonContainer{
@@ -22,16 +23,19 @@
     padding: 10px;
     font-family: sans-serif;
     font-size: 15px;
-    background-color: #eee;
+    background-color: #333;
   
 }
 .tabContainer .buttonContainer button:hover{
     background-color: #d7d4d4;
   
 }
+
+
+
 .tabContainer .tabPanel{
     height: 85%;
-    background-color: gray;
+    background-color: grey;
     color: white;
     text-align: left;
     padding-top: 55px;
@@ -79,3 +83,40 @@ input[type=text], select, textarea, input[type=date] {
   display: table;
   clear: both;
 }
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
