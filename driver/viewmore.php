@@ -21,7 +21,7 @@
             <div class="transbox">  
                 <?php
                         
-                            $sql="select * from order_details where order_id=\"". $_GET['orderId']. "\"" ;
+                            $sql="select * from orders where order_id=\"". $_GET['orderId']. "\"" ;
                             $result=$conn->query($sql);
                             while($row=$result->fetch_assoc()){
                                 
@@ -73,30 +73,30 @@
     <div class="right" >
             <div class="transbox">      
                 <?php
-                        
-                            $sql="select * from order_details where order_id=\"". $_GET['orderId']. "\"" ;
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc()){
-                                
-                            
-                                echo"<br>";
-                                echo "Item Id   :";
-                                echo " <input type=\"text\" name=\"item id\" value=\"". $row['item_id']."\">";
-                                echo"<br>" ; 
-                                echo"<br>" ; 
+                   $sql="select buyer.b_name from buyer inner join orders on orders.buyer_id = buyer.buyer_id where orders.order_id=\"". $_GET['orderId']. "\" " ;
+                   $result=$conn->query($sql);
+                   while($row=$result->fetch_assoc()){
+                       //var_dump($result);
+                       echo"<br>";
+                       echo "Buyer Name :";
+                       echo " <input type=\"text\" name=\"buyer name\" value=\"". $row['b_name']."\">";
+                       echo"<br>" ;
+                       echo"<br>" ; 
+                   }
+          
+                   $sql="select driver.driver_name from driver inner join orders on orders.driver_id = driver.driver_id where orders.order_id=\"". $_GET['orderId']. "\"";
+                   $result=$conn->query($sql);
+                   while($row=$result->fetch_assoc()){
+                       
+                    
+                       echo "Driver Name  :";
+                       echo " <input type=\"text\" name=\"driver name\" value=\"". $row['driver_name']."\">";
+                       echo"<br>" ; 
+                       echo"<br>" ; 
 
-                                echo "Buyer Id :";
-                                echo " <input type=\"text\" name=\"buyer id\" value=\"". $row['buyer_id']."\">";
-                                echo"<br>" ;
-                                echo"<br>" ; 
-
-                                echo "Driver Id  :";
-                                echo " <input type=\"text\" name=\"driver id\" value=\"". $row['driver_id']."\">";
-                                echo"<br>" ; 
-                                echo"<br>" ; 
-
-                            }
-                        
+                   }
+                     
+                           
                 ?>
             </div> 
     </div>
@@ -108,40 +108,41 @@
     <table  align="center">
 			
 			<tr>
-				<th>Item</th>
+				<th>Item Name</th>
 				<th>Unit Price(per Kg)</th>
 				<th>Quantity(Kg)</th>
 				<th>Sub Total</th>
 			</tr>
 			
 			<?php
-			
-				$sql="select * from order_details";
-				$result=mysqli_query($conn,$sql);
-				// var_dump($result);
+                $sum=0;
+				$sql="select item.item_type,item.price ,order_details.weight from order_details inner join item on item.item_id = order_details.item_id where order_details.order_id=\"". $_GET['orderId']. "\"";
+                $result=mysqli_query($conn,$sql);
+                //var_dump($conn);
+				 //var_dump($result);
 				while($row=mysqli_fetch_assoc($result)){
-					// var_dump($row);
+					 //var_dump($row);
 					echo "<tr>";
-					echo "<td>".$row['order_id']."</td>";
-					echo "<td>".$row['total_cost']."</td>";
-					echo "<td>".$row['total_cost']."</td>";
-					echo "<td>".$row['total_cost']."</td>";
-					echo "</tr>";
+					echo "<td>".$row['item_type']."</td>";
+					echo "<td>".$row['price']."</td>";
+					echo "<td>".$row['weight']."</td>";
+					echo "<td>".$row['price']*$row['weight']."</td>";
+                    echo "</tr>";
+                    
+                    $sum=$sum+ $row['price']*$row['weight'];
 				}
 			
 			?>
 			
         </table>
-        <?php
-            $sql="select * from order_details where order_id=\"". $_GET['orderId']. "\"" ;
-            $result=$conn->query($sql);
-            while($row=$result->fetch_assoc()){
-
-                echo "<align=\"right\">TOTAL</align>";
-                echo " <input type=\"text\"  class=\"advancedSearchTextBox1\"  name=\"driver id\" value=\"". $row['driver_id']."\">";
-            }
-        ?>
-
+        <div class="fin">
+            <?php
+                
+                echo "<align=\"right\"> TOTAL  </align>";
+                echo " <input type=\"text\"  class=\"advancedSearchTextBox1\"  name=\"driver id\" value=\"". $sum."\">";
+                
+            ?>
+        </div>
     </div>
 	
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2020 at 07:57 AM
+-- Generation Time: Oct 30, 2020 at 08:13 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -74,6 +74,15 @@ CREATE TABLE `buyer` (
   `b_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `buyer`
+--
+
+INSERT INTO `buyer` (`buyer_id`, `user_id`, `br_no`, `b_name`) VALUES
+(1, 3, 1233444, 'dumindu'),
+(2, 24, 25376879, 'bandara'),
+(3, 44, 24544768, 'kasun');
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +115,7 @@ CREATE TABLE `district` (
 
 CREATE TABLE `driver` (
   `driver_id` int(11) NOT NULL,
+  `driver_name` varchar(255) NOT NULL,
   `current_location` varchar(50) NOT NULL,
   `unavailable_dates` date NOT NULL,
   `license_no` varchar(10) NOT NULL,
@@ -116,9 +126,10 @@ CREATE TABLE `driver` (
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`driver_id`, `current_location`, `unavailable_dates`, `license_no`, `verified_state`) VALUES
-(1, 'sdd', '0000-00-00', '123', '123'),
-(2, 'sdd', '0000-00-00', '123', '123');
+INSERT INTO `driver` (`driver_id`, `driver_name`, `current_location`, `unavailable_dates`, `license_no`, `verified_state`) VALUES
+(1, 'manthila', 'sdd', '0000-00-00', '123', '123'),
+(2, 'hiruni', 'sdd', '0000-00-00', '123', '123'),
+(3, 'dumindu', 'anuradhapura', '0000-00-00', '333', 'north central');
 
 -- --------------------------------------------------------
 
@@ -191,10 +202,18 @@ CREATE TABLE `item` (
   `avail_weight` varchar(20) NOT NULL,
   `item_start` varchar(20) NOT NULL,
   `item_end` varchar(20) NOT NULL,
-  `price/kg` varchar(20) NOT NULL,
+  `price` varchar(20) NOT NULL,
   `farmer_id` int(11) NOT NULL,
   `mentor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`item_id`, `Item_type`, `veg_id`, `min_weight`, `avail_weight`, `item_start`, `item_end`, `price`, `farmer_id`, `mentor_id`) VALUES
+(1, 'carrot', 11, '12', '34', 'szdvzd', 'zdvdvz', '100', 11, 11),
+(2, 'tomato', 22, '12', '34', 'fdjdssd', 'fjsss', '55', 12, 3);
 
 -- --------------------------------------------------------
 
@@ -222,10 +241,10 @@ CREATE TABLE `notification` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `order_details` (
+CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `weight` int(11) NOT NULL,
   `pickup_location` varchar(30) NOT NULL,
@@ -239,13 +258,38 @@ CREATE TABLE `order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `weight`, `pickup_location`, `total_cost`, `deliver_location`, `order_date`, `pickup_date`, `item_id`, `buyer_id`, `driver_id`) VALUES
+(1, 11, 'sdf', 200, 'svf', '2020-10-08', '2020-10-20', 1, 1, 1),
+(2, 34, 'sdfg', 400, 'grtt', '2020-10-13', '2020-10-07', 2, 2, 2),
+(3, 1500, 'fsfrgw', 1000, 'fsgr', '2020-10-14', '2020-10-08', 3, 3, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `details_id` int(10) NOT NULL,
+  `farmer name` varchar(255) NOT NULL,
+  `item_id` int(10) NOT NULL,
+  `weight` int(10) NOT NULL,
+  `order_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Dumping data for table `order_details`
 --
 
-INSERT INTO `order_details` (`order_id`, `weight`, `pickup_location`, `total_cost`, `deliver_location`, `order_date`, `pickup_date`, `item_id`, `buyer_id`, `driver_id`) VALUES
-(1, 11, 'sdf', 200, 'svf', '2020-10-20', '2020-10-20', 222, 333, 444),
-(2, 34, 'sdfg', 400, 'grtt', '2020-10-13', '2020-10-07', 23, 44, 2),
-(3, 1500, 'fsfrgw', 1000, 'fsgr', '2020-10-14', '2020-10-08', 333, 445, 5);
+INSERT INTO `order_details` (`details_id`, `farmer name`, `item_id`, `weight`, `order_id`) VALUES
+(1, 'dumindu', 2, 4, 1),
+(2, 'manthila', 1, 5, 1),
+(3, 'manthi', 1, 3, 2),
+(4, 'manthi', 2, 4, 2),
+(5, 'dumindu', 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -420,10 +464,16 @@ ALTER TABLE `notification`
   ADD PRIMARY KEY (`notification_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
 -- Indexes for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`order_id`);
+  ADD PRIMARY KEY (`details_id`);
 
 --
 -- Indexes for table `province`
@@ -481,7 +531,7 @@ ALTER TABLE `advertisement`
 -- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `buyer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `buyer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `city`
@@ -499,7 +549,7 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `farmer`
@@ -529,7 +579,7 @@ ALTER TABLE `forum replies`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
 
 --
 -- AUTO_INCREMENT for table `mentor`
@@ -544,10 +594,16 @@ ALTER TABLE `notification`
   MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `details_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `province`

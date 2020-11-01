@@ -7,13 +7,13 @@
 	<link rel="stylesheet" href="driverdashboard.css">
 </head>
 
-<body style="background-image: url('77.jpg');">
+<body style="background-image: url('x.jpg');">
 <?php include("navdriverdashboard.php"); ?>
 
     <header>
-		<div style="background-color:#7976ff;padding:1px;text-align:center;">
-			<h2>Upcoming Orders</h2>
-		</div>
+		
+			<h1>Upcoming Orders</h1>
+		
 	</header>
 	
 	<div class="menu">
@@ -29,7 +29,7 @@
 			
 			<?php
 			
-				$sql="select * from order_details";
+				$sql="select * from orders";// where driver_id=\"". $_GET['driverId']. "\"";
 				$result=mysqli_query($conn,$sql);
 				// var_dump($result);
 				while($row=mysqli_fetch_assoc($result)){
