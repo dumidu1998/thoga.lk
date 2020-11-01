@@ -1,8 +1,8 @@
-.wrapper{
+.wrapper2{
   margin-top: 100px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-gap: 100px ;
+  grid-gap: 10px ;
 }
 .user_details{
  margin-top: auto;
@@ -23,11 +23,11 @@
 
 
 }
-@media screen and (max-width:768px){
-  .wrapper{
+@media (max-width:768px){
+  .wrapper2{
       display: block;
   }
-  .wrapper img{
+  .wrapper2 img{
       width: 100%;
   }
  

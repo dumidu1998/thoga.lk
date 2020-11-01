@@ -28,7 +28,7 @@ if(isset($_GET["update"])){
 <body>
     <?php include("navbar.php");?>
 
-    <div class="wrapper">
+    <div class="wrapper2">
         <div class="user_pp">
             <!-- img -->
             <img width="300px" src="/thoga.lk/public/images/buyer/a.jpg" alt="">
