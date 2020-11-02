@@ -9,6 +9,9 @@
 </head>
 <body>
 <?php
+require_once(__DIR__.'/../../controller/buyer_crtl.php');
+
+
 
 $id1 = 101;
 $price = 1000;
@@ -22,6 +25,11 @@ $d="31-10-2020";
 $id2 =200;
 
 
+?>
+<?php
+    $t = new buyer();
+
+    $t->getAll_get();
 ?>
 
 <div class="card-group">
