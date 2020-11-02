@@ -1,5 +1,5 @@
 
-<?php require_once("../db/db.php"); ?>
+<?php require_once("../../../db/db.php"); ?>
 <html>
 <head>
 	<title>Driver Dashboard</title>
