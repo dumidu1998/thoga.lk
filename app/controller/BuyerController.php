@@ -15,12 +15,21 @@ class BuyerController {
         print_r($result);
         
     }
+    public function index(){
+        $view = new View("buyer/index");
+        $result = $this->model->joinget();
+
+        $view->assign('data', $result); 
+        
+    }
+    public function itemLoad(){
+        $view = new View("buyer/item_non_org");
+        
+    }
 
     public function selectDriver( ){
         $view = new View("buyer/selectDriver");
-        $view->assign('data', []);
-        
-        
+        $view->assign('data', []); 
         
     }
 }

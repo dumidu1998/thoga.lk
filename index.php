@@ -10,7 +10,7 @@ $path = substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($dir_na
 
 $routes = [
     'buyer/select-driver' => 'BuyerController@selectDriver',
-    'buyer/summery' => 'BuyerController@selectDriver'
+    'buyer/home' => 'BuyerController@index'
 ];
 
 foreach($routes as $route => $controller_route) {

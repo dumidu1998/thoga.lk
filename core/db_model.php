@@ -1,4 +1,5 @@
 <?php
+//echo "hey";
 
 require_once('db_connection.php');
 //do not return anything if on error // now returning ERROR at blah blah
@@ -124,6 +125,9 @@ class db_model{
 		if(substr($sql,-1)!=';')
 			return $sql.' ;';	
 	}
+	
 }
+
+
 
 ?>
