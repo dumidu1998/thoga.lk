@@ -1,11 +1,12 @@
 <?php
+//echo "hey";
 
 require_once('db_connection.php');
 //do not return anything if on error // now returning ERROR at blah blah
 class db_model{
 
 	function __construct(){
-		echo 'db_model class created <br>';
+		//echo 'db_model class created <br>';
 		$db = new db_Connection();
         $this->connection =  $db->getConnection();
 	}
@@ -124,6 +125,9 @@ class db_model{
 		if(substr($sql,-1)!=';')
 			return $sql.' ;';	
 	}
+	
 }
+
+
 
 ?>

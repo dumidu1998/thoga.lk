@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-require_once(__DIR__.'/../../controller/selectDriver_crtl.php');
+// require_once(__DIR__.'/../../controller/selectDriver_crtl.php');
 
 ?>
 <head>
@@ -20,7 +20,7 @@ require_once(__DIR__.'/../../controller/selectDriver_crtl.php');
         <table>
             <tr>
                 <th>Driver name</th>
-                <th>Rating</th>
+                <th>weight</th>
                 <th>vehicle Name</th>
                 <th>Price/km</th>
                 <th>max Weight</th>
@@ -58,7 +58,7 @@ require_once(__DIR__.'/../../controller/selectDriver_crtl.php');
                 <td><button type="submit">Select</button></td>
             </tr>
             </table>
-            <a href="summary.php"><button  class="checkout_btn">Continue</button></a>
+            <a href="/thoga.lk/buyer/summery"><button  class="checkout_btn">Continue</button></a>
 
     </div>
     

@@ -9,9 +9,8 @@
 </head>
 <body>
 <?php
-require_once(__DIR__.'/../../controller/buyer_crtl.php');
 
-
+//print_r($data);
 
 $id1 = 101;
 $price = 1000;
@@ -26,11 +25,17 @@ $id2 =200;
 
 
 ?>
-<?php
-    $t = new buyer();
 
-    $t->getAll_get();
+
+<?php 
+
+foreach($data as $key => $value){
+    $name = $value['vege_name'];
+   echo $name;
+    
+}
 ?>
+
 
 <div class="card-group">
   <!-- card start -->
