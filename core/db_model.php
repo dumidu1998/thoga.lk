@@ -5,7 +5,7 @@ require_once('db_connection.php');
 class db_model{
 
 	function __construct(){
-		echo 'db_model class created <br>';
+		//echo 'db_model class created <br>';
 		$db = new db_Connection();
         $this->connection =  $db->getConnection();
 	}

@@ -9,6 +9,7 @@ class item extends db_model{
     function get($id){
 
 		return $this->read('item', array('*'), array('id'=>$id));
-	}
+  }
+    
 }
 ?>
