@@ -26,6 +26,26 @@
 
 
         <div class="grid-item1">
+            <div>
+                <button class="admin-btn" id="myBtn" >Post New</button>
+
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <div class="mheader">
+                        <span class="close" >&times;</span>
+                            <span class="modeltopic">New Forum Post</span>
+                        </div>
+                        <div >
+                            <form action="" method="get" class="newforum">
+                                <input type="text" name="" id="" placeholder="Title for Your Question">
+                                <textarea name="" id="" class="description" cols="30" rows="50" placeholder="Description"oninput="auto_grow(this)" ></textarea> 
+                                <hr>
+                                <input type="submit" class="fsubmit-btn" value="Post">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="forum-container">
                 <div class="forum-topic"><a class="links" href="forumq.php">My Tomato plants are damaged by insects</a></div>
                 <div class="forum-contols">
@@ -77,6 +97,33 @@
     </div>
 
     <script>
+        
+// Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
         function dd(){
             alert("d");
         }
@@ -87,6 +134,11 @@
             if(vw<=600){
                 for(i=0;i<z.length;i++)z[i].disabled=true;
             }
+        }
+
+        function auto_grow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight)+"px";
         }
     </script>
 </body>
