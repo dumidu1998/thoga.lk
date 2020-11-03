@@ -10,6 +10,8 @@
 <body>
 <?php
 
+//print_r($data);
+
 $id1 = 101;
 $price = 1000;
 $min_val = 200;
@@ -23,6 +25,17 @@ $id2 =200;
 
 
 ?>
+
+
+<?php 
+
+foreach($data as $key => $value){
+    $name = $value['vege_name'];
+   echo $name;
+    
+}
+?>
+
 
 <div class="card-group">
   <!-- card start -->

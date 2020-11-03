@@ -1,0 +1,341 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0;
+    margin-top: 60px;
+  }
+  
+.topnav {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid rgba(141, 136, 136, 0.315);
+    margin-bottom: 2px;
+    
+    
+  }
+  
+.topnav a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 17px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.8s;
+    padding-right: 15px;
+  }
+  
+.topnav a:hover, .topnav a.active:hover {
+    background-color: #ddd;
+    color: black;
+    text-decoration: none !important;
+    border-bottom: 3px solid #63626259; 
+  }
+  
+.topnav a.active {
+   
+    border-bottom: 3px solid black; 
+    text-decoration: none !important;
+    transition: 0.8s;
+
+ }
+  
+.topnav .icon {
+    display: none;
+  }
+  
+@media screen and (max-width: 700px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: inline-flex;
+    }
+  }
+  
+@media screen and (max-width: 700px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+.topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+.navlogo{
+    width: 200px;
+    
+}
+.nav-right{
+    float: right;
+}
+.button_signup{
+    display:inline-block;
+    padding:0.7em 1.7em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.2em;
+    box-sizing: border-box;
+    margin: 12px 18px;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    color:#FFFFFF;
+    background-color:#70a401;
+    box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+    text-align:center;
+    position:relative;
+    
+}
+
+a.button_signup:active{
+    box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+}
+@media all and (max-width:30em){
+a.button_signup{
+    display:block;
+    margin:0.4em auto;
+}
+}
+
+.statcontainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 8px;
+}
+
+.statcard{
+    width: 250px;
+    height: 180px;
+    background: #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    color: black;
+    margin:20px;
+    box-shadow: 10px 2px 10px -4px rgba(0,0,0,0.75);
+}
+
+.card-title{
+  text-align: center;
+  margin-top: 0;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+}
+
+.card-content{
+  text-align: center;
+  margin-top: 1px;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #423f3f;
+  letter-spacing: 1.2px;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 10px;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 50px;
+  box-shadow: 0px 8px 14px 0px rgba(0,0,0,0.15);
+
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  .statcard{width: 120px;height: 90px;margin:5px}
+  .card-title{font-size: 15px;margin-bottom: 10px;}
+  .card-content{font-size: 18px;}
+  .cardimg{display: none;}
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right ;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+  
+  }
+
+  .ut-hr-txt {
+    color: #000000;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+
+  }
+
+  .ut-hr-txt hr {
+    background-color: #221111;
+    height: 2px;
+    margin-top: 0.7em !important;
+    margin-bottom: 0px !important;
+    width: 100%;
+
+  }
+  
+  .ut-hr-txt span {
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+    position: relative;
+    top: -0.8em;
+    background-color: rgba(245, 246, 248, 1);
+  }
+
+
+
+.admin-btn {
+  margin: 0px 80px 80px 80px;
+  padding: 10px 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #000;
+  width: 200px;
+  height: 80px;
+}
+
+.admin-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+.buttonContainer {
+  width: 100%;
+  max-height:80px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 725px) {
+  .buttonContainer {
+    max-height:150px;
+    /* height: 50px; */
+  }
+  .admin-btn {
+    width: 100px;
+    height: 50px;
+    margin: 0px 10px 20px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 10px 10px;
+
+
+  }
+}
+
+.detailcontainer {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin: 0px 50px 0px;
+}
+
+.row{
+  content: "";
+  display: table;
+  clear: both;
+}
+* {
+  box-sizing: border-box;
+}
+.column{
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+ .title{
+   font-size: 20px;
+   font-weight: bold;
+   display: block;
+ }
+
+ .content{
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+ }
+
+.bbody{
+  background-image: url(b.png);
+}
+
+.cardd{
+  display: block;
+}
