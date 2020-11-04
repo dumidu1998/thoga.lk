@@ -21,9 +21,14 @@ class BuyerController {
 
         $view->assign('data', $result); 
         
+        
     }
     public function itemLoad(){
         $view = new View("buyer/item_non_org");
+        
+    }
+    public function book(){
+        $view = new View("buyer/booksuccess");
         
     }
 

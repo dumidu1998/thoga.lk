@@ -10,7 +10,7 @@
 <body>
 <div>
 <div class="topnav" id="myTopnav">
-  <a href="index.php" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
+  <a href="home" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
   <a href="index.php" class="active">Home</a>
   <a href="news.php">News</a>
   <a href="#contact">Contact</a>
