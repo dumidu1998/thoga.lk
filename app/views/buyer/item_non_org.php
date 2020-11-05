@@ -28,13 +28,27 @@ $id2 =200;
 
 <div>
 <?php 
-// print_r($data);
+//  print_r($data);
 $count=0;
 $length = sizeof($data);
 // echo $length;
 foreach($data as $key => $value){
     $name = $value['vege_name'];
-//    echo $name;
+    $farmer_name = $value['firstname'];
+    $id = $value['item_id'];
+    $type =  $value['Item_type'];
+    $min_val = $value['min_weight'];
+    $avail_we = $value['avail_weight'];
+    $s_date = $value['item_start'];
+    $e_date = $value['item_end'];
+    $price = $value['price/kg'];
+    $farmer_id = $value['farmer_Id'];
+    $mentor_id = $value['mentor_Id'];
+    $item_description = $value['item_des'];
+
+    //echo $item_description;
+
+  //  echo $name;
    if($count%3==0){
     echo "<div class='card-group'>";
     }
@@ -49,7 +63,7 @@ foreach($data as $key => $value){
       <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:100%">
       <div class="container">
         <h4><b><?php echo $name ?></b></h4> 
-        <p>Selling by farmer Dumidu price:- 40/kg</p> 
+        <p>Selling by farmer <?php echo $farmer_name ?> <br> price - <?php echo $price ?></p> 
       </div>
       <div>
           <button id="myBtn" onclick="openModal(<?php echo $id1 ?>)">View Details</button>
@@ -72,14 +86,14 @@ foreach($data as $key => $value){
                       <div class="user-details">
                           <div>
                               <!-- name -->
-                              <h1 name="name"><a href="">Carrot</a></h1>
+                              <h1 name="name"><a href=""><?php echo $name; ?></a></h1>
                               
                           </div>
                           <div class="farmer_icon">
                               <!-- farmer name -->
                               <img width=60px src="/thoga.lk/public/images/buyer/farmer.png" alt="">
           
-                              <h2><a href="">Dumidu Kasun</a></h2>
+                              <h2><a href=""> <?php echo $farmer_name; ?></a></h2>
                           </div>
           
                       </div>
@@ -88,19 +102,18 @@ foreach($data as $key => $value){
           
                       <div class="item_des">
                           <!-- description -->
-                          This is great carrot from nuwaraeliya nuwaraeliya is a best city to crop plants
+                         <p>
+                           gcgchchgh
+                         <?php echo $item_description ?> 
+                         </p>               
                       </div>
                       <div class="user_address">
                           <!-- location details of the farmer -->
-                          <img src="/thoga.lk/public/images/buyer/icons/location.png" alt="">
+                          <img width="10px" src="/thoga.lk/public/images/buyer/icons/location.png" alt="">
                         <p> 388/54 waikkala nuwara eliya</p>
                       </div>
           
-                      <!-- <div class="user_no">
-                          location details of the farmer
-                          <img src="../imgs/icons/telephone.png" alt="">
-                        <p> 0775509830</p>
-                      </div> -->
+                     
           
                   </div>
                   <div>
