@@ -72,26 +72,27 @@ session_start();
 
 <div class="wrapper">
   <div>
-  <div class="organic_container">
-    <div class="btn_organic org_active">
-      <a href="">Non-Organic</a>
-    </div>
-    <div class="btn_organic">
-      <a href="">Organic</a>
+    <div class="organic_container">
+      <div class="btn_organic org_active">
+        <a href="">Non-Organic</a>
+      </div>
+      <div class="btn_organic">
+        <a href="">Organic</a>
+
+      </div>
+      <div class="checkout_icon">
+        <a href="checkout.php">
+          <img width=35px align="center" src="/thoga.lk/public/images/buyer/icons/cart.png" alt="">
+
+        </a>
+      </div>
+
+      
 
     </div>
-    <div class="checkout_icon">
-      <a href="checkout.php">
-        <img width=35px align="center" src="/thoga.lk/public/images/buyer/icons/cart.png" alt="">
-
-      </a>
-    </div>
-
+  
+    <?php include("item_non_org.php"); ?> 
     
-
-  </div>
-  <?php include("item_non_org.php"); ?> 
-  <?php include("item_non_org.php"); ?> 
 
   
   </div>
@@ -148,7 +149,7 @@ session_start();
     </div>
     <a href="checkout.php"><button class="checkout_btn">Checkout &nbsp;&nbsp; Rs: <?php echo $total?></button></a>
 
-  </div>
+    </div>
 
 
   </div>
