@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta name="viewport">
-<link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/adminindexstyle.css">
+<link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/navbar.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="font-awesome.min.css" rel="stylesheet">	
