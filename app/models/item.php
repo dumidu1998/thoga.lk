@@ -12,7 +12,24 @@ class item extends db_model{
   }
 
   function  joinget(){
-		$sql = "select a.*, b.vege_name from item a inner join vegetable b on a.veg_Id=b.vege_id";
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.firstname FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id";
+		
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+      while($row=mysqli_fetch_assoc($result))
+      //print_r($row);
+			array_push($finale,$row);
+		  return $finale;
+		
+
+		}else
+		echo "error";
+
+	}
+	function  joingetOrganic(){
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.firstname FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id where a.Item_type='org'";
+		
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){
