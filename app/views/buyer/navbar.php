@@ -15,6 +15,8 @@
   <a href="news.php">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
+  <div id="google_translate_element"></div>
+
   <div class = "nav-right">
     <a href="#About us">About us</a>
 
@@ -47,6 +49,12 @@ function myFunction() {
 //   }
 // }
 </script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>

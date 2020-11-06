@@ -64,22 +64,21 @@ session_start();
 
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
 
-
   <?php include("navbar.php"); ?>
 
-
-
+  
 
 <div class="wrapper">
   <div>
     <div class="organic_container">
-      <div class="btn_organic org_active">
-        <a href="">Non-Organic</a>
+      <div class="btn_organic <?php if($_SERVER['REQUEST_URI']== '/thoga.lk/buyer/home') {echo $class; }?>">
+        <a href="/thoga.lk/buyer/home">Organic/Non-Organic</a>
       </div>
-      <div class="btn_organic">
-        <a href="">Organic</a>
+      <div class="btn_organic <?php if($_SERVER['REQUEST_URI']== '/thoga.lk/buyer/home/organic') {echo $class; }?>">
+        <a href="/thoga.lk/buyer/home/organic">Organic</a>
 
       </div>
+
       <div class="checkout_icon">
         <a href="checkout.php">
           <img width=35px align="center" src="/thoga.lk/public/images/buyer/icons/cart.png" alt="">
@@ -88,7 +87,7 @@ session_start();
       </div>
 
       
-
+           
     </div>
   
     <?php include("item_non_org.php"); ?> 
@@ -182,6 +181,8 @@ window.onclick = function(event) {
   }
 }
 </script>
+
+
 
 
 </body>

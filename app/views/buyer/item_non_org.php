@@ -63,8 +63,17 @@ foreach($data as $key => $value){
       <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:100%">
       <div class="container">
         <h4><b><?php echo $name ?></b></h4> 
-        <p>Selling by farmer <?php echo $farmer_name ?> <br> price - <?php echo $price ?></p> 
+        <p>Selling by farmer <?php echo $farmer_name ?>.  <br> price - Rs. <?php echo $price ?></p> 
       </div>
+      <?php
+        if($type=="org"){
+          ?>
+          <div class="org_icon"> 
+            <img width=30px style="margin-left:20px;" src="/thoga.lk/public/images/buyer/icons/org.png" alt="">
+          </div>
+       <?php 
+       }
+      ?>
       <div>
           <button id="myBtn" onclick="openModal(<?php echo $id1 ?>)">View Details</button>
       </div>
@@ -74,7 +83,7 @@ foreach($data as $key => $value){
       <div id="myModal<?php echo $id1 ?>" class="modal">
 
           <!-- Modal content -->
-          <form action="index.php" method="get"  >
+          <form action="home" method="get"  >
               <div class="modal-content">
                   <span class="close" onclick="closeModal(<?= $id1 ?>)">&times;</span>
                   <div class="item-img">
