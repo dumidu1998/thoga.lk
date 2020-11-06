@@ -194,7 +194,7 @@ tr td{
 }
 
 .selectcontainer{
-  margin: auto;
+  margin: 0px 6%;
 }
   
 .back-button:hover {
@@ -241,6 +241,10 @@ tr td{
   .select-css option {
   font-weight:normal;
   }
+
+  .description{
+    font-size: 16px;
+  }
   
 
   @media screen and (max-width: 768px) {
@@ -256,6 +260,7 @@ tr td{
         font-size: 11px;
     }
     .description{
+      font-size: 10px;
         width:40%;
         margin-bottom: 20px;
     }

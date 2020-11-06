@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.min.css" type='text/css'>
+
+
 </head>
 <body>
 <?php 
@@ -16,7 +20,7 @@
             &lt;&nbsp;Back
         </a>
     </div>
-    <h1>Mentor Application</h1>
+    <h1>Request for Mentor</h1>
     <div class="grid">
         <div class="grid-item0">
             <img src="/thoga.lk/public/images/buyer/icons/farmer.png" alt="" class="image" >
@@ -63,9 +67,10 @@
 <div class="selectcontainer">
     
     <h1>Select a Mentor</h1>
-    <select name="" id="" class="select-css" required placeholder="dd">
+    <h3>Select mentor from suggestion list</h3>
+    <select name="" id="selectmentor" class="select-css" required placeholder="dd">
 
-        <option value="1" selected disabled hidden>Select a mentor (Name - District - No.of farmers)</option>
+        <option value="0" selected disabled hidden>Select a mentor (Name - District - No.of farmers)</option>
         <option value="1">A.K. Jayarathna - Anuradhapura (2)</option>
         <option value="1">C.B. Wickramasingha - Matale (4)</option>
         <option value="1">N. Thilakarathna - Jaffna (1)</option>
@@ -74,32 +79,7 @@
 
     </div>
 </div>
-<div class="docscontainer">
-    
-    <!--documents-->
-    <h1>Submitted Documents</h1>
-    <div class="docs">
-        <table style="width:100%">
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-        </table>
-    </div>
 
-</div>
     <div class="Bcontainer">
         <h1>Accept or Reject</h1>
         <br>
@@ -131,6 +111,11 @@ function checkfunc(id){
     }
     if (document.getElementById("reject").checked==true) document.getElementById("textarea").style.display='block';
     if (document.getElementById("accept").checked==true) document.getElementById("textarea").style.display='none';
+    if (document.getElementById("reject").checked==false) document.getElementById("textarea").style.display='none';
+    if (document.getElementById("reject").checked==true) document.getElementById("selectmentor").disabled = true;
+    if (document.getElementById("reject").checked==false) document.getElementById("selectmentor").disabled = false;
+
+
 
 }
 </script>

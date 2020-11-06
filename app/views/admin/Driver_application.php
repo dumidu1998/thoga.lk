@@ -162,6 +162,8 @@ function checkfunc(id){
     }
     if (document.getElementById("reject").checked==true) document.getElementById("textarea").style.display='block';
     if (document.getElementById("accept").checked==true) document.getElementById("textarea").style.display='none';
+    if (document.getElementById("reject").checked==false) document.getElementById("textarea").style.display='none';
+
 
 }
 </script>
