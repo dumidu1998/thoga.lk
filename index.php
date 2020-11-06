@@ -12,8 +12,10 @@ $routes = [
     'buyer/select-driver' => 'BuyerController@selectDriver',
     'buyer/home' => 'BuyerController@index',
     'buyer/booksuccess' => 'BuyerController@book',
-    'buyer/home/organic' => 'BuyerController@organic'
-];
+    'buyer/home/organic' => 'BuyerController@organic',
+    'buyer/cart' => 'BuyerController@cart'
+    
+ ];
 
 foreach($routes as $route => $controller_route) {
     if ($route == $path) {

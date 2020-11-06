@@ -9,21 +9,7 @@
 </head>
 <body>
 <?php
-
 //print_r($data);
-
-$id1 = 101;
-$price = 1000;
-$min_val = 200;
-$avail_we = 300;
-$d="31-10-2020";
-
-
-
-
-$id2 =200;
-
-
 ?>
 
 <div>
@@ -75,17 +61,17 @@ foreach($data as $key => $value){
        }
       ?>
       <div>
-          <button id="myBtn" onclick="openModal(<?php echo $id1 ?>)">View Details</button>
+          <button id="myBtn" onclick="openModal(<?php echo $id ?>)">View Details</button>
       </div>
 
       <!-- model start -->
 
-      <div id="myModal<?php echo $id1 ?>" class="modal">
+      <div id="myModal<?php echo $id ?>" class="modal">
 
           <!-- Modal content -->
-          <form action="home" method="get"  >
+          <form action="/thoga.lk/buyer/cart" method="post"  >
               <div class="modal-content">
-                  <span class="close" onclick="closeModal(<?= $id1 ?>)">&times;</span>
+                  <span class="close" onclick="closeModal(<?= $id ?>)">&times;</span>
                   <div class="item-img">
                       <!-- image -->
                       <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:60%">
@@ -127,18 +113,18 @@ foreach($data as $key => $value){
                   </div>
                   <div>
                       <!-- quantity/price -->
-                      <input type="hidden" name="hidden_name" value="Carrot" />  
-                      <input type="hidden" name="hidden_price" value="100" />  
-                      <input type="hidden" name="id" value="<?php echo $id1 ?>" />  
+                      <input type="hidden" name="hidden_name" value="<?php echo $name ?>" />  
+                      <input type="hidden" name="hidden_price" value="<?php echo $price ?>" />  
+                      <input type="hidden" name="id" value="<?php echo $id ?>" />  
 
                         <label for="price">Price/kg</label>
-                      <input type="number" id="price" name="price" value="100" disabled/> 
+                      <input type="number" id="price" name="price" value="<?php echo $price ?>" disabled/> 
                       <label for="qnty">Quantity</label>
                       <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
                       <label for="s_date">Start Date</label>
-                      <input type="text" name= "s_date" value="<?php echo $d ?>"/>
+                      <input type="text" name= "s_date" value="<?php echo $s_date ?>"/>
                       <label for="e_date">End Date</label>
-                      <input type="text" name= "e_date" value="<?php echo $d ?>"/>
+                      <input type="text" name= "e_date" value="<?php echo $s_date ?>"/>
 
                       <button name="add_to_cart" class="checkout_btn">Add to cart</button>
                   </div>

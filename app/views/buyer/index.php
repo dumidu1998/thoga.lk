@@ -3,54 +3,7 @@
 <?php 
 //tet
 session_start();
-  $total=0;
-        if(isset($_GET["add_to_cart"]))  
-        { 
-             if(isset($_SESSION["shopping_cart"]))  
-             {  
-                  $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");  
-                  if(!in_array($_GET["id"], $item_array_id))  
-                  {  
-                       $count = count($_SESSION["shopping_cart"]);  
-                       $item_array = array(  
-                            'item_id'               =>    $_GET["id"],  
-                            'item_name'               =>     $_GET["hidden_name"],  
-                            'item_price'          =>     $_GET["hidden_price"],  
-                            'item_quantity'          =>     $_GET["quantity"]  
-                       );  
-                       $_SESSION["shopping_cart"][$count] = $item_array;  
-                  }  
-                  else  
-                  {  
-                       echo '<script>alert("Item Already Added")</script>';  
-                       echo '<script>window.location="index.php"</script>';  
-                  }  
-             }  
-             else  
-             {  
-                  $item_array = array(  
-                    'item_id'               =>     $_GET["id"],  
-                    'item_name'               =>     $_GET["hidden_name"],  
-                    'item_price'          =>     $_GET["hidden_price"],  
-                    'item_quantity'          =>     $_GET["quantity"]   
-                  );  
-                  $_SESSION["shopping_cart"][0] = $item_array;  
-             } 
-        }  
-        if(isset($_GET["action"]))  
-          {  
-                if($_GET["action"] == "delete")  
-                {  
-                    foreach($_SESSION["shopping_cart"] as $keys => $values)  
-                    {  
-                          if($values["item_id"] == $_GET["id"])  
-                          {  
-                              unset($_SESSION["shopping_cart"][$keys]);  
-                              echo '<script>window.location="index.php"</script>';  
-                          }  
-                    }  
-                }  
-          }  
+
     ?>
 <head>
   <meta charset="UTF-8">
@@ -64,8 +17,8 @@ session_start();
 
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
 
-  <?php include("navbar.php"); ?>
 
+<?php include("navbar.php"); ?>
   
 
 <div class="wrapper">
@@ -96,24 +49,24 @@ session_start();
   
   </div>
 
-
+  <?php //print_r($_SESSION["shopping_cart"]); ?>
   <div>
     
     <!-- shopping cart -->
     <div class="cart">
       <h1>Shopping Cart</h1>
       <hr>
-      <div style="height:65vh;"> 
+      <div style="height:60vh;"> 
         <?php 
         // print_r($item_array);
         if(!empty($_SESSION["shopping_cart"]))  
-                          {  
-                               $total = 0;  
-                               foreach($_SESSION["shopping_cart"] as $keys => $values)  
-                               {  
-                          ?>  
+        {  
+           $total = 0; 
+          foreach($_SESSION["shopping_cart"] as $keys => $values)  
+          {  
+         ?>  
 
-      <div class="cart_item_row">
+        <div class="cart_item_row">
         <div class="cart_item_row-name">
           <!-- name -->
           <?php echo $values["item_name"]; ?>  
@@ -128,21 +81,22 @@ session_start();
         </div>
         <div>
           <!-- remove -->
-          <form action="index.php" method="get">
+          <form action="/thoga.lk/buyer/cart" method="post">
             <input type="hidden" name="id" value="<?php echo $values["item_id"];?>">
             <input class="input_s" type="submit" name="action" value="delete">
 
           </form>
         </div>
 
-      </div>
-      <?php
-      $total = $total + ($values["item_quantity"] * $values["item_price"]);  
-                               }
-                              }
-                              else{
-                                echo "<div class='emptynote'>Your Cart looks a little Empty </div>";
-                              }
+        </div>
+        <?php
+        $total = $total + ($values["item_quantity"] * $values["item_price"]);  
+      }
+    }
+      else{
+          echo "<div class='emptynote'>Your Cart looks a little Empty </div>";
+          $total=0;
+          }
         ?>
 
     </div>
