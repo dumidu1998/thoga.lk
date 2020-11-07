@@ -102,6 +102,13 @@ class BuyerController {
          
 
     }
+
+    public function checkout(){
+        $view = new View("buyer/checkout");
+    }
+    public function summery(){
+        $view = new View("buyer/summary");
+    }
 }
 
 
