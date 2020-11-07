@@ -11,40 +11,40 @@
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
     <div class="buttonContainer">
-        <button onclick="showPanel(0,'#a9a9a9')">Farmer</button>
-        <button onclick="showPanel(1,'#a9a9a9')">Buyer</button>
+        <button onclick="showPanel(0,'#a9a9a9')">Buyer</button>
+        <button onclick="showPanel(1,'#a9a9a9')">Farmer</button>
         <button onclick="showPanel(2,'#a9a9a9')">Driver</button>
         <button onclick="showPanel(3,'#a9a9a9')">Mentor</button>
     </div> 
     <div class="tabPanel">
       <form >
         <div class="row">
-          <div class="lable">First Name</div>
+          <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="fn" required>
         </div>
         <div class="row">
-          <div class="lable">Last Name</div>
+          <div class="lable">Last Name *</div>
             <input type="text" class="inpbox"  name="ln"  required>
         </div>
         <div class="row">
-          <div class="lable">Gender</div>
+          <div class="lable">Gender *</div>
             <select id="gender" class="inpbox"  name="gender" style="font-size: 17px;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
         </div>
         <div class="row">
-          <div class="lable">Date of Birth</div>
+          <div class="lable">Date of Birth *</div>
             <input type="date" class="inpbox"  name="dob" max="2002-01-01" required>
         </div>
         <div class="row">
-          <div class="lable">NIC Number</div>
+          <div class="lable">NIC Number *</div>
             <input type="text" class="inpbox"  name="nic" 
             pattern="^(?:19|20)?\d{2}(?:[0-35-8]\d\d(?<!(?:000|500|36[7-9]|3[7-9]\d|86[7-9]|8[7-9]\d)))\d{4}(?:[VX])$" 
             title="Format Should be 123123123V or 123123123X or 12312312312V" required>
         </div>
         <div class="row">
-          <div class="lable">Mobile Number 1</div>
+          <div class="lable">Mobile Number 1 *</div>
             <input type="text" class="inpbox"  name="contactno1"  required>
         </div>
         <div class="row">
@@ -52,19 +52,19 @@
             <input type="text" class="inpbox"  name="contactno2" >
         </div>
 		        <div class="row">
-          <div class="lable">Address Line 1</div>
+          <div class="lable">Address Line 1*</div>
             <input type="text" class="inpbox"  name="addressline1"  required>
         </div>
         <div class="row">
           <div class="lable">Address Line 2</div>
-            <input type="text" class="inpbox"  name="addressline2"  required>
+            <input type="text" class="inpbox"  name="addressline2">
         </div>
         <div class="row">
-          <div class="lable">Email</div>
-            <input type="text" class="inpbox"  name="email"  required>
+          <div class="lable">City *</div>
+            <input type="text" class="inpbox"  name="city"  required>
         </div>
         <div class="row">
-          <div class="lable">Province</div>
+          <div class="lable">Province *</div>
             <select id="province" class="inpbox"  name="province" style="font-size: 17px;" required>
               <option value="north">Nothern Province</option>
               <option value="northwest">North-Western Province</option>
@@ -78,10 +78,57 @@
               
             </select>
         </div>
+        <div class="row">
+          <div class="lable">Postal Code *</div>
+            <input type="text" class="inpbox"  name="postalcode"  required>
+        </div>
+        <div class="row">
+          <div class="lable">Email *</div>
+            <input type="text" class="inpbox"  name="email"  required>
+        </div>
+        <div class="desc">Specify the nearest cities around you</div>
+        <div class="row">
+          <div class="lable">Nearest city 1</div>
+            <input type="text" class="inpbox"  name="email"  required>
+        </div>
+        <div class="row">
+          <div class="lable">Nearest city 2</div>
+            <input type="text" class="inpbox"  name="email"  required>
+        </div>
+        <div class="desc">If you have a Business</div>
+        <div class="row">
+          <div class="lable">Business Name</div>
+            <input type="text" class="inpbox"  name="email"  required>
+        </div>
+        <div class="row">
+          <div class="lable">BR No.</div>
+            <input type="text" class="inpbox"  name="email"  required>
+        </div>
+        <div class="desc">Enter a Username and Password </div>
+        <div class="row">
+          <div class="lable">Username</div>
+            <input type="text" class="inpbox"  name="email"  required>
+        </div>
+        <div class="row">
+          <div class="lable">Password</div>
+            <input type="password" class="inpbox"  name="email"  required>
+        </div>
+        <div class="row">
+          <div class="lable">Confirm Password</div>
+            <input type="password" class="inpbox"  name="email"  required>
+        </div>
       </form>
     </div>
+
+
     <div class="tabPanel">Tab 2:Content</div>
+
+
+
     <div class="tabPanel">Tab 3:Content</div>
+
+
+
     <div class="tabPanel">
       <div class="row">
         <div class="lable">First Name</div>

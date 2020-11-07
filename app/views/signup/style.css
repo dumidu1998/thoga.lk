@@ -5,7 +5,7 @@
 }
 .tabContainer{
     width: 70%;
-    height: 1500px;
+    height: auto;
     margin-left: 15%;
 }
 .tabContainer .buttonContainer{
@@ -30,15 +30,22 @@
   
 }
 .tabContainer .tabPanel{
-    height: 85%;
+    height: auto;
+    padding-bottom: 20px;
     background-color: gray;
     color: white;
     text-align: left;
     padding-top: 55px;
+    padding-left: 10px ;
     box-sizing: border-box;
     font-family: sans-serif;
     font-size: 22px;
     display: none;
+}
+
+.desc{
+  margin: 20px 0px 10px 25%;
+  font-size: 18px;
 }
 
 .lable{
@@ -46,6 +53,10 @@
   width: 25%;
   margin-top: 15px;
   margin-left: 10px;
+}
+
+input[name="dob"]{
+  resize: none;
 }
 
 .inpbox{
@@ -61,12 +72,18 @@
     margin-top: 0;
     margin-left: 5px;
   }
+  body{padding:0px}
+  .tabContainer{margin-left: 5%;width: 90%;}
+  .desc{
+    margin: 10px 0px 1px 2%;
+  font-size: 14px;
+  }
   .tabContainer .tabPanel{
     text-align: left;
   }
 }
 
-input[type=text], select, textarea, input[type=date] {
+input[type=text],input[type=password], select, textarea, input[type=date] {
 /*   width: 100%; */
   padding: 12px;
   border: 1px solid #ccc;
