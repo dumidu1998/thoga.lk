@@ -100,8 +100,15 @@ session_start();
         ?>
 
     </div>
-    <a href="checkout.php"><button class="checkout_btn">Checkout &nbsp;&nbsp; Rs: <?php echo $total?></button></a>
-
+    <?php 
+      if(!empty($_SESSION["shopping_cart"])){
+        $allow = "";
+      }else{
+        $allow = "disabled";
+      }
+      ?>
+    <a href="checkout"><button class="checkout_btn" <?php echo $allow ?>>Checkout &nbsp;&nbsp; Rs: <?php echo $total?></button></a>
+          
     </div>
 
 
