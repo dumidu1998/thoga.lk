@@ -33,8 +33,8 @@ session_start();
       </div>
 
       <div class="checkout_icon">
-        <a href="checkout.php">
-          <img width=35px align="center" src="/thoga.lk/public/images/buyer/icons/cart.png" alt="">
+        <a href="checkout">
+          <img width=20px align="left" src="/thoga.lk/public/images/buyer/icons/cart.png" alt="">
 
         </a>
       </div>

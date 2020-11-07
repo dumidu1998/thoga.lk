@@ -39,7 +39,17 @@ class BuyerController {
         
     }
     public function book(){
+        session_start();
+
+        foreach($_SESSION["shopping_cart"] as $keys => $values)  
+                    {  
+                       
+                    unset($_SESSION["shopping_cart"][$keys]);  
+                          
+                    }  
         $view = new View("buyer/booksuccess");
+        
+
         
     }
 

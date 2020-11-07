@@ -107,7 +107,7 @@
 
                 <div class="r_btn">
                     <label>Pickup</label>
-                    <input type="radio" name="radio" value="pickup"  checked="checked" id="pick">                   
+                    <input type="radio" name="radio" value="pick"  checked="checked" id="pick">                   
                 </div>
                 <div class="r_btn">
                     <label>Deliver</label>
@@ -155,15 +155,16 @@
             </div>
         </div>
         <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
-
-        <a href="select-driver"><button class="checkout_btn">Continue</button></a>
+       
+        <a href="summery" id="check"><button class="checkout_btn">Continue</button></a>
     </div>
 </body>
 <script>
-    var modal = document.getElementById("add");
+    
     var btn = document.getElementById("del");
     var btn2 = document.getElementById("pick");
     var size = window.matchMedia("(max-width: 700px)");
+    var link = document.getElementById("check");
 
     if(size.matches){
         btn.onclick = function() {
@@ -172,18 +173,16 @@
     }else{
     btn.onclick = function() {
     add.style.display = "grid";
+    link.href="select-driver";
     }
     
     }
 
     btn2.onclick = function() {
         add.style.display = "none";
+    link.href="summery";
+
     }
 
-    window.onclick = function(event) {
-    if (event.target == add) {
-        add.style.display = "none";
-    }
-    }
 </script>
 </html>
