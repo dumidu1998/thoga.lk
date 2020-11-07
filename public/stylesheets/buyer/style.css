@@ -107,18 +107,18 @@ a.button_signup{
 
 
 .login {
-  background-color: rgba(0, 0, 0, 0.356);
-  margin-right: 10%;
-  margin-left: 10%;
-  padding: 10px;
-  margin-top: 16%; 
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  margin: auto;
+  left: 33%;
+  top: 100px;
+  max-width: 30%; 
+  overflow: auto; 
+  background-color: white; 
   
 }
-@media (min-width: 768px) {
-  .login {
-    width: 750px;
-  }
-}
+
 @media (min-width: 992px) {
   .login {
     width: 970px;
@@ -129,23 +129,29 @@ a.button_signup{
     width: 1170px;
   }
 }
-.login h1{
-    color: white;
+.login h3{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
+.login p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #555;
+}
 .login label{
-    color: #fff;
+    color:black;
     font-size: 24px;
     padding: 3px;
     margin-bottom: 5px;
+    margin-left: 50px;
 }
 .login-input {
   margin-bottom: 15px;
 }
 .login-input-control {
   display: block;
-  margin-left: 25px;
-  width: 85%;
+  margin: auto;
+  width: 50%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
@@ -160,6 +166,16 @@ a.button_signup{
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+@media (max-width: 768px) {
+  .login {
+    max-width: 100%;
+    left: 20px;
+    margin: auto;
+  }
+  .login-input-control{
+    width: 90%;
+  }
 }
 .btn {
   display: inline-block;
@@ -211,7 +227,7 @@ a.button_signup{
 }
 .signup_text{
     text-align: center;
-    color: white;
+    color: black;
     margin-bottom: 10px;
 
 }
