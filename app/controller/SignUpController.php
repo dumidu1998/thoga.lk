@@ -1,13 +1,17 @@
 <?php
 
-require_once(__DIR__.'/../models/item.php');
+require_once(__DIR__.'/../models/user.php');
 require_once(__DIR__.'/../../core/View.php');
 
 
-class BuyerController {
+class SignUpController {
     function __construct()
     {
-        $this->model = new item();
+        $this->model = new user();
+    }
+
+    public function show(){
+        $view = new View("signup/index");
     }
 }
 

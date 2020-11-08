@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign Up</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="/thoga.lk/app/views/signup/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
@@ -502,6 +502,6 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="/thoga.lk/app/views/signup/script.js"></script>
 </body>
 </html>

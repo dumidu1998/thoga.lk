@@ -16,7 +16,7 @@ $routes = [
     'buyer/cart' => 'BuyerController@cart',
     'buyer/checkout' => 'BuyerController@checkout',
     'buyer/summery' => 'BuyerController@summery',
-    'signup' => 'SignUpController@form'
+    'signup' => 'SignUpController@show',
     
  ];
 
