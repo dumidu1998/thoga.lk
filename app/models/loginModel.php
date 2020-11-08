@@ -16,8 +16,19 @@ class loginModel extends db_model{
 		echo "error";
     }
     function get_data($uname){
-		return $this->read('user', array('*'), array('usename'=>$uname));
+		// return $this->read('user', array('*'), array('usename'=>$uname, 'email'=>$uname));
+      $sql = "SELECT a.*, b.user_type FROM user as a INNER JOIN usertype AS b ON a.usertype_id = b.type_id WHERE usename = '$uname' OR email = '$uname' ";
+      $result=$this->connection->query($sql);
+      $finale=array();
+      if($result){
+        while($row=mysqli_fetch_assoc($result))
+        //print_r($row);
+        array_push($finale,$row);
+        return $finale;
+      
 
+      }else
+      echo "error";
     }
 
 }

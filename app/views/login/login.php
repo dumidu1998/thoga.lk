@@ -14,11 +14,11 @@
   <li><a href="#home"><img width="100px" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt=""></a></li>
   <li><a href="#contact">Contact Us</a></li>
   <li style="float:right"><a class="active" href="#login" id="login">Login</a></li>
-  <li style="float:right"><a class="active" href="buyer/home">Continue as guest</a></li>
+  <li style="float:right"><a class="active" href="/thoga.lk/buyer/home">Continue as guest</a></li>
 
 </ul>
 
-<!-- <div class="slideshow-container">
+<div class="slideshow-container">
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
@@ -69,7 +69,7 @@
   </div>
 </div>
 
-</div> -->
+</div>
 <br>
 <div style="text-align:center">
   <span class="dot"></span> 

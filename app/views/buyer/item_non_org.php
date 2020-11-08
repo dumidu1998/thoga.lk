@@ -98,7 +98,6 @@ foreach($data as $key => $value){
                       <div class="item_des">
                           <!-- description -->
                          <p>
-                           gcgchchgh
                          <?php echo $item_description ?> 
                          </p>               
                       </div>
