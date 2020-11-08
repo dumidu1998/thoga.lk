@@ -1,11 +1,17 @@
+body{
+  background: url(/thoga.lk/public/images/admin/signupbg.jpg);
+  background-size: 100vw auto;
+  background-repeat:repeat-y ;
+}
+
 .title{
     font-family: sans-serif;
-    color: #dc2d5e;
+    color: #040431;
     text-align: center;
 }
 .tabContainer{
     width: 70%;
-    height: 1500px;
+    height: auto;
     margin-left: 15%;
 }
 .tabContainer .buttonContainer{
@@ -21,24 +27,33 @@
     cursor: pointer;
     padding: 10px;
     font-family: sans-serif;
-    font-size: 15px;
-    background-color: #eee;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(204, 204, 204);
   
 }
 .tabContainer .buttonContainer button:hover{
-    background-color: #d7d4d4;
-  
+    background-color: #f0eaea;
 }
 .tabContainer .tabPanel{
-    height: 85%;
+    height: auto;
+    padding-bottom: 20px;
     background-color: gray;
     color: white;
     text-align: left;
     padding-top: 55px;
+    padding-left: 10px ;
     box-sizing: border-box;
     font-family: sans-serif;
     font-size: 22px;
     display: none;
+}
+
+.desc{
+  margin: 20px 0px 10px 26%;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .lable{
@@ -48,6 +63,11 @@
   margin-left: 10px;
 }
 
+.agreement{
+  margin: 20px 0px 20px 30%;
+  font-size: 18px;
+}
+
 .inpbox{
   float: left;
   width: 65%;
@@ -55,23 +75,21 @@
   /* margin-right: 10px; */
 }
 
-@media screen and (max-width: 909px) {
-  .lable, .inpbox, input[type=submit]{
-    width: 90%;
-    margin-top: 0;
-    margin-left: 5px;
-  }
-  .tabContainer .tabPanel{
-    text-align: left;
-  }
+
+
+select {
+  background-color: #fafafa;
 }
 
-input[type=text], select, textarea, input[type=date] {
+
+input[type=text],input[type=password], select, option, textarea, input[type=date] {
 /*   width: 100%; */
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+  background-color: #fafafa;
+
 }
 
 .row:after {
@@ -79,3 +97,102 @@ input[type=text], select, textarea, input[type=date] {
   display: table;
   clear: both;
 }
+
+.cbox{
+  transform: scale(2);
+  height: 10px;
+  font-size: 30px;
+}
+
+[type=submit] {
+  margin: 25px auto 0px 28%;
+  width: 50%;
+  border: 0;
+  background-color: #13b4b9;
+  border-radius: 5px;
+  height: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 1em;
+  text-align: center;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  
+}
+
+.grid .row .lable1{
+  margin-right: 25.5%;
+  float: left;
+  width: 25%;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.grid .row .lable2{
+  margin-right: 0%;
+  float: left;
+  width: 32%;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.logo{
+  margin: 0px 45%;
+  width:auto;
+  height: 60px;
+}
+
+.grid .row .inpbox{
+  width: 47%;
+}
+
+input[type="file"] {
+  width: 35%;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 909px) {
+  .lable, .inpbox{
+    width: 90%;
+    margin-top: 0;
+    margin-left: 25px;
+  }
+  .logo{margin: 0px 38%;}
+  .inpbox{margin-bottom: 5px;}
+  input[type="file"] {width: 55%;}
+  input[type=submit]{width:90%;margin-left: 5%;}
+  body{padding:0px;background: #65cc51;}
+  .tabContainer{margin-left: 5%;width: 90%;}
+  .desc{
+    margin: 25px 0px 5px 28px;
+  font-size: 16px;
+  text-decoration: underline;
+  }
+  .agreement{
+    margin: 15px 0px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .tabContainer .tabPanel{
+    text-align: left;
+  }
+  .grid{
+    display: block;
+  }
+  .grid .row .lable1 , .grid .row .lable2 {
+    width: 90%;
+    margin-top: 0;
+    margin-left: 25px;
+  }
+  .grid .row .inpbox{
+    width: 90%;
+    margin-top: 0;
+    margin-left: 25px;
+  }
+}
+
+
