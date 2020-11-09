@@ -75,21 +75,16 @@ body{
   /* margin-right: 10px; */
 }
 
-
-
 select {
   background-color: #fafafa;
 }
 
-
-input[type=text],input[type=password], select, option, textarea, input[type=date] {
-/*   width: 100%; */
+input[type=text],input[type=password], select, option, textarea, datalist, input.dl, input[type=date] {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
   background-color: #fafafa;
-
 }
 
 .row:after {
@@ -135,9 +130,10 @@ input[type=text],input[type=password], select, option, textarea, input[type=date
 .grid .row .lable2{
   margin-right: 0%;
   float: left;
-  width: 32%;
+  width: 30%;
   margin-top: 15px;
   margin-left: 10px;
+  
 }
 
 .logo{

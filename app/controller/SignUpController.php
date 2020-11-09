@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/../models/user.php');
+require_once(__DIR__.'/../models/signup.php');
 require_once(__DIR__.'/../../core/View.php');
 
 
@@ -12,8 +12,10 @@ class SignUpController {
 
     public function show(){
         $view = new View("signup/index");
-        $result = $this->model->read_cities();
-        $view->assign('cities', $result);
+        $city = $this->model->read_cities();
+        $province = $this->model->read_provinces();
+        $view->assign('cities', $city);
+        $view->assign('provinces', $province);
 
     }
 }

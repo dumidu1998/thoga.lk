@@ -12,11 +12,11 @@
 </head>
 <body style="padding: 20px">
 <?php 
-  print_r($cities);
+  print_r($provinces);
   echo "<br>";
-  foreach($cities as $key => $values){
+  foreach($provinces as $key => $values){
     // print_r($values);
-    echo $values['city_name'];
+    echo $values['provinceName'];
     // echo $values  ."<br>";
   }
 ?>
@@ -75,32 +75,31 @@
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">City *</div>
-              <select name="city" id="" class="inpbox" required>
-                <option value="" hidden selected>Select your City</option>
+            <input list="datalist" value="Select your city" autocomplete="off"  onmousedown="value = '';" name="city" id="city" class="dl inpbox" required />
+              <datalist name="Hcity" id="datalist" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key => $values){
                     $city = $values['city_name'];
                 ?> 
-                <option value=<?php echo $city; ?>><?php echo $city; ?></option>
+                <option class="dl" value="<?php echo $city; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
-              </select>
+              </datalist>
           </div>
           <div class="row">
             <div class="lable2">Province *</div>
-              <select id="province" class="inpbox"  name="province" style="font-size: 17px;" required>
-                <option value="north">Nothern Province</option>
-                <option value="northwest">North-Western Province</option>
-                <option value="west">Western Province</option>
-                <option value="uva">Uva Province</option>
-                <option value="south">Southern Province</option>
-                <option value="Sabaragamuwa">Sabaragamuwa Province</option>
-                <option value="central">Central Province</option>
-                <option value="eastern">Eastern Province</option>
-                <option value="northcentral">North-Central Province</option>
-                
-              </select>
+              <input list="Hprovince" value="Select your Province" autocomplete="off"  onmousedown="value = '';" name="province" id="province" class="dl inpbox" required />
+              <datalist name="Hprovince" id="Hprovince" class="dl inpbox" required>
+                <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['provinceName'];
+                ?> 
+                <option class="dl" value="<?php echo $province; ?>"><?php echo $province; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
           </div>
         </div> <!-- grid end -->
         <div class="row">
@@ -522,5 +521,6 @@
 </div>
 
 <script src="/thoga.lk/app/views/signup/script.js"></script>
+
 </body>
 </html>
