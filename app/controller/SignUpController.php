@@ -12,6 +12,9 @@ class SignUpController {
 
     public function show(){
         $view = new View("signup/index");
+        $result = $this->model->read_cities();
+        $view->assign('cities', $result);
+
     }
 }
 

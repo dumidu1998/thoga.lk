@@ -11,6 +11,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
+<?php 
+  print_r($cities);
+  echo "<br>";
+  foreach($cities as $key => $values){
+    // print_r($values);
+    echo $values['city_name'];
+    // echo $values  ."<br>";
+  }
+?>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
@@ -66,7 +75,17 @@
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">City *</div>
-              <input type="text" class="inpbox"  name="city"  required>
+              <select name="city" id="" class="inpbox" required>
+                <option value="" hidden selected>Select your City</option>
+                <?php
+                  foreach($cities as $key => $values){
+                    $city = $values['city_name'];
+                ?> 
+                <option value=<?php echo $city; ?>><?php echo $city; ?></option>
+                <?php
+                  }
+                ?>
+              </select>
           </div>
           <div class="row">
             <div class="lable2">Province *</div>
