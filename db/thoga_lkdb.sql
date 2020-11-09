@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2020 at 08:13 AM
+-- Generation Time: Nov 09, 2020 at 12:40 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -262,9 +262,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `weight`, `pickup_location`, `total_cost`, `deliver_location`, `order_date`, `pickup_date`, `item_id`, `buyer_id`, `driver_id`) VALUES
-(1, 11, 'sdf', 200, 'svf', '2020-10-08', '2020-10-20', 1, 1, 1),
-(2, 34, 'sdfg', 400, 'grtt', '2020-10-13', '2020-10-07', 2, 2, 2),
-(3, 1500, 'fsfrgw', 1000, 'fsgr', '2020-10-14', '2020-10-08', 3, 3, 3);
+(1, 11, 'kandy', 200, 'colombo', '2020-10-08', '2020-10-20', 1, 1, 1),
+(2, 34, 'nuwaraeliya', 400, 'galle', '2020-10-13', '2020-10-16', 2, 2, 2),
+(3, 1500, 'jaffna', 1000, 'gampaha', '2020-10-14', '2020-10-22', 3, 3, 3),
+(4, 44, 'nuwaraeliya', 230, 'galle', '2020-11-27', '2020-11-28', 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -359,8 +360,41 @@ CREATE TABLE `usertype` (
 
 CREATE TABLE `vegetable` (
   `vege_id` int(11) NOT NULL,
-  `vege_name` varchar(20) NOT NULL
+  `vege_name` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `vegetable`
+--
+
+INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`) VALUES
+(1, 'Tomato', 'tomato.png'),
+(2, 'Potato', 'potato.png'),
+(3, 'Beans', 'beans.png'),
+(4, 'BitterGourd', 'bittergourd.png'),
+(5, 'Brinjal', 'brinjal.png'),
+(6, 'Carrot', 'carrot.png'),
+(7, 'ChickenPeas', 'chickenpeas.png'),
+(8, 'Cucumber', 'cucumber.png'),
+(9, 'Garlic', 'garlic.png'),
+(10, 'GreenChilli', 'greenchilli.png'),
+(11, 'Lemon', 'lemon.png'),
+(12, 'Onion', 'onion.png'),
+(13, 'Raddish', 'raddish.png'),
+(14, 'BabyCorn', 'babycorn.png'),
+(15, 'Beetroot', 'beetroot.png'),
+(16, 'BottleGourd', 'bottlegourd.png'),
+(17, 'Brocli', 'brocoli.png'),
+(18, 'Cabbage', 'cabbage.png'),
+(19, 'Capsicum', 'capsicum.png'),
+(20, 'CauliFlower', 'cauliflower.png'),
+(21, 'Coriander', 'coriander.png'),
+(22, 'DrumStick', 'drumstick.png'),
+(23, 'Ginger', 'ginger.png'),
+(24, 'LadysFinger', 'ladysfinger.png'),
+(25, 'Methi', 'methi.png'),
+(26, 'Spinach', 'spinach.png');
 
 -- --------------------------------------------------------
 
@@ -503,7 +537,9 @@ ALTER TABLE `usertype`
 -- Indexes for table `vegetable`
 --
 ALTER TABLE `vegetable`
-  ADD PRIMARY KEY (`vege_id`);
+  ADD PRIMARY KEY (`vege_id`),
+  ADD UNIQUE KEY `vege_name` (`vege_name`),
+  ADD UNIQUE KEY `image` (`image`);
 
 --
 -- Indexes for table `vehicles`
@@ -579,7 +615,7 @@ ALTER TABLE `forum replies`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
 -- AUTO_INCREMENT for table `mentor`
@@ -597,7 +633,7 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_details`
@@ -633,7 +669,7 @@ ALTER TABLE `usertype`
 -- AUTO_INCREMENT for table `vegetable`
 --
 ALTER TABLE `vegetable`
-  MODIFY `vege_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `vege_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
