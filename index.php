@@ -15,7 +15,11 @@ $routes = [
     'buyer/home/organic' => 'BuyerController@organic',
     'buyer/cart' => 'BuyerController@cart',
     'buyer/checkout' => 'BuyerController@checkout',
-    'buyer/summery' => 'BuyerController@summery'
+    'buyer/summery' => 'BuyerController@summery',
+    '' => 'LoginController@view',
+    'login'=> 'LoginController@login',
+    'buyer/logout' => 'BuyerController@logout',
+    'buyer/profile' => 'BuyerController@profile'
     
  ];
 
