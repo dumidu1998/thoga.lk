@@ -114,6 +114,7 @@ input[type=submit] {
   font-weight: 400;
   font-size: 1em;
   text-align: center;
+  box-shadow: 1px 3px #04046d;
 }
 input[type=submit]:disabled{
   background-color: #268b8f;

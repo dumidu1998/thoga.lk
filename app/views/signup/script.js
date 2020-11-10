@@ -132,31 +132,190 @@ for(var i = 0; i < options.length; i++) {
 }
 });
 
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 
-function check(){
-  button = document.getElementById('signupbtn');
-  if (document.getElementById('pwd').value ==
-    document.getElementById('cpwd').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'Matching';
+document.getElementById('provincelist').addEventListener('input', function(e) {
+  var input = e.target,
+  list = input.getAttribute('list'),
+  options = document.querySelectorAll('#' + list + ' option'),
+  hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+  label = input.value;
+
+  hiddenInput.value = label;
+
+for(var i = 0; i < options.length; i++) {
+  var option = options[i];
+
+  if(option.innerText === label) {
+      hiddenInput.value = option.getAttribute('data-value');
+      break;
+  }
+}
+});
+
+document.getElementById('FHcity').addEventListener('input', function(e) {
+var input = e.target,
+list = input.getAttribute('list'),
+options = document.querySelectorAll('#' + list + ' option'),
+hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+label = input.value;
+
+hiddenInput.value = label;
+
+for(var i = 0; i < options.length; i++) {
+var option = options[i];
+
+if(option.innerText === label) {
+  hiddenInput.value = option.getAttribute('data-value');
+  break;
+}
+}
+});
+
+document.getElementById('FNcity1').addEventListener('input', function(e) {
+var input = e.target,
+list = input.getAttribute('list'),
+options = document.querySelectorAll('#' + list + ' option'),
+hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+label = input.value;
+
+hiddenInput.value = label;
+
+for(var i = 0; i < options.length; i++) {
+var option = options[i];
+
+if(option.innerText === label) {
+  hiddenInput.value = option.getAttribute('data-value');
+  break;
+}
+}
+});
+
+document.getElementById('FNcity2').addEventListener('input', function(e) {
+var input = e.target,
+list = input.getAttribute('list'),
+options = document.querySelectorAll('#' + list + ' option'),
+hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+label = input.value;
+
+hiddenInput.value = label;
+
+for(var i = 0; i < options.length; i++) {
+var option = options[i];
+
+if(option.innerText === label) {
+  hiddenInput.value = option.getAttribute('data-value');
+  break;
+}
+}
+});
+
+
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+
+
+function pwdvalidatebuyer(){
+  button = document.getElementById('Bsignupbtn');
+  if (document.getElementById('Bpwd').value ==
+    document.getElementById('Bcpwd').value) {
+    document.getElementById('Bmessage').style.color = 'green';
+    document.getElementById('Bmessage').innerHTML = 'Matching';
 
   } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'Not Matching';
+    document.getElementById('Bmessage').style.color = 'red';
+    document.getElementById('Bmessage').innerHTML = 'Not Matching';
     button.disabled=true;
   }
 }
 
-function buttonOn(){
-  button = document.getElementById('signupbtn');
-  checkbox = document.getElementById('cbox');
-  if (document.getElementById('message').innerHTML == "Matching"){
+function buttonOnbuyer(){
+  button = document.getElementById('Bsignupbtn');
+  checkbox = document.getElementById('Bcbox');
+  if (document.getElementById('Bmessage').innerHTML == "Matching"){
     if(checkbox.checked==true){
       button.disabled=false;
     }else{
       button.disabled=true;
-
     }
   }
+}
 
+function pwdvalidatefarmer(){
+  button = document.getElementById('Fsignupbtn');
+  if (document.getElementById('Fpwd').value ==
+    document.getElementById('Fcpwd').value) {
+    document.getElementById('Fmessage').style.color = 'green';
+    document.getElementById('Fmessage').innerHTML = 'Matching';
+
+  } else {
+    document.getElementById('Fmessage').style.color = 'red';
+    document.getElementById('Fmessage').innerHTML = 'Not Matching';
+    button.disabled=true;
+  }
+}
+
+function buttonOnfarmer(){
+  button = document.getElementById('Fsignupbtn');
+  checkbox = document.getElementById('Fcbox');
+  if (document.getElementById('Fmessage').innerHTML == "Matching"){
+    if(checkbox.checked==true){
+      button.disabled=false;
+    }else{
+      button.disabled=true;
+    }
+  }
+}
+
+function pwdvalidatedriver(){
+  button = document.getElementById('Dsignupbtn');
+  if (document.getElementById('Dpwd').value ==
+    document.getElementById('Dcpwd').value) {
+    document.getElementById('Dmessage').style.color = 'green';
+    document.getElementById('Dmessage').innerHTML = 'Matching';
+
+  } else {
+    document.getElementById('Dmessage').style.color = 'red';
+    document.getElementById('Dmessage').innerHTML = 'Not Matching';
+    button.disabled=true;
+  }
+}
+
+function buttonOndriver(){
+  button = document.getElementById('Dsignupbtn');
+  checkbox = document.getElementById('Dcbox');
+  if (document.getElementById('Dmessage').innerHTML == "Matching"){
+    if(checkbox.checked==true){
+      button.disabled=false;
+    }else{
+      button.disabled=true;
+    }
+  }
+}
+
+
+function pwdvalidatementor(){
+  button = document.getElementById('Msignupbtn');
+  if (document.getElementById('Mpwd').value ==
+    document.getElementById('Mcpwd').value) {
+    document.getElementById('Mmessage').style.color = 'green';
+    document.getElementById('Mmessage').innerHTML = 'Matching';
+
+  } else {
+    document.getElementById('Mmessage').style.color = 'red';
+    document.getElementById('Mmessage').innerHTML = 'Not Matching';
+    button.disabled=true;
+  }
+}
+
+function buttonOnmentor(){
+  button = document.getElementById('Msignupbtn');
+  checkbox = document.getElementById('Mcbox');
+  if (document.getElementById('Mmessage').innerHTML == "Matching"){
+    if(checkbox.checked==true){
+      button.disabled=false;
+    }else{
+      button.disabled=true;
+    }
+  }
 }

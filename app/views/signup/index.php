@@ -167,21 +167,21 @@
         </div>
         <div class="row">
           <div class="lable">Password</div>
-            <input type="password" class="inpbox" id="pwd"  name="Bpwd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
+            <input type="password" class="inpbox" id="Bpwd"  name="Bpwd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
             placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="check();buttonOn();"  required>
+            onkeyup="pwdvalidatebuyer();buttonOnbuyer();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox" id="cpwd" onkeyup="check();buttonOn();" name="Bconfirmpwd"  required>
-            <br><br><span id='message' style="padding-left:27%;font-size:13px;color:red;"></span>
+            <input type="password" class="inpbox" id="Bcpwd" onkeyup="pwdvalidatebuyer();buttonOnbuyer();" name="Bconfirmpwd"  required>
+            <br><br><span id='Bmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
-          <input type="checkbox" id="cbox" class="cbox" onClick="buttonOn()">
+          <input type="checkbox" id="Bcbox" class="cbox" onClick="buttonOnbuyer()">
           I have read and Agree to the follow <a href="#">User Agreement (Buyer)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="signupbtn">
+          <input type="submit" value="Sign Up" disabled id="Bsignupbtn">
         </div>
       </form>
     </div>
@@ -287,21 +287,21 @@
         </div>
         <div class="row">
           <div class="lable">Password</div>
-            <input type="password" class="inpbox"  name="Fpwd" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
+            <input type="password" class="inpbox"  name="Fpwd" id="Fpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
             placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="check();buttonOn();"  required>
+            onkeyup="pwdvalidatefarmer();buttonOnfarmer();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Fconfirmpwd" id="cpwd" onkeyup="check();buttonOn();"  required>
-            <br><br><span id='message' style="padding-left:27%;font-size:13px;color:red;"></span>
+            <input type="password" class="inpbox"  name="Fconfirmpwd" id="Fcpwd" onkeyup="pwdvalidatefarmer();buttonOnfarmer();"  required>
+            <br><br><span id='Fmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
-          <input type="checkbox" id="cbox" class="cbox" onClick="buttonOn()">
+          <input type="checkbox" id="Fcbox" class="cbox" onClick="buttonOnfarmer()">
           I have read and Agree to the follow <a href="#">User Agreement (Farmer)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="signupbtn">
+          <input type="submit" value="Sign Up" disabled id="Fsignupbtn">
         </div>
       </form>
     </div>
@@ -431,22 +431,22 @@
         </div>
         <div class="row">
           <div class="lable">Password</div>
-            <input type="password" class="inpbox"  name="Dpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
+            <input type="password" class="inpbox" id="Dpwd"  name="Dpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
             placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="check();buttonOn();"  required>
+            onkeyup="pwdvalidatedriver();buttonOndriver();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Dcpwd" onkeyup="check();buttonOn();"  required>
-            <br><br><span id='message' style="padding-left:27%;font-size:13px;color:red;"></span>
+            <input type="password" class="inpbox" id="Dcpwd"  name="Dcpwd" onkeyup="pwdvalidatedriver();buttonOndriver();"  required>
+            <br><br><span id='Dmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
           Your account will activated within 24hrs. We will notify you with a SMS.<br><br>
-          <input type="checkbox" name="" id="" class="cbox" onClick="buttonOn()">
+          <input type="checkbox"  id="Dcbox" class="cbox" onClick="buttonOndriver()">
           I have read and Agree to the follow <a href="#">User Agreement (Driver)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="signupbtn">
+          <input type="submit" value="Sign Up" disabled id="Dsignupbtn">
         </div>
       </form>
     </div>
@@ -553,21 +553,21 @@
         </div>
         <div class="row">
           <div class="lable">Password</div>
-            <input type="password" class="inpbox"  name="Mpwd" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
+            <input type="password" class="inpbox" name="Mpwd" id="Mpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
             placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="check();buttonOn();"  required>
+            onkeyup="pwdvalidatementor();buttonOnmentor();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Mcpwd" id="cpwd" onkeyup="check();buttonOn();"  required>
-            <br><br><span id='message' style="padding-left:27%;font-size:13px;color:red;"></span>
+            <input type="password" class="inpbox"  name="Mcpwd" id="Mcpwd" onkeyup="pwdvalidatementor();buttonOnmentor();"  required>
+            <br><br><span id='Mmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
-          <input type="checkbox" id="cbox" class="cbox" onClick="buttonOn()">
+          <input type="checkbox" id="Mcbox" class="cbox" onClick="buttonOnmentor()">
           I have read and Agree to the follow <a href="#">User Agreement (Mentor)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="signupbtn">
+          <input type="submit" value="Sign Up" disabled id="Msignupbtn">
         </div>
       </form>
     </div>
