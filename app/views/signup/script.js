@@ -54,3 +54,42 @@ function errorHandler(event) {
 function abortHandler(event) {
     _("status").innerHTML = "Upload Aborted";
   }
+
+
+document.getElementById('provincelist').addEventListener('input', function(e) {
+      var input = e.target,
+      list = input.getAttribute('list'),
+      options = document.querySelectorAll('#' + list + ' option'),
+      hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+      label = input.value;
+
+      hiddenInput.value = label;
+
+  for(var i = 0; i < options.length; i++) {
+      var option = options[i];
+
+      if(option.innerText === label) {
+          hiddenInput.value = option.getAttribute('data-value');
+          break;
+      }
+  }
+});
+
+document.getElementById('FHcity').addEventListener('input', function(e) {
+  var input = e.target,
+  list = input.getAttribute('list'),
+  options = document.querySelectorAll('#' + list + ' option'),
+  hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+  label = input.value;
+
+  hiddenInput.value = label;
+
+for(var i = 0; i < options.length; i++) {
+  var option = options[i];
+
+  if(option.innerText === label) {
+      hiddenInput.value = option.getAttribute('data-value');
+      break;
+  }
+}
+});

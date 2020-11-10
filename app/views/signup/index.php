@@ -11,14 +11,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
-<?php 
-  print_r($provinces);
-  echo "<br>";
-  foreach($provinces as $key => $values){
-    // print_r($values);
-    echo $values['provinceName'];
-    // echo $values  ."<br>";
-  }
+<?php //******************************************************** */
+  print_r($provinces);          //****************************** */
+  echo "<br>";                  //****************************** */
+  foreach($provinces as $key => $values){   //******************  */
+    // print_r($values);                     //********************** */
+    echo $values['provinceName'];           //******************** */
+    // echo $values  ."<br>";               //******************* */
+  } //********************************************************** */
 ?>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
@@ -30,76 +30,82 @@
         <button onclick="showPanel(3,'#a9a9a9')">Mentor</button>
     </div> 
     <div class="tabPanel">
-      <form >
+      <form method="GET" action="#">
         <div class="row">
           <div class="lable">First Name *</div>
-          <input type="text" class="inpbox" name="fn" required>
+          <input type="text" class="inpbox" name="Ffn" placeholder="saman" required>
         </div>
         <div class="row">
           <div class="lable">Last Name *</div>
-            <input type="text" class="inpbox"  name="ln"  required>
+            <input type="text" class="inpbox"  name="Fln" placeholder="Bandara"  required>
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="gender" class="inpbox"  name="gender" style="font-size: 17px;" required>
+            <select id="gender" class="inpbox"  name="Fgender" style="font-size: 17px;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="dob" max="2002-01-01" required>
+            <input type="date" class="inpbox"  name="Fdob" max="2008-01-01" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>
-            <input type="text" class="inpbox"  name="nic" 
-            pattern="^(?:19|20)?\d{2}(?:[0-35-8]\d\d(?<!(?:000|500|36[7-9]|3[7-9]\d|86[7-9]|8[7-9]\d)))\d{4}(?:[VX])$" 
-            title="Format Should be 123123123V or 123123123X or 12312312312V" required>
+            <input type="text" class="inpbox"  name="Fnic" 
+            pattern="^([0-9]{9}[x|X|v|V]|[0-9]{12})$" placeholder="954560721V or 9496580258X or 1996123145012"
+            title="Format Should be 123123123V or 123123123X or 1231231231231" required>
         </div>
         <div class="row">
           <div class="lable">Mobile Number 1 *</div>
-            <input type="text" class="inpbox"  name="contactno1"  required>
+            <input type="tel" class="inpbox"  name="Fcontactno1" 
+            pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989"  required>
         </div>
         <div class="row">
           <div class="lable">Mobile Number 2</div>
-            <input type="text" class="inpbox"  name="contactno2" >
+            <input type="tel" class="inpbox"  name="Fcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
+            title="Format Should be 0766344989 or 766344989" placeholder="0766355989" >
         </div>
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
-            <input type="text" class="inpbox"  name="addressline1"  required>
+            <input type="text" class="inpbox"  name="Faddressline1" placeholder="No.155" required>
         </div>
         <div class="row">
           <div class="lable">Address Line 2</div>
-            <input type="text" class="inpbox"  name="addressline2">
+            <input type="text" class="inpbox" placeholder="Nilwaththa Mawatha"  name="Faddressline2">
         </div>
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">City *</div>
-            <input list="datalist" value="Select your city" autocomplete="off"  onmousedown="value = '';" name="city" id="city" class="dl inpbox" required />
-              <datalist name="Hcity" id="datalist" class="dl inpbox" required>
+            <input list="Hcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
+              <datalist id="Hcity" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key => $values){
                     $city = $values['city_name'];
+                    $cityid = $values['city_id'];
                 ?> 
-                <option class="dl" value="<?php echo $city; ?>"><?php echo $city; ?></option>
+                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
               </datalist>
+              <input type="hidden" name="FHcity" id="FHcity-hidden">
           </div>
           <div class="row">
             <div class="lable2">Province *</div>
-              <input list="Hprovince" value="Select your Province" autocomplete="off"  onmousedown="value = '';" name="province" id="province" class="dl inpbox" required />
-              <datalist name="Hprovince" id="Hprovince" class="dl inpbox" required>
-                <?php
+              <input list="Hprovince" value="Select your Province" autocomplete="off"  onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
+              <datalist id="Hprovince" class="dl inpbox" required>
+              <?php
                   foreach($provinces as $key => $values){
                     $province = $values['provinceName'];
-                ?> 
-                <option class="dl" value="<?php echo $province; ?>"><?php echo $province; ?></option>
+                    $provinceid = $values['province_id'];
+                ?>
+                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
                 <?php
                   }
                 ?>
               </datalist>
+              <input type="hidden" name="Fprovince" id="provincelist-hidden">
           </div>
         </div> <!-- grid end -->
         <div class="row">
@@ -113,20 +119,20 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-            <input type="text" class="inpbox"  name="email"  required>
+            <input type="text" class="inpbox"  name="Fnearcity1"  required>
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-            <input type="text" class="inpbox"  name="email"  required>
+            <input type="text" class="inpbox"  name="Fnearcity2"  required>
         </div>
         <div class="desc">If you have a Business</div>
         <div class="row">
           <div class="lable">Business Name</div>
-            <input type="text" class="inpbox"  name="email"  required>
+            <input type="text" class="inpbox"  name="Busname"  >
         </div>
         <div class="row">
           <div class="lable">BR No.</div>
-            <input type="text" class="inpbox"  name="email"  required>
+            <input type="text" class="inpbox"  name="email"  >
         </div>
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
