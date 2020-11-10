@@ -236,3 +236,29 @@ function buttonOnmentor(){
     }
   }
 }
+
+function selectfunc(){
+  if(document.getElementById('BProvince').value>0)alert("d");
+}
+
+
+$(document).ready(function() {
+  $('.js-example-responsive').select2({
+    allowClear: true,
+    placeholder: {
+        id: "0",
+        text: "Select an Option" //Should be text not placeholder
+    }
+
+  });
+});
+
+$(document).ready(function() {
+  $('.s2').select2({
+    allowClear: true,
+    placeholder: {
+      id: "0",
+      text: "Select an Option" //Should be text not placeholder
+    }
+  });
+});

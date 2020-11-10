@@ -6,11 +6,15 @@
   <link rel="stylesheet" type="text/css" href="/thoga.lk/app/views/signup/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
+<?php
+  //print_r($cities);
+?>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
@@ -22,7 +26,7 @@
     </div> 
     <!-- Buyer -->
     <div class="tabPanel">
-      <form method="GET" action="#">
+      <form method="GET" action="signup/buyer">
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Bfn" placeholder="saman" required>
@@ -58,7 +62,7 @@
             <input type="tel" class="inpbox"  name="Bcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989" >
         </div>
-		        <div class="row">
+		    <div class="row">
           <div class="lable">Address Line 1*</div>
             <input type="text" class="inpbox"  name="Baddressline1" placeholder="No.155" required>
         </div>
@@ -66,38 +70,51 @@
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox" placeholder="Nilwaththa Mawatha"  name="Baddressline2">
         </div>
+        <div class="row">
+          <div class="lable">Province</div>
+          <select class="js-example-responsive" name="Bprovince" id="BProvince" onchange="selectfunc()" required>
+          <option value="0"></option>
+          <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['name_en'];
+                    $provinceid = $values['id'];
+                ?>
+                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                <?php
+                  }
+                ?>
+        </select>
+        </div>
         <div class="grid"> <!--grid added-->
           <div class="row">
-            <div class="lable1">City *</div>
-            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
-              <datalist id="FHcityy" class="dl inpbox" required>
+            <div class="lable1">District *</div>
+            <select class="s2" name="Bdistrict" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key => $values){
-                    $city = $values['city_name'];
-                    $cityid = $values['city_id'];
+                  foreach($districts as $key => $values){
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-              <input type="hidden" name="BHcity" id="FHcity-hidden">
+            </select>
           </div>
           <div class="row">
-            <div class="lable2">Province *</div>
-              <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
-              <datalist id="Hprovince" class="dl inpbox" required>
-              <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['provinceName'];
-                    $provinceid = $values['province_id'];
-                ?>
-                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
+            <div class="lable2">City *</div>
+            <select class="s2" name="Bcity" required>
+              <option value="0"></option>
+                <?php
+                  foreach($cities as $key => $values){
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-              <input type="hidden" name="Bprovince" id="provincelist-hidden">
+            </select>
           </div>
         </div> <!-- grid end -->
         <div class="row">
@@ -111,12 +128,12 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
+          <input list="FNcity" value="Select your city" autocomplete="on"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
               <datalist id="FNcity" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key1 => $values1){
-                    $city1 = $values1['city_name'];
-                    $cityid1 = $values1['city_id'];
+                    $city1 = $values1['name_en'];
+                    $cityid1 = $values1['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
@@ -131,8 +148,8 @@
               <datalist id="FNcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key2 => $values2){
-                    $city2 = $values2['city_name'];
-                    $cityid2 = $values2['city_id'];
+                    $city2 = $values2['name_en'];
+                    $cityid2 = $values2['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
@@ -230,8 +247,8 @@
               <datalist id="FHcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key => $values){
-                    $city = $values['city_name'];
-                    $cityid = $values['city_id'];
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
@@ -272,8 +289,8 @@
               <datalist id="FNcity" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key1 => $values1){
-                    $city1 = $values1['city_name'];
-                    $cityid1 = $values1['city_id'];
+                    $city1 = $values1['name_en'];
+                    $cityid1 = $values1['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
@@ -288,8 +305,8 @@
               <datalist id="FNcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key2 => $values2){
-                    $city2 = $values2['city_name'];
-                    $cityid2 = $values2['city_id'];
+                    $city2 = $values2['name_en'];
+                    $cityid2 = $values2['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
@@ -388,8 +405,8 @@
               <datalist id="FHcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key => $values){
-                    $city = $values['city_name'];
-                    $cityid = $values['city_id'];
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
@@ -430,8 +447,8 @@
               <datalist id="FNcity" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key1 => $values1){
-                    $city1 = $values1['city_name'];
-                    $cityid1 = $values1['city_id'];
+                    $city1 = $values1['name_en'];
+                    $cityid1 = $values1['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
@@ -446,8 +463,8 @@
               <datalist id="FNcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key2 => $values2){
-                    $city2 = $values2['city_name'];
-                    $cityid2 = $values2['city_id'];
+                    $city2 = $values2['name_en'];
+                    $cityid2 = $values2['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
@@ -570,8 +587,8 @@
               <datalist id="FHcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key => $values){
-                    $city = $values['city_name'];
-                    $cityid = $values['city_id'];
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
@@ -612,8 +629,8 @@
               <datalist id="FNcity" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key1 => $values1){
-                    $city1 = $values1['city_name'];
-                    $cityid1 = $values1['city_id'];
+                    $city1 = $values1['name_en'];
+                    $cityid1 = $values1['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
@@ -628,8 +645,8 @@
               <datalist id="FNcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key2 => $values2){
-                    $city2 = $values2['city_name'];
-                    $cityid2 = $values2['city_id'];
+                    $city2 = $values2['name_en'];
+                    $cityid2 = $values2['id'];
                 ?> 
                 <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
