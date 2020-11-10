@@ -77,8 +77,8 @@
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">City *</div>
-            <input list="Hcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
-              <datalist id="Hcity" class="dl inpbox" required>
+            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
+              <datalist id="FHcityy" class="dl inpbox" required>
                 <?php
                   foreach($cities as $key => $values){
                     $city = $values['city_name'];
@@ -93,7 +93,7 @@
           </div>
           <div class="row">
             <div class="lable2">Province *</div>
-              <input list="Hprovince" value="Select your Province" autocomplete="off"  onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
+              <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
               <datalist id="Hprovince" class="dl inpbox" required>
               <?php
                   foreach($provinces as $key => $values){
@@ -119,11 +119,35 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-            <input type="text" class="inpbox"  name="Fnearcity1"  required>
+          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
+              <datalist id="FNcity" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key1 => $values1){
+                    $city1 = $values1['city_name'];
+                    $cityid1 = $values1['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="FNcity1" id="FNcity1-hidden">
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-            <input type="text" class="inpbox"  name="Fnearcity2"  required>
+          <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
+              <datalist id="FNcityy" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key2 => $values2){
+                    $city2 = $values2['city_name'];
+                    $cityid2 = $values2['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="FNcity2" id="FNcity2-hidden">
         </div>
         <div class="desc">If you have a Business</div>
         <div class="row">
