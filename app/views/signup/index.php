@@ -11,15 +11,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
-<?php //******************************************************** */
-  print_r($provinces);          //****************************** */
-  echo "<br>";                  //****************************** */
-  foreach($provinces as $key => $values){   //******************  */
-    // print_r($values);                     //********************** */
-    echo $values['provinceName'];           //******************** */
-    // echo $values  ."<br>";               //******************* */
-  } //********************************************************** */
-?>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
@@ -173,7 +164,7 @@
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox" id="Bcpwd" onkeyup="pwdvalidatebuyer();buttonOnbuyer();" name="Bconfirmpwd"  required>
+            <input type="password" class="inpbox" id="Bcpwd" onkeyup="pwdvalidatebuyer();buttonOnbuyer();" name="Bconfirmpwd" placeholder="Retype Password"  required>
             <br><br><span id='Bmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -235,22 +226,35 @@
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">City *</div>
-              <input type="text" class="inpbox"  name="city"  required>
+            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
+              <datalist id="FHcityy" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key => $values){
+                    $city = $values['city_name'];
+                    $cityid = $values['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+              <input type="hidden" name="FHcity" id="FHcity-hidden">
           </div>
           <div class="row">
             <div class="lable2">Province *</div>
-              <select id="province" class="inpbox"  name="province" style="font-size: 17px;" required>
-                <option value="north">Nothern Province</option>
-                <option value="northwest">North-Western Province</option>
-                <option value="west">Western Province</option>
-                <option value="uva">Uva Province</option>
-                <option value="south">Southern Province</option>
-                <option value="Sabaragamuwa">Sabaragamuwa Province</option>
-                <option value="central">Central Province</option>
-                <option value="eastern">Eastern Province</option>
-                <option value="northcentral">North-Central Province</option>
-                
-              </select>
+            <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
+              <datalist id="Hprovince" class="dl inpbox" required>
+              <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['provinceName'];
+                    $provinceid = $values['province_id'];
+                ?>
+                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+              <input type="hidden" name="Fprovince" id="provincelist-hidden">
           </div>
         </div> <!-- grid end -->
         <div class="row">
@@ -264,11 +268,35 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-            <input type="text" class="inpbox"  name="email"  required>
+          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
+              <datalist id="FNcity" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key1 => $values1){
+                    $city1 = $values1['city_name'];
+                    $cityid1 = $values1['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="FNcity1" id="FNcity1-hidden">
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-            <input type="text" class="inpbox"  name="email"  required>
+            <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
+              <datalist id="FNcityy" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key2 => $values2){
+                    $city2 = $values2['city_name'];
+                    $cityid2 = $values2['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="FNcity2" id="FNcity2-hidden">
         </div>
         <div class="desc">If you are a registered farmer in Agriculture Department</div>
         <div class="row">
@@ -293,7 +321,7 @@
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Fconfirmpwd" id="Fcpwd" onkeyup="pwdvalidatefarmer();buttonOnfarmer();"  required>
+            <input type="password" class="inpbox"  name="Fconfirmpwd" id="Fcpwd" onkeyup="pwdvalidatefarmer();buttonOnfarmer();" placeholder="Retype Password"  required>
             <br><br><span id='Fmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -356,22 +384,35 @@
         <div class="grid"> <!--grid added-->
         <div class="row">
           <div class="lable1">City *</div>
-            <input type="text" class="inpbox"  name="city"  required>
+            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
+              <datalist id="FHcityy" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key => $values){
+                    $city = $values['city_name'];
+                    $cityid = $values['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+              <input type="hidden" name="DHcity" id="FHcity-hidden">
         </div>
         <div class="row">
           <div class="lable2">Province *</div>
-            <select id="province" class="inpbox"  name="province" style="font-size: 17px;" required>
-              <option value="north">Nothern Province</option>
-              <option value="northwest">North-Western Province</option>
-              <option value="west">Western Province</option>
-              <option value="uva">Uva Province</option>
-              <option value="south">Southern Province</option>
-              <option value="Sabaragamuwa">Sabaragamuwa Province</option>
-              <option value="central">Central Province</option>
-              <option value="eastern">Eastern Province</option>
-              <option value="northcentral">North-Central Province</option>
-              
-            </select>
+           <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
+              <datalist id="Hprovince" class="dl inpbox" required>
+              <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['provinceName'];
+                    $provinceid = $values['province_id'];
+                ?>
+                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+              <input type="hidden" name="Dprovince" id="provincelist-hidden">
         </div>
         </div> <!-- grid end -->
         <div class="row">
@@ -385,11 +426,35 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-            <input type="text" class="inpbox"  name="email"  required>
+          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
+              <datalist id="FNcity" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key1 => $values1){
+                    $city1 = $values1['city_name'];
+                    $cityid1 = $values1['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="DNcity1" id="FNcity1-hidden">
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-            <input type="text" class="inpbox"  name="email"  required>
+          <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
+              <datalist id="FNcityy" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key2 => $values2){
+                    $city2 = $values2['city_name'];
+                    $cityid2 = $values2['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="DNcity2" id="FNcity2-hidden">
         </div>
         <div class="desc">Upload required Documents (jpg/jpeg/png)</div>
         <div class="row">
@@ -437,7 +502,7 @@
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox" id="Dcpwd"  name="Dcpwd" onkeyup="pwdvalidatedriver();buttonOndriver();"  required>
+            <input type="password" class="inpbox" id="Dcpwd"  name="Dcpwd" onkeyup="pwdvalidatedriver();buttonOndriver();" placeholder="Retype Password"  required>
             <br><br><span id='Dmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -498,25 +563,40 @@
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox"  name="Maddressline2" placeholder="Nilwaththa Mawatha">
         </div>
+        <div class="grid"> <!--grid added-->
         <div class="row">
-          <div class="lable">City *</div>
-            <input type="text" class="inpbox"  name="Mcity"  required>
+          <div class="lable1">City *</div>
+            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
+              <datalist id="FHcityy" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key => $values){
+                    $city = $values['city_name'];
+                    $cityid = $values['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+              <input type="hidden" name="MHcity" id="FHcity-hidden">
         </div>
         <div class="row">
-          <div class="lable">Province *</div>
-            <select id="province" class="inpbox"  name="province" style="font-size: 17px;" required>
-              <option value="north">Nothern Province</option>
-              <option value="northwest">North-Western Province</option>
-              <option value="west">Western Province</option>
-              <option value="uva">Uva Province</option>
-              <option value="south">Southern Province</option>
-              <option value="Sabaragamuwa">Sabaragamuwa Province</option>
-              <option value="central">Central Province</option>
-              <option value="eastern">Eastern Province</option>
-              <option value="northcentral">North-Central Province</option>
-              
-            </select>
+          <div class="lable2">Province *</div>
+           <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
+              <datalist id="Hprovince" class="dl inpbox" required>
+              <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['provinceName'];
+                    $provinceid = $values['province_id'];
+                ?>
+                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+              <input type="hidden" name="Mprovince" id="provincelist-hidden">
         </div>
+        </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
             <input type="text" class="inpbox"  name="Mpostalcode" placeholder="50000"  required>
@@ -528,11 +608,35 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-            <input type="text" class="inpbox"  name="email"  required>
+          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
+              <datalist id="FNcity" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key1 => $values1){
+                    $city1 = $values1['city_name'];
+                    $cityid1 = $values1['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="MNcity1" id="FNcity1-hidden">
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-            <input type="text" class="inpbox"  name="email"  required>
+          <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
+              <datalist id="FNcityy" class="dl inpbox" required>
+                <?php
+                  foreach($cities as $key2 => $values2){
+                    $city2 = $values2['city_name'];
+                    $cityid2 = $values2['city_id'];
+                ?> 
+                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <?php
+                  }
+                ?>
+              </datalist>
+          <input type="hidden" name="MNcity2" id="FNcity2-hidden">
         </div>
         <div class="desc">Explain in few words about you</div>
         <div class="row">
@@ -559,7 +663,7 @@
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Mcpwd" id="Mcpwd" onkeyup="pwdvalidatementor();buttonOnmentor();"  required>
+            <input type="password" class="inpbox"  name="Mcpwd" id="Mcpwd" onkeyup="pwdvalidatementor();buttonOnmentor();" placeholder="Retype Password"  required>
             <br><br><span id='Mmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
