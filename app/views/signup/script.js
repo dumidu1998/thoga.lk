@@ -131,3 +131,32 @@ for(var i = 0; i < options.length; i++) {
   }
 }
 });
+
+
+function check(){
+  button = document.getElementById('signupbtn');
+  if (document.getElementById('pwd').value ==
+    document.getElementById('cpwd').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Matching';
+
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Not Matching';
+    button.disabled=true;
+  }
+}
+
+function buttonOn(){
+  button = document.getElementById('signupbtn');
+  checkbox = document.getElementById('cbox');
+  if (document.getElementById('message').innerHTML == "Matching"){
+    if(checkbox.checked==true){
+      button.disabled=false;
+    }else{
+      button.disabled=true;
+
+    }
+  }
+
+}

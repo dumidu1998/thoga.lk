@@ -64,7 +64,7 @@ body{
 }
 
 .agreement{
-  margin: 20px 0px 20px 30%;
+  margin: 20px 0px 20px 26%;
   font-size: 18px;
 }
 
@@ -103,7 +103,7 @@ input[type=tel]{
   font-size: 30px;
 }
 
-[type=submit] {
+input[type=submit] {
   margin: 25px auto 0px 28%;
   width: 50%;
   border: 0;
@@ -115,6 +115,13 @@ input[type=tel]{
   font-size: 1em;
   text-align: center;
 }
+input[type=submit]:disabled{
+  background-color: #268b8f;
+  color: rgb(168, 159, 159);
+
+
+}
+
 
 .grid{
   display: grid;
