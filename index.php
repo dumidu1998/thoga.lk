@@ -18,6 +18,10 @@ $routes = [
     'buyer/summery' => 'BuyerController@summery',
     'signup' => 'SignUpController@show',
     'signup/buyer' => 'SignUpController@addbuyer'
+    '' => 'LoginController@view',
+    'login'=> 'LoginController@login',
+    'buyer/logout' => 'BuyerController@logout',
+    'buyer/profile' => 'BuyerController@profile'
     
  ];
 

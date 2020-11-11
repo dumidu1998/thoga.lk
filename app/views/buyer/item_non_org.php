@@ -8,13 +8,11 @@
    
 </head>
 <body>
-<?php
-//print_r($data);
-?>
+
 
 <div>
 <?php 
-//  print_r($data);
+ //print_r($data[0]);
 $count=0;
 $length = sizeof($data);
 // echo $length;
@@ -48,8 +46,9 @@ foreach($data as $key => $value){
     <div class="card">
       <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:100%">
       <div class="container">
-        <h4><b><?php echo $name ?></b></h4> 
-        <p>Selling by farmer <?php echo $farmer_name ?>.  <br> price - Rs. <?php echo $price ?></p> 
+        <h2><b><?php echo $name ?></b></h2> 
+        <p>Selling by farmer <?php echo $farmer_name ?>.</p>   
+        <h4>price - Rs. <?php echo $price ?></h4>
       </div>
       <?php
         if($type=="org"){
@@ -71,62 +70,70 @@ foreach($data as $key => $value){
           <!-- Modal content -->
           <form action="/thoga.lk/buyer/cart" method="post"  >
               <div class="modal-content">
-                  <span class="close" onclick="closeModal(<?= $id ?>)">&times;</span>
                   <div class="item-img">
+
                       <!-- image -->
                       <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:60%">
-                  </div>
-          
-                  <div class="container">
+
                       <div class="user-details">
                           <div>
                               <!-- name -->
                               <h1 name="name"><a href=""><?php echo $name; ?></a></h1>
+                              <div class="farmer_icon">
+                                <img width=40px src="/thoga.lk/public/images/buyer/icons/farmer.png" alt="">
+                                <h3 float=left><a href=""> <?php echo $farmer_name . " ". $value['lastname'] ; ?></a></h3>
+                              </div>
+                                  <div class="user_address">
+                            <!-- location details of the farmer -->
+                                        <img width="20px" height="70px" src="/thoga.lk/public/images/buyer/icons/location.png" alt="">
+                                      <p><?php echo $value['address_line1'] . " </br>" . $value['address_line2'] . "</br> " .$value['city'] . " </br> ". $value['province_name']; ?> </p>
+                                    </div>
                               
-                          </div>
-                          <div class="farmer_icon">
-                              <!-- farmer name -->
-                              <img width=60px src="/thoga.lk/public/images/buyer/farmer.png" alt="">
-          
-                              <h2><a href=""> <?php echo $farmer_name; ?></a></h2>
-                          </div>
-          
+                          </div>          
                       </div>
+                  </div>
           
-                      <hr>
-          
+                  <div>
+                      <span class="close" onclick="closeModal(<?= $id ?>)">&times;</span>
                       <div class="item_des">
                           <!-- description -->
                          <p>
-                           gcgchchgh
                          <?php echo $item_description ?> 
                          </p>               
                       </div>
-                      <div class="user_address">
-                          <!-- location details of the farmer -->
-                          <img width="10px" src="/thoga.lk/public/images/buyer/icons/location.png" alt="">
-                        <p> 388/54 waikkala nuwara eliya</p>
-                      </div>
-          
-                     
-          
-                  </div>
-                  <div>
+
                       <!-- quantity/price -->
-                      <input type="hidden" name="hidden_name" value="<?php echo $name ?>" />  
-                      <input type="hidden" name="hidden_price" value="<?php echo $price ?>" />  
-                      <input type="hidden" name="id" value="<?php echo $id ?>" />  
+                      <div class="item_data">
+                        
+                        <input type="hidden" name="hidden_name" value="<?php echo $name ?>" />  
+                        <input type="hidden" name="hidden_price" value="<?php echo $price ?>" />  
+                        <input type="hidden" name="id" value="<?php echo $id ?>" />  
+  
+                          <label for="price">Price/kg</label>
+                        <input type="number" id="price" name="price" value="<?php echo $price ?>" disabled/> 
+                        <label for="qnty">Quantity</label>
+                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
+                        <label for="s_date">Start Date</label>
+                        <input type="text" name= "s_date" value="<?php echo $s_date ?>" disabled/>
+                        <label for="e_date">End Date</label>
+                        <input type="text" name= "e_date" value="<?php echo $s_date ?>" disabled/>
+                      </div>
 
-                        <label for="price">Price/kg</label>
-                      <input type="number" id="price" name="price" value="<?php echo $price ?>" disabled/> 
-                      <label for="qnty">Quantity</label>
-                      <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
-                      <label for="s_date">Start Date</label>
-                      <input type="text" name= "s_date" value="<?php echo $s_date ?>"/>
-                      <label for="e_date">End Date</label>
-                      <input type="text" name= "e_date" value="<?php echo $s_date ?>"/>
+                      <?php 
+                        if(isset($_SESSION['user'])){
+                      echo "<button name='add_to_cart' class='checkout_btn'>Add to cart</button>";
 
-                      <button name="add_to_cart" class="checkout_btn">Add to cart</button>
+                        }else{
+                      echo "<button onclick = 'error()' class='checkout_btn'>Add to cart</button>";
+                          
+                        }
+                      ?>
+
+                      <script>
+                        function error(){
+                          alert("You are not logged in! please Log in and start shopping");
+                        }
+                      </script>
                   </div>
                   
               </div>

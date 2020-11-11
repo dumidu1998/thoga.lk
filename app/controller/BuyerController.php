@@ -16,6 +16,7 @@ class BuyerController {
         
     }
     public function index(){
+        // session_start();
         $view = new View("buyer/index");
         $result = $this->model->joinget();
         $class="org_active";
@@ -118,6 +119,16 @@ class BuyerController {
     }
     public function summery(){
         $view = new View("buyer/summary");
+    }
+    public function logout(){
+        session_start();
+        session_destroy();
+        $View = new View("login/login");
+        
+        
+    }
+    public function profile(){
+        $view = new View("buyer/Buyer_user_profile");
     }
 }
 
