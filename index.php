@@ -9,14 +9,6 @@ $path = substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($dir_na
 // die();
 
 $routes = [
-<<<<<<< HEAD
-    'buyer/select-driver' => 'BuyerController@selectDriver', 
-    'buyer/home' => 'BuyerController@index',
-    'driver/dashboard' => 'DriverController@driverdashboard',
-    'driver/viewmore' => 'DriverController@viewmore',
-    'driver/profile' => 'DriverController@viewprofile',
-];
-=======
     'buyer/select-driver' => 'BuyerController@selectDriver',
     'buyer/home' => 'BuyerController@index',
     'buyer/booksuccess' => 'BuyerController@book',
@@ -25,14 +17,16 @@ $routes = [
     'buyer/checkout' => 'BuyerController@checkout',
     'buyer/summery' => 'BuyerController@summery',
     'signup' => 'SignUpController@show',
-    'signup/buyer' => 'SignUpController@addbuyer'
+    'signup/buyer' => 'SignUpController@addbuyer',
     '' => 'LoginController@view',
     'login'=> 'LoginController@login',
     'buyer/logout' => 'BuyerController@logout',
-    'buyer/profile' => 'BuyerController@profile'
+    'buyer/profile' => 'BuyerController@profile',
+    'driver/dashboard' => 'DriverController@driverdashboard',
+    'driver/viewmore' => 'DriverController@viewmore',
+    'driver/profile' => 'DriverController@viewprofile'
     
  ];
->>>>>>> 58990238d2051afe569b36e385072763175cbfb6
 
 foreach($routes as $route => $controller_route) {
     if ($route == $path) {
