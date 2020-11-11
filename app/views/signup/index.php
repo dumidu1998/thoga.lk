@@ -26,7 +26,8 @@
     </div> 
     <!-- Buyer -->
     <div class="tabPanel">
-      <form method="GET" action="signup/buyer">
+      <form method="POST" action="signup/buyer">
+      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Bfn" placeholder="saman" required>
@@ -37,7 +38,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="gender" class="inpbox"  name="Bgender" style="font-size: 17px;" required>
+            <select id="Bgender" class="inpbox"  name="Bgender" style="font-size: 17px;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -71,8 +72,8 @@
             <input type="text" class="inpbox" placeholder="Nilwaththa Mawatha"  name="Baddressline2">
         </div>
         <div class="row">
-          <div class="lable">Province</div>
-          <select class="js-example-responsive" name="Bprovince" id="BProvince" onchange="selectfunc()" required>
+          <div class="lable">Province *</div>
+          <select class="js-example-responsive" name="Bprovince" id="BProvince" onchange="bselectvalidate1()" required>
           <option value="0"></option>
           <?php
                   foreach($provinces as $key => $values){
@@ -88,14 +89,14 @@
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">District *</div>
-            <select class="s2" name="Bdistrict" required>
+            <select class="s2" name="Bdistrict" id="Bdistrict" onchange="bselectvalidate2()" required>
               <option value="0"></option>
                 <?php
                   foreach($districts as $key => $values){
                     $city = $values['name_en'];
                     $cityid = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
@@ -103,14 +104,14 @@
           </div>
           <div class="row">
             <div class="lable2">City *</div>
-            <select class="s2" name="Bcity" required>
+            <select class="s2" name="Bcity" id="Bcity" onchange="bselectvalidate3()" required>
               <option value="0"></option>
                 <?php
                   foreach($cities as $key => $values){
                     $city = $values['name_en'];
                     $cityid = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
@@ -128,35 +129,33 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-          <input list="FNcity" value="Select your city" autocomplete="on"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
-              <datalist id="FNcity" class="dl inpbox" required>
+          <select class="s2" name="BNcity1" id="Bncity1" onchange="bselectvalidate4()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key1 => $values1){
-                    $city1 = $values1['name_en'];
-                    $cityid1 = $values1['id'];
+                  foreach($cities as $key => $values){
+                    $city1 = $values['name_en'];
+                    $cityid1 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <option class="dl" value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="BNcity1" id="FNcity1-hidden">
+            </select>
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-          <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
-              <datalist id="FNcityy" class="dl inpbox" required>
+          <select class="s2" name="BNcity2" id="Bncity2" onchange="bselectvalidate5()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key2 => $values2){
-                    $city2 = $values2['name_en'];
-                    $cityid2 = $values2['id'];
+                  foreach($cities as $key => $values){
+                    $city2 = $values['name_en'];
+                    $cityid2 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <option class="dl" value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="BNcity2" id="FNcity2-hidden">
+            </select>
         </div>
         <div class="desc">If you have a Business</div>
         <div class="row">
@@ -196,7 +195,8 @@
 
     <!-- Farmer -->
     <div class="tabPanel">
-      <form >
+      <form method="POST" action="signup/farmer">
+      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Ffn" placeholder="saman" required>
@@ -207,7 +207,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="gender" class="inpbox"  name="Fgender" style="font-size: 17px;" required>
+            <select id="Fgender" class="inpbox"  name="Fgender" style="font-size: 17px;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -224,12 +224,12 @@
         </div>
         <div class="row">
           <div class="lable">Mobile Number 1 *</div>
-            <input type="text" class="inpbox"  name="Fcontactno1"
+            <input type="tel" class="inpbox"  name="Fcontactno1"
             pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989" required>
         </div>
         <div class="row">
           <div class="lable">Mobile Number 2</div>
-            <input type="text" class="inpbox"  name="Fcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
+            <input type="tel" class="inpbox"  name="Fcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989" >
         </div>
 		        <div class="row">
@@ -240,39 +240,52 @@
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox" placeholder="Nilwaththa Mawatha" name="Faddressline2">
         </div>
+        <div class="row">
+          <div class="lable">Province *</div>
+          <select class="js-example-responsive" name="Fprovince" id="FProvince" onchange="fselectvalidate1()" required>
+          <option value="0"></option>
+          <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['name_en'];
+                    $provinceid = $values['id'];
+                ?>
+                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                <?php
+                  }
+                ?>
+        </select>
+        </div>
         <div class="grid"> <!--grid added-->
           <div class="row">
-            <div class="lable1">City *</div>
-            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
-              <datalist id="FHcityy" class="dl inpbox" required>
+            <div class="lable1">District *</div>
+            <select class="s2" name="Fdistrict" id="Fdistrict" onchange="fselectvalidate2()" required>
+              <option value="0"></option>
+                <?php
+                  foreach($districts as $key => $values){
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
+                ?> 
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <?php
+                  }
+                ?>
+            </select>
+            </div>
+          <div class="row">
+            <div class="lable2">City *</div>
+            <select class="s2" name="Fcity" id="Fcity" onchange="fselectvalidate3()" required>
+              <option value="0"></option>
                 <?php
                   foreach($cities as $key => $values){
                     $city = $values['name_en'];
                     $cityid = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-              <input type="hidden" name="FHcity" id="FHcity-hidden">
-          </div>
-          <div class="row">
-            <div class="lable2">Province *</div>
-            <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
-              <datalist id="Hprovince" class="dl inpbox" required>
-              <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['provinceName'];
-                    $provinceid = $values['province_id'];
-                ?>
-                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
-                <?php
-                  }
-                ?>
-              </datalist>
-              <input type="hidden" name="Fprovince" id="provincelist-hidden">
-          </div>
+            </select>
+            </div>
         </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
@@ -285,35 +298,33 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
-              <datalist id="FNcity" class="dl inpbox" required>
+            <select class="s2" name="FNcity1" id="Fncity1" onchange="fselectvalidate4()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key1 => $values1){
-                    $city1 = $values1['name_en'];
-                    $cityid1 = $values1['id'];
+                  foreach($cities as $key => $values){
+                    $city1 = $values['name_en'];
+                    $cityid1 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <option class="dl" value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="FNcity1" id="FNcity1-hidden">
+            </select>
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-            <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
-              <datalist id="FNcityy" class="dl inpbox" required>
+          <select class="s2" name="FNcity2" id="Fncity2" onchange="fselectvalidate5()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key2 => $values2){
-                    $city2 = $values2['name_en'];
-                    $cityid2 = $values2['id'];
+                  foreach($cities as $key => $values){
+                    $city2 = $values['name_en'];
+                    $cityid2 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <option class="dl" value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="FNcity2" id="FNcity2-hidden">
+            </select>
         </div>
         <div class="desc">If you are a registered farmer in Agriculture Department</div>
         <div class="row">
@@ -354,7 +365,8 @@
 
         <!-- Driver -->
     <div class="tabPanel">
-      <form enctype="multipart/form-data">
+      <form method="POST" action="signup/driver" enctype="multipart/form-data">
+      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Dfn" placeholder="saman" required>
@@ -365,7 +377,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="gender" class="inpbox"  name="Dgender" style="font-size: 17px;" required>
+            <select id="Dgender" class="inpbox"  name="Dgender" style="font-size: 17px;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -382,12 +394,12 @@
         </div>
         <div class="row">
           <div class="lable">Mobile Number 1 *</div>
-            <input type="text" class="inpbox"  name="Dcontactno1"   
+            <input type="tel" class="inpbox"  name="Dcontactno1"   
             pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989"  required>
         </div>
         <div class="row">
           <div class="lable">Mobile Number 2</div>
-            <input type="text" class="inpbox"  name="Dcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
+            <input type="tel" class="inpbox"  name="Dcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989">
         </div>
 		        <div class="row">
@@ -398,39 +410,52 @@
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox"  name="Daddressline2" placeholder="Nilwaththa Mawatha">
         </div>
+        <div class="row">
+          <div class="lable">Province *</div>
+          <select class="js-example-responsive" name="Dprovince" id="DProvince" onchange="dselectvalidate1()" required>
+          <option value="0"></option>
+          <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['name_en'];
+                    $provinceid = $values['id'];
+                ?>
+                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                <?php
+                  }
+                ?>
+        </select>
+        </div>
         <div class="grid"> <!--grid added-->
         <div class="row">
-          <div class="lable1">City *</div>
-            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
-              <datalist id="FHcityy" class="dl inpbox" required>
+          <div class="lable1">District *</div>
+          <select class="s2" name="Ddistrict" id="Ddistrict" onchange="dselectvalidate2()" required>
+              <option value="0"></option>
+                <?php
+                  foreach($districts as $key => $values){
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
+                ?> 
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <?php
+                  }
+                ?>
+            </select>
+        </div>
+        <div class="row">
+          <div class="lable2">City *</div>
+          <select class="s2" name="Dcity" id="Dcity" onchange="dselectvalidate3()" required>
+              <option value="0"></option>
                 <?php
                   foreach($cities as $key => $values){
                     $city = $values['name_en'];
                     $cityid = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-              <input type="hidden" name="DHcity" id="FHcity-hidden">
-        </div>
-        <div class="row">
-          <div class="lable2">Province *</div>
-           <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
-              <datalist id="Hprovince" class="dl inpbox" required>
-              <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['provinceName'];
-                    $provinceid = $values['province_id'];
-                ?>
-                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
-                <?php
-                  }
-                ?>
-              </datalist>
-              <input type="hidden" name="Dprovince" id="provincelist-hidden">
-        </div>
+            </select>
+          </div>
         </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
@@ -443,36 +468,34 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
-              <datalist id="FNcity" class="dl inpbox" required>
+            <select class="s2" name="DNcity1" id="Dncity1" onchange="dselectvalidate4()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key1 => $values1){
-                    $city1 = $values1['name_en'];
-                    $cityid1 = $values1['id'];
+                  foreach($cities as $key => $values){
+                    $city1 = $values['name_en'];
+                    $cityid1 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <option class="dl" value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="DNcity1" id="FNcity1-hidden">
-        </div>
+            </select>
+          </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-          <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
-              <datalist id="FNcityy" class="dl inpbox" required>
+            <select class="s2" name="DNcity2" id="Dncity2" onchange="dselectvalidate5()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key2 => $values2){
-                    $city2 = $values2['name_en'];
-                    $cityid2 = $values2['id'];
+                  foreach($cities as $key => $values){
+                    $city2 = $values['name_en'];
+                    $cityid2 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <option class="dl" value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="DNcity2" id="FNcity2-hidden">
-        </div>
+            </select>
+          </div>
         <div class="desc">Upload required Documents (jpg/jpeg/png)</div>
         <div class="row">
           <div class="lable">Driving License No.</div>
@@ -490,7 +513,7 @@
         <div class="row">
           <div class="lable">Photo of Driving License  </div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file1" id="file1" onchange="uploadFile()">
+            <input type="file" name="file2" id="file2" onchange="uploadFile()">
             <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
             <u id="status" style="font-size:10px"></u>
             <u id="loaded_n_total" style="font-size:10px"></u>
@@ -499,7 +522,7 @@
         <div class="row">
           <div class="lable">Photo of Driving License  </div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file1" id="file1" onchange="uploadFile()">
+            <input type="file" name="file3" id="file3" onchange="uploadFile()">
             <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
             <u id="status" style="font-size:10px"></u>
             <u id="loaded_n_total" style="font-size:10px"></u>
@@ -536,7 +559,8 @@
 
     <!-- Mentor -->
     <div class="tabPanel">
-    <form >
+    <form method="POST" action="signup/buyer">
+      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Mfn" placeholder="saman" required>
@@ -547,7 +571,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="gender" class="inpbox"  name="Mgender" style="font-size: 17px;" required>
+            <select id="Mgender" class="inpbox"  name="Mgender" style="font-size: 17px;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -564,12 +588,12 @@
         </div>
         <div class="row">
           <div class="lable">Mobile Number 1 *</div>
-            <input type="text" class="inpbox"  name="Mcontactno1" 
+            <input type="tel" class="inpbox"  name="Mcontactno1" 
             pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989"  required>
         </div>
         <div class="row">
           <div class="lable">Mobile Number 2</div>
-            <input type="text" class="inpbox"  name="Mcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
+            <input type="tel" class="inpbox"  name="Mcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989">
         </div>
 		        <div class="row">
@@ -580,39 +604,51 @@
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox"  name="Maddressline2" placeholder="Nilwaththa Mawatha">
         </div>
+        <div class="row">
+          <div class="lable">Province *</div>
+          <select class="js-example-responsive" name="Mprovince" id="MProvince" onchange="mselectvalidate1()" required>
+          <option value="0"></option>
+          <?php
+                  foreach($provinces as $key => $values){
+                    $province = $values['name_en'];
+                    $provinceid = $values['id'];
+                ?>
+                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                <?php
+                  }
+                ?>
+        </select>
         <div class="grid"> <!--grid added-->
         <div class="row">
-          <div class="lable1">City *</div>
-            <input list="FHcityy" value="Select your city" autocomplete="off" onmousedown="value = '';" id="FHcity" class="dl inpbox" required />
-              <datalist id="FHcityy" class="dl inpbox" required>
+          <div class="lable1">District *</div>
+          <select class="s2" name="Mdistrict" id="Mdistrict" onchange="mselectvalidate2()" required>
+              <option value="0"></option>
+                <?php
+                  foreach($districts as $key => $values){
+                    $city = $values['name_en'];
+                    $cityid = $values['id'];
+                ?> 
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <?php
+                  }
+                ?>
+            </select>
+          </div>
+        <div class="row">
+          <div class="lable2">City *</div>
+          <select class="s2" name="Mcity" id="Mcity" onchange="mselectvalidate3()" required>
+              <option value="0"></option>
                 <?php
                   foreach($cities as $key => $values){
                     $city = $values['name_en'];
                     $cityid = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
+                <option class="dl" value="<?php echo $cityid; ?>"><?php echo $city; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-              <input type="hidden" name="MHcity" id="FHcity-hidden">
-        </div>
-        <div class="row">
-          <div class="lable2">Province *</div>
-           <input list="Hprovince" value="Select your Province" autocomplete="off" onmousedown="value = '';" id="provincelist" class="dl inpbox" required />
-              <datalist id="Hprovince" class="dl inpbox" required>
-              <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['provinceName'];
-                    $provinceid = $values['province_id'];
-                ?>
-                <option class="dl" data-value="<?php echo $provinceid; ?>"><?php echo $province; ?></option>
-                <?php
-                  }
-                ?>
-              </datalist>
-              <input type="hidden" name="Mprovince" id="provincelist-hidden">
-        </div>
+            </select>
+           </div>
         </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
@@ -625,45 +661,43 @@
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
           <div class="lable">Nearest city 1</div>
-          <input list="FNcity" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity1" class="dl inpbox" required />
-              <datalist id="FNcity" class="dl inpbox" required>
+            <select class="s2" name="MNcity1" id="Mncity1" onchange="mselectvalidate4()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key1 => $values1){
-                    $city1 = $values1['name_en'];
-                    $cityid1 = $values1['id'];
+                  foreach($cities as $key => $values){
+                    $city1 = $values['name_en'];
+                    $cityid1 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
+                <option class="dl" value="<?php echo $cityid1; ?>"><?php echo $city1; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="MNcity1" id="FNcity1-hidden">
+            </select>
         </div>
         <div class="row">
           <div class="lable">Nearest city 2</div>
-          <input list="FNcityy" value="Select your city" autocomplete="off"  onmousedown="value = '';" id="FNcity2" class="dl inpbox" required />
-              <datalist id="FNcityy" class="dl inpbox" required>
+          <select class="s2" name="MNcity2" id="Mncity2" onchange="mselectvalidate5()" required>
+              <option value="0"></option>
                 <?php
-                  foreach($cities as $key2 => $values2){
-                    $city2 = $values2['name_en'];
-                    $cityid2 = $values2['id'];
+                  foreach($cities as $key => $values){
+                    $city2 = $values['name_en'];
+                    $cityid2 = $values['id'];
                 ?> 
-                <option class="dl" data-value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
+                <option class="dl" value="<?php echo $cityid2; ?>"><?php echo $city2; ?></option>
                 <?php
                   }
                 ?>
-              </datalist>
-          <input type="hidden" name="MNcity2" id="FNcity2-hidden">
+            </select>
         </div>
         <div class="desc">Explain in few words about you</div>
         <div class="row">
           <div class="lable">Why can I be a Mentor</div>
-            <textarea name="M" class="inpbox" id="" cols="10" rows="3"></textarea>
+            <textarea name="M" class="inpbox" id="q1" cols="10" rows="3"></textarea>
             <!-- <input type="text" class="inpbox"  name="email"  required> -->
         </div>
         <div class="row">
           <div class="lable">How Im going to mentor a Farmer</div>
-          <textarea name="M" class="inpbox" id="" cols="10" rows="3"></textarea>
+          <textarea name="M" class="inpbox" id="q2" cols="10" rows="3"></textarea>
             <!-- <input type="text" class="inpbox"  name="email"  required> -->
         </div>
         <div class="desc">Enter a Username and Password </div>

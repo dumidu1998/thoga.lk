@@ -114,6 +114,7 @@ input[type=submit] {
   font-weight: 400;
   font-size: 1em;
   text-align: center;
+  cursor: pointer;
   box-shadow: 1px 3px #04046d;
 }
 input[type=submit]:disabled{
@@ -182,7 +183,8 @@ input[type="file"] {
   .select2.select2-container {
     width: 88% !important;
     margin-top: 7px !important;
-    margin-left: 4% !important;
+    margin-left: 6vw !important;
+    margin-bottom: 7px !important;
   }
   .inpbox{margin-bottom: 5px;}
   input[type="file"] {width: 55%;}
