@@ -64,7 +64,7 @@ body{
 }
 
 .agreement{
-  margin: 20px 0px 20px 30%;
+  margin: 20px 0px 20px 26%;
   font-size: 18px;
 }
 
@@ -75,21 +75,20 @@ body{
   /* margin-right: 10px; */
 }
 
-
-
 select {
   background-color: #fafafa;
 }
 
-
-input[type=text],input[type=password], select, option, textarea, input[type=date] {
-/*   width: 100%; */
+input[type=text],input[type=password], input[type=tel], select, option, textarea, datalist, input.dl, input[type=date] {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
   background-color: #fafafa;
+}
 
+input[type=tel]{
+  letter-spacing: 0.75px;
 }
 
 .row:after {
@@ -104,7 +103,7 @@ input[type=text],input[type=password], select, option, textarea, input[type=date
   font-size: 30px;
 }
 
-[type=submit] {
+input[type=submit] {
   margin: 25px auto 0px 28%;
   width: 50%;
   border: 0;
@@ -115,6 +114,12 @@ input[type=text],input[type=password], select, option, textarea, input[type=date
   font-weight: 400;
   font-size: 1em;
   text-align: center;
+  cursor: pointer;
+  box-shadow: 1px 3px #04046d;
+}
+input[type=submit]:disabled{
+  background-color: #268b8f;
+  color: rgb(168, 159, 159);
 }
 
 .grid{
@@ -128,16 +133,17 @@ input[type=text],input[type=password], select, option, textarea, input[type=date
   margin-right: 25.5%;
   float: left;
   width: 25%;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 10px;
 }
 
 .grid .row .lable2{
   margin-right: 0%;
   float: left;
-  width: 32%;
-  margin-top: 15px;
+  width: 30%;
+  margin-top: 10px;
   margin-left: 10px;
+  
 }
 
 .logo{
@@ -147,12 +153,24 @@ input[type=text],input[type=password], select, option, textarea, input[type=date
 }
 
 .grid .row .inpbox{
-  width: 47%;
+  width: 47% !important;
 }
 
 input[type="file"] {
   width: 35%;
   margin-bottom: 15px;
+}
+
+.select2.select2-container {
+  width: 45% !important;
+  margin-top: 7px !important;
+  font-size: 15px !important;
+}
+
+.s2 {
+  width: 6% !important;
+  margin-top: 700px !important;
+  font-size: 15px !important;
 }
 
 @media screen and (max-width: 909px) {
@@ -162,6 +180,12 @@ input[type="file"] {
     margin-left: 25px;
   }
   .logo{margin: 0px 38%;}
+  .select2.select2-container {
+    width: 88% !important;
+    margin-top: 7px !important;
+    margin-left: 6vw !important;
+    margin-bottom: 7px !important;
+  }
   .inpbox{margin-bottom: 5px;}
   input[type="file"] {width: 55%;}
   input[type=submit]{width:90%;margin-left: 5%;}
