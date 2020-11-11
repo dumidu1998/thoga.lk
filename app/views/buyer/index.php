@@ -115,7 +115,7 @@ session_start();
   
         </div>
         
-      <input type="submit" name="checkout" value="Checkout &nbsp;&nbsp; Rs: <?php echo $total?>" class="checkout_btn" <?php echo $allow ?> />
+      <input type="submit" name="checkout" value="Checkout &nbsp;&nbsp; Rs: <?php echo $total?>" class="checkout_btn"  <?php echo $allow ?>  />
 
       </form>
           

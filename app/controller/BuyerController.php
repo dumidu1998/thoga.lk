@@ -2,12 +2,15 @@
 
 require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../../core/View.php');
+require_once(__DIR__.'/../models/forumModel.php');
+
 
 
 class BuyerController {
     function __construct()
     {
         $this->model = new item();
+        $this->forum = new forumModel();
     }
 
     function getAll_get(){
@@ -135,6 +138,31 @@ class BuyerController {
     public function profile(){
         $view = new View("buyer/Buyer_user_profile");
     }
+
+    public function forum(){
+        session_start();
+        $view = new View("buyer/forum");
+    }
+
+    public function postForum(){
+        session_start();
+
+        if(isset($_POST['post_forum'])){
+            $title= $_POST['topic'];
+            $description = $_POST['description'];
+        
+            foreach($_SESSION['user'] as $keys => $values){
+            
+            $forum_array = array('post' => $title , 'description' => $description, 'category' => $values['user_type']);
+            }
+            $result = $this->forum->insertForum($forum_array);
+
+            header("location: forum");
+
+            
+        }
+    } 
+
 }
 
 

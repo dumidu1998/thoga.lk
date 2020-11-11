@@ -19,7 +19,9 @@ $routes = [
     '' => 'LoginController@view',
     'login'=> 'LoginController@login',
     'buyer/logout' => 'BuyerController@logout',
-    'buyer/profile' => 'BuyerController@profile'
+    'buyer/profile' => 'BuyerController@profile',
+    'buyer/forum' => 'BuyerController@forum',
+    'buyer/postForum' => 'BuyerController@postForum'
     
  ];
 
