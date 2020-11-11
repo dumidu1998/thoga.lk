@@ -188,7 +188,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Buyer)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="Bsignupbtn">
+          <input type="submit" value="Sign Up" name="submit" disabled id="Bsignupbtn">
         </div>
       </form>
     </div>
@@ -356,8 +356,8 @@
           <input type="checkbox" id="Fcbox" class="cbox" onClick="buttonOnfarmer()">
           I have read and Agree to the follow <a href="#">User Agreement (Farmer)</a>
         </div>
-        <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="Fsignupbtn">
+        <div class="signupbtn"> 
+          <input type="submit" value="Sign Up" name="submit" disabled id="Fsignupbtn">
         </div>
       </form>
     </div>
@@ -551,7 +551,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Driver)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="Dsignupbtn">
+          <input type="submit" value="Sign Up" name="submit" disabled id="Dsignupbtn">
         </div>
       </form>
     </div>
@@ -722,7 +722,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Mentor)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" disabled id="Msignupbtn">
+          <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn">
         </div>
       </form>
     </div>

@@ -18,9 +18,18 @@ class SignUpController {
         $view->assign('cities', $city);
         $view->assign('provinces', $province);
         $view->assign('districts',$district);
-
     }
 
+    public function addbuyer(){
+        if(isset($_POST['submit'])){
+            $user = $this->model->addbuyer($_POST);
+        }
+        showd();
+    }
+
+    public function showd(){
+        $view = new View("index");
+    }
     
 }
 
