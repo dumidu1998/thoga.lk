@@ -9,14 +9,14 @@
 </head>
 <body>
 <div>
-<div class="topnav" id="myTopnav">
+<div class="topnav" id="myTopnav" style="z-index : 1;">
   <div class="nav-left">
 
     <a href="home" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
-    <a href="index.php" class="active">Home</a>
-    <a href="news.php">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
+    <a href="home" class="active">Home</a>
+    <a href="forum">Forum</a>
+    <a href="#contact">Orders</a>
+    <a href="#about">About Thoga.lk</a>
      <a id="google_translate_element"></a> 
   </div>
 

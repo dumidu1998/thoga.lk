@@ -82,14 +82,14 @@
                         <td><?php echo $subtot ?></td>
                     </tr>
 
-                    <!-- <tr>                       
-                        <td class="td_summary">Discount Amount</td>
-                        <td>00</td>
-                    </tr>
                     <tr>                       
+                        <td class="td_summary">Pickup Date</td>
+                        <td><?php echo $pick_date ?></td>
+                    </tr>
+                    <!-- <tr>                       
                         <td class="td_summary">Service Charge</td>
                         <td>00</td>
-                    </tr> -->
+                    </tr>  -->
                     <tr>                       
                         <td class="td_summary">Total Amount</td>
                         <td class="item_name"><?php echo $total ?></td>

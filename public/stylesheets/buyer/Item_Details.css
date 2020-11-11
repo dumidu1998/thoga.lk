@@ -108,7 +108,7 @@ input{
     border: 1px solid darkseagreen;
     border-radius: 20px;
 }
-input:disabled{
+.item_data input:disabled{
     background-color: #fff;
 }
 .item_data label{
