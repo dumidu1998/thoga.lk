@@ -10,15 +10,29 @@
 <body>
 <div>
 <div class="topnav" id="myTopnav">
-  <a href="index.php" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
-  <a href="index.php" class="active">Home</a>
-  <a href="news.php">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-  <div class = "nav-right">
-    <a href="#About us">About us</a>
+  <div class="nav-left">
 
-    <img src="/thoga.lk/public/images/buyer/b.png" alt="" class = "user_pic" width=50px>
+    <a href="home" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
+    <a href="index.php" class="active">Home</a>
+    <a href="news.php">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+     <a id="google_translate_element"></a> 
+  </div>
+
+  <div class = "nav-right">
+    <?php
+    // print_r($_SESSION['user']);
+      if(isset($_SESSION['user'])){
+      echo "<a href='logout'><button class='logout'>Log Out</button></a>";
+      echo   "<a href='profile'><img src='/thoga.lk/public/images/buyer/b.png' alt='' class = 'user_pic' width=50px></a>";
+    
+      }else{
+      echo "<a href='/thoga.lk'><button class='logout'>SignUp/Login</button></a>";
+
+      }
+    ?>
+
 
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -32,7 +46,7 @@
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
+  if (x.className === "topnav" ) {
     x.className += " responsive";
   } else {
     x.className = "topnav";
@@ -47,6 +61,12 @@ function myFunction() {
 //   }
 // }
 </script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'en,si,ta'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>

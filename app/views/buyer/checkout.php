@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <?php session_start(); 
+    //print_r ($_SESSION["shopping_cart"]);
+    
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>summary</title>
@@ -22,17 +27,29 @@
                         <th>quantity</th>
                         <th>Subtotal</th>
                     </tr>
+
+                    <?php
+                    $total = 0;
+                    foreach($_SESSION["shopping_cart"] as $keys => $values)  
+                        {  
+                           $subtot= $values["item_price"] * $values["item_quantity"];
+                           $total = $total + $subtot;
+                        ?>  
                     <tr>
-                        <td class="item_name">Carrot</td>
-                        <td>40</td>
-                        <td>50</td>
-                        <td>2000</td>
+                        <td class="item_name"><?php echo $values["item_name"]; ?>  </td>
+                        <td> Rs.<?php echo $values["item_price"]?></td>
+                        <td><?php echo $values["item_quantity"]?>kg</td>
+                        <td>Rs. <?php echo $subtot?></td>
                     </tr>
-                    <tr>
+
+                    <?php
+                        }
+                        ?>
+                    <!-- <tr>
                         <td colspan=2></td>
                        
-                        <td class="td_summary">subtotal</td>
-                        <td>2000</td>
+                        <td class="td_summary">net total</td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -46,12 +63,12 @@
                        
                         <td class="td_summary">Service Charge</td>
                         <td>00</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td colspan=2></td>
                        
                         <td class="td_summary">Total Amount</td>
-                        <td class="item_name">2000</td>
+                        <td class="item_name"><?php echo $total ?></td>
                     </tr>
                 </table>
             </div>
@@ -62,20 +79,20 @@
                 <table>
                 <tr>                       
                         <td class="td_summary">subtotal</td>
-                        <td>2000</td>
+                        <td><?php echo $subtot ?></td>
                     </tr>
 
-                    <tr>                       
+                    <!-- <tr>                       
                         <td class="td_summary">Discount Amount</td>
                         <td>00</td>
                     </tr>
                     <tr>                       
                         <td class="td_summary">Service Charge</td>
                         <td>00</td>
-                    </tr>
+                    </tr> -->
                     <tr>                       
                         <td class="td_summary">Total Amount</td>
-                        <td class="item_name">2000</td>
+                        <td class="item_name"><?php echo $total ?></td>
                     </tr>
 
                 </table>
@@ -90,7 +107,7 @@
 
                 <div class="r_btn">
                     <label>Pickup</label>
-                    <input type="radio" name="radio" value="pickup"  checked="checked" id="pick">                   
+                    <input type="radio" name="radio" value="pick"  checked="checked" id="pick">                   
                 </div>
                 <div class="r_btn">
                     <label>Deliver</label>
@@ -137,16 +154,17 @@
 
             </div>
         </div>
-        <a href="index.php"><button class="checkout_btn_back">Back to shopping</button></a>
-
-        <a href="selectDriver.php"><button class="checkout_btn">Continue</button></a>
+        <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
+       
+        <a href="summery" id="check"><button class="checkout_btn">Continue</button></a>
     </div>
 </body>
 <script>
-    var modal = document.getElementById("add");
+    
     var btn = document.getElementById("del");
     var btn2 = document.getElementById("pick");
     var size = window.matchMedia("(max-width: 700px)");
+    var link = document.getElementById("check");
 
     if(size.matches){
         btn.onclick = function() {
@@ -155,18 +173,16 @@
     }else{
     btn.onclick = function() {
     add.style.display = "grid";
+    link.href="select-driver";
     }
     
     }
 
     btn2.onclick = function() {
         add.style.display = "none";
+    link.href="summery";
+
     }
 
-    window.onclick = function(event) {
-    if (event.target == add) {
-        add.style.display = "none";
-    }
-    }
 </script>
 </html>
