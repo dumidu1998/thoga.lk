@@ -56,7 +56,7 @@ session_start();
     <div class="cart">
       <h1>Shopping Cart</h1>
       <hr>
-      <div style="height:60vh;"> 
+      <div style="height:55vh;"> 
         <?php 
         // print_r($item_array);
         if(!empty($_SESSION["shopping_cart"]))  
@@ -107,7 +107,17 @@ session_start();
         $allow = "disabled";
       }
       ?>
-    <a href="checkout"><button class="checkout_btn" <?php echo $allow ?>>Checkout &nbsp;&nbsp; Rs: <?php echo $total?></button></a>
+
+      <form action="/thoga.lk/buyer/checkout" method="post">
+        <div class="date">
+          <label class="pickup_label" for="datefield" > Pick up date</label>
+          <input id="datefield" type='date' name="pick_date" max='2020-12-12' required/>
+  
+        </div>
+        
+      <input type="submit" name="checkout" value="Checkout &nbsp;&nbsp; Rs: <?php echo $total?>" class="checkout_btn" <?php echo $allow ?> />
+
+      </form>
           
     </div>
 
@@ -142,8 +152,22 @@ window.onclick = function(event) {
   }
 }
 </script>
+  
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
 
-
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield").setAttribute("min", today);
+</script>
 
 
 </body>

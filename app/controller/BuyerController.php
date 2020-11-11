@@ -115,7 +115,12 @@ class BuyerController {
     }
 
     public function checkout(){
-        $view = new View("buyer/checkout");
+        
+        if(isset($_POST['checkout'])){
+            $pick_date =   $_POST['pick_date'];
+            $view = new View("buyer/checkout");
+            $view->assign('pick_date', $pick_date);
+        }
     }
     public function summery(){
         $view = new View("buyer/summary");
