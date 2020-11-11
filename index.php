@@ -16,12 +16,17 @@ $routes = [
     'buyer/cart' => 'BuyerController@cart',
     'buyer/checkout' => 'BuyerController@checkout',
     'buyer/summery' => 'BuyerController@summery',
+    'signup' => 'SignUpController@show',
+    'signup/buyer' => 'SignUpController@addbuyer',
     '' => 'LoginController@view',
     'login'=> 'LoginController@login',
     'buyer/logout' => 'BuyerController@logout',
     'buyer/profile' => 'BuyerController@profile',
     'buyer/forum' => 'BuyerController@forum',
     'buyer/postForum' => 'BuyerController@postForum'
+    'driver/dashboard' => 'DriverController@driverdashboard',
+    'driver/viewmore' => 'DriverController@viewmore',
+    'driver/profile' => 'DriverController@viewprofile'
     
  ];
 
