@@ -1,0 +1,191 @@
+body{
+    background-image: url(/thoga.lk/public/images/admin/a.jpg);
+}
+
+.container{
+    margin: 100px 1% 0px 1%;
+}
+
+h1{
+    text-align: center;
+    text-decoration:underline;
+    font-size:40px"
+}
+
+.back-button {
+    background: rgb(70, 71, 71);
+    color: white;
+    font-size: 25px;
+    line-height: 0.3;
+    padding: 15px 15px 15px 10px;
+    text-decoration: none;
+    transition: all 0.9s;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.back-button:hover {
+    background: rgba(131, 134, 134, 0.8);
+}
+
+.filters{
+    font-size: 20px;
+    font-weight: 300;
+    background-color: rgba(255, 254, 254, 0.678);
+    height: auto;
+    width: 80%;
+    margin: auto;
+    padding: 10px 50px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 3%;
+}
+
+input[type="date"]{
+    font-size: 14px;
+    width: 125px;
+    line-height: 22px;
+    border-radius: 5px;
+    border: 2px solid rgb(13, 3, 105);
+}
+
+#resetb{
+    margin-left: 10px;
+    background-color: #013457;
+    color: azure;
+
+}
+
+input[type="text"]{
+    width: 150px;
+    font-size: 22px;
+    line-height: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 1px 2px 5px 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(13, 3, 105);
+}
+
+input[type="text"]::placeholder{
+    font-size: 13px;
+    color: rgba(0, 4, 65, 0.39);
+}
+
+
+.sbutton{
+    background: rgb(0, 0, 0);
+    color: white;
+    font-size: 25px;
+    line-height: 0.2;
+    cursor: pointer;
+    padding: 15px 10px 15px 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.sbutton:hover{
+    background: rgba(17, 32, 32, 0.8);
+}
+
+.filterTopic{
+    display: inline-block;
+    text-decoration: underline;
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 7px;
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+/* 7*************************************************8 */
+table { 
+	width: 80%; 
+	border-collapse: collapse; 
+	margin:50px auto;
+	}
+
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+
+th { 
+	background: #013457; 
+	color: white; 
+    font-weight: bold; 
+}
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 18px;
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+          width: 950%; 
+          margin: 0 10px;
+	}
+
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+		color: #000;
+		font-weight: bold;
+	}
+
+}
+
+
+
+/* 7************************************************** */
+
+@media screen and (max-width: 1260) {
+    .input[type="date"]{
+        width: auto;
+        border-radius: 20%;
+        outline: 10px rgb(0, 0, 0);
+    }
+    
+}
+
+
+@media screen and (max-width: 768px) {
+.grid{display: block;}
+
+}
