@@ -56,7 +56,6 @@ input[type="date"]{
     margin-left: 10px;
     background-color: #013457;
     color: azure;
-
 }
 
 input[type="text"]{
@@ -74,7 +73,6 @@ input[type="text"]::placeholder{
     font-size: 13px;
     color: rgba(0, 4, 65, 0.39);
 }
-
 
 .sbutton{
     background: rgb(0, 0, 0);
@@ -170,9 +168,6 @@ only screen and (max-width: 760px),
 	}
 
 }
-
-
-
 /* 7************************************************** */
 
 @media screen and (max-width: 1260) {
@@ -183,7 +178,6 @@ only screen and (max-width: 760px),
     }
     
 }
-
 
 @media screen and (max-width: 768px) {
 .grid{display: block;}
