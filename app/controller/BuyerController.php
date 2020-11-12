@@ -136,12 +136,22 @@ class BuyerController {
         
     }
     public function profile(){
+        session_start();
+
         $view = new View("buyer/Buyer_user_profile");
     }
 
     public function forum(){
         session_start();
         $view = new View("buyer/forum");
+    }
+    public function orders(){
+        session_start();
+        $view = new View("buyer/orders");
+    }
+    public function viewmore(){
+        session_start();
+        $view = new View("buyer/view_more");
     }
 
     public function postForum(){

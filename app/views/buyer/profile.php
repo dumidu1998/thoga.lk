@@ -19,14 +19,14 @@ if(isset($_GET["edit"])){
 }
 if(isset($_GET["update"])){
    
-   echo "fuck"; 
+   
   
 }
 
 
 ?>
 <body>
-    <?php include("profilenavbar.php");?>
+    <?php include("navbar.php");?>
 
     <div class="wrapper">
         <div class="user_pp">
