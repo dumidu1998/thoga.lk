@@ -339,7 +339,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Funame" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="FUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -533,7 +533,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Duname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="DUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -705,7 +705,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Muname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="MUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
