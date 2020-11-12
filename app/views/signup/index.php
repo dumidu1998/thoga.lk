@@ -169,7 +169,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="BUname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="BUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -188,6 +188,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Buyer)</a>
         </div>
         <div class="signupbtn">
+          <input type="hidden" name="usertype" value="1">
           <input type="submit" value="Sign Up" name="submit" disabled id="Bsignupbtn">
         </div>
       </form>
@@ -338,7 +339,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Funame" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="FUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -357,6 +358,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Farmer)</a>
         </div>
         <div class="signupbtn"> 
+          <input type="hidden" name="usertype" value="2">
           <input type="submit" value="Sign Up" name="submit" disabled id="Fsignupbtn">
         </div>
       </form>
@@ -531,7 +533,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Duname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="DUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -703,7 +705,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Muname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="MUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
