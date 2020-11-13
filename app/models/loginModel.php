@@ -17,7 +17,7 @@ class loginModel extends db_model{
     }
     function get_data($uname){
 		// return $this->read('user', array('*'), array('usename'=>$uname, 'email'=>$uname));
-      $sql = "SELECT a.*, b.user_type FROM user as a INNER JOIN usertype AS b ON a.usertype_id = b.type_id WHERE usename = '$uname' OR email = '$uname' ";
+      $sql = "SELECT a.*, b.user_type, c.* FROM user as a INNER JOIN usertype AS b ON a.usertype_id = b.type_id INNER JOIN address as c on a.user_id=c.user_id WHERE usename = '$uname' OR email = '$uname' ";
       $result=$this->connection->query($sql);
       $finale=array();
       if($result){
