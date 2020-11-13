@@ -58,6 +58,8 @@ class BuyerController {
     }
 
     public function selectDriver( ){
+        session_start();
+
         $view = new View("buyer/selectDriver");
         $view->assign('data', []); 
         
