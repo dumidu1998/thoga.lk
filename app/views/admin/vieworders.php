@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/vieworders.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
             <div class="grid">
                 <div>
                     <span class="filterTopic">Filter by Date</span><br>
-                    <span>Start Date :- <input type="date" name="filterSdate" id="FSdate"></span> <span style="display:inline-block;">  End Date :- <input type="date" name="filterEdate" id="FEdate"></span>
+                    <span>Start Date :- <input type="date" value="0" name="filterSdate" id="FSdate"></span> <span style="display:inline-block;">  End Date :- <input type="date" name="filterEdate" id="FEdate"></span>
                     <br>
                 </div> 
                 <div>
@@ -94,6 +94,12 @@
 </body>
 </html>
 
+<?php
+if(isset($_GET['filterSdate']) && empty($_GET['filterSdate'])){
+    //echo "done";
+    //var_dump($_GET['filterSdate']);
+}
+?>
 <script>
 
 </script>
