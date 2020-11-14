@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/vieworders.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.min.css" type='text/css'>
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.css" type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
 <?php 
@@ -19,7 +23,7 @@
             <div class="grid">
                 <div>
                     <span class="filterTopic">Filter by Date</span><br>
-                    <span>Start Date :- <input type="date" value="0" name="filterSdate" id="FSdate"></span> <span style="display:inline-block;">  End Date :- <input type="date" name="filterEdate" id="FEdate"></span>
+                    <span>Start Date :- <input type="date"  name="filterSdate" id="FSdate"></span> <span style="display:inline-block;">  End Date :- <input type="date" name="filterEdate" id="FEdate"></span>
                     <br>
                 </div> 
                 <div>
@@ -45,6 +49,7 @@
       <th>Buyer Name</th>
       <th>Total Weight</th>
       <th>Total Price</th>
+      <th width="10px">Status</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -54,6 +59,7 @@
       <td data-column="Buyer Name">James</td>
       <td data-column="Total Weight">12.75 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px" aria-hidden="true"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -61,6 +67,7 @@
       <td data-column="Buyer Name">Andor</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px" aria-hidden="true"></i></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -68,6 +75,7 @@
       <td data-column="Buyer Name">Tamas</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -75,6 +83,7 @@
       <td data-column="Buyer Name">Zoli</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true" style="font-size:30px"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -82,6 +91,7 @@
       <td data-column="Buyer Name">Szabi</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true" style="font-size:30px"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
       </tr>
   </tbody>

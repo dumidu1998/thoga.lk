@@ -21,7 +21,7 @@
       <label class="Dlabel" for="1">Buyer Name : -</label>
       <input type="text" name="" class="mdetails" id="1" value="Manthila Bandara" disabled>
       <label class="Dlabel" for="2" style="float:left;margin-right:30px">Address &nbsp; &nbsp; : - </label>
-      <textarea name="" id="2" cols="25" rows="3" >Dumidu&#13;&#10;kasun&#13;&#10;Bandara</textarea>
+      <textarea name="" id="2" cols="25" rows="3" >No.122&#13;&#10;Jaya Mawatha&#13;&#10;Thalawa</textarea>
       <div style="float:left;clear:both">
         <!-- <input type="text" name="" class="details" id="2" value="076 6344989"> -->
         <label class="Dlabel" for="3">Contact No : -</label>
@@ -29,26 +29,26 @@
         <label class="Dlabel" for="4">Total Weight : -</label>
         <input type="text" name="" class="details" id="4" value="250 kg" disabled><br>
         <label class="Dlabel" for="5">Order Status : -</label>
-        <input type="text" name="" class="details" id="5" value="On the Way" style="color:rgb(230, 2, 2);" disabled><br>
+        <input type="text" name="" class="details" id="5" value="On the Way" style="color:rgb(0, 0, 1);font-weight:700" disabled><br>
       </div>
       <div class="container2">
         <label class="Dlabel" for="6">Driver Name : -</label>
         <input type="text" name="" class="details"  id="6" value="Akila De Silva (023)" disabled><br>
         <label class="Dlabel" for="7">Driver Telephone   : -</label>
-        <input type="text" name="" class="details"  id="7" value="076 6344989"><br>
+        <input type="text" name="" class="details"  id="7" value="076 6344989" disabled><br>
         <label class="Dlabel" for="8">Order Status : -</label>
-        <input type="text" name="" class="details"  id="8" value="Collected" style="color:rgb(230, 2, 2);"><br>
+        <input type="text" name="" class="details"  id="8" value="Collected" style="color:rgb(230, 2, 2);" disabled><br>
         <!-- <label class="Dlabel" for="9">Farmer Name : -</label>
         <input type="text" name="" class="details" id="9" value="Dumidu"><br> -->
         
       </div>
-      <div class="dlabel" style="clear:both;text-align:center;font-size:30px">Rating - Not Rated</div>
+      <div class="dlabel" style="clear:both;text-align:center;font-size:30px">Rating - Not rated</div>
       
       
     </div>
 
     <div class="cartcontainer">
-      <h2>Cart List</h2>
+      <h2 style="color:white;">Cart List</h2>
     <table style="width:100%">
   <thead>
     <tr>

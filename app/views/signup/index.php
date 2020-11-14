@@ -19,15 +19,15 @@
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
     <div class="buttonContainer">
-        <button onclick="showPanel(0,'#a9a9a9')">Buyer</button>
-        <button onclick="showPanel(1,'#a9a9a9')">Farmer</button>
-        <button onclick="showPanel(2,'#a9a9a9')">Driver</button>
-        <button onclick="showPanel(3,'#a9a9a9')">Mentor</button>
+        <button onclick="showPanel(0,'#92bb00b6')">Buyer</button>
+        <button onclick="showPanel(1,'#92bb00b6')">Farmer</button>
+        <button onclick="showPanel(2,'#92bb00b6')">Driver</button>
+        <button onclick="showPanel(3,'#92bb00b6')">Mentor</button>
     </div> 
     <!-- Buyer -->
     <div class="tabPanel">
       <form method="POST" action="signup/buyer">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Bfn" placeholder="saman" required>

@@ -185,20 +185,18 @@ td, th {
 }
 
 
-
-
 .detailContainer{
     display: inline-block;
     height: auto;
     margin: 10px 50px;
-    background-color: #49494ba2;
+    background-color: #01002ba2;
     color: #fff;
     padding: 30px 50px;
 }
 .container2{
     float: right;
     text-align: left;
-    width: 45%;
+    width: 37%;
 }
 
 input[type="text"].mdetails{
@@ -248,7 +246,7 @@ input[type="text"].details{
 .cartcontainer{
     display: block;
     width: 90%;
-    background-color: #505050a2;
+    background-color: #01002ba2;
     color: rgb(0, 0, 0);
     height: auto;
     margin: auto;
@@ -270,6 +268,5 @@ input[type="text"].details{
 }
 
 .banner{
-    background-color: rgba(172, 172, 172, 0.795);
-    margin: 0px;
+    margin: 00px;
 }
