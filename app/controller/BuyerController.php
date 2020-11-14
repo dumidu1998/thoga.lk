@@ -155,6 +155,10 @@ class BuyerController {
         session_start();
         $view = new View("buyer/view_more");
     }
+    public function aboutus(){
+        session_start();
+        $view = new View("buyer/aboutus");
+    }
 
     public function postForum(){
         session_start();
