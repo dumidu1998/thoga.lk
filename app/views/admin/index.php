@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/adminindexstyle.css">
 </head>
   
-<body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat"  >
-    <?php include("navbar.php"); ?>
+<body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
+    <?php include("navbar.php");?>
+    <ul>
+        <li><a href="#dapplications">Driver Applications</a></li>
+        <li><a href="#mapplications">Mentor Applications</a></li>
+        <li><a href="#mrequests">Mentor Requests</a></li>
+    </ul>
     <div class="buttonContainer">
         <a href="#"><button class="admin-btn" >View Orders</button></a>
         <a href="#"><button class="admin-btn" >Manage Users</button></a>
@@ -36,7 +41,8 @@
 
         </div>
         <div class="statcard">
-        <div class="card-title" style="font-size:25px"><img class="cardimg" width= 40px height=40px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div>
+        <div class="card-title-big"><img class="cardimg" width= 40px height=40px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div>
+        <span id="dapplications"></span>
         <div class="card-content">Rs. <span id="count4"><?php echo number_format(9500);?></span></div>
 
         </div>
@@ -44,7 +50,7 @@
     <div>
         <table>
         <div class="ut-hr-txt">
-            <hr><span>Driver Applications</span>
+            <hr ><span>Driver Applications</span>
         </div>
             <thead>
                 <tr>
@@ -80,6 +86,7 @@
                 <td data-label="Action"><a href="#"> View More</a></td>
                 </tr>
             </tbody>
+            <span id="mapplications"></span>
         </table>
 
     </div>
@@ -126,6 +133,7 @@
         </table>
 
     </div>
+    <span id="mrequests"></span>
 
     <div>
         <table>

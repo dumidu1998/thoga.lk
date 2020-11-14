@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Driver Application</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
 </head>
 <body>
@@ -12,9 +12,10 @@
 
 <div class="container">
     <h1>Driver Application</h1>
+    <center><h2>ID - 17</h2></center>
     <div class="grid">
         <div class="grid-item0">
-            <img src="/thoga.lk/public/images/buyer/icons/farmer.png" alt="" class="image" >
+            <img src="/thoga.lk/public/images/buyer/icons/drivericon.jpg" alt="" class="image" >
         </div>
     <div class="grid-item1">
         <table style="width:100%;border-collapse: collapse;" >
@@ -28,20 +29,20 @@
             </tr>
             <tr>
                 <td >Address:</td>
-                <td>Line 1</td>
+                <td>No. 15</td>
 
             </tr>
             <tr>
                 <td> </td>
-                <td>Line 2</td>
+                <td>Galle Road</td>
             </tr>
             <tr>
                 <td> </td>
-                <td>City</td>
+                <td>Ambalangoda</td>
             </tr>
             <tr>
                 <td> </td>
-                <td>ZIP code</td>
+                <td>80300</td>
             </tr>
             <tr>
                 <td>Contact No.1:</td>
@@ -63,40 +64,40 @@
     <div>
     <table style="float:left;margin-bottom:50px">
         <tr>
-            <td>E-mail</td>
-            <td>lacd@gmail.com</td>
+            <td>Home Province</td>
+            <td>Southern</td>
         </tr>
         <tr>
             <td>Home-town</td>
-            <td>Anuradhapura</td>
+            <td>Ambalangoda</td>
         </tr>
         <tr>
             <td>Nearest City 1</td>
-            <td>Anuradhapura</td>
+            <td>Balapitiya</td>
         </tr>
         <tr>
             <td>Nearest City 2</td>
-            <td>Dambulla</td>
+            <td>Lenaduwa</td>
         </tr>
     </table>
    
     <table style="float:left;" class="t2">
         <tr>
-            <td>E-mail</td>
+            <td>E - mail</td>
             <td>lacd@gmail.com</td>
         </tr>
         <tr>
-            <td>Home-town</td>
-            <td>Anuradhapura</td>
+            <td>DL No</td>
+            <td>17546109</td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>Nearest City 1</td>
             <td>Anuradhapura</td>
         </tr>
         <tr>
             <td>Nearest City 2</td>
             <td>Dambulla</td>
-        </tr>
+        </tr> -->
     </table>
 </div>
 </div>
@@ -107,20 +108,20 @@
     <div class="docs">
         <table style="width:100%">
             <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
+                <td>Driving License - Front</td>
+                <td><a href="#" target="_blank" >DLF 0017</a></td>
             </tr>
             <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
+                <td>Driving License - Back</td>
+                <td><a href="#" target="_blank" >DLB 0017</a></td>
             </tr>
             <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
+                <td>Vehicle</td>
+                <td><a href="#" target="_blank" >V 017</a></td>
             </tr>
             <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
+                <td>Revenue License</td>
+                <td><a href="#" target="_blank" >RL 017</a></td>
             </tr>
         </table>
     </div>

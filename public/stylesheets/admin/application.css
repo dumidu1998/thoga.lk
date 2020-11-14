@@ -65,7 +65,7 @@ h1{
 }
 
 tr td:first-child{
-    width: 30%;
+    width: 40%;
     font-weight: bold;
 }
 
@@ -244,6 +244,11 @@ tr td{
 
   .description{
     font-size: 16px;
+  }
+
+  .docs table tr td:first-child{
+    padding-left: 350px;
+    text-align: left;
   }
   
 
