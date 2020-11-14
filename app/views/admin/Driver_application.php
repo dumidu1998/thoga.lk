@@ -11,11 +11,6 @@
  include("navbar.php"); ?>
 
 <div class="container">
-    <div>
-        <a class="back-button" href="index.php">
-            &lt;&nbsp;Back
-        </a>
-    </div>
     <h1>Driver Application</h1>
     <div class="grid">
         <div class="grid-item0">

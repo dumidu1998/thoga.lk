@@ -12,8 +12,11 @@
 
 <div class="container">
     <div><a class="back-button" href="index.php">&lt;&nbsp;Back</a></div>
-    <div class="banner"><h1>Order Details</h1>
-    <h2>Order Id - 10</h2></div>
+    <h1>Order Details</h1>
+    <div class="banner">
+      <h2>Order Id - 10</h2>
+      <h2>Invoice No. - 023</h2>
+    </div>
     <div class="detailContainer">
       <label class="Dlabel" for="1">Buyer Name : -</label>
       <input type="text" name="" class="mdetails" id="1" value="Manthila Bandara" disabled>
@@ -37,7 +40,10 @@
         <input type="text" name="" class="details"  id="8" value="Collected" style="color:rgb(230, 2, 2);"><br>
         <!-- <label class="Dlabel" for="9">Farmer Name : -</label>
         <input type="text" name="" class="details" id="9" value="Dumidu"><br> -->
+        
       </div>
+      <div class="dlabel" style="clear:both;text-align:center;font-size:30px">Rating - Not Rated</div>
+      
       
     </div>
 

@@ -191,7 +191,7 @@ td, th {
     display: inline-block;
     height: auto;
     margin: 10px 50px;
-    background-color: #3a3e5ca2;
+    background-color: #49494ba2;
     color: #fff;
     padding: 30px 50px;
 }
@@ -248,7 +248,7 @@ input[type="text"].details{
 .cartcontainer{
     display: block;
     width: 90%;
-    background-color: #6c6d72a2;
+    background-color: #505050a2;
     color: rgb(0, 0, 0);
     height: auto;
     margin: auto;
@@ -270,6 +270,6 @@ input[type="text"].details{
 }
 
 .banner{
-    background-color: rgba(35, 59, 66, 0.678);
+    background-color: rgba(172, 172, 172, 0.795);
     margin: 0px;
 }
