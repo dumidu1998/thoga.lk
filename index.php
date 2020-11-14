@@ -30,6 +30,7 @@ $routes = [
     'buyer/orders' => 'BuyerController@orders',
     'buyer/viewmore' => 'BuyerController@viewmore',
     'buyer/about_us' => 'BuyerController@aboutus'
+   
     
  ];
 

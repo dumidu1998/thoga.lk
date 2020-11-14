@@ -50,7 +50,13 @@ session_start();
   </div>
 
   <?php //print_r($_SESSION["shopping_cart"]); ?>
-  <div>
+  <div> 
+    <?php
+    if(isset($_SESSION['user'])){
+
+    
+
+    ?>
     
     <!-- shopping cart -->
     <div class="cart">
@@ -121,7 +127,14 @@ session_start();
           
     </div>
 
-
+      <?php
+    }else{
+      echo "<img style='margin-top:80px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
+      echo "<img style='margin-top:100px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
+      
+    }
+      ?>
+      
   </div>
 </div>
 
