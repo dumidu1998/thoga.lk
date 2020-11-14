@@ -28,7 +28,9 @@ $routes = [
     'buyer/postForum' => 'BuyerController@postForum',
     'driver/dashboard' => 'DriverController@driverdashboard',
     'driver/viewmore' => 'DriverController@viewmore',
-    'driver/profile' => 'DriverController@viewprofile'
+    'driver/profile' => 'DriverController@viewprofile',
+    'buyer/orders' => 'BuyerController@orders',
+    'buyer/viewmore' => 'BuyerController@viewmore'
     
  ];
 

@@ -7,7 +7,7 @@ body {
   
 .topnav {
     top: 0;
-    display: inline;
+    
     width: 100%;
     position: fixed;
     overflow: hidden;
@@ -52,7 +52,7 @@ body {
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav{
-      display: inline;
+     
       background-color: white;
     }
     .nav-left{

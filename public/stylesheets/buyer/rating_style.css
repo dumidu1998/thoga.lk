@@ -8,7 +8,7 @@ h1
 {
 	margin-top:20px;
 	font-size:40px;
-	color:#E6E6E6;
+	color:#3d3b3b;
 }
 #total_votes
 {
@@ -34,7 +34,7 @@ h1
 	text-align:left;
 	color:#E6E6E6;
 }
-img
+.div img
 {
 	margin-top:10px;
 	width:50px;
