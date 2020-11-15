@@ -31,6 +31,7 @@ $routes = [
     'driver/profile' => 'DriverController@viewprofile',
     'buyer/orders' => 'BuyerController@orders',
     'buyer/viewmore' => 'BuyerController@viewmore',
+    'buyer/about_us' => 'BuyerController@aboutus'
     'admin'=> 'AdminController@index'
     
  ];
