@@ -186,31 +186,33 @@ class signupModel extends db_model{
 
     }
 
-    function addbuyer($arr){
-        $firstname=$arr['Bfn'];
-        $lastname=$arr['Bln'];
-        $username=$arr['BUname'];
-        $password=$arr['Bpwd'];
-        $NIC=$arr['Bnic'];
-        $email=$arr['Bemail'];
-        $contact1=$arr['Bcontactno1'];
-        $contact2=$arr['Bcontactno2'];
-        $dob=$arr['Bdob'];
-        $gender=$arr['Bgender'];
+    function addmentor($arr){
+        $firstname=$arr['Mfn'];
+        $lastname=$arr['Mln'];
+        $username=$arr['MUname'];
+        $password=$arr['Mpwd'];
+        $NIC=$arr['Mnic'];
+        $email=$arr['Memail'];
+        $contact1=$arr['Mcontactno1'];
+        $contact2=$arr['Mcontactno2'];
+        $dob=$arr['Mdob'];
+        $gender=$arr['Mgender'];
         $cancel_count=0;
-        $hometown=$arr['Bcity'];
-        $nearestcity1=$arr['BNcity1'];
-        $nearestcity2=$arr['BNcity2'];
-        $businessname=$arr['Bussinessname'];
-        $brNO=$arr['BrNo'];
+        $hometown=$arr['Mcity'];
+        $nearestcity1=$arr['MNcity1'];
+        $nearestcity2=$arr['MNcity2'];
         $gpsLo=0;
         $gpsLa=0;
-        $addressline1=$arr['Baddressline1'];
-        $addressline2=$arr['Baddressline2'];
-        $province=$arr['Bprovince'];
-        $district=$arr['Bdistrict'];
-        $postalcode=$arr['Bpostalcode'];
-        $usertype=$arr['usertype'];   //1 for buyer //#############################################
+        $addressline1=$arr['Maddressline1'];
+        $addressline2=$arr['Maddressline2'];
+        $province=$arr['Mprovince'];
+        $district=$arr['Mdistrict'];
+        $postalcode=$arr['Mpostalcode'];
+        $usertype=$arr['usertype'];   //4 for mentor 
+        $why=$arr['Mwhy'];
+        $skills=$arr['Mskills'];
+        
+        $verified=0;
 
         $sql = "INSERT INTO user (firstname, lastname, usename, password, NIC, email, contactno1, contactno2, dob, gender,
          cancel_count, hometown,	nearestcity1,	nearestcity2,	GPS_Logitude,	GPS_latitude,	usertype_id)
@@ -230,11 +232,19 @@ class signupModel extends db_model{
         $result3=$this->connection->query($sql3);
         if($result3){}else echo "<script>alert('error in SignUp1');</script>";
 
-        $sql2="INSERT INTO buyer (user_id, br_no, b_name) Values ('".$uid."','".$businessname."','".$brNO."')";
+        $sql2="INSERT INTO mentor (user_id, why, Skills, verified_state) Values 
+        ('".$uid."','".$why."','".$skills."','".$verified."')";
         $result2=$this->connection->query($sql2);
         if($result){}else echo "<script>alert('error in SignUp2');</script>";
     }
 
+    public function getmaxDid(){
+        $sql = "SELECT MAX(driver_id) AS maxid FROM driver";
+        $result=$this->connection->query($sql);
+        $row=mysqli_fetch_assoc($result);
+        $uid=$row['maxid'];
+        return $uid;
+    }
 
 
 }

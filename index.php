@@ -32,6 +32,7 @@ $routes = [
     'signup/buyer' => 'SignUpController@addbuyer',
     'signup/farmer' => 'SignUpController@addfarmer',
     'signup/driver'=> 'SignUpController@adddriver',
+    'signup/mentor'=> 'SignUpController@addmentor',
     '' => 'LoginController@view',
     'login'=> 'LoginController@login',
     'buyer/logout' => 'BuyerController@logout',

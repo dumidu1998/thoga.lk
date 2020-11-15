@@ -44,7 +44,27 @@ class SignUpController {
     public function adddriver(){
         if(isset($_POST['submit'])){
             $user = $this->model->adddriver($_POST);
+            $maxid=$this->model->getmaxDid();
+            $sid=$maxid;
+            $ext=".jpg";
+            $cpath= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/images/tmpuploads/";
+            $Sfile = $cpath.$maxid;
+            $Dfile= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/images/Driveruploads/".$sid;
+            rename($Sfile."_1".$ext, $Dfile."_DLF".$ext);
+            rename($Sfile."_2".$ext, $Dfile."_DLB".$ext);
+            rename($Sfile."_3".$ext, $Dfile."_V".$ext);
+            rename($Sfile."_4".$ext, $Dfile."_RL".$ext);
             header ("Location: /thoga.lk");
+        }else{
+            echo "<script>alert('error in SignUp');</script>";
+            header ("Location: /thoga.lk?signup=0");
+        }
+    }
+
+    public function addmentor(){
+        if(isset($_POST['submit'])){
+            $user = $this->model->addmentor($_POST);
+            //header ("Location: /thoga.lk");
         }else{
             echo "<script>alert('error in SignUp');</script>";
             header ("Location: /thoga.lk?signup=0");

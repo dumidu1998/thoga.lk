@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+$_SESSION['temp']=1;
+?>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -602,7 +605,7 @@
 
     <!-- Mentor -->
     <div class="tabPanel">
-    <form method="POST" action="signup/buyer">
+    <form method="POST" action="signup/mentor">
       <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable" style="margin-top: 25px;">First Name *</div>
@@ -734,12 +737,12 @@
         </div>
         <div class="desc">Explain in few words about you</div>
         <div class="row">
-          <div class="lable">Why can I be a Mentor</div>
-            <textarea name="M" class="inpbox" id="q1" cols="10" rows="3"></textarea>
+          <div class="lable">Why do you want to be a mentor?</div>
+            <textarea name="Mwhy" class="inpbox" id="q1" cols="10" rows="3"></textarea>
         </div>
         <div class="row">
-          <div class="lable">How Im going to mentor a Farmer</div>
-          <textarea name="M" class="inpbox" id="q2" cols="10" rows="3"></textarea>
+          <div class="lable">Explain about your IT and Leadership skills</div>
+          <textarea name="Mskills" class="inpbox" id="q2" cols="10" rows="3"></textarea>
         </div>
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
@@ -760,10 +763,12 @@
             <br><br><span id='Mmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
+          Your account will activated within 24hrs. We will notify you with a SMS.<br><br>
           <input type="checkbox" id="Mcbox" class="cbox" onClick="buttonOnmentor()">
           I have read and Agree to the follow <a href="#">User Agreement (Mentor)</a>
         </div>
         <div class="signupbtn">
+        <input type="hidden" name="usertype" value="4">
           <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn" >
         </div>
       </form>
@@ -771,6 +776,5 @@
 </div>
 
 <script type="text/javascript" src="/thoga.lk/app/views/signup/script.js" ></script>
-
 </body>
 </html>
