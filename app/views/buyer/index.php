@@ -13,6 +13,7 @@ session_start();
   <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/shopping_Cart.css">
 
   <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
@@ -31,6 +32,7 @@ session_start();
         <a href="/thoga.lk/buyer/home/organic">Organic</a>
 
       </div>
+     
 
       <div class="checkout_icon">
         <a href="checkout">
@@ -42,6 +44,12 @@ session_start();
       
            
     </div>
+    <div class="search">
+        <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+      </div>
   
     <?php include("item_non_org.php"); ?> 
     

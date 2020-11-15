@@ -511,7 +511,9 @@ body {
   margin: auto;
   width:200px;
 }
-
+.search button{
+  display: inline;
+}
 
 
 
