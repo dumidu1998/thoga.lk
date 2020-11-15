@@ -186,6 +186,55 @@ class signupModel extends db_model{
 
     }
 
+    function addbuyer($arr){
+        $firstname=$arr['Bfn'];
+        $lastname=$arr['Bln'];
+        $username=$arr['BUname'];
+        $password=$arr['Bpwd'];
+        $NIC=$arr['Bnic'];
+        $email=$arr['Bemail'];
+        $contact1=$arr['Bcontactno1'];
+        $contact2=$arr['Bcontactno2'];
+        $dob=$arr['Bdob'];
+        $gender=$arr['Bgender'];
+        $cancel_count=0;
+        $hometown=$arr['Bcity'];
+        $nearestcity1=$arr['BNcity1'];
+        $nearestcity2=$arr['BNcity2'];
+        $businessname=$arr['Bussinessname'];
+        $brNO=$arr['BrNo'];
+        $gpsLo=0;
+        $gpsLa=0;
+        $addressline1=$arr['Baddressline1'];
+        $addressline2=$arr['Baddressline2'];
+        $province=$arr['Bprovince'];
+        $district=$arr['Bdistrict'];
+        $postalcode=$arr['Bpostalcode'];
+        $usertype=$arr['usertype'];   //1 for buyer //#############################################
+
+        $sql = "INSERT INTO user (firstname, lastname, usename, password, NIC, email, contactno1, contactno2, dob, gender,
+         cancel_count, hometown,	nearestcity1,	nearestcity2,	GPS_Logitude,	GPS_latitude,	usertype_id)
+        VALUES ('".$firstname."','".$lastname."','".$username."','".$password."','".$NIC."','".$email."','".$contact1."','".$contact2.
+        "','".$dob."','".$gender."','".$cancel_count."','".$hometown."','".$nearestcity1."','".$nearestcity2."','".$gpsLo."','".
+        $gpsLa."','".$usertype."')";
+        $result=$this->connection->query($sql);
+        if($result){}else echo "<script>alert('error in SignUp0');</script>";
+
+        $sql1 = "SELECT * FROM user WHERE usename='".$username."'";
+        $result1=$this->connection->query($sql1);
+        $row=mysqli_fetch_assoc($result1);
+        $uid=$row['user-id'];
+
+        $sql3="INSERT INTO address(`user-id`, address_line1, address_line2, city,	province_name, zip_code) VALUES ('".$uid."','"
+        .$addressline1."','".$addressline2."','".$hometown."','".$province."','".$postalcode."')";
+        $result3=$this->connection->query($sql3);
+        if($result3){}else echo "<script>alert('error in SignUp1');</script>";
+
+        $sql2="INSERT INTO buyer (user_id, br_no, b_name) Values ('".$uid."','".$businessname."','".$brNO."')";
+        $result2=$this->connection->query($sql2);
+        if($result){}else echo "<script>alert('error in SignUp2');</script>";
+    }
+
 
 
 }
