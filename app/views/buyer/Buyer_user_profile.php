@@ -187,6 +187,7 @@ if(isset($_GET["update"])){
 
 
     </div>
+    <?php include("footer.php"); ?>
     
 </body>
 

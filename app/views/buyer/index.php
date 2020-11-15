@@ -129,8 +129,8 @@ session_start();
 
       <?php
     }else{
-      echo "<img style='margin-top:80px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
-      echo "<img style='margin-top:100px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
+      echo "<img class='home_ad' style='margin-top:80px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
+      echo "<img class='home_ad' style='margin-top:100px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
       
     }
       ?>
@@ -182,6 +182,7 @@ today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("datefield").setAttribute("min", today);
 </script>
 
+<?php include("footer.php"); ?>
 
 </body>
 

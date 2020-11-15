@@ -164,6 +164,8 @@ print_r($_SESSION['user']);
        
         <a href="summery" id="check"><button class="checkout_btn">Continue</button></a>
     </div>
+    <?php include("footer.php"); ?>
+
 </body>
 <script>
     

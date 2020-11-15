@@ -470,6 +470,9 @@ margin-top: 25px;
 .checkout_icon{
   display: inline;
 }
+.home_ad{
+  display: none;
+}
 }
 .checkout_btn{
 align-items: flex-end;

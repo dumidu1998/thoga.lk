@@ -23,22 +23,22 @@
     <div class="wrapper_about">
         
         <div class="content">
-            <h1>Our Mission</h1>
-            <p>jbakakabkaebekbfekfb</p>
+            <h1>Our Goal</h1>
+            <p>The main goal of this system is to make a connection between buyers and farmers in order
+to reduce their transport costs and give farmers a better price. In the current system, if both
+parties are in the same district/area, it is necessary that both of them go to the nearest
+economic center as they don&#39;t have a platform to communicate with each other. What if they
+have a platform to communicate and reduce the transport cost and make more profits.
+As thoga.lk we try to uplift agro-industry in Sri Lanka and restoring it to the glorious state
+by facilitating and helping the traditional farmer through technology and transforming them
+to much more efficient, modern farmers in the 21​ st ​ century.</p>
         </div>
         <img src="/thoga.lk/public/images/aboutus/about_2.jpg" alt="">
 
     </div>
     <hr>
 
-    <div class="wrapper_about">
-        <img src="/thoga.lk/public/images/aboutus/about_3.jpg" alt="">
-        <div class="content">
-            <h1>Our Vision</h1>
-            <p>jbakakabkaebekbfekfb</p>
-        </div>
-
-    </div>
+    
     <hr>
     <div class="content">
         <h1>Our Team</h1>
@@ -63,6 +63,7 @@
         </div>
 
     </div>
-    
+
+    <?php include("footer.php"); ?>
 </body>
 </html>
