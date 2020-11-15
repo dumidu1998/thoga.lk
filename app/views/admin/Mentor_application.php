@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Mentor Application</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
 </head>
 <body>
@@ -11,42 +11,37 @@
  include("navbar.php"); ?>
 
 <div class="container">
-    <div>
-        <a class="back-button" href="index.php">
-            &lt;&nbsp;Back
-        </a>
-    </div>
     <h1>Mentor Application</h1>
     <div class="grid">
         <div class="grid-item0">
-            <img src="/thoga.lk/public/images/buyer/icons/farmer.png" alt="" class="image" >
+            <img src="/thoga.lk/public/images/buyer/icons/mentoricon.png" alt="" class="image" >
         </div>
     <div class="grid-item1">
         <table style="width:100%;border-collapse: collapse;" >
             <tr>
                 <td>First Name:</td>
-                <td>Manthila</td>
+                <td>Hiruni</td>
             </tr>
             <tr>
                 <td>Last Name:</td>
-                <td>Bandara</td>
+                <td>Amarakoon</td>
             </tr>
             <tr>
                 <td >Address:</td>
-                <td>Line 1</td>
+                <td>No. 15</td>
 
             </tr>
             <tr>
                 <td> </td>
-                <td>Line 2</td>
+                <td>Kuliyapitiya Rd</td>
             </tr>
             <tr>
                 <td> </td>
-                <td>City</td>
+                <td>Kurunegala</td>
             </tr>
             <tr>
                 <td> </td>
-                <td>ZIP code</td>
+                <td>30000</td>
             </tr>
             <tr>
                 <td>Contact No.1:</td>

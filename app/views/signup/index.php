@@ -19,15 +19,15 @@
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
     <div class="buttonContainer">
-        <button onclick="showPanel(0,'#a9a9a9')">Buyer</button>
-        <button onclick="showPanel(1,'#a9a9a9')">Farmer</button>
-        <button onclick="showPanel(2,'#a9a9a9')">Driver</button>
-        <button onclick="showPanel(3,'#a9a9a9')">Mentor</button>
+        <button onclick="showPanel(0,'#92bb00b6')">Buyer</button>
+        <button onclick="showPanel(1,'#92bb00b6')">Farmer</button>
+        <button onclick="showPanel(2,'#92bb00b6')">Driver</button>
+        <button onclick="showPanel(3,'#92bb00b6')">Mentor</button>
     </div> 
     <!-- Buyer -->
     <div class="tabPanel">
       <form method="POST" action="signup/buyer">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Bfn" placeholder="saman" required>
@@ -169,7 +169,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="BUname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="BUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -188,6 +188,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Buyer)</a>
         </div>
         <div class="signupbtn">
+          <input type="hidden" name="usertype" value="1">
           <input type="submit" value="Sign Up" name="submit" disabled id="Bsignupbtn">
         </div>
       </form>
@@ -338,7 +339,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Funame" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="FUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -357,6 +358,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Farmer)</a>
         </div>
         <div class="signupbtn"> 
+          <input type="hidden" name="usertype" value="2">
           <input type="submit" value="Sign Up" name="submit" disabled id="Fsignupbtn">
         </div>
       </form>
@@ -531,7 +533,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Duname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="DUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
@@ -703,7 +705,7 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Muname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="MUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">

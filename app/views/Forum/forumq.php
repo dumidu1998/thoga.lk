@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/forum/forumq.css" type='text/css'>
 
-    <title>Title</title>
+    <title>Problem #21</title>
 </head>
 <body>
     <div>
@@ -17,7 +17,7 @@
         
         <div class="maincontainer">
                 <div class="forum-container">
-                <div class="forum-topic"><a class="links" href="#">My Tomato plants are damaged by insects</a></div>
+                <div class="forum-topic"><a class="links" href="#">My tomato plants are damaged by insects</a></div>
                 <div class="forum-contols">
                     <center style="font-size:35px;">0</center>
                     <center style="font-size:20;">Votes</center><br>
@@ -26,7 +26,7 @@
                     <br> Like &nbsp &nbsp &nbsp  Unlike
                 </div>
                 <div class="forum-content">
-                    My Problem is that I have an insect that eats the leaves of my tomato plant. It is a small insect difficult to see using the eye. 
+                    My problem is that, there is an insect that eats the leaves of my tomato plants. It is a small insect difficult to see with the eye. 
                     Can someone help me to get rid of that insect. <br>
                     Thank you. 
                 </div>
@@ -40,7 +40,7 @@
             <div class="reply-container">
                 <div>
                     <img src="../imgs/a.jpg" alt="" class="profile"> 
-                    <span class="rname">By dumidu Kasun</span>
+                    <span class="rname">By Dumidu Kasun</span>
                     <div class="re-vote">
                         3 votes
                         <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" style="margin-right:20px;margin-left:19px" >
@@ -57,7 +57,7 @@
             <div class="reply-container">
                 <div>
                     <img src="../imgs/a.jpg" alt="" class="profile"> 
-                    <span class="rname">By dumidu Kasun</span>
+                    <span class="rname">By Dumidu Kasun</span>
                     <div class="re-vote">
                         3 votes
                         <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" style="margin-right:20px;margin-left:19px" >
