@@ -4,7 +4,6 @@ $db_params = array(
 	'username' => 'root',
 	'password' => '',
 	'dbname' => 'thoga.lkdb'
-
 );
 
  ?>

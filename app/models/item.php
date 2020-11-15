@@ -3,6 +3,7 @@
 require_once(__DIR__.'/../../core/db_model.php');
 
 class item extends db_model{
+	
     function get_all(){
 		return $this->read('item',array('*'),null);
     }
@@ -12,7 +13,23 @@ class item extends db_model{
   }
 
   function  joinget(){
-		$sql = "select a.*, b.vege_name from item a inner join vegetable b on a.veg_Id=b.vege_id";
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.* FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id";
+		
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+      	while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		  return $finale;
+		
+
+		}else
+		echo "error";
+
+	}
+	function  joingetOrganic(){
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.* FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id where a.Item_type='org'";
+		
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){

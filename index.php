@@ -22,9 +22,32 @@ $routes = [
     'farmer/view_price' => 'FarmerController@view_price',
     'farmer/profile' => 'FarmerController@profile',
     'mentor/view_price' => 'mentorController@view_price',
-    'forum' =>'FarmerController@forum'
+    'forum' =>'FarmerController@forum',
+    'buyer/booksuccess' => 'BuyerController@book',
+    'buyer/home/organic' => 'BuyerController@organic',
+    'buyer/cart' => 'BuyerController@cart',
+    'buyer/checkout' => 'BuyerController@checkout',
+    'buyer/summery' => 'BuyerController@summery',
+    'signup' => 'SignUpController@show',
+    'signup/buyer' => 'SignUpController@addbuyer',
+    'signup/farmer' => 'SignUpController@addfarmer',
+    'signup/driver'=> 'SignUpController@adddriver',
+    '' => 'LoginController@view',
+    'login'=> 'LoginController@login',
+    'buyer/logout' => 'BuyerController@logout',
+    'buyer/profile' => 'BuyerController@profile',
+    'buyer/forum' => 'BuyerController@forum',
+    'buyer/postForum' => 'BuyerController@postForum',
+    'driver/dashboard' => 'DriverController@driverdashboard',
+    'driver/viewmore' => 'DriverController@viewmore',
+    'driver/profile' => 'DriverController@viewprofile',
+    'buyer/orders' => 'BuyerController@orders',
+    'buyer/viewmore' => 'BuyerController@viewmore',
+    'buyer/about_us' => 'BuyerController@aboutus',
+    'admin'=> 'AdminController@index'
     
-];
+ ];
+
 
 foreach($routes as $route => $controller_route) {
     if ($route == $path) {
