@@ -295,7 +295,7 @@
             <input type="text" class="inpbox"  name="Fpostalcode" placeholder="20000" required>
         </div>
         <div class="row">
-          <div class="lable">Email *</div>
+          <div class="lable">Email</div>
             <input type="text" class="inpbox"  name="Femail" placeholder="tikiri@gmail.com" >
         </div>
         <div class="desc">Specify the nearest cities around you</div>
@@ -521,6 +521,14 @@
             <input type="text" style="width:50%;margin-left:50px;" class="inpbox"  name="DVno" placeholder="PT - 8007" required>
         </div>
         <div class="row">
+          <div class="lable">Cost per km *</div>
+            <input type="text" class="inpbox"  name="costkm" placeholder="Rs. 60"  required>
+        </div>
+        <div class="row">
+          <div class="lable">Maximum Weight *</div>
+            <input type="text" class="inpbox"  name="maxweight" placeholder="1000 kg"  required>
+        </div>
+        <div class="row">
           <div class="lable">Driving License No. *</div>
             <input type="text" class="inpbox"  name="DLno" placeholder="17546315"  required>
         </div>
@@ -585,6 +593,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Driver)</a>
         </div>
         <div class="signupbtn">
+          <input type="hidden" name="usertype" value="3">
           <input type="submit" value="Sign Up" name="submit" disabled id="Dsignupbtn">
         </div>
       </form>
@@ -727,12 +736,10 @@
         <div class="row">
           <div class="lable">Why can I be a Mentor</div>
             <textarea name="M" class="inpbox" id="q1" cols="10" rows="3"></textarea>
-            <!-- <input type="text" class="inpbox"  name="email"  required> -->
         </div>
         <div class="row">
           <div class="lable">How Im going to mentor a Farmer</div>
           <textarea name="M" class="inpbox" id="q2" cols="10" rows="3"></textarea>
-            <!-- <input type="text" class="inpbox"  name="email"  required> -->
         </div>
         <div class="desc">Enter a Username and Password </div>
         <div class="row">

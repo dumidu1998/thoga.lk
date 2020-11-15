@@ -71,7 +71,7 @@ class signupModel extends db_model{
     function addfarmer($arr){
         $firstname=$arr['Ffn'];
         $lastname=$arr['Fln'];
-        $username=$arr['Funame'];
+        $username=$arr['FUname'];
         $password=$arr['Fpwd'];
         $NIC=$arr['Fnic'];
         $email=$arr['Femail'];
@@ -144,9 +144,17 @@ class signupModel extends db_model{
         $province=$arr['Dprovince'];
         $district=$arr['Ddistrict'];
         $postalcode=$arr['Dpostalcode'];
-        $usertype=$arr['usertype']; //2 for farmer
-        $FarmerIDno=$arr['Ffarmerid'];
-        $FarmName=$arr['Ffarmname'];
+        $usertype=$arr['usertype']; //3 for farmer
+        $vehiclemodel=$arr['DVmodel'];
+        $vehiclenoprovince=$arr['DVProvince'];
+        $vehicleno=$arr['DVno'];
+        $costkm=$arr['costkm'];
+        $maxweight=$arr['maxweight'];
+        $DLnumber=$arr['DLno'];
+        
+        $verified=0;
+        $curlocation=0;
+
 
         $sql = "INSERT INTO user (firstname, lastname, usename, password, NIC, email, contactno1, contactno2, dob, gender,
          cancel_count, hometown,	nearestcity1,	nearestcity2,	GPS_Logitude,	GPS_latitude,	usertype_id)
@@ -161,10 +169,12 @@ class signupModel extends db_model{
         $result1=$this->connection->query($sql1);
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user-id'];
-        $mid=0; //mentor
+        
 
 
-        $sql2="INSERT INTO farmer (user_id, `farmer's_idNo`, farm_name, mentor_id) Values ('".$uid."','".$FarmerIDno."','".$FarmName."','".$mid."')";
+        $sql2="INSERT INTO driver (user_id, current_location, license_no, vehcle_model, vehicle_province,	vechicle_no, costkm, maxweight,	verified_state)
+         Values('".$uid."','".$curlocation."','".$DLnumber."','".$vehiclemodel."','".$vehiclenoprovince."','".$vehicleno."','".$costkm."','".$maxweight."','".$verified."')";
+        echo $sql2;
         $result2=$this->connection->query($sql2);
         if($result){}else echo "<script>alert('error in SignUp');</script>";
         

@@ -23,22 +23,32 @@ class SignUpController {
     public function addbuyer(){
         if(isset($_POST['submit'])){
             $user = $this->model->addbuyer($_POST);
-            echo "done";
-            //header ("Location: /thoga.lk");
+            header ("Location: /thoga.lk?signup=1");
         }else{
             echo "<script>alert('error in SignUp');</script>";
-            header ("Location: /thoga.lk");
-
+            header ("Location: /thoga.lk?signup=0");
         }
 
     }
 
     public function addfarmer(){
         if(isset($_POST['submit'])){
-        $user = $this->model->addfarmer($_POST);
-        header ("Location: /thoga.lk");
+            $user = $this->model->addfarmer($_POST);
+            header ("Location: /thoga.lk");
+        }else{
+            echo "<script>alert('error in SignUp');</script>";
+            header ("Location: /thoga.lk?signup=0");
         }
-        //header ("Location: index");
+    }
+
+    public function adddriver(){
+        if(isset($_POST['submit'])){
+            $user = $this->model->adddriver($_POST);
+            header ("Location: /thoga.lk");
+        }else{
+            echo "<script>alert('error in SignUp');</script>";
+            header ("Location: /thoga.lk?signup=0");
+        }
     }
     
 }
