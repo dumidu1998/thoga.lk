@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/adminindexstyle.css">
 </head>
   
-<body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat"  onload="numberAnimation()">
-    <?php include("navbar.php"); ?>
+<body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
+    <?php include("navbar.php");?>
+    <ul>
+        <li><a href="#dapplications">Driver Applications</a></li>
+        <li><a href="#mapplications">Mentor Applications</a></li>
+        <li><a href="#mrequests">Mentor Requests</a></li>
+    </ul>
     <div class="buttonContainer">
         <a href="#"><button class="admin-btn" >View Orders</button></a>
         <a href="#"><button class="admin-btn" >Manage Users</button></a>
+        <a href="#"><button class="admin-btn" >Manage Advertisements</button></a>
+
     </div>
     <div class="ut-hr-txt">
         <hr><span>30 Days Summary</span>
@@ -20,29 +27,30 @@
     
         <div class="statcard">
         <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div>
-        <div class="card-content" ><span class="cardd"  data-end-value="500" data-increment="1" data-duration="1000">10</span></div>
+        <div class="card-content" id="count1"><?php echo number_format(100);?></div>
         </div>
 
         <div class="statcard">
         <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div>
-        <div class="card-content">7,500</div>
+        <div class="card-content" id="count2"><?php echo number_format(80);?></div>
         </div>
 
         <div class="statcard">
         <div class="card-title"><img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div>
-            <div class="card-content">Rs. 7,500</div>
+            <div class="card-content">Rs. <span id="count3"><?php echo number_format(235000);?></div>
 
         </div>
         <div class="statcard">
-        <div class="card-title"><img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/tsalesicon.png" alt=""> Today Sales**</div>
-        <div class="card-content">Rs. 500</div>
+        <div class="card-title-big"><img class="cardimg" width= 40px height=40px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div>
+        <span id="dapplications"></span>
+        <div class="card-content">Rs. <span id="count4"><?php echo number_format(9500);?></span></div>
 
         </div>
     </div>
     <div>
         <table>
         <div class="ut-hr-txt">
-            <hr><span>Driver Applications</span>
+            <hr ><span>Driver Applications</span>
         </div>
             <thead>
                 <tr>
@@ -78,6 +86,7 @@
                 <td data-label="Action"><a href="#"> View More</a></td>
                 </tr>
             </tbody>
+            <span id="mapplications"></span>
         </table>
 
     </div>
@@ -124,6 +133,7 @@
         </table>
 
     </div>
+    <span id="mrequests"></span>
 
     <div>
         <table>
@@ -170,25 +180,4 @@
     
 
 </body> 
-<script>
-    document.querySelectorAll(".cardd").forEach( (el) => {
-    const endValue = el.getAttribute('data-end-value');
-    const incrementValue = el.getAttribute('data-increment');
-    const durationValue = el.getAttribute('data-duration');
-  
-    if (endValue) numberAnimation(el, endValue, incrementValue, durationValue);
-  
-    function numberAnimation(el, endValue, incrementor, duration) {
-          //alert(endValue);
-
-    anime({
-    targets: el,
-    textContent: endValue,
-    round: incrementor ? 1/incrementor : 1/5,
-    easing: 'easeInOutQuad',
-    duration: duration ? duration : 4000,
-  });
-}
-});
-</script>
 </html>
