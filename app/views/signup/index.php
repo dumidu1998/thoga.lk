@@ -5,7 +5,8 @@
   <title>Sign Up</title>
   <link rel="stylesheet" type="text/css" href="/thoga.lk/app/views/signup/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
-  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+  crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
@@ -175,12 +176,13 @@
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox" id="Bpwd"  name="Bpwd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatebuyer();buttonOnbuyer();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatebuyer();buttonOnbuyer();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox" id="Bcpwd" onkeyup="pwdvalidatebuyer();buttonOnbuyer();" name="Bconfirmpwd" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox" id="Bcpwd" onkeyup="pwdvalidatebuyer();buttonOnbuyer();" name="Bconfirmpwd" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Bmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -197,14 +199,14 @@
     <!-- Farmer -->
     <div class="tabPanel">
       <form method="POST" action="signup/farmer">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable">First Name *</div>
-          <input type="text" class="inpbox" name="Ffn" placeholder="saman" required>
+          <input type="text" class="inpbox" name="Ffn" placeholder="Tikiri" required>
         </div>
         <div class="row">
           <div class="lable">Last Name *</div>
-            <input type="text" class="inpbox"  name="Fln" placeholder="Bandara" required>
+            <input type="text" class="inpbox"  name="Fln" placeholder="Gunapala" required>
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
@@ -235,11 +237,11 @@
         </div>
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
-            <input type="text" class="inpbox"  name="Faddressline1" placeholder="No.155"  required>
+            <input type="text" class="inpbox"  name="Faddressline1" placeholder="No.15"  required>
         </div>
         <div class="row">
           <div class="lable">Address Line 2</div>
-            <input type="text" class="inpbox" placeholder="Nilwaththa Mawatha" name="Faddressline2">
+            <input type="text" class="inpbox" placeholder="Medawatta Paara" name="Faddressline2">
         </div>
         <div class="row">
           <div class="lable">Province *</div>
@@ -290,11 +292,11 @@
         </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
-            <input type="text" class="inpbox"  name="Fpostalcode" placeholder="50000" required>
+            <input type="text" class="inpbox"  name="Fpostalcode" placeholder="20000" required>
         </div>
         <div class="row">
           <div class="lable">Email *</div>
-            <input type="text" class="inpbox"  name="Femail" placeholder="malika@gmail.com" required>
+            <input type="text" class="inpbox"  name="Femail" placeholder="tikiri@gmail.com" >
         </div>
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
@@ -345,12 +347,13 @@
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox"  name="Fpwd" id="Fpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatefarmer();buttonOnfarmer();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatefarmer();buttonOnfarmer();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Fconfirmpwd" id="Fcpwd" onkeyup="pwdvalidatefarmer();buttonOnfarmer();" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox"  name="Fconfirmpwd" id="Fcpwd" onkeyup="pwdvalidatefarmer();buttonOnfarmer();" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Fmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -368,14 +371,14 @@
         <!-- Driver -->
     <div class="tabPanel">
       <form method="POST" action="signup/driver" enctype="multipart/form-data">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable">First Name *</div>
-          <input type="text" class="inpbox" name="Dfn" placeholder="saman" required>
+          <input type="text" class="inpbox" name="Dfn" placeholder="Manjula" required>
         </div>
         <div class="row">
           <div class="lable">Last Name *</div>
-            <input type="text" class="inpbox"  name="Dln" placeholder="Bandara"  required>
+            <input type="text" class="inpbox"  name="Dln" placeholder="Kumara"  required>
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
@@ -397,7 +400,7 @@
         <div class="row">
           <div class="lable">Mobile Number 1 *</div>
             <input type="tel" class="inpbox"  name="Dcontactno1"   
-            pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989"  required>
+            pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0715455989"  required>
         </div>
         <div class="row">
           <div class="lable">Mobile Number 2</div>
@@ -406,11 +409,11 @@
         </div>
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
-            <input type="text" class="inpbox"  name="Daddressline1" placeholder="No.155"  required>
+            <input type="text" class="inpbox"  name="Daddressline1" placeholder="No. 5"  required>
         </div>
         <div class="row">
           <div class="lable">Address Line 2</div>
-            <input type="text" class="inpbox"  name="Daddressline2" placeholder="Nilwaththa Mawatha">
+            <input type="text" class="inpbox"  name="Daddressline2" placeholder="Abaya Mawatha">
         </div>
         <div class="row">
           <div class="lable">Province *</div>
@@ -461,11 +464,11 @@
         </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
-            <input type="text" class="inpbox"  name="Dpostalcode" placeholder="50000" required>
+            <input type="text" class="inpbox"  name="Dpostalcode" placeholder="10000" required>
         </div>
         <div class="row">
           <div class="lable">Email *</div>
-            <input type="text" class="inpbox"  name="Demail" placeholder="malika@gmail.com" required>
+            <input type="text" class="inpbox"  name="Demail" placeholder="nimal@gmail.com" required>
         </div>
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
@@ -539,12 +542,13 @@
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox" id="Dpwd"  name="Dpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatedriver();buttonOndriver();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatedriver();buttonOndriver();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox" id="Dcpwd"  name="Dcpwd" onkeyup="pwdvalidatedriver();buttonOndriver();" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox" id="Dcpwd"  name="Dcpwd" onkeyup="pwdvalidatedriver();buttonOndriver();" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Dmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -562,7 +566,7 @@
     <!-- Mentor -->
     <div class="tabPanel">
     <form method="POST" action="signup/buyer">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable">First Name *</div>
           <input type="text" class="inpbox" name="Mfn" placeholder="saman" required>
@@ -711,12 +715,13 @@
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox" name="Mpwd" id="Mpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatementor();buttonOnmentor();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatementor();buttonOnmentor();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Mcpwd" id="Mcpwd" onkeyup="pwdvalidatementor();buttonOnmentor();" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox"  name="Mcpwd" id="Mcpwd" onkeyup="pwdvalidatementor();buttonOnmentor();" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Mmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
