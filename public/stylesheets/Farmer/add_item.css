@@ -23,7 +23,7 @@
   display: inline-flex;
 }*/
 
-input[type=text],input[type=date],input[type=file], select, textarea {
+input[type=text],input[type=date],input[type=file],input[type=number], select .textt, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -54,6 +54,15 @@ button {
 button:hover {
   opacity:1;
 }
+.textt{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 18px;
+}
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -82,7 +91,7 @@ button:hover {
   color: black;
   text-align: center;
   width:70%;
-  background:rgba(0,0,0,0.2);
+  background:white;
   position: absolute;
   top:54%;
   left:50%;
@@ -112,7 +121,7 @@ button:hover {
   label{
     margin-right: 100px;
   }
-  input[type=text],input[type=date],input[type=file], select{
+  input[type=text],input[type=date],input[type=file], select .textt{
     margin-left: 40px;
   }
 

@@ -1,8 +1,4 @@
 
-<?php
-  $con=mysqli_connect("localhost","root","","thoga.lkdb") or die('connection failed');
-?>
-
 <html>
 <head>
 <title>Farmer Dashboard</title>
@@ -12,16 +8,16 @@
 
 </head>
  
-<body background="/thoga.lk/public/stylesheets/Farmer/index1.jpg">
-  <?php include 'navbar_dash.php';?>
+<body background="/thoga.lk/public/images/Farmer/index1.jpg">
+   <?php 
+   include 'navbar_dash.php';
+   
+   ?>
 
 
-  
-  <h1 class="title">Upcoming Orders</h1>
-
-<?php include 'verticalnavbar.php';?>
-
-<div class="container">
+ <h1 class="title">Upcoming Orders</h1>
+ <?php include 'verticalnavbar.php';?>
+<div class="container" style="height:auto;">
 
 <div style="overflow-x:auto;">
   <table align="center">
@@ -38,38 +34,32 @@
 
 <?php
 
+foreach($data as $key => $values){
+  $ordid= $values['order_id'];
+  $pdate= $values['pickup_date'];
+  $tweight= $values['weight'];
+  $cost= $values['total_cost'];
+  $bname= $values['buyer_name'];
 
-    $sql="SELECT * from order_details ";
-    $result=mysqli_query($con,$sql);
-    while($row=mysqli_fetch_assoc($result)){
-
-      echo "<tr>";
-
-      echo "<td>".$row['order_id']."</td>";
-      
-      echo "<td>".$row['pickup_date']."</td>";
-
-      echo "<td>".$row['weight']."</td>";
-
-      echo "<td>".$row['total_cost']."</td>";
-
-      echo "<td>".$row['buyer_name']."</td>";
-
-      echo "<td>"
-      ?>
-      <a href="#view_more">view more</a>
-    <?php
-      
-
-      echo "</tr>";
-       
-
-
-      
-    }
 
 
 ?>
+ <tr>
+ <td><?php echo $ordid;?></td>
+ <td><?php echo $pdate;?></td>
+ <td><?php echo $tweight;?></td>
+ <td><?php echo $cost;?></td>
+ <td><?php echo $bname;?></td>
+ <td>
+ <a class="more" href="viewmore.php">view more</a>
+ </td>
+</tr>
+    
+
+<?php
+}
+?>
+
 
 
   </table>

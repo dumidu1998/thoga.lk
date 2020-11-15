@@ -1,10 +1,3 @@
-
-<?php
-  $con=mysqli_connect("localhost","root","","thoga.lkdb") or die('connection failed');
-?>
-
-
-
 <html>
 <head>
 <title>Farmer Dashboard</title>
@@ -17,79 +10,69 @@
 <body background="/thoga.lk/public/images/Farmer/index1.jpg">
   <?php include 'navbar_dash.php';?>
 
-
-
-
-<?php include 'verticalnavbar.php';?>
-
-
-
-
-
-
   
-<h1 class="title2">Listed Items</h1>
-
+<h1 class="title">Listed Items</h1>
+<?php include 'verticalnavbar.php';?>
 
 <div style="overflow-x:auto;">
   <table align="center">
     <tr>
+
       <th>Order Id</th>
-      <th>Pickup Date</th>
-      <th>Total Weight</th>
+      <th>Item Type</th>
+      <th>Available Weight</th>
+      <th>Minimum Weight</th>
+      <th>End Date</th>
       <th>Price</th>
-      <th>Buyer Name</th>
-      <th>More Details</th>
-      <th>Edit</th>
-      
+      <th>More Details/Edit</th>
+      <th>Action</th>
       
     </tr>
 
 <?php
-
-
-    $sql="SELECT * from order_details ";
-    $result=mysqli_query($con,$sql);
-    while($row=mysqli_fetch_assoc($result)){
-      echo "<tr>";
-      echo "<td>".$row['order_id']."</td>";
-      
-      echo "<td>".$row['pickup_date']."</td>";
-
-      echo "<td>".$row['weight']."</td>";
-
-      echo "<td>".$row['total_cost']."</td>";
-
-      echo "<td>".$row['buyer_name']."</td>";
-
-      echo "<td>"
-      ?>
-      <a href="view_more.php">view more</a>
-    <?php
-
-    echo "<td>"
-      ?>
-      <a href="edit.php">Edit</a>
-    <?php
-    
-
-
-      echo "</tr>";
-       
-
-      
-    }
+     
+     foreach($data as $key => $values){
+       $ordid = $values['item_id'];
+       $itype = $values['Item_type'];
+       $avaweight = $values['avail_weight'];
+       $minweight = $values['min_weight'];
+       $enddate = $values['item_end'];
+       $price = $values['price'];
 
 
 ?>
 
+<tr>
+
+<td><?php echo $ordid; ?></td>
+<td><?php echo $itype; ?></td>
+<td><?php echo $avaweight; ?></td>
+<td><?php echo $minweight; ?></td>
+<td><?php echo $enddate; ?></td>
+<td><?php echo $price; ?></td>
+<td>
+ <a class="more" href="viewmore.php">view more</a>
+ </td>
+ 
+ <td>
+ <a class="dele"  href="delete.php"<?php echo $values['item_id']; ?>>Delete</a>
+ </td>
+
+ 
+
+
+
+</tr>
+<?php
+     }
+
+
+
+?>
+  
   </table>
 </div>
 </div>
-
-
-
-
 
 </body>
 </html>
