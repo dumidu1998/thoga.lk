@@ -1,6 +1,3 @@
-
-
-
 <html>
 <head>
 <title>Add Item</title>
@@ -24,8 +21,8 @@
         <label for="iname">Item Name</label>
       </div>
       <div class="col-75">
-        <select class="textt" id="itemname" name="itemname"  required >
-          <option>-------- Select Vegetables --------- </option>
+        <select class="textt" id="itemname" name="itemname" required>
+        <option>-------- Select Vegetables--------- </option>
           <?php
           foreach($records as $key =>$values)
           {
@@ -46,7 +43,7 @@
         <label for="aw">Available Weight (kg)</label>
       </div>
       <div class="col-75">
-        <input type="number" id="avaiweight" name="avaiweight" required>
+        <input type="text" id="avaiweight" name="avaiweight" required>
       </div>
     </div>
     <div class="row">
@@ -54,7 +51,7 @@
         <label for="mw">Minimum Weight (kg)</label>
       </div>
       <div class="col-75">
-        <input type="number" id="minweight" name="minweight" required>
+        <input type="text" id="minweight" name="minweight" required>
       </div>
     </div>
     <div class="row">
@@ -88,7 +85,7 @@
         <label for="itype">Item Type</label>
       </div>
       <div class="col-75">
-        <select class="textt" id="itemtype" name="itemtype"  required>
+        <select class="textt" id="itemtype" name="itemtype" required>
           <option value="organic">Organic</option>
           <option value="inorganic">Non-organic</option>
           
@@ -96,7 +93,15 @@
       </div>
     </div>
     
-   
+    <div class="id">
+    <div class="row">
+      <div class="col-25">
+        <label for="fid">Farmer Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="farmername" name="farmername" required>
+      </div>
+    </div>
     
     <div class="row">
       <div class="col-25">
@@ -115,7 +120,7 @@
     </form>
     
   
-</div> 
+</div>    
 
 <script>
 var today = new Date();

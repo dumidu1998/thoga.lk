@@ -1,6 +1,3 @@
-
-
-
 <html>
 <head>
 <title>Price List</title>

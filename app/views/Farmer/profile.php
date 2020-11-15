@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="profile1.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/Farmer/farmer_profile.css">
 </head>
 <?php
 $status = "disabled";
@@ -19,28 +19,32 @@ if(isset($_GET["edit"])){
 }
 if(isset($_GET["update"])){
    
-   echo "fuck"; 
+   echo "Done"; 
   
 }
 
 
 ?>
-<body>
-    <?php include("profilenavbar.php");?>
 
+<body>
+
+
+   <?php include 'navbar_dash.php';?> 
+
+   
     <div class="wrapper">
         <div class="user_pp">
             <!-- img -->
-            <img width="300px" src="../imgs/a.jpg" alt="">
+            <img width="300px" src="/thoga.lk/public/images/Farmer/a.jpg" alt="">
             <input type="file" value="upload image">
 
         </div>
         
         <div class="user_details">
             <!-- user details -->
-            <form action="Buyer_user_profile.php" method="get">
+            <form action="profile.php" method="get">
                 <div class="data_wrapper">
-                    <label style="color : <?php echo $color ?>" for="">first name</label>
+                    <label style="color : <?php echo $color ?>" for="">First name</label>
                     <input type="text" <?php echo $status ?>> 
                 </div>
 
@@ -107,7 +111,7 @@ if(isset($_GET["update"])){
                 </div>
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Nearest City1</label>
+                        <label style="color : <?php echo $color ?>" for="">Nearest City 1</label>
                         <input type="text" <?php echo $status ?>>
                     </div>
                     <div>
@@ -120,7 +124,7 @@ if(isset($_GET["update"])){
                 <hr>
                 <br>
                 <button id="myBtn" name="edit">Edit</button>
-                <button name="update" class="updt_btn" <?php echo $status ?>>Update</button>
+                 <button name="update" class="updt_btn" <?php echo $status ?>>Update</button>
 
             </form>
 
@@ -128,13 +132,11 @@ if(isset($_GET["update"])){
 
         <div>
             <!-- Advertistment -->
-            <img width="300px" src="../imgs/ads/a.jpg" alt="">
+            <img width="400px" src="/thoga.lk/public/images/Farmer/add.jpg" alt="">
 
         </div>
 
     </div>
-
-
 
     <h1 align="center">Order History</h1>
     <hr>
@@ -188,7 +190,8 @@ if(isset($_GET["update"])){
 
     </div>
     
-</body>
+
+    </body>
 
 <script>
 var upBtn = document.getElementById("upBtn");
