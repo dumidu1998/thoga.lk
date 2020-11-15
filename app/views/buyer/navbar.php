@@ -16,7 +16,7 @@
     <a href="home" class="active">Home</a>
     <a href="forum">Forum</a>
     <a href="orders">Orders</a>
-    <a href="#about">About Thoga.lk</a>
+    <a href="about_us">About Thoga.lk</a>
      <a id="google_translate_element"></a> 
   </div>
 
