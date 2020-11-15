@@ -472,7 +472,7 @@
         </div>
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
-          <div class="lable">Nearest city 1</div>
+          <div class="lable">Nearest city 1 *</div>
             <select class="s2" name="DNcity1" id="Dncity1" onchange="dselectvalidate4()" required>
               <option value="0"></option>
                 <?php
@@ -487,7 +487,7 @@
             </select>
           </div>
         <div class="row">
-          <div class="lable">Nearest city 2</div>
+          <div class="lable">Nearest city 2 *</div>
             <select class="s2" name="DNcity2" id="Dncity2" onchange="dselectvalidate5()" required>
               <option value="0"></option>
                 <?php
@@ -501,36 +501,64 @@
                 ?>
             </select>
           </div>
-        <div class="desc">Upload required Documents (jpg/jpeg/png)</div>
+        <div class="desc">Details of Your Vehicle</div>
         <div class="row">
-          <div class="lable">Driving License No.</div>
-            <input type="text" class="inpbox"  name="DLno"  required>
+          <div class="lable">Vehicle Model *</div>
+            <input type="text" class="inpbox"  name="DVmodel" placeholder="Dimo Batta / Bolero / Maximo" required>
         </div>
         <div class="row">
-          <div class="lable">Photo of Driving License  </div>
+          <div class="lable">Vehicle Number *</div>
+            <select  class="inpbox"  name="DVProvince" placeholder="WP" style="font-size: 17px;width:100px;" required>
+              <option value="WP">WP</option>
+              <option value="NC">NC</option>
+              <option value="NP">NP</option>
+              <option value="SG">SG</option>
+              <option value="EP">EP</option>
+              <option value="UP">UP</option>
+              <option value="CP">CP</option>
+              <option value="SP">SP</option>
+            </select>
+            <input type="text" style="width:50%;margin-left:50px;" class="inpbox"  name="DVno" placeholder="PT - 8007" required>
+        </div>
+        <div class="row">
+          <div class="lable">Driving License No. *</div>
+            <input type="text" class="inpbox"  name="DLno" placeholder="17546315"  required>
+        </div>
+        <div class="desc">Upload required Documents as Photoes (jpg/jpeg/png)</div>
+        <div class="row">
+          <div class="lable">Driving License - Front</div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file1" id="file1" onchange="uploadFile()">
-            <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
-            <u id="status" style="font-size:10px"></u>
-            <u id="loaded_n_total" style="font-size:10px"></u>
+            <input type="file" name="file1" id="file1" onchange="uploadFile1()">
+            <progress id="progressBar1" value="0" max="100" style="width:150px;"></progress>
+            <u id="status1" style="font-size:10px"></u>
+            <u id="loaded_n_total1" style="font-size:10px"></u>
           </div>
         </div>
         <div class="row">
-          <div class="lable">Photo of Driving License  </div>
+          <div class="lable">Driving License - Back</div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file2" id="file2" onchange="uploadFile()">
-            <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
-            <u id="status" style="font-size:10px"></u>
-            <u id="loaded_n_total" style="font-size:10px"></u>
+            <input type="file" name="file2" id="file2" onchange="uploadFile2()">
+            <progress id="progressBar2" value="0" max="100" style="width:150px;"></progress>
+            <u id="status2" style="font-size:10px"></u>
+            <u id="loaded_n_total2" style="font-size:10px"></u>
           </div>
         </div>
         <div class="row">
-          <div class="lable">Photo of Driving License  </div>
+          <div class="lable">Revenue License  </div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file3" id="file3" onchange="uploadFile()">
-            <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
-            <u id="status" style="font-size:10px"></u>
-            <u id="loaded_n_total" style="font-size:10px"></u>
+            <input type="file" name="file3" id="file3" onchange="uploadFile3()">
+            <progress id="progressBar3" value="0" max="100" style="width:150px;"></progress>
+            <u id="status3" style="font-size:10px"></u>
+            <u id="loaded_n_total3" style="font-size:10px"></u>
+          </div>
+        </div>
+        <div class="row">
+          <div class="lable">Photo of Vehicle  </div>
+          <div style="display:inline" class="inpbox">
+            <input type="file" name="file4" id="file4" onchange="uploadFile4()">
+            <progress id="progressBar4" value="0" max="100" style="width:150px;"></progress>
+            <u id="status4" style="font-size:10px"></u>
+            <u id="loaded_n_total4" style="font-size:10px"></u>
           </div>
         </div>
         <div class="desc">Enter a Username and Password </div>
@@ -729,13 +757,13 @@
           I have read and Agree to the follow <a href="#">User Agreement (Mentor)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn">
+          <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn" >
         </div>
       </form>
     </div>
 </div>
 
-<script src="/thoga.lk/app/views/signup/script.js"></script>
+<script type="text/javascript" src="/thoga.lk/app/views/signup/script.js" ></script>
 
 </body>
 </html>
