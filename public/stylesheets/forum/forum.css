@@ -11,7 +11,12 @@ body{
     font-family:  Merriweather;
 }
 
-input[type="text"]{
+input[type="checkbox"]{
+    /* height: 10px; */
+    transform: scale(1.5);
+    margin-left: 10px;
+    margin-right: 15px;
+    float: left;
 }
 
 .grid-item0{
@@ -20,9 +25,9 @@ input[type="text"]{
     text-align: left;
     padding: 20px 10px;
     font-size: 30px;
-    height: 200px;
+    height: 45%;
     position: sticky;
-    width: 60%;
+    width: 85%;
 }
 
 .grid-item1{
@@ -38,13 +43,26 @@ input[type="text"]{
     display: contents;
 }
 
+.fbtn{
+    float: right;
+    background-color: #07910c;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+    margin-right: 20px;
+}
+
 .content{
     grid-area: items;
     color:  blue;
 }
 
 .filter-topic{
-    
     font-size: 23px;
     font-weight: bold;
 
@@ -54,6 +72,9 @@ input[type="text"]{
     padding-left: 30px;
     font-size: 20px;
     font-weight: light;
+    cursor: pointer;
+    margin-top: 10px;
+
 }
 
 .filter-topic ::before{
@@ -61,9 +82,9 @@ input[type="text"]{
 }
 
 .forum-container{
-    padding:10px;
+    padding:25px;
     margin: 0px 30px;
-    background-color: rgba(255, 255, 255, 0.884);
+    background-color: rgba(255, 255, 255, 0.986);
     height: auto;
     margin-bottom: 50px;
     font-weight: 700;
@@ -90,6 +111,8 @@ input[type="text"]{
     font-size: 25px;
     font-weight: bold;
     margin-bottom: -10px;
+    text-decoration: underline;
+
 }
 
 .links:link{
@@ -131,7 +154,7 @@ input[type="text"]{
 
 @media screen and (max-width: 600px) {
     .container{grid-template-columns: repeat(auto-fill, minmax(350px, 100%));}
-    .grid-item0{width: 40%;}
+    .grid-item0{width: 40%; height: auto;}
     .container{grid-gap: 0px;}
     .forum-container{height: 250px;}
     .forum-content{display: none;}

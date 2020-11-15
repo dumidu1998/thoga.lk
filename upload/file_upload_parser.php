@@ -25,13 +25,6 @@ if (!$fileTmpLoc) { // if file not chosen
 
 if(move_uploaded_file($fileTmpLoc, "../public/images/tmpuploads/$fileName")){
     echo "File upload is complete";
-    // $cid=$uid; //$maxid--;
-    //         $cpath="../public/images/tmpuploads/";
-    //         $cname=$cid;
-    //         $Sfile = $cpath.$cname."_1.".$ext;
-    //         $Dfile= "../public/images/Driveruploads/".$cid.".".$ext;
-    //         rename($Sfile, $Dfile);
-
     $_SESSION['temp']++;
 } else {
     echo "move_uploaded_file function failed";

@@ -13,6 +13,35 @@ body{
 
 }
 
+.sbtn{
+    padding: 10px 20px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 200px;
+    background-color: #0081bd;
+    color: antiquewhite;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.replyh{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #e6e6e6;
+    margin-left: 20%;
+    font-size: 30px;
+    padding: 10px;
+    width: 20%;
+}
+.TAcontainer{
+    width: 80%;
+    margin-left: 20%;
+
+}
+.nicEdit-main{
+    background-color: white;
+    font-size: 30px;
+}
+
 .maincontainer{
     height: auto;
 }
@@ -33,7 +62,7 @@ body{
 .forum-container{
     padding:10px;
     margin: 0px 30px;
-    background-color: rgba(236, 235, 235, 0.89);
+    background-color: rgba(255, 255, 255, 0.918);
     height: auto;
     margin-bottom: 20px;
     box-shadow: 10px 11px 8px #ffffff2f;
@@ -43,7 +72,7 @@ body{
 .reply-container{
     padding:10px;
     margin: 0px 30px;
-    background-color: rgba(236, 235, 235, 0.89);
+    background-color: rgba(255, 255, 255, 0.932);
     height: auto;
     width: 90%;
     margin-bottom: 20px;
@@ -74,7 +103,8 @@ body{
 .rname{
     margin-left: 5px;
     position: relative;
-    top:-5px;
+    top:0px;
+    font-size: 16px;
 }
 .forum-contols{
     background-color:  rgba(236, 235, 235, 0.89);
@@ -125,7 +155,7 @@ hr{
 }
 .nreply{
 margin-left: 60px;
-font-size: 18px;
+font-size: 22px;
 font-weight: bold;
 color: rgb(31, 31, 31);
 }
@@ -153,6 +183,8 @@ color: rgb(31, 31, 31);
     font-size: 16px;}
     .forum-container{margin: 0px 5px 20px 5px;}
     .reply-container{margin: 3px 15px 15px 5px;}
+    .TAcontainer{margin-left: 8%;}
+    .replyh{margin-left: 8%;display: block;}
 } 
 
 @media screen and (max-width: 600px) {

@@ -15,14 +15,18 @@
  include ('navbar.php'); ?>
     <div class="container">
         <div class="grid-item0">
+            <form action="">
             <div class="filter-topic"> Added by </div>
-            <div class="filter-items"><i class="fa fa-circle" style="font-size:12px;margin-right:10px" aria-hidden="true"></i><a class="links" href="">Driver</a></div>
-            <div class="filter-items"><i class="fa fa-circle" style="font-size:12px;margin-right:10px" aria-hidden="true"></i><a class="links" href="">Farmer</a></div>
-            <div class="filter-items"><i class="fa fa-circle" style="font-size:12px;margin-right:10px" aria-hidden="true"></i><a class="links" href="">Buyers</a></div><br>
+            <div class="filter-items" id="1"><span>Driver<input type="checkbox" name="" id="1"></span></div>
+            <div class="filter-items">Farmer<input type="checkbox" name="" id="1"></a></div>
+            <div class="filter-items">Buyers<input type="checkbox" name="" id="1"></a></div><br>
             
             <div class="filter-topic"> Sort by </div>
-            <div class="filter-items"><i class="fa fa-circle" style="font-size:12px;margin-right:10px" aria-hidden="true"></i><a class="links" href="">Date</a></div>
-            <div class="filter-items"><i class="fa fa-circle" style="font-size:12px;margin-right:10px" aria-hidden="true"></i><a class="links" href="">Votes</a></div>
+            <div class="filter-items">Date<input type="checkbox" name="" id="1"></a></div>
+            <div class="filter-items">Votes<input type="checkbox" name="" id="1"></a></div>
+            <br>
+            <button type="submit" class="fbtn">Filter</button>
+            </form>
             <!-- <div class="filter-items"><a href="">Buyers</a></div><br> -->
         </div>
 

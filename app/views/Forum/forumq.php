@@ -18,6 +18,7 @@
         <div class="maincontainer">
                 <div class="forum-container">
                 <div class="forum-topic"><a class="links" href="#">My tomato plants are damaged by insects</a></div>
+                <div class="rname" style="margin:5px 0px 0px 35px">By Dumidu Kasun</div>
                 <div class="forum-contols">
                     <center style="font-size:35px;">0</center>
                     <center style="font-size:20;">Votes</center><br>
@@ -34,7 +35,7 @@
             </div>
             <div>
                 <hr>
-                <span class="nreply">3 Replies</span>
+                <span class="nreply">2 Replies</span>
                 <hr>
             </div>
             <div class="reply-container">
@@ -68,12 +69,26 @@
                 Cause for this is the mine bug. To remove mine bug you have to spray water mixed with soap untill the patches get healed. 
                 </div> 
             </div>
-        </div>
+            <hr style="height:0.1px;"> 
+            <hr style="height:0.1px;"> 
+            <form action="#" method="get">
+                <div class="replyh">Write a Reply</div>
+                <div class="TAcontainer">
+                    <textarea style="height:300px;background-color: black;width: 80%;" name="reply" id="reply" cols="30" rows="10"></textarea>
+                </div>
+                <button type="submit" class="sbtn">Submit</button>
+            </form>
+            </div>
 
         <div class="adcontainer">
             <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
         </div>
 
     </div>
+    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+            bkLib.onDomLoaded(nicEditors.allTextAreas);
+            new nicEditor({buttonList : ['fontSize','bold','italic','underline','strikeThrough','subscript','superscript','html','image']}).panelInstance('reply');
+        </script>				
 </body>
 </html>
