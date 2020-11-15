@@ -30,7 +30,7 @@
       <form method="POST" action="signup/buyer">
       <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
           <input type="text" class="inpbox" name="Bfn" placeholder="saman" required>
         </div>
         <div class="row">
@@ -201,7 +201,7 @@
       <form method="POST" action="signup/farmer">
       <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
           <input type="text" class="inpbox" name="Ffn" placeholder="Tikiri" required>
         </div>
         <div class="row">
@@ -373,7 +373,7 @@
       <form method="POST" action="signup/driver" enctype="multipart/form-data">
       <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
           <input type="text" class="inpbox" name="Dfn" placeholder="Manjula" required>
         </div>
         <div class="row">
@@ -568,7 +568,7 @@
     <form method="POST" action="signup/buyer">
       <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
           <input type="text" class="inpbox" name="Mfn" placeholder="saman" required>
         </div>
         <div class="row">
