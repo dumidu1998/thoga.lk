@@ -3,7 +3,7 @@ $db_params = array(
 	'servername' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'dbname' => 'thoga.lkdb'
+	'dbname' => 'thoga_lkdb'
 
 );
 

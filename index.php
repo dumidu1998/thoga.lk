@@ -23,11 +23,14 @@ $routes = [
     'buyer/logout' => 'BuyerController@logout',
     'buyer/profile' => 'BuyerController@profile',
     'buyer/forum' => 'BuyerController@forum',
-    'buyer/postForum' => 'BuyerController@postForum'
+    'buyer/postForum' => 'BuyerController@postForum',
     'driver/dashboard' => 'DriverController@driverdashboard',
     'driver/viewmore' => 'DriverController@viewmore',
-    'driver/profile' => 'DriverController@viewprofile'
-    
+    'driver/profile' => 'DriverController@viewprofile',
+    'driver/calendar' => 'DriverController@showcalendar',
+    'driver/unavailabledates'=> 'DriverController@unavailabledates',
+    'driver/vehicles'=> 'DriverController@showvehicle',
+    'driver/about_us'=> 'DriverController@about_us'
  ];
 
 foreach($routes as $route => $controller_route) {

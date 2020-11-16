@@ -9,8 +9,10 @@ class DriverController{
     function __construct()
     {
         $this->model = new driverdash();
+        
         $this->model2 = new viewmoree();
         $this->model3 = new viewmoree();
+        
     }
 
     public function driverdashboard(){
@@ -30,25 +32,47 @@ class DriverController{
         $result = $this->model2->get($order_id);
         $view = new View("driver/viewmore");
         $view->assign('order_id',$order_id);
-        $view->assign('mmmm',$result);
+        $view->assign('view',$result);
         $view->assign('res',$res);
         $view->assign('buyer',$buyer);
         $view->assign('items',$items);
+       
         
         
     }
 
-    public function calerndar(){
-        $view = new View("driver/calendar");
+    public function showcalendar(){
+        $view = new View("driver/showcalendar");
         
+    }
+
+    public function unavailabledates(){
+        
+        if(isset($_POST['submitdates'])){
+        
+            $startdate=$_POST['startdate'];
+            $enddate=$_POST['enddate'];
+            $driver_id=1;//$_SESSION['driverid'];
+            $result= $this->model->insertdates($driver_id,$startdate,$enddate);
+            $view = new View("driver/showcalendar");
+            echo "<script>alert('Added');</script>";
+            header("location:/thoga.lk/driver/calendar");
+        }
     }
 
     public function viewprofile(){
         $view = new View("driver/driveruserprofile");
     }
+    
+    public function showvehicle(){
+        $result = $this->model->get2(1);//driver_id
+        $view = new View("driver/vehicles");
+        $view->assign('vehicle',$result);
+    }
 
-
-
+    public function about_us(){
+        $view = new View("driver/aboutus");
+    }
 
 
 
