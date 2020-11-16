@@ -14,17 +14,17 @@
   <a href="forum">Forum</a>
   <a href="add_item">Add Item</a>
   <a href="listed">Listed Items</a>
-  <div class="trans" id="google_translate_element"></div>
+  <a id="google_translate_element" ></a>
+
+
+  
   
  
- 
   <div class = "nav-right">
+    <a href ="aboutus">About Us</a>
     <a href="#logout">Logout</a>
-     
-
-    <img src="/thoga.lk/public/images/Farmer/bell.jpg" alt="" class = "user_pic" width=45px>
-    <img src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" width=45px>
-
+    
+    
  
 
 
