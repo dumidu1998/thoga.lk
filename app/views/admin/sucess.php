@@ -83,9 +83,11 @@
   opacity: 1;
 }
 .message p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin: 25px 0px;
   padding: 0;
+  font-weight:700;
+
 }
 .message p:nth-child(2) {
   font-size: 2.3rem;
@@ -127,7 +129,7 @@
     Success
   </p>
   <p>
-    Check your email for a booking confirmation. We'll see you soon!
+    Sign Up Successful. Login to Continue!
   </p>
   <button id='ok'>
     OK
