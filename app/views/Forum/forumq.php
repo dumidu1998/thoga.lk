@@ -17,7 +17,7 @@
     <div class="container">
         <div class="maincontainer">
                 <div class="forum-container">
-                    <div class="forum-topic"><a class="links" href="#">My tomato plants are damaged by insects</a></div>
+                    <div class="forum-topic">My tomato plants are damaged by insects</div>
                     <div class="rname" style="margin:5px 0px 0px 35px">By Dumidu Kasun</div>
                     <div class="forum-contols">
                         <center style="font-size:35px;">0</center>
