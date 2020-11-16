@@ -44,12 +44,12 @@ session_start();
       
            
     </div>
-    <div class="search">
-        <form action="/action_page.php">
+    <!-- <div class="search">
+        <form action="" method="post">
         <input type="text" placeholder="Search.." name="search">
         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
-      </div>
+      </div> -->
   
     <?php include("item_non_org.php"); ?> 
     
