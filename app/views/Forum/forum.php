@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="forum-container">
-                    <div class="forum-topic"><a class="links" href="forumq.php">My tomato plants are damaged by insects</a><br>
+                    <div class="forum-topic"><a class="links" href="fullview">My tomato plants are damaged by insects</a><br>
                 <span style="font-size:13px">By - Dumidu Kasun Bandara </span>
                 </div>
                 <div class="forum-contols">

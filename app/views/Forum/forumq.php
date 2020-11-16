@@ -8,8 +8,9 @@
     <title>Problem #21</title>
 </head>
 <body>
+    <?php   ?>
     <div>
-        <a class="back-button" href="forum.php">
+        <a class="back-button"  onclick="goback()">
             &lt;&nbsp;Back
         </a>
     </div>
@@ -89,6 +90,9 @@
     <script type="text/javascript">
         bkLib.onDomLoaded(nicEditors.allTextAreas);
         new nicEditor({buttonList : ['fontSize','bold','italic','underline','strikeThrough','subscript','superscript','html','image']}).panelInstance('reply');
+        function goback(){
+            window.history.back();
+        }
     </script>				
 </body>
 </html>
