@@ -1,65 +1,70 @@
-<?php require_once("../../../db/db.php"); ?>
+
 <html>
 <head>
 	
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../public/stylesheets/driver/viewmore.css">
+<link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/viewmore.css">
 </head>
 
-<body style="background-image: url('../../../public/images/driver/20.jpg');">
+<body style="background-image: url('/thoga.lk/public/images/driver/20.jpg');">
     <?php include("navbarviewmore.php"); ?>
     <header >
         
         <div class="topic">
-            <h2>Order details of Order Id - <mark>   <?php echo $_GET['orderId'] ?>  </mark></h2>
+            <h2>Order details of Order Id - <mark>   <?php echo $order_id ?>  </mark></h2>
         </div>
          
-    </header>    
-    
-	
+    </header> 
     <div class="left" >
             <div class="transbox">  
                 <?php
                         
-                            $sql="select * from orders where order_id=\"". $_GET['orderId']. "\"" ;
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc()){
+                            foreach($mmmm as $keys => $row){
+                                $ordid = $row['order_id'];
+                                $wght = $row['weight'];
+                                $ploc = $row['pickup_location'];
+                                $totcost = $row['total_cost'];
+                                $dloc = $row['deliver_location'];
+                                $odrdate = $row['order_date'];
+                                $pickdate = $row['pickup_date'];
+
+                            } 
                                 
-                                
-                                echo "Order Id           : ";
-                                echo "<input type=\"text\" \"class=\"advancedSearchTextBox\" / name=\"orderid\" value=\"".$row['order_id']."\">";
-                                echo"<br>" ; 
+                            ?>    
+                                Order Id           : 
+                                <input type="text" "class="advancedSearchTextBox"  name="orderid" value="<?php echo $ordid?>" disabled>
+                                <br> 
                                  
 
-                                echo "Weight             :";
-                                echo " <input type=\"text\" name=\"weight\" value=\"". $row['weight']."\">";
-                                echo"<br>" ;     
+                                Weight             :
+                                <input type="text" name="weight" value="<?php echo $wght?>" disabled>
+                                <br>     
 
-                                echo "Pickup Location    :";
-                                echo " <input type=\"text\" name=\"pickup location\" value=\"".$row['pickup_location']."\">";
-                                echo"<br>" ; 
+                                Pickup Location    :
+                                <input type="text" name="pickup location" value="<?php echo $ploc?>" disabled>
+                                <br>
 
-                                echo "Total Cost         :";
-                                echo " <input type=\"text\" name=\"total cost\" value=\"". $row['total_cost']."\">";
-                                echo"<br>" ; 
+                                Total Cost         :
+                                <input type="text" name="total cost" value="<?php echo $totcost?>" disabled>
+                                <br> 
 
-                                echo "Delivery Location  :";
-                                echo " <input type=\"text\" name=\"deliver location\" value=\"". $row['deliver_location']."\">";
-                                echo"<br>" ; 
+                                Delivery Location  :
+                                <input type="text" name="deliver location" value="<?php echo $dloc?>" disabled>
+                                <br> 
 
-                                echo "Order Date          :";
-                                echo " <input type=\"text\" name=\"order date\" value=\"".$row['order_date']."\">";
-                                echo"<br>" ; 
+                                Order Date          :
+                                <input type="text" name="order date" value="<?php echo $odrdate?>" disabled>
+                                <br>
 
-                                echo "Pickup Date          :";
-                                echo " <input type=\"text\" name=\"pickup date\" value=\"". $row['pickup_date']."\">";
-                                echo"<br>" ; 
+                                Pickup Date          :
+                                <input type="text" name="pickup date" value="<?php echo $pickdate?>" disabled>
+                                <br>
 
                             
 
-                            }
+                            
                         
-                ?>
+                
             </div> 
     </div>  
         
@@ -67,29 +72,30 @@
     <div class="right" >
             <div class="transbox">      
                 <?php
-                   $sql="select buyer.b_name from buyer inner join orders on orders.buyer_id = buyer.buyer_id where orders.order_id=\"". $_GET['orderId']. "\" " ;
-                   $result=$conn->query($sql);
-                   while($row=$result->fetch_assoc()){
-                       //var_dump($result);
-                       
-                       echo "Buyer Name :";
-                       echo " <input type=\"text\" name=\"buyer name\" value=\"". $row['b_name']."\">";
-                       echo"<br>" ; 
-                   }
-          
-                   $sql="select driver.driver_name from driver inner join orders on orders.driver_id = driver.driver_id where orders.order_id=\"". $_GET['orderId']. "\"";
-                   $result=$conn->query($sql);
-                   while($row=$result->fetch_assoc()){
-                       
-                    
-                       echo "Driver Name  :";
-                       echo " <input type=\"text\" name=\"driver name\" value=\"". $row['driver_name']."\">";
-                       echo"<br>" ; 
-
-                   }
-                     
-                           
+                  
+                   foreach($buyer as $keys => $row){
+                       $bname=$row['b_name'];
                 ?>
+                Buyer Name :
+                <input type="text" name="buyer name" value="<?php echo $bname?>" disabled>
+                <br>
+                
+                <?php } ?>
+                   
+                <?php
+                       
+                   foreach($res as $keys => $row){
+                       $dname=$row['driver_name'];
+
+                ?>       
+                Driver Name  :
+                <input type="text" name="driver name" value="<?php echo $dname?>" disabled>  
+                <br>
+
+
+                <?php } ?>
+                           
+                
             </div> 
     </div>
      
@@ -108,11 +114,9 @@
 			
 			<?php
                 $sum=0;
-				$sql="select item.item_type,item.price ,order_details.weight from order_details inner join item on item.item_id = order_details.item_id where order_details.order_id=\"". $_GET['orderId']. "\"";
-                $result=mysqli_query($conn,$sql);
-                //var_dump($conn);
-				 //var_dump($result);
-				while($row=mysqli_fetch_assoc($result)){
+				
+                 
+                 foreach($items as $keys => $row){
 					 //var_dump($row);
 					echo "<tr>";
 					echo "<td>".$row['item_type']."</td>";
@@ -128,12 +132,12 @@
 			
         </table>
         <div class="fin">
-            <?php
+            
                 
-                echo "<align=\"right\"> TOTAL  </align>";
-                echo " <input type=\"text\"  class=\"advancedSearchTextBox1\"  name=\"driver id\" value=\"". $sum."\">";
-                
-            ?>
+            <align=\"right\"> TOTAL  </align>
+            <input type="text"  class="advancedSearchTextBox1"  name="driver id" value="<?php echo $sum?>" disabled>
+            
+            
         </div>
     </div>
 	

@@ -1,22 +1,28 @@
 body{
     background-image: url(/thoga.lk/public/images/forum/forum-bg.jpg);
+    background-size: cover;
 }
 .container{
     height: 300px;
-    margin: 10px 0px;
+    margin: 80px 0px;
     display: grid;
     grid-template-columns: 15% auto 20%;
     grid-gap: 50px;
+    font-family:  Merriweather;
+}
+
+input[type="text"]{
 }
 
 .grid-item0{
-    background-color: rgba(141, 141, 141, 0.712);
+    background-color: rgba(255, 255, 255, 0.801);
+    /* color:white; */
     text-align: left;
     padding: 20px 10px;
     font-size: 30px;
-    height: 300px;
+    height: 200px;
     position: sticky;
-    width: 100%;
+    width: 60%;
 }
 
 .grid-item1{
@@ -57,24 +63,25 @@ body{
 .forum-container{
     padding:10px;
     margin: 0px 30px;
-    background-color: rgba(236, 235, 235, 0.89);
+    background-color: rgba(255, 255, 255, 0.884);
     height: auto;
-    margin-bottom: 20px;
-    box-shadow: 10px 11px 8px #888888;
+    margin-bottom: 50px;
+    font-weight: 700;
+    box-shadow: 10px 11px 8px #0202412c;
 
 
 }
 .forum-contols{
-    background-color:  rgba(236, 235, 235, 0.89);
+    background-color:  rgba(236, 235, 235, 0);
     font-size: 15px;
     height: 125px;
     width: 100px;
-    float: left;
-    margin: 20px 30px 0px 10px ;
-    padding-top: 20px;
+    float: right;
+    margin: -20px 30px 0px 10px ;
+    padding-top: 0px;
 }
 .forum-content{
-    padding: 20px 30px;
+    padding: 18px 30px;
     font-size: 18px;
 }
 
@@ -82,14 +89,16 @@ body{
     margin-left: 30px;
     font-size: 25px;
     font-weight: bold;
+    margin-bottom: -10px;
 }
 
 .links:link{
-    color: black;
+    color: rgb(3, 3, 46);
+    text-decoration: none;
 }
 
 .links:visited{
-    color: rgb(32, 27, 27);
+    color: rgb(3, 4, 41);
 }
 
 .links:hover{
@@ -97,7 +106,7 @@ body{
 }
 
 .ad{
-    margin-top: 50px;
+    margin-top: 200px;
     height: auto;
     width: 100%;
 }
@@ -105,13 +114,14 @@ body{
 .reply{
     border:1px groove rgb(0, 0, 0);
     font-size: 17px;
-    margin-left: 130px;
+    margin-left: 30px;
+    margin-right: 80px;
     padding-left: 8px;
 }
 
 .like-unlike{
     padding: 0px 2px;
-    box-shadow: 1px 1px 1px 1px #2c2266;
+    box-shadow: 1px 1px 1px 1px #808080;
     height: 30px;
 }
 
@@ -131,25 +141,26 @@ body{
 }
 
 .admin-btn {
-    margin: 0px 10px 30px 80px;
+    margin: 0px 10px 30px 30px;
     padding: 10px 25px;
     font-family: "Roboto", sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    background:  rgba(141, 141, 141, 0.39);
+    font-weight: 500;
+    font-size: 25px;
+    background:  rgb(41, 158, 12);
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    border: 2px solid #000;
+    border: 1px solid #000;
     width: 200px;
     height: 80px;
+    color: white;
   }
   
   .admin-btn:hover {
-    background: #000;
-    color: #fff;
+    background: rgb(89, 190, 22);
+    color: rgb(255, 255, 255);
   }
 
   @media screen and (max-width: 725px) {
@@ -175,11 +186,15 @@ body{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
+    
+    
+}
+
+/* Modal Content */
+.modal-content {
     background-color: #fefefe;
+    background-image: url(/thoga.lk/public/images/forum/forum-bg4.jpg);
+    background-size: cover; 
     margin: auto;
     padding: 0px 25px 0px 25px;
     border: 1px solid #888;
@@ -203,16 +218,17 @@ body{
   }
 
   .modeltopic{
-      padding: 5px 0px 5px 20px;
+      padding: 5px 0px 5px 40%;
       font-size: 30px;
       font-weight: bold;
       margin: auto;
   }
 
   .mheader{
-      background-color: rgb(230, 227, 227);
+      background-color: rgba(255, 255, 255, 0.062);
       height: 50px;
-      border-bottom: #000 1px solid;
+      border-bottom: #000 0px solid;
+      text-decoration: underline;
   }
 
   .newforum{
@@ -223,12 +239,21 @@ body{
       height:auto
   }
 
+  input[type=text]::placeholder{
+    font-size: 32px;
+  }
+
+  textarea{
+    border: 3px solid rgb(11, 139, 21);
+      
+  }
+
   input[type=text]{
       width: 80%;
-      font-size: 30px;
+      font-size: 20px;
       padding: 12px 20px;
       display: inline-block;
-      border: 1px solid #ccc;
+      border: 3px solid rgb(11, 139, 21);
       border-radius: 4px;
       margin: 0% 0% 0% 5%;
       margin-bottom: 20px;
@@ -239,7 +264,7 @@ body{
       margin-bottom: 10px;
       font-size: 25px;
       height: 100px;
-      width: 80%;
+      width: 77%;
       min-height: 150px;
   }
 
@@ -259,7 +284,7 @@ body{
         font-size: 20px;width: auto;font-weight: bold;}
     .modal-content{width: 100%;padding: 0px;}
     input[type=text]{
-        font-size: 20px;}
+        font-size: 16px;}
     .newforum{margin: 3% 5%;}
     .description{margin-left: 10%;}
 }
@@ -270,7 +295,7 @@ body{
     font-family: "Roboto", sans-serif;
     font-weight: 800;
     font-size: 15px;
-    background:#000;
+    background:  rgb(41, 158, 12);
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -283,7 +308,7 @@ body{
   }
   
   .fsubmit-btn:hover {
-    background: rgb(143, 138, 138);
-    color: rgb(3, 0, 0);
+    background: rgb(21, 114, 9);
+    color: rgb(255, 255, 255);
   }
   

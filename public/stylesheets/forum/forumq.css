@@ -1,8 +1,16 @@
+body{
+    background-image: url(/thoga.lk/public/images/forum/forum-bg.jpg);
+    background-size: cover;
+}
+
 .container{
     margin: 10px 0px;
     display: grid;
     grid-template-columns: 75% auto;
     grid-gap: 10px;
+    font-family:  Merriweather;
+    font-weight: 540;
+
 }
 
 .maincontainer{
@@ -28,7 +36,7 @@
     background-color: rgba(236, 235, 235, 0.89);
     height: auto;
     margin-bottom: 20px;
-    box-shadow: 10px 11px 8px #888888;
+    box-shadow: 10px 11px 8px #ffffff2f;
     display: inline-block;
 }
 
@@ -39,7 +47,7 @@
     height: auto;
     width: 90%;
     margin-bottom: 20px;
-    box-shadow: 10px 11px 8px #888888;
+    box-shadow: 10px 11px 8px #fcfcfc38;
     display: inline-block;
 }
 
@@ -66,16 +74,15 @@
 .rname{
     margin-left: 5px;
     position: relative;
-    top:-12px;
+    top:-5px;
 }
 .forum-contols{
     background-color:  rgba(236, 235, 235, 0.89);
     font-size: 15px;
     height: 125px;
     width: 100px;
-    float: left;
-    margin: 20px 30px 0px 10px ;
-    padding-top: 20px;
+    float: right;
+    margin: 0px 30px 0px 10px ;
    
 }
 .forum-content{
@@ -112,7 +119,7 @@
 }
 
 hr{
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(0, 0, 0);
     box-shadow: 0px 3px #a9a9ac1a;
     height: 1.5px;
 }
@@ -120,11 +127,11 @@ hr{
 margin-left: 60px;
 font-size: 18px;
 font-weight: bold;
-color: rgb(83, 82, 82);
+color: rgb(31, 31, 31);
 }
 
 .back-button {
-    background: rgb(70, 71, 71);
+    background: rgb(34, 34, 34);
     color: white;
     font-size: 25px;
     line-height: 0.3;

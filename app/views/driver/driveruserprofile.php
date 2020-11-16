@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../public/stylesheets/driver/userprofile.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/userprofile.css">
 </head>
 <?php
 $status = "disabled";
@@ -34,7 +34,7 @@ if(isset($_GET["update"])){
     <div class="wrapper">
         <div class="user_pp">
             <!-- img -->
-            <img width="300px" src="../../../public/images/driver/a.jpg" alt="">
+            <img width="300px" src="/thoga.lk/public/images/driver/a.jpg" alt="">
             <input type="file" value="upload image">
 
         </div>
@@ -131,7 +131,7 @@ if(isset($_GET["update"])){
 
         <div>
             <!-- Advertistment -->
-            <img width="400px" src="../../../public/images/driver/index1.jpg" alt="">
+            <img width="400px" src="/thoga.lk/public/images/driver/index1.jpg" alt="">
 
         </div>
 

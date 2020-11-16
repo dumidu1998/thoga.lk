@@ -23,9 +23,9 @@ $routes = [
     'farmer/profile' => 'FarmerController@profile',
     'mentor/view_price' => 'mentorController@view_price',
     'forum' =>'FarmerController@forum',
-    'farmer/aboutus'=>'FarmerController@about',
     
-];
+ ];
+
 
 foreach($routes as $route => $controller_route) {
     if ($route == $path) {

@@ -52,3 +52,10 @@
     cursor: pointer; 
 
 }
+.date .pickup_label{
+    font-weight: lighter;
+    font-family: fantasy;
+    font-size: small;
+    padding: 10px;
+    font-size: large;
+}
