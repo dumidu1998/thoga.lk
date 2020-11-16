@@ -29,5 +29,7 @@
 	document.getElementById("myDiv").style.display = "block";
   }
   </script>
+    <?php include("footer.php"); ?>
+
 </body>
 </html>

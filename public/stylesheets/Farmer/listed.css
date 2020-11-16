@@ -62,6 +62,34 @@ tr:nth-child(even){
 	background-color: #f2f2f2
 }
 
+.dele{
+
+  background-color: #eb780d;
+  width: 80%;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 18px;
+  opacity: 0.9;
+
+}
+.dele:hover{
+  opacity: 2;
+}
+
+.more{
+
+  background-color: #ebd50d;
+  width: 80%;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 18px;
+  opacity: 0.9;
+
+}
+.more:hover{
+  opacity: 2;
+}
+
 
 
 @media screen and (max-width: 768px){

@@ -11,6 +11,8 @@
     <title>Forum</title>
 </head>
 <body onload="my()">
+<?php 
+ include ('navbar.php'); ?>
     <div class="container">
         <div class="grid-item0">
             <div class="filter-topic"> Added by </div>
@@ -38,7 +40,7 @@
                         <div >
                             <form action="" method="get" class="newforum">
                                 <input type="text" name="" id="" placeholder="Title for Your Question">
-                                <textarea name="" id="" class="description" cols="30" rows="50" placeholder="Description"oninput="auto_grow(this)" ></textarea> 
+                                <textarea name="" id="" class="description" cols="30" rows="50" placeholder="Description" oninput="auto_grow(this)" ></textarea> 
                                 <hr>
                                 <input type="submit" class="fsubmit-btn" value="Post">
                             </form>
@@ -47,7 +49,9 @@
                 </div>
             </div>
             <div class="forum-container">
-                <div class="forum-topic"><a class="links" href="forumq.php">My Tomato plants are damaged by insects</a></div>
+                <div class="forum-topic"><a class="links" href="forumq.php">My tomato plants are damaged by insects</a><br>
+                <span style="font-size:13px">By - Dumidu Kasun Bandara </span>
+                </div>
                 <div class="forum-contols">
                     <center style="font-size:35px;">0</center>
                     <center style="font-size:20;">Votes</center><br>
@@ -62,13 +66,15 @@
                 </div>
                 <div class="reply">
                     <b>Top Reply</b><br>
-                    <span style="font-size:13px">By - Dumidu Kasun Bandara </span><br>
+                    <span style="font-size:13px";>By - Dumidu Kasun Bandara </span><br>
                     Cause for this is the mine bug. To remove mine bug you have to spray water mixed with soap untill the patches get healed. 
                 </div>
             </div>
 
             <div class="forum-container">
-                <div class="forum-topic"><a class="links" href="#">My Tomato plants are damaged by insects</a></div>
+                <div class="forum-topic"><a class="links" href="#">My tomato plants are damaged by insects</a>
+                <div style="font-size:13px">By - Dumidu Kasun Bandara </div>
+                </div>
                 <div class="forum-contols">
                     <center style="font-size:35px;">0</center>
                     <center style="font-size:20;">Votes</center><br>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Mentor Requests</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.min.css" type='text/css'>
@@ -15,11 +15,6 @@
  include("navbar.php"); ?>
 
 <div class="container">
-    <div>
-        <a class="back-button" href="index.php">
-            &lt;&nbsp;Back
-        </a>
-    </div>
     <h1>Request for Mentor</h1>
     <div class="grid">
         <div class="grid-item0">
@@ -28,6 +23,10 @@
     <div class="grid-item1">
         <table style="width:100%;border-collapse: collapse;" >
             <span><h3><u>Farmer's Details</u></h3></span>
+            <tr>
+                <td>Farmer Id:</td>
+                <td>31</td>
+            </tr>
             <tr>
                 <td>Full Name:</td>
                 <td>Manthila Bandara</td>

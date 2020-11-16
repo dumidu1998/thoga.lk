@@ -1,0 +1,44 @@
+.wrapper_about{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:100px;
+    margin-top: 80px;
+}
+.wrapper_about img {
+ width: 400px;
+ margin: auto;
+}
+.content h1{
+    color: gray;
+    text-align: center;
+}
+.content{
+    margin: auto;
+  
+}
+.content p{
+    margin-left: 100px;
+    justify-content: center;
+}
+hr{
+    
+    margin-top: 10px;
+    width:90%;
+    background-color: green;
+}
+.team{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:10px;
+    align-content: center;
+}
+.team img{
+    width: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.team h3{
+    margin-left: 20px;
+    font-weight: lighter;
+    font-family: cursive;
+}

@@ -159,7 +159,7 @@ if(isset($_GET["update"])){
                 <td data-label="Pickup date">01/11/2020</td>
                 <td data-label="Total Weight">2500kg</td>
                 <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
+                <td data-label><button onclick="location.href = 'viewmore';" type="submit">view more</button> </td>
 
                 </tr>
 
@@ -169,7 +169,7 @@ if(isset($_GET["update"])){
                 <td data-label="Pickup date">01/11/2020</td>
                 <td data-label="Total Weight">2500kg</td>
                 <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
+                <td data-label><button onclick="location.href = 'viewmore';" type="submit">view more</button> </td>
 
                 </tr>
                 
@@ -179,7 +179,7 @@ if(isset($_GET["update"])){
                 <td data-label="Pickup date">01/11/2020</td>
                 <td data-label="Total Weight">2500kg</td>
                 <td data-label= "Total Price">$1,190</td>
-                <td> <button type="submit">view more</button> </td>
+                <td data-label><button onclick="location.href = 'viewmore';" type="submit">view more</button> </td>
 
                 </tr>
             </tbody>
@@ -187,6 +187,7 @@ if(isset($_GET["update"])){
 
 
     </div>
+    <?php include("footer.php"); ?>
     
 </body>
 

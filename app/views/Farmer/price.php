@@ -1,10 +1,9 @@
 
-<?php
-  $con=mysqli_connect("localhost","root","","thoga.lkdb") or die('connection failed');
-?>
+
 
 <html>
 <head>
+<title>Price List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/Farmer/price.css">
 
@@ -12,7 +11,7 @@
 
 
 <body background="/thoga.lk/public/images/Farmer/index1.jpg">
-<?php include 'pricenavbar.php'; ?>
+<?php include 'navbar_dash.php'; ?>
 
 <h1 class="title">Price List</h1>
 <div class="container">
@@ -26,17 +25,59 @@
     <tr>
       <th>Vegetable ID</th>
       <th>Vegetable Name</th>
-      <th>Thoga.lk Average Price</th>
-      <th>Market Average Price</th>
+      <th>Thoga.lk Average Price (Rs)</th>
+      <th>Market Average Price (Rs)</th>
       
       
       
     </tr>
 
+    <tr>
+      <td>1</td>
+      <td>Carrot</td>
+      <td>30</td>
+      <td>25</td>
+    </tr>
+
+    <tr>
+      <td>2</td>
+      <td>Tomato</td>
+      <td>20</td>
+      <td>15</td>
+    </tr>
+
+    <tr>
+      <td>3</td>
+      <td>Potato</td>
+      <td>35</td>
+      <td>30</td>
+    </tr>
+
+    <tr>
+      <td>4</td>
+      <td>Beans</td>
+      <td>30</td>
+      <td>25</td>
+    </tr>
+
+    <tr>
+      <td>5</td>
+      <td>Cucumber</td>
+      <td>20</td>
+      <td>15</td>
+    </tr>
+
+    <tr>
+      <td>6</td>
+      <td>Greenchilli</td>
+      <td>30</td>
+      <td>25</td>
+    </tr>
+
 <?php
 
 
-    $sql="SELECT * from vegetable";
+  /*  $sql="SELECT * from vegetable";
     $result=mysqli_query($con,$sql);
     while($row=mysqli_fetch_assoc($result)){
 
@@ -58,7 +99,7 @@
 
 
       
-    }
+    }*/
 
 
 ?>
@@ -67,24 +108,7 @@
   </table>
 </div>
 </div>
-<script>
-function myFunction() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-</script>
+
 
 </body>
 

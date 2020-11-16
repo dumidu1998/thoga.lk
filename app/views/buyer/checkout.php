@@ -4,6 +4,8 @@
 <head>
     <?php session_start(); 
     //print_r ($_SESSION["shopping_cart"]);
+print_r($_SESSION['user']);
+
     
     ?>
     <meta charset="UTF-8">
@@ -12,7 +14,6 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/chckout.css">
 </head>
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
-<?php include("navbar.php"); ?>
     <div class="container">
         <div class="check">
             <!-- grid -->
@@ -119,36 +120,41 @@
             <div class="delivery_option-address" id="add">
                 <h2> Delivery Address</h2>
                 <div>
+                        <?php
+                            foreach($_SESSION["user"] as $keys => $values){
 
+                            
+                        ?>
                 <form action="">
                     <div class="delivery_option-address-input">   
                         <div>
                             <label for="">Address line 1</label>
-                            <input type="text">
+                            <input type="text" value="<?php echo $values['address_line1'];?>" >
                         </div>
                         <div>
                             <label for="">Address line 2</label>
-                            <input type="text">
+                            <input type="text" value="<?php echo $values['address_line2'];?>">
                         </div>
                     </div>
 
                     <div class="delivery_option-address-input">
                         <div>
                             <label for="">City</label>
-                            <input type="text">
+                            <input type="text" value="<?php echo $values['city'];?>">
                         </div>
                         <div>
                             <label for="">Province</label>
-                            <input type="text">
+                            <input type="text" value="<?php echo $values['province_name'];?>">
                         </div>
                         
                     </div>
                     <div>
                         <label for="">Mobile no</label>
-                        <input type="text">
+                        <input type="text" value="<?php echo $values['contactno1'];?>">
                     </div>
                     
                 </form>
+                            <?php } ?>
                 </div>
 
 
@@ -158,6 +164,8 @@
        
         <a href="summery" id="check"><button class="checkout_btn">Continue</button></a>
     </div>
+    <?php include("footer.php"); ?>
+
 </body>
 <script>
     

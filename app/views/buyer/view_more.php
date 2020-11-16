@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/v_more.css">
     <title>Document</title>
 </head>
+<?php include("navbar.php");?>
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+
+
 <div class="container">
         <p>Invoice no : 12345</p>
         <br>
@@ -91,6 +94,7 @@
             <thead>
                 <tr>
                 <th scope="col">Item id</th>
+                <th scope="col">Item name</th>
                 <th scope="col">Weight</th>
                 <th scope="col">Price</th>
                 <th scope="col">Farmer details</th>
@@ -100,27 +104,30 @@
             <tbody>
             <tr>
                 <td data-label="Item id">#345</td>
+                <td data-label="Item name">Carrot</td>
                 <td data-label="Weight">30kg</td>
-                <td data-label="Price">rs.40</td>
-                <td data-label="Farmer name">Akila</td>
+                <td data-label="Price">rs. 5000</td>
+                <td data-label="Farmer name">Akila de silva</td>
                 <td data-label= "Farmer details">View profile</td>
 
                 </tr>
 
                 <tr>
-                <td data-label="Item id">#345</td>
-                <td data-label="Weight">30kg</td>
-                <td data-label="Price">rs.40</td>
-                <td data-label="Farmer name">Akila</td>
+                <td data-label="Item id">#349</td>
+                <td data-label="Item name">Potato</td>
+                <td data-label="Weight">33kg</td>
+                <td data-label="Price">rs. 4519</td>
+                <td data-label="Farmer name">P.B. Sumanadasa</td>
                 <td data-label= "Farmer details">View profile</td>
 
                 </tr>
                 
                 <tr>
-                <td data-label="Item id">#345</td>
-                <td data-label="Weight">30kg</td>
-                <td data-label="Price">rs.40</td>
-                <td data-label="Farmer name">Akila</td>
+                <td data-label="Item id">#333</td>
+                <td data-label="Item name">Tomato</td>
+                <td data-label="Weight">90kg</td>
+                <td data-label="Price">rs. 23456 </td>
+                <td data-label="Farmer name">K.L. Rahul</td>
                 <td data-label= "Farmer details">View profile</td>
 
                 </tr>
@@ -134,6 +141,7 @@
 </div>
     
 
+<?php include("footer.php"); ?>
 
 </body>
 </html>

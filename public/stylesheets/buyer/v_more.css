@@ -2,6 +2,7 @@
     width: 90%;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 60px;
   }
   
   
@@ -101,7 +102,7 @@
     width: 80%;
     margin-top: 10%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
-    margin-bottom: 3%;
+    margin-bottom: 10%;
        
 }
 table {
@@ -127,7 +128,7 @@ th {
 
 }
 .check h1{
-    color: rgb(54, 53, 53);
+    color: rgb(36, 35, 35);
 }
 
 @media screen and (max-width:768px){
@@ -148,4 +149,7 @@ th {
 .td_summary{
     font-size: small;
     color: #888;
+}
+h1{
+  color: rgb(58, 58, 58);
 }

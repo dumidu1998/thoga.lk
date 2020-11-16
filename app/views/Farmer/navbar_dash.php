@@ -4,22 +4,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/thoga.lk/public/stylesheets/Farmer/navbar_dash.css">
+
 </head>
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="navlogo"><img width=100px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
-  <a href="#home" class="active">Dashboard</a>
-  <a href="#news">Price List</a>
-  <a href="#contact">Forum</a>
-  <a href="#contact">Listed Items</a>
+  <a href="dash" class="navlogo"><img width=80px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class="logo" ></a>
+  <a href="dash" class="active">Dashboard</a>
+  <a href="view_price">Price List</a>
+  <a href="forum">Forum</a>
+
+  <div id="google_translate_element"></div>
+  
  
   <div class = "nav-right">
     <a href="#logout">Logout</a>
      
 
-    <img src="/thoga.lk/public/images/Farmer/bell.jpg" alt="" class = "user_pic" width=45px>
-    <img src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" width=45px>
+    
+    <a href='profile'> <img width=50px src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" > </a>
 
  
 
@@ -29,6 +32,32 @@
     <i class="fa fa-bars"></i>
   </a>
 </div>
+
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages:'en,si,ta'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+.goog-logo-link, .goog-logo-link:link, .goog-logo-link:visited, .goog-logo-link:hover, .goog-logo-link:active{
+    display: none;
+  }
+
+.goog-te-banner{
+  display: none;
+}
+.goog-te-banner-frame{
+  display:none;
+}
+.goog-te-gadget{
+  font-size:0px;
+}
+  </style>
+
 
 
 

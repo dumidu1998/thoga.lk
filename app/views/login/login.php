@@ -25,8 +25,8 @@
   <img src="/thoga.lk/public/images/login/a.jpg" style="width:100%">
   <div class="text"> 
     <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
-   <h1>Online Market place for every farmer and buyer</h1> 
-   <br>
+    <h1>Freshness, Delivered!!</h1> 
+   <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
    <div class="login_logos">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
@@ -42,8 +42,8 @@
   <img src="/thoga.lk/public/images/login/b.jpg" style="width:100%">
   <div class="text">
   <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
-   <h1>Online Market place for every farmer and buyer</h1> 
-   <br>
+  <h1>Freshness, Delivered!!</h1> 
+   <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
    <div class="login_logos">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
@@ -58,11 +58,12 @@
   <img src="/thoga.lk/public/images/login/c.jpg" style="width:100%">
   <div class="text">
   <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
-   <h1>Online Market place for every farmer and buyer</h1> 
-   <br>
+   <h1>Freshness, Delivered!!</h1> 
+   <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
    <div class="login_logos">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
+    
+    <img width="10%" id="im1" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/driver.png" alt="">
    </div>

@@ -14,45 +14,190 @@ function showPanel(panelIndex,colorCode) {
     tabPanels[panelIndex].style.display="block";
     tabPanels[panelIndex].style.backgroundColor=colorCode;
 }
- showPanel(0,'#a9a9a9');
+ showPanel(0,' #92bb00b6');
 
  function _(el) {
     return document.getElementById(el);
   }
   
-function uploadFile() {
+function uploadFile1() {
+    fileValidation1();
     var file = _("file1").files[0];
-    // alert(file.name+" | "+file.size+" | "+file.type);
+    alert(file.name+" | "+file.size+" | "+file.type);
     var formdata = new FormData();
     formdata.append("file1", file);
     var ajax = new XMLHttpRequest();
-    ajax.upload.addEventListener("progress", progressHandler, false);
-    ajax.addEventListener("load", completeHandler, false);
-    ajax.addEventListener("error", errorHandler, false);
-    ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", "file_upload_parser.php"); // http://www.developphp.com/video/JavaScript/File-Upload-Progress-Bar-Meter-Tutorial-Ajax-PHP
-    //use file_upload_parser.php from above url
+    ajax.upload.addEventListener("progress", progressHandler1, false);
+    ajax.addEventListener("load", completeHandler1, false);
+    ajax.addEventListener("error", errorHandler1, false);
+    ajax.addEventListener("abort", abortHandler1, false);
+    ajax.open("POST", "upload/file_upload_parser.php");
     ajax.send(formdata);
   }
+
+  function uploadFile2() {
+    fileValidation2();
+    var file = _("file2").files[0];
+    alert(file.name+" | "+file.size+" | "+file.type);
+    var formdata = new FormData();
+    formdata.append("file1", file);
+    var ajax = new XMLHttpRequest();
+    ajax.upload.addEventListener("progress", progressHandler2, false);
+    ajax.addEventListener("load", completeHandler2, false);
+    ajax.addEventListener("error", errorHandler2, false);
+    ajax.addEventListener("abort", abortHandler2, false);
+    ajax.open("POST", "upload/file_upload_parser.php");
+    ajax.send(formdata);
+  }
+
+  function uploadFile3() {
+    fileValidation3();
+    var file = _("file3").files[0];
+    alert(file.name+" | "+file.size+" | "+file.type);
+    var formdata = new FormData();
+    formdata.append("file1", file);
+    var ajax = new XMLHttpRequest();
+    ajax.upload.addEventListener("progress", progressHandler3, false);
+    ajax.addEventListener("load", completeHandler3, false);
+    ajax.addEventListener("error", errorHandler3, false);
+    ajax.addEventListener("abort", abortHandler3, false);
+    ajax.open("POST", "upload/file_upload_parser.php");
+    ajax.send(formdata);
+  }
+
+  function uploadFile4() {
+    fileValidation4();
+    var file = _("file4").files[0];
+    alert(file.name+" | "+file.size+" | "+file.type);
+    var formdata = new FormData();
+    formdata.append("file1", file);
+    var ajax = new XMLHttpRequest();
+    ajax.upload.addEventListener("progress", progressHandler4, false);
+    ajax.addEventListener("load", completeHandler4, false);
+    ajax.addEventListener("error", errorHandler4, false);
+    ajax.addEventListener("abort", abortHandler4, false);
+    ajax.open("POST", "upload/file_upload_parser.php");
+    ajax.send(formdata);
+  }
+
+function fileValidation4() { 
+    var fileInput = document.getElementById('file4'); 
+    var filePath = fileInput.value; 
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.JPEG|\.JPG)$/i; 
+    if (!allowedExtensions.exec(filePath)) { 
+        alert('Invalid file type. Upload files with format .jpg, .jpeg, .png'); 
+        fileInput.value = ''; 
+        return false; 
+    }  
+}
+
+function fileValidation3() { 
+  var fileInput = document.getElementById('file3'); 
+  var filePath = fileInput.value; 
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.JPEG|\.JPG)$/i; 
+  if (!allowedExtensions.exec(filePath)) { 
+      alert('Invalid file type. Upload files with format .jpg, .jpeg, .png'); 
+      fileInput.value = ''; 
+      return false; 
+  }  
+}
+
+function fileValidation2() { 
+  var fileInput = document.getElementById('file2'); 
+  var filePath = fileInput.value; 
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.JPEG|\.JPG)$/i; 
+  if (!allowedExtensions.exec(filePath)) { 
+      alert('Invalid file type. Upload files with format .jpg, .jpeg, .png'); 
+      fileInput.value = ''; 
+      return false; 
+  }  
+}
+
+function fileValidation1() { 
+  var fileInput = document.getElementById('file1'); 
+  var filePath = fileInput.value; 
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.JPEG|\.JPG)$/i; 
+  if (!allowedExtensions.exec(filePath)) { 
+      alert('Invalid file type. Upload files with format .jpg, .jpeg, .png'); 
+      fileInput.value = ''; 
+      return false; 
+  }  
+}
   
-function progressHandler(event) {
-    _("loaded_n_total").innerHTML =  event.loaded + " bytes / " + event.total + " bytes";
+function progressHandler1(event) {
+    _("loaded_n_total1").innerHTML =  event.loaded + " bytes / " + event.total + " bytes";
     var percent = (event.loaded / event.total) * 100;
-    _("progressBar").value = Math.round(percent);
-    _("status").innerHTML = Math.round(percent) + "% uploaded... please wait";
+    _("progressBar1").value = Math.round(percent);
+    _("status1").innerHTML = Math.round(percent) + "% uploaded... please wait";
+  }
+
+  function progressHandler2(event) {
+    _("loaded_n_total2").innerHTML =  event.loaded + " bytes / " + event.total + " bytes";
+    var percent = (event.loaded / event.total) * 100;
+    _("progressBar2").value = Math.round(percent);
+    _("status2").innerHTML = Math.round(percent) + "% uploaded... please wait";
+  }
+
+  function progressHandler3(event) {
+    _("loaded_n_total3").innerHTML =  event.loaded + " bytes / " + event.total + " bytes";
+    var percent = (event.loaded / event.total) * 100;
+    _("progressBar3").value = Math.round(percent);
+    _("status3").innerHTML = Math.round(percent) + "% uploaded... please wait";
+  }
+
+  function progressHandler4(event) {
+    _("loaded_n_total4").innerHTML =  event.loaded + " bytes / " + event.total + " bytes";
+    var percent = (event.loaded / event.total) * 100;
+    _("progressBar4").value = Math.round(percent);
+    _("status4").innerHTML = Math.round(percent) + "% uploaded... please wait";
   }
   
-function completeHandler(event) {
-    _("status").innerHTML = event.target.responseText;
-    _("progressBar").value = 100; //wil clear progress bar after successful upload
+function completeHandler1(event) {
+    _("status1").innerHTML = event.target.responseText;
   }
   
-function errorHandler(event) {
-    _("status").innerHTML = "Upload Failed";
+function errorHandler1(event) {
+    _("status1").innerHTML = "Upload Failed";
   }
   
-function abortHandler(event) {
-    _("status").innerHTML = "Upload Aborted";
+function abortHandler1(event) {
+    _("status1").innerHTML = "Upload Aborted";
+  }
+
+  function completeHandler2(event) {
+    _("status2").innerHTML = event.target.responseText;
+  }
+  
+function errorHandler2(event) {
+    _("status2").innerHTML = "Upload Failed";
+  }
+  
+function abortHandler2(event) {
+    _("status2").innerHTML = "Upload Aborted";
+  }
+
+  function completeHandler3(event) {
+    _("status3").innerHTML = event.target.responseText;
+  }
+  
+function errorHandler3(event) {
+    _("status3").innerHTML = "Upload Failed";
+  }
+  
+function abortHandler3(event) {
+    _("status3").innerHTML = "Upload Aborted";
+  }
+
+  function completeHandler4(event) {
+    _("status4").innerHTML = event.target.responseText;
+  }
+  
+function errorHandler4(event) {
+    _("status4").innerHTML = "Upload Failed";
+  }
+  
+function abortHandler4(event) {
+    _("status4").innerHTML = "Upload Aborted";
   }
 
 function pwdvalidatebuyer(){

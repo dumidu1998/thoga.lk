@@ -61,6 +61,7 @@
             <a href="/thoga.lk/buyer/summery"><button  class="checkout_btn">Continue</button></a>
 
     </div>
+    <?php include("footer.php"); ?>
     
 </body>
 </html>

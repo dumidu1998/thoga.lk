@@ -23,12 +23,22 @@ class SignUpController {
     public function addbuyer(){
         if(isset($_POST['submit'])){
             $user = $this->model->addbuyer($_POST);
+            echo "done";
+            //header ("Location: /thoga.lk");
+        }else{
+            echo "<script>alert('error in SignUp');</script>";
+            header ("Location: /thoga.lk");
+
         }
-        showd();
+
     }
 
-    public function showd(){
-        $view = new View("index");
+    public function addfarmer(){
+        if(isset($_POST['submit'])){
+        $user = $this->model->addfarmer($_POST);
+        header ("Location: /thoga.lk");
+        }
+        //header ("Location: index");
     }
     
 }

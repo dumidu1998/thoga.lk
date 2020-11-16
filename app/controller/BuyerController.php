@@ -58,6 +58,8 @@ class BuyerController {
     }
 
     public function selectDriver( ){
+        session_start();
+
         $view = new View("buyer/selectDriver");
         $view->assign('data', []); 
         
@@ -136,12 +138,26 @@ class BuyerController {
         
     }
     public function profile(){
+        session_start();
+
         $view = new View("buyer/Buyer_user_profile");
     }
 
     public function forum(){
         session_start();
         $view = new View("buyer/forum");
+    }
+    public function orders(){
+        session_start();
+        $view = new View("buyer/orders");
+    }
+    public function viewmore(){
+        session_start();
+        $view = new View("buyer/view_more");
+    }
+    public function aboutus(){
+        session_start();
+        $view = new View("buyer/aboutus");
     }
 
     public function postForum(){

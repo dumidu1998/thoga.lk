@@ -5,7 +5,8 @@
   <title>Sign Up</title>
   <link rel="stylesheet" type="text/css" href="/thoga.lk/app/views/signup/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
-  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+  crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
@@ -19,17 +20,17 @@
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
     <div class="buttonContainer">
-        <button onclick="showPanel(0,'#a9a9a9')">Buyer</button>
-        <button onclick="showPanel(1,'#a9a9a9')">Farmer</button>
-        <button onclick="showPanel(2,'#a9a9a9')">Driver</button>
-        <button onclick="showPanel(3,'#a9a9a9')">Mentor</button>
+        <button onclick="showPanel(0,'#92bb00b6')">Buyer</button>
+        <button onclick="showPanel(1,'#92bb00b6')">Farmer</button>
+        <button onclick="showPanel(2,'#92bb00b6')">Driver</button>
+        <button onclick="showPanel(3,'#92bb00b6')">Mentor</button>
     </div> 
     <!-- Buyer -->
     <div class="tabPanel">
       <form method="POST" action="signup/buyer">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
           <input type="text" class="inpbox" name="Bfn" placeholder="saman" required>
         </div>
         <div class="row">
@@ -169,18 +170,19 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="BUname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="BUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox" id="Bpwd"  name="Bpwd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatebuyer();buttonOnbuyer();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatebuyer();buttonOnbuyer();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox" id="Bcpwd" onkeyup="pwdvalidatebuyer();buttonOnbuyer();" name="Bconfirmpwd" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox" id="Bcpwd" onkeyup="pwdvalidatebuyer();buttonOnbuyer();" name="Bconfirmpwd" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Bmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -188,6 +190,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Buyer)</a>
         </div>
         <div class="signupbtn">
+          <input type="hidden" name="usertype" value="1">
           <input type="submit" value="Sign Up" name="submit" disabled id="Bsignupbtn">
         </div>
       </form>
@@ -196,14 +199,14 @@
     <!-- Farmer -->
     <div class="tabPanel">
       <form method="POST" action="signup/farmer">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
-          <input type="text" class="inpbox" name="Ffn" placeholder="saman" required>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
+          <input type="text" class="inpbox" name="Ffn" placeholder="Tikiri" required>
         </div>
         <div class="row">
           <div class="lable">Last Name *</div>
-            <input type="text" class="inpbox"  name="Fln" placeholder="Bandara" required>
+            <input type="text" class="inpbox"  name="Fln" placeholder="Gunapala" required>
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
@@ -234,11 +237,11 @@
         </div>
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
-            <input type="text" class="inpbox"  name="Faddressline1" placeholder="No.155"  required>
+            <input type="text" class="inpbox"  name="Faddressline1" placeholder="No.15"  required>
         </div>
         <div class="row">
           <div class="lable">Address Line 2</div>
-            <input type="text" class="inpbox" placeholder="Nilwaththa Mawatha" name="Faddressline2">
+            <input type="text" class="inpbox" placeholder="Medawatta Paara" name="Faddressline2">
         </div>
         <div class="row">
           <div class="lable">Province *</div>
@@ -289,11 +292,11 @@
         </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
-            <input type="text" class="inpbox"  name="Fpostalcode" placeholder="50000" required>
+            <input type="text" class="inpbox"  name="Fpostalcode" placeholder="20000" required>
         </div>
         <div class="row">
           <div class="lable">Email *</div>
-            <input type="text" class="inpbox"  name="Femail" placeholder="malika@gmail.com" required>
+            <input type="text" class="inpbox"  name="Femail" placeholder="tikiri@gmail.com" >
         </div>
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
@@ -338,18 +341,19 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Funame" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="FUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox"  name="Fpwd" id="Fpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatefarmer();buttonOnfarmer();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatefarmer();buttonOnfarmer();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Fconfirmpwd" id="Fcpwd" onkeyup="pwdvalidatefarmer();buttonOnfarmer();" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox"  name="Fconfirmpwd" id="Fcpwd" onkeyup="pwdvalidatefarmer();buttonOnfarmer();" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Fmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -357,6 +361,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Farmer)</a>
         </div>
         <div class="signupbtn"> 
+          <input type="hidden" name="usertype" value="2">
           <input type="submit" value="Sign Up" name="submit" disabled id="Fsignupbtn">
         </div>
       </form>
@@ -366,14 +371,14 @@
         <!-- Driver -->
     <div class="tabPanel">
       <form method="POST" action="signup/driver" enctype="multipart/form-data">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
-          <input type="text" class="inpbox" name="Dfn" placeholder="saman" required>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
+          <input type="text" class="inpbox" name="Dfn" placeholder="Manjula" required>
         </div>
         <div class="row">
           <div class="lable">Last Name *</div>
-            <input type="text" class="inpbox"  name="Dln" placeholder="Bandara"  required>
+            <input type="text" class="inpbox"  name="Dln" placeholder="Kumara"  required>
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
@@ -395,7 +400,7 @@
         <div class="row">
           <div class="lable">Mobile Number 1 *</div>
             <input type="tel" class="inpbox"  name="Dcontactno1"   
-            pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989"  required>
+            pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0715455989"  required>
         </div>
         <div class="row">
           <div class="lable">Mobile Number 2</div>
@@ -404,11 +409,11 @@
         </div>
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
-            <input type="text" class="inpbox"  name="Daddressline1" placeholder="No.155"  required>
+            <input type="text" class="inpbox"  name="Daddressline1" placeholder="No. 5"  required>
         </div>
         <div class="row">
           <div class="lable">Address Line 2</div>
-            <input type="text" class="inpbox"  name="Daddressline2" placeholder="Nilwaththa Mawatha">
+            <input type="text" class="inpbox"  name="Daddressline2" placeholder="Abaya Mawatha">
         </div>
         <div class="row">
           <div class="lable">Province *</div>
@@ -459,15 +464,15 @@
         </div> <!-- grid end -->
         <div class="row">
           <div class="lable">Postal Code *</div>
-            <input type="text" class="inpbox"  name="Dpostalcode" placeholder="50000" required>
+            <input type="text" class="inpbox"  name="Dpostalcode" placeholder="10000" required>
         </div>
         <div class="row">
           <div class="lable">Email *</div>
-            <input type="text" class="inpbox"  name="Demail" placeholder="malika@gmail.com" required>
+            <input type="text" class="inpbox"  name="Demail" placeholder="nimal@gmail.com" required>
         </div>
         <div class="desc">Specify the nearest cities around you</div>
         <div class="row">
-          <div class="lable">Nearest city 1</div>
+          <div class="lable">Nearest city 1 *</div>
             <select class="s2" name="DNcity1" id="Dncity1" onchange="dselectvalidate4()" required>
               <option value="0"></option>
                 <?php
@@ -482,7 +487,7 @@
             </select>
           </div>
         <div class="row">
-          <div class="lable">Nearest city 2</div>
+          <div class="lable">Nearest city 2 *</div>
             <select class="s2" name="DNcity2" id="Dncity2" onchange="dselectvalidate5()" required>
               <option value="0"></option>
                 <?php
@@ -496,53 +501,82 @@
                 ?>
             </select>
           </div>
-        <div class="desc">Upload required Documents (jpg/jpeg/png)</div>
+        <div class="desc">Details of Your Vehicle</div>
         <div class="row">
-          <div class="lable">Driving License No.</div>
-            <input type="text" class="inpbox"  name="DLno"  required>
+          <div class="lable">Vehicle Model *</div>
+            <input type="text" class="inpbox"  name="DVmodel" placeholder="Dimo Batta / Bolero / Maximo" required>
         </div>
         <div class="row">
-          <div class="lable">Photo of Driving License  </div>
+          <div class="lable">Vehicle Number *</div>
+            <select  class="inpbox"  name="DVProvince" placeholder="WP" style="font-size: 17px;width:100px;" required>
+              <option value="WP">WP</option>
+              <option value="NC">NC</option>
+              <option value="NP">NP</option>
+              <option value="SG">SG</option>
+              <option value="EP">EP</option>
+              <option value="UP">UP</option>
+              <option value="CP">CP</option>
+              <option value="SP">SP</option>
+            </select>
+            <input type="text" style="width:50%;margin-left:50px;" class="inpbox"  name="DVno" placeholder="PT - 8007" required>
+        </div>
+        <div class="row">
+          <div class="lable">Driving License No. *</div>
+            <input type="text" class="inpbox"  name="DLno" placeholder="17546315"  required>
+        </div>
+        <div class="desc">Upload required Documents as Photoes (jpg/jpeg/png)</div>
+        <div class="row">
+          <div class="lable">Driving License - Front</div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file1" id="file1" onchange="uploadFile()">
-            <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
-            <u id="status" style="font-size:10px"></u>
-            <u id="loaded_n_total" style="font-size:10px"></u>
+            <input type="file" name="file1" id="file1" onchange="uploadFile1()">
+            <progress id="progressBar1" value="0" max="100" style="width:150px;"></progress>
+            <u id="status1" style="font-size:10px"></u>
+            <u id="loaded_n_total1" style="font-size:10px"></u>
           </div>
         </div>
         <div class="row">
-          <div class="lable">Photo of Driving License  </div>
+          <div class="lable">Driving License - Back</div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file2" id="file2" onchange="uploadFile()">
-            <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
-            <u id="status" style="font-size:10px"></u>
-            <u id="loaded_n_total" style="font-size:10px"></u>
+            <input type="file" name="file2" id="file2" onchange="uploadFile2()">
+            <progress id="progressBar2" value="0" max="100" style="width:150px;"></progress>
+            <u id="status2" style="font-size:10px"></u>
+            <u id="loaded_n_total2" style="font-size:10px"></u>
           </div>
         </div>
         <div class="row">
-          <div class="lable">Photo of Driving License  </div>
+          <div class="lable">Revenue License  </div>
           <div style="display:inline" class="inpbox">
-            <input type="file" name="file3" id="file3" onchange="uploadFile()">
-            <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
-            <u id="status" style="font-size:10px"></u>
-            <u id="loaded_n_total" style="font-size:10px"></u>
+            <input type="file" name="file3" id="file3" onchange="uploadFile3()">
+            <progress id="progressBar3" value="0" max="100" style="width:150px;"></progress>
+            <u id="status3" style="font-size:10px"></u>
+            <u id="loaded_n_total3" style="font-size:10px"></u>
+          </div>
+        </div>
+        <div class="row">
+          <div class="lable">Photo of Vehicle  </div>
+          <div style="display:inline" class="inpbox">
+            <input type="file" name="file4" id="file4" onchange="uploadFile4()">
+            <progress id="progressBar4" value="0" max="100" style="width:150px;"></progress>
+            <u id="status4" style="font-size:10px"></u>
+            <u id="loaded_n_total4" style="font-size:10px"></u>
           </div>
         </div>
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Duname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="DUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox" id="Dpwd"  name="Dpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatedriver();buttonOndriver();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatedriver();buttonOndriver();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox" id="Dcpwd"  name="Dcpwd" onkeyup="pwdvalidatedriver();buttonOndriver();" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox" id="Dcpwd"  name="Dcpwd" onkeyup="pwdvalidatedriver();buttonOndriver();" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Dmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -560,9 +594,9 @@
     <!-- Mentor -->
     <div class="tabPanel">
     <form method="POST" action="signup/buyer">
-      <span style="font-size:13px;float:right;margin-right:3%">* Mandatory fields</span>
+      <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
-          <div class="lable">First Name *</div>
+          <div class="lable" style="margin-top: 25px;">First Name *</div>
           <input type="text" class="inpbox" name="Mfn" placeholder="saman" required>
         </div>
         <div class="row">
@@ -703,18 +737,19 @@
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
-            <input type="text" class="inpbox"  name="Muname" pattern="^[a-z0-9_-]{4,16}$" title="Invalid username" 
+            <input type="text" class="inpbox"  name="MUname" pattern="^[A-Za-z0-9_-]{4,16}$" title="Invalid username" 
             placeholder="Username with 4 to 16 characters" required>
         </div>
         <div class="row">
           <div class="lable">Password</div>
             <input type="password" class="inpbox" name="Mpwd" id="Mpwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$"
-            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" title="Should contain digits and letters" 
-            onkeyup="pwdvalidatementor();buttonOnmentor();"  required>
+            placeholder="minimum 8 characters and with Digits and Letters including Capital Letter" 
+            title="Should contain digits and letters" onkeyup="pwdvalidatementor();buttonOnmentor();"  required>
         </div>
         <div class="row">
           <div class="lable">Confirm Password</div>
-            <input type="password" class="inpbox"  name="Mcpwd" id="Mcpwd" onkeyup="pwdvalidatementor();buttonOnmentor();" placeholder="Retype Password"  required>
+            <input type="password" class="inpbox"  name="Mcpwd" id="Mcpwd" onkeyup="pwdvalidatementor();buttonOnmentor();" 
+            placeholder="Retype Password"  required>
             <br><br><span id='Mmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
@@ -722,13 +757,13 @@
           I have read and Agree to the follow <a href="#">User Agreement (Mentor)</a>
         </div>
         <div class="signupbtn">
-          <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn">
+          <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn" >
         </div>
       </form>
     </div>
 </div>
 
-<script src="/thoga.lk/app/views/signup/script.js"></script>
+<script type="text/javascript" src="/thoga.lk/app/views/signup/script.js" ></script>
 
 </body>
 </html>
