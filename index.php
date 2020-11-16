@@ -22,7 +22,8 @@ $routes = [
     'farmer/view_price' => 'FarmerController@view_price',
     'farmer/profile' => 'FarmerController@profile',
     'mentor/view_price' => 'mentorController@view_price',
-    'forum' =>'FarmerController@forum'
+    'forum' =>'FarmerController@forum',
+    'farmer/aboutus'=>'FarmerController@about',
     
 ];
 
