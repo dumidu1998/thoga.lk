@@ -23,7 +23,7 @@ if (!$fileTmpLoc) { // if file not chosen
     exit();
 }
 
-if(move_uploaded_file($fileTmpLoc, "../public/images/tmpuploads/$fileName")){
+if(move_uploaded_file($fileTmpLoc, "../public/uploads/tmpuploads/$fileName")){
     echo "File upload is complete";
     $_SESSION['temp']++;
 } else {

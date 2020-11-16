@@ -174,7 +174,7 @@ class signupModel extends db_model{
 
         $sql2="INSERT INTO driver (user_id, current_location, license_no, vehcle_model, vehicle_province,	vechicle_no, costkm, maxweight,	verified_state)
          Values('".$uid."','".$curlocation."','".$DLnumber."','".$vehiclemodel."','".$vehiclenoprovince."','".$vehicleno."','".$costkm."','".$maxweight."','".$verified."')";
-        echo $sql2;
+        //echo $sql2;
         $result2=$this->connection->query($sql2);
         if($result){}else echo "<script>alert('error in SignUp');</script>";
         

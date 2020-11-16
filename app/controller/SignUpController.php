@@ -47,9 +47,9 @@ class SignUpController {
             $maxid=$this->model->getmaxDid();
             $sid=$maxid;
             $ext=".jpg";
-            $cpath= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/images/tmpuploads/";
+            $cpath= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/tmpuploads/";
             $Sfile = $cpath.$maxid;
-            $Dfile= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/images/Driveruploads/".$sid;
+            $Dfile= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driveruploads/".$sid;
             rename($Sfile."_1".$ext, $Dfile."_DLF".$ext);
             rename($Sfile."_2".$ext, $Dfile."_DLB".$ext);
             rename($Sfile."_3".$ext, $Dfile."_V".$ext);
