@@ -270,3 +270,13 @@ input[type="text"].details{
 .banner{
     margin: 00px;
 }
+
+.cbox{
+   
+    width:15px;
+    height:15px;
+}
+
+.actionA{
+    margin-right: 20px;
+}

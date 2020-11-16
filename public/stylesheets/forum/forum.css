@@ -1,6 +1,7 @@
 body{
-    background-image: url(/thoga.lk/public/images/forum/forum-bg.jpg);
+    background: url(/thoga.lk/public/images/forum/forum-bg.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 .container{
     height: 300px;

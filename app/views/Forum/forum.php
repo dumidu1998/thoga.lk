@@ -34,26 +34,25 @@
         <div class="grid-item1">
             <div>
                 <button class="admin-btn" id="myBtn" >Post New</button>
-
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <div class="mheader">
                         <span class="close" >&times;</span>
                             <span class="modeltopic">New Forum Post</span>
                         </div>
-                        <div >
-                            <form action="" method="get" class="newforum">
-                                <input type="text" name="" id="" placeholder="Title for Your Question">
-                                <textarea name="" id="" class="description" cols="30" rows="50" placeholder="Description" oninput="auto_grow(this)" ></textarea> 
+                    <div>
+                            <form action="forum/postForum" method="POST" class="newforum">
+                                <input type="text" name="topic" id="" placeholder="Title for Your Question" required>
+                                <textarea name="description" id="" class="description" cols="30" rows="50" placeholder="Description" oninput="auto_grow(this)" required></textarea> 
                                 <hr>
-                                <input type="submit" class="fsubmit-btn" value="Post">
+                                <input type="submit" class="fsubmit-btn" value="Post" name="post_forum">
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="forum-container">
-                <div class="forum-topic"><a class="links" href="forumq.php">My tomato plants are damaged by insects</a><br>
+                    <div class="forum-topic"><a class="links" href="forumq.php">My tomato plants are damaged by insects</a><br>
                 <span style="font-size:13px">By - Dumidu Kasun Bandara </span>
                 </div>
                 <div class="forum-contols">
@@ -97,8 +96,6 @@
                     Cause for this is the mine bug. To remove mine bug you have to spray water mixed with soap untill the patches get healed. 
                 </div>
             </div>
-
-            
         </div>
         <div >
             <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
@@ -108,26 +105,20 @@
 
     <script>
         
-// Get the modal
         var modal = document.getElementById("myModal");
 
-        // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal 
         btn.onclick = function() {
         modal.style.display = "block";
         }
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
         modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";

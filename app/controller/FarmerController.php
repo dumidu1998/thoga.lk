@@ -76,12 +76,7 @@ class FarmerController{
         
         
     }
-
-    public function forum(){
-        $view = new view("Forumr/forum");
-    }
-
-//add items
+    //add items
 
 
 

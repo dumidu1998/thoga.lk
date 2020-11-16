@@ -17,24 +17,31 @@ body{
     padding: 10px 20px;
     float: right;
     margin-top: 20px;
-    margin-right: 200px;
-    background-color: #0081bd;
+    margin-right: 20%;
+    background-color: #000dbd;
     color: antiquewhite;
     font-size: 25px;
     cursor: pointer;
 }
 
 .replyh{
+    float: left;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #e6e6e6;
-    margin-left: 20%;
-    font-size: 30px;
+    margin-left: 0px;
+    font-size: 22px;
     padding: 10px;
     width: 20%;
 }
+
+.writereply{
+    margin-left: 5%;
+}
+
 .TAcontainer{
-    width: 80%;
-    margin-left: 20%;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
 
 }
 .nicEdit-main{
@@ -47,7 +54,7 @@ body{
 }
 
 .adcontainer{
-    height: auto;
+    /* height: auto; */
 }
 
 .ad{
@@ -56,8 +63,6 @@ body{
     max-width: 100%;
     width: auto;
 }
-
-
 
 .forum-container{
     padding:10px;
@@ -183,8 +188,8 @@ color: rgb(31, 31, 31);
     font-size: 16px;}
     .forum-container{margin: 0px 5px 20px 5px;}
     .reply-container{margin: 3px 15px 15px 5px;}
-    .TAcontainer{margin-left: 8%;}
-    .replyh{margin-left: 8%;display: block;}
+    .TAcontainer{margin-left: 0%;}
+    .replyh{margin-left: 0%;display: block;}
 } 
 
 @media screen and (max-width: 600px) {
