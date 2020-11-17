@@ -3,7 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 0;
     margin-top: 0px;
-
+    z-index: 1;
   }
   
 .topnav {
@@ -14,7 +14,7 @@ body {
     background-color: rgb(250, 248, 248);;
     border: 1px solid rgba(141, 136, 136, 0.315);
     margin-bottom: 2px;
-    z-index: 1;
+    z-index: 999;
 
 
     
@@ -33,7 +33,7 @@ body {
   }
   
 .topnav a:hover, .topnav a.active:hover {
-    background-color: #7976ff;
+    background-color: darkblue;
     color: yellow;
     text-decoration: none !important;
     border-bottom: 3px solid #63626259; 
@@ -79,6 +79,18 @@ body {
 }
 .nav-right{
     float: right;
+}
+.goog-te-gadget {
+  font-size: 0px;
+}
+.goog-logo-link{
+display:none;
+}
+.goog-logo-link, .goog-logo-link:link, .goog-logo-link:visited, .goog-logo-link:hover, .goog-logo-link:active {
+  display:none;
+}
+.goog-te-banner-frame{
+  display:none;
 }
 
 .button_signup{

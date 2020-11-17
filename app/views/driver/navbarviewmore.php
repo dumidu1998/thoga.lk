@@ -11,7 +11,7 @@
   <a href="dashboard" class="active">Dashboard</a>
   <a href="#news">Price List</a>
   <a href="#contact">Forum</a>
-  
+  <a id="google_translate_element"></a>
   <div class = "nav-right">
     <a href="">Logout</a>
     
@@ -34,5 +34,14 @@ function myFunction() {
   }
 }
 </script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'en,si,ta'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
+
 </html>

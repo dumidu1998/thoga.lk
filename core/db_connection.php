@@ -19,6 +19,7 @@ class db_connection{
 
 
 	function getConnection(){
+
 		$conn = new mysqli('localhost', 'root', '' , 'thoga.lk');
 
 		if($conn->connect_error){
