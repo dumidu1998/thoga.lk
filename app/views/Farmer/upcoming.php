@@ -16,8 +16,9 @@
 
 
  <h1 class="title">Upcoming Orders</h1>
- <?php include 'verticalnavbar.php';?>
-<div class="container" style="height:auto;">
+ <?php include 'verticalnavbar.php';
+ ?>
+<div  style="height:auto;">
 
 <div style="overflow-x:auto;">
   <table align="center">
@@ -66,5 +67,8 @@ foreach($data as $key => $values){
 </div>
 </div>
 
+
+<?php include 'footer.php'; ?>
 </body>
+
 </html>

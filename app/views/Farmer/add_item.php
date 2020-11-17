@@ -1,6 +1,4 @@
 
-
-
 <html>
 <head>
 <title>Add Item</title>
@@ -9,9 +7,10 @@
 
 </head>
 
-<?php include 'navbar_dash.php';?>
+
 
 <body background= "/thoga.lk/public/images/Farmer/index1.jpg">
+<?php include 'navbar_dash.php';?>
 
 <h1 class="title">Add your item here....</h1>
 
@@ -57,6 +56,9 @@
         <input type="number" id="minweight" name="minweight" required>
       </div>
     </div>
+
+
+    <div class="price">
     <div class="row">
       <div class="col-25">
         <label for="price">Price (Rs)</label>
@@ -65,6 +67,16 @@
         <input type="text" id="price" name="price" required>
       </div>
     </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="price">Market Price (Rs)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="price" name="price" required>
+      </div>
+    </div>
+    </div>
+
     <div class="date">
       <div class="row">
         <div class="col-25">
@@ -116,7 +128,6 @@
     
   
 </div> 
-
 <script>
 var today = new Date();
 var dd = today.getDate();
@@ -132,6 +143,11 @@ var yyyy = today.getFullYear();
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("enddate").setAttribute("min", today);
 document.getElementById("startdate").setAttribute("min", today);
+  
+
+
+
+
 
 </script>
 

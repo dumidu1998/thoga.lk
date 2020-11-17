@@ -5,14 +5,7 @@ body {
     margin-top: 60px;
   }
 
-  .user_pic{
-    margin-top: 5px;
-  }
 
-  .trans{
-    margin-top: 15px;
-    margin-left: 20px;
-  }
 
   
   
@@ -86,5 +79,6 @@ body {
     
 }
 .nav-right{
+  margin-top: 0px;
     float: right;
 }

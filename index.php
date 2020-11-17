@@ -46,6 +46,10 @@ $routes = [
     'buyer/viewmore' => 'BuyerController@viewmore',
     'buyer/about_us' => 'BuyerController@aboutus',
     'admin'=> 'AdminController@index',
+    //'forum' =>'FarmerController@forum',
+    'farmer/aboutus'=>'FarmerController@about',
+    'mentor/aboutus'=>'mentorController@about',
+
     
  ];
 
