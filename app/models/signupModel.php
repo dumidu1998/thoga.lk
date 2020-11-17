@@ -61,8 +61,8 @@ class signupModel extends db_model{
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user_id'];
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,	province_name, zip_code) VALUES ('".$uid."','"
-        .$addressline1."','".$addressline2."','".$hometown."','".$province."','".$postalcode."')";
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
         if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp');</script>";
 
@@ -122,8 +122,8 @@ class signupModel extends db_model{
         if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp');</script>";
         
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,	province_name, zip_code) VALUES ('".$uid."','"
-        .$addressline1."','".$addressline2."','".$hometown."','".$province."','".$postalcode."')";
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
         if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp');</script>";
 
@@ -188,8 +188,8 @@ class signupModel extends db_model{
         if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp');</script>";
         
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,	province_name, zip_code) VALUES ('".$uid."','"
-        .$addressline1."','".$addressline2."','".$hometown."','".$province."','".$postalcode."')";
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
         if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp');</script>";
 
@@ -241,8 +241,8 @@ class signupModel extends db_model{
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user_id'];
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,	province_name, zip_code) VALUES ('".$uid."','"
-        .$addressline1."','".$addressline2."','".$hometown."','".$province."','".$postalcode."')";
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
         if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp1');</script>";
 

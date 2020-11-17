@@ -45,6 +45,7 @@
         }
       },
       editable: true,
+      height: '100%',
       dayMaxEvents: true, // allow "more" link when too many events
       events: [
         {
@@ -99,12 +100,22 @@
     /* height: auto; */
     max-width: 1100px;
     margin: 0 auto;
+    padding:5px;
+    border: 3px black solid;
   }
 
   .fc-event{
-    height: 55px;
+    height: 25px;
   }
 
+
+
+@media only screen and (max-width:820px) {
+    /* For mobile phones: */
+    #calendar{
+  width:100%;
+}
+} 
 </style>
 </head>
 <body>

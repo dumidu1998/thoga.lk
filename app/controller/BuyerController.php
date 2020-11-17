@@ -128,6 +128,8 @@ class BuyerController {
         }
     }
     public function summery(){
+        session_start();
+
         $view = new View("buyer/summary");
     }
     public function logout(){

@@ -8,10 +8,10 @@
 
 <div class="topnav" id="myTopnav">
   <a href="#home" class="navlogo"><img width=70px src="/thoga.lk/public/images/driver/final driver.png" alt="" class = "logo"></a>
-  <a href="driverdashboard.php"" class="active">Dashboard</a>
-  <a href="drivercalendar.php">Calendar</a>
+  <a href="dashboard"" class="active">Dashboard</a>
+  <a href="/thoga.lk/driver/calendar">Calendar</a>
   <a href="#contact">Forum</a>
-  
+  <a id="google_translate_element"></a>
   <div class = "nav-right">
     <a href="">Logout</a>
     
@@ -35,5 +35,13 @@ function myFunction() {
   }
 }
 </script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'en,si,ta'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
