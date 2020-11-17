@@ -1,9 +1,8 @@
 body{
   background: url(/thoga.lk/public/images/admin/signupbg.jpg);
   background-size:  cover;
-  /* background-attachment:fixed ; */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
+  background-attachment:fixed ;
 }
 
 .title{
@@ -77,9 +76,6 @@ body{
   /* margin-right: 10px; */
 }
 
-select {
-  background-color: #fafafa;
-}
 
 input[type=text],input[type=password], input[type=tel], select, option, textarea, datalist, input.dl, input[type=date] {
   padding: 12px;

@@ -136,15 +136,19 @@ print_r($_SESSION['user']);
                             <input type="text" value="<?php echo $values['address_line2'];?>">
                         </div>
                     </div>
+                    <div>
+                            <label for="">District</label>
+                            <input type="text" value="<?php echo $values['d_name'];?>">
+                    </div>
 
                     <div class="delivery_option-address-input">
                         <div>
                             <label for="">City</label>
-                            <input type="text" value="<?php echo $values['city'];?>">
+                            <input type="text" value="<?php echo $values['c_name'];?>">
                         </div>
                         <div>
                             <label for="">Province</label>
-                            <input type="text" value="<?php echo $values['province_name'];?>">
+                            <input type="text" value="<?php echo $values['p_name'];?>">
                         </div>
                         
                     </div>

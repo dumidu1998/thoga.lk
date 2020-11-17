@@ -34,7 +34,7 @@
             <button type="submit" class="btn btn-primary btn_login" name="login">Log in</button>
 
             <div class = "signup_text">
-                Do not have an account ? <a href="signup.php">Sign Up</a>
+                Do not have an account ? <a href="signup">Sign Up</a>
 
             </div>
 

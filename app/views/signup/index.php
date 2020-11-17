@@ -1,9 +1,13 @@
-
-<html>
+<?php
+session_start();
+$_SESSION['temp']=1;
+?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Sign Up</title>
-  <link rel="stylesheet" type="text/css" href="/thoga.lk/app/views/signup/style.css">
+  <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/signup/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
   crossorigin="anonymous"></script>
@@ -13,9 +17,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
-<?php
-  //print_r($cities);
-?>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
@@ -39,7 +40,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Bgender" class="inpbox"  name="Bgender" style="font-size: 17px;" required>
+            <select id="Bgender" class="inpbox"  name="Bgender" style="font-size: 17px ;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -210,7 +211,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Fgender" class="inpbox"  name="Fgender" style="font-size: 17px;" required>
+            <select id="Fgender" class="inpbox"  name="Fgender" style="font-size: 17px ;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -295,7 +296,7 @@
             <input type="text" class="inpbox"  name="Fpostalcode" placeholder="20000" required>
         </div>
         <div class="row">
-          <div class="lable">Email *</div>
+          <div class="lable">Email</div>
             <input type="text" class="inpbox"  name="Femail" placeholder="tikiri@gmail.com" >
         </div>
         <div class="desc">Specify the nearest cities around you</div>
@@ -382,7 +383,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Dgender" class="inpbox"  name="Dgender" style="font-size: 17px;" required>
+            <select id="Dgender" class="inpbox"  name="Dgender" style="font-size: 17px ;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -418,17 +419,17 @@
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Dprovince" id="DProvince" onchange="dselectvalidate1()" required>
-          <option value="0"></option>
-          <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['name_en'];
-                    $provinceid = $values['id'];
-                ?>
-                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
-                <?php
-                  }
-                ?>
-        </select>
+            <option value="0"></option>
+            <?php
+                    foreach($provinces as $key => $values){
+                      $province = $values['name_en'];
+                      $provinceid = $values['id'];
+                  ?>
+                  <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                  <?php
+                    }
+            ?>
+          </select>
         </div>
         <div class="grid"> <!--grid added-->
         <div class="row">
@@ -508,7 +509,7 @@
         </div>
         <div class="row">
           <div class="lable">Vehicle Number *</div>
-            <select  class="inpbox"  name="DVProvince" placeholder="WP" style="font-size: 17px;width:100px;" required>
+            <select  class="inpbox"  name="DVProvince" placeholder="WP" style="font-size: 17px ;width:100px;" required>
               <option value="WP">WP</option>
               <option value="NC">NC</option>
               <option value="NP">NP</option>
@@ -519,6 +520,14 @@
               <option value="SP">SP</option>
             </select>
             <input type="text" style="width:50%;margin-left:50px;" class="inpbox"  name="DVno" placeholder="PT - 8007" required>
+        </div>
+        <div class="row">
+          <div class="lable">Cost per km *</div>
+            <input type="text" class="inpbox"  name="costkm" placeholder="Rs. 60"  required>
+        </div>
+        <div class="row">
+          <div class="lable">Maximum Weight *</div>
+            <input type="text" class="inpbox"  name="maxweight" placeholder="1000 kg"  required>
         </div>
         <div class="row">
           <div class="lable">Driving License No. *</div>
@@ -585,6 +594,7 @@
           I have read and Agree to the follow <a href="#">User Agreement (Driver)</a>
         </div>
         <div class="signupbtn">
+          <input type="hidden" name="usertype" value="3">
           <input type="submit" value="Sign Up" name="submit" disabled id="Dsignupbtn">
         </div>
       </form>
@@ -593,7 +603,7 @@
 
     <!-- Mentor -->
     <div class="tabPanel">
-    <form method="POST" action="signup/buyer">
+    <form method="POST" action="signup/mentor">
       <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable" style="margin-top: 25px;">First Name *</div>
@@ -605,7 +615,7 @@
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Mgender" class="inpbox"  name="Mgender" style="font-size: 17px;" required>
+            <select id="Mgender" class="inpbox"  name="Mgender" style="font-size: 17px;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -641,17 +651,18 @@
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Mprovince" id="MProvince" onchange="mselectvalidate1()" required>
-          <option value="0"></option>
-          <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['name_en'];
-                    $provinceid = $values['id'];
-                ?>
-                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
-                <?php
-                  }
-                ?>
-        </select>
+            <option value="0"></option>
+            <?php
+                    foreach($provinces as $key => $values){
+                      $province = $values['name_en'];
+                      $provinceid = $values['id'];
+                  ?>
+                  <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                  <?php
+                    }
+            ?>
+          </select>
+        </div>
         <div class="grid"> <!--grid added-->
         <div class="row">
           <div class="lable1">District *</div>
@@ -725,14 +736,12 @@
         </div>
         <div class="desc">Explain in few words about you</div>
         <div class="row">
-          <div class="lable">Why can I be a Mentor</div>
-            <textarea name="M" class="inpbox" id="q1" cols="10" rows="3"></textarea>
-            <!-- <input type="text" class="inpbox"  name="email"  required> -->
+          <div class="lable">Why do you want to be a mentor?</div>
+            <textarea name="Mwhy" class="inpbox" id="q1" cols="10" rows="3"></textarea>
         </div>
         <div class="row">
-          <div class="lable">How Im going to mentor a Farmer</div>
-          <textarea name="M" class="inpbox" id="q2" cols="10" rows="3"></textarea>
-            <!-- <input type="text" class="inpbox"  name="email"  required> -->
+          <div class="lable">Explain about your IT and Leadership skills</div>
+          <textarea name="Mskills" class="inpbox" id="q2" cols="10" rows="3"></textarea>
         </div>
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
@@ -753,17 +762,18 @@
             <br><br><span id='Mmessage' style="padding-left:27%;font-size:13px;color:red;"></span>
         </div>
         <div class="agreement">
+          Your account will activated within 24hrs. We will notify you with a SMS.<br><br>
           <input type="checkbox" id="Mcbox" class="cbox" onClick="buttonOnmentor()">
           I have read and Agree to the follow <a href="#">User Agreement (Mentor)</a>
         </div>
         <div class="signupbtn">
+        <input type="hidden" name="usertype" value="4">
           <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn" >
         </div>
       </form>
     </div>
 </div>
 
-<script type="text/javascript" src="/thoga.lk/app/views/signup/script.js" ></script>
-
+<script type="text/javascript" src="/thoga.lk/public/js/signup.js" ></script>
 </body>
 </html>

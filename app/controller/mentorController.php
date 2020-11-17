@@ -68,6 +68,9 @@ class mentorController{
     public function view_price(){
         $view = new view("mentor/mentor_price");
     }
+    public function about(){
+        $view = new view("mentor/aboutus");
+    }
 }
 
 

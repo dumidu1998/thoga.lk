@@ -23,7 +23,7 @@ function showPanel(panelIndex,colorCode) {
 function uploadFile1() {
     fileValidation1();
     var file = _("file1").files[0];
-    alert(file.name+" | "+file.size+" | "+file.type);
+    //alert(file.name+" | "+file.size+" | "+file.type);
     var formdata = new FormData();
     formdata.append("file1", file);
     var ajax = new XMLHttpRequest();
@@ -38,7 +38,7 @@ function uploadFile1() {
   function uploadFile2() {
     fileValidation2();
     var file = _("file2").files[0];
-    alert(file.name+" | "+file.size+" | "+file.type);
+    //alert(file.name+" | "+file.size+" | "+file.type);
     var formdata = new FormData();
     formdata.append("file1", file);
     var ajax = new XMLHttpRequest();
@@ -53,7 +53,7 @@ function uploadFile1() {
   function uploadFile3() {
     fileValidation3();
     var file = _("file3").files[0];
-    alert(file.name+" | "+file.size+" | "+file.type);
+    //alert(file.name+" | "+file.size+" | "+file.type);
     var formdata = new FormData();
     formdata.append("file1", file);
     var ajax = new XMLHttpRequest();
@@ -68,7 +68,7 @@ function uploadFile1() {
   function uploadFile4() {
     fileValidation4();
     var file = _("file4").files[0];
-    alert(file.name+" | "+file.size+" | "+file.type);
+    //alert(file.name+" | "+file.size+" | "+file.type);
     var formdata = new FormData();
     formdata.append("file1", file);
     var ajax = new XMLHttpRequest();
