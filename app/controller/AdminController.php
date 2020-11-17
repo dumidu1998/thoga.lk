@@ -26,6 +26,11 @@ class AdminController {
     public function usermanager(){
         $view = new View("admin/usermanager");
     }
+
+    public function viewuser(){
+        $view = new View("admin/user");
+    }
+
 }
 
 
