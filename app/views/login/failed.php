@@ -12,41 +12,19 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  /* background: url("https://i.imgur.com/kje4L5j.jpg"); */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
 
 .bb {
-  /* background: url("https://i.imgur.com/bDBs0et.jpg"); */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   display: none;
 }
 
-#go {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  color: white;
-  border: 0;
-  background: #71c341;
-  width: 100px;
-  height: 30px;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: background 0.2s ease;
-  outline: none;
-}
-#go:hover {
-  background: #8ecf68;
-}
-#go:active {
-  background: #5a9f32;
-}
+
 
 .message {
   position: absolute;
@@ -54,7 +32,9 @@
   left: 50%;
   transform: translate(-50%, 0%);
   width: 300px;
-  background: rgb(194, 249, 194);
+  background: rgba(241, 104, 107, 0.92);
+  border: 1px solid rgba(224, 0, 0, 0.21);
+  box-shadow: 30px rgba(224, 0, 0, 0.93);
   border-radius: 8px;
   padding: 30px;
   text-align: center;
@@ -70,7 +50,7 @@
   transform: translate(-50%, -50%) scale(4);
   width: 120px;
   height: 110px;
-  background: #71c341;
+  background: #d30000;
   color: white;
   font-size: 3.8rem;
   padding-top: 10px;
@@ -83,9 +63,10 @@
   opacity: 1;
 }
 .message p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 25px 0px;
   padding: 0;
+  font-weight:700;
 }
 .message p:nth-child(2) {
   font-size: 2.3rem;
@@ -95,7 +76,7 @@
   position: relative;
   color: white;
   border: 0;
-  background: #71c341;
+  background: #d30000;
   width: 100%;
   height: 50px;
   border-radius: 6px;
@@ -104,10 +85,10 @@
   outline: none;
 }
 .message #ok:hover {
-  background: #8ecf68;
+  background: #a10000;
 }
 .message #ok:active {
-  background: #5a9f32;
+  background: #750101;
 }
 
 .comein {
@@ -116,18 +97,18 @@
 }
 </style>
 </head>
-<body>
+<body id='bodyy'>
 <div class='b'></div>
 <div class='bb'></div>
 <div class='message'>
   <div class='check'>
-    &#10004;
+    &#10006;
   </div>
   <p>
-    Success
+    Failed
   </p>
   <p>
-    Check your email for a booking confirmation. We'll see you soon!
+    Please Signup Again!
   </p>
   <button id='ok'>
     OK
@@ -135,13 +116,12 @@
 </div>
 
 </body>
-
 <script>
     // $('#go').click(function(){go(50)});
  $('#ok').click(function(){go(500)});
 
 setTimeout(function(){go(50)},700);
-setTimeout(function(){go(500)},7000);
+setTimeout(function(){go(500)},3000);
 //$('#ok').off('click');
 
 function go(nr) {

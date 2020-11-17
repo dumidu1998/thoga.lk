@@ -24,17 +24,13 @@
   display: none;
 }
 
-
-
 .message {
   position: absolute;
   top: -200px;
   left: 50%;
   transform: translate(-50%, 0%);
   width: 300px;
-  background: rgb(249, 209, 209);
-  border: 1px solid rgba(224, 0, 0, 0.21);
-  box-shadow: 30px rgba(224, 0, 0, 0.93);
+  background: rgba(68, 185, 28, 0.97);
   border-radius: 8px;
   padding: 30px;
   text-align: center;
@@ -50,7 +46,7 @@
   transform: translate(-50%, -50%) scale(4);
   width: 120px;
   height: 110px;
-  background: #d30000;
+  background: #7BED35;
   color: white;
   font-size: 3.8rem;
   padding-top: 10px;
@@ -63,9 +59,11 @@
   opacity: 1;
 }
 .message p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin: 25px 0px;
   padding: 0;
+  font-weight:700;
+
 }
 .message p:nth-child(2) {
   font-size: 2.3rem;
@@ -75,7 +73,7 @@
   position: relative;
   color: white;
   border: 0;
-  background: #d30000;
+  background: #33971A;
   width: 100%;
   height: 50px;
   border-radius: 6px;
@@ -84,10 +82,10 @@
   outline: none;
 }
 .message #ok:hover {
-  background: #a10000;
+  background: #25790F;
 }
 .message #ok:active {
-  background: #750101;
+  background: #5a9f32;
 }
 
 .comein {
@@ -96,18 +94,18 @@
 }
 </style>
 </head>
-<body id='bodyy'>
+<body style="z-index:1000">
 <div class='b'></div>
 <div class='bb'></div>
 <div class='message'>
   <div class='check'>
-    &#10006;
+    &#10004;
   </div>
   <p>
-    Failed
+    Success
   </p>
   <p>
-    Check your email for a booking confirmation. We'll see you soon!
+    Sign Up Successful. Login to Continue!
   </p>
   <button id='ok'>
     OK
@@ -115,12 +113,12 @@
 </div>
 
 </body>
+
 <script>
-    // $('#go').click(function(){go(50)});
  $('#ok').click(function(){go(500)});
 
 setTimeout(function(){go(50)},700);
-setTimeout(function(){go(500)},7000);
+setTimeout(function(){go(500)},3000);
 //$('#ok').off('click');
 
 function go(nr) {
