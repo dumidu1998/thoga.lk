@@ -13,19 +13,17 @@
   <a href="dash" class="active">Dashboard</a>
   <a href="view_price">Price List</a>
   <a href="forum">Forum</a>
+  <a id="google_translate_element" ></a>
 
-  <div id="google_translate_element"></div>
+
+  
   
  
   <div class = "nav-right">
+    <a href ="aboutus">About Us</a>
     <a href="#logout">Logout</a>
-     
-
     
     <a href='profile'> <img width=50px src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" > </a>
-
- 
-
 
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">

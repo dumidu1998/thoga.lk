@@ -46,7 +46,11 @@ $routes = [
     'driver/viewmore' => 'DriverController@viewmore',
     'driver/profile' => 'DriverController@viewprofile',
     'admin'=> 'AdminController@index',
-    'admin/vieworders' => 'AdminController@vieworders'
+    'admin/vieworders' => 'AdminController@vieworders',
+    //'forum' =>'FarmerController@forum',
+    'farmer/aboutus'=>'FarmerController@about',
+    'mentor/aboutus'=>'mentorController@about',
+
     
  ];
 
