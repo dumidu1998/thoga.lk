@@ -1,29 +1,26 @@
 
 .title{
     font-family: sans-serif;
-    color: #dc2d5e;
+    color: #181617;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 100px;
+   
 
 }
 
-.tabContainer{
-    width: 70%;
-    height: 1000px;
-    margin-left: 15%;
 
-}
 
 .date{
   display: inline-flex;
-  margin: 
+  
   
 }
-/*.id{
-  display: inline-flex;
-}*/
 
-input[type=text],input[type=date],input[type=file], select, textarea {
+.price{
+  display: inline-flex;
+}
+
+input[type=text],input[type=date],input[type=file],input[type=number], select .textt, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -54,6 +51,15 @@ button {
 button:hover {
   opacity:1;
 }
+.textt{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 18px;
+}
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -78,11 +84,12 @@ button:hover {
 }
 
 .container {
+  margin-top:20px;
   padding: 20px;
   color: black;
   text-align: center;
   width:70%;
-  background:rgba(0,0,0,0.2);
+  background:white;
   position: absolute;
   top:54%;
   left:50%;
@@ -92,13 +99,14 @@ button:hover {
   border-radius: 50px;
   box-shadow:0 5px 15px rgba(0,0,0,.9);
   font-style: bold;
-  margin-top: 40px;
-
-
+  
+  
 }
+
+
 @media screen and (max-width:768px){
   .container{
-    margin-top: 120%;
+    margin-top: 50px;
     width: 90%;
 
   }
@@ -112,7 +120,7 @@ button:hover {
   label{
     margin-right: 100px;
   }
-  input[type=text],input[type=date],input[type=file], select{
+  input[type=text],input[type=date],input[type=file], select .textt{
     margin-left: 40px;
   }
 
@@ -139,7 +147,7 @@ button:hover {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .col-25, .col-75, {
+  .col-25, .col-75 {
     width: 100%;
     margin-top: 5px;
   }

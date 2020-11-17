@@ -1,7 +1,13 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0;
+    margin-top: 60px;
   }
+
+
+
+  
   
 .topnav {
     top: 0;
@@ -51,7 +57,7 @@ body {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
       float: right;
-      display: block;
+      display: inline-flex;
     }
   }
   
@@ -69,8 +75,10 @@ body {
     }
   }
 .navlogo{
-    width: 200px;
+    width: 100px;
     
 }
 .nav-right{
+  margin-top: 0px;
     float: right;
+}

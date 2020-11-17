@@ -515,6 +515,10 @@ body {
   display: inline;
 }
 
+img{
+  cursor: pointer;
+}
+
 
 
 

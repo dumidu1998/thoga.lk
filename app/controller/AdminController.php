@@ -12,7 +12,11 @@ class AdminController {
 
     public function index(){
         $view = new View("admin/index");
-        
+    }
+
+    public function vieworders(){
+        $view = new View("admin/vieworders");
+
     }
 }
 

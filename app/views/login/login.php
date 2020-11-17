@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/style.css">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/login/login.css">
-
     <title>Log in</title>
 </head>
 <body>
@@ -18,7 +17,7 @@
 
 </ul>
 
-<div class="slideshow-container">
+<div class="slideshow-container" >
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
@@ -28,7 +27,7 @@
     <h1>Freshness, Delivered!!</h1> 
    <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
-   <div class="login_logos">
+   <div class="login_logos" id="click">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/driver.png" alt="">
@@ -45,7 +44,7 @@
   <h1>Freshness, Delivered!!</h1> 
    <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
-   <div class="login_logos">
+   <div class="login_logos" id="click1" >
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/driver.png" alt="">
@@ -61,7 +60,7 @@
    <h1>Freshness, Delivered!!</h1> 
    <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
-   <div class="login_logos">
+   <div class="login_logos" id="click2">
     
     <img width="10%" id="im1" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
@@ -69,7 +68,23 @@
    </div>
   </div>
 </div>
+<?php 
+  session_start();
+  if(isset($_SESSION['signupstatus'])){
+    $status=$_SESSION['signupstatus'];
+    if($status==3){include ('sucess.php');
+    }elseif($status==4){include('sucess-SMS.php');
+    }else{include('failed.php');}
+    unset($_SESSION['signupstatus']);
+  }
+  if(isset($_SESSION['loginerror'])){
+    if($_SESSION['loginerror']==1){
+      include('failed-login.php');
+    }
+    unset($_SESSION['loginerror']);
+  }
 
+?>
 </div>
 <br>
 <div style="text-align:center">
@@ -108,6 +123,10 @@ function showSlides() {
 var btn = document.getElementById("login");
 var modal = document.getElementById("modal");
 var span = document.getElementsByClassName("close")[0];
+var click= document.getElementById("click");
+var click1= document.getElementById("click1");
+var click2= document.getElementById("click2");
+
 
 
 btn.onclick = function(){
@@ -122,5 +141,16 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+click.onclick= function(event){
+  window.location.href = 'signup';
+}
+click1.onclick= function(event){
+  window.location.href = 'signup';
+}
+click2.onclick= function(event){
+  window.location.href = 'signup';
+}
+
 </script>
 </html>

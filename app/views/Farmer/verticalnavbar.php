@@ -8,8 +8,10 @@
 <body>
 
 <div class="sidebar">
-  <a class="active" href="#li_items">List Items</a>
-  <a href="#mentor">Request Mentor</a>
+<a  href="add_item">Add Items</a>
+  <a href="listed">Listed Items</a>
+  <a href="mentor">Request Mentor</a>
+  
   
 </div>
 </body>
