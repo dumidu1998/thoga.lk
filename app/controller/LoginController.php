@@ -26,10 +26,11 @@ class LoginController{
                         }elseif($values['user_type'] == 'farmer'){
                             print_r($user_data);
                             echo "im the farmer"; 
+                            header("location:buyer/home");
                         }elseif($values['user_type'] == 'driver'){
-
+                            header("location:buyer/home");
                         }elseif($values['user_type'] == 'mentor'){
-
+                            header("location:buyer/home");
                         }elseif($values['user_type'] == 'admin'){
 
                         }

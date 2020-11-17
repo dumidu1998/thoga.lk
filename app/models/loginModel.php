@@ -8,7 +8,7 @@ class loginModel extends db_model{
     }
     function get_user($uname, $pwd){
         $pwd=md5($pwd);
-        $sql = "SELECT * FROM `user` WHERE usename = '$uname' and password = '$pwd' OR email='$uname' and password = '$pwd'";
+        $sql = "SELECT * FROM `user` WHERE username = '$uname' and password = '$pwd' OR email='$uname' and password = '$pwd'";
         $result=$this->connection->query($sql);
 		
 		if($result){
@@ -17,10 +17,9 @@ class loginModel extends db_model{
 		echo "error0";
   }
   function get_data($uname){
-    // return $this->read('user', array('*'), array('usename'=>$uname, 'email'=>$uname));
-    $sql = "SELECT a.*, b.user_type, c.* FROM user as a INNER JOIN usertype AS b ON a.usertype_id = b.type_id INNER JOIN address as c on a.`user-id`=c.`user-id` WHERE usename = '$uname' OR email = '$uname' ";
+    // return $this->read('user', array('*'), array('username'=>$uname, 'email'=>$uname));
+    $sql = "SELECT a.*, b.user_type, c.* FROM user as a INNER JOIN usertype AS b ON a.usertype_id = b.type_id INNER JOIN address as c on a.`user_id`=c.`user_id` WHERE username = '$uname' OR email = '$uname' ";
     $result=$this->connection->query($sql);
-    print_r( $result);
     $finale=array();
       if($result){
         while($row=mysqli_fetch_assoc($result))
