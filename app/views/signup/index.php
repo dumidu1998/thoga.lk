@@ -2,11 +2,12 @@
 session_start();
 $_SESSION['temp']=1;
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Sign Up</title>
-  <link rel="stylesheet" type="text/css" href="/thoga.lk/app/views/signup/style.css">
+  <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/signup/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
   crossorigin="anonymous"></script>
@@ -16,9 +17,6 @@ $_SESSION['temp']=1;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
-<?php
-  //print_r($cities);
-?>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
@@ -42,7 +40,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Bgender" class="inpbox"  name="Bgender" style="font-size: 17px;" required>
+            <select id="Bgender" class="inpbox"  name="Bgender" style="font-size: 17px ;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -213,7 +211,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Fgender" class="inpbox"  name="Fgender" style="font-size: 17px;" required>
+            <select id="Fgender" class="inpbox"  name="Fgender" style="font-size: 17px ;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -385,7 +383,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Dgender" class="inpbox"  name="Dgender" style="font-size: 17px;" required>
+            <select id="Dgender" class="inpbox"  name="Dgender" style="font-size: 17px ;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -421,17 +419,17 @@ $_SESSION['temp']=1;
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Dprovince" id="DProvince" onchange="dselectvalidate1()" required>
-          <option value="0"></option>
-          <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['name_en'];
-                    $provinceid = $values['id'];
-                ?>
-                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
-                <?php
-                  }
-                ?>
-        </select>
+            <option value="0"></option>
+            <?php
+                    foreach($provinces as $key => $values){
+                      $province = $values['name_en'];
+                      $provinceid = $values['id'];
+                  ?>
+                  <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                  <?php
+                    }
+            ?>
+          </select>
         </div>
         <div class="grid"> <!--grid added-->
         <div class="row">
@@ -511,7 +509,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Vehicle Number *</div>
-            <select  class="inpbox"  name="DVProvince" placeholder="WP" style="font-size: 17px;width:100px;" required>
+            <select  class="inpbox"  name="DVProvince" placeholder="WP" style="font-size: 17px ;width:100px;" required>
               <option value="WP">WP</option>
               <option value="NC">NC</option>
               <option value="NP">NP</option>
@@ -617,7 +615,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Gender *</div>
-            <select id="Mgender" class="inpbox"  name="Mgender" style="font-size: 17px;" required>
+            <select id="Mgender" class="inpbox"  name="Mgender" style="font-size: 17px;width: 67.5%;" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -653,17 +651,18 @@ $_SESSION['temp']=1;
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Mprovince" id="MProvince" onchange="mselectvalidate1()" required>
-          <option value="0"></option>
-          <?php
-                  foreach($provinces as $key => $values){
-                    $province = $values['name_en'];
-                    $provinceid = $values['id'];
-                ?>
-                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
-                <?php
-                  }
-                ?>
-        </select>
+            <option value="0"></option>
+            <?php
+                    foreach($provinces as $key => $values){
+                      $province = $values['name_en'];
+                      $provinceid = $values['id'];
+                  ?>
+                  <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+                  <?php
+                    }
+            ?>
+          </select>
+        </div>
         <div class="grid"> <!--grid added-->
         <div class="row">
           <div class="lable1">District *</div>
@@ -775,6 +774,6 @@ $_SESSION['temp']=1;
     </div>
 </div>
 
-<script type="text/javascript" src="/thoga.lk/app/views/signup/script.js" ></script>
+<script type="text/javascript" src="/thoga.lk/public/js/signup.js" ></script>
 </body>
 </html>

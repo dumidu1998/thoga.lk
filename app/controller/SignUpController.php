@@ -2,12 +2,14 @@
 
 require_once(__DIR__.'/../models/signupModel.php');
 require_once(__DIR__.'/../../core/View.php');
+require_once(__DIR__.'/LoginController.php');
 
 
 class SignUpController {
     function __construct()
     {
         $this->model = new signupModel();
+        $this->Lview = new LoginController();
     }
 
     public function show(){
@@ -21,29 +23,28 @@ class SignUpController {
     }
 
     public function addbuyer(){
+        session_start();
         if(isset($_POST['submit'])){
-            $user = $this->model->addbuyer($_POST);
-            header ("Location: /thoga.lk?signup=1");
-        }else{
-            echo "<script>alert('error in SignUp');</script>";
-            header ("Location: /thoga.lk?signup=0");
+            $status = $this->model->addbuyer($_POST);
+            $_SESSION['signupstatus']=$status;
+            header ("Location: /thoga.lk");
         }
-
     }
 
     public function addfarmer(){
+        session_start();
         if(isset($_POST['submit'])){
-            $user = $this->model->addfarmer($_POST);
+            $status = $this->model->addfarmer($_POST);
+            $_SESSION['signupstatus']=$status;
+
             header ("Location: /thoga.lk");
-        }else{
-            echo "<script>alert('error in SignUp');</script>";
-            header ("Location: /thoga.lk?signup=0");
         }
     }
 
     public function adddriver(){
+        session_start();
         if(isset($_POST['submit'])){
-            $user = $this->model->adddriver($_POST);
+            $status = $this->model->adddriver($_POST);
             $maxid=$this->model->getmaxDid();
             $sid=$maxid;
             $ext=".jpg";
@@ -54,26 +55,21 @@ class SignUpController {
             rename($Sfile."_2".$ext, $Dfile."_DLB".$ext);
             rename($Sfile."_3".$ext, $Dfile."_V".$ext);
             rename($Sfile."_4".$ext, $Dfile."_RL".$ext);
+            $_SESSION['signupstatus']=$status;
             header ("Location: /thoga.lk");
-        }else{
-            echo "<script>alert('error in SignUp');</script>";
-            header ("Location: /thoga.lk?signup=0");
         }
     }
 
     public function addmentor(){
+        session_start();
         if(isset($_POST['submit'])){
-            $user = $this->model->addmentor($_POST);
-            //header ("Location: /thoga.lk");
-        }else{
-            echo "<script>alert('error in SignUp');</script>";
-            header ("Location: /thoga.lk?signup=0");
+            $status = $this->model->addmentor($_POST);
+            $_SESSION['signupstatus']=$status;
+            header ("Location: /thoga.lk");
         }
     }
     
 }
-
-
 
 
     ?>
