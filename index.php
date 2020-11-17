@@ -50,6 +50,7 @@ $routes = [
     //'forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
+    'admin/admanager'=>'AdminController@admanager',
 
     
  ];

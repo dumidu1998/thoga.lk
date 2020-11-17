@@ -12,7 +12,22 @@
 </head>
 <body onload="my()">
 <?php 
- include ('navbar.php'); ?>
+    $user_data=$_SESSION['user'];
+                    foreach($user_data as $keys => $values){
+                        if($values['user_type'] == 'buyer'){
+                            include (__DIR__."/../buyer/navbar.php");
+                        }elseif($values['user_type'] == 'farmer'){
+                            include (__DIR__."/../farmer/navbar_dash.php");
+                        }elseif($values['user_type'] == 'driver'){
+                            include (__DIR__."/../driver/navdriverdashboard.php");
+                        }elseif($values['user_type'] == 'mentor'){
+                            include (__DIR__."/../mentor/navbar_dash.php");
+                        }elseif($values['user_type'] == 'admin'){
+                            include (__DIR__."/../admin/navbar.php");
+                        }
+                    }
+ 
+ ?>
     <div class="container">
         <div class="grid-item0">
             <form action="">

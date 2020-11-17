@@ -16,8 +16,8 @@
     </ul>
     <div class="buttonContainer">
         <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
-        <a href="#"><button class="admin-btn" >Manage Users</button></a>
-        <a href="#"><button class="admin-btn" >Manage Advertisements</button></a>
+        <a href=""><button class="admin-btn" >Manage Users</button></a>
+        <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
 
     </div>
     <div class="ut-hr-txt">

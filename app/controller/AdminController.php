@@ -18,6 +18,10 @@ class AdminController {
         $view = new View("admin/vieworders");
 
     }
+
+    public function admanager(){
+        $view = new View("admin/admanager");
+    }
 }
 
 

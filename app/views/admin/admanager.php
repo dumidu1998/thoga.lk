@@ -39,7 +39,7 @@
       <td data-column="Company">DF Fertilizers</td>
       <td data-column="Position">Vertical</td>
       <td data-column="Status">Active</td>
-      <td class="centerit" data-column="Preview"><img src="a.jpg" alt="" class="preview"></td>
+      <td class="centerit" data-column="Preview"><img src="/thoga.lk/public/images/ads/a.jpg" alt="" class="preview"></td>
       <td data-column="Action"><a href="" class="actionA">Disable</a><a href="" class="actionA">Delete</a><a href="" class="actionA">Swap Position</a></td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@
       <td data-column="Company">Heyleys Seeds</td>
       <td data-column="Position">Vertical</td>
       <td data-column="Position">Active</td>
-      <td class="centerit" data-column="Preview"><img src="a.jpg" alt="" class="preview"></td>
+      <td class="centerit" data-column="Preview"><img src="/thoga.lk/public/images/ads/a.jpg" alt="" class="preview"></td>
       <td data-column="Action"><a href="" class="actionA">Disable</a><a href="" class="actionA">Delete</a><a href="" class="actionA">Swap Position</a></td>
     </tr>
     <tr>
@@ -57,7 +57,7 @@
       <td data-column="Company">Heyleys Agro</td>
       <td data-column="Position">Side</td>
       <td data-column="Position">Active</td>
-      <td class="centerit" data-column="Preview"><img src="a.jpg" alt="" class="preview"></td>
+      <td class="centerit" data-column="Preview"><img src="/thoga.lk/public/images/ads/a.jpg" alt="" class="preview"></td>
       <td data-column="Action"><a href="" class="actionA">Disable</a><a href="" class="actionA">Delete</a><a href="" class="actionA">Swap Position</a></td>
     </tr>
     <tr>
@@ -66,7 +66,7 @@
       <td data-column="Company">DNA Pest Control</td>
       <td data-column="Position">Side</td>
       <td data-column="Position">Disabled</td>
-      <td class="centerit" data-column="Preview"><img src="a.jpg" alt="" class="preview"></td>
+      <td class="centerit" data-column="Preview"><img src="/thoga.lk/public/images/ads/a.jpg" alt="" class="preview"></td>
       <td data-column="Action"><a href="" class="actionA">Disable</a><a href="" class="actionA">Delete</a><a href="" class="actionA">Swap Position</a></td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@
       <td data-column="Company">Lak Agro</td>
       <td data-column="Position">Verical</td>
       <td data-column="Position">Disabled</td>
-      <td class="centerit" data-column="Preview"><img src="a.jpg" alt="" class="preview"></td>
+      <td class="centerit" data-column="Preview"><img src="/thoga.lk/public/images/ads/a.jpg" alt="" class="preview"></td>
       <td data-column="Action"><a href="" class="actionA">Disable</a><a href="" class="actionA">Delete</a><a href="" class="actionA">Swap Position</a></td>
       </tr>
     </tbody>
