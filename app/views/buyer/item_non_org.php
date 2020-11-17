@@ -44,7 +44,7 @@ foreach($data as $key => $value){
 
   <!-- card start -->
     <div class="card">
-      <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/vegetables/<?php echo $name ?>.jpg" alt="Avatar" style="width:100%">
       <div class="container">
         <h2><b><?php echo $name ?></b></h2> 
         <p>Selling by farmer <?php echo $farmer_name ?>.</p>   
@@ -73,7 +73,7 @@ foreach($data as $key => $value){
                   <div class="item-img">
 
                       <!-- image -->
-                      <img src="/thoga.lk/public/images/buyer/item.jpg" alt="Avatar" style="width:60%">
+                      <img src="/thoga.lk/public/images/vegetables/<?php echo $name ?>.jpg" alt="Avatar" style="width:60%">
 
                       <div class="user-details">
                           <div>

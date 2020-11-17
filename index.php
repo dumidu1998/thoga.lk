@@ -51,7 +51,7 @@ $routes = [
     'admin'=> 'AdminController@index',
     'admin'=> 'AdminController@index',
     'admin/vieworders' => 'AdminController@vieworders',
-    //'forum' =>'FarmerController@forum',
+    'forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
 

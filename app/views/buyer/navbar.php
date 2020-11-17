@@ -12,9 +12,9 @@
 <div class="topnav" id="myTopnav" style="z-index : 1;">
   <div class="nav-left">
 
-    <a href="home" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
+    <a href="/thoga.lk/buyer/home" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
     <a href="home" class="active">Home</a>
-    <a href="forum">Forum</a>
+    <a href="/thoga.lk/forum">Forum</a>
     <a href="orders">Orders</a>
     <a href="about_us">About Thoga.lk</a>
      <a id="google_translate_element"></a> 
