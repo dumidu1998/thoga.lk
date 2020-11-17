@@ -22,6 +22,10 @@ class AdminController {
     public function admanager(){
         $view = new View("admin/admanager");
     }
+
+    public function usermanager(){
+        $view = new View("admin/usermanager");
+    }
 }
 
 

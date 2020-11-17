@@ -14,7 +14,13 @@
         <img src="/thoga.lk/public/images/aboutus/about_!.jpg" alt="">
         <div class="content">
             <h1>Our Story</h1>
-            <p>jbakakabkaebekbfekfb</p>
+            <p>With the data obtained by a  survey done with the farmers, we have identified that the farmers are 
+            very dissatisfied when they are dealing with the buyers in the economic centers. And while bringing the 
+            harvest to the Economic center, there is a huge wastage due to inadequate transportation. With all these 
+            factors we have came up with a solution Thogs.lk Which is a great platform for the farmers and wholesale 
+            buyers enabling buyers to directly buy from the farmers without visiting Economic Center. Thoga.lk have 
+            advanced features which ease the life of users. Delivery service is also available and buyers can find a 
+            cheap driver from the registered drivers. </p>
         </div>
 
     </div>

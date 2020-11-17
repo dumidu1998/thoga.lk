@@ -58,14 +58,6 @@
   <tbody>
     <tr>
       <td data-column="Id">1</td>
-      <td data-column="Buyer Name">James</td>
-      <td data-column="Total Weight">12.75 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px;color:green;" aria-hidden="true"></i></td>
-      <td data-column="Action"><a href="">View More</a></td>
-    </tr>
-    <tr>
-      <td data-column="Id">2</td>
       <td data-column="Buyer Name">Andor</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
@@ -73,12 +65,20 @@
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
-      <td data-column="Id">3</td>
+      <td data-column="Id">2</td>
       <td data-column="Buyer Name">Tamas</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
       <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px;"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
+    </tr>
+    <tr>
+      <td data-column="Id">3</td>
+      <td data-column="Buyer Name">James</td>
+      <td data-column="Total Weight">12.75 Kg</td>
+      <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px;color:green;" aria-hidden="true"></i></td>
+      <td data-column="Action"><a href="/thoga.lk/">View More</a></td>
     </tr>
     <tr>
       <td data-column="Id">4</td>

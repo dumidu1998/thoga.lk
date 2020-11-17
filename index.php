@@ -59,6 +59,7 @@ $routes = [
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
     'admin/admanager'=>'AdminController@admanager',
+    'admin/usermanager'=>'AdminController@usermanager'
 
     
  ];
