@@ -45,6 +45,7 @@
       <th>Username</th>
       <th>Email</th>
       <th >Tel</th>
+      <th >type</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -55,38 +56,43 @@
       <td data-column="Username">James123</td>
       <td data-column="Email">dumidu1998@gmail.com</td>
       <td data-column="Tel">0766344989</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
       <td data-column="Id">2</td>
       <td data-column="Name">Andor</td>
-      <td data-column="Username">15.00 Kg</td>
-      <td data-column="Email">Rs.1,250.00</td>
-      <td data-column="Tel"></td>
+      <td data-column="Username">Andro123</td>
+      <td data-column="Email">dumiduraj@gmail.com</td>
+      <td data-column="Tel">0715597852</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
       <td data-column="Id">3</td>
       <td data-column="Name">Tamas</td>
-      <td data-column="Username">15.00 Kg</td>
-      <td data-column="Email">Rs.1,250.00</td>
-      <td data-column="Tel"></td>
+      <td data-column="Username">Andro123</td>
+      <td data-column="Email">dumiduraj@gmail.com</td>
+      <td data-column="Tel">0715597852</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
       <td data-column="Id">4</td>
       <td data-column="Name">Zoli</td>
-      <td data-column="Username">15.00 Kg</td>
-      <td data-column="Email">Rs.1,250.00</td>
-      <td data-column="Tel"></td>
+      <td data-column="Username">Andro123</td>
+      <td data-column="Email">dumiduraj@gmail.com</td>
+      <td data-column="Tel">0715597852</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
       <td data-column="Id">5</td>
       <td data-column="Name">Szabi</td>
-      <td data-column="Username">15.00 Kg</td>
-      <td data-column="Email">Rs.1,250.00</td>
-      <td data-column="Email"></td>
+      <td data-column="Username">Andro123</td>
+      <td data-column="Email">dumiduraj@gmail.com</td>
+      <td data-column="Tel">0715597852</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
       </tr>
   </tbody>
