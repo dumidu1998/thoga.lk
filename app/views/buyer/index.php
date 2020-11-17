@@ -3,7 +3,7 @@
 <?php 
 //tet
 session_start();
-
+// print_r($data);
 
     ?>
 <head>

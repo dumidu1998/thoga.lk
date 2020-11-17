@@ -11,7 +11,7 @@ class db_connection{
 
 
 	function getConnection(){
-		$conn = new mysqli('localhost', 'root', '' , 'thoga.lkdb');
+		$conn = new mysqli('localhost', 'root', '' , 'thoga.lk');
 		if($conn->connect_error){
 			die("Connection Faild: ". $conn->connect_error);
     }
