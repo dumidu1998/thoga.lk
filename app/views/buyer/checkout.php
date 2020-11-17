@@ -4,7 +4,7 @@
 <head>
     <?php session_start(); 
     //print_r ($_SESSION["shopping_cart"]);
-print_r($_SESSION['user']);
+//print_r($_SESSION['user']);
 
     
     ?>
@@ -14,6 +14,8 @@ print_r($_SESSION['user']);
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/chckout.css">
 </head>
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<?php include("navbar.php"); ?>
+ 
     <div class="container">
         <div class="check">
             <!-- grid -->
