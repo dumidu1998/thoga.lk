@@ -48,7 +48,7 @@ $routes = [
     'driver/calendar' => 'DriverController@showcalendar',
     'driver/unavailabledates'=> 'DriverController@unavailabledates',
     'driver/vehicles'=> 'DriverController@showvehicle',
-    'driver/about_us'=> 'DriverController@about_us'
+    'driver/about_us'=> 'DriverController@about_us',
     'buyer/orders' => 'BuyerController@orders',
     'buyer/viewmore' => 'BuyerController@viewmore',
     'buyer/about_us' => 'BuyerController@aboutus',
@@ -58,6 +58,7 @@ $routes = [
     'forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
+    'admin/admanager'=>'AdminController@admanager',
 
     
  ];

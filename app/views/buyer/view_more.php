@@ -98,6 +98,7 @@
                 <th scope="col">Weight</th>
                 <th scope="col">Price</th>
                 <th scope="col">Farmer details</th>
+                <th scope="col">Action</th>
                 
                 </tr>
             </thead>
@@ -108,7 +109,7 @@
                 <td data-label="Weight">30kg</td>
                 <td data-label="Price">rs. 5000</td>
                 <td data-label="Farmer name">Akila de silva</td>
-                <td data-label= "Farmer details">View profile</td>
+                <td data-label= "Farmer details" id=""><button id="myBtn">View Profile</button></td>
 
                 </tr>
 
@@ -139,9 +140,12 @@
     
  </div>
 </div>
-    
+
+<?php include("profile-popup.php"); ?>
 
 <?php include("footer.php"); ?>
+
+
 
 </body>
 </html>

@@ -12,7 +12,23 @@
 </head>
 <body onload="my()">
 <?php 
- include ('navbar.php'); ?>
+    session_start();
+    $user_data=$_SESSION['user'];
+                    foreach($user_data as $keys => $values){
+                        if($values['user_type'] == 'buyer'){
+                            include (__DIR__."/../buyer/navbar.php");
+                        }elseif($values['user_type'] == 'farmer'){
+                            include (__DIR__."/../farmer/navbar_dash.php");
+                        }elseif($values['user_type'] == 'driver'){
+                            include (__DIR__."/../driver/navdriverdashboard.php");
+                        }elseif($values['user_type'] == 'mentor'){
+                            include (__DIR__."/../mentor/navbar_dash.php");
+                        }elseif($values['user_type'] == 'admin'){
+                            include (__DIR__."/../admin/navbar.php");
+                        }
+                    }
+ 
+ ?>
     <div class="container">
         <div class="grid-item0">
             <form action="">
@@ -52,7 +68,7 @@
                 </div>
             </div>
             <div class="forum-container">
-                    <div class="forum-topic"><a class="links" href="fullview">My tomato plants are damaged by insects</a><br>
+                    <div class="forum-topic"><a class="links" href="forum/fullview">My tomato plants are damaged by insects</a><br>
                 <span style="font-size:13px">By - Dumidu Kasun Bandara </span>
                 </div>
                 <div class="forum-contols">

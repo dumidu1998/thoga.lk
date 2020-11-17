@@ -93,10 +93,10 @@
     <hr>
     <div class="container-2">
         <div class="card">
-            <img width= 300px src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
+            <img width= 300px src="/thoga.lk/public/images/buyer/a3.png" alt="Avatar" style="width:100%">
             <div class="container-2">
-                <h4><b>John Doe</b></h4> 
-                <p>Architect & Engineer</p> 
+                <h4><b>Akila Silva</b></h4> 
+                <p>NC PT - 0543</p> 
             </div>
         </div>
 
@@ -107,30 +107,30 @@
     
     <div class="card-group">
     <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/a1.png" alt="Avatar" style="width:100%">
       <div class="container-2">
-        <h4><b>Carrot</b></h4> 
-        <p>Selling by farmer Dumidu price:- 40/kg</p> 
+        <h4><b>Samantha</b></h4> 
+        <p>Anuradhapura</p> 
       </div>
       <div>
       </div>
     </div>
 
     <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/a2.png" alt="Avatar" style="width:100%">
       <div class="container-2">
-        <h4><b>John Doe</b></h4> 
-        <p>Architect & Engineer</p> 
+        <h4><b>Kumara</b></h4> 
+        <p>Dambulla</p> 
       </div>
       <div>
       </div>
     </div>
 
     <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/buyer/a4.png" alt="Avatar" style="width:100%">
       <div class="container-2">
-        <h4><b>John Doe</b></h4> 
-        <p>Architect & Engineer</p> 
+        <h4><b>Nimal</b></h4> 
+        <p>Vavniya</p> 
       </div>
       <div>
       </div>
