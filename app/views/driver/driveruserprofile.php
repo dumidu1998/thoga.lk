@@ -18,7 +18,7 @@ if(isset($_GET["update"])){
 }
 ?>
 
-<body style="background-image: url('/thoga.lk/public/images/driver/98.jpg');">
+<body>
 
 
    <?php include 'profilenavbar.php' ;?> 
@@ -29,14 +29,14 @@ if(isset($_GET["update"])){
    
     <div class="wrapper">
         <div class="user_pp">
-            <!-- img -->
+           
             <img width="300px" src="/thoga.lk/public/images/driver/a.jpg" alt="">
             <input type="file" value="upload image">
 
         </div>
         
         <div class="user_details">
-            <!-- user details -->
+          
             <form action="farmer_profile.php" method="get">
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">First name</label>
@@ -126,7 +126,7 @@ if(isset($_GET["update"])){
         </div>
 
         <div>
-            <!-- Advertistment -->
+            
             <img src="/thoga.lk/public/images/driver/index.jpg" alt="" width="210" height="430">
 
         </div>
@@ -137,7 +137,7 @@ if(isset($_GET["update"])){
     <hr>
 
     <div class="container">
-        <!-- order history -->
+       
         <table>
 
             <thead>

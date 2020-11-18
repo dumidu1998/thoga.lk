@@ -48,6 +48,7 @@ $routes = [
     'driver/calendar' => 'DriverController@showcalendar',
     'driver/unavailabledates'=> 'DriverController@unavailabledates',
     'driver/vehicles'=> 'DriverController@showvehicle',
+    'driver/vehicledetails'=> 'DriverController@vehicledetails',
     'driver/about_us'=> 'DriverController@about_us',
     'buyer/orders' => 'BuyerController@orders',
     'buyer/viewmore' => 'BuyerController@viewmore',

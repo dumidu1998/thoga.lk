@@ -65,15 +65,30 @@ class DriverController{
     }
     
     public function showvehicle(){
-        $result = $this->model->get2(1);//driver_id
+        if(isset($_POST['vehicles'])){
+            $vehicleid=$_POST['vehicleid'];
+            $result = $this->model->get2($vehicleid);
+        }  
+       
         $view = new View("driver/vehicles");
         $view->assign('vehicle',$result);
+    }
+
+    public function vehicledetails(){
+         
+        $result = $this->model->get3(1);//driver_id
+        $view = new View("driver/vehicledetails");
+        $view->assign('vehicledet',$result);
     }
 
     public function about_us(){
         $view = new View("driver/aboutus");
     }
-
+    
+    public function forum(){
+        $view = new View("forum");
+        
+    }
 
 
 }
