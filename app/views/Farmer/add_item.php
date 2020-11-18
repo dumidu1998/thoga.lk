@@ -17,7 +17,7 @@
 
 
 <div class="container">
-  <form action="insert" method="post">
+  <form action="insert_item" method="post">
 
     <div class="row">
       <div class="left">
@@ -30,9 +30,10 @@
           foreach($records as $key =>$values)
           {
             $vegname = $values['vege_name'];
+            $vegId = $values['vege_id'];
          
           ?>
-          <option><?php echo $vegname;?></option>
+          <option value="<?php echo $vegId;?>"><?php echo $vegname;?></option>
 
           <?php
           }
