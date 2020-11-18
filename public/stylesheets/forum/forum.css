@@ -27,7 +27,7 @@ input[type="checkbox"]{
     padding: 25px 10px;
     height: 45%;
     position: sticky;
-    width: 85%;
+    width: 100%;
     top: 10px;
     margin-top: -15px;
 }
@@ -100,7 +100,7 @@ input[type="checkbox"]{
     height: 125px;
     width: 100px;
     float: right;
-    margin: -20px 30px 0px 10px ;
+    margin: -35px 30px 0px 10px ;
     padding-top: 0px;
 }
 .forum-content{

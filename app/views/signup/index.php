@@ -17,6 +17,11 @@ $_SESSION['temp']=1;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
+    <div>
+        <a class="back-button"  href="/thoga.lk/">
+            &lt;&nbsp;Back to Login
+        </a>
+    </div>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
@@ -47,7 +52,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Bdob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Bdob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>
@@ -218,7 +223,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Fdob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Fdob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>
@@ -390,7 +395,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Ddob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Ddob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>
@@ -622,7 +627,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Mdob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Mdob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>

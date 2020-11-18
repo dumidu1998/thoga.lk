@@ -224,3 +224,21 @@ input[type="file"] {
   }
 }
 
+.back-button {
+  background: rgb(3, 160, 55);
+  color: rgb(241, 254, 255);
+  font-size: 25px;
+  line-height: 0;
+  padding: 15px 18px 15px 15px;
+  text-decoration: none;
+  transition: all 0.9s;
+  margin-bottom: 10px;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.back-button:hover {
+  box-shadow: none;
+  background: rgba(3, 168, 66, 0.8);
+}

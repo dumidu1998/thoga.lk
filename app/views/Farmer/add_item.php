@@ -151,7 +151,7 @@
   
 </div> 
 
-<?php // include("footer.php"); ?>
+<?php //include("footer.php"); ?>
 <script>
 var today = new Date();
 var dd = today.getDate();

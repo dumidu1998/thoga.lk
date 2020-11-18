@@ -64,7 +64,6 @@ $routes = [
     'buyer/viewmore' => 'BuyerController@viewmore',
     'buyer/about_us' => 'BuyerController@aboutus',
     'admin'=> 'AdminController@index',
-    'admin'=> 'AdminController@index',
     'admin/vieworders' => 'AdminController@vieworders',
     'forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
@@ -73,6 +72,13 @@ $routes = [
     'admin/login'=>'LoginController@admin_login',
     'admin/log' => 'LoginController@admin_log'
 
+
+    'admin/usermanager'=>'AdminController@usermanager',
+    'admin/showorder'=> 'AdminController@showorder',
+    'admin/userview' => 'AdminController@viewuser',
+    'admin/dappl' => 'AdminController@driverapplication',
+    'admin/mappl' => 'AdminController@mentorapplication',
+    'admin/mrequest' => 'AdminController@mentorrequest'
     
  ];
 

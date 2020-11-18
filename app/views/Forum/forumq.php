@@ -93,6 +93,7 @@
         function goback(){
             window.history.back();
         }
-    </script>				
+    </script>	
+    <?php include("footer.php"); ?>			
 </body>
 </html>

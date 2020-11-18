@@ -42,51 +42,54 @@
     <tr>
       <th width="10px">Id</th>
       <th>Name</th>
-      <th>District</th>
-      <th>Total Price</th>
-      <th width="10px">Status</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th >Tel</th>
+      <th >type</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
+    <?php $i=1; while($i<=15){
+      $i++;
+      ?>
     <tr>
-      <td data-column="Id">1</td>
-      <td data-column="Buyer Name">James</td>
-      <td data-column="Total Weight">12.75 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px;color:green;" aria-hidden="true"></i></td>
-      <td data-column="Action"><a href="">View More</a></td>
+      <form method="POST" action="userview">
+        <td data-column="Id">2</td>
+        <td data-column="Name">Andor</td>
+        <td data-column="Username">Andro123</td>
+        <td data-column="Email">dumiduraj@gmail.com</td>
+        <td data-column="Tel">0715597852</td>
+        <td data-column="type">Farmer</td>
+        <td data-column="Action"><button type="submit" name="submit" >View More</button></td>
+      </form>
     </tr>
-    <tr>
-      <td data-column="Id">2</td>
-      <td data-column="Buyer Name">Andor</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px;" aria-hidden="true"></i></i></td>
-      <td data-column="Action"><a href="">View More</a></td>
-    </tr>
+    <?php } ?>
     <tr>
       <td data-column="Id">3</td>
-      <td data-column="Buyer Name">Tamas</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px;"></i></td>
+      <td data-column="Name">Tamas</td>
+      <td data-column="Username">Andro123</td>
+      <td data-column="Email">dumiduraj@gmail.com</td>
+      <td data-column="Tel">0715597852</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
       <td data-column="Id">4</td>
-      <td data-column="Buyer Name">Zoli</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true" style="font-size:30px;color:green;"></i></td>
+      <td data-column="Name">Zoli</td>
+      <td data-column="Username">Andro123</td>
+      <td data-column="Email">dumiduraj@gmail.com</td>
+      <td data-column="Tel">0715597852</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
       <td data-column="Id">5</td>
-      <td data-column="Buyer Name">Szabi</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true"  style="font-size:30px;color:green;"></i></td>
+      <td data-column="Name">Szabi</td>
+      <td data-column="Username">Andro123</td>
+      <td data-column="Email">dumiduraj@gmail.com</td>
+      <td data-column="Tel">0715597852</td>
+      <td data-column="type">Farmer</td>
       <td data-column="Action"><a href="">View More</a></td>
       </tr>
   </tbody>
