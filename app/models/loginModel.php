@@ -32,7 +32,7 @@ class loginModel extends db_model{
       
 
       }else
-      echo "error";
+      echo "errorrrr";
     }
     function log_admin($uname,$pwd){
       // $pwd=md5($pwd);

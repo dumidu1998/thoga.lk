@@ -12,7 +12,6 @@
 </head>
 <body onload="my()">
 <?php 
-    session_start();
     $user_data=$_SESSION['user'];
                     foreach($user_data as $keys => $values){
                         if($values['user_type'] == 'buyer'){
@@ -68,7 +67,7 @@
                 </div>
             </div>
             <div class="forum-container">
-                    <div class="forum-topic"><a class="links" href="forum/fullview">My tomato plants are damaged by insects</a><br>
+                    <div class="forum-topic"><a class="links" href="fullview">My tomato plants are damaged by insects</a><br>
                 <span style="font-size:13px">By - Dumidu Kasun Bandara </span>
                 </div>
                 <div class="forum-contols">
@@ -158,6 +157,5 @@
             element.style.height = (element.scrollHeight)+"px";
         }
     </script>
-    <?php include("footer.php"); ?>
 </body>
 </html>
