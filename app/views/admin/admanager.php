@@ -96,8 +96,8 @@
           <select id="3">
             <option value="v">Vertical</option>
             <option value="v">Horizontal</option>
-          </select>
-          <label for="file" class="lable">Caption</label>
+          </select><br>
+          <label for="file" class="lable">Image</label>
           <input type="file" name="file" id="file" onchange="uploadFile()">
           <progress id="progressBar" value="0" max="100" style="width:150px;"></progress>
           <u id="status" style="font-size:10px"></u>

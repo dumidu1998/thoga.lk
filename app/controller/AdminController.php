@@ -31,7 +31,26 @@ class AdminController {
     }
 
     public function viewuser(){
-        $view = new View("admin/user");
+        $view = new View("admin/userview");
+    }
+
+    public function showorder(){
+        $ordid=$_POST['order_id'];
+        // echo $ordid;
+        $view = new View("admin/orderdetails");
+
+    }
+
+    public function driverapplication(){
+        $view = new View("admin/Driver_application");
+    }
+
+    public function mentorapplication(){
+        $view = new View("admin/Mentor_application");
+    }
+
+    public function mentorrequest(){
+        $view = new View("admin/Mentor_request");
     }
 
 }

@@ -50,24 +50,21 @@
     </tr>
   </thead>
   <tbody>
+    <?php $i=1; while($i<=15){
+      $i++;
+      ?>
     <tr>
-      <td data-column="Id">1</td>
-      <td data-column="Name">James</td>
-      <td data-column="Username">James123</td>
-      <td data-column="Email">dumidu1998@gmail.com</td>
-      <td data-column="Tel">0766344989</td>
-      <td data-column="type">Farmer</td>
-      <td data-column="Action"><a href="">View More</a></td>
+      <form method="POST" action="userview">
+        <td data-column="Id">2</td>
+        <td data-column="Name">Andor</td>
+        <td data-column="Username">Andro123</td>
+        <td data-column="Email">dumiduraj@gmail.com</td>
+        <td data-column="Tel">0715597852</td>
+        <td data-column="type">Farmer</td>
+        <td data-column="Action"><button type="submit" name="submit" >View More</button></td>
+      </form>
     </tr>
-    <tr>
-      <td data-column="Id">2</td>
-      <td data-column="Name">Andor</td>
-      <td data-column="Username">Andro123</td>
-      <td data-column="Email">dumiduraj@gmail.com</td>
-      <td data-column="Tel">0715597852</td>
-      <td data-column="type">Farmer</td>
-      <td data-column="Action"><a href="">View More</a></td>
-    </tr>
+    <?php } ?>
     <tr>
       <td data-column="Id">3</td>
       <td data-column="Name">Tamas</td>

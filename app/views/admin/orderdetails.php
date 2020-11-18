@@ -11,7 +11,7 @@
  include("navbar.php"); ?>
 
 <div class="container">
-    <div><a class="back-button" href="index.php">&lt;&nbsp;Back</a></div>
+    <div><a class="back-button" href="vieworders">&lt;&nbsp;Back</a></div>
     <h1>Order Details</h1>
     <div class="banner">
       <h2>Order Id - 10</h2>
