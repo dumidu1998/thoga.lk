@@ -24,19 +24,14 @@ $routes = [
     'farmer/dash' => 'FarmerController@upcoming',
     'farmer/add_item' => 'FarmerController@add_item',
     'farmer/listed' => 'FarmerController@listed_items',
-<<<<<<< HEAD
     'farmer/insert' => 'FarmerController@insert_mess',
-=======
-    'farmer/insert' => 'FarmerController@insert_items',
     'farmer/view_price' => 'FarmerController@view_price',
     'farmer/profile' => 'FarmerController@profile',
->>>>>>> 893397d717527881e2f2d0f9b9538d8c8a308d30
     'mentor/add_item' => 'mentorController@add_item',
     'mentor/insert' => 'mentorController@insert_success',
     'mentor/dash' => 'mentorController@upcoming',
     'mentor/listed' => 'mentorController@listed_items',
     'mentor/view_price' => 'mentorController@view_price',
-<<<<<<< HEAD
     'farmer/forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
@@ -46,7 +41,6 @@ $routes = [
     'mentor/viewmore' => 'mentorController@view_more',
     'farmer/edit' => 'FarmerController@edit',
     'mentor/edit' => 'mentorController@edit',
-=======
     'signup' => 'SignUpController@show',
     'signup/buyer' => 'SignUpController@addbuyer',
     'signup/farmer' => 'SignUpController@addfarmer',
@@ -76,7 +70,6 @@ $routes = [
     'mentor/aboutus'=>'mentorController@about',
     'admin/admanager'=>'AdminController@admanager',
 
->>>>>>> 893397d717527881e2f2d0f9b9538d8c8a308d30
     
  ];
 
