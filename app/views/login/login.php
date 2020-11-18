@@ -10,8 +10,8 @@
 <body>
 
 <ul>
-  <li><a href="#home"><img width="100px" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt=""></a></li>
-  <li><a href="#contact">Contact Us</a></li>
+  <li><a href="#"><img width="100px" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt=""></a></li>
+  <li><a href="about_us">Contact Us</a></li>
   <li style="float:right"><a class="active" href="#login" id="login">Login</a></li>
   <li style="float:right"><a class="active" href="/thoga.lk/buyer/home">Continue as guest</a></li>
 
