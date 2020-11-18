@@ -34,10 +34,15 @@ class mentorController{
             $itemimage = $_POST['itemimage'];
 
             $this->model->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$itemimage);
+            header("location: /thoga.lk/mentor/insert");
         }
 
         
         
+    }
+
+    public function insert_success(){
+        $view = new view("mentor/insert");
     }
 
 
