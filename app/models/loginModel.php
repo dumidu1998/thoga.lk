@@ -32,7 +32,7 @@ class loginModel extends db_model{
       
 
       }else
-      echo "error";
+      echo "errorrrr";
     }
 
 }

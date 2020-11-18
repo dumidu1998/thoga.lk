@@ -26,7 +26,8 @@
                     $totcost = $row['total_cost'];
                     $dloc = $row['deliver_location'];
                     $odrdate = $row['order_date'];
-                    // $dt = new DateTime($odrdate);
+                    $dt = new DateTime($odrdate);
+                    $date= $dt->format('Y-m-d');
                     $pickdate = $row['pickup_date'];
 
                 }         
@@ -54,7 +55,7 @@
             <br> 
 
             Order Date          :
-            <input type="text" name="order date" value="<?php echo $odrdate?>" disabled>
+            <input type="text" name="order date" value="<?php echo $date?>" disabled>
             <br>
 
             Pickup Date          :
@@ -115,12 +116,12 @@
 					
 					echo "<tr>";
 					echo "<td>".$row['vege_name']."</td>";
-					echo "<td>".$row['price/kg']."</td>";
+					echo "<td>".$row['total_cost']."</td>";
 					echo "<td>".$row['weight']."</td>";
-					echo "<td>".$row['price/kg']*$row['weight']."</td>";
+					echo "<td>".$row['total_cost']*$row['weight']."</td>";
                     echo "</tr>";
                     
-                    $sum=$sum+ $row['price/kg']*$row['weight'];
+                    $sum=$sum+ $row['total_cost']*$row['weight'];
 				}
 			
 			?>
