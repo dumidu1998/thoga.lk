@@ -31,5 +31,17 @@ class loginModel extends db_model{
       }else
       echo "error";
     }
+    function log_admin($uname,$pwd){
+      // $pwd=md5($pwd);
+        $sql = "SELECT * FROM `admin` WHERE user_name = '$uname' and password = '$pwd'";
+        $result=$this->connection->query($sql);
+        // echo $sql;
+		
+		if($result){
+      return $result;
+		}else
+		echo "error0";
+
+    }
 
 }
