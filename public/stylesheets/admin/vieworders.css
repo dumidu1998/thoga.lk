@@ -119,6 +119,29 @@ input[type="text"]::placeholder{
     color: rgb(255, 255, 255);
   }
 
+  .admin-btn1 {
+    margin: 0px 10px 0px 50px;
+    padding: 1px 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    background:  rgb(25, 29, 24);
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 100px;
+    height: 50px;
+    color: white;
+  }
+  
+  .admin-btn1:hover {
+    background: rgb(28, 21, 48);
+    color: rgb(255, 255, 255);
+  }
+
 
 .filterTopic{
     display: inline-block;
