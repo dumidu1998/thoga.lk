@@ -60,6 +60,16 @@ class FarmerController{
     }
 
     public function insert_items(){
+        session_start();
+
+        foreach($_SESSION['user'] as $keys => $values){
+            $id = $values['user_id'] ;
+            $res = $this->model2->read_id($id);
+            print_r($res);
+            foreach($res as $k => $v){
+                   $f_id =  $v['farmer_id'];
+            }
+        }
         if(isset($_POST['submit'])){
 
             $itemname = $_POST['itemname'];
@@ -73,8 +83,8 @@ class FarmerController{
             
            
 
-            // $this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides);
-            header("location: /thoga.lk/Farmer/insert");
+            $this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
+           // header("location: /thoga.lk/Farmer/insert");
             
         }
 

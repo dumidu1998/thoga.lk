@@ -23,6 +23,7 @@ $routes = [
     'buyer/about_us' => 'BuyerController@aboutus',
     'farmer/dash' => 'FarmerController@upcoming',
     'farmer/add_item' => 'FarmerController@add_item',
+    'farmer/insert_item' => 'FarmerController@insert_items',
     'farmer/listed' => 'FarmerController@listed_items',
     'farmer/insert' => 'FarmerController@insert_mess',
     'farmer/view_price' => 'FarmerController@view_price',
