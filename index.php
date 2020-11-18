@@ -69,6 +69,10 @@ $routes = [
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
     'admin/admanager'=>'AdminController@admanager',
+    'admin/login'=>'LoginController@admin_login',
+    'admin/log' => 'LoginController@admin_log'
+
+
     'admin/usermanager'=>'AdminController@usermanager',
     'admin/showorder'=> 'AdminController@showorder',
     'admin/userview' => 'AdminController@viewuser',
