@@ -90,8 +90,8 @@
         <td><a class="delete" href="delete.php">Delete</a></td>
     </tr>
 
+</table>
 
-
-
+  <?php include("footer.php"); ?>
 </body>
 </html>

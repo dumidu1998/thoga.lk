@@ -86,7 +86,7 @@ class DriverController{
     }
     
     public function forum(){
-        $view = new View("/forum/forum");
+        $view = new View("forum");
         
     }
 

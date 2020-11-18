@@ -18,7 +18,7 @@
 ·
  <a href="calendar">Calendar</a>
 ·
- <a href="#orders">Forum</a>
+ <a href="/thoga.lk/forum">Forum</a>
 ·
  <a href="about_us">About</a>
 ·

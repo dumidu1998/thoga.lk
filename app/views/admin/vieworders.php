@@ -15,16 +15,18 @@
  include("navbar.php"); ?>
 
 <div class="container">
-    <div><a class="back-button" href="index.php">&lt;&nbsp;Back</a></div>
     <h1>Orders</h1>
     
     <div class="filters">
-        <form action="">
+        <form action="" method="POST">
             <div class="grid">
                 <div>
                     <span class="filterTopic">Filter by Date</span><br>
                     <span>Start Date :- <input type="date"  name="filterSdate" id="FSdate"></span> <span style="display:inline-block;">  End Date :- <input type="date" name="filterEdate" id="FEdate"></span>
                     <br>
+                    <input type="checkbox" class="cbox" name="ordtype" id="u" value="up"> <label for="u">Upcoming <i class="fas fa-stopwatch fa-spin" style="font-size:15px" aria-hidden="true"></i></label><br>
+                    <input type="checkbox" class="cbox" name="ordtype" id="f" value="f"> <label for="f">Finished <i class="fa fa-check" style="font-size:15px;color:green;" aria-hidden="true"></i></label>
+
                 </div> 
                 <div>
                     <span class="filterTopic">Filter by Username</span> <br>
@@ -59,7 +61,7 @@
       <td data-column="Buyer Name">James</td>
       <td data-column="Total Weight">12.75 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px" aria-hidden="true"></i></td>
+      <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px;color:green;" aria-hidden="true"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -67,7 +69,7 @@
       <td data-column="Buyer Name">Andor</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px" aria-hidden="true"></i></i></td>
+      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px;" aria-hidden="true"></i></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -75,7 +77,7 @@
       <td data-column="Buyer Name">Tamas</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px"></i></td>
+      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px;"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -83,7 +85,7 @@
       <td data-column="Buyer Name">Zoli</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true" style="font-size:30px"></i></td>
+      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true" style="font-size:30px;color:green;"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
     <tr>
@@ -91,25 +93,12 @@
       <td data-column="Buyer Name">Szabi</td>
       <td data-column="Total Weight">15.00 Kg</td>
       <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true" style="font-size:30px"></i></td>
+      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true"  style="font-size:30px;color:green;"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
       </tr>
   </tbody>
 </table>
-
     </div>
-
-    
 </div>
 </body>
 </html>
-
-<?php
-if(isset($_GET['filterSdate']) && empty($_GET['filterSdate'])){
-    //echo "done";
-    //var_dump($_GET['filterSdate']);
-}
-?>
-<script>
-
-</script>

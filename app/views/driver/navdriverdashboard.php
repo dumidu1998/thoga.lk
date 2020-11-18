@@ -10,7 +10,7 @@
   <a href="#home" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/driver/final driver.png" alt="" class = "logo"></a>
   <a href="dashboard"" class="active">Dashboard</a>
   <a href="calendar">Calendar</a>
-  <a href="/thoga.lk/forum/">Forum</a>
+  <a href="/thoga.lk/forum">Forum</a>
   <a href="about_us">About</a>
   <a id="google_translate_element"></a>
   <div class = "nav-right">

@@ -3,6 +3,7 @@
 <?php 
 //tet
 session_start();
+// print_r($data);
 
     ?>
 <head>
@@ -45,7 +46,7 @@ session_start();
            
     </div>
     <div class="search">
-        <form action="/action_page.php">
+        <form action="" method="post">
         <input type="text" placeholder="Search.." name="search">
         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
@@ -138,7 +139,7 @@ session_start();
       <?php
     }else{
       echo "<img class='home_ad' style='margin-top:80px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
-      echo "<img class='home_ad' style='margin-top:100px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
+      echo "<img class='home_ad' style='margin-top:100px;' width='300px' src='/thoga.lk/public/images/buyer/ads/b.jpg' alt=>";
       
     }
       ?>

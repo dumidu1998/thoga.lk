@@ -77,13 +77,16 @@ class FarmerController{
         
     }
 
+
     public function forum(){
-        $view = new view("Forumr/forum");
+        $view = new view("Forum/forum");
+    }
+
+    public function about(){
+        $view = new view("Farmer/aboutus");
     }
 
 //add items
-
-
 
 }
 

@@ -1,6 +1,8 @@
 body{
-    background-image: url(/thoga.lk/public/images/forum/forum-bg.jpg);
-    background-size: cover;
+    background: url(/thoga.lk/public/images/forum/forum-bg.jpg);
+    background-size:  cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed ;
 }
 
 .container{
@@ -13,12 +15,49 @@ body{
 
 }
 
+.sbtn{
+    padding: 10px 20px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 50%;
+    background-color: #068b06;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.replyh{
+    float: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #ffffffde;
+    margin-left: 0px;
+    font-size: 22px;
+    padding: 10px;
+    width: 20%;
+}
+
+.writereply{
+    margin-left: 5%;
+}
+
+.TAcontainer{
+    float: left;
+    width: 90%;
+    height: 10%;
+    margin-left: 0%;
+
+}
+.nicEdit-main{
+    background-color: white;
+    font-size: 30px;
+}
+
 .maincontainer{
     height: auto;
 }
 
 .adcontainer{
-    height: auto;
+    /* height: auto; */
 }
 
 .ad{
@@ -28,12 +67,10 @@ body{
     width: auto;
 }
 
-
-
 .forum-container{
     padding:10px;
     margin: 0px 30px;
-    background-color: rgba(236, 235, 235, 0.89);
+    background-color: rgba(255, 255, 255, 0.918);
     height: auto;
     margin-bottom: 20px;
     box-shadow: 10px 11px 8px #ffffff2f;
@@ -43,7 +80,7 @@ body{
 .reply-container{
     padding:10px;
     margin: 0px 30px;
-    background-color: rgba(236, 235, 235, 0.89);
+    background-color: rgba(255, 255, 255, 0.932);
     height: auto;
     width: 90%;
     margin-bottom: 20px;
@@ -74,10 +111,11 @@ body{
 .rname{
     margin-left: 5px;
     position: relative;
-    top:-5px;
+    top:0px;
+    font-size: 16px;
 }
 .forum-contols{
-    background-color:  rgba(236, 235, 235, 0.89);
+    background-color: rgba(255, 255, 255, 0.26);
     font-size: 15px;
     height: 125px;
     width: 100px;
@@ -125,13 +163,13 @@ hr{
 }
 .nreply{
 margin-left: 60px;
-font-size: 18px;
+font-size: 22px;
 font-weight: bold;
 color: rgb(31, 31, 31);
 }
 
 .back-button {
-    background: rgb(34, 34, 34);
+    background: rgb(60, 196, 19);
     color: white;
     font-size: 25px;
     line-height: 0.3;
@@ -140,6 +178,7 @@ color: rgb(31, 31, 31);
     transition: all 0.9s;
     margin-bottom: 10px;
     display: inline-block;
+    cursor: pointer;
 }
   
 .back-button:hover {
@@ -153,6 +192,8 @@ color: rgb(31, 31, 31);
     font-size: 16px;}
     .forum-container{margin: 0px 5px 20px 5px;}
     .reply-container{margin: 3px 15px 15px 5px;}
+    .TAcontainer{margin-left: 0%;}
+    .replyh{margin-left: 0%;display: block;width: auto;}
 } 
 
 @media screen and (max-width: 600px) {
