@@ -3,22 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driver Application</title>
+    <title>User Profile</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
 </head>
 <body>
 <?php 
- include("navbar.php"); ?>
+ include("navbar.php"); 
+ $user="driver";
+ ?>
 
 <div class="container">
-    <h1>Driver Application</h1>
-    <center><h2>ID - 17</h2></center>
+    <div>
+        <a class="back-button"  onclick="goback()">
+            &lt;&nbsp;Back
+        </a>
+    </div>
+    <h1>User Profile </h1>
+    <center><h2>ID - 17 </h2></center>
+    <center><h2><?php echo ucfirst($user) ?> </h2></center>
+    <div>
+        <button class="Criticalbtn">Reset Password </button>
+        <button class="Criticalbtn">Delete User</button>
+        <button class="Criticalbtn">Block</button>
+    </div>
     <div class="grid">
         <div class="grid-item0">
             <img src="/thoga.lk/public/images/buyer/icons/drivericon.jpg" alt="" class="image" >
         </div>
     <div class="grid-item1">
         <table style="width:100%;border-collapse: collapse;" >
+            <tr>
+                <td>Username:</td>
+                <td>Manthila</td>
+            </tr>
             <tr>
                 <td>First Name:</td>
                 <td>Manthila</td>
@@ -56,13 +73,17 @@
                 <td>NIC</td>
                 <td>982790182 V</td>
             </tr>
+            <tr>
+                <td>Password</td>
+                <td>***********</td>
+            </tr>
             
         </table>    
     </div>
 </div>
 <div class="listp2">
     <div>
-    <table style="float:left;margin-bottom:50px">
+    <table style="float:left;margin-bottom:50px;" >
         <tr>
             <td>E - mail</td>
             <td>lacd@gmail.com</td>
@@ -84,8 +105,42 @@
             <td>Lenaduwa</td>
         </tr>
     </table>
+
+    <table style="float:left;margin-bottom:50px;" class="hide <?php if($user=='buyer') echo "show"; ?>" >
+        <tr>
+            <td>BR No</td>
+            <td>17546109</td>
+        </tr>
+        <tr>
+            <td>Business Name</td>
+            <td>Infini Solution</td>
+        </tr>
+    </table>
+
+
+    <table style="float:left;margin-bottom:50px;display:" class='hide <?php if($user=='farmer') echo "show"; ?>'>
+        <tr>
+            <td>Farmer's ID</td>
+            <td>171546109</td>
+        </tr>
+        <tr>
+            <td>Farm Name</td>
+            <td>-</td>
+        </tr>
+    </table>
+
+    <table style="float:left;margin-bottom:50px;" class="hide <?php if($user=='mentor') echo "show"; ?>">
+        <tr>
+            <td>Why</td>
+            <td>I would like to help farmers</td>
+        </tr>
+        <tr>
+            <td>Skills</td>
+            <td>Leadership</td>
+        </tr>
+    </table>
    
-    <table style="float:left;" class="t2">
+    <table style="float:left;" class="t2 hide <?php if($user=='driver') echo "show"; ?>">
         <tr>
             <td>DL No</td>
             <td>17546109</td>
@@ -109,48 +164,6 @@
     </table>
 </div>
 </div>
-<div class="docscontainer">
-    
-    <!--documents-->
-    <h1>Submitted Documents</h1>
-    <div class="docs">
-        <table style="width:100%">
-            <tr>
-                <td>Driving License - Front</td>
-                <td><a href="#" target="_blank" >DLF 0017</a></td>
-            </tr>
-            <tr>
-                <td>Driving License - Back</td>
-                <td><a href="#" target="_blank" >DLB 0017</a></td>
-            </tr>
-            <tr>
-                <td>Vehicle</td>
-                <td><a href="#" target="_blank" >V 017</a></td>
-            </tr>
-            <tr>
-                <td>Revenue License</td>
-                <td><a href="#" target="_blank" >RL 017</a></td>
-            </tr>
-        </table>
-    </div>
-
-</div>
-    <div class="Bcontainer">
-        <h1>Accept or Reject</h1>
-        <br>
-        <form action="a.php" method="get">
-        <label class="CBcontainer">&nbsp Accept
-            <input type="checkbox" name="accpted" id="accept" onchange="checkfunc(this.id)" >
-            <span class="checkmark"></span>
-        </label>
-        <label class="CBcontainer">&nbsp Reject
-            <input type="checkbox" id="reject" name="rejected" onchange="checkfunc(this.id)" >
-            <span class="checkmark"></span>
-        </label>
-        <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection" style="display:none;margin-left:30%" ></textarea>
-       <input type="submit" class="accept-btn" value="Submit    ">
-        </form>
-    </div>
 </div>
 </body>
 </html>
@@ -170,4 +183,7 @@ function checkfunc(id){
 
 
 }
+function goback(){
+            window.history.back();
+        }
 </script>

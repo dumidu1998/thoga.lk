@@ -64,13 +64,17 @@ $routes = [
     'buyer/viewmore' => 'BuyerController@viewmore',
     'buyer/about_us' => 'BuyerController@aboutus',
     'admin'=> 'AdminController@index',
-    'admin'=> 'AdminController@index',
     'admin/vieworders' => 'AdminController@vieworders',
     'forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
     'admin/admanager'=>'AdminController@admanager',
-
+    'admin/usermanager'=>'AdminController@usermanager',
+    'admin/showorder'=> 'AdminController@showorder',
+    'admin/userview' => 'AdminController@viewuser',
+    'admin/dappl' => 'AdminController@driverapplication',
+    'admin/mappl' => 'AdminController@mentorapplication',
+    'admin/mrequest' => 'AdminController@mentorrequest'
     
  ];
 

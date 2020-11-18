@@ -210,7 +210,6 @@ td, th {
 
 
 .detailContainer{
-    display: inline-block;
     height: auto;
     margin: 10px 50px;
     background-color: #01002ba2;
@@ -366,7 +365,6 @@ input[type="text"].details{
   }
  
   input[type=text],select{
-    display: block;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -374,6 +372,7 @@ input[type="text"].details{
     width: 55%;
     background-color: #fafafa;
     margin-bottom: 30px;
+    display: block;
   }
 
   select{
@@ -415,4 +414,11 @@ input[type="text"].details{
     text-decoration: none;
     margin-bottom: 10px;
     margin-top:40px;
+}
+
+button{
+    font-size: 16px;
+    background-color: #b3dbf03b;
+    border: none;
+    cursor: pointer;
 }

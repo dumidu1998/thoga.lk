@@ -16,7 +16,7 @@
     </ul>
     <div class="buttonContainer">
         <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
-        <a href=""><button class="admin-btn" >Manage Users</button></a>
+        <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>
         <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
 
     </div>
@@ -65,25 +65,25 @@
                 <td data-label="Driver ID">001</td>
                 <td data-label="Driver Name">A.M. Rathnayake</td>
                 <td data-label="District">Anuradhapura</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
                 </tr>
                 <tr>
                 <td data-label="Driver ID">002</td>
                 <td data-label="Driver Name">A.P. Ranathunga</td>
                 <td data-label="District">Kandy</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
                 </tr>
                 <tr>
                 <td data-label="Driver ID">003</td>
                 <td data-label="Driver Name">D.K. Bandara</td>
                 <td data-label="District">Jaffna</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
                 </tr>
                 <tr>
                 <td data-label="Acount">005</td>
                 <td data-label="Driver Name">M. Samantha</td>
                 <td data-label="District">Matara</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
                 </tr>
             </tbody>
             <span id="mapplications"></span>
@@ -109,25 +109,25 @@
                 <td data-label="Mentor ID">001</td>
                 <td data-label="District">Anuradhapura</td>
                 <td data-label="Request Date">2020/10/10</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
                 </tr>
                 <tr>
                 <td data-label="Mentor ID">002</td>
                 <td data-label="District">Kandy</td>
                 <td data-label="Request Date">2020/10/01</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
                 </tr>
                 <tr>
                 <td data-label="Mentor ID">003</td>
                 <td data-label="District">Jaffna</td>
                 <td data-label="Request Date">2020/10/02</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
                 </tr>
                 <tr>
                 <td data-label="Mentor ID">004</td>
                 <td data-label="District">Haputhale</td>
                 <td data-label="Request Date">2020/09/30</td>
-                <td data-label="Action"><a href="#"> View More</a></td>
+                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
                 </tr>
             </tbody>
         </table>
@@ -153,25 +153,25 @@
                 <td data-label="Farmer Name">A.D. Rathnayaka</td>
                 <td data-label="District">Ampara</td>
                 <td data-label="City">Kattankudi</td>
-                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
                 </tr>
                 <tr>
                 <td data-label="Farmer Name">K.D. Bandara</td>
                 <td data-label="District">Batticola</td>
                 <td data-label="City">Pasikuda</td>
-                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
                 </tr>
                 <tr>
                 <td data-label="Farmer Name">A.S. Kumara</td>
                 <td data-label="District">Vavniya</td>
                 <td data-label="City">Punewa</td>
-                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
                 </tr>
                 <tr>
                 <td data-label="Farmer Name">S.S. Ariyapala</td>
                 <td data-label="District">Galle</td>
                 <td data-label="City ">Matara</td>
-                <td data-label="Action"><a href="#">Assign Mentor</a></td>
+                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
                 </tr>
             </tbody>
         </table>
