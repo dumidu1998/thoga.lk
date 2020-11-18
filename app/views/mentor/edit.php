@@ -1,9 +1,8 @@
-
 <html>
 <head>
-<title>Add Item</title>
+<title>Edit Item</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/Farmer/add_item.css">
+<link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/Farmer/edit.css">
 
 </head>
 
@@ -12,7 +11,7 @@
 <body background= "/thoga.lk/public/images/Farmer/index1.jpg">
 <?php include 'navbar_dash.php';?>
 
-<h1 class="title">Add your item here....</h1>
+<h1 class="title">Edit item here....</h1>
 
 
 
@@ -24,20 +23,7 @@
         <label for="iname">Item Name</label>
       </div>
       <div class="right">
-        <select class="textt" id="itemname" name="itemname"  required >
-          <option>-------- Select Vegetables --------- </option>
-          <?php
-          foreach($records as $key =>$values)
-          {
-            $vegname = $values['vege_name'];
-         
-          ?>
-          <option><?php echo $vegname;?></option>
-
-          <?php
-          }
-          ?>
-        </select>
+        <p class ="price2"> Tomato</p>
       </div>
     </div>
     
@@ -47,7 +33,7 @@
         <label for="aw">Available Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="avaiweight" name="avaiweight" required>
+      <p class ="price2"> 200</p>
       </div>
     </div>
     <div class="row">
@@ -55,18 +41,18 @@
         <label for="mw">Minimum Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="minweight" name="minweight" required>
+      <p class ="price2"> 50</p>
       </div>
     </div>
 
 
-    <div class="price_d">
+<div class="price_d">
     <div class="row">
       <div class="left">
         <label for="price">Price (Rs)</label>
       </div>
       <div class="right">
-        <input type="text" id="price" name="price" required>
+      <p class ="price2"> 25</p>
       </div>
     </div>
 
@@ -79,7 +65,20 @@
         <p class="price2">30</p>
       </div>
     </div>
-        </div>
+</div>
+
+
+    
+
+
+    <div class="row">
+      <div class="left">
+        <label for="itype">Item Type</label>
+      </div>
+      <div class="right">
+      <p class ="price2"> non-organic</p>
+      </div>
+    </div>
 
 
     <div class="date">
@@ -88,7 +87,7 @@
           <label for="sdate">Starting Date</label>
         </div>
         <div class="right">
-          <input type="date" id="startdate" name="startdate" required>
+        <p class ="price2"type="date"> 2020-11-11</p>
         </div>
       </div>
 
@@ -98,22 +97,8 @@
           <label for="edate">Ending Date</label>
         </div>
         <div class="right">
-          <input type="date" id="enddate" name="enddate" required>
+        <p class ="price2"type="date"> 2020-11-21</p>
         </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="left">
-        <label for="itype">Item Type</label>
-      </div>
-      <div class="right">
-        <select class="textt" id="itemtype" name="itemtype"  required>
-          <option value="organic">Organic</option>
-          <option value="inorganic">Non-organic</option>
-          
-        </select>
       </div>
     </div>
 
@@ -124,7 +109,7 @@
         <label for="ides">Item Description</label>
       </div>
       <div class="right">
-        <input type="text" id="ides" name="ides" >
+      <p class ="price2"> good </p>
       </div>
     </div>
     
@@ -136,12 +121,12 @@
         <label for="pic">Item Image</label>
       </div>
       <div class="right">
-        <input type="file" id="itemimage" name="itemimage">
+      <image width=150px src="/thoga.lk/public/images/Farmer/tomato.jpg">
       </div>
     </div>
     
     <div class="clearfix">
-      <button type="button" class="cancelbtn" onClick="window.location.href='add_item'">Cancel</button>
+      <button type="button" class="cancelbtn" >Edit</button>
       <button type="submit" class="submitbtn" name="submit">Submit</button>
     </div>
 
@@ -151,31 +136,8 @@
 </div> 
 
 <?php // include("footer.php"); ?>
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("enddate").setAttribute("min", today);
-document.getElementById("startdate").setAttribute("min", today);
-  
-
-
-
-
-
-</script>
 
 
 </body>
 </html>
-
-

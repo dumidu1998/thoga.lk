@@ -34,10 +34,15 @@ class mentorController{
             $itemimage = $_POST['itemimage'];
 
             $this->model->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$itemimage);
+            header("location: /thoga.lk/mentor/insert");
         }
 
         
         
+    }
+
+    public function insert_success(){
+        $view = new view("mentor/insert");
     }
 
 
@@ -70,6 +75,21 @@ class mentorController{
     }
     public function about(){
         $view = new view("mentor/aboutus");
+    }
+    public function profile(){
+        $view = new view("mentor/profile");
+    }
+
+    public function forum(){
+        $view = new view("mentor/forum");
+    }
+    public function view_more(){
+        
+        $view = new View("mentor/view_more");
+    }
+    public function edit(){
+        
+        $view = new View("mentor/edit");
     }
 }
 

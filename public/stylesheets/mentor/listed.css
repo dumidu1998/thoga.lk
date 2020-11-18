@@ -1,6 +1,6 @@
 .title{
     font-family: sans-serif;
-    color: #dc2d5e;
+    color: #111011;
     text-align: center;
     margin-top: 120px;
 }
@@ -59,7 +59,7 @@ th, td {
 }
 
 tr:nth-child(even){
-	background-color:#f1f1f1;
+	background-color:#90eea0;
 }
 
 .dele{
