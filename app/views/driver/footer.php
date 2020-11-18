@@ -14,11 +14,11 @@
  <h3>Thoga<span>.lk</span></h3>
 
  <p class="footer-links">
- <a href="home">Home</a>
+ <a href="dashboard">Dashboard</a>
 ·
- <a href="forum">Forum</a>
+ <a href="calendar">Calendar</a>
 ·
- <a href="orders">Orders</a>
+ <a href="#orders">Forum</a>
 ·
  <a href="about_us">About</a>
 ·
