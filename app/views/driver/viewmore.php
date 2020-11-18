@@ -43,7 +43,7 @@
             <br>     
 
             Pickup Location    :
-            <input type="text" name="pickup location" value="<?php echo $ploc?>" disabled>
+            <input type="text" name="pickup location" value="Anuradhapura" disabled>
             <br>
 
             Total Cost         :
@@ -51,7 +51,7 @@
             <br> 
 
             Delivery Location  :
-            <input type="text" name="deliver location" value="<?php echo $dloc?>" disabled>
+            <input type="text" name="deliver location" value="Matale" disabled>
             <br> 
 
             Order Date          :

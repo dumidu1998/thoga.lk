@@ -34,27 +34,27 @@
                 <td><button type="submit">Select</button></td>
             </tr>
             <tr>
-                <td>Peter</td>
-                <td>5 star</td>
-                <td>Dimo batta</td>
+                <td>Kamal</td>
+                <td>4 star</td>
+                <td>Dimo Lokka</td>
                 <td>35</td>
-                <td>2000kg</td>
+                <td>5000kg</td>
                 <td><button type="submit">Select</button></td>
             </tr>
             <tr>
-                <td>Peter</td>
-                <td>5 star</td>
-                <td>Dimo batta</td>
+                <td>Saman</td>
+                <td>3 star</td>
+                <td>Canter</td>
                 <td>35</td>
-                <td>2000kg</td>
+                <td>3000kg</td>
                 <td><button type="submit">Select</button></td>
             </tr>
             <tr>
-                <td>Peter</td>
+                <td>Jaya Sri</td>
                 <td>5 star</td>
-                <td>Dimo batta</td>
+                <td>Canter</td>
                 <td>35</td>
-                <td>2000kg</td>
+                <td>5000kg</td>
                 <td><button type="submit">Select</button></td>
             </tr>
             </table>

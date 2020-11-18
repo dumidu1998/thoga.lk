@@ -23,7 +23,9 @@ class AdminController {
     }
 
     public function admanager(){
+        $ads=$this->model->getads();
         $view = new View("admin/admanager");
+        $view->assign('ads', $ads); 
     }
 
     public function usermanager(){
@@ -51,6 +53,23 @@ class AdminController {
 
     public function mentorrequest(){
         $view = new View("admin/Mentor_request");
+    }
+
+    public function adsubmit(){
+        session_start();
+        $in=$_POST;
+        $out=$this->model->adsubmit($in);
+        $uploadid=$_SESSION['aduploadid'];
+        $ext=".jpg";
+        $Sfile= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/tmpuploads/AD_";
+        $Dfile= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/ads/AD_";
+        if($out==1){
+            rename($Sfile.$uploadid.$ext, $Dfile.$uploadid.$ext);
+        }else{
+            unlink($Sfile.$uploadid.$ext);
+        }
+
+        header("location: /thoga.lk/admin/admanager");
     }
 
 }
