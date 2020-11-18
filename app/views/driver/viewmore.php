@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/viewmore.css">
     </head>
 
-    <body style="background-image: url('/thoga.lk/public/images/driver/1217.jpg');">
+    <body>
     <?php include("navbarviewmore.php"); ?>
     <header >
         
@@ -26,6 +26,7 @@
                     $totcost = $row['total_cost'];
                     $dloc = $row['deliver_location'];
                     $odrdate = $row['order_date'];
+                    // $dt = new DateTime($odrdate);
                     $pickdate = $row['pickup_date'];
 
                 }         
@@ -69,7 +70,7 @@
             <?php
                   
                 foreach($buyer as $keys => $row){
-                $bname=$row['b_name'];
+                $bname=$row['username'];
             ?>
             Buyer Name :
             <input type="text" name="buyer name" value="<?php echo $bname?>" disabled>
@@ -80,7 +81,7 @@
             <?php
                        
             foreach($res as $keys => $row){
-            $dname=$row['driver_name'];
+            $dname=$row['username'];
 
             ?>       
             Driver Name  :
@@ -113,13 +114,13 @@
                  foreach($items as $keys => $row){
 					
 					echo "<tr>";
-					echo "<td>".$row['item_type']."</td>";
-					echo "<td>".$row['price']."</td>";
+					echo "<td>".$row['vege_name']."</td>";
+					echo "<td>".$row['price/kg']."</td>";
 					echo "<td>".$row['weight']."</td>";
-					echo "<td>".$row['price']*$row['weight']."</td>";
+					echo "<td>".$row['price/kg']*$row['weight']."</td>";
                     echo "</tr>";
                     
-                    $sum=$sum+ $row['price']*$row['weight'];
+                    $sum=$sum+ $row['price/kg']*$row['weight'];
 				}
 			
 			?>

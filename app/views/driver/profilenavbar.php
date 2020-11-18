@@ -9,14 +9,15 @@
 <div class="topnav" id="myTopnav">
   <a href="#home" class="navlogo"><img width=65px src="/thoga.lk/public/images/driver/final driver.png" alt="" class = "logo"></a>
   <a href="dashboard">Dashboard</a>
-  <a href="/thoga.lk/driver/calendar">Calendar</a>
-  <a href="#contact">Forum</a>
+  <a href="calendar">Calendar</a>
+  <a href="/thoga.lk/forum">Forum</a>
+  <a href="about_us">About</a>
   <a id="google_translate_element"></a>
   <div class = "nav-right">
     <a href="">Logout</a>
     
     
-    <a href="driveruserprofile.php"><img src="/thoga.lk/public/images/driver/bell.jpg" alt="" class = "bell_pic" width=24px>
+    <a href="#"><img src="/thoga.lk/public/images/driver/bell.jpg" alt="" class = "bell_pic" width=24px>
     <a href="profile" class="active"><img src="/thoga.lk/public/images/driver/profile.png" alt="" class = "index_pic" width=24px>
     
   </div>

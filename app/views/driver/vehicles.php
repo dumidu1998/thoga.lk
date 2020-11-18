@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/vehicles.css">
 </head>
 
-<body style="background-image: url('/thoga.lk/public/images/driver/98.jpg');">
+<body>
 <?php include("navdriverdashboard.php"); ?>
 
     <header>
@@ -19,12 +19,7 @@
 	<div class="menu">
 		
 		<div class="transboxx">
-		    <div class="contain">
-					<div class = "image">
-						<img src="/thoga.lk/public/images/driver/lorry.jpg" alt="" width="320" height="220">
-					</div>	
-			</div>
-				
+		
 					<?php
                         
 						foreach($vehicle as $keys => $row){
@@ -35,11 +30,16 @@
 							$vehicletype = $row['vehicle_type'];
 							$maxweight = $row['maximum_weight'];
 							
-
+							
 						} 
+						
+						?> 
 							
-					?> 
-							
+						<div class="contain">
+								<div class = "image">
+									<img src="/thoga.lk/public/images/driver/<?php echo $vehicleid;?>.jpg" alt="" class="imagevehicle">
+								</div>	
+						</div>
 			<div class ="sright">				
 								
 								Vehicle id : 
@@ -68,31 +68,31 @@
 								Maximum Weight         :
 								<input type="text" name="order date" value="<?php echo $maxweight?>" disabled>
 								<br>
-								
+					<input type="submit" value="Edit Details" class="button2" name="vehicledetails">				
 			</div>
 			<div class="bottom">
 					<table style="width:100%">
 						<tr>
 						<th colspan="2">Documents	</th>	
 						<tr>
-							<td>Driving License</td>
+							<td>Driving License Front</td>
 							<td><a href="#" target="_blank" >DL 0005</a></td>
 						</tr>
 						<tr>
-							<td>Driving License</td>
+							<td>Driving License Back</td>
 							<td><a href="#" target="_blank" >DL 0005</a></td>
 						</tr>
 						<tr>
-							<td>Driving License</td>
+							<td>Vehicle Insuarance</td>
 							<td><a href="#" target="_blank" >DL 0005</a></td>
 						</tr>
 						<tr>
-							<td>Driving License</td>
+							<td>Vehicle Registration</td>
 							<td><a href="#" target="_blank" >DL 0005</a></td>
 						</tr>
 					</table>
 			</div>
-		
+		    
 		</div>
 	</div>
 	<div class="right">

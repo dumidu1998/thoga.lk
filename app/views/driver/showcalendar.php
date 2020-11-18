@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/showcalendar.css">
     </head>
 
-    <body style="background-image: url('/thoga.lk/public/images/driver/98.jpg');">
+    <body>
         <?php include("navbarcalendar.php"); ?>
         <div class="topic">
                 <h1>Calendar</h1>

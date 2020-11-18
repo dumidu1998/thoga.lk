@@ -1,4 +1,3 @@
-
 .title{
     font-family: sans-serif;
     color: #181617;
@@ -92,7 +91,7 @@ button:hover {
 }
 
 .container {
-  margin-top:20px;
+  margin-top:90px;
   padding: 20px;
   color: black;
   text-align: center;
@@ -169,6 +168,7 @@ button:hover {
      width: 100%;
   }
 }
+
 
 
 

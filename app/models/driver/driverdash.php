@@ -18,6 +18,12 @@ class driverdash extends db_model{
     
     function get2($id){
 
+        return $this->read('vehicles', array('*'), array('vehicle_id'=>$id));
+
+        
+    }
+    function get3($id){
+
         return $this->read('vehicles', array('*'), array('driver_id'=>$id));
 
         

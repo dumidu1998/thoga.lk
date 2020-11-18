@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/driverdashboard.css">
 	</head>
 
-	<body style="background-image: url('/thoga.lk/public/images/driver/98.jpg');">
+	<body>
 	<?php include("navdriverdashboard.php"); ?>
 
 		<header>
@@ -17,7 +17,7 @@
 			</div>
 		</header>
 			<div class ="vehicle">
-				<form method="post" action="vehicles">
+				<form method="post" action="vehicledetails">
 					<input type="submit" value="Vehicle details" class="button2" name="vehicledetails">
 				</form>
 			</div>

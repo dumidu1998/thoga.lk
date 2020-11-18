@@ -38,7 +38,7 @@
         <td>2020-11-17</td>
         <td>50</td>
         <td>Nimal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="edit">view more</a></td>
         <td><a class="delete" href="delete.php">Delete</a></td>
     </tr>
 
@@ -50,7 +50,7 @@
         <td>2020-11-25</td>
         <td>35</td>
         <td>kamal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="edit">view more</a></td>
         <td><a class="delete" href="delete.php">Delete</a></td>
     </tr>
 
@@ -62,7 +62,7 @@
         <td>2020-11-20</td>
         <td>30</td>
         <td>Sunil</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="edit">view more</a></td>
         <td><a class="delete" href="delete.php">Delete</a></td>
     </tr>
 
@@ -74,7 +74,7 @@
         <td>2020-12-07</td>
         <td>28/td>
         <td>Perera</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="edit">view more</a></td>
         <td><a class="delete" href="delete.php">Delete</a></td>
     </tr>
 
@@ -86,7 +86,7 @@
         <td>2020-11-30</td>
         <td>50</td>
         <td>Nimal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="edit">view more</a></td>
         <td><a class="delete" href="delete.php">Delete</a></td>
     </tr>
 

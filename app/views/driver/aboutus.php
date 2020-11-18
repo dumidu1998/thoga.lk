@@ -8,7 +8,7 @@
     <title>About us</title>
 </head>
 <body>
-<?php include("navbar.php");?>
+<?php include("navdriverdashboard.php");?>
 
     <div class="wrapper_about">
         <img src="/thoga.lk/public/images/aboutus/about_!.jpg" alt="">

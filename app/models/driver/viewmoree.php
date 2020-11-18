@@ -10,12 +10,13 @@ class viewmoree extends db_model{
     }
 
     function  joinget1($id){
-		$sql = "select buyer.b_name from buyer inner join orders on orders.buyer_id = buyer.buyer_id where orders.order_id='".$id."' " ;
+		$sql= "SELECT a.username FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."' " ;
+		
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){
       while($row=mysqli_fetch_assoc($result))
-      //print_r($row);
+      
 			array_push($finale,$row);
 		  return $finale;
 		
@@ -24,14 +25,13 @@ class viewmoree extends db_model{
 		echo "error";
 
 	}
-	function  joinget2($orderId){
-		$sql = "select driver.driver_name from driver inner join orders on orders.driver_id = driver.driver_id where orders.order_id='".$orderId."'";
+	function  joinget2($id){
+		$sql= "SELECT a.username FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."' " ;
 		$result=$this->connection->query($sql);
-		
 		$finale=array();
 		if($result){
-      while($row=mysqli_fetch_assoc($result))
-      //print_r($row);
+      while($row=mysqli_fetch_assoc($result))	
+      
 			array_push($finale,$row);
 		  return $finale;
 		
@@ -42,12 +42,11 @@ class viewmoree extends db_model{
 	}
 
     function  joinget3($orderId){
-		$sql = "select item.item_type,item.price ,order_details.weight from order_details inner join item on item.item_id = order_details.item_id where order_details.order_id='".$orderId."'";
+		$sql = "SELECT vegetable.vege_name ,item.`price/kg`,order_details.weight FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id where order_details.order_id='".$orderId."'";
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){
            while($row=mysqli_fetch_assoc($result)){
-      //print_r($row);
 			array_push($finale,$row);
 		   }
 		  return $finale;
