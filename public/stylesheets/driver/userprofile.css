@@ -1,28 +1,44 @@
+
+
+body {
+  /* background-color: rgb(255, 255, 255); */
+  background: url('/thoga.lk/public/images/driver/98.jpg');
+  /* #background-image:url("../../../public/images/driver/img7.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .wrapper{
-  margin-top: 100px;
+  margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-gap: 100px ;
   
 }
-
+.topic{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align:center;
+  color:darkblue;
+  margin-top:80px;
+}
 .user_details{
  margin-top: auto;
+}
 
-
-
+h1{
+  color: darkblue;
 }
 .user_details label{
   font-size: large;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-right: 20px;
+  margin-right: 10px;
 
 
 }
 .adress_data label{
   font-size: medium;
   font-family: sans-serif;
-  margin-right: 20px;
+  margin-right: 10px;
 
 
 }
@@ -36,7 +52,7 @@
  
 }
 .data_wrapper{
-  margin: 30px;
+  margin: 2px;
 }
 input[type = text]{
   width: 75%;
@@ -61,6 +77,7 @@ input[type = text]{
   width: 90%;
   margin: auto;
   margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 
@@ -122,10 +139,7 @@ table th {
   }
   
   table td::before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
+   
     content: attr(data-label);
     float: left;
     font-weight: bold;
@@ -138,20 +152,19 @@ table th {
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  z-index: 1; 
   position: fixed;
   padding-bottom: 20%;
-  padding-top: 100px; /* Location of the box */
+  padding-top: 100px; 
   left: 0;
   top: 0;
   width: 100%; 
   overflow: scroll; 
-  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
@@ -160,7 +173,7 @@ table th {
   width: 80%;
 }
 
-/* The Close Button */
+
 .close {
   color: #aaaaaa;
   float: right;

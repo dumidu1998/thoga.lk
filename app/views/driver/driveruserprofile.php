@@ -12,35 +12,31 @@ $color = "black";
 if(isset($_GET["edit"])){
     $status = "enabled";
     $color = "red";
-   
-    
-  
 }
 if(isset($_GET["update"])){
-   
    echo "Done"; 
-  
 }
-
-
 ?>
 
-<body >
+<body>
 
 
-   <?php include 'profilenavbar.php';?> 
-
+   <?php include 'profilenavbar.php' ;?> 
+   <div class="topic">
+                <h1>Driver user profile</h1>
+        </div>
+        <hr>
    
     <div class="wrapper">
         <div class="user_pp">
-            <!-- img -->
+           
             <img width="300px" src="/thoga.lk/public/images/driver/a.jpg" alt="">
             <input type="file" value="upload image">
 
         </div>
         
         <div class="user_details">
-            <!-- user details -->
+          
             <form action="farmer_profile.php" method="get">
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">First name</label>
@@ -130,8 +126,8 @@ if(isset($_GET["update"])){
         </div>
 
         <div>
-            <!-- Advertistment -->
-            <img width="400px" src="/thoga.lk/public/images/driver/index1.jpg" alt="">
+            
+            <img src="/thoga.lk/public/images/driver/index.jpg" alt="" width="210" height="430">
 
         </div>
 
@@ -141,7 +137,7 @@ if(isset($_GET["update"])){
     <hr>
 
     <div class="container">
-        <!-- order history -->
+       
         <table>
 
             <thead>
@@ -151,36 +147,45 @@ if(isset($_GET["update"])){
                 <th scope="col">Pickup date</th>
                 <th scope="col">Total weight</th>
                 <th scope="col">Total Price</th>
+                <th scope="col">Action</th>
+
                 </tr>
             </thead>
             <tbody>
             <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
-
+                <form action='/thoga.lk/driver/viewmore' method='post'>
+                    <td data-label="Order id">Visa - 3412</td>
+                    <td data-label="Buyer Name">Akila de silva</td>
+                    <td data-label="Pickup date">01/11/2020</td>
+                    <td data-label="Total Weight">2500kg</td>
+                    <td data-label= "Total Price">$1,190</td>
+                    <input type="hidden" name="order_id" value="<?php echo 1; ?>"> 
+                    <td><button name="viewmore" class="button1"> View More</button></td>
+			    </form>
                 </tr>
 
                 <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
-
+                <form action='/thoga.lk/driver/viewmore' method='post'>
+                    <td data-label="Order id">Visa - 3412</td>
+                    <td data-label="Buyer Name">Akila de silva</td>
+                    <td data-label="Pickup date">01/11/2020</td>
+                    <td data-label="Total Weight">2500kg</td>
+                    <td data-label= "Total Price">$1,190</td>
+                    <input type="hidden" name="order_id" value="<?php echo 1; ?>"> 
+                    <td><button name="viewmore" class="button1"> View More</button></td>
+			    </form>
                 </tr>
                 
                 <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td> <button type="submit">view more</button> </td>
+                <form action='/thoga.lk/driver/viewmore' method='post'>
+                    <td data-label="Order id">Visa - 3412</td>
+                    <td data-label="Buyer Name">Akila de silva</td>
+                    <td data-label="Pickup date">01/11/2020</td>
+                    <td data-label="Total Weight">2500kg</td>
+                    <td data-label= "Total Price">$1,190</td>
+                    <input type="hidden" name="order_id" value="<?php echo 1; ?>"> 
+                    <td><button name="viewmore" class="button1"> View More</button></td>
+			    </form>
 
                 </tr>
             </tbody>
@@ -189,8 +194,8 @@ if(isset($_GET["update"])){
 
     </div>
     
-
-    </body>
+    <?php include("footer.php"); ?> 
+</body>
 
 <script>
 var upBtn = document.getElementById("upBtn");

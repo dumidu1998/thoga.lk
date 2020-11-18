@@ -31,14 +31,14 @@
 
 
 
-<div class="modal" id="modal">
+<div class="modal" id="modal" >
 
 
-    <div class="rate" id="rate">
+    <div class="rate" id="rate" style="background:darkblue">
     <span class="close" id="close">&times;</span>
 
     
-        <form method="post" action="rate.php">
+        <form method="post" action="">
           <div class="div">
               <p>Farmer </p>
               <input type="hidden" id="php1_hidden" value="1">

@@ -83,6 +83,7 @@ class FarmerController{
         
     }
 
+
     public function forum(){
         $view = new view("Farmer/forum");
     }
@@ -101,8 +102,6 @@ class FarmerController{
         $view = new View("Farmer/edit");
     }
 //add items
-
-
 
 }
 

@@ -4,7 +4,7 @@
 <head>
     <?php session_start(); 
     //print_r ($_SESSION["shopping_cart"]);
-print_r($_SESSION['user']);
+//print_r($_SESSION['user']);
 
     
     ?>
@@ -14,6 +14,8 @@ print_r($_SESSION['user']);
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/chckout.css">
 </head>
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<?php include("navbar.php"); ?>
+ 
     <div class="container">
         <div class="check">
             <!-- grid -->
@@ -136,15 +138,19 @@ print_r($_SESSION['user']);
                             <input type="text" value="<?php echo $values['address_line2'];?>">
                         </div>
                     </div>
+                    <div>
+                            <label for="">District</label>
+                            <input type="text" value="<?php echo $values['d_name'];?>">
+                    </div>
 
                     <div class="delivery_option-address-input">
                         <div>
                             <label for="">City</label>
-                            <input type="text" value="<?php echo $values['city'];?>">
+                            <input type="text" value="<?php echo $values['c_name'];?>">
                         </div>
                         <div>
                             <label for="">Province</label>
-                            <input type="text" value="<?php echo $values['province_name'];?>">
+                            <input type="text" value="<?php echo $values['p_name'];?>">
                         </div>
                         
                     </div>
