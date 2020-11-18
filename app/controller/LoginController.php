@@ -19,20 +19,22 @@ class LoginController{
                     $_SESSION['loginerror']=0;
                     $user_data = $this->user->get_data($uname);
                     $_SESSION['user'] = $user_data;
+
                     foreach($user_data as $keys => $values){
+                        // echo $values['user_type'];
                         if($values['user_type'] == 'buyer'){
                             echo ("buyer");
                             header("location:buyer/home");
                         }elseif($values['user_type'] == 'farmer'){
                             //print_r($user_data);
                             //echo "im the farmer"; 
-                            header("location:buyer/home");
+                            header("location:farmer/dash");
                         }elseif($values['user_type'] == 'driver'){
-                            // header("location:buyer/home");
+                            header("location:driver/dashboard");
                         }elseif($values['user_type'] == 'mentor'){
-                            // header("location:buyer/home");
+                            header("location:mentor/dash");
                         }elseif($values['user_type'] == 'admin'){
-
+                            
                         }
                     }
                 }else{

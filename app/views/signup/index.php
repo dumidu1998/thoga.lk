@@ -52,7 +52,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Bdob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Bdob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>
@@ -223,7 +223,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Fdob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Fdob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>
@@ -395,7 +395,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Ddob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Ddob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>
@@ -627,7 +627,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Date of Birth *</div>
-            <input type="date" class="inpbox"  name="Mdob" max="2008-12-31" required>
+            <input type="date" class="inpbox"  name="Mdob" max="2002-12-31" required>
         </div>
         <div class="row">
           <div class="lable">NIC Number *</div>

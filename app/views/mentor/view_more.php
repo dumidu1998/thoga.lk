@@ -79,7 +79,8 @@
       
     </div>
 
-<?php// include("rate.php"); ?>
+<?php
+// include("rate.php"); ?>
     
     <div>
     <!-- item table -->
@@ -108,7 +109,7 @@
                 <td data-label="Weight">30kg</td>
                 <td data-label="Price">rs. 5000</td>
                 <td data-label="Farmer name">Akila de silva</td>
-                <td data-label= "Farmer details">View profile</td>
+                <td data-label= "Farmer details" ><button id="myBtn">View profile</button></td>
 
                 </tr>
 
@@ -118,7 +119,7 @@
                 <td data-label="Weight">33kg</td>
                 <td data-label="Price">rs. 4519</td>
                 <td data-label="Farmer name">P.B. Sumanadasa</td>
-                <td data-label= "Farmer details">View profile</td>
+                <td data-label= "Farmer details" ><button id="myBtn">View profile</button></td>
 
                 </tr>
                 
@@ -128,7 +129,7 @@
                 <td data-label="Weight">90kg</td>
                 <td data-label="Price">rs. 23456 </td>
                 <td data-label="Farmer name">K.L. Rahul</td>
-                <td data-label= "Farmer details">View profile</td>
+                <td data-label= "Farmer details" ><button id="myBtn">View profile</button></td>
 
                 </tr>
             </tbody>
@@ -139,7 +140,7 @@
     
  </div>
 </div>
-    
+<?php include("pprofile.php");?>   
 
 <?php include("footer.php"); ?>
 

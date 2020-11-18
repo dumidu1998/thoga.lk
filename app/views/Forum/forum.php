@@ -158,5 +158,6 @@
             element.style.height = (element.scrollHeight)+"px";
         }
     </script>
+    <?php include("footer.php"); ?>
 </body>
 </html>
