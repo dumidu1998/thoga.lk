@@ -63,6 +63,24 @@ class AdminModel extends db_model{
 		return $this->read('advertisement',array('*'),null);
 	} 
 
+	function showadmins(){
+		return $this->read('admin',array('*'),null);
+	}
+
+	function addadmin($data){
+		$uname=$data['username'];
+		$pwd=$data['password'];
+		$name= $data['name'];
+		$tel=$dataa['tel'];
+		$sql="INSERT INTO admin(user_name,password,name,tel_no) VALUES ('".$uname."','".$pwd."','".$name."','".$tel."')";
+		$result=$this->connection->query($sql);
+		if($result){
+			return 1;
+		}else{
+			return0;
+		}
+	}
+
 	function getalluserdata($id){
 		$sql="SELECT a.*, b.user_type, c.*, 
 		d.name_en AS c_name, 

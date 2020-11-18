@@ -29,6 +29,7 @@
         <div class="login-input">
             <input type="password" name="pwd" class="login-input-control" id="exampleInputPassword1" placeholder="Password" required>
         </div>
+        
 <center>
 
     <button type="submit" class="btn" name="login">Log in</button>

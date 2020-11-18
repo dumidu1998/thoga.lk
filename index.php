@@ -69,9 +69,7 @@ $routes = [
     'mentor/aboutus'=>'mentorController@about',
     'admin/admanager'=>'AdminController@admanager',
     'admin/login'=>'LoginController@admin_login',
-    'admin/log' => 'LoginController@admin_log'
-
-
+    'admin/log' => 'LoginController@admin_log',
     'admin/usermanager'=>'AdminController@usermanager',
     'admin/showorder'=> 'AdminController@showorder',
     'admin/userview' => 'AdminController@viewuser',
@@ -79,6 +77,8 @@ $routes = [
     'admin/mappl' => 'AdminController@mentorapplication',
     'admin/mrequest' => 'AdminController@mentorrequest',
     'admin/adsubmit' => 'AdminController@adsubmit',
+    'admin/showadmin' => 'AdminController@showadmin',
+    'admin/addadmin' => 'AdminController@addadmin'
     
  ];
 
