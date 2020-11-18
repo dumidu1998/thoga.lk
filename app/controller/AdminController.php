@@ -7,7 +7,7 @@ require_once(__DIR__.'/../../core/View.php');
 class AdminController {
     function __construct()
     {
-        $this->model = new adminModel();
+        $this->model = new AdminModel();
     }
 
     public function index(){
@@ -15,8 +15,11 @@ class AdminController {
     }
 
     public function vieworders(){
+        $results=$this->model->orderdetails();
+        $upcoming=$this->model->upcomming();
         $view = new View("admin/vieworders");
-
+        $view->assign('results', $results); 
+        $view->assign('upcoming', $upcoming); 
     }
 
     public function admanager(){
@@ -24,7 +27,6 @@ class AdminController {
     }
 
     public function usermanager(){
-        
         $view = new View("admin/usermanager");
     }
 

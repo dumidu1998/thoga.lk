@@ -2,7 +2,7 @@
 
 require_once(__DIR__.'/../../core/db_model.php');
 
-class adminModel extends db_model{
+class AdminModel extends db_model{
 
 	function __contruct(){
 		
@@ -17,10 +17,30 @@ class adminModel extends db_model{
 		return $this->read('driver', array('*'), array('id'=>$id));
 	}
 
-	function getalluserdetails(){
-		$sql="SELECT u.*, b.* , f.*, d.*, m.* FROM user AS u,buyer 
-		AS b, farmer AS f, driver AS d, mentor AS m WHERE u.user_id=b.user_id 
-		AND u.user_id=f.user_id AND u.user_id=d.user_id AND u.user_id=m.user_id";
+	function orderdetails(){
+		$sql="SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date < CURDATE()";
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+      	while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+			return $finale;
+		}else
+		echo "error";
 	}
+
+	function upcomming(){
+		$sql2="SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE()";
+		$result=$this->connection->query($sql2);
+		$finale=array();
+		if($result){
+      	while($row=mysqli_fetch_assoc($result))
+				array_push($finale,$row);
+			return $finale;
+		}else
+		echo "error";
+	}
+
+	
 }
  ?>

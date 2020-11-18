@@ -12,7 +12,8 @@
 </head>
 <body>
 <?php 
- include("navbar.php"); ?>
+ include("navbar.php"); 
+ ?>
 
 <div class="container">
     <h1>Orders</h1>
@@ -56,49 +57,38 @@
     </tr>
   </thead>
   <tbody>
+  <?php 
+        foreach($upcoming as $key=> $values){
+    ?>
     <tr>
-      <td data-column="Id">1</td>
-      <td data-column="Buyer Name">Andor</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Id"><?php echo $values['order_id']; ?></td>
+      <td data-column="Buyer Name"><?php echo $values['firstname']." ".$values['lastname']; ?></td>
+      <td data-column="Total Weight"><?php echo $values['weight']; ?> Kg</td>
+      <td data-column="Total Price"> Rs. <?php echo number_format($values['total_cost'],2); ?></td>
       <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px;" aria-hidden="true"></i></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
+    <?php
+        }
+        ?>
+        <?php 
+        foreach($results as $key=> $values){
+    ?>
     <tr>
-      <td data-column="Id">2</td>
-      <td data-column="Buyer Name">Tamas</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:30px;"></i></td>
-      <td data-column="Action"><a href="">View More</a></td>
-    </tr>
-    <tr>
-      <td data-column="Id">3</td>
-      <td data-column="Buyer Name">James</td>
-      <td data-column="Total Weight">12.75 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
+      <td data-column="Id"><?php echo $values['order_id']; ?></td>
+      <td data-column="Buyer Name"><?php echo $values['firstname']." ".$values['lastname']; ?></td>
+      <td data-column="Total Weight"><?php echo $values['weight']; ?> Kg</td>
+      <td data-column="Total Price"> Rs. <?php echo number_format($values['total_cost'],2); ?></td>
       <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px;color:green;" aria-hidden="true"></i></td>
-      <td data-column="Action"><a href="/thoga.lk/">View More</a></td>
-    </tr>
-    <tr>
-      <td data-column="Id">4</td>
-      <td data-column="Buyer Name">Zoli</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true" style="font-size:30px;color:green;"></i></td>
       <td data-column="Action"><a href="">View More</a></td>
     </tr>
-    <tr>
-      <td data-column="Id">5</td>
-      <td data-column="Buyer Name">Szabi</td>
-      <td data-column="Total Weight">15.00 Kg</td>
-      <td data-column="Total Price">Rs.1,250.00</td>
-      <td data-column="Total Price"><i class="fa fa-check" aria-hidden="true"  style="font-size:30px;color:green;"></i></td>
-      <td data-column="Action"><a href="">View More</a></td>
-      </tr>
+    <?php
+        }
+        ?>
   </tbody>
 </table>
     </div>
 </div>
 </body>
 </html>
+

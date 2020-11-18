@@ -17,6 +17,11 @@ $_SESSION['temp']=1;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px">
+    <div>
+        <a class="back-button"  href="/thoga.lk/">
+            &lt;&nbsp;Back to Login
+        </a>
+    </div>
 <img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
