@@ -14,7 +14,7 @@ $routes = [
     'farmer/dash' => 'FarmerController@upcoming',
     'farmer/add_item' => 'FarmerController@add_item',
     'farmer/listed' => 'FarmerController@listed_items',
-    'farmer/insert' => 'FarmerController@insert_items',
+    'farmer/insert' => 'FarmerController@insert_mess',
     'mentor/add_item' => 'mentorController@add_item',
     'mentor/insert' => 'mentorController@insert_items',
     'mentor/dash' => 'mentorController@upcoming',
@@ -22,9 +22,15 @@ $routes = [
     'farmer/view_price' => 'FarmerController@view_price',
     'farmer/profile' => 'FarmerController@profile',
     'mentor/view_price' => 'mentorController@view_price',
-    'forum' =>'FarmerController@forum',
+    'farmer/forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
+    'mentor/profile' => 'mentorController@profile',
+    'mentor/forum' =>'mentorController@forum',
+    'farmer/viewmore' => 'FarmerController@view_more',
+    'mentor/viewmore' => 'mentorController@view_more',
+    'farmer/edit' => 'FarmerController@edit',
+    'mentor/edit' => 'mentorController@edit',
     
  ];
 

@@ -39,7 +39,7 @@
         <td>50</td>
         <td>Nimal</td>
         <td>Kamal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="viewmore">view more</a></td>
     </tr>
 
     <tr>
@@ -49,7 +49,7 @@
         <td>60</td>
         <td>Lal</td>
         <td>Kamal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="viewmore">view more</a></td>
     </tr>
 
     <tr>
@@ -59,7 +59,7 @@
         <td>55</td>
         <td>Nimal</td>
         <td>Nihal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="viewmore">view more</a></td>
     </tr>
 
     <tr>
@@ -69,7 +69,7 @@
         <td>50</td>
         <td>Nimal</td>
         <td>Kamal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="viewmore">view more</a></td>
     </tr>
 
     <tr>
@@ -79,7 +79,7 @@
         <td>65</td>
         <td>Sunil</td>
         <td>Kamal</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="viewmore">view more</a></td>
     </tr>
 
     <tr>
@@ -89,7 +89,7 @@
         <td>50</td>
         <td>Nimal</td>
         <td>Sunil</td>
-        <td><a class="more" href="viewmore.php">view more</a></td>
+        <td><a class="more" href="viewmore">view more</a></td>
     </tr>
 
 <?php
