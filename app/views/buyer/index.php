@@ -3,7 +3,7 @@
 <?php 
 //tet
 session_start();
-print_r($_SESSION['user']);
+// print_r($_SESSION['user']);
 
     ?>
 <head>
@@ -20,6 +20,7 @@ print_r($_SESSION['user']);
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
 
 
+<?php include("navbar.php"); ?>
   
 
 <div class="wrapper">
