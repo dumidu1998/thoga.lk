@@ -66,12 +66,12 @@ class AdminController {
         if($out==1){
             rename($Sfile.$uploadid.$ext, $Dfile.$uploadid.$ext);
             $_SESSION['msg']="Advertisement Submitted Sucessfully";
+            echo "<script> alert 'Advertisement added Sucessfully!'; </scrpit>";
         }else{
             unlink($Sfile.$uploadid.$ext);
             $_SESSION['error']="Submit Error. Try Again";
 
         }
-
         header("location: /thoga.lk/admin/admanager");
     }
 

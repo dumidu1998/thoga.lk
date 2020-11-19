@@ -47,7 +47,7 @@
         <td data-column="Username"><?php echo $uname; ?></td>
         <td data-column="Name"><?php echo $name; ?></td>
         <td data-column="Tel"><?php echo $tel; ?></td>
-        <td data-column="Password"><?php echo $pwd; ?></td>
+        <td data-column="Password"><?php echo "*********"; ?></td>
         <td data-column="Action"><a href="" class="actionA">Delete</a></td>
       </tr>
       <?php } ?>
@@ -58,7 +58,7 @@
     <div id="signup" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h2>Add new Post</h2>
+      <h2>Add new Admin</h2>
       <form action="addadmin" id="upload_form" method="POST" >
       <div>
           <label for="1" class="lable">Name</label>

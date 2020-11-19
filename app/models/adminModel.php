@@ -69,7 +69,7 @@ class AdminModel extends db_model{
 
 	function addadmin($data){
 		$uname=$data['username'];
-		$pwd=$data['password'];
+		$pwd=md5($data['password']);
 		$name= $data['name'];
 		$tel=$dataa['tel'];
 		$sql="INSERT INTO admin(user_name,password,name,tel_no) VALUES ('".$uname."','".$pwd."','".$name."','".$tel."')";

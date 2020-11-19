@@ -10,10 +10,9 @@
 <div class="sidebar">
 <a  href="add_item">Add Items</a>
   <a href="listed">Listed Items</a>
-  <a href="mentor">Request Mentor</a>
+  <a href="#mentor" onclick="confirm('Are you sure You want a mentor?');">Request Mentor</a>
   
   
 </div>
 </body>
-
 </html>

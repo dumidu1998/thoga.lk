@@ -24,6 +24,8 @@
                             include (__DIR__."/../mentor/navbar_dash.php");
                         }elseif($values['user_type'] == 'admin'){
                             include (__DIR__."/../admin/navbar.php");
+                        }else{
+                            include (__DIR__."/../buyer/navbar.php");
                         }
                     }
  
@@ -56,7 +58,7 @@
                             <span class="modeltopic">New Forum Post</span>
                         </div>
                     <div>
-                            <form action="forum/postForum" method="POST" class="newforum">
+                            <form action="/thoga.lk/forum/postForum" method="POST" class="newforum">
                                 <input type="text" name="topic" id="" placeholder="Title for Your Question" required>
                                 <textarea name="description" id="" class="description" cols="30" rows="50" placeholder="Description" oninput="auto_grow(this)" required></textarea> 
                                 <hr>
@@ -67,7 +69,7 @@
                 </div>
             </div>
             <div class="forum-container">
-                    <div class="forum-topic"><a class="links" href="fullview">My tomato plants are damaged by insects</a><br>
+                    <div class="forum-topic"><a class="links" href="/thoga.lk/forum/fullview">My tomato plants are damaged by insects</a><br>
                 <span style="font-size:13px">By - Dumidu Kasun Bandara </span>
                 </div>
                 <div class="forum-contols">
@@ -88,22 +90,26 @@
                     Cause for this is the mine bug. To remove mine bug you have to spray water mixed with soap untill the patches get healed. 
                 </div>
             </div>
-
+            <?php  
+                foreach($data as $key => $values){
+                    $title=$values['title'];
+                    $desc=$values['description'];
+                    $vote=$values['vote'];
+                
+            ?>
             <div class="forum-container">
-                <div class="forum-topic"><a class="links" href="#">My tomato plants are damaged by insects</a>
+                <div class="forum-topic"><a class="links" href="#"><?php echo $title ?></a>
                 <div style="font-size:13px">By - Dumidu Kasun Bandara </div>
                 </div>
                 <div class="forum-contols">
-                    <center style="font-size:35px;">0</center>
+                    <center style="font-size:35px;"><?php echo $vote ?></center>
                     <center style="font-size:20;">Votes</center><br>
                     <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
                     <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
                     <br> Like &nbsp &nbsp &nbsp  Unlike
                 </div>
                 <div class="forum-content">
-                    My Problem is that I have an insect that eats the leaves of my tomato plant. It is a small insect difficult to see using the eye. 
-                    Can someone help me to get rid of that insect. <br>
-                    Thank you. 
+                  <?php echo $desc ?>
                 </div>
                 <div class="reply">
                     <b>Top Reply</b><br>
@@ -111,6 +117,10 @@
                     Cause for this is the mine bug. To remove mine bug you have to spray water mixed with soap untill the patches get healed. 
                 </div>
             </div>
+
+            <?php
+                }
+            ?>
         </div>
         <div >
             <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">

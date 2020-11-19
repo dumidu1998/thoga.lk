@@ -9,7 +9,7 @@
   
 <body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
     <?php include("navbar.php");?>
-    <div  class="addnewcont"><button class="addnewbtn">Add new Admin</button></div>
+    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add new Admin</button></a></div>
     <ul>
         <li><a href="#dapplications">Driver Applications</a></li>
         <li><a href="#mapplications">Mentor Applications</a></li>

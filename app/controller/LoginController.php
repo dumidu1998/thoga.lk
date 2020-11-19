@@ -55,7 +55,7 @@ class LoginController{
     public function admin_log(){
         if(isset($_POST['login'])){
             $uname = $_POST['uname'];
-            $pwd = $_POST['pwd'];
+            $pwd = md5($_POST['pwd']);
             $result = $this->user->log_admin($uname,$pwd);
             if(mysqli_num_rows($result)){
                 // echo "kk";
