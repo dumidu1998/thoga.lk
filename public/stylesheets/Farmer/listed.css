@@ -7,7 +7,7 @@
 
 
 
-.container {
+/*.container {
   padding: 20px;
   color: white;
   text-align: center;
@@ -25,15 +25,15 @@
   margin-top: 150px;
 
 
-}
+}*/
 
 
 @media screen and (max-width:768px){
-  .container{
+  /*.container{
     
     width: 60%;
     margin-top: 120%
-    }
+    }*/
 
   
 }
