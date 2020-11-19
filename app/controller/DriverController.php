@@ -55,7 +55,7 @@ class DriverController{
             $driver_id=1;//$_SESSION['driverid'];
             $result= $this->model->insertdates($driver_id,$startdate,$enddate);
             $view = new View("driver/showcalendar");
-            echo "<script>alert('Added');</script>";
+            echo "<script>confirm('Added');</script>";
             header("location:/thoga.lk/driver/calendar");
         }
     }

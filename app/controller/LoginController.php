@@ -48,6 +48,21 @@ class LoginController{
         
         $View = new View("login/login");
     }
+    public function admin_login(){
+        
+        $View = new View("login/admin_login");
+    }
+    public function admin_log(){
+        if(isset($_POST['login'])){
+            $uname = $_POST['uname'];
+            $pwd = md5($_POST['pwd']);
+            $result = $this->user->log_admin($uname,$pwd);
+            if(mysqli_num_rows($result)){
+                // echo "kk";
+                header("location:/thoga.lk/admin");
+            }
+        }
+    }
     
 
 }

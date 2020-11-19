@@ -23,7 +23,9 @@ class AdminController {
     }
 
     public function admanager(){
+        $ads=$this->model->getads();
         $view = new View("admin/admanager");
+        $view->assign('ads', $ads); 
     }
 
     public function usermanager(){
@@ -51,6 +53,44 @@ class AdminController {
 
     public function mentorrequest(){
         $view = new View("admin/Mentor_request");
+    }
+
+    public function adsubmit(){
+        session_start();
+        $in=$_POST;
+        $out=$this->model->adsubmit($in);
+        $uploadid=$_SESSION['aduploadid'];
+        $ext=".jpg";
+        $Sfile= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/tmpuploads/AD_";
+        $Dfile= $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/ads/AD_";
+        if($out==1){
+            rename($Sfile.$uploadid.$ext, $Dfile.$uploadid.$ext);
+            $_SESSION['msg']="Advertisement Submitted Sucessfully";
+            echo "<script> alert 'Advertisement added Sucessfully!'; </scrpit>";
+        }else{
+            unlink($Sfile.$uploadid.$ext);
+            $_SESSION['error']="Submit Error. Try Again";
+
+        }
+        header("location: /thoga.lk/admin/admanager");
+    }
+
+
+    public function showadmin(){
+        $result=$this->model->showadmins();
+        $view = new View("admin/admins");
+        $view->assign('results', $result); 
+    }
+    public function addadmin(){
+        session_start();
+        $return = $this->model->addadmin($_POST);
+        if($return ==1){
+            $_SESSION['msg']="New Admin Added Sucessfully";
+            header("location: showadmin");
+        }else{
+            $_SESSION['error']="New Admin Added Sucessfully";
+            header("location: showadmin");
+        }
     }
 
 }

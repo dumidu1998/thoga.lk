@@ -315,13 +315,28 @@ table th {
   color: #fff;
 }
 
+.addnewcont{
+    position: fixed;
+    right: 15px;
+    top: 66px;
+    display: block;
+}
+
+.addnewcont .addnewbtn{
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgb(250, 174, 174);
+  font: 1em sans-serif;
+  font-weight: 600;
+
+}
 
 .buttonContainer {
   width: 100%;
-  max-height:100px;
+  max-height:250px;
   margin: 0px auto;
   padding-top: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 5px;
   text-align: center;
 }
 

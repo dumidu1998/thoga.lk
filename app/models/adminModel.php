@@ -41,6 +41,46 @@ class AdminModel extends db_model{
 		echo "error";
 	}
 
+	function adsubmit($data){
+		$caption=$data['caption'];
+		$company=$data['company'];
+		$position=$data['position'];
+		$status=1;
+		$sql="INSERT INTO advertisement(ad_caption, company, position,	status) Values
+		 ('".$caption."','".$company."','".$position."','".$status."')";
+		$result=$this->connection->query($sql);
+		echo $sql;
+		if($result){
+			echo "done";
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+
+
+	function getads(){
+		return $this->read('advertisement',array('*'),null);
+	} 
+
+	function showadmins(){
+		return $this->read('admin',array('*'),null);
+	}
+
+	function addadmin($data){
+		$uname=$data['username'];
+		$pwd=md5($data['password']);
+		$name= $data['name'];
+		$tel=$dataa['tel'];
+		$sql="INSERT INTO admin(user_name,password,name,tel_no) VALUES ('".$uname."','".$pwd."','".$name."','".$tel."')";
+		$result=$this->connection->query($sql);
+		if($result){
+			return 1;
+		}else{
+			return0;
+		}
+	}
+
 	function getalluserdata($id){
 		$sql="SELECT a.*, b.user_type, c.*, 
 		d.name_en AS c_name, 

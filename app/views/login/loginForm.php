@@ -31,7 +31,7 @@
                 <input type="password" name="pwd" class="login-input-control" id="exampleInputPassword1" placeholder="Password" required>
             </div>
 
-            <button type="submit" class="btn btn-primary btn_login" name="login">Log in</button>
+            <button type="submit" class="btn btn-primary" name="login">Log in</button>
 
             <div class = "signup_text">
                 Do not have an account ? <a href="signup">Sign Up</a>

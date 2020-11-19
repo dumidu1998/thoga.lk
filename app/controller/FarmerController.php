@@ -84,7 +84,11 @@ class FarmerController{
            
 
 
+<<<<<<< HEAD
             //$this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides);
+=======
+            // $this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides);
+>>>>>>> 451fc0bbd87e41c0c29b0316ce411b9201eb619c
             
             $this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
             // header("location: /thoga.lk/Farmer/insert");

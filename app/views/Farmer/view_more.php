@@ -62,11 +62,11 @@
                     </tr>
                     <tr>                       
                         <td class="td_summary">Order Status</td>
-                        <td class="item_name">on your way</td>
+                        <td class="item_name">Ready to </td>
                     </tr>
                     <tr>                       
                         <td class="td_summary">Update status</td>
-                        <td class="td_summary">Collected  <label class="switch">
+                        <td class="td_summary">Picked up  <label class="switch">
                                                             <input type="checkbox" id="toggle">
                                                             <span class="slider round"></span>
                                                             </label></td>

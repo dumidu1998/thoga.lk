@@ -33,7 +33,7 @@ $routes = [
     'mentor/dash' => 'mentorController@upcoming',
     'mentor/listed' => 'mentorController@listed_items',
     'mentor/view_price' => 'mentorController@view_price',
-    'farmer/forum' =>'FarmerController@forum',
+    'farmer/forum' =>'ForumController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
     'mentor/profile' => 'mentorController@profile',
@@ -65,16 +65,20 @@ $routes = [
     'buyer/about_us' => 'BuyerController@aboutus',
     'admin'=> 'AdminController@index',
     'admin/vieworders' => 'AdminController@vieworders',
-    'forum' =>'FarmerController@forum',
     'farmer/aboutus'=>'FarmerController@about',
     'mentor/aboutus'=>'mentorController@about',
     'admin/admanager'=>'AdminController@admanager',
+    'admin/login'=>'LoginController@admin_login',
+    'admin/log' => 'LoginController@admin_log',
     'admin/usermanager'=>'AdminController@usermanager',
     'admin/showorder'=> 'AdminController@showorder',
     'admin/userview' => 'AdminController@viewuser',
     'admin/dappl' => 'AdminController@driverapplication',
     'admin/mappl' => 'AdminController@mentorapplication',
-    'admin/mrequest' => 'AdminController@mentorrequest'
+    'admin/mrequest' => 'AdminController@mentorrequest',
+    'admin/adsubmit' => 'AdminController@adsubmit',
+    'admin/showadmin' => 'AdminController@showadmin',
+    'admin/addadmin' => 'AdminController@addadmin'
     
  ];
 

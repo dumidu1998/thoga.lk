@@ -5,8 +5,10 @@ class forumModel extends db_model{
 
     function insertForum($post){
 		return $this->create('forum_post', $post);
+    }
 
-
+    function getposts(){
+      return $this->read('forum_post',array('*'),null);
     }
 }
 
