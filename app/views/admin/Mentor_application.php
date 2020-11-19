@@ -100,32 +100,6 @@
     </table>
 </div>
 </div>
-<div class="docscontainer">
-    
-    <!--documents-->
-    <h1>Submitted Documents</h1>
-    <div class="docs">
-        <table style="width:100%">
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-            <tr>
-                <td>Driving License</td>
-                <td><a href="#" target="_blank" >DL 0005</a></td>
-            </tr>
-        </table>
-    </div>
-
-</div>
     <div class="Bcontainer">
         <h1>Accept or Reject</h1>
         <br>

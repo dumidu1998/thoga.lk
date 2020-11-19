@@ -323,6 +323,7 @@ table th {
 }
 
 .addnewcont .addnewbtn{
+  cursor: pointer;
   padding: 10px;
   background-color: rgb(250, 174, 174);
   font: 1em sans-serif;
