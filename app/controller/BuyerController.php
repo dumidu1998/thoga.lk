@@ -80,7 +80,7 @@ class BuyerController {
                             'item_name'               =>     $_POST["hidden_name"],  
                             'item_price'          =>     $_POST["hidden_price"],  
                             'item_quantity'          =>     $_POST["quantity"],
-                            'item_end_d'  => $_POST['e_date'] 
+                            'item_end_d'  => $_POST['e_date'], 
                        );  
                        $_SESSION["shopping_cart"][$count] = $item_array;  
                   }  
@@ -98,7 +98,7 @@ class BuyerController {
                     'item_name'               =>     $_POST["hidden_name"],  
                     'item_price'          =>     $_POST["hidden_price"],  
                     'item_quantity'          =>     $_POST["quantity"],
-                    'item_end_d'  => $date   
+                    'item_end_d'  => $_POST['e_date'], 
                   );  
                   $_SESSION["shopping_cart"][0] = $item_array;  
              } 
