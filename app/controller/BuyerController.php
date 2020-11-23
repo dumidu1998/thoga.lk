@@ -21,6 +21,7 @@ class BuyerController {
     public function index(){
         // session_start();
         $view = new View("buyer/index");
+        
         $result = $this->model->joinget();
         $class="org_active";
         $view->assign('data', $result);
@@ -67,6 +68,7 @@ class BuyerController {
     public function cart(){
         session_start();
         $total=0;
+        
         if(isset($_POST["add_to_cart"]))  
         { 
              if(isset($_SESSION["shopping_cart"]))  
@@ -82,7 +84,15 @@ class BuyerController {
                             'item_quantity'          =>     $_POST["quantity"],
                             'item_end_d'  => $_POST['e_date'], 
                        );  
+                       $dates = array(
+                        
+                        'item_end_d'  => $_POST['e_date'],
+                        'item_id'               =>     $_POST["id"],
+                       );
+                       $_SESSION["e_dateArray"][$count] = $dates; 
+
                        $_SESSION["shopping_cart"][$count] = $item_array;  
+                       
                   }  
                   else  
                   {  
@@ -92,7 +102,7 @@ class BuyerController {
              }  
              else  
              {  
-                $date = date('Y-m-d', strtotime($_POST['e_date']));
+                
                   $item_array = array(  
                     'item_id'               =>     $_POST["id"],  
                     'item_name'               =>     $_POST["hidden_name"],  
@@ -100,7 +110,14 @@ class BuyerController {
                     'item_quantity'          =>     $_POST["quantity"],
                     'item_end_d'  => $_POST['e_date'], 
                   );  
+                  $dates = array(
+                    
+                    'item_end_d'  => $_POST['e_date'], 
+                    'item_id'               =>     $_POST["id"],
+                  );
                   $_SESSION["shopping_cart"][0] = $item_array;  
+                  $_SESSION["e_dateArray"][0] = $dates;  
+
              } 
         }  
         if(isset($_POST["action"]))  
@@ -112,11 +129,20 @@ class BuyerController {
                           if($values["item_id"] == $_POST["id"])  
                           {  
                               unset($_SESSION["shopping_cart"][$keys]);  
+                               
+
                               echo '<script>window.location="/thoga.lk/buyer/home"</script>';  
                           }  
                     }  
+                    foreach($_SESSION['e_dateArray'] as $key => $value){
+                        if($value["item_id"] == $_POST["id"]){
+                            
+                            unset($_SESSION["e_dateArray"][$key]); 
+                        }
+                    }
                 }  
           }  
+          sort($_SESSION['e_dateArray']);
          header("location:/thoga.lk/buyer/home");
          
 
