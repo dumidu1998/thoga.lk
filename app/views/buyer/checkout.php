@@ -29,6 +29,7 @@
                         <th>Price</th>
                         <th>quantity</th>
                         <th>Subtotal</th>
+                        <th></th>
                     </tr>
 
                     <?php
@@ -43,6 +44,13 @@
                         <td> Rs.<?php echo $values["item_price"]?></td>
                         <td><?php echo $values["item_quantity"]?>kg</td>
                         <td>Rs. <?php echo $subtot?></td>
+                        <td>
+                        <form action="/thoga.lk/buyer/cart" method="post">
+                            <input type="hidden" name="id" value="<?php echo $values["item_id"];?>">
+                            <input class="input_s" type="submit" name="action" value="delete">
+
+                        </form>
+                        </td>
                     </tr>
 
                     <?php
