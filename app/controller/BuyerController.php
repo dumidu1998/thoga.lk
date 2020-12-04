@@ -209,6 +209,26 @@ class BuyerController {
             
         }
     } 
+    public function addr(){
+        if(isset($_POST['continue'])){
+            $address_line1 = $_POST['address_line1'];
+            $address_line2 = $_POST['address_line2'];
+            $d_name = $_POST['d_name'];
+            $c_name = $_POST['c_name'];
+            $p_name = $_POST['p_name'];
+            $contactno1 = $_POST['contactno1'];
+            $contactno2 = $_POST['contactno2'];
+
+            $_SESSION['del_address'] = [$address_line1,$address_line2,$d_name,$c_name,$p_name,$contactno1,$contactno2];
+
+
+           header("location:/thoga.lk/buyer/summery");
+            
+        }else if(isset($_POST['selectDriver'])){
+            header("location:/thoga.lk/buyer/select-driver");
+        }
+        
+    }
 
 }
 
