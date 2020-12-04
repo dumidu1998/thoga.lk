@@ -37,13 +37,9 @@ class item extends db_model{
       //print_r($row);
 			array_push($finale,$row);
 		  return $finale;
-		
-
 		}else
 		echo "error";
 
 	}
     
 }
-
-?>
