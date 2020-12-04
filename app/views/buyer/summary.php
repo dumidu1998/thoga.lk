@@ -8,12 +8,19 @@
 </head>
 <body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
     <?php include("navbar.php") ;
-    session_start();
-    print_r($_SESSION['del_address']);
     ?>
     <div class="container">
         <p>Invoice no : 12345</p>
         <br>
+
+        <?php
+        session_start();
+         if(isset($_SESSION['del'])){
+             echo "yay";
+         }else{
+             echo "dead";
+         }
+        ?>
         <p>Delivery address : 388/53 stage1 apura</p>
         <br>
         <p>Telephone no : 0764229830</p>
