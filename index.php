@@ -79,7 +79,8 @@ $routes = [
     'admin/adsubmit' => 'AdminController@adsubmit',
     'admin/showadmin' => 'AdminController@showadmin',
     'admin/addadmin' => 'AdminController@addadmin',
-    'buyer/addr' => 'BuyerController@addr'
+    'buyer/addr' => 'BuyerController@addr',
+    'admin/vegetables' => 'AdminController@addVeg'
     
  ];
 
