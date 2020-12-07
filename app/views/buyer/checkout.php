@@ -209,7 +209,7 @@
 
     btn2.onclick = function() {
         add.style.display = "none";
-    link.href="summery";
+        aa.name="continue";
 
     }
 

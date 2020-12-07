@@ -2,12 +2,14 @@
 
 require_once(__DIR__.'/../models/adminModel.php');
 require_once(__DIR__.'/../../core/View.php');
+require_once(__DIR__.'/../models/vegetablesModel.php');
 
 
 class AdminController {
     function __construct()
     {
         $this->model = new AdminModel();
+        $this->vegetables = new vegetablesModel();
     }
 
     public function index(){
@@ -95,6 +97,13 @@ class AdminController {
             $_SESSION['error']="New Admin Added Sucessfully";
             header("location: showadmin");
         }
+    }
+    public function addVeg(){
+        $results=$this->vegetables->get_all_vegetables();
+
+        $view = new View("admin/add_veg");
+        $view->assign('vegetables', $results);
+
     }
 
 }

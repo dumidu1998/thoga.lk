@@ -219,12 +219,27 @@ class BuyerController {
             $contactno1 = $_POST['contactno1'];
             $contactno2 = $_POST['contactno2'];
 
-            $_SESSION['del_address'] = [$address_line1,$address_line2,$d_name,$c_name,$p_name,$contactno1,$contactno2];
+            $arr = ["add1" => $address_line1, "b" => $address_line2, "d"=>$d_name,"c"=>$c_name,"e"=> $p_name,"f"=>$contactno1,"g"=>$contactno2];
 
+            $_SESSION['del']=$arr;
+            print_r( $_SESSION['del']);
 
-           header("location:/thoga.lk/buyer/summery");
-            
+            header("location:/thoga.lk/buyer/summery");
+       
+
         }else if(isset($_POST['selectDriver'])){
+
+            $address_line1 = $_POST['address_line1'];
+            $address_line2 = $_POST['address_line2'];
+            $d_name = $_POST['d_name'];
+            $c_name = $_POST['c_name'];
+            $p_name = $_POST['p_name'];
+            $contactno1 = $_POST['contactno1'];
+            $contactno2 = $_POST['contactno2'];
+
+            $_SESSION['del_address'] = [$address_line1,$address_line2,$d_name,$c_name,$p_name,$contactno1,$contactno2];
+            // print_r($_SESSION['del_address']);
+
             header("location:/thoga.lk/buyer/select-driver");
         }
         

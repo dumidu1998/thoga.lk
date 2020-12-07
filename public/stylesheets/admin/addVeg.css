@@ -1,0 +1,17 @@
+.veg_container{
+    margin: auto;
+    width: 50%;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: inset;
+}
+.veg_data{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+.scroll{
+    margin: auto;
+    height: 60vh;
+    overflow: scroll;
+}
