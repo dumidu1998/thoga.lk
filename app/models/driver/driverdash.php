@@ -28,6 +28,10 @@ class driverdash extends db_model{
 
         
     }
+
+    function getdates($id){
+        return $this->read('unavailable_dates', array("startdate AS start","enddate AS end","'Unavailable'AS'title'","'#d00000'AS'color'"), array('driver_id'=>$id));
+    }
     
 }
 

@@ -19,7 +19,7 @@
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
-      initialDate: '2020-09-21',
+      initialDate: today,
       navLinks: false, 
       selectable: true,
       selectMirror: true,
@@ -47,7 +47,9 @@
       editable: true,
       height: '100%',
       dayMaxEvents: true, 
-      events: [
+      events:<?php echo $data;?>
+      
+      /*events: [
         {
           title: 'Order #12',
           start: '2020-09-01'
@@ -79,7 +81,7 @@
           url: 'http://google.com/',
           start: '2020-09-28'
         }
-      ],
+      ],*/
     });
 
     calendar.render();
@@ -107,6 +109,13 @@
     height: 25px;
   }
 
+  .fc-today {
+    background: red !important;
+    border: none !important;
+    border-top: 1px solid #ddd !important;
+    font-weight: bold;
+} 
+
 
 
 @media only screen and (max-width:820px) {
@@ -120,6 +129,5 @@
 <body>
 
   <div id='calendar'></div>
-
 </body>
 </html>

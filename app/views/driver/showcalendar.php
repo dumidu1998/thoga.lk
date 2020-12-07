@@ -1,5 +1,9 @@
 
-
+<?php
+$data= "[{title: 'Order #12',start: '2020-09-01'},{title: 'Unavailable',start: '2020-09-07',end: '2020-09-10',color: '#d00000'}]";
+ echo $dates;
+ echo "dumidu";
+ ?>
 <html>
     <head>
         <title>Driver Dashboard</title>
@@ -17,6 +21,12 @@
            
             <div class="text">
             Click on the dates to make unavailable 👉
+            <?php
+// print_r ($dates);
+$data= json_encode($dates);
+echo $data;
+//print_r ($dates);
+            ?>
             </div>
             <div class = "cal">
                 <?php include("calendar.php"); ?>

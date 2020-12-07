@@ -36,13 +36,15 @@ class DriverController{
         $view->assign('res',$res);
         $view->assign('buyer',$buyer);
         $view->assign('items',$items);
-       
-        
         
     }
 
     public function showcalendar(){
+        $driver_id=1;//$_SESSION['driverid'];
+        $dates=$this->model->getdates($driver_id);
         $view = new View("driver/showcalendar");
+        $view->assign('dates',$dates);
+
         
     }
 
