@@ -33,6 +33,10 @@ class AdminController {
     public function usermanager(){
         $view = new View("admin/usermanager");
     }
+    
+    public function showpricelist(){
+        $view = new View("admin/pricelist");
+    }
 
     public function viewuser(){
         $view = new View("admin/userview");
