@@ -19,6 +19,7 @@ $data= "[{title: 'Order #12',start: '2020-09-01'},{title: 'Unavailable',start: '
            
             <div class="text">
             Click on the dates to make unavailable 👉
+        <div id="d"></div>
             </div>
             <div class = "cal">
                 <?php include("calendar.php"); ?>

@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset='utf-8' />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+  crossorigin="anonymous"></script>
 <link href='/thoga.lk/public/fullcalendarlib/main.css' rel='stylesheet' />
 <script src='/thoga.lk/public/fullcalendarlib/main.js'></script>
 <script>
@@ -38,7 +40,7 @@
           })
         }
         calendar.unselect();
-        addunavailability();
+        addunavailability(arg.start,arg.end);
       },
       eventClick: function(arg) {
         if (confirm('Are you sure you want to delete this event?')) {
@@ -47,7 +49,6 @@
         }
       },
       editable: true,
-      height: '100%',
       dayMaxEvents: true, 
       events:<?php echo $alldates;?>
     });
@@ -60,8 +61,23 @@ function removeunavailability(){
   alert("removed");
 }
 
-function addunavailability(){
-  alert("added");
+function addunavailability(x,y){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("d").innerHTML = this.responseText;
+      alert("New date added." + convert(x)+convert(y));
+    }
+  };
+  xhttp.open("GET", "/thoga.lk/app/views/driver/test.php?sdate="+convert(x) +"&edate="+convert(y), true);
+  xhttp.send();
+}
+
+function convert(str) {
+  var date = new Date(str),
+    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+    day = ("0" + date.getDate()).slice(-2);
+  return [date.getFullYear(), mnth, day].join("-");
 }
 
 </script>
@@ -98,5 +114,6 @@ function addunavailability(){
 <body>
 
   <div id='calendar'></div>
+  <div id="d"></div>
 </body>
 </html>
