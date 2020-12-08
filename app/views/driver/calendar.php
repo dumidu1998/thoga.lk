@@ -17,7 +17,7 @@
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        right: 'dayGridMonth'
       },
       initialDate: today,
       navLinks: false, 
@@ -37,55 +37,32 @@
             allDay: arg.allDay
           })
         }
-        calendar.unselect()
+        calendar.unselect();
+        addunavailability();
       },
       eventClick: function(arg) {
         if (confirm('Are you sure you want to delete this event?')) {
-          arg.event.remove()
+          arg.event.remove();
+          removeunavailability();
         }
       },
       editable: true,
       height: '100%',
       dayMaxEvents: true, 
-      events:<?php echo $data;?>
-      
-      /*events: [
-        {
-          title: 'Order #12',
-          start: '2020-09-01'
-        },
-        {
-          title: 'Unavailable',
-          start: '2020-09-07',
-          end: '2020-09-10',
-          color: '#d00000'
-        },
-        {
-          groupId: 999,
-          title: 'Unavailable',
-          start: '2020-09-16',
-          color: '#d00000'
-          
-        },
-        {
-          title: 'order #14',
-          start: '2020-09-11',
-          end: '2020-09-11'
-        },
-        {
-          title: 'Order #15',
-          start: '2020-09-13'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2020-09-28'
-        }
-      ],*/
+      events:<?php echo $alldates;?>
     });
 
     calendar.render();
   });
+
+
+function removeunavailability(){
+  alert("removed");
+}
+
+function addunavailability(){
+  alert("added");
+}
 
 </script>
 <style>
@@ -109,15 +86,7 @@
     height: 25px;
   }
 
-  .fc-today {
-    background: red !important;
-    border: none !important;
-    border-top: 1px solid #ddd !important;
-    font-weight: bold;
-} 
-
-
-
+  
 @media only screen and (max-width:820px) {
     
     #calendar{

@@ -42,8 +42,10 @@ class DriverController{
     public function showcalendar(){
         $driver_id=1;//$_SESSION['driverid'];
         $dates=$this->model->getdates($driver_id);
+        $orderdates=$this->model->getorderdates($driver_id);
+        $all= json_encode(array_merge($orderdates,$dates));
         $view = new View("driver/showcalendar");
-        $view->assign('dates',$dates);
+        $view->assign('alldates',$all);
 
         
     }
@@ -92,8 +94,6 @@ class DriverController{
         
     }
 
-
 }
-
 
 ?>
