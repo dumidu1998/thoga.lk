@@ -38,38 +38,46 @@
             end: arg.end,
             allDay: arg.allDay
           })
+          addunavailability(arg.start);
         }
         calendar.unselect();
-        addunavailability(arg.start,arg.end);
       },
       eventClick: function(arg) {
-        if (confirm('Are you sure you want to delete this event?')) {
+        if (confirm('Are you sure you want to mark '+convert(arg.event.start)+' as available?')) {
           arg.event.remove();
-          removeunavailability();
+          removeunavailability(arg.event.start);
         }
       },
       editable: true,
       dayMaxEvents: true, 
-      events:<?php echo $alldates;?>
+      events: <?php echo $alldates; ?>
     });
 
     calendar.render();
   });
 
 
-function removeunavailability(){
-  alert("removed");
-}
-
-function addunavailability(x,y){
+function removeunavailability(x){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("d").innerHTML = this.responseText;
-      alert("New date added." + convert(x)+convert(y));
+      // document.getElementById("d").innerHTML = this.responseText;
+      alert(convert(x) + " marked as available.");
     }
   };
-  xhttp.open("GET", "/thoga.lk/app/views/driver/test.php?sdate="+convert(x) +"&edate="+convert(y), true);
+  xhttp.open("GET", "/thoga.lk/app/views/driver/test2.php?sdate="+convert(x) , true);
+  xhttp.send();
+}
+
+function addunavailability(x){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("d").innerHTML = this.responseText;
+      alert(convert(x) + " marked as unavailable.");
+    }
+  };
+  xhttp.open("GET", "/thoga.lk/app/views/driver/test.php?sdate="+convert(x) , true);
   xhttp.send();
 }
 
