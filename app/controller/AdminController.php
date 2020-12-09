@@ -105,6 +105,14 @@ class AdminController {
         $view->assign('vegetables', $results);
 
     }
+    public function editVeg(){
+        if(isset($_POST['edit'])){
+            $this->vegetables->update_vegetables($_POST['id'],$_POST['prev_price'],$_POST['curr_price'],$_POST['veg_name']);
+        }
+        if(isset($_POST['del'])){
+            $this->vegetables->delete_vegetables($_POST['id']);
+        }
+    }
 
 }
 

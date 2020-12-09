@@ -32,9 +32,24 @@
                 <input type="number" name="" id="" value="<?php echo $values['curr_price'] ?>">
              </div>
              <div>
-                    edit
+                    <p id="myBtn">edit</p>
 
              </div>
+            <div class="model1" id="myModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="edit" method="post">
+                    <input type="hidden" name="id" value="<?php echo $values['vege_id'] ?>">
+                    <input type="hidden" name="prev_price" value="<?php echo $values['curr_price'] ?>">
+                    <input type="text" name="veg_name" id="" value="<?php echo $values['vege_name'] ?>">
+                    <input type="number" name="curr_price" id="" value="<?php echo $values['curr_price'] ?>">
+                    <input type="submit" value="Edit" name="edit">
+                    <input type="submit" value="Delete" name="del">
+
+                </form>
+
+            </div>
+            </div>
 
              <?php
                  }
@@ -45,10 +60,29 @@
      <button>Add new +</button>
      <button>Edit</button>
  </div>
-    <div class="model1">
     
-    </div>
     <div class="model2">
     </div>
 </body>
 </html>
+<script>
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
