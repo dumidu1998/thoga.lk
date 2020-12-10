@@ -29,15 +29,15 @@
                 <h3><?php echo $values['vege_name'] ?></h3>
              </div>
              <div>
-                <input type="number" name="" id="" value="<?php echo $values['curr_price'] ?>">
+                <input class="price_scroll" type="number" name="" id="" value="<?php echo $values['curr_price'] ?>" readonly>
              </div>
              <div>
-                    <p id="myBtn">edit</p>
+                    <button id="myBtn" onclick="openModal(<?php  echo $values['vege_id'] ?>)" class="edit_btn">edit</button>
 
              </div>
-            <div class="model1" id="myModal">
+            <div class="model1" id="myModal<?php echo $values['vege_id'] ?>">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <span class="close" onclick="closeModal(<?php echo $values['vege_id'] ?>)">&times;</span>
                 <form action="edit" method="post">
                     <input type="hidden" name="id" value="<?php echo $values['vege_id'] ?>">
                     <input type="hidden" name="prev_price" value="<?php echo $values['curr_price'] ?>">
@@ -66,23 +66,23 @@
 </body>
 </html>
 <script>
-var modal = document.getElementById("myModal");
-
-var btn = document.getElementById("myBtn");
-
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  function closeModal(id) {
+    var mod = document.querySelector("#myModal"+id);
+    mod.style.display = 'none';
+    
   }
-}
+
+
+
+  function openModal(id) {
+    var mod = document.querySelector("#myModal"+id);
+    mod.style.display = 'block';
+
+  }
+
+  window.onclick = function(event) {
+    if (event.target == mod) {
+      mod.style.display = "none";
+    }
+  }
 </script>

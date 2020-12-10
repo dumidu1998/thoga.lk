@@ -6,6 +6,7 @@
     box-shadow: inset;
 }
 .veg_data{
+  margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
@@ -48,4 +49,22 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+  input{
+    justify-content: center;
+    width: 100px;
+  }
+  .edit_btn{
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    color: red;
+    cursor: pointer; 
+  }
+  .price_scroll{
+    
+    padding-top: 2px;
+  }
+  p{
+    padding: 0px;
   }
