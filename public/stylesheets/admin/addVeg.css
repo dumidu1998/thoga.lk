@@ -5,6 +5,12 @@
     background-color: white;
     box-shadow: inset;
 }
+@media screen and (max-width: 700px) {
+  .veg_container{
+    width: 100%;
+    margin: 2px;
+  }
+}
 .veg_data{
   margin-top: 20px;
     display: grid;
@@ -67,4 +73,7 @@
   }
   p{
     padding: 0px;
+  }
+  .veg_edit{
+    margin-left: 20%;
   }
