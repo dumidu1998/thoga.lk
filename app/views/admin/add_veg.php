@@ -29,12 +29,27 @@
                 <h3><?php echo $values['vege_name'] ?></h3>
              </div>
              <div>
-                <input type="number" name="" id="" value="<?php echo $values['curr_price'] ?>">
+                <input class="price_scroll" type="number" name="" id="" value="<?php echo $values['curr_price'] ?>" readonly>
              </div>
              <div>
-                    edit
+                    <button id="myBtn" onclick="openModal(<?php  echo $values['vege_id'] ?>)" class="edit_btn">edit</button>
 
              </div>
+            <div class="model1" id="myModal<?php echo $values['vege_id'] ?>">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal(<?php echo $values['vege_id'] ?>)">&times;</span>
+                <form action="edit" method="post">
+                    <input type="hidden" name="id" value="<?php echo $values['vege_id'] ?>">
+                    <input type="hidden" name="prev_price" value="<?php echo $values['curr_price'] ?>">
+                    <input type="text" name="veg_name" id="" value="<?php echo $values['vege_name'] ?>">
+                    <input type="number" name="curr_price" id="" value="<?php echo $values['curr_price'] ?>">
+                    <input type="submit" value="Edit" name="edit">
+                    <input type="submit" value="Delete" name="del">
+
+                </form>
+
+            </div>
+            </div>
 
              <?php
                  }
@@ -46,5 +61,28 @@
      <button>Edit</button>
  </div>
     
+    <div class="model2">
+    </div>
 </body>
 </html>
+<script>
+  function closeModal(id) {
+    var mod = document.querySelector("#myModal"+id);
+    mod.style.display = 'none';
+    
+  }
+
+
+
+  function openModal(id) {
+    var mod = document.querySelector("#myModal"+id);
+    mod.style.display = 'block';
+
+  }
+
+  window.onclick = function(event) {
+    if (event.target == mod) {
+      mod.style.display = "none";
+    }
+  }
+</script>
