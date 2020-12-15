@@ -39,12 +39,15 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal(<?php echo $values['vege_id'] ?>)">&times;</span>
                 <form action="edit" method="post">
+                  <div class="veg_edit">
+                    
                     <input type="hidden" name="id" value="<?php echo $values['vege_id'] ?>">
                     <input type="hidden" name="prev_price" value="<?php echo $values['curr_price'] ?>">
                     <input type="text" name="veg_name" id="" value="<?php echo $values['vege_name'] ?>">
                     <input type="number" name="curr_price" id="" value="<?php echo $values['curr_price'] ?>">
                     <input type="submit" value="Edit" name="edit">
                     <input type="submit" value="Delete" name="del">
+                  </div>
 
                 </form>
 
@@ -58,7 +61,7 @@
      </div>
 
      <button>Add new +</button>
-     <button>Edit</button>
+    
  </div>
     
     <div class="model2">
