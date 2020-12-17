@@ -63,7 +63,6 @@ foreach($data as $key => $value){
           <button id="myBtn" onclick="openModal(<?php echo $id ?>)">View Details</button>
       </div>
 
-      <!-- model start -->
 
       <div id="myModal<?php echo $id ?>" class="modal">
 
