@@ -37,10 +37,10 @@ if(!empty($_SESSION['e_dateArray'])){
 <div class="wrapper">
   <div>
     <div class="organic_container">
-      <div class="btn_organic <?php if($_SERVER['REQUEST_URI']== '/thoga.lk/buyer/home') {echo $class; }?>">
+      <div class="<?php if($_SERVER['REQUEST_URI']== '/thoga.lk/buyer/home') {echo $class; }?> btn_organic ">
         <a href="/thoga.lk/buyer/home">Organic/Non-Organic</a>
       </div>
-      <div class="btn_organic <?php if($_SERVER['REQUEST_URI']== '/thoga.lk/buyer/home/organic') {echo $class; }?>">
+      <div class=" <?php if($_SERVER['REQUEST_URI']== '/thoga.lk/buyer/home/organic') {echo $class; }?> btn_organic ">
         <a href="/thoga.lk/buyer/home/organic">Organic</a>
 
       </div>
