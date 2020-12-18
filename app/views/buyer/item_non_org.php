@@ -44,11 +44,11 @@ foreach($data as $key => $value){
 
   <!-- card start -->
     <div class="card">
-      <img src="/thoga.lk/public/images/vegetables/<?php echo $name ?>.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/vegetables/<?php echo $name ?>.jpg" alt="Avatar" style="width:100%; height:150px">
       <div class="container">
         <h2><b><?php echo $name ?></b></h2> 
         <p>Selling by farmer <?php echo $farmer_name ?>.</p>   
-        <h4>price - Rs. <?php echo $price ?></h4>
+        <h4>Price - Rs. <?php echo $price ?></h4>
       </div>
       <?php
         if($type=="org"){
@@ -63,7 +63,6 @@ foreach($data as $key => $value){
           <button id="myBtn" onclick="openModal(<?php echo $id ?>)">View Details</button>
       </div>
 
-      <!-- model start -->
 
       <div id="myModal<?php echo $id ?>" class="modal">
 

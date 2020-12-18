@@ -94,11 +94,11 @@ button{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .card h4{
-    background-color: yellow;
+    
     padding: 8px;
     width: fit-content;
     border-radius: 20px;
-    color: red;
+    color: #253E30;
 }
 input{
     padding: 10px;
