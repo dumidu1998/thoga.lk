@@ -62,7 +62,7 @@
 		<div class="right">
 			<div class="transbox">
 				<p class >
-					<h2 style="color:mediumblue">Driver Dashboard</h2>
+					<h2>Driver Dashboard</h2>
 					<img src="/thoga.lk/public/images/driver/del.png" alt="order" width="150" height="150" ><br>
 				Upcoming Orders of the Driver are displayed here.
 				</p>

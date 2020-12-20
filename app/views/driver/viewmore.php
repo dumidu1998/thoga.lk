@@ -26,7 +26,8 @@
                     $totcost = $row['total_cost'];
                     $dloc = $row['deliver_location'];
                     $odrdate = $row['order_date'];
-                    // $dt = new DateTime($odrdate);
+                    $dt = new DateTime($odrdate);
+                    $date = $dt->format('Y-m-d');
                     $pickdate = $row['pickup_date'];
 
                 }         
@@ -54,7 +55,7 @@
             <br> 
 
             Order Date          :
-            <input type="text" name="order date" value="<?php echo $odrdate?>" disabled>
+            <input type="text" name="order date" value="<?php echo $date?>" disabled>
             <br>
 
             Pickup Date          :
