@@ -1,0 +1,80 @@
+.veg_container{
+    margin: auto;
+    width: 50%;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: inset;
+}
+@media screen and (max-width: 700px) {
+  .veg_container{
+    width: 100%;
+    margin: 2px;
+  }
+}
+.veg_data{
+  margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+.scroll{
+    margin: auto;
+    height: 60vh;
+    overflow: scroll;
+}
+.model1{
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  input{
+    justify-content: center;
+    width: 100px;
+  }
+  .edit_btn{
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    color: red;
+    cursor: pointer; 
+  }
+  .price_scroll{
+    
+    padding-top: 2px;
+  }
+  p{
+    padding: 0px;
+  }
+  .veg_edit{
+    margin-left: 20%;
+    justify-content: center;
+  }

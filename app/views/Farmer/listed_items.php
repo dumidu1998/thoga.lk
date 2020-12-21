@@ -18,7 +18,7 @@
   <table align="center">
     <tr>
 
-      <th>Order Id</th>
+      <th>Item Name</th>
       <th>Item Type</th>
       <th>Available Weight</th>
       <th>Minimum Weight</th>
@@ -32,12 +32,12 @@
 <?php
      
      foreach($data as $key => $values){
-       $ordid = $values['item_id'];
+       $ordid = $values['vege_name'];
        $itype = $values['Item_type'];
        $avaweight = $values['avail_weight'];
        $minweight = $values['min_weight'];
        $enddate = $values['item_end'];
-       $price = $values['price'];
+       $price = $values['total_cost'];
 
 
 ?>
@@ -51,11 +51,11 @@
 <td><?php echo $enddate; ?></td>
 <td><?php echo $price; ?></td>
 <td>
- <a class="more" href="viewmore.php">view more</a>
+ <a class="more" href="edit">Edit</a>
  </td>
  
  <td>
- <a class="dele"  href="delete.php"<?php echo $values['item_id']; ?>>Delete</a>
+ <a class="dele"  href="delete.php">Delete</a>
  </td>
 
  

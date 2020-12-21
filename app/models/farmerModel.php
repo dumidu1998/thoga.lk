@@ -9,12 +9,39 @@ class farmerModel extends db_model{
     }
 
     function get_details(){
-        return $this->read('order_details',array('*'),null);
+       $sql="SELECT orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,buyer.b_name FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id
+       ";
+       $result=$this->connection->query($sql);
+       $arr=array();
+       if($result){
+        while($row=mysqli_fetch_assoc($result))
+        array_push($arr,$row);
+      return $arr;
+    
 
+        }else
+        echo "error";
+         
+
+    }
+
+    function get_info(){
+        $sql="SELECT item.veg_Id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,vegetable.vege_name FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id
+        ";
+        $result=$this->connection->query($sql);
+        $arr=array();
+        if($result){
+         while($row=mysqli_fetch_assoc($result))
+         array_push($arr,$row);
+       return $arr;
+     
+ 
+         }else
+         echo "error";
     }
     
     function get_records(){
-        return $this->read('vegetable',array('vege_name'),null);
+        return $this->read('vegetable',array('*'),null);
     }
     
 }

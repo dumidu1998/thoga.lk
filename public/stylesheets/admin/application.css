@@ -65,7 +65,7 @@ h1{
 }
 
 tr td:first-child{
-    width: 40%;
+    width: auto;
     font-weight: bold;
 }
 
@@ -271,3 +271,38 @@ tr td{
     }
 }
   
+
+.Criticalbtn{
+  margin-left: 50px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: rgb(170, 0, 0);
+  font-size: 18px;
+  color:white;
+}
+
+.back-button {
+  background: rgb(14, 15, 14);
+  color: white;
+  font-size: 25px;
+  line-height: 0.3;
+  padding: 20px 20px 15px 15px;
+  text-decoration: none;
+  transition: all 0.9s;
+  margin-bottom: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background: rgba(79, 83, 83, 0.8);
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  margin-left: 150px;
+  display: block;
+}

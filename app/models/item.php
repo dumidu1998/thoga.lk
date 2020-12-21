@@ -13,7 +13,7 @@ class item extends db_model{
   }
 
   function  joinget(){
-		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.* FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id";
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.* FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id WHERE a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY)";
 		
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -37,13 +37,9 @@ class item extends db_model{
       //print_r($row);
 			array_push($finale,$row);
 		  return $finale;
-		
-
 		}else
 		echo "error";
 
 	}
     
 }
-
-?>

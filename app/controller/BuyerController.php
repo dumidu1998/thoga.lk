@@ -21,6 +21,7 @@ class BuyerController {
     public function index(){
         // session_start();
         $view = new View("buyer/index");
+        
         $result = $this->model->joinget();
         $class="org_active";
         $view->assign('data', $result);
@@ -67,6 +68,7 @@ class BuyerController {
     public function cart(){
         session_start();
         $total=0;
+        
         if(isset($_POST["add_to_cart"]))  
         { 
              if(isset($_SESSION["shopping_cart"]))  
@@ -79,9 +81,18 @@ class BuyerController {
                             'item_id'               =>    $_POST["id"],  
                             'item_name'               =>     $_POST["hidden_name"],  
                             'item_price'          =>     $_POST["hidden_price"],  
-                            'item_quantity'          =>     $_POST["quantity"]  
+                            'item_quantity'          =>     $_POST["quantity"],
+                            'item_end_d'  => $_POST['e_date'], 
                        );  
+                       $dates = array(
+                        
+                        'item_end_d'  => $_POST['e_date'],
+                        'item_id'               =>     $_POST["id"],
+                       );
+                       $_SESSION["e_dateArray"][$count] = $dates; 
+
                        $_SESSION["shopping_cart"][$count] = $item_array;  
+                       
                   }  
                   else  
                   {  
@@ -91,13 +102,22 @@ class BuyerController {
              }  
              else  
              {  
+                
                   $item_array = array(  
                     'item_id'               =>     $_POST["id"],  
                     'item_name'               =>     $_POST["hidden_name"],  
                     'item_price'          =>     $_POST["hidden_price"],  
-                    'item_quantity'          =>     $_POST["quantity"]   
+                    'item_quantity'          =>     $_POST["quantity"],
+                    'item_end_d'  => $_POST['e_date'], 
                   );  
+                  $dates = array(
+                    
+                    'item_end_d'  => $_POST['e_date'], 
+                    'item_id'               =>     $_POST["id"],
+                  );
                   $_SESSION["shopping_cart"][0] = $item_array;  
+                  $_SESSION["e_dateArray"][0] = $dates;  
+
              } 
         }  
         if(isset($_POST["action"]))  
@@ -109,11 +129,20 @@ class BuyerController {
                           if($values["item_id"] == $_POST["id"])  
                           {  
                               unset($_SESSION["shopping_cart"][$keys]);  
+                               
+
                               echo '<script>window.location="/thoga.lk/buyer/home"</script>';  
                           }  
                     }  
+                    foreach($_SESSION['e_dateArray'] as $key => $value){
+                        if($value["item_id"] == $_POST["id"]){
+                            
+                            unset($_SESSION["e_dateArray"][$key]); 
+                        }
+                    }
                 }  
           }  
+          sort($_SESSION['e_dateArray']);
          header("location:/thoga.lk/buyer/home");
          
 
@@ -180,6 +209,41 @@ class BuyerController {
             
         }
     } 
+    public function addr(){
+        if(isset($_POST['continue'])){
+            $address_line1 = $_POST['address_line1'];
+            $address_line2 = $_POST['address_line2'];
+            $d_name = $_POST['d_name'];
+            $c_name = $_POST['c_name'];
+            $p_name = $_POST['p_name'];
+            $contactno1 = $_POST['contactno1'];
+            $contactno2 = $_POST['contactno2'];
+
+            $arr = ["add1" => $address_line1, "b" => $address_line2, "d"=>$d_name,"c"=>$c_name,"e"=> $p_name,"f"=>$contactno1,"g"=>$contactno2];
+
+            $_SESSION['del']=$arr;
+            print_r( $_SESSION['del']);
+
+            header("location:/thoga.lk/buyer/summery");
+       
+
+        }else if(isset($_POST['selectDriver'])){
+
+            $address_line1 = $_POST['address_line1'];
+            $address_line2 = $_POST['address_line2'];
+            $d_name = $_POST['d_name'];
+            $c_name = $_POST['c_name'];
+            $p_name = $_POST['p_name'];
+            $contactno1 = $_POST['contactno1'];
+            $contactno2 = $_POST['contactno2'];
+
+            $_SESSION['del_address'] = [$address_line1,$address_line2,$d_name,$c_name,$p_name,$contactno1,$contactno2];
+            // print_r($_SESSION['del_address']);
+
+            header("location:/thoga.lk/buyer/select-driver");
+        }
+        
+    }
 
 }
 

@@ -11,17 +11,19 @@
  include("navbar.php"); ?>
 
 <div class="container">
-    <div><a class="back-button" href="index.php">&lt;&nbsp;Back</a></div>
+    <div><a class="back-button" href="vieworders">&lt;&nbsp;Back</a></div>
     <h1>Order Details</h1>
     <div class="banner">
       <h2>Order Id - 10</h2>
       <h2>Invoice No. - 023</h2>
     </div>
     <div class="detailContainer">
+      <div>
       <label class="Dlabel" for="1">Buyer Name : -</label>
       <input type="text" name="" class="mdetails" id="1" value="Manthila Bandara" disabled>
       <label class="Dlabel" for="2" style="float:left;margin-right:30px">Address &nbsp; &nbsp; : - </label>
       <textarea name="" id="2" cols="25" rows="3" readonly=readonly>No.122&#13;&#10;Jaya Mawatha&#13;&#10;Thalawa</textarea>
+      </div>
       <div style="float:left;clear:both">
         <!-- <input type="text" name="" class="details" id="2" value="076 6344989"> -->
         <label class="Dlabel" for="3">Contact No : -</label>

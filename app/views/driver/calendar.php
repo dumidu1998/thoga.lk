@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset='utf-8' />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+  crossorigin="anonymous"></script>
 <link href='/thoga.lk/public/fullcalendarlib/main.css' rel='stylesheet' />
 <script src='/thoga.lk/public/fullcalendarlib/main.js'></script>
 <script>
@@ -17,9 +19,9 @@
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        right: 'dayGridMonth'
       },
-      initialDate: '2020-09-21',
+      initialDate: today,
       navLinks: false, 
       selectable: true,
       selectMirror: true,
@@ -36,54 +38,55 @@
             end: arg.end,
             allDay: arg.allDay
           })
+          addunavailability(arg.start);
         }
-        calendar.unselect()
+        calendar.unselect();
       },
       eventClick: function(arg) {
-        if (confirm('Are you sure you want to delete this event?')) {
-          arg.event.remove()
+        if (confirm('Are you sure you want to mark '+convert(arg.event.start)+' as available?')) {
+          arg.event.remove();
+          removeunavailability(arg.event.start);
         }
       },
       editable: true,
-      height: '100%',
       dayMaxEvents: true, 
-      events: [
-        {
-          title: 'Order #12',
-          start: '2020-09-01'
-        },
-        {
-          title: 'Unavailable',
-          start: '2020-09-07',
-          end: '2020-09-10',
-          color: '#d00000'
-        },
-        {
-          groupId: 999,
-          title: 'Unavailable',
-          start: '2020-09-16',
-          color: '#d00000'
-          
-        },
-        {
-          title: 'order #14',
-          start: '2020-09-11',
-          end: '2020-09-11'
-        },
-        {
-          title: 'Order #15',
-          start: '2020-09-13'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2020-09-28'
-        }
-      ],
+      events: <?php echo $alldates; ?>
     });
 
     calendar.render();
   });
+
+
+function removeunavailability(x){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("d").innerHTML = this.responseText;
+      alert(convert(x) + " marked as available.");
+    }
+  };
+  xhttp.open("GET", "/thoga.lk/app/views/driver/test2.php?sdate="+convert(x) , true);
+  xhttp.send();
+}
+
+function addunavailability(x){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("d").innerHTML = this.responseText;
+      alert(convert(x) + " marked as unavailable.");
+    }
+  };
+  xhttp.open("GET", "/thoga.lk/app/views/driver/test.php?sdate="+convert(x) , true);
+  xhttp.send();
+}
+
+function convert(str) {
+  var date = new Date(str),
+    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+    day = ("0" + date.getDate()).slice(-2);
+  return [date.getFullYear(), mnth, day].join("-");
+}
 
 </script>
 <style>
@@ -107,8 +110,7 @@
     height: 25px;
   }
 
-
-
+  
 @media only screen and (max-width:820px) {
     
     #calendar{
@@ -120,6 +122,6 @@
 <body>
 
   <div id='calendar'></div>
-
+  <div id="d"></div>
 </body>
 </html>

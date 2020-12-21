@@ -1,5 +1,3 @@
-
-
 <html>
     <head>
         <title>Driver Dashboard</title>

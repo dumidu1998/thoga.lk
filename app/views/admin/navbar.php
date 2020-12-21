@@ -10,15 +10,15 @@
 <body>
 <div>
 <div class="topnav" id="myTopnav">
-  <a href="#" class="navlogo"><img  width=100px src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class = "logo"></a>
-  <a href="#" class="active">Dashboard</a>
-  <a href="#">Requests</a>
-  <a href="#contact">Ad Management</a>
-  <a href="#about">Forum</a>
+  <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class = "logo"></a>
+  <a href="/thoga.lk/admin" class="active">Dashboard</a>
+  <a href="/thoga.lk/admin#dapplications">Requests</a>
+  <a href="/thoga.lk/admin/admanager">Ad Management</a>
+  <a href="/thoga.lk/forum">Forum</a>
   <div class = "nav-right">
-    <a href="#About us">Log Out</a>
+    <a href="/thoga.lk/logout">Log Out</a>
 
-    <img src="/thoga.lk/public/images/admin/b.png" alt="" class = "user_pic" width=50px>
+    <img src="/thoga.lk/public/images/admin/b.png" alt="" class="user_pic" width=50px>
     
 
   </div>
