@@ -44,7 +44,7 @@ h1{
     padding-bottom:30px;
     border: 1px solid darkblue;
     box-shadow:0 5px 15px rgba(0,0,0,.9);
-    background-color:#213bd3;
+    background-color: #2E5F3E;
     border-radius: 25px;
 }
 .transbox{
@@ -69,7 +69,6 @@ h1{
     padding: 8px;
     font-size: 14px;
     font-weight: bold;
-    border-radius: 50px;
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
@@ -79,11 +78,10 @@ h1{
 .button2 {
   color:white;
   text-decoration: none;
-  background: #f54848;
+  background:  #253E30;
   padding: 8px;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 50px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
@@ -107,7 +105,7 @@ table * {
 th{
   line-height:2.6;
   font-size: 20px;
-  background-color: darkblue;
+  background-color:  #70935D;
   color:white;
 }
     
