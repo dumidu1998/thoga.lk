@@ -78,7 +78,7 @@ h1{
 .button2 {
   color:white;
   text-decoration: none;
-  background:  #253E30;
+  background:  #6e6db6;
   padding: 8px;
   font-size: 14px;
   font-weight: bold;
@@ -105,7 +105,7 @@ table * {
 th{
   line-height:2.6;
   font-size: 20px;
-  background-color:  #70935D;
+  background-color:  #4CAF50;
   color:white;
 }
     

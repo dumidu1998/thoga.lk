@@ -64,7 +64,7 @@ header{
     opacity: 0.8;
     padding-top: 10px;
     padding-bottom: 20px;
-    background-color: #97a6fd;
+    background-color: #4CAF50;
     box-shadow:0 5px 15px rgba(0,0,0,.9);
     border-radius: 25px;
     
@@ -148,7 +148,7 @@ th {
 text-align: center;
 padding: 10px;
 font-size: 20px;
-background-color:rgb(22, 22, 177);
+background-color:#2E5F3E;
 color: white;
 height:10px;
 /* text-decoration: underline; */
