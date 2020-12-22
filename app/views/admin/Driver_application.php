@@ -64,6 +64,10 @@
     <div>
     <table style="float:left;margin-bottom:50px">
         <tr>
+            <td>E - mail</td>
+            <td>lacd@gmail.com</td>
+        </tr>
+        <tr>
             <td>Home Province</td>
             <td>Southern</td>
         </tr>
@@ -83,21 +87,25 @@
    
     <table style="float:left;" class="t2">
         <tr>
-            <td>E - mail</td>
-            <td>lacd@gmail.com</td>
-        </tr>
-        <tr>
             <td>DL No</td>
             <td>17546109</td>
         </tr>
-        <!-- <tr>
-            <td>Nearest City 1</td>
-            <td>Anuradhapura</td>
+        <tr>
+            <td>Vehicle Model</td>
+            <td>Dimo Batta</td>
         </tr>
         <tr>
-            <td>Nearest City 2</td>
-            <td>Dambulla</td>
-        </tr> -->
+            <td>Vehicle Number</td>
+            <td>NC - KT 0246</td>
+        </tr>
+        <tr>
+            <td>Cost / km</td>
+            <td>Rs. 60.00</td>
+        </tr>
+        <tr>
+            <td>Max Weight</td>
+            <td>1000 kg</td>
+        </tr>
     </table>
 </div>
 </div>

@@ -1,0 +1,192 @@
+.title{
+    font-family: sans-serif;
+    color: #181617;
+    text-align: center;
+    margin-top: 100px;
+   
+
+}
+
+
+
+.date{
+  display: inline-flex;
+  
+  
+}
+
+.price_d{
+  display: inline-flex;
+}
+
+input[type=text],input[type=date],input[type=file],input[type=number], select .textt, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: vertical;
+
+}
+.price2{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  margin-right: 40px;
+  
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+.textt{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 18px;
+}
+
+
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+
+}
+
+
+.cancelbtn, .submitbtn {
+  float: center;
+  width: 30%;
+  border-radius: 10px;
+  margin-top: 10px;
+
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container {
+  margin-top:90px;
+  padding: 20px;
+  color: black;
+  text-align: center;
+  width:70%;
+  background:white;
+  position: absolute;
+  top:54%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+  font-size:18px;
+  border-radius: 50px;
+  box-shadow:0 5px 15px rgba(0,0,0,.9);
+  font-style: bold;
+  
+  
+}
+
+
+@media screen and (max-width:768px){
+  .container{
+    margin-top: 50px;
+    width: 90%;
+
+  }
+  .date{
+    display: block;
+
+  }
+  .id{
+    display: block;
+  }
+  label{
+    margin-right: 100px;
+  }
+  input[type=text],input[type=date],input[type=file], select .textt{
+    margin-left: 40px;
+  }
+
+}
+
+.left {
+  float: left;
+  width: 25%;
+  margin-top: 10px;
+}
+
+.right {
+  float: left;
+  width: 60%;
+  margin-top: 10px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width: 600px) {
+  .left, .right {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .title{
+    margin-top: 40%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

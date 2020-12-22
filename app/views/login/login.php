@@ -10,19 +10,15 @@
 <body>
 
 <ul>
-  <li><a href="#home"><img width="100px" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt=""></a></li>
-  <li><a href="#contact">Contact Us</a></li>
+  <li><a href="#"><img width="100px" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt=""></a></li>
+  <li><a href="about_us">Contact Us</a></li>
   <li style="float:right"><a class="active" href="#login" id="login">Login</a></li>
   <li style="float:right"><a class="active" href="/thoga.lk/buyer/home">Continue as guest</a></li>
 
 </ul>
 
-<div class="slideshow-container" >
-
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="/thoga.lk/public/images/login/a.jpg" style="width:100%">
-  <div class="text"> 
+<img src="/thoga.lk/public/images/login/d.jpg" style="width:100%">
+<div class="text"> 
     <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
     <h1>Freshness, Delivered!!</h1> 
    <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
@@ -34,40 +30,8 @@
    </div>
 
   </div>
-</div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="/thoga.lk/public/images/login/b.jpg" style="width:100%">
-  <div class="text">
-  <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
-  <h1>Freshness, Delivered!!</h1> 
-   <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
-   <h4>Sign up here and start trading</h4>
-   <div class="login_logos" id="click1" >
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/driver.png" alt="">
-   </div>
-  </div>
-</div>
 
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="/thoga.lk/public/images/login/c.jpg" style="width:100%">
-  <div class="text">
-  <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
-   <h1>Freshness, Delivered!!</h1> 
-   <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
-   <h4>Sign up here and start trading</h4>
-   <div class="login_logos" id="click2">
-    
-    <img width="10%" id="im1" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/driver.png" alt="">
-   </div>
-  </div>
-</div>
 <?php 
   session_start();
   if(isset($_SESSION['signupstatus'])){
@@ -87,11 +51,7 @@
 ?>
 </div>
 <br>
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
+
 
 <?php include("loginForm.php"); ?>
     

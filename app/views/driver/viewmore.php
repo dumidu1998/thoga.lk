@@ -43,7 +43,7 @@
             <br>     
 
             Pickup Location    :
-            <input type="text" name="pickup location" value="<?php echo $ploc?>" disabled>
+            <input type="text" name="pickup location" value="Anuradhapura" disabled>
             <br>
 
             Total Cost         :
@@ -51,7 +51,7 @@
             <br> 
 
             Delivery Location  :
-            <input type="text" name="deliver location" value="<?php echo $dloc?>" disabled>
+            <input type="text" name="deliver location" value="Matale" disabled>
             <br> 
 
             Order Date          :
@@ -116,12 +116,12 @@
 					
 					echo "<tr>";
 					echo "<td>".$row['vege_name']."</td>";
-					echo "<td>".$row['price/kg']."</td>";
+					echo "<td>".$row['total_cost']."</td>";
 					echo "<td>".$row['weight']."</td>";
-					echo "<td>".$row['price/kg']*$row['weight']."</td>";
+					echo "<td>".$row['total_cost']*$row['weight']."</td>";
                     echo "</tr>";
                     
-                    $sum=$sum+ $row['price/kg']*$row['weight'];
+                    $sum=$sum+ $row['total_cost']*$row['weight'];
 				}
 			
 			?>

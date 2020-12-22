@@ -18,7 +18,7 @@
  <h1 class="title">Upcoming Orders</h1>
  <?php include 'verticalnavbar.php';
  ?>
-<div  style="height:auto;">
+
 
 <div style="overflow-x:auto;">
   <table align="center">
@@ -40,7 +40,7 @@ foreach($data as $key => $values){
   $pdate= $values['pickup_date'];
   $tweight= $values['weight'];
   $cost= $values['total_cost'];
-  $bname= $values['buyer_name'];
+  $bname= $values['b_name'];
 
 
 
@@ -52,7 +52,7 @@ foreach($data as $key => $values){
  <td><?php echo $cost;?></td>
  <td><?php echo $bname;?></td>
  <td>
- <a class="more" href="viewmore.php">view more</a>
+ <a class="more" href="viewmore">view more</a>
  </td>
 </tr>
     
@@ -65,7 +65,7 @@ foreach($data as $key => $values){
 
   </table>
 </div>
-</div>
+
 
 
 <?php include 'footer.php'; ?>

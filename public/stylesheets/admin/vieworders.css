@@ -119,6 +119,29 @@ input[type="text"]::placeholder{
     color: rgb(255, 255, 255);
   }
 
+  .admin-btn1 {
+    margin: 0px 10px 0px 50px;
+    padding: 1px 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    background:  rgb(25, 29, 24);
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 100px;
+    height: 50px;
+    color: white;
+  }
+  
+  .admin-btn1:hover {
+    background: rgb(28, 21, 48);
+    color: rgb(255, 255, 255);
+  }
+
 
 .filterTopic{
     display: inline-block;
@@ -210,7 +233,6 @@ td, th {
 
 
 .detailContainer{
-    display: inline-block;
     height: auto;
     margin: 10px 50px;
     background-color: #01002ba2;
@@ -366,7 +388,6 @@ input[type="text"].details{
   }
  
   input[type=text],select{
-    display: block;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -374,6 +395,7 @@ input[type="text"].details{
     width: 55%;
     background-color: #fafafa;
     margin-bottom: 30px;
+    display: block;
   }
 
   select{
@@ -415,4 +437,11 @@ input[type="text"].details{
     text-decoration: none;
     margin-bottom: 10px;
     margin-top:40px;
+}
+
+button{
+    font-size: 16px;
+    background-color: #b3dbf03b;
+    border: none;
+    cursor: pointer;
 }

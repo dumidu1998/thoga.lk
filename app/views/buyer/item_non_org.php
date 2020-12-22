@@ -25,7 +25,7 @@ foreach($data as $key => $value){
     $avail_we = $value['avail_weight'];
     $s_date = $value['item_start'];
     $e_date = $value['item_end'];
-    $price = $value['price/kg'];
+    $price = $value['total_cost'];
     $farmer_id = $value['farmer_Id'];
     $mentor_id = $value['mentor_Id'];
     $item_description = $value['item_des'];
@@ -44,11 +44,11 @@ foreach($data as $key => $value){
 
   <!-- card start -->
     <div class="card">
-      <img src="/thoga.lk/public/images/vegetables/<?php echo $name ?>.jpg" alt="Avatar" style="width:100%">
+      <img src="/thoga.lk/public/images/vegetables/<?php echo $name ?>.jpg" alt="Avatar" style="width:100%; height:150px">
       <div class="container">
         <h2><b><?php echo $name ?></b></h2> 
         <p>Selling by farmer <?php echo $farmer_name ?>.</p>   
-        <h4>price - Rs. <?php echo $price ?></h4>
+        <h4>Price - Rs. <?php echo $price ?></h4>
       </div>
       <?php
         if($type=="org"){
@@ -63,7 +63,6 @@ foreach($data as $key => $value){
           <button id="myBtn" onclick="openModal(<?php echo $id ?>)">View Details</button>
       </div>
 
-      <!-- model start -->
 
       <div id="myModal<?php echo $id ?>" class="modal">
 
@@ -114,9 +113,9 @@ foreach($data as $key => $value){
                         <label for="qnty">Quantity</label>
                         <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
                         <label for="s_date">Start Date</label>
-                        <input type="date" name= "s_date" value="<?php echo $s_date ?>" disabled/>
+                        <input type="date" id="s_date"  name="s_date" value="<?php echo $s_date ?>" readonly="readonly" />
                         <label for="e_date">End Date</label>
-                        <input type="date" name= "e_date" value="<?php echo $s_date ?>" disabled/>
+                        <input type="date" id="e_Date" name="e_date" value="<?php echo $e_date ?>"  />
                       </div>
 
                       <?php 

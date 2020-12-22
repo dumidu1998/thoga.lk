@@ -29,6 +29,7 @@
                         <th>Price</th>
                         <th>quantity</th>
                         <th>Subtotal</th>
+                        <th></th>
                     </tr>
 
                     <?php
@@ -43,6 +44,13 @@
                         <td> Rs.<?php echo $values["item_price"]?></td>
                         <td><?php echo $values["item_quantity"]?>kg</td>
                         <td>Rs. <?php echo $subtot?></td>
+                        <td>
+                        <form action="/thoga.lk/buyer/cart" method="post">
+                            <input type="hidden" name="id" value="<?php echo $values["item_id"];?>">
+                            <input class="input_s" type="submit" name="action" value="delete">
+
+                        </form>
+                        </td>
                     </tr>
 
                     <?php
@@ -127,39 +135,43 @@
 
                             
                         ?>
-                <form action="">
+                <form action="addr" method="post">
                     <div class="delivery_option-address-input">   
                         <div>
-                            <label for="">Address line 1</label>
-                            <input type="text" value="<?php echo $values['address_line1'];?>" >
+                            <label for="">Address line 1 *</label>
+                            <input type="text" name="address_line1" value="<?php echo $values['address_line1'];?>" >
                         </div>
                         <div>
-                            <label for="">Address line 2</label>
-                            <input type="text" value="<?php echo $values['address_line2'];?>">
+                            <label for="">Address line 2 *</label>
+                            <input type="text" name="address_line2" value="<?php echo $values['address_line2'];?>">
                         </div>
                     </div>
                     <div>
-                            <label for="">District</label>
-                            <input type="text" value="<?php echo $values['d_name'];?>">
+                            <label for="">District *</label>
+                            <input type="text" name="d_name" value="<?php echo $values['d_name'];?>">
                     </div>
 
                     <div class="delivery_option-address-input">
                         <div>
-                            <label for="">City</label>
-                            <input type="text" value="<?php echo $values['c_name'];?>">
+                            <label for="">City *</label>
+                            <input type="text" name="c_name" value="<?php echo $values['c_name'];?>">
                         </div>
                         <div>
-                            <label for="">Province</label>
-                            <input type="text" value="<?php echo $values['p_name'];?>">
+                            <label for="">Province *</label>
+                            <input type="text" name="p_name" value="<?php echo $values['p_name'];?>">
                         </div>
                         
                     </div>
                     <div>
-                        <label for="">Mobile no</label>
-                        <input type="text" value="<?php echo $values['contactno1'];?>">
+                        <label for="">Mobile no </label>
+                        <input type="text" name="contactno1" value="<?php echo $values['contactno1'];?>" readonly>
+                    </div>
+                    <div>
+                        <label for="">Mobile no 2 *</label>
+                        <input type="text" name="contactno2" value="<?php echo $values['contactno2'];?>" >
                     </div>
                     
-                </form>
+                
                             <?php } ?>
                 </div>
 
@@ -168,8 +180,9 @@
         </div>
         <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
        
-        <a href="summery" id="check"><button class="checkout_btn">Continue</button></a>
+        <a id="check"><button id="aa" name="continue" class="checkout_btn">Continue</button></a>
     </div>
+    </form>
     <?php include("footer.php"); ?>
 
 </body>
@@ -179,6 +192,7 @@
     var btn2 = document.getElementById("pick");
     var size = window.matchMedia("(max-width: 700px)");
     var link = document.getElementById("check");
+    var aa = document.getElementById("aa");
 
     if(size.matches){
         btn.onclick = function() {
@@ -187,14 +201,15 @@
     }else{
     btn.onclick = function() {
     add.style.display = "grid";
-    link.href="select-driver";
+    
+    aa.name="selectDriver";
     }
     
     }
 
     btn2.onclick = function() {
         add.style.display = "none";
-    link.href="summery";
+        aa.name="continue";
 
     }
 

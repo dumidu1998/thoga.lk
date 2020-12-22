@@ -36,13 +36,17 @@ class DriverController{
         $view->assign('res',$res);
         $view->assign('buyer',$buyer);
         $view->assign('items',$items);
-       
-        
         
     }
 
     public function showcalendar(){
+        $driver_id=1;//$_SESSION['driverid'];
+        $dates=$this->model->getdates($driver_id);
+        $orderdates=$this->model->getorderdates($driver_id);
+        $all= json_encode(array_merge($orderdates,$dates));
         $view = new View("driver/showcalendar");
+        $view->assign('alldates',$all);
+
         
     }
 
@@ -55,7 +59,7 @@ class DriverController{
             $driver_id=1;//$_SESSION['driverid'];
             $result= $this->model->insertdates($driver_id,$startdate,$enddate);
             $view = new View("driver/showcalendar");
-            echo "<script>alert('Added');</script>";
+            echo "<script>confirm('Added');</script>";
             header("location:/thoga.lk/driver/calendar");
         }
     }
@@ -90,8 +94,6 @@ class DriverController{
         
     }
 
-
 }
-
 
 ?>

@@ -3,13 +3,24 @@
 <?php 
 //tet
 session_start();
-// print_r($data);
+
+
+// print_r($_SESSION['e_dateArray']);
+$max_date = 0;
+if(!empty($_SESSION['e_dateArray'])){
+  foreach($_SESSION['e_dateArray'] as $keys => $values){
+    $max_date =  $values['item_end_d'] ;
+  break;
+  }
+
+}
+
 
     ?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Home</title>
   <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/index.css">
   <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/shopping_Cart.css">
 
@@ -17,7 +28,7 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body>
 
 
 <?php include("navbar.php"); ?>
@@ -126,7 +137,7 @@ session_start();
       <form action="/thoga.lk/buyer/checkout" method="post">
         <div class="date">
           <label class="pickup_label" for="datefield" > Pick up date</label>
-          <input id="datefield" type='date' name="pick_date" max='2020-12-12' required/>
+          <input id="datefield" type='date' name="pick_date" max='<?php echo $max_date ?>' required/>
   
         </div>
         
