@@ -27,7 +27,7 @@
                     $dloc = $row['deliver_location'];
                     $odrdate = $row['order_date'];
                     $dt = new DateTime($odrdate);
-                    $date= $dt->format('Y-m-d');
+                    $date = $dt->format('Y-m-d');
                     $pickdate = $row['pickup_date'];
 
                 }         
