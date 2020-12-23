@@ -245,6 +245,8 @@ class BuyerController {
         
     }
 
+    
+
 }
 
 
