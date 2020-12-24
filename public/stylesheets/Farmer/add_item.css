@@ -65,7 +65,7 @@ button:hover {
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 4px;
-  resize: vertical;
+  resize:vertical;
   font-size: 18px;
 }
 

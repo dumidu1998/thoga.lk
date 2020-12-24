@@ -6,11 +6,7 @@
 </head>
 
 <body class="bodyclass2" onload="myFunction()" style="margin:0;">
-<<<<<<< HEAD
-<?php  include("navbar_dash.php"); ?>  
-=======
 <?php   include("navbar_dash.php"); ?>  
->>>>>>> 451fc0bbd87e41c0c29b0316ce411b9201eb619c
     <center>
     
 	    <h2 class="title">Insert Successfully</h2>
