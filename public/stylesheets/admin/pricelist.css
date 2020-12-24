@@ -1,0 +1,28 @@
+body {
+    background-image: url(/thoga.lk/public/images/admin/a.jpg);
+}
+
+.container {
+    margin: 100px 1% 0px 1%;
+}
+
+.main {
+    margin: 30px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.87);
+    font-size: 30px;
+    text-align: center;
+}
+
+.pricecont {
+    background-color: #33cc33;
+    width: 50%;
+    text-align: center;
+    padding: 2px;
+    margin: 0 auto
+}
+
+input {
+    height: 30px;
+    margin-bottom: 5px;
+}

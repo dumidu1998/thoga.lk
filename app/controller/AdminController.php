@@ -2,12 +2,14 @@
 
 require_once(__DIR__.'/../models/adminModel.php');
 require_once(__DIR__.'/../../core/View.php');
+require_once(__DIR__.'/../models/vegetablesModel.php');
 
 
 class AdminController {
     function __construct()
     {
         $this->model = new AdminModel();
+        $this->vegetables = new vegetablesModel();
     }
 
     public function index(){
@@ -30,6 +32,10 @@ class AdminController {
 
     public function usermanager(){
         $view = new View("admin/usermanager");
+    }
+    
+    public function showpricelist(){
+        $view = new View("admin/pricelist");
     }
 
     public function viewuser(){
@@ -90,6 +96,21 @@ class AdminController {
         }else{
             $_SESSION['error']="New Admin Added Sucessfully";
             header("location: showadmin");
+        }
+    }
+    public function addVeg(){
+        $results=$this->vegetables->get_all_vegetables();
+
+        $view = new View("admin/add_veg");
+        $view->assign('vegetables', $results);
+
+    }
+    public function editVeg(){
+        if(isset($_POST['edit'])){
+            $this->vegetables->update_vegetables($_POST['id'],$_POST['prev_price'],$_POST['curr_price'],$_POST['veg_name']);
+        }
+        if(isset($_POST['del'])){
+            $this->vegetables->delete_vegetables($_POST['id']);
         }
     }
 

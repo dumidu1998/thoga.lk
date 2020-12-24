@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $dir_name  = dirname($_SERVER['SCRIPT_NAME']);
 
@@ -33,11 +33,11 @@ $routes = [
     'mentor/dash' => 'mentorController@upcoming',
     'mentor/listed' => 'mentorController@listed_items',
     'mentor/view_price' => 'mentorController@view_price',
-    'farmer/forum' =>'ForumController@forum',
-    'farmer/aboutus'=>'FarmerController@about',
-    'mentor/aboutus'=>'mentorController@about',
+    'farmer/forum' => 'ForumController@forum',
+    'farmer/aboutus' => 'FarmerController@about',
+    'mentor/aboutus' => 'mentorController@about',
     'mentor/profile' => 'mentorController@profile',
-    'mentor/forum' =>'mentorController@forum',
+    'mentor/forum' => 'mentorController@forum',
     'farmer/viewmore' => 'FarmerController@view_more',
     'mentor/viewmore' => 'mentorController@view_more',
     'farmer/edit' => 'FarmerController@edit',
@@ -45,10 +45,10 @@ $routes = [
     'signup' => 'SignUpController@show',
     'signup/buyer' => 'SignUpController@addbuyer',
     'signup/farmer' => 'SignUpController@addfarmer',
-    'signup/driver'=> 'SignUpController@adddriver',
-    'signup/mentor'=> 'SignUpController@addmentor',
+    'signup/driver' => 'SignUpController@adddriver',
+    'signup/mentor' => 'SignUpController@addmentor',
     '' => 'LoginController@view',
-    'login'=> 'LoginController@login',
+    'login' => 'LoginController@login',
     'forum' => 'ForumController@forum',
     'forum/postForum' => 'ForumController@postForum',
     'forum/fullview' => 'ForumController@viewfull',
@@ -56,34 +56,37 @@ $routes = [
     'driver/viewmore' => 'DriverController@viewmore',
     'driver/profile' => 'DriverController@viewprofile',
     'driver/calendar' => 'DriverController@showcalendar',
-    'driver/unavailabledates'=> 'DriverController@unavailabledates',
-    'driver/vehicles'=> 'DriverController@showvehicle',
-    'driver/vehicledetails'=> 'DriverController@vehicledetails',
-    'driver/about_us'=> 'DriverController@about_us',
+    'driver/unavailabledates' => 'DriverController@unavailabledates',
+    'driver/vehicles' => 'DriverController@showvehicle',
+    'driver/vehicledetails' => 'DriverController@vehicledetails',
+    'driver/about_us' => 'DriverController@about_us',
     'buyer/orders' => 'BuyerController@orders',
     'buyer/viewmore' => 'BuyerController@viewmore',
     'buyer/about_us' => 'BuyerController@aboutus',
-    'admin'=> 'AdminController@index',
+    'admin' => 'AdminController@index',
     'admin/vieworders' => 'AdminController@vieworders',
-    'farmer/aboutus'=>'FarmerController@about',
-    'mentor/aboutus'=>'mentorController@about',
-    'admin/admanager'=>'AdminController@admanager',
-    'admin/login'=>'LoginController@admin_login',
+    'farmer/aboutus' => 'FarmerController@about',
+    'mentor/aboutus' => 'mentorController@about',
+    'admin/admanager' => 'AdminController@admanager',
+    'admin/login' => 'LoginController@admin_login',
     'admin/log' => 'LoginController@admin_log',
-    'admin/usermanager'=>'AdminController@usermanager',
-    'admin/showorder'=> 'AdminController@showorder',
+    'admin/usermanager' => 'AdminController@usermanager',
+    'admin/showorder' => 'AdminController@showorder',
     'admin/userview' => 'AdminController@viewuser',
     'admin/dappl' => 'AdminController@driverapplication',
     'admin/mappl' => 'AdminController@mentorapplication',
     'admin/mrequest' => 'AdminController@mentorrequest',
     'admin/adsubmit' => 'AdminController@adsubmit',
     'admin/showadmin' => 'AdminController@showadmin',
-    'admin/addadmin' => 'AdminController@addadmin'
-    
- ];
+    'admin/addadmin' => 'AdminController@addadmin',
+    'admin/vegetables' => 'AdminController@addVeg', 
+    'admin/pricelist' => 'AdminController@showpricelist',
+    'admin/edit' => 'AdminController@editVeg',
+    'buyer/addr' => 'BuyerController@addr'
+];
 
 
-foreach($routes as $route => $controller_route) {
+foreach ($routes as $route => $controller_route) {
     if ($route == $path) {
         $split = explode("@", $controller_route);
         $name = $split[0];
@@ -93,12 +96,7 @@ foreach($routes as $route => $controller_route) {
 
         $cont = new $name();
         call_user_func([$cont, $method]);
-        
-
-
     }
 }
 
 die();
-
-
