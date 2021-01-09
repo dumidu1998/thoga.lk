@@ -82,7 +82,14 @@ $routes = [
     'admin/vegetables' => 'AdminController@addVeg', 
     'admin/pricelist' => 'AdminController@showpricelist',
     'admin/edit' => 'AdminController@editVeg',
-    'buyer/addr' => 'BuyerController@addr'
+    'buyer/addr' => 'BuyerController@addr',
+
+    /*----*/
+    'testt' => 'AdminController@testajax',
+    'testtsub' => "AdminController@processajax"
+
+    /*-----*/
+
 ];
 
 

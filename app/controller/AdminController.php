@@ -114,6 +114,20 @@ class AdminController {
         }
     }
 
+
+
+    public function testajax(){
+        $view = new View("admin/testajax");
+    }
+
+    public function processajax(){
+        $a = $_POST['registration'];
+        $b = $_POST['name'];
+        $c= $_POST['email'];
+        echo $a." ".$b." ".$c;
+
+    }
+
 }
 
 
