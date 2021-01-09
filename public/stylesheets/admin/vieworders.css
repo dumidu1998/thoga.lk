@@ -1,22 +1,23 @@
-body{
+body {
     background-image: url(/thoga.lk/public/images/admin/a.jpg);
 }
 
-.container{
+.container {
     margin: 100px 1% 0px 1%;
 }
 
-h1{
+h1 {
     text-align: center;
-    text-decoration:underline;
-    font-size:40px"
+    text-decoration: underline;
+    font-size: 40px"
+
 }
 
-h2{
+h2 {
     margin-top: -10px;
     text-align: center;
-    text-decoration:underline;
-    font-size:25px;
+    text-decoration: underline;
+    font-size: 25px;
 }
 
 .back-button {
@@ -35,7 +36,7 @@ h2{
     background: rgba(131, 134, 134, 0.8);
 }
 
-.filters{
+.filters {
     font-size: 20px;
     font-weight: 300;
     background-color: rgba(255, 254, 254, 0.678);
@@ -45,13 +46,13 @@ h2{
     padding: 10px 50px;
 }
 
-.grid{
+.grid {
     display: grid;
     grid-template-columns: 50% 50%;
     margin-bottom: 3%;
 }
 
-input[type="date"]{
+input[type="date"] {
     font-size: 14px;
     width: 125px;
     line-height: 22px;
@@ -59,13 +60,13 @@ input[type="date"]{
     border: 2px solid rgb(13, 3, 105);
 }
 
-#resetb{
+#resetb {
     margin-left: 10px;
     background-color: #013457;
     color: azure;
 }
 
-input[type="text"]{
+input[type="text"] {
     width: 150px;
     font-size: 22px;
     line-height: 25px;
@@ -76,12 +77,12 @@ input[type="text"]{
     border: 2px solid rgb(13, 3, 105);
 }
 
-input[type="text"]::placeholder{
+input[type="text"]::placeholder {
     font-size: 13px;
     color: rgba(0, 4, 65, 0.39);
 }
 
-.sbutton{
+.sbutton {
     background: rgb(0, 0, 0);
     color: white;
     font-size: 25px;
@@ -92,7 +93,7 @@ input[type="text"]::placeholder{
     margin-bottom: 10px;
 }
 
-.sbutton:hover{
+.sbutton:hover {
     background: rgba(17, 32, 32, 0.8);
 }
 
@@ -102,30 +103,30 @@ input[type="text"]::placeholder{
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 25px;
-    background:  rgb(25, 29, 24);
+    background: transparent;
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    border: 1px solid #000;
-    width: 200px;
-    height: 80px;
-    color: white;
-  }
-  
-  .admin-btn:hover {
-    background: rgb(28, 21, 48);
-    color: rgb(255, 255, 255);
-  }
+    border: 2px solid #000;
+    width: 180px;
+    height: 60px;
+    color: #0a110d;
+}
 
-  .admin-btn1 {
+.admin-btn:hover {
+    background: #253e30;
+    color: rgb(255, 255, 255);
+}
+
+.admin-btn1 {
     margin: 0px 10px 0px 50px;
     padding: 1px 5px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 25px;
-    background:  rgb(25, 29, 24);
+    background: rgb(25, 29, 24);
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -135,15 +136,14 @@ input[type="text"]::placeholder{
     width: 100px;
     height: 50px;
     color: white;
-  }
-  
-  .admin-btn1:hover {
+}
+
+.admin-btn1:hover {
     background: rgb(28, 21, 48);
     color: rgb(255, 255, 255);
-  }
+}
 
-
-.filterTopic{
+.filterTopic {
     display: inline-block;
     text-decoration: underline;
     font-size: 22px;
@@ -153,99 +153,104 @@ input[type="text"]::placeholder{
     line-height: 30px;
 }
 
+
 /* 7*************************************************8 */
-table { 
-	width: 80%; 
-	border-collapse: collapse; 
-	margin:50px auto;
-	}
 
-tr:nth-of-type(odd) { 
-	background: #eee; 
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 50px auto;
 }
 
-th { 
-	background: #013457; 
-	color: white; 
-    font-weight: bold; 
+tr:nth-of-type(odd) {
+    background: #eee;
 }
 
-td, th { 
-	padding: 10px; 
-	border: 1px solid #ccc; 
-	text-align: left; 
-	font-size: 18px;
+th {
+    background: #253e30;
+    color: white;
+    font-weight: bold;
 }
 
-@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
-
-	table { 
-          width: 950%; 
-          margin: 0 10px;
-	}
-
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-		/* Label the data */
-		content: attr(data-column);
-		color: #000;
-		font-weight: bold;
-	}
-
+td,
+th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
 }
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    table {
+        width: 950%;
+        margin: 0 10px;
+    }
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        /* Label the data */
+        content: attr(data-column);
+        color: #000;
+        font-weight: bold;
+    }
+}
+
+
 /* 7************************************************** */
 
 @media screen and (max-width: 1260) {
-    .input[type="date"]{
+    .input[type="date"] {
         width: auto;
         border-radius: 20%;
         outline: 10px rgb(0, 0, 0);
     }
-    
 }
 
-
-.detailContainer{
+.detailContainer {
     height: auto;
     margin: 10px 50px;
     background-color: #01002ba2;
     color: #fff;
     padding: 30px 50px;
 }
-.container2{
+
+.container2 {
     float: right;
     text-align: left;
     width: 37%;
 }
 
-input[type="text"].mdetails{
+input[type="text"].mdetails {
     border: none;
     font-size: 25px;
     border-radius: 0px;
@@ -256,23 +261,22 @@ input[type="text"].mdetails{
     padding-bottom: 0px !important;
     padding-top: 0px !important;
     margin-bottom: 20px !important;
-    
 }
 
-textarea{
-    float:left;
-    margin-bottom:10px;
-    font-size:25px;
+textarea {
+    float: left;
+    margin-bottom: 10px;
+    font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color:transparent;
-    color:rgb(255, 255, 255);
+    background-color: transparent;
+    color: rgb(255, 255, 255);
     border: 0px;
 }
 
-input[type="text"].details{
+input[type="text"].details {
     border: none;
     font-size: 25px;
-    width:50%;
+    width: 50%;
     border-radius: 0px;
     color: #fff;
     background-color: transparent;
@@ -280,16 +284,15 @@ input[type="text"].details{
     padding-bottom: 0px !important;
     padding-top: 0px !important;
     margin-bottom: 20px !important;
-    
 }
 
-.Dlabel{
+.Dlabel {
     font-weight: 520;
     font-size: 24px;
     padding-bottom: 50px;
 }
 
-.cartcontainer{
+.cartcontainer {
     display: block;
     width: 90%;
     background-color: #01002ba2;
@@ -301,93 +304,112 @@ input[type="text"].details{
     padding: 30px 10px;
 }
 
-
-
 @media screen and (max-width: 768px) {
-    .grid{display: block;}
-    .container2{float: left;width: 100%;}
-    .detailContainer{padding: 5px 10px;}
+    .grid {
+        display: block;
+    }
+    .container2 {
+        float: left;
+        width: 100%;
+    }
+    .detailContainer {
+        padding: 5px 10px;
+    }
 }
 
-.az{
-    background-color:rgb(209, 2, 2);
+.az {
+    background-color: rgb(209, 2, 2);
 }
 
-.banner{
+.banner {
     margin: 00px;
 }
 
-.cbox{
-   
-    width:15px;
-    height:15px;
+.cbox {
+    width: 15px;
+    height: 15px;
 }
 
-.actionA{
+.actionA {
     margin-right: 20px;
 }
 
-.preview{
+.preview {
     height: 80px;
     margin: auto;
 }
 
-.centerit{
+.centerit {
     padding-left: 25px;
     align-content: center;
 }
 
 
 /* The Modal (background) */
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
     background-color: #ebe6e6f8;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     height: 350px;
-  }
-  
-  /* The Close Button */
-  .close {
+}
+
+
+/* The Close Button */
+
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  .lable{
+.lable {
     float: left;
     width: 15%;
     margin-top: 15px;
     margin-left: 10px;
     font-weight: 700;
     line-height: 0px;
-  }
- 
-  input[type=text],select{
+}
+
+input[type=text],
+select {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -396,22 +418,23 @@ input[type="text"].details{
     background-color: #fafafa;
     margin-bottom: 30px;
     display: block;
-  }
+}
 
-  select{
-      font-size: 18px;
-  }
-  option{
-      font-size: 18px;
-      background-color: rgb(255, 251, 251);
-  }
+select {
+    font-size: 18px;
+}
 
-  option:hover{
-      background-color: #013457 !important;
-      box-shadow: 0 0 10px 100px #000 inset;
-  }
+option {
+    font-size: 18px;
+    background-color: rgb(255, 251, 251);
+}
 
-  .submit-btn{
+option:hover {
+    background-color: #013457 !important;
+    box-shadow: 0 0 10px 100px #000 inset;
+}
+
+.submit-btn {
     float: left;
     background-color: #141414;
     border: none;
@@ -426,8 +449,7 @@ input[type="text"].details{
     display: inline;
 }
 
-
-.sbuttonp{
+.sbuttonp {
     background: rgb(0, 0, 0);
     color: white;
     font-size: 25px;
@@ -436,10 +458,10 @@ input[type="text"].details{
     padding: 15px 10px 15px 10px;
     text-decoration: none;
     margin-bottom: 10px;
-    margin-top:40px;
+    margin-top: 40px;
 }
 
-button{
+button {
     font-size: 16px;
     background-color: #b3dbf03b;
     border: none;
