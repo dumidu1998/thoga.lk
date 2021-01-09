@@ -114,8 +114,6 @@ class AdminController {
         }
     }
 
-
-
     public function testajax(){
         $view = new View("admin/testajax");
     }
