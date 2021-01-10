@@ -3,7 +3,7 @@
 require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/forumModel.php');
-
+require_once(__DIR__.'/../models/orderModel.php');
 
 
 class BuyerController {
@@ -11,6 +11,7 @@ class BuyerController {
     {
         $this->model = new item();
         $this->forum = new forumModel();
+        $this->order = new orderModel();
     }
 
     function getAll_get(){
@@ -243,6 +244,13 @@ class BuyerController {
             header("location:/thoga.lk/buyer/select-driver");
         }
         
+    }
+    public function statusUpdate(){
+        $id = $_POST['ord_id'];
+
+        $result = $this->order->setstaus($id);
+
+        echo $result;
     }
 
 }

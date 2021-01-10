@@ -2,6 +2,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/buyer/rating_style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
   <script type="text/javascript">
   
@@ -88,7 +89,18 @@
 
     btn.onchange = function(e){
         if(e.target.checked) {
-            modal.style.display = "block";
+            // modal.style.display = "block";
+            var id=document.getElementById('ord_id').innerHTML;
+            //console.log(xxx);
+            $.ajax({
+            url:"/thoga.lk/buyer/submitstatus",    //the page containing php script
+            type: "post",    //request type,
+            data: { ord_id : id},
+            success:function(result){
+                console.log(result);
+                
+            }
+        });
             btn.disabled = this.checked;
         }
         submit.onclick = function(e){
