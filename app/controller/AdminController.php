@@ -119,10 +119,10 @@ class AdminController {
     }
 
     public function processajax(){
-        $a = $_POST['registration'];
-        $b = $_POST['name'];
-        $c= $_POST['email'];
-        echo $a." ".$b." ".$c;
+        
+        $b = $_POST['ord_id'];
+      
+        echo  $b;
 
     }
 

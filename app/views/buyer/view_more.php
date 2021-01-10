@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <?php include("navbar.php");?>
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body >
 
 
 <div class="container">
@@ -24,8 +24,8 @@
                 <hr>
                 <table style="overflow-x:auto;">
                     <tr>
-                        <td class="item_name">Order Id</td>
-                        <td>#12345</td>
+                        <td class="item_name" >Order Id</td>
+                        <td id="ord_id">12345</td>
                         
                     </tr>
                     <tr>
@@ -143,7 +143,7 @@
 
 </div>
 
-<?php include("profile-popup.php"); ?>
+<?php //include("profile-popup.php"); ?>
 
 <?php include("footer.php"); ?>
 

@@ -19,9 +19,10 @@
         $.ajax({
             url:"testtsub",    //the page containing php script
             type: "post",    //request type,
-            data: {registration: val, name: "xyz", email: "abc@gmail.com"},
+            data: {cc: val, name: "xyz", email: "abc@gmail.com"},
             success:function(result){
                 console.log(result);
+                
             }
         });
     }

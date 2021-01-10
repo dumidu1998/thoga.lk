@@ -244,6 +244,12 @@ class BuyerController {
         }
         
     }
+    public function statusUpdate(){
+        $id = $_POST['ord_id'];
+        
+      
+        echo  $id;
+    }
 
 }
 
