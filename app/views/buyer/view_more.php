@@ -25,7 +25,7 @@
                 <table style="overflow-x:auto;">
                     <tr>
                         <td class="item_name" >Order Id</td>
-                        <td id="ord_id">12345</td>
+                        <td id="ord_id">3</td>
                         
                     </tr>
                     <tr>

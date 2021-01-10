@@ -93,7 +93,7 @@
             var id=document.getElementById('ord_id').innerHTML;
             //console.log(xxx);
             $.ajax({
-            url:"/thoga.lk/testtsub",    //the page containing php script
+            url:"/thoga.lk/buyer/submitstatus",    //the page containing php script
             type: "post",    //request type,
             data: { ord_id : id},
             success:function(result){

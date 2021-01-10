@@ -83,6 +83,8 @@ $routes = [
     'admin/pricelist' => 'AdminController@showpricelist',
     'admin/edit' => 'AdminController@editVeg',
     'buyer/addr' => 'BuyerController@addr',
+    'buyer/submitstatus' => 'BuyerController@statusUpdate',
+
 
     /*----*/
     'testt' => 'AdminController@testajax',
