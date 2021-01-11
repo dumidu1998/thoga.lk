@@ -114,6 +114,18 @@ class AdminController {
         }
     }
 
+    public function testajax(){
+        $view = new View("admin/testajax");
+    }
+
+    public function processajax(){
+        
+        $b = $_POST['ord_id'];
+      
+        echo  $b;
+
+    }
+
 }
 
 
