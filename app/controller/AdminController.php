@@ -119,10 +119,10 @@ class AdminController {
     }
 
     public function processajax(){
-        
-        $b = $_POST['ord_id'];
+        $g=$_GET['dd'];
+        $b = $_GET['ddd'];
       
-        echo  $b;
+        echo  $b." ".$g;
 
     }
 
