@@ -7,25 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="inp" id="t1"><br><br>
-        <input type="button" value="Submit" onclick="send()">
+    <form action="testtsub" method="get">
+        <input type="text" name="dd" id="t1"><br><br>
+        <input type="hidden" name="ddd">
+        <input type="button" value="Submit" >
     </form>
-</body>
 
-<script>
-    function send() {
-        val=document.getElementById('t1').value;
-        $.ajax({
-            url:"testtsub",    //the page containing php script
-            type: "post",    //request type,
-            data: {cc: val, name: "xyz", email: "abc@gmail.com"},
-            success:function(result){
-                console.log(result);
-                
-            }
-        });
-    }
-</script>
+    <a href="testtsub?dd=10&ddd=100" ><button name="dd">open</button></a>
+</body>
 
 </html>
