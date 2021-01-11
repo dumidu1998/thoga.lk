@@ -186,6 +186,12 @@ class BuyerController {
     public function viewmore(){
         session_start();
         $view = new View("buyer/view_more");
+        $details = $this->order->viewmore_farmer(1);
+        $driver_details = $this->order->viewmore_driver(1);
+        $view->assign('details', $details);
+        $view->assign('driver_details', $driver_details);
+
+
     }
     public function aboutus(){
         session_start();
