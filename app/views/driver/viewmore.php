@@ -6,7 +6,7 @@
     </head>
 
     <body>
-    <?php include("navbarviewmore.php"); ?>
+    <?php //include("navbarviewmore.php"); ?>
     <header >
         
         <div class="topic">
@@ -69,7 +69,7 @@
     <div class="right" >
         <div class="transbox">      
             <?php
-                  
+                print_r($buyer);
                 foreach($buyer as $keys => $row){
                 $bname=$row['username'];
             ?>
@@ -116,12 +116,12 @@
 					
 					echo "<tr>";
 					echo "<td>".$row['vege_name']."</td>";
-					echo "<td>".$row['total_cost']."</td>";
+					echo "<td>".$row['price/kg']."</td>";
 					echo "<td>".$row['weight']."</td>";
-					echo "<td>".$row['total_cost']*$row['weight']."</td>";
+					echo "<td>".$row['price/kg']*$row['weight']."</td>";
                     echo "</tr>";
                     
-                    $sum=$sum+ $row['total_cost']*$row['weight'];
+                    $sum=$sum+ $row['price/kg']*$row['weight'];
 				}
 			
 			?>
