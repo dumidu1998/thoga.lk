@@ -62,7 +62,14 @@ class AdminController {
     }
 
     public function driverapplication(){
+        $id=$_GET['id'];
+        $basic= $this->drivers->get_basic($id);
+        $vehicle= $this->drivers->get_vehicle_details($id);
         $view = new View("admin/Driver_application");
+        $view->assign('id', $id); 
+        $view->assign('basic', $basic); 
+        $view->assign('vehicle', $vehicle); 
+
     }
 
     public function mentorapplication(){
