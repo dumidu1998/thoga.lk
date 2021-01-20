@@ -5,6 +5,7 @@ require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/vegetablesModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/mentorModel.php');
+require_once(__DIR__.'/../models/farmerModel.php');
 
 
 class AdminController {
@@ -14,14 +15,17 @@ class AdminController {
         $this->vegetables = new vegetablesModel();
         $this->drivers = new driverModel();
         $this->mentors = new mentorModel();
+        $this->farmers = new farmerModel();
     }
 
     public function index(){
         $results=$this->drivers->get_pending();
         $mentors=$this->mentors->get_pending();
+        $farmers=$this->farmers->get_mentor_requests();
         $view = new View("admin/index");
         $view->assign('results', $results);
         $view->assign('mentors', $mentors);
+        $view->assign('farmers', $farmers);
     }
 
     public function vieworders(){

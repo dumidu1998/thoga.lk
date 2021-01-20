@@ -126,30 +126,23 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    foreach($farmers as $keys => $row){
+                        $farmer_id=$row['farmer_id'];
+                        $name=$row['firstname'] ." ".$row['lastname'] ;
+                        $city=$row['city'];
+                        $district=$row['district'];
+                ?>
+
                 <tr>
-                <td data-label="Farmer Name">A.D. Rathnayaka</td>
-                <td data-label="District">Ampara</td>
-                <td data-label="City">Kattankudi</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
+                <td data-label="Farmer Name"><?php echo $name; ?></td>
+                <td data-label="District"><?php echo $district; ?></td>
+                <td data-label="City"><?php echo $city; ?></td>
+                <td data-label="Action"><a href="admin/mrequest?id=<?php echo $farmer_id; ?>">Assign Mentor</a></td>
                 </tr>
-                <tr>
-                <td data-label="Farmer Name">K.D. Bandara</td>
-                <td data-label="District">Batticola</td>
-                <td data-label="City">Pasikuda</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
-                </tr>
-                <tr>
-                <td data-label="Farmer Name">A.S. Kumara</td>
-                <td data-label="District">Vavniya</td>
-                <td data-label="City">Punewa</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
-                </tr>
-                <tr>
-                <td data-label="Farmer Name">S.S. Ariyapala</td>
-                <td data-label="District">Galle</td>
-                <td data-label="City ">Matara</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
-                </tr>
+
+                <?php } ?>
+                
             </tbody>
         </table>
 

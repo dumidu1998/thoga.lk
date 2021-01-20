@@ -114,7 +114,7 @@ class signupModel extends db_model{
         $result1=$this->connection->query($sql1);
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user_id'];
-        $mid=0; //mentor
+        $mid=-1; //mentor
 
 
         $sql2="INSERT INTO farmer (user_id, `farmer's_idNo`, farm_name, mentor_id) Values ('".$uid."','".$FarmerIDno."','".$FarmName."','".$mid."')";
