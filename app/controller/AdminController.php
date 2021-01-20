@@ -3,6 +3,8 @@
 require_once(__DIR__.'/../models/adminModel.php');
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/vegetablesModel.php');
+require_once(__DIR__.'/../models/driverModel.php');
+require_once(__DIR__.'/../models/mentorModel.php');
 
 
 class AdminController {
@@ -10,10 +12,16 @@ class AdminController {
     {
         $this->model = new AdminModel();
         $this->vegetables = new vegetablesModel();
+        $this->drivers = new driverModel();
+        $this->mentors = new mentorModel();
     }
 
     public function index(){
+        $results=$this->drivers->get_pending();
+        $mentors=$this->mentors->get_pending();
         $view = new View("admin/index");
+        $view->assign('results', $results);
+        $view->assign('mentors', $mentors);
     }
 
     public function vieworders(){
