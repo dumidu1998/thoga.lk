@@ -43,31 +43,29 @@
 			<div class ="sright">				
 								
 								Vehicle id : 
-								<input type="text" "class="advancedSearchTextBox"  name="vehicleid" value="<?php echo $vehicleid?>" disabled>
+								<input type="text" class="textbox1"  name="vehicleid" value="<?php echo $vehicleid?>" disabled>
 								<br>
 								
 
 								Driver id             :
-								<input type="text" name="driverid" value="<?php echo $driverid?>" disabled>
+								<input type="text" class="textbox1" name="driverid" value="<?php echo $driverid?>" disabled>
 								<br>     
 
 								Vehicle No   :
-								<input type="text" name="vehicle no" value="<?php echo $vehicleno?>" disabled>
+								<input type="text"  class="textbox1" name="vehicle no" value="<?php echo $vehicleno?>" disabled>
 								<br>
-								
-			    
-								
-								<label>Cost/Km   :</label>
-								<input type="text" name="cost" value="<?php echo $cost?>">
-								<br> 
 
 								Vehicle Type  :
-								<input type="text" name="vehicle type" value="<?php echo $vehicletype?>" disabled>
+								<input type="text" class="textbox1" name="vehicle type" value="<?php echo $vehicletype?>" disabled>
 								<br>
 
 								Maximum Weight         :
-								<input type="text" name="maxweight" value="<?php echo $maxweight?>" disabled>
+								<input type="text" class="textbox1" name="maxweight" value="<?php echo $maxweight?>" disabled>
 								<br>
+
+								<label>Cost/Km   :</label>
+								<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo $cost?>">
+								<br> 
 					<input type="submit" value="Edit Details" class="button2" name="vehicledetails">				
 			</div>
 			<div class="bottom">
