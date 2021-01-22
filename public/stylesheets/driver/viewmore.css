@@ -64,7 +64,7 @@ header{
     opacity: 0.8;
     padding-top: 10px;
     padding-bottom: 20px;
-    background-color: #97a6fd;
+    background-color: #4CAF50;
     box-shadow:0 5px 15px rgba(0,0,0,.9);
     border-radius: 25px;
     
@@ -80,7 +80,7 @@ header{
     font-family: Arial, Helvetica, sans-serif;
     padding:0.1px;
     text-align:center;
-    color:darkblue;
+    color:black;
 }
 
 input[type=text] {
@@ -123,36 +123,50 @@ mark {
 }
 
 table {
-
-border-collapse: collapse;
-width: 90%;
-border:1.5px solid black;
-margin-top:40px;
-margin-bottom:20px;
-
-}
-
-table td {
-text-align: center;
-padding: 8px;
-font-size: 20px;
-
-}
-tr{
-    background-color: lightsteelblue;
-}
-tr:nth-child(even){background-color: #f2f2f2}
-tr:hover {background-color:#b3d9ff;}
-
-th {
-text-align: center;
-padding: 10px;
-font-size: 20px;
-background-color:rgb(22, 22, 177);
-color: white;
-height:10px;
-/* text-decoration: underline; */
-}
+    border-spacing: 1;
+    border-collapse: collapse;
+    border:1.5px solid black;
+    border-radius: 20px ;
+    /* overflow: hidden; */
+    width: 90%;
+    margin: 0 auto;
+    font-size: 15px;
+    position: relative;
+  }
+  table * {
+    position: relative;
+  }
+  
+  th{
+    line-height:2.6;
+    font-size: 20px;
+    background-color:  #2E5F3E;
+    color:white;
+  }
+      
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+      
+  tr {
+       
+    font-size: 19px;
+    color: black;
+    line-height: 2.7;
+    font-weight: unset;
+    background-color: #ffffff;
+    border:1px solid black;
+        
+  }
+  td{
+    text-align: center;
+        
+  }
+      
+  tr:hover {
+    background-color:#b3d9ff;
+        
+  }
 
 @media only screen and (max-width:620px) {
     /* For mobile phones: */

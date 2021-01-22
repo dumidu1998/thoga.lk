@@ -6,7 +6,7 @@
     </head>
 
     <body>
-    <?php include("navbarviewmore.php"); ?>
+    <?php //include("navbarviewmore.php"); ?>
     <header >
         
         <div class="topic">
@@ -22,7 +22,6 @@
                 foreach($view as $keys => $row){
                     $ordid = $row['order_id'];
                     $wght = $row['weight'];
-                    $ploc = $row['pickup_location'];
                     $totcost = $row['total_cost'];
                     $dloc = $row['deliver_location'];
                     $odrdate = $row['order_date'];
@@ -42,16 +41,12 @@
             <input type="text" name="weight" value="<?php echo $wght?>" disabled>
             <br>     
 
-            Pickup Location    :
-            <input type="text" name="pickup location" value="Anuradhapura" disabled>
-            <br>
-
             Total Cost         :
             <input type="text" name="total cost" value="<?php echo $totcost?>" disabled>
             <br> 
 
             Delivery Location  :
-            <input type="text" name="deliver location" value="Matale" disabled>
+            <input type="text" name="deliver location" value="<?php echo $dloc?>" disabled>
             <br> 
 
             Order Date          :
@@ -69,7 +64,7 @@
     <div class="right" >
         <div class="transbox">      
             <?php
-                  
+                
                 foreach($buyer as $keys => $row){
                 $bname=$row['username'];
             ?>
@@ -116,12 +111,12 @@
 					
 					echo "<tr>";
 					echo "<td>".$row['vege_name']."</td>";
-					echo "<td>".$row['total_cost']."</td>";
+					echo "<td>".$row['price/kg']."</td>";
 					echo "<td>".$row['weight']."</td>";
-					echo "<td>".$row['total_cost']*$row['weight']."</td>";
+					echo "<td>".$row['price/kg']*$row['weight']."</td>";
                     echo "</tr>";
                     
-                    $sum=$sum+ $row['total_cost']*$row['weight'];
+                    $sum=$sum+ $row['price/kg']*$row['weight'];
 				}
 			
 			?>
