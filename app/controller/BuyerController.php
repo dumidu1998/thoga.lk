@@ -54,8 +54,33 @@ class BuyerController {
         
     }
     public function organic(){
+        session_start();
+
         $view = new View("buyer/index");
-        $result = $this->model->joingetOrganic();
+
+        if(isset($_SESSION['user'])){
+            foreach ($_SESSION['user'] as $keys=>$values){
+                $home = $values['d_name'];
+                $near1 = $values['n1'];
+                $near2 = $values['n2'];
+
+                $result_home = $this->model->joingetOrganic($home);
+                $result_city1 = $this->model->joingetOrganic($near1);
+                $result_city2 = $this->model->joingetOrganic($near2);
+
+                $view->assign('data_home', $result_home);
+                $view->assign('data_city1', $result_city1);
+                $view->assign('data_city2', $result_city2);
+                $result = $this->model->joinget_all_org();
+                $view->assign('data', $result);
+              }
+
+        }else{
+            $result = $this->model->joinget();
+            $view->assign('data', $result);
+            
+        }
+        
         $class="org_active";
         $view->assign('data', $result); 
         $view->assign('class', $class); 
