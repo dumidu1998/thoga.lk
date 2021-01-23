@@ -3,7 +3,7 @@
 }
 body {
   
-    background: url('/thoga.lk/public/images/driver/98.jpg');
+    /* background: url('/thoga.lk/public/images/driver/98.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -21,7 +21,8 @@ header{
     width:40%;
     padding:18px;
     padding-top:30px;
-    text-align:center;
+    padding-left: 20px;
+    text-align:left;
     margin-left:10px;
     margin-bottom:15px;
     font-size:18px;
@@ -59,9 +60,15 @@ header{
     color:black;
     
 }
+
+.address{
+    padding-left:120px;
+ 
+}
 .transbox {
     
     opacity: 0.8;
+    padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 20px;
     background-color: #4CAF50;

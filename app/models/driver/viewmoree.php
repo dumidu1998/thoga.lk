@@ -13,12 +13,10 @@ class viewmoree extends db_model{
 		$sql= "SELECT a.username FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
-		print_r($result);
+		
 		$finale=array();
 		if($result){
         while($row=mysqli_fetch_assoc($result))
-			echo $row;
-			print_r($row);
 			array_push($finale,$row);
 		    return $finale;
 		}else
@@ -41,7 +39,7 @@ class viewmoree extends db_model{
 	}
 
     function  joinget3($orderId){
-		$sql = "SELECT vegetable.vege_name ,item.`price/kg`,order_details.weight FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id where order_details.order_id='".$orderId."'";
+		$sql = "SELECT vegetable.vege_name ,item.total_cost,order_details.weight FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id where order_details.order_id='".$orderId."'";
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){
@@ -54,7 +52,19 @@ class viewmoree extends db_model{
 		echo "error";
 
 	}
-
+	function  joinget4($id){
+		$sql= "SELECT a.name_en FROM districts AS a INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+		
+		$result=$this->connection->query($sql);
+		
+		$finale=array();
+		if($result){
+        while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		    return $finale;
+		}else
+		echo "error";
+	}
 
 }
 
