@@ -50,7 +50,7 @@
 					<td data-column="Vehicle Type"><?php echo $vehicletype; ?> </td>
                     <td data-column="Vehicle Number"><?php echo $vehicleno; ?> </td>
                     <td data-column="Availability"><label class="switch">
-                        <input type="checkbox" <?php echo($availability==1 ? 'checked': '') ?>  >
+                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> onchange="aa()"  >
                         <span class="slider round"></span>
                     </label></td>
 					<input type="hidden" name="vehicleid" value="<?php echo $vehicleid; ?>"> 
@@ -80,4 +80,20 @@
 		<?php include("footer.php"); ?> 
 		
 	</body>
+	<script>
+	function aa(){
+		alert("ddd");
+		var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("d").innerHTML = this.responseText;
+      alert(convert(x) + " marked as available.");
+    }
+  };
+  xhttp.open("GET", "/thoga.lk/driver/="+convert(x) , true);
+  xhttp.send();
+
+	}
+		// alert(document.getElementById("checkb"));
+	</script>
 </html>

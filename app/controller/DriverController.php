@@ -27,6 +27,7 @@ class DriverController{
             $res = $this->model2->joinget2($order_id);
             $buyer = $this->model2->joinget1($order_id);
             $items = $this->model2->joinget3($order_id);
+            $city= $this->model2->joinget4($order_id);
         
         }
         $result = $this->model2->get($order_id);
@@ -35,6 +36,7 @@ class DriverController{
         $view->assign('view',$result);
         $view->assign('res',$res);
         $view->assign('buyer',$buyer);
+        $view->assign('cityy',$city);
         $view->assign('items',$items);
         
     }
