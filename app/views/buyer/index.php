@@ -2,7 +2,7 @@
 <html lang="en">
 <?php 
 //tet
-session_start();
+
 
 
 // print_r($_SESSION['e_dateArray']);
@@ -62,8 +62,35 @@ if(!empty($_SESSION['e_dateArray'])){
         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
       </div>
-  
-    <?php include("item_non_org.php"); ?> 
+      <?php
+      if(isset($_SESSION['user'])){
+        foreach($_SESSION['user'] as $key => $values){
+
+        
+      
+      ?>
+      <center>
+      <h2 style = "color : #253e30"><?php echo $values['d_name'] ?></h2>
+      </center>
+      <?php include("items_home.php"); ?> 
+      <center>
+      <h2 style = "color : #253e30"><?php echo $values['n1'] ?> <span style = "color : #2e5f3e; font-size :12px">(Nearest city)</span> </h2>
+      </center>
+      <?php include("items_city1.php"); ?> 
+      <center>
+      <h2 style = "color : #253e30"><?php echo $values['n2']  ?> <span style = "color : #2e5f3e; font-size :12px">(Nearest city)</span></h2>
+      </center>
+      <?php include("items_city2.php"); ?> 
+      <?php
+      }
+    }
+      ?>
+      <center>
+      <h2 style = "color : #253e30">All island</h2>
+      </center>
+
+      <?php include("item_non_org.php"); ?> 
+
     
 
   
@@ -73,8 +100,7 @@ if(!empty($_SESSION['e_dateArray'])){
   <div> 
     <?php
     if(isset($_SESSION['user'])){
-
-    
+    // print_r($_SESSION['user']);
 
     ?>
     
@@ -96,6 +122,7 @@ if(!empty($_SESSION['e_dateArray'])){
         <div class="cart_item_row-name">
           <!-- name -->
           <?php echo $values["item_name"]; ?>  
+          
           <div class="cart_item_row-up">
             <!-- unit price -->
             Rs. <?php echo $values["item_price"] * $values["item_quantity"] ; ?>
