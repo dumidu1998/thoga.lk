@@ -98,7 +98,6 @@
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     margin-top: 10%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
@@ -142,9 +141,10 @@ th {
     }
 }
 .item_name{
-    font-weight: bolder;
+    font: weight 600;
     font-size: larger;
-    color: red;
+    color:#2E5F3E;
+    ;
 }
 .td_summary{
     font-size: small;
