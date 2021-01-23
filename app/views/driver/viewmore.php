@@ -6,7 +6,7 @@
     </head>
 
     <body>
-    <?php //include("navbarviewmore.php"); ?>
+    <?php include("navbarviewmore.php"); ?>
     <header >
         
         <div class="topic">
@@ -23,11 +23,13 @@
                     $ordid = $row['order_id'];
                     $wght = $row['weight'];
                     $totcost = $row['total_cost'];
-                    $dloc = $row['deliver_location'];
                     $odrdate = $row['order_date'];
                     $dt = new DateTime($odrdate);
                     $date = $dt->format('Y-m-d');
                     $pickdate = $row['pickup_date'];
+                    $add1= $row['d_addline1'];
+                    $add2=$row['d_addline2'];
+                    $city=$row['city'];
 
                 }         
                             
@@ -45,8 +47,12 @@
             <input type="text" name="total cost" value="<?php echo $totcost?>" disabled>
             <br> 
 
-            Delivery Location  :
-            <input type="text" name="deliver location" value="<?php echo $dloc?>" disabled>
+            Delivery Address  :
+            <input type="text" name="addline2" value="<?php echo $add1?>" disabled>
+            <br> 
+            <input type="text" name="addline2" value="<?php echo $add2?>" disabled>
+            <br> 
+            <input type="text" name="city" value="<?php echo $city?>" disabled>
             <br> 
 
             Order Date          :
@@ -98,6 +104,7 @@
 			
 			<tr>
 				<th>Item Name</th>
+                <th>pickup location</th>
 				<th>Unit Price(per Kg)</th>
 				<th>Quantity(Kg)</th>
 				<th>Sub Total</th>
@@ -110,13 +117,14 @@
                  foreach($items as $keys => $row){
 					
 					echo "<tr>";
-					echo "<td>".$row['vege_name']."</td>";
-					echo "<td>".$row['price/kg']."</td>";
+                    echo "<td>".$row['vege_name']."</td>";
+                    echo "<td></td>";
+					echo "<td>".$row['total_cost']."</td>";
 					echo "<td>".$row['weight']."</td>";
-					echo "<td>".$row['price/kg']*$row['weight']."</td>";
+					echo "<td>".$row['total_cost']*$row['weight']."</td>";
                     echo "</tr>";
                     
-                    $sum=$sum+ $row['price/kg']*$row['weight'];
+                    $sum=$sum+ $row['total_cost']*$row['weight'];
 				}
 			
 			?>
