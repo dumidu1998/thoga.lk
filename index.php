@@ -83,13 +83,14 @@ $routes = [
     'admin/pricelist' => 'AdminController@showpricelist',
     'admin/edit' => 'AdminController@editVeg',
     'buyer/addr' => 'BuyerController@addr',
+    'driver/changeav0' => 'DriverController@changeavailability0',
+    'driver/changeav1' => 'DriverController@changeavailability1',
     'buyer/submitstatus' => 'BuyerController@statusUpdate',
 
 
     /*----*/
     'testt' => 'AdminController@testajax',
     'testtsub' => "AdminController@processajax"
-
     /*-----*/
 
 ];

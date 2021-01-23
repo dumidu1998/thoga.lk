@@ -5,6 +5,8 @@
 		<title>Driver Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/vehicledetails.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+  crossorigin="anonymous"></script>
 	</head>
 
 	<body>
@@ -50,10 +52,10 @@
 					<td data-column="Vehicle Type"><?php echo $vehicletype; ?> </td>
                     <td data-column="Vehicle Number"><?php echo $vehicleno; ?> </td>
                     <td data-column="Availability"><label class="switch">
-                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> onchange="aa()"  >
+                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> value="<?php echo $vehicleid; ?>" onchange="changeavailability(this.value)"  >
                         <span class="slider round"></span>
                     </label></td>
-					<input type="hidden" name="vehicleid" value="<?php echo $vehicleid; ?>"> 
+					<input type="hidden"  name="vehicleid" value="<?php echo $vehicleid; ?>"> 
 					<td data-column="Action"><button name="vehicles" class="button1" > View More</button></td>
 					</form>
 					</tr>
@@ -81,19 +83,28 @@
 		
 	</body>
 	<script>
-	function aa(){
-		alert("ddd");
-		var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      // document.getElementById("d").innerHTML = this.responseText;
-      alert(convert(x) + " marked as available.");
-    }
-  };
-  xhttp.open("GET", "/thoga.lk/driver/="+convert(x) , true);
-  xhttp.send();
-
+	function changeavailability(vid){
+		  const status=document.getElementById("checkb").checked;
+		  if(status){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				alert("marked as available.");
+				}
+			};
+			xhttp.open("GET", "/thoga.lk/driver/changeav1?vid="+vid, true);
+			xhttp.send();
+		  }else{
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				alert("marked as unavailable.");
+				}
+			};
+			xhttp.open("GET", "/thoga.lk/driver/changeav0?vid="+vid, true);
+			xhttp.send();
+		  }
+		
 	}
-		// alert(document.getElementById("checkb"));
 	</script>
 </html>

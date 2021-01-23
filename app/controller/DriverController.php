@@ -96,6 +96,17 @@ class DriverController{
         
     }
 
+    public function changeavailability0(){
+        $vid=$_GET['vid'];
+        echo $vid;
+        $result = $this->model->makeunavailable($vid);//vehicle_id
+    }
+
+    public function changeavailability1(){
+        $vid=$_GET['vid'];
+        $result = $this->model->makeavailable($vid);//vehicle_id
+    }
+
 }
 
 ?>
