@@ -82,12 +82,21 @@ $routes = [
     'admin/vegetables' => 'AdminController@addVeg', 
     'admin/pricelist' => 'AdminController@showpricelist',
     'admin/edit' => 'AdminController@editVeg',
-    'buyer/addr' => 'BuyerController@addr'
-];
+    'buyer/addr' => 'BuyerController@addr',
+    'buyer/submitstatus' => 'BuyerController@statusUpdate',
 
+
+    /*----*/
+    'testt' => 'AdminController@testajax',
+    'testtsub' => "AdminController@processajax"
+
+    /*-----*/
+
+];
+$request_path_only = explode("?", $path)[0];
 
 foreach ($routes as $route => $controller_route) {
-    if ($route == $path) {
+    if ($route == $request_path_only) {
         $split = explode("@", $controller_route);
         $name = $split[0];
         $method = $split[1];

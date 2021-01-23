@@ -15,9 +15,9 @@
  //print_r($data[0]);
  
 $count=0;
-$length = sizeof($data);
+$length = sizeof($data_city2);
 // echo $length;
-foreach($data as $key => $value){
+foreach($data_city2 as $key => $value){
     $name = $value['vege_name'];
     $farmer_name = $value['firstname'];
     $id = $value['item_id'];
@@ -86,7 +86,7 @@ foreach($data as $key => $value){
                                   <div class="user_address">
                             <!-- location details of the farmer -->
                                         <img width="20px" height="70px" src="/thoga.lk/public/images/buyer/icons/location.png" alt="">
-                                      <p><?php echo $value['address_line1'] . " </br>" . $value['address_line2'] . "</br> " .$value['city'] . "</br>". $value['distric']. " </br> ". $value['province']; ?> </p>
+                                      <p><?php echo $value['address_line1'] . " </br>" . $value['address_line2'] . "</br> " .$value['city'] . " </br> ". $value['province']; ?> </p>
                                     </div>
                               
                           </div>          
@@ -109,9 +109,8 @@ foreach($data as $key => $value){
                         <input type="hidden" name="hidden_price" value="<?php echo $price ?>" />  
                         <input type="hidden" name="id" value="<?php echo $id ?>" />  
                         <input type="hidden" name="distric" value="<?php echo $value['distric'] ?>" />  
-
   
-                        <label for="price">Price/kg</label>
+                          <label for="price">Price/kg</label>
                         <input type="number" id="price" name="price" value="<?php echo $price ?>" disabled/> 
                         <label for="qnty">Quantity</label>
                         <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
@@ -124,12 +123,12 @@ foreach($data as $key => $value){
                       <?php 
                         if(isset($_SESSION['user'])){
                             if(!empty($_SESSION['shopping_cart'])){
-                                if($_SESSION['shopping_cart'][0]['disctrict'] != $value['distric']){
+                                if(!strcmp($_SESSION['shopping_cart'][0]['disctrict'] , $value['distric'])){
                                  echo "<button onclick = 'error_differentdis()' class='checkout_btn'>Add to cart</button>";
       
                                 }else{
-                                  echo "<button name='add_to_cart' class='checkout_btn'>Add to cart</button>";
-                              }
+                                    echo "<button name='add_to_cart' class='checkout_btn'>Add to cart</button>";
+                                }
                             
                             }
                             else{
@@ -177,6 +176,7 @@ if($count==0)
 echo"<center><p style='font-weight:lighter; font-size:12px;'> Sorry Currently items are not available in this are </p></center>";
 }
 ?>
+
 </div>
 
 

@@ -114,6 +114,18 @@ class AdminController {
         }
     }
 
+    public function testajax(){
+        $view = new View("admin/testajax");
+    }
+
+    public function processajax(){
+        $g=$_GET['dd'];
+        $b = $_GET['ddd'];
+      
+        echo  $b." ".$g;
+
+    }
+
 }
 
 

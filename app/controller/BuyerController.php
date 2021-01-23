@@ -3,7 +3,7 @@
 require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/forumModel.php');
-
+require_once(__DIR__.'/../models/orderModel.php');
 
 
 class BuyerController {
@@ -11,6 +11,7 @@ class BuyerController {
     {
         $this->model = new item();
         $this->forum = new forumModel();
+        $this->order = new orderModel();
     }
 
     function getAll_get(){
@@ -19,12 +20,35 @@ class BuyerController {
         
     }
     public function index(){
-        // session_start();
+         session_start();
         $view = new View("buyer/index");
-        
-        $result = $this->model->joinget();
+
+        if(isset($_SESSION['user'])){
+            foreach ($_SESSION['user'] as $keys=>$values){
+                $home = $values['d_name'];
+                $near1 = $values['n1'];
+                $near2 = $values['n2'];
+
+                $result_home = $this->model->joinget_home($home);
+                $result_city1 = $this->model->joinget_home($near1);
+                $result_city2 = $this->model->joinget_home($near2);
+
+                $view->assign('data_home', $result_home);
+                $view->assign('data_city1', $result_city1);
+                $view->assign('data_city2', $result_city2);
+                $result = $this->model->joinget();
+                $view->assign('data', $result);
+              }
+
+        }else{
+            $result = $this->model->joinget();
+            $view->assign('data', $result);
+            
+        }
+
         $class="org_active";
         $view->assign('data', $result);
+
         $view->assign('class', $class); 
         
         
@@ -83,6 +107,7 @@ class BuyerController {
                             'item_price'          =>     $_POST["hidden_price"],  
                             'item_quantity'          =>     $_POST["quantity"],
                             'item_end_d'  => $_POST['e_date'], 
+                            'disctrict' => $_POST['distric'],
                        );  
                        $dates = array(
                         
@@ -109,6 +134,7 @@ class BuyerController {
                     'item_price'          =>     $_POST["hidden_price"],  
                     'item_quantity'          =>     $_POST["quantity"],
                     'item_end_d'  => $_POST['e_date'], 
+                    'disctrict' => $_POST['distric'],
                   );  
                   $dates = array(
                     
@@ -185,6 +211,12 @@ class BuyerController {
     public function viewmore(){
         session_start();
         $view = new View("buyer/view_more");
+        $details = $this->order->viewmore_farmer(1);
+        $driver_details = $this->order->viewmore_driver(1);
+        $view->assign('details', $details);
+        $view->assign('driver_details', $driver_details);
+
+
     }
     public function aboutus(){
         session_start();
@@ -244,6 +276,15 @@ class BuyerController {
         }
         
     }
+    public function statusUpdate(){
+        $id = $_POST['ord_id'];
+
+        $result = $this->order->setstaus($id);
+
+        echo $result;
+    }
+
+    
 
 }
 

@@ -9,12 +9,8 @@
   
 <body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
     <?php include("navbar.php");?>
-    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add new Admin</button></a></div>
-    <ul>
-        <li><a href="#dapplications">Driver Applications</a></li>
-        <li><a href="#mapplications">Mentor Applications</a></li>
-        <li><a href="#mrequests">Mentor Requests</a></li>
-    </ul>
+    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add New Admin</button></a></div>
+    
     <div class="buttonContainer">
         <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
         <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>

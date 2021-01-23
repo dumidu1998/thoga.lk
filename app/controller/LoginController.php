@@ -19,11 +19,11 @@ class LoginController{
                     $_SESSION['loginerror']=0;
                     $user_data = $this->user->get_data($uname);
                     $_SESSION['user'] = $user_data;
-
+                    
                     foreach($user_data as $keys => $values){
-                        // echo $values['user_type'];
+                         echo $values['user_type'];
                         if($values['user_type'] == 'buyer'){
-                            echo ("buyer");
+                           // echo ("buyer");
                             header("location:buyer/home");
                         }elseif($values['user_type'] == 'farmer'){
                             //print_r($user_data);
