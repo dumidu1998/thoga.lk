@@ -96,6 +96,20 @@ class DriverController{
         
     }
 
+    public function changeavailability0(){
+        $result = $this->model->makeunavailable(1);//vehicle_id
+    }
+
+    public function changeavailability1(){
+            $result = $this->model->makeavailable(1);//vehicle_id
+    }
+
+    public function change(){
+            echo $_GET['a'];
+            echo "d";
+            //$result = $this->model->makeavailable(1);//vehicle_id
+    }
+
 }
 
 ?>

@@ -82,7 +82,10 @@ $routes = [
     'admin/vegetables' => 'AdminController@addVeg', 
     'admin/pricelist' => 'AdminController@showpricelist',
     'admin/edit' => 'AdminController@editVeg',
-    'buyer/addr' => 'BuyerController@addr'
+    'buyer/addr' => 'BuyerController@addr',
+    'driver/changeav0' => 'DriverController@changeavailability0',
+    'driver/changeav1' => 'DriverController@changeavailability1',
+    'driver/change' => 'DriverController@change',
 ];
 
 

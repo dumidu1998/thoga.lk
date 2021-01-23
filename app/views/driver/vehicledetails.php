@@ -5,6 +5,8 @@
 		<title>Driver Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/vehicledetails.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+  crossorigin="anonymous"></script>
 	</head>
 
 	<body>
@@ -50,7 +52,7 @@
 					<td data-column="Vehicle Type"><?php echo $vehicletype; ?> </td>
                     <td data-column="Vehicle Number"><?php echo $vehicleno; ?> </td>
                     <td data-column="Availability"><label class="switch">
-                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> onchange="aa()"  >
+                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> onchange="changeavailability()"  >
                         <span class="slider round"></span>
                     </label></td>
 					<input type="hidden" name="vehicleid" value="<?php echo $vehicleid; ?>"> 
@@ -81,18 +83,34 @@
 		
 	</body>
 	<script>
-	function aa(){
-		alert("ddd");
-		var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      // document.getElementById("d").innerHTML = this.responseText;
-      alert(convert(x) + " marked as available.");
-    }
-  };
-  xhttp.open("GET", "/thoga.lk/driver/="+convert(x) , true);
-  xhttp.send();
+	function changeavailability(){
+		// alert("ddd");
+		  const status=document.getElementById("checkb").checked;
+		  if(status){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				// document.getElementById("d").innerHTML = this.responseText;
+				alert("marked as unavailable.");
+				}
+			};
+			xhttp.open("GET", "/thoga.lk/driver/changeav1", true);
+			xhttp.send();
+		  	alert("Checked");
+		  }else{
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				// document.getElementById("d").innerHTML = this.responseText;
+				alert("marked as available.");
+				}
+			};
+			xhttp.open("GET", "/thoga.lk/driver/changeav0", true);
+			xhttp.send();
+		  	alert("unchecekd");
 
+		  }
+		
 	}
 		// alert(document.getElementById("checkb"));
 	</script>
