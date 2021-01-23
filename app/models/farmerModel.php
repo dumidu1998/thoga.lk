@@ -8,6 +8,22 @@ class farmerModel extends db_model{
         return $this->read('item',array('*'),null);
     }
 
+    function get_mentor_requests(){
+      $sql = "SELECT farmer.farmer_id ,user.firstname,user.lastname, districts.name_en AS district, cities.name_en AS city FROM farmer INNER JOIN user ON 
+      farmer.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON
+      address.district=districts.id INNER JOIN cities ON address.city=cities.id where farmer.mentor_id=0";
+      $result=$this->connection->query($sql);
+      $finale=array();
+      if($result){
+             while($row=mysqli_fetch_assoc($result)){
+        array_push($finale,$row);
+         }
+        return $finale;
+  
+      }else
+      echo "error";        
+    }
+
     function get_details(){
        $sql="SELECT orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,buyer.b_name FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id
        ";
