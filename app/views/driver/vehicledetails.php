@@ -52,7 +52,7 @@
 					<td data-column="Vehicle Type"><?php echo $vehicletype; ?> </td>
                     <td data-column="Vehicle Number"><?php echo $vehicleno; ?> </td>
                     <td data-column="Availability"><label class="switch">
-                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> value="<?php echo $vehicleid; ?>" onchange="changeavailability(this.value)"  >
+                        <input type="checkbox" id="checkb-<?php echo $vehicleid; ?>" <?php echo($availability==1 ? 'checked': '') ?> value="<?php echo $vehicleid; ?>" onchange="changeavailability(this.value)"  >
                         <span class="slider round"></span>
                     </label></td>
 					<input type="hidden"  name="vehicleid" value="<?php echo $vehicleid; ?>"> 
@@ -84,7 +84,9 @@
 	</body>
 	<script>
 	function changeavailability(vid){
-		  const status=document.getElementById("checkb").checked;
+		  alert(vid);
+		  const status=document.getElementById("checkb-"+vid).checked;
+		  alert(status);
 		  if(status){
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
