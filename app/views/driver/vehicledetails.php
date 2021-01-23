@@ -52,10 +52,10 @@
 					<td data-column="Vehicle Type"><?php echo $vehicletype; ?> </td>
                     <td data-column="Vehicle Number"><?php echo $vehicleno; ?> </td>
                     <td data-column="Availability"><label class="switch">
-                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> onchange="changeavailability()"  >
+                        <input type="checkbox" id="checkb" <?php echo($availability==1 ? 'checked': '') ?> value="<?php echo $vehicleid; ?>" onchange="changeavailability(this.value)"  >
                         <span class="slider round"></span>
                     </label></td>
-					<input type="hidden" name="vehicleid" value="<?php echo $vehicleid; ?>"> 
+					<input type="hidden"  name="vehicleid" value="<?php echo $vehicleid; ?>"> 
 					<td data-column="Action"><button name="vehicles" class="button1" > View More</button></td>
 					</form>
 					</tr>
@@ -83,35 +83,28 @@
 		
 	</body>
 	<script>
-	function changeavailability(){
-		// alert("ddd");
+	function changeavailability(vid){
 		  const status=document.getElementById("checkb").checked;
 		  if(status){
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-				// document.getElementById("d").innerHTML = this.responseText;
-				alert("marked as unavailable.");
+				alert("marked as available.");
 				}
 			};
-			xhttp.open("GET", "/thoga.lk/driver/changeav1", true);
+			xhttp.open("GET", "/thoga.lk/driver/changeav1?vid="+vid, true);
 			xhttp.send();
-		  	alert("Checked");
 		  }else{
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-				// document.getElementById("d").innerHTML = this.responseText;
-				alert("marked as available.");
+				alert("marked as unavailable.");
 				}
 			};
-			xhttp.open("GET", "/thoga.lk/driver/changeav0", true);
+			xhttp.open("GET", "/thoga.lk/driver/changeav0?vid="+vid, true);
 			xhttp.send();
-		  	alert("unchecekd");
-
 		  }
 		
 	}
-		// alert(document.getElementById("checkb"));
 	</script>
 </html>

@@ -85,7 +85,6 @@ $routes = [
     'buyer/addr' => 'BuyerController@addr',
     'driver/changeav0' => 'DriverController@changeavailability0',
     'driver/changeav1' => 'DriverController@changeavailability1',
-    'driver/change' => 'DriverController@change',
     'buyer/submitstatus' => 'BuyerController@statusUpdate',
 
 
