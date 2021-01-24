@@ -8,7 +8,7 @@
 
 <?php include 'navbar_dash.php';?>
 
-<body background= "/thoga.lk/public/images/Farmer/index1.jpg">
+<body>
 
 <h1 class="title">Add your item here....</h1>
 

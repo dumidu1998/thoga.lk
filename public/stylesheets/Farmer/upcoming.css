@@ -49,7 +49,7 @@ table {
 
 }
 th{
-	background-color: #4CAF50;
+	background-color: #253E30;
   	color: white;
 }
 
@@ -66,7 +66,7 @@ tr:nth-child(even){
 
 .more{
 
-  background-color: #0deb2b;
+  background-color:  #2E5F3E;
   width: 80%;
   border-radius: 5px;
   color: white;

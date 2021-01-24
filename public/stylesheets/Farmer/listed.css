@@ -48,7 +48,7 @@ table {
  
 }
 th{
-	background-color: #4CAF50;
+	background-color: #253E30;
   	color: white;
 }
 
@@ -65,7 +65,7 @@ tr:nth-child(even){
 
 .dele{
 
-  background-color: #eb780d;
+  background-color: #4CAF50;
   width: 80%;
   border-radius: 5px;
   color: white;
@@ -79,7 +79,7 @@ tr:nth-child(even){
 
 .more{
 
-  background-color: #ebd50d;
+  background-color:#2E5F3E;
   width: 80%;
   border-radius: 5px;
   color: white;

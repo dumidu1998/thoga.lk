@@ -10,7 +10,7 @@
 </head>
 
 
-<body background="/thoga.lk/public/images/Farmer/index1.jpg">
+<body>
 <?php include 'navbar_dash.php'; ?>
 
 <h1 class="title">Price List</h1>

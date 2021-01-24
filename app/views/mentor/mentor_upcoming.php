@@ -7,7 +7,7 @@
 
 </head>
  
-<body background="/thoga.lk/public/stylesheets/Farmer/index1.jpg">
+<body>
    <?php 
    include 'navbar_dash.php';
    

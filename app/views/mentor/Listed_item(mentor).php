@@ -1,13 +1,13 @@
 <html>
 <head>
-<title>Farmer Dashboard</title>
+<title>Mentor Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/mentor/listed.css">
 
 
 </head>
  
-<body background="/thoga.lk/public/images/Farmer/index1.jpg">
+<body>
   <?php include 'navbar_dash.php';?>
 
   
@@ -72,7 +72,7 @@
         <td>60</td>
         <td>50</td>
         <td>2020-12-07</td>
-        <td>28/td>
+        <td>28</td>
         <td>Perera</td>
         <td><a class="more" href="edit">view more</a></td>
         <td><a class="delete" href="delete.php">Delete</a></td>
