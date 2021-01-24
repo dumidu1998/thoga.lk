@@ -16,8 +16,8 @@ class driverModel extends db_model{
 
 		return $this->read('driver', array('*'), array('id'=>$id));
 	}
-	function get_avail(){
-		$sql = "SELECT a.*, b.* FROM driver AS a INNER JOIN unavailable_dates AS b ON a.driver_id = b.driver_id WHERE b.enddate >= '2021-01-12' AND b.startdate <= '2021-01-12'";
+	function get_avail($date){
+		$sql = "SELECT * FROM driver WHERE driver_id NOT IN (SELECT driver_id FROM unavailable_dates WHERE enddate >= '".$date."' AND startdate <= '".$date."')";
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){

@@ -4,6 +4,7 @@ require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/forumModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
+require_once(__DIR__.'/../models/driverModel.php');
 
 
 class BuyerController {
@@ -12,6 +13,7 @@ class BuyerController {
         $this->model = new item();
         $this->forum = new forumModel();
         $this->order = new orderModel();
+        $this->drivers = new driverModel();
     }
 
     function getAll_get(){
@@ -109,9 +111,10 @@ class BuyerController {
 
     public function selectDriver( ){
         session_start();
-
+        $date = 2021-01-12;
+        $result = $this->drivers->get_avail($date);
         $view = new View("buyer/selectDriver");
-        $view->assign('data', []); 
+        $view->assign('data', $result); 
         
     }
     public function cart(){
@@ -205,6 +208,9 @@ class BuyerController {
             $pick_date =   $_POST['pick_date'];
             $view = new View("buyer/checkout");
             $view->assign('pick_date', $pick_date);
+            session_start();
+            $_SESSION['pickup_date'] = $pick_date;
+
         }
     }
     public function summery(){
@@ -266,7 +272,7 @@ class BuyerController {
             
         }
     } 
-    public function addr(){
+    public function summary(){
         if(isset($_POST['continue'])){
             $address_line1 = $_POST['address_line1'];
             $address_line2 = $_POST['address_line2'];
@@ -276,12 +282,17 @@ class BuyerController {
             $contactno1 = $_POST['contactno1'];
             $contactno2 = $_POST['contactno2'];
 
-            $arr = ["add1" => $address_line1, "b" => $address_line2, "d"=>$d_name,"c"=>$c_name,"e"=> $p_name,"f"=>$contactno1,"g"=>$contactno2];
+            $arr = ["add1" => $address_line1, "add2" => $address_line2, "district"=>$d_name,"city"=>$c_name,"province"=> $p_name,"contact1"=>$contactno1,"contact2"=>$contactno2];
+            
+           
+            //print_r( $_SESSION['del']);
+                   
+            // header("location:/thoga.lk/buyer/summery");
+            session_start();
+            $_SESSION['delivery_add']=$arr;
 
-            $_SESSION['del']=$arr;
-            print_r( $_SESSION['del']);
-
-            header("location:/thoga.lk/buyer/summery");
+            $view = new View("buyer/summary");
+            $view->assign('address', $arr);
        
 
         }else if(isset($_POST['selectDriver'])){
@@ -294,9 +305,13 @@ class BuyerController {
             $contactno1 = $_POST['contactno1'];
             $contactno2 = $_POST['contactno2'];
 
-            $_SESSION['del_address'] = [$address_line1,$address_line2,$d_name,$c_name,$p_name,$contactno1,$contactno2];
             // print_r($_SESSION['del_address']);
+            $arr = ["add1" => $address_line1, "add2" => $address_line2, "district"=>$d_name,"city"=>$c_name,"province"=> $p_name,"contact1"=>$contactno1,"contact2"=>$contactno2];
+  // header("location:/thoga.lk/buyer/summery");
+                session_start();
+                $_SESSION['delivery_add']=$arr;
 
+                
             header("location:/thoga.lk/buyer/select-driver");
         }
         

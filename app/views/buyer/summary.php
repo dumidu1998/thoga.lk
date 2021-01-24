@@ -14,21 +14,29 @@
         <br>
 
         <?php
-        session_start();
-         if(isset($_SESSION['del'])){
-             echo "yay";
-         }else{
-             echo "dead";
-         }
+      
+         if(isset($_SESSION['delivery_add'])){
+           
+                      
         ?>
-        <p>Delivery address : 388/53 stage1 apura</p>
+        <p>Delivery address : <?php echo ($_SESSION['delivery_add']['add1'])  ?> <?php echo ($_SESSION['delivery_add']['add2'])  ?>
+        <br><?php echo ($_SESSION['delivery_add']['city'])  ?><br><?php echo ($_SESSION['delivery_add']['district'])  ?><br><?php echo ($_SESSION['delivery_add']['province'])  ?></p>
         <br>
-        <p>Telephone no : 0764229830</p>
+        <p>Telephone no 1: <?php echo ($_SESSION['delivery_add']['contact1'])  ?></p>
+        <p>Telephone no 2: <?php echo ($_SESSION['delivery_add']['contact2'])  ?></p>
+
+        <?php
+             
+            }
+            ?>
         <div class="check">
             <!-- grid -->
             <div class="tbl">
                 <!-- basket -->
                 <h1>Your basket</h1>
+               <?php
+            //    print_r($_SESSION['shopping_cart']);
+                ?>
                 <hr>
                 <table style="overflow-x:auto;">
                     <tr>
@@ -37,13 +45,22 @@
                         <th>quantity</th>
                         <th>Subtotal</th>
                     </tr>
+                    <?php
+                    $tot=0;
+                        foreach($_SESSION['shopping_cart'] as $keys => $values){
+                            $tot = $tot +($values['item_price'] * $values['item_quantity']);
+                        
+                    ?>
                     <tr>
-                        <td class="item_name">Carrot</td>
-                        <td>40</td>
-                        <td>50</td>
-                        <td>2000</td>
+                        <td class="item_name"><?php echo $values['item_name']?></td>
+                        <td><?php echo $values['item_price']?></td>
+                        <td><?php echo $values['item_quantity']?></td>
+                        <td><?php echo ($values['item_price'] * $values['item_quantity'])?></td>
                     </tr>
-                    <tr>
+                    <?php
+                        }
+                    ?>
+                    <!-- <tr>
                         <td colspan=2></td>
                        
                         <td class="td_summary">subtotal</td>
@@ -61,12 +78,12 @@
                        
                         <td class="td_summary">Service Charge</td>
                         <td>00</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td colspan=2></td>
                        
                         <td class="td_summary ">Total Amount</td>
-                        <td class="item_name">2000</td>
+                        <td class="item_name"><?php echo $tot?></td>
                     </tr>
                 </table>
             </div>
@@ -76,13 +93,13 @@
                 <hr>
                 <table>
                 <tr>                       
-                        <td class="td_summary">subtotal</td>
-                        <td>2000</td>
+                        <td class="td_summary">Pickup Date</td>
+                        <td><?php print_r($_SESSION['pickup_date']) ?></td>
                     </tr>
 
                     <tr>                       
-                        <td class="td_summary">Discount Amount</td>
-                        <td>00</td>
+                        <td class="td_summary">Driver Name</td>
+                        <td>Kasun</td>
                     </tr>
                     <tr>                       
                         <td class="td_summary">Service Charge</td>
@@ -90,7 +107,7 @@
                     </tr>
                     <tr>                       
                         <td class="td_summary">Total Amount</td>
-                        <td class="item_name">2000</td>
+                        <td class="item_name"><?php echo $tot?></td>
                     </tr>
 
                 </table>
