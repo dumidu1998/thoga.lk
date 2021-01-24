@@ -117,6 +117,7 @@ class AdminController {
             header("location: showadmin");
         }
     }
+    
     public function addVeg(){
         $results=$this->vegetables->get_all_vegetables();
 
@@ -131,18 +132,6 @@ class AdminController {
         if(isset($_POST['del'])){
             $this->vegetables->delete_vegetables($_POST['id']);
         }
-    }
-
-    public function testajax(){
-        $view = new View("admin/testajax");
-    }
-
-    public function processajax(){
-        $g=$_GET['dd'];
-        $b = $_GET['ddd'];
-      
-        echo  $b." ".$g;
-
     }
 
 }

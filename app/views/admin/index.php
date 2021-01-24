@@ -9,7 +9,9 @@
   
 <body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
     <?php include("navbar.php");?>
-    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add New Admin</button></a></div>
+    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add New Admin</button></a>
+    <a href="/thoga.lk/admin/vegetables"><button class="addnewbtn">vegetable List</button></a>
+    </div>
     
     <div class="buttonContainer">
         <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>

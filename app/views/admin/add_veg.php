@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/addVeg.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <title>Add item</title>
 </head>
@@ -29,12 +30,16 @@
                 <h3><?php echo $values['vege_name'] ?></h3>
              </div>
              <div>
-                <input class="price_scroll" type="number" name="" id="" value="<?php echo $values['curr_price'] ?>" readonly>
+             <?php  ?>
+                <span style="font-size:15px">Rs.</span> 
+                <input class="price_scroll" type="number" name="" id="" value="<?php printf('%0.2f', $values['current_price']); ?>" readonly>
              </div>
              <div>
-                    <button id="myBtn" onclick="openModal(<?php  echo $values['vege_id'] ?>)" class="edit_btn">edit</button>
+                    <button id="myBtn" onclick="openModal(<?php  echo $values['vege_id'] ?>)" class="edit_btn">Edit</button>
 
              </div>
+
+
             <div class="model1" id="myModal<?php echo $values['vege_id'] ?>">
             <div class="modal-content">
                 <span class="close" onclick="closeModal(<?php echo $values['vege_id'] ?>)">&times;</span>
@@ -44,7 +49,7 @@
                     <input type="hidden" name="id" value="<?php echo $values['vege_id'] ?>">
                     <input type="hidden" name="prev_price" value="<?php echo $values['curr_price'] ?>">
                     <input type="text" name="veg_name" id="" value="<?php echo $values['vege_name'] ?>">
-                    <input type="number" name="curr_price" id="" value="<?php echo $values['curr_price'] ?>">
+                    <input type="number" name="curr_price" id="" value="<?php echo $values['current_price'] ?>" step="0.5">
                     <input type="submit" value="Edit" name="edit">
                     <input type="submit" value="Delete" name="del">
                   </div>

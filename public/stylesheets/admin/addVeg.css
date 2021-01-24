@@ -63,9 +63,10 @@
   .edit_btn{
     background-color: transparent;
     text-decoration: none;
-    border: none;
+    border: 1px solid black;
     color: red;
-    cursor: pointer; 
+    cursor: pointer;
+    font-size: 15px; 
   }
   .price_scroll{
     
@@ -78,3 +79,19 @@
     margin-left: 20%;
     justify-content: center;
   }
+
+  input[type=submit]{
+    background-color: #253E30;
+    color: #fff;
+    height:  30px;
+    cursor: pointer;
+
+  }
+
+  input[type=text],input[type=number]{
+    height:  26px;
+    margin-right: 10px;
+    font-size:15px;
+
+  }
+  

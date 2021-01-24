@@ -86,12 +86,6 @@ $routes = [
     'buyer/submitstatus' => 'BuyerController@statusUpdate',
 
 
-    /*----*/
-    'testt' => 'AdminController@testajax',
-    'testtsub' => "AdminController@processajax"
-
-    /*-----*/
-
 ];
 $request_path_only = explode("?", $path)[0];
 
