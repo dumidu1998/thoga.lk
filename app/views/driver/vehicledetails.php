@@ -47,7 +47,7 @@
                         
 					?>
 					<tr>
-					<form action='/thoga.lk/driver/vehicles' method='post'>
+					<form action='/thoga.lk/driver/vehicles' method='GET'>
 					<td data-column="Vehicle ID"><?php echo $vehicleid; ?> </td>
 					<td data-column="Vehicle Type"><?php echo $vehicletype; ?> </td>
                     <td data-column="Vehicle Number"><?php echo $vehicleno; ?> </td>
@@ -84,9 +84,8 @@
 	</body>
 	<script>
 	function changeavailability(vid){
-		  alert(vid);
+		  
 		  const status=document.getElementById("checkb-"+vid).checked;
-		  alert(status);
 		  if(status){
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
