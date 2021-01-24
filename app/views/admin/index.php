@@ -9,12 +9,10 @@
   
 <body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
     <?php include("navbar.php");?>
-    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add new Admin</button></a></div>
-    <ul>
-        <li><a href="#dapplications">Driver Applications</a></li>
-        <li><a href="#mapplications">Mentor Applications</a></li>
-        <li><a href="#mrequests">Mentor Requests</a></li>
-    </ul>
+    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add New Admin</button></a>
+    <a href="/thoga.lk/admin/vegetables"><button class="addnewbtn">vegetable List</button></a>
+    </div>
+    
     <div class="buttonContainer">
         <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
         <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>
@@ -62,30 +60,20 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    foreach($results as $keys => $row){
+                        $driver_id=$row['driver_id'];
+                        $name=$row['firstname'] ." ". $row['lastname'] ;
+                        $district=$row['name_en'];
+                        
+                ?>
                 <tr>
-                <td data-label="Driver ID">001</td>
-                <td data-label="Driver Name">A.M. Rathnayake</td>
-                <td data-label="District">Anuradhapura</td>
-                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
+                <td data-label="Driver ID"><?php printf('%03d', $driver_id) ?></td>
+                <td data-label="Driver Name"><?php echo $name; ?></td>
+                <td data-label="District"><?php echo $district; ?></td>
+                <td data-label="Action"><a href="admin/dappl?id=<?php echo $driver_id;?>" > View More</a></td>
                 </tr>
-                <tr>
-                <td data-label="Driver ID">002</td>
-                <td data-label="Driver Name">A.P. Ranathunga</td>
-                <td data-label="District">Kandy</td>
-                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
-                </tr>
-                <tr>
-                <td data-label="Driver ID">003</td>
-                <td data-label="Driver Name">D.K. Bandara</td>
-                <td data-label="District">Jaffna</td>
-                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
-                </tr>
-                <tr>
-                <td data-label="Acount">005</td>
-                <td data-label="Driver Name">M. Samantha</td>
-                <td data-label="District">Matara</td>
-                <td data-label="Action"><a href="admin/dappl"> View More</a></td>
-                </tr>
+                <?php } ?>
             </tbody>
             <span id="mapplications"></span>
         </table>
@@ -106,30 +94,20 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    foreach($mentors as $keys => $row){
+                        $mentor_id=$row['mentor_id'];
+                        $date=$row['date'];
+                        $district=$row['name_en'];
+                        
+                ?>
                 <tr>
-                <td data-label="Mentor ID">001</td>
-                <td data-label="District">Anuradhapura</td>
-                <td data-label="Request Date">2020/10/10</td>
-                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
+                <td data-label="Mentor ID"><?php printf('%03d', $mentor_id) ?></td>
+                <td data-label="District"><?php echo $district; ?></td>
+                <td data-label="Request Date"><?php echo $date; ?></td>
+                <td data-label="Action"><a href="admin/mappl?id=<?php echo $mentor_id;?>"> View More</a></td>
                 </tr>
-                <tr>
-                <td data-label="Mentor ID">002</td>
-                <td data-label="District">Kandy</td>
-                <td data-label="Request Date">2020/10/01</td>
-                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
-                </tr>
-                <tr>
-                <td data-label="Mentor ID">003</td>
-                <td data-label="District">Jaffna</td>
-                <td data-label="Request Date">2020/10/02</td>
-                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
-                </tr>
-                <tr>
-                <td data-label="Mentor ID">004</td>
-                <td data-label="District">Haputhale</td>
-                <td data-label="Request Date">2020/09/30</td>
-                <td data-label="Action"><a href="admin/mappl"> View More</a></td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
 
@@ -150,30 +128,23 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    foreach($farmers as $keys => $row){
+                        $farmer_id=$row['farmer_id'];
+                        $name=$row['firstname'] ." ".$row['lastname'] ;
+                        $city=$row['city'];
+                        $district=$row['district'];
+                ?>
+
                 <tr>
-                <td data-label="Farmer Name">A.D. Rathnayaka</td>
-                <td data-label="District">Ampara</td>
-                <td data-label="City">Kattankudi</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
+                <td data-label="Farmer Name"><?php echo $name; ?></td>
+                <td data-label="District"><?php echo $district; ?></td>
+                <td data-label="City"><?php echo $city; ?></td>
+                <td data-label="Action"><a href="admin/mrequest?id=<?php echo $farmer_id; ?>">Assign Mentor</a></td>
                 </tr>
-                <tr>
-                <td data-label="Farmer Name">K.D. Bandara</td>
-                <td data-label="District">Batticola</td>
-                <td data-label="City">Pasikuda</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
-                </tr>
-                <tr>
-                <td data-label="Farmer Name">A.S. Kumara</td>
-                <td data-label="District">Vavniya</td>
-                <td data-label="City">Punewa</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
-                </tr>
-                <tr>
-                <td data-label="Farmer Name">S.S. Ariyapala</td>
-                <td data-label="District">Galle</td>
-                <td data-label="City ">Matara</td>
-                <td data-label="Action"><a href="admin/mrequest">Assign Mentor</a></td>
-                </tr>
+
+                <?php } ?>
+                
             </tbody>
         </table>
 

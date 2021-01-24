@@ -6,14 +6,23 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/v_more.css">
     <title>Document</title>
 </head>
-<?php include("navbar.php");?>
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body >
+<?php
+print_r($details);
+echo"</br>";
+print_r($driver_details);
 
+?>
 
 <div class="container">
-        <p>Invoice no : 12345</p>
+<?php
+foreach($driver_details as $keys => $values)  
+{  
+    ?>
+        <p>Invoice no : <?php echo $values['order_id'] ?> </p>
         <br>
-        <p>Delivery address : 388/53 stage1 apura</p>
+        <p>Delivery address : 388/53 stage1 apura</p> 
+        <!-- need to be done -->
         <br>
         <p>Telephone no : 0764229830</p>
         <div class="check">
@@ -24,13 +33,13 @@
                 <hr>
                 <table style="overflow-x:auto;">
                     <tr>
-                        <td class="item_name">Order Id</td>
-                        <td>#12345</td>
+                        <td class="item_name" >Order Id</td>
+                        <td id="ord_id"><?php echo $values['order_id'] ?></td>
                         
                     </tr>
                     <tr>
                         <td class="item_name">Driver name</td>
-                        <td>R.T.Illangasinghe</td>
+                        <td><?php echo $values['firstname']?> <?php echo $values['lastname']?></td>
                         
                     </tr>
                     <tr>
@@ -80,6 +89,10 @@
     </div>
 
 <?php include("rate.php"); ?>
+
+<?php
+}
+?>
     
     <div>
     <!-- item table -->
@@ -143,7 +156,7 @@
 
 </div>
 
-<?php include("profile-popup.php"); ?>
+<?php //include("profile-popup.php"); ?>
 
 <?php include("footer.php"); ?>
 

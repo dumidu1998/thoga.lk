@@ -22,17 +22,23 @@
                 foreach($view as $keys => $row){
                     $ordid = $row['order_id'];
                     $wght = $row['weight'];
-                    $ploc = $row['pickup_location'];
                     $totcost = $row['total_cost'];
-                    $dloc = $row['deliver_location'];
                     $odrdate = $row['order_date'];
                     $dt = new DateTime($odrdate);
                     $date = $dt->format('Y-m-d');
                     $pickdate = $row['pickup_date'];
+                    $add1= $row['d_addline1'];
+                    $add2=$row['d_addline2'];
+                    
 
                 }         
                             
-            ?>    
+            ?>   
+            <?php
+                foreach($cityy as $keys => $row){
+                    $city=$row['name_en'];
+                }
+            ?>         
             Order Id           : 
             <input type="text" "class="advancedSearchTextBox"  name="orderid" value="<?php echo $ordid?>" disabled>
             <br> 
@@ -42,17 +48,11 @@
             <input type="text" name="weight" value="<?php echo $wght?>" disabled>
             <br>     
 
-            Pickup Location    :
-            <input type="text" name="pickup location" value="Anuradhapura" disabled>
-            <br>
-
             Total Cost         :
             <input type="text" name="total cost" value="<?php echo $totcost?>" disabled>
             <br> 
 
-            Delivery Location  :
-            <input type="text" name="deliver location" value="Matale" disabled>
-            <br> 
+           
 
             Order Date          :
             <input type="text" name="order date" value="<?php echo $date?>" disabled>
@@ -60,7 +60,18 @@
 
             Pickup Date          :
             <input type="text" name="pickup date" value="<?php echo $pickdate?>" disabled>
-            <br>                  
+            <br> 
+            <br>     
+
+            Delivery Address  :
+             <div class="address">
+                <input type="text" name="addline2" value="<?php echo $add1?>" disabled>
+                <br> 
+                <input type="text" name="addline2" value="<?php echo $add2?>" disabled>
+                <br> 
+                <input type="text" name="city" value="<?php echo $city?>" disabled>
+                <br>   
+            </div>          
                           
         </div> 
     </div>  
@@ -69,7 +80,7 @@
     <div class="right" >
         <div class="transbox">      
             <?php
-                  
+                
                 foreach($buyer as $keys => $row){
                 $bname=$row['username'];
             ?>
@@ -103,6 +114,7 @@
 			
 			<tr>
 				<th>Item Name</th>
+                <th>pickup location</th>
 				<th>Unit Price(per Kg)</th>
 				<th>Quantity(Kg)</th>
 				<th>Sub Total</th>
@@ -115,7 +127,8 @@
                  foreach($items as $keys => $row){
 					
 					echo "<tr>";
-					echo "<td>".$row['vege_name']."</td>";
+                    echo "<td>".$row['vege_name']."</td>";
+                    echo "<td><button name=viewmore class=button1>?</button></td>";
 					echo "<td>".$row['total_cost']."</td>";
 					echo "<td>".$row['weight']."</td>";
 					echo "<td>".$row['total_cost']*$row['weight']."</td>";

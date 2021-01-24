@@ -21,18 +21,18 @@
 		<div class="transboxx">
 		
 					<?php
-                        
+						if(isset($vehicle)){
 						foreach($vehicle as $keys => $row){
-							$vehicleid = $row['vehicle_id'];
-							$driverid = $row['driver_id'];
-							$vehicleno = $row['vehicle_no'];
-							$cost = $row['cost_km'];
-							$vehicletype = $row['vehicle_type'];
-							$maxweight = $row['maximum_weight'];
-							
-							
+								$vehicleid=$row['vehicle_id'];
+								$_SESSION['vid']=$vehicleid;
+								$driver_id=$row['driver_id'];
+								$vehicle_no=$row['vehicle_no'];
+								$cost_km=$row['cost_km'];
+								$vehicle_type=$row['vehicle_type'];
+								$maximum_weight=$row['maximum_weight'];
+								
+							}
 						} 
-						
 						?> 
 							
 						<div class="contain">
@@ -41,34 +41,36 @@
 								</div>	
 						</div>
 			<div class ="sright">				
+								<form action="changecost" method="post">
 								
-								Vehicle id : 
-								<input type="text" "class="advancedSearchTextBox"  name="vehicleid" value="<?php echo $vehicleid?>" disabled>
-								<br>
-								
+									Vehicle id : 
+									<input type="text" class="textbox1"  name="vehiid" value="<?php echo $vehicleid?>" disabled>
+									<input type="hidden" class="textbox1"  name="vehicleid" value="<?php echo $vehicleid?>" >
+									<br>
+									
 
-								Driver id             :
-								<input type="text" name="driverid" value="<?php echo $driverid?>" disabled>
-								<br>     
+									Driver id             :
+									<input type="text" class="textbox1" name="driid" value="<?php echo $driver_id?>" disabled>
+									<input type="hidden" class="textbox1" name="driverid" value="<?php echo $driver_id?>" >
+									<br>     
 
-								Vehicle No   :
-								<input type="text" name="vehicle no" value="<?php echo $vehicleno?>" disabled>
-								<br>
-								
-			    
-								
-								<label>Cost/Km   :</label>
-								<input type="text" name="cost" value="<?php echo $cost?>">
-								<br> 
+									Vehicle No   :
+									<input type="text"  class="textbox1" name="vehicle no" value="<?php echo $vehicle_no?>" disabled>
+									<br>
 
-								Vehicle Type  :
-								<input type="text" name="vehicle type" value="<?php echo $vehicletype?>" disabled>
-								<br>
+									Vehicle Type  :
+									<input type="text" class="textbox1" name="vehicle type" value="<?php echo $vehicle_type?>" disabled>
+									<br>
 
-								Maximum Weight         :
-								<input type="text" name="maxweight" value="<?php echo $maxweight?>" disabled>
-								<br>
-					<input type="submit" value="Edit Details" class="button2" name="vehicledetails">				
+									Maximum Weight         :
+									<input type="text" class="textbox1" name="maxweight" value="<?php echo $maximum_weight?>" disabled>
+									<br>
+
+									<label>Cost/Km   :</label>
+									<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo $cost_km?>">
+									<br> 
+									<input type="submit" value="Edit Details" class="button2" name="vehicledetails">	
+								</form>			
 			</div>
 			<div class="bottom">
 					<table style="width:100%">

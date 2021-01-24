@@ -23,7 +23,7 @@ h1{
     font-size:40px"
 }
 .grid-item0{
-    background-color: rgba(201, 240, 241, 0.712);
+    background-color: #4caf4f65;
     padding: 20px 10px;
     height: auto;
     width: 100%;
@@ -94,7 +94,7 @@ tr td{
   }
   
   .accept-btn:hover {
-    background: #000;
+    background: #253E30;
     color: #fff;
   }
 
@@ -143,15 +143,15 @@ tr td{
     left: 0;
     height: 35px;
     width: 35px;
-    background-color: rgb(150, 162, 180);
+    background-color: #4caf4f93;
   }
   
   .CBcontainer:hover input ~ .checkmark {
-    background-color: rgb(70, 84, 167);
+    background-color: #4caf4fd8;
   }
   
   .CBcontainer input:checked ~ .checkmark {
-    background-color: #0312e6;
+    background-color: #2E5F3E;
   }
   
   .checkmark:after {
