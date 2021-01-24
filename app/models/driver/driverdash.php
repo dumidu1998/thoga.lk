@@ -52,6 +52,14 @@ class driverdash extends db_model{
             echo "done";
         }else{echo "error";}
     }
+
+    function changecost($vid,$cost){
+        $sql = "UPDATE vehicles SET cost_km =".$cost." WHERE vehicles.vehicle_id = ".$vid;
+        $result=$this->connection->query($sql);
+        if($result){
+            echo "done";
+        }else{echo "error";}
+    }
     
 }
 

@@ -71,11 +71,16 @@ class DriverController{
     }
     
     public function showvehicle(){
-        if(isset($_POST['vehicles'])){
-            $vehicleid=$_POST['vehicleid'];
+        session_start();  
+        if(isset($_GET['vehicles'])){
+            $vehicleid=$_GET['vehicleid'];
             $result = $this->model->get2($vehicleid);
-        }  
-       
+        }else {
+            $vehicleid=$_SESSION['vid'];
+            $result = $this->model->get2($vehicleid);
+          
+        }
+        
         $view = new View("driver/vehicles");
         $view->assign('vehicle',$result);
     }
@@ -105,6 +110,14 @@ class DriverController{
     public function changeavailability1(){
         $vid=$_GET['vid'];
         $result = $this->model->makeavailable($vid);//vehicle_id
+    }
+
+    public function changecost(){
+        $vid=$_POST['vehicleid'];
+        $cost=$_POST['cost'];
+        $result = $this->model->changecost($vid,$cost);//vehicle_id
+        header("location:/thoga.lk/driver/vehicles");
+        
     }
 
 }
