@@ -18,6 +18,9 @@
         <h1>Select Driver</h1>
         <hr>
         <table>
+        <?php
+print_r($data);
+        ?>
             <tr>
                 <th>Driver name</th>
                 <th>weight</th>
