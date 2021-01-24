@@ -128,7 +128,7 @@
 					
 					echo "<tr>";
                     echo "<td>".$row['vege_name']."</td>";
-                    echo "<td></td>";
+                    echo "<td><button name=viewmore class=button1>?</button></td>";
 					echo "<td>".$row['total_cost']."</td>";
 					echo "<td>".$row['weight']."</td>";
 					echo "<td>".$row['total_cost']*$row['weight']."</td>";
