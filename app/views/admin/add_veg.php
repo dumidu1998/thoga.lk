@@ -32,8 +32,19 @@
              <div>
              <?php  ?>
                 <span style="font-size:15px">Rs.</span> 
-                <input class="price_scroll" type="number" name="" id="" value="<?php printf('%0.2f', $values['current_price']); ?>" readonly>
-             </div>
+                <input class="price_scroll" type="number" name=""  value="<?php printf('%0.2f', $values['current_price']); ?>" readonly>
+                <?php
+                  $change= ($values['current_price']-$values['prev_price'])/100;
+                  if ($change >= 0 ){
+                    echo "<span class='changep'>+".$change."%</span>";
+                  } else{
+                    echo "<span class='change-'>".$change."%</span>";
+                  }
+                  
+                  ?>
+
+              </div>
+
              <div>
                     <button id="myBtn" onclick="openModal(<?php  echo $values['vege_id'] ?>)" class="edit_btn">Edit</button>
 
@@ -47,11 +58,11 @@
                   <div class="veg_edit">
                     
                     <input type="hidden" name="id" value="<?php echo $values['vege_id'] ?>">
-                    <input type="hidden" name="prev_price" value="<?php echo $values['curr_price'] ?>">
-                    <input type="text" name="veg_name" id="" value="<?php echo $values['vege_name'] ?>">
-                    <input type="number" name="curr_price" id="" value="<?php echo $values['current_price'] ?>" step="0.5">
+                    <input type="hidden" name="prev_price" value="<?php echo $values['current_price'] ?>">
+                    <input type="text" name="veg_name"  value="<?php echo $values['vege_name'] ?>">
+                    <input type="number" name="curr_price" value="<?php echo $values['current_price'] ?>" step="0.5">
                     <input type="submit" value="Edit" name="edit">
-                    <input type="submit" value="Delete" name="del">
+                    <input type="submit" value="Delete" name="del" >
                   </div>
 
                 </form>
@@ -64,15 +75,24 @@
                  ?>
          </div>
      </div>
-
-     <button>Add new +</button>
+     <button onclick="openmodalnew()">Add New +</button>
     
  </div>
     
-    <div class="model2">
+    <div class="model2" id="model2">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal2()">&times;</span>
+      <form action="addveg" method="post">
+      <input type="text" name="veg_name"  placeholder="Name" required>
+      Rs. <input type="number" name="price" value="0.00" step="0.01" placeholder="12.50" required>
+      <input type="submit" value="Add" name="add">
+      </form>
+
+    </div>
     </div>
 </body>
 </html>
+
 <script>
   function closeModal(id) {
     var mod = document.querySelector("#myModal"+id);
@@ -80,7 +100,16 @@
     
   }
 
+  function closeModal2() {
+    var mod = document.querySelector("#model2");
+    mod.style.display = 'none';
+    
+  }
 
+  function openmodalnew() {
+    var mod = document.querySelector("#model2");
+    mod.style.display = 'block';
+  }
 
   function openModal(id) {
     var mod = document.querySelector("#myModal"+id);
