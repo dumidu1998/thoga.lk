@@ -40,10 +40,10 @@ class orderModel extends db_model{
          echo "error";
     }
     public function get_all_orders($id){
-		return $this->read('order', array('*'), array('buyer_id'=>$id));
-
+		  return $this->read('order', array('*'), array('buyer_id'=>$id));
     }
 
+<<<<<<< HEAD
     function getdriver_upcomingorders($id){
 
       return $this->read('orders', array('*'), array('driver_id'=>$id));
@@ -115,4 +115,7 @@ class orderModel extends db_model{
 		echo "error";
 	}
 
+=======
+    
+>>>>>>> a9fba5e9bddc1d541656f1c2aab132beafadc88f
 }
