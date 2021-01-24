@@ -43,5 +43,76 @@ class orderModel extends db_model{
 		return $this->read('order', array('*'), array('buyer_id'=>$id));
 
     }
-    
+
+    function getdriver_upcomingorders($id){
+
+      return $this->read('orders', array('*'), array('driver_id'=>$id));
+
+    }
+
+    function get_order_details($id){
+
+      return $this->read('orders', array('*'), array('order_id'=>$id));
+      
+  }
+
+  function  order_buyername($id){
+		$sql= "SELECT a.username FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
+		
+		$result=$this->connection->query($sql);
+		
+		$finale=array();
+		if($result){
+        while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		    return $finale;
+		}else
+		echo "error";
+
+  }
+  
+  function  order_drivername($id){
+
+		$sql= "SELECT a.username FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
+
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+      while($row=mysqli_fetch_assoc($result))	
+			array_push($finale,$row);
+		return $finale;
+		}else
+		echo "error";
+
+	}
+
+  function  orderdetails_total($orderId){
+		$sql = "SELECT vegetable.vege_name ,item.total_cost,order_details.weight FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id where order_details.order_id='".$orderId."'";
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+           while($row=mysqli_fetch_assoc($result)){
+			array_push($finale,$row);
+		   }
+		  return $finale;
+
+		}else
+		echo "error";
+
+  }
+  
+  function  order_city($id){
+		$sql= "SELECT a.name_en FROM districts AS a INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+		
+		$result=$this->connection->query($sql);
+		
+		$finale=array();
+		if($result){
+        while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		    return $finale;
+		}else
+		echo "error";
+	}
+
 }

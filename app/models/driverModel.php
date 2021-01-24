@@ -57,10 +57,7 @@ class driverModel extends db_model{
 		}
 	}
 
-	function get($id){
 
-		return $this->read('driver', array('*'), array('id'=>$id));
-	}
 	function get_avail($date){
 		$sql = "SELECT * FROM driver WHERE driver_id NOT IN (SELECT driver_id FROM unavailable_dates WHERE enddate >= '".$date."' AND startdate <= '".$date."')";
 		$result=$this->connection->query($sql);
@@ -74,5 +71,21 @@ class driverModel extends db_model{
 		echo "error";
 
 	}
+
+	function insertunavailable_dates($driver_id,$startdate,$enddate){
+        $sql = "INSERT INTO unavailable_dates (driver_id,startdate,enddate) VALUES ('".$driver_id."','".$startdate."','".$enddate."')";
+        $result=$this->connection->query($sql);
+        if($result){}else{echo "error";}	
+    }
+	
+	function getdates($id){
+        return $this->read('unavailable_dates', array("startdate AS start","enddate AS end","'Unavailable'AS'title'","'#d00000'AS'color'"), array('driver_id'=>$id));
+	}
+	
+	function getorderdates($id){
+        return $this->read('orders',array("pickup_date AS start","concat('Order # ',order_id) AS title"),array('driver_id'=>$id));
+	}
+	
+	
 }
  ?>
