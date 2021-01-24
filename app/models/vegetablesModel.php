@@ -15,13 +15,11 @@ class vegetablesModel extends db_model{
 
     public function delete_vegetables($id){
         $sql = "DELETE FROM vegetable WHERE vege_id = '".$id."'";
-        echo $sql;
-        // $result = $this->connection->query($sql);
+        $result = $this->connection->query($sql);
     }
 
     public function add_vegetable($name,$price){
         $sql= "INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`, `current_price`, `prev_price`) VALUES (NULL, '".$name."', '".$name.".jpg', ".$price.", '')";
-        echo $sql;
-        // $result = $this->connection->query($sql);
+        $result = $this->connection->query($sql);
     }
 }

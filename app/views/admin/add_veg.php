@@ -114,7 +114,6 @@
   function openModal(id) {
     var mod = document.querySelector("#myModal"+id);
     mod.style.display = 'block';
-
   }
 
   window.onclick = function(event) {
