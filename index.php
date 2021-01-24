@@ -82,16 +82,12 @@ $routes = [
     'admin/vegetables' => 'AdminController@addVeg', 
     'admin/pricelist' => 'AdminController@showpricelist',
     'admin/edit' => 'AdminController@editVeg',
+    'admin/addveg' => 'AdminController@addnewveg',
     'buyer/addr' => 'BuyerController@addr',
     'driver/changeav0' => 'DriverController@changeavailability0',
     'driver/changeav1' => 'DriverController@changeavailability1',
     'buyer/submitstatus' => 'BuyerController@statusUpdate',
 
-
-    /*----*/
-    'testt' => 'AdminController@testajax',
-    'testtsub' => "AdminController@processajax"
-    /*-----*/
 
 ];
 $request_path_only = explode("?", $path)[0];

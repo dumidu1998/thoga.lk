@@ -117,32 +117,31 @@ class AdminController {
             header("location: showadmin");
         }
     }
+    
     public function addVeg(){
         $results=$this->vegetables->get_all_vegetables();
-
+        
         $view = new View("admin/add_veg");
         $view->assign('vegetables', $results);
-
+        
     }
     public function editVeg(){
         if(isset($_POST['edit'])){
             $this->vegetables->update_vegetables($_POST['id'],$_POST['prev_price'],$_POST['curr_price'],$_POST['veg_name']);
         }
         if(isset($_POST['del'])){
+            echo "<script>confirm('Are you sure to delete vegetable?');</script>";
             $this->vegetables->delete_vegetables($_POST['id']);
         }
+        
+        header("location: vegetables");
+
     }
 
-    public function testajax(){
-        $view = new View("admin/testajax");
-    }
-
-    public function processajax(){
-        $g=$_GET['dd'];
-        $b = $_GET['ddd'];
-      
-        echo  $b." ".$g;
-
+    public function addnewveg(){
+        if(isset($_POST['add'])){
+            $this->vegetables->add_vegetable($_POST['veg_name'],$_POST['price']);
+        } 
     }
 
 }
