@@ -32,8 +32,25 @@ class driverdash extends db_model{
     function getdates($id){
         return $this->read('unavailable_dates', array("startdate AS start","enddate AS end","'Unavailable'AS'title'","'#d00000'AS'color'"), array('driver_id'=>$id));
     }
+
     function getorderdates($id){
         return $this->read('orders',array("pickup_date AS start","concat('Order # ',order_id) AS title"),array('driver_id'=>$id));
+    }
+
+    function makeavailable($id){
+        $sql = "UPDATE vehicles SET availability = 1 WHERE vehicles.vehicle_id = ".$id;
+        $result=$this->connection->query($sql);
+        if($result){
+            echo "done";
+        }else{echo "error";}
+    }
+
+    function makeunavailable($id){
+        $sql = "UPDATE vehicles SET availability = 0 WHERE vehicles.vehicle_id = ".$id;
+        $result=$this->connection->query($sql);
+        if($result){
+            echo "done";
+        }else{echo "error";}
     }
     
 }
