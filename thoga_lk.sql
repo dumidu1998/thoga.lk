@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2021 at 12:55 PM
+-- Generation Time: Jan 24, 2021 at 06:55 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -44,13 +44,13 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `user_id`, `address_line1`, `address_line2`, `city`, `district`, `province`, `zip_code`) VALUES
-(1, 1, 'No. 12', 'Main Street', 44, 1, 8, 50000),
-(2, 2, 'No ,1', 'Reid Avenue', 1841, 2, 1, 10000),
-(4, 4, 'No.12', 'Parana Rd', 44, 1, 8, 10000),
+(1, 1, 'No. 12', 'Main Street', 22, 1, 8, 50000),
+(2, 2, 'No ,1', 'Reid Avenue', 1841, 5, 1, 10000),
+(4, 4, 'No.12', 'Parana Rd', 21, 1, 8, 10000),
 (5, 5, 'No. 12', 'Amala Rd', 6, 1, 4, 10000),
 (6, 6, 'No 12', 'Abala Mw', 5, 1, 5, 1231),
 (7, 7, 'No 1/5', 'Gallella Road', 6, 1, 5, 45010),
-(8, 8, 'No 1/5', 'Gella Road', 3, 3, 5, 45000);
+(8, 8, 'No 1/5', 'Gella Road', 199, 3, 5, 45000);
 
 -- --------------------------------------------------------
 
@@ -2071,7 +2071,7 @@ CREATE TABLE `farmer` (
   `user_id` int(100) NOT NULL,
   `farmer's_idNo` int(11) NOT NULL,
   `farm_name` varchar(20) NOT NULL,
-  `mentor_id` int(11) NOT NULL
+  `mentor_id` int(11) NOT NULL COMMENT '-1 -> no mentor, 0 - requested, 1+ - mentor id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -2184,15 +2184,16 @@ CREATE TABLE `mentor` (
   `user_id` int(11) NOT NULL,
   `why` text NOT NULL,
   `Skills` text NOT NULL,
-  `verified_state` varchar(20) NOT NULL
+  `verified_state` varchar(20) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mentor`
 --
 
-INSERT INTO `mentor` (`mentor_id`, `user_id`, `why`, `Skills`, `verified_state`) VALUES
-(1, 8, 'I have good skills needed for be a mentor', 'Good', '0');
+INSERT INTO `mentor` (`mentor_id`, `user_id`, `why`, `Skills`, `verified_state`, `date`) VALUES
+(1, 8, 'I have good skills needed for be a mentor', 'Good', '0', '2021-01-20');
 
 -- --------------------------------------------------------
 
@@ -2381,8 +2382,8 @@ INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `username`, `password`, 
 (1, 'Manthila', 'Bandara', 'manthila', '591911fb634a9e044813198b701aca55', '985790182V', 'manthilab@gmail.com', '0766344989', '0715591197', '2008-12-09', 'male', 0, 44, 112, 1297, '0', '0', 1),
 (2, 'ucsc', 'Buyer', 'ucsc_b', 'd32934b31349d77e70957e057b1bcd28', '985790122V', 'ucsc@ucsc.com', '0766399452', '0715698452', '2008-12-19', 'male', 0, 1841, 4, 5, '0', '0', 1),
 (4, 'ucsc', 'Farmer', 'ucsc_f', 'd32934b31349d77e70957e057b1bcd28', '982791182v', 'farmer2@gmail.com', '0766322249', '0761331989', '2008-12-26', 'male', 0, 44, 2, 4, '0', '0', 2),
-(5, 'Dumidu', 'Kasun123', 'Kasun', 'c4434ec1f349c3b6a902cc30345473d6', '982142075V', 'Amala@gmail.com', '0715191563', '0761325381', '2008-12-11', 'male', 0, 6, 5, 6, '0', '0', 3),
-(6, 'Anuradha', 'Kumara123', 'kumara', '50c86ebf006738ff7aef7da5bf5f92d2', '982141075V', 'N@gmail.com', '0715591563', '0761325381', '2008-12-18', 'male', 0, 5, 3, 3, '0', '0', 3),
+(5, 'Dumidu', 'Kasunn', 'Kasun', 'c4434ec1f349c3b6a902cc30345473d6', '982142075V', 'Amala@gmail.com', '0715191563', '0761325381', '2008-12-11', 'male', 0, 6, 5, 6, '0', '0', 3),
+(6, 'Anuradha', 'Kumara', 'kumara', '50c86ebf006738ff7aef7da5bf5f92d2', '982141075V', 'N@gmail.com', '0715591563', '0761325381', '2008-12-18', 'male', 0, 5, 3, 3, '0', '0', 3),
 (7, 'ucsc', 'Driver', 'ucsc_d', 'd32934b31349d77e70957e057b1bcd28', '982141075V', 'kumaraa@gmail.com', '0715597563', '0761325381', '2008-12-10', 'male', 0, 6, 5, 6, '0', '0', 3),
 (8, 'ucsc', 'mentor', 'ucsc_m', 'd32934b31349d77e70957e057b1bcd28', '595817545V', 'kumara@gmail.com', '0715478165', '0713198458', '2002-12-19', 'male', 0, 3, 5, 7, '0', '0', 4);
 
@@ -2416,40 +2417,42 @@ INSERT INTO `usertype` (`type_id`, `user_type`) VALUES
 CREATE TABLE `vegetable` (
   `vege_id` int(11) NOT NULL,
   `vege_name` varchar(50) NOT NULL,
-  `image` varchar(50) NOT NULL
+  `image` varchar(50) NOT NULL,
+  `current_price` float NOT NULL,
+  `prev_price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `vegetable`
 --
 
-INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`) VALUES
-(1, 'Tomato', 'tomato.png'),
-(2, 'Potato', 'potato.png'),
-(3, 'Beans', 'beans.png'),
-(4, 'BitterGourd', 'bittergourd.png'),
-(5, 'Brinjal', 'brinjal.png'),
-(6, 'Carrot', 'carrot.png'),
-(7, 'ChickenPeas', 'chickenpeas.png'),
-(8, 'Cucumber', 'cucumber.png'),
-(9, 'Garlic', 'garlic.png'),
-(10, 'GreenChilli', 'greenchilli.png'),
-(11, 'Lemon', 'lemon.png'),
-(12, 'Onion', 'onion.png'),
-(13, 'Raddish', 'raddish.png'),
-(14, 'BabyCorn', 'babycorn.png'),
-(15, 'Beetroot', 'beetroot.png'),
-(16, 'BottleGourd', 'bottlegourd.png'),
-(17, 'Brocli', 'brocoli.png'),
-(18, 'Cabbage', 'cabbage.png'),
-(19, 'Capsicum', 'capsicum.png'),
-(20, 'CauliFlower', 'cauliflower.png'),
-(21, 'Coriander', 'coriander.png'),
-(22, 'DrumStick', 'drumstick.png'),
-(23, 'Ginger', 'ginger.png'),
-(24, 'LadysFinger', 'ladysfinger.png'),
-(25, 'Methi', 'methi.png'),
-(26, 'Spinach', 'spinach.png');
+INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`, `current_price`, `prev_price`) VALUES
+(1, 'Tomato', 'tomato.png', 150, 0),
+(2, 'Potato', 'potato.png', 120, 0),
+(3, 'Beans', 'beans.png', 80, 0),
+(4, 'BitterGourd', 'bittergourd.png', 125, 0),
+(5, 'Brinjal', 'brinjal.png', 60, 0),
+(6, 'Carrot', 'carrot.png', 120, 0),
+(7, 'ChickenPeas', 'chickenpeas.png', 110, 0),
+(8, 'Cucumber', 'cucumber.png', 75, 0),
+(9, 'Garlic', 'garlic.png', 60, 0),
+(10, 'GreenChilli', 'greenchilli.png', 65, 0),
+(11, 'Lemon', 'lemon.png', 25.5, 0),
+(12, 'Onion', 'onion.png', 75.5, 0),
+(13, 'Raddish', 'raddish.png', 160, 0),
+(14, 'BabyCorn', 'babycorn.png', 115, 0),
+(15, 'Beetroot', 'beetroot.png', 185, 0),
+(16, 'BottleGourd', 'bottlegourd.png', 200, 0),
+(17, 'Brocli', 'brocoli.png', 45, 0),
+(18, 'Cabbage', 'cabbage.png', 98, 0),
+(19, 'Capsicum', 'capsicum.png', 156, 0),
+(20, 'CauliFlower', 'cauliflower.png', 182, 0),
+(21, 'Coriander', 'coriander.png', 165, 0),
+(22, 'DrumStick', 'drumstick.png', 210, 0),
+(23, 'Ginger', 'ginger.png', 380, 0),
+(24, 'LadysFinger', 'ladysfinger.png', 180, 0),
+(25, 'Methi', 'methi.png', 852, 0),
+(26, 'Spinach', 'spinach.png', 170, 0);
 
 -- --------------------------------------------------------
 
@@ -2472,10 +2475,9 @@ CREATE TABLE `vehicles` (
 --
 
 INSERT INTO `vehicles` (`vehicle_id`, `driver_id`, `vehicle_no`, `cost_km`, `vehicle_type`, `maximum_weight`, `availability`) VALUES
-(1, 1, 'PD 1122', '60', 'lorry', '1000', 0),
+(1, 1, 'PD 1122', '60', 'lorry', '1000', 1),
 (2, 1, 'PL 5256', '80', 'lorry', '1000', 1),
-(3, 1, 'PI 1122', '60', 'lorry', '1000', 0),
-(4, 1, 'PO 2056', '80', 'lorry', '1000', 1);
+(3, 3, 'PI 1122', '60', 'lorry', '1000', 0);
 
 --
 -- Indexes for dumped tables
@@ -2590,9 +2592,6 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `buyer_id` (`buyer_id`),
   ADD KEY `driver_id` (`driver_id`),
-  ADD KEY `city` (`city`),
-  ADD KEY `district` (`district`),
-  ADD KEY `province` (`province`),
   ADD KEY `status` (`status`);
 
 --
@@ -2628,7 +2627,10 @@ ALTER TABLE `unavailable_dates`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
-  ADD KEY `usertype_id` (`usertype_id`);
+  ADD KEY `usertype_id` (`usertype_id`),
+  ADD KEY `nearestcity1` (`nearestcity1`),
+  ADD KEY `nearestcity2` (`nearestcity2`),
+  ADD KEY `hometown` (`hometown`);
 
 --
 -- Indexes for table `usertype`
@@ -2759,7 +2761,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `unavailable_dates`
 --
 ALTER TABLE `unavailable_dates`
-  MODIFY `date_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `date_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -2893,7 +2895,10 @@ ALTER TABLE `unavailable_dates`
 -- Constraints for table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`usertype_id`) REFERENCES `usertype` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`usertype_id`) REFERENCES `usertype` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`nearestcity1`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`nearestcity2`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_ibfk_4` FOREIGN KEY (`hometown`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `vehicles`
