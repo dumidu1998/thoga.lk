@@ -138,58 +138,39 @@ if(isset($_GET["update"])){
 
     <div class="container">
        
-        <table>
+    <table align="center">
+					
+					<tr>
+						<th>Order ID</th>
+						<th>Pickup Date</th>
+						<th>Price</th>
+						<th>Action</th>
+					</tr>
+					
+					<?php
 
-            <thead>
-                <tr>
-                <th scope="col">Order id</th>
-                <th scope="col">Buyer Name</th>
-                <th scope="col">Pickup date</th>
-                <th scope="col">Total weight</th>
-                <th scope="col">Total Price</th>
-                <th scope="col">Action</th>
+					
+					
+					foreach($details as $keys => $row){
+						$order_id=$row['order_id'];
+						$pickdate=$row['pickup_date'];
+						$tcost=$row['total_cost'];
+					?>
+					<tr>
+					<form action='/thoga.lk/driver/viewmore' method='post'>
+					<td><?php echo $order_id; ?> </td>
+					<td><?php echo $pickdate; ?> </td>
+					<td><?php echo $tcost; ?> </td>
+					<input type="hidden" name="order_id" value="<?php echo $order_id; ?>"> 
+					<td><button name="viewmore" class="button1"> View More</button></td>
+					</form>
+					</tr>
 
-                </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <form action='/thoga.lk/driver/viewmore' method='post'>
-                    <td data-label="Order id">Visa - 3412</td>
-                    <td data-label="Buyer Name">Akila de silva</td>
-                    <td data-label="Pickup date">01/11/2020</td>
-                    <td data-label="Total Weight">2500kg</td>
-                    <td data-label= "Total Price">$1,190</td>
-                    <input type="hidden" name="order_id" value="<?php echo 1; ?>"> 
-                    <td><button name="viewmore" class="button1"> View More</button></td>
-			    </form>
-                </tr>
+					<?php } ?>
 
-                <tr>
-                <form action='/thoga.lk/driver/viewmore' method='post'>
-                    <td data-label="Order id">Visa - 3412</td>
-                    <td data-label="Buyer Name">Akila de silva</td>
-                    <td data-label="Pickup date">01/11/2020</td>
-                    <td data-label="Total Weight">2500kg</td>
-                    <td data-label= "Total Price">$1,190</td>
-                    <input type="hidden" name="order_id" value="<?php echo 1; ?>"> 
-                    <td><button name="viewmore" class="button1"> View More</button></td>
-			    </form>
-                </tr>
-                
-                <tr>
-                <form action='/thoga.lk/driver/viewmore' method='post'>
-                    <td data-label="Order id">Visa - 3412</td>
-                    <td data-label="Buyer Name">Akila de silva</td>
-                    <td data-label="Pickup date">01/11/2020</td>
-                    <td data-label="Total Weight">2500kg</td>
-                    <td data-label= "Total Price">$1,190</td>
-                    <input type="hidden" name="order_id" value="<?php echo 1; ?>"> 
-                    <td><button name="viewmore" class="button1"> View More</button></td>
-			    </form>
-
-                </tr>
-            </tbody>
-        </table>
+				
+				
+				</table>
 
 
     </div>

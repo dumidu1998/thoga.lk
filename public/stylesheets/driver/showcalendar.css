@@ -3,7 +3,7 @@
     box-sizing: border-box;
 } 
 body {
-    background: url('/thoga.lk/public/images/driver/98.jpg');
+    /* background: url('/thoga.lk/public/images/driver/98.jpg'); */
   /* #background-image:url("../../../public/images/driver/img7.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
@@ -13,7 +13,7 @@ body {
 .topic{
     font-family: Arial, Helvetica, sans-serif;
     text-align:center;
-    color:darkblue;
+    color:black;
     margin-top:80px;
 }
  .menu {
@@ -24,8 +24,14 @@ body {
 } 
 
 .bottom{
-    background: color orange;
+    background-color: #4CAF50;
+    font-weight: bold;
     margin-bottom:20px;
+    padding-bottom:5px;
+
+    padding-top: 35px;
+    font-size: 18px;
+    margin-left:20px;
     width:50%;
     text-align: center;
 
@@ -53,8 +59,10 @@ body {
 }
 .button1{
     border-radius: 100px;
-    margin-left: 40px;
-    background-color: coral;
+    margin-left: 30px;
+    font-size: 16px;
+    padding:2px;
+    background-color: grey;
     cursor: pointer;
 }      
 

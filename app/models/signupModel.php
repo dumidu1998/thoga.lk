@@ -114,7 +114,7 @@ class signupModel extends db_model{
         $result1=$this->connection->query($sql1);
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user_id'];
-        $mid=0; //mentor
+        $mid=-1; //mentor
 
 
         $sql2="INSERT INTO farmer (user_id, `farmer's_idNo`, farm_name, mentor_id) Values ('".$uid."','".$FarmerIDno."','".$FarmName."','".$mid."')";
@@ -156,7 +156,7 @@ class signupModel extends db_model{
         $usertype=$arr['usertype']; //3 for farmer
         $vehiclemodel=$arr['DVmodel'];
         $vehiclenoprovince=$arr['DVProvince'];
-        $vehicleno=$arr['DVno'];
+        $vehicleno=$vehiclenoprovince." - ".$arr['DVno'];
         $costkm=$arr['costkm'];
         $maxweight=$arr['maxweight'];
         $DLnumber=$arr['DLno'];
@@ -180,12 +180,22 @@ class signupModel extends db_model{
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user_id'];
         
+        
+        $sql5= "SELECT * FROM driver WHERE user_id='".$uid."'";
+        $result5=$this->connection->query($sql5);
+        $row=mysqli_fetch_assoc($result5);
+        $did=$row['driver_id'];
 
-
-        $sql2="INSERT INTO driver (user_id, current_location, license_no, vehcle_model, vehicle_province,	vechicle_no, costkm, maxweight,	verified_state)
-         Values('".$uid."','".$curlocation."','".$DLnumber."','".$vehiclemodel."','".$vehiclenoprovince."','".$vehicleno."','".$costkm."','".$maxweight."','".$verified."')";
+        $sql2="INSERT INTO driver (user_id, current_location, license_no, verified_state)
+         Values('".$uid."','".$curlocation."','".$DLnumber."','".$verified."')";
         $result2=$this->connection->query($sql2);
         if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp');</script>";
+
+
+        $sql4="INSERT INTO vehicles (driver_id, vehicle_no, cost_km, vehcle_type, maximum_weight, availability)
+         Values('".$did."','".$vehicleno."','".$costkm."','".$vehiclemodel."','".$maxweight."','1')";
+        $result4=$this->connection->query($sql4);
+        if($result4){}else echo "<script>alert('error in SignUp');</script>";
         
 
         $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
