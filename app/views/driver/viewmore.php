@@ -40,7 +40,7 @@
                 }
             ?>         
             Order Id           : 
-            <input type="text" class="advancedSearchTextBox"  name="orderid" value="<?php echo $ordid?>" disabled>
+            <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
             <br> 
                                  
 
@@ -123,7 +123,7 @@
 			<?php
                 $sum=0;
 				
-                 print_r($items);
+                 
                  foreach($items as $keys => $row){
 					
 					echo "<tr>";
@@ -144,6 +144,7 @@
                                 <div>No. 122</div>
                                 <div>Jaya mawatha</div>
                                 <div>Rathmalana</div>
+                                <div>Colombo</div>
                                 <div>Southern province</div>
                                 <div>50000</div>
                         </div>

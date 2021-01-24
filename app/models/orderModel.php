@@ -43,7 +43,6 @@ class orderModel extends db_model{
 		  return $this->read('order', array('*'), array('buyer_id'=>$id));
     }
 
-<<<<<<< HEAD
     function getdriver_upcomingorders($id){
 
       return $this->read('orders', array('*'), array('driver_id'=>$id));
@@ -87,7 +86,7 @@ class orderModel extends db_model{
 	}
 
   function  orderdetails_total($orderId){
-		$sql = "SELECT vegetable.vege_name ,item.total_cost,order_details.weight FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id where order_details.order_id='".$orderId."'";
+		$sql = "SELECT vegetable.vege_name ,item.total_cost,order_details.weight,order_details.farmer_id,order_details.details_id, cities.name_en FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id INNER JOIN farmer on farmer.farmer_id=order_details.farmer_id INNER JOIN address ON address.user_id=farmer.user_id INNER JOIN cities ON address.city=cities.id where order_details.order_id='".$orderId."'";
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){
@@ -115,7 +114,5 @@ class orderModel extends db_model{
 		echo "error";
 	}
 
-=======
     
->>>>>>> a9fba5e9bddc1d541656f1c2aab132beafadc88f
 }
