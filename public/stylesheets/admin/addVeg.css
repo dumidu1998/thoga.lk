@@ -22,6 +22,7 @@
     height: 60vh;
     overflow: scroll;
 }
+
 .model1{
     display: none; 
     position: fixed;

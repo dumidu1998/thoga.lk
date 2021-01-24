@@ -40,8 +40,8 @@ class orderModel extends db_model{
          echo "error";
     }
     public function get_all_orders($id){
-		return $this->read('order', array('*'), array('buyer_id'=>$id));
-
+		  return $this->read('order', array('*'), array('buyer_id'=>$id));
     }
+
     
 }
