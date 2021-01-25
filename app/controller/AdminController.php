@@ -55,8 +55,9 @@ class AdminController {
     }
 
     public function showorder(){
-        $ordid=$_POST['order_id'];
+        $ordid=$_GET['ord_id'];
         // echo $ordid;
+        
         $view = new View("admin/orderdetails");
 
     }
@@ -100,12 +101,12 @@ class AdminController {
         header("location: /thoga.lk/admin/admanager");
     }
 
-
     public function showadmin(){
         $result=$this->model->showadmins();
         $view = new View("admin/admins");
         $view->assign('results', $result); 
     }
+
     public function addadmin(){
         session_start();
         $return = $this->model->addadmin($_POST);
