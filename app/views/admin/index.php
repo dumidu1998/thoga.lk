@@ -39,38 +39,9 @@
             </tr>
         </table>
     </div>
-<!--
-    <div class="ut-hr-txt">
-        <hr><span>30 Days Summary</span>
-    </div>
-    <div class="statcontainer" style="margin-top:30px">
-    
-        <div class="statcard">
-        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div>
-        <div class="card-content" id="count1"><?php echo number_format(100);?></div>
-        </div>
 
-        <div class="statcard">
-        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div>
-        <div class="card-content" id="count2"><?php echo number_format(80);?></div>
-        </div>
-
-        <div class="statcard">
-        <div class="card-title"><img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div>
-            <div class="card-content">Rs. <span id="count3"><?php echo number_format(235000);?></div>
-
-        </div>
-        <div class="statcard">
-        <div class="card-title-big"><img class="cardimg" width= 40px height=40px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div>
-        <span id="dapplications"></span>
-        <div class="card-content">Rs. <span id="count4"><?php echo number_format(9500);?></span></div>
-
-        </div>
-    </div>
-
--->
     <div>
-        <table>
+        <table class="maintables">
         <div class="ut-hr-txt">
             <hr ><span>Driver Applications</span>
         </div>
@@ -104,7 +75,7 @@
     </div>
 
     <div>
-        <table>
+        <table class="maintables">
         <div class="ut-hr-txt">
             <hr><span>Mentor Applications</span>
         </div>
@@ -138,7 +109,7 @@
     <span id="mrequests"></span>
 
     <div>
-        <table>
+        <table class="maintables">
         <div class="ut-hr-txt">
             <hr><span>Mentor Requests</span>
         </div>
