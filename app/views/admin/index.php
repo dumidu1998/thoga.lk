@@ -19,6 +19,27 @@
         <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
 
     </div>
+
+    <div class="ut-hr-txt">
+        <hr><span>30 Days Summary</span>
+    </div>
+    <div style="width:80%;margin:auto;font-size:20px;">
+        <table>
+            <tr style="background-color:#2E5F3E;color:white">
+                <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div></th>
+                <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div></th>
+                <th>        <div class="card-title"><img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div></th>
+                <th>         <div class="card-title-big"><img class="cardimg" width= 30px height=30px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div></th>
+            </tr>
+            <tr style="font-size:35px">
+                <td>150</td>
+                <td>70</td>
+                <td>Rs. 1,700.00</td>
+                <td>Rs. 71,500.00</td>
+            </tr>
+        </table>
+    </div>
+<!--
     <div class="ut-hr-txt">
         <hr><span>30 Days Summary</span>
     </div>
@@ -46,13 +67,15 @@
 
         </div>
     </div>
+
+-->
     <div>
         <table>
         <div class="ut-hr-txt">
             <hr ><span>Driver Applications</span>
         </div>
-            <thead>
-                <tr>
+            <thead >
+                <tr style="background-color:#2E5F3E;color:white">
                 <th >Driver ID</th>
                 <th >Driver Name</th>
                 <th >District</th>
@@ -86,7 +109,7 @@
             <hr><span>Mentor Applications</span>
         </div>
             <thead>
-                <tr>
+                <tr  style="background-color:#2E5F3E;color:white">
                 <th >Mentor ID</th>
                 <th >District</th>
                 <th >Request Date</th>
@@ -120,7 +143,7 @@
             <hr><span>Mentor Requests</span>
         </div>
             <thead>
-                <tr>
+                <tr  style="background-color:#2E5F3E;color:white">
                 <th >Farmer Name</th>
                 <th >District</th>
                 <th >City</th>
