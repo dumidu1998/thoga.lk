@@ -111,10 +111,20 @@ class BuyerController {
 
     public function selectDriver( ){
         session_start();
-        $date = 2021-01-12;
-        $result = $this->drivers->get_avail($date);
+        $_SESSION['user'];
+        $tot_weight=0;
+        foreach($_SESSION['shopping_cart'] as $key => $values){
+            $tot_weight = $tot_weight + $values['item_quantity'];
+        }
+
+        $date=$_SESSION['pickup_date'];
+    
+        $weight = $tot_weight;
+        $user_location=$_SESSION['user'][0]['d_name'];
+        $result = $this->drivers->get_avail($date, $weight,$user_location);
         $view = new View("buyer/selectDriver");
         $view->assign('data', $result); 
+        $view->assign('tot_weight', $tot_weight); 
         
     }
     public function cart(){
