@@ -34,6 +34,8 @@ class DriverController{
             $buyer = $this->omodel->order_buyername($order_id);
             $items = $this->omodel->orderdetails_total($order_id);
             $city= $this->omodel->order_city($order_id);
+            
+
         
         }
         $result = $this->omodel->get_order_details($order_id);
@@ -44,8 +46,12 @@ class DriverController{
         $view->assign('buyer',$buyer);
         $view->assign('cityy',$city);
         $view->assign('items',$items);
+
+        
         
     }
+
+   
 
     public function showcalendar(){
         $driver_id=1;//$_SESSION['driverid'];

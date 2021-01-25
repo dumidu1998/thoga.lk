@@ -128,7 +128,7 @@
 					
 					echo "<tr>";
                     echo "<td>".$row['vege_name']."</td>";
-                    echo "<td><button name='viewmore' class='button1' onclick='openModal(".$row['details_id'].")'>".$row['name_en']."</button></td>";
+                    echo "<td><button name='viewAddress' class='button1' onclick='openModal(".$row['details_id'].")'>".$row['city']."</button></td>";
 					echo "<td>".$row['total_cost']."</td>";
 					echo "<td>".$row['weight']."</td>";
 					echo "<td>".$row['total_cost']*$row['weight']."</td>";
@@ -140,13 +140,19 @@
                         <div class="modal-content">
                             <span class="close" onclick="closeModal(<?php echo $row['details_id'] ?>)">&times;</span>
                                 <br>
-                                <div>Saman Kumara</div>
-                                <div>No. 122</div>
-                                <div>Jaya mawatha</div>
-                                <div>Rathmalana</div>
-                                <div>Colombo</div>
-                                <div>Southern province</div>
-                                <div>50000</div>
+                                <div><?php echo $row['firstname']." ".$row['lastname'];?></div>
+                                <div><?php echo $row['farm_name'];?></div>
+                                <div><?php echo $row['address_line1'];?></div>
+                                <div><?php echo $row['address_line2'];?></div>
+                                <div><?php echo $row['city'];?></div>
+                                <div><?php echo $row['district'];?></div>
+                                <div> <?php echo $row['province'];?></div>
+                                <div><?php echo $row['zip_code'];?></div>
+                                <div><?php echo $row['contactno1'];?></div>
+                                <div><?php echo $row['contactno2'];?></div>
+                               
+                                
+
                         </div>
                     </div>
 
