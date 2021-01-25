@@ -8,9 +8,9 @@
 </head>
 <body >
 <?php
-print_r($details);
+// print_r($details);
 echo"</br>";
-print_r($driver_details);
+// print_r($driver_details);
 
 ?>
 
@@ -39,7 +39,7 @@ foreach($driver_details as $keys => $values)
                     </tr>
                     <tr>
                         <td class="item_name">Driver name</td>
-                        <td><?php echo $values['firstname']?> <?php echo $values['lastname']?></td>
+                        <!-- <td><?php echo $values['firstname']?> <?php echo $values['lastname']?></td> -->
                         
                     </tr>
                     <tr>
