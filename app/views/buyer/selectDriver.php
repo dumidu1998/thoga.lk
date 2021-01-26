@@ -2,7 +2,6 @@
 <html lang="en">
 
 <?php
-// require_once(__DIR__.'/../../controller/selectDriver_crtl.php');
 
 ?>
 <head>
@@ -11,55 +10,43 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/chckout.css">
     <title>Driver</title>
 </head>
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body>
     <?php include("navbar.php"); ?>
 
     <div class="container-driver">
         <h1>Select Driver</h1>
         <hr>
         <table>
-        <?php
-print_r($data);
-        ?>
+        
             <tr>
                 <th>Driver name</th>
-                <th>weight</th>
+                <th>Rate</th>
                 <th>vehicle Name</th>
+                <th>Driver City</th>
                 <th>Price/km</th>
                 <th>max Weight</th>
             </tr>
+            <?php
+
+        // print_r($data);
+            foreach($data as $keys => $value){
+
+            
+        ?>
             <tr>
-                <td>Peter</td>
+            
+                <td><?php echo $value['firstname'] ?> <?php echo $value['lastname'] ?></td>
                 <td>5 star</td>
-                <td>Dimo batta</td>
-                <td>35</td>
-                <td>2000kg</td>
+                <td><?php echo $value['vehicle_type'] ?></td>
+                <td><?php echo $value['city_name'] ?></td>
+                <td><?php echo $value['cost_km'] ?></td>
+                <td><?php echo $value['maximum_weight'] ?></td>
                 <td><button type="submit">Select</button></td>
             </tr>
-            <tr>
-                <td>Kamal</td>
-                <td>4 star</td>
-                <td>Dimo Lokka</td>
-                <td>35</td>
-                <td>5000kg</td>
-                <td><button type="submit">Select</button></td>
-            </tr>
-            <tr>
-                <td>Saman</td>
-                <td>3 star</td>
-                <td>Canter</td>
-                <td>35</td>
-                <td>3000kg</td>
-                <td><button type="submit">Select</button></td>
-            </tr>
-            <tr>
-                <td>Jaya Sri</td>
-                <td>5 star</td>
-                <td>Canter</td>
-                <td>35</td>
-                <td>5000kg</td>
-                <td><button type="submit">Select</button></td>
-            </tr>
+            <?php
+            }
+            ?>
+           
             </table>
             <a href="/thoga.lk/buyer/summery"><button  class="checkout_btn">Continue</button></a>
 

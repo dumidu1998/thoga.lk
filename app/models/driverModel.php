@@ -58,9 +58,10 @@ class driverModel extends db_model{
 	}
 
 
-	function get_avail($date){
-		$sql = "SELECT * FROM driver WHERE driver_id NOT IN (SELECT driver_id FROM unavailable_dates WHERE enddate >= '".$date."' AND startdate <= '".$date."')";
+	function get_avail($date, $weight, $location){
+		$sql = "SELECT a.*,b.*, c.*,d.*,e.name_en AS city_name ,f.name_en AS dis_name FROM driver AS a INNER JOIN vehicles as b ON a.driver_id=b.driver_id INNER JOIN user AS c on a.user_id=c.user_id INNER join address as d ON d.user_id=c.user_id INNER join cities AS e on d.city=e.id INNER join districts AS f on d.district=f.id WHERE a.driver_id NOT IN (SELECT driver_id FROM unavailable_dates WHERE enddate >= '".$date."' AND startdate <= '".$date."') AND b.availability =1 AND b.maximum_weight>=".$weight." AND f.name_en='".$location."'";
 		$result=$this->connection->query($sql);
+		
 		$finale=array();
 		if($result){
       while($row=mysqli_fetch_assoc($result))
