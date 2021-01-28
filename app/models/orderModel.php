@@ -40,8 +40,23 @@ class orderModel extends db_model{
          echo "error";
     }
     public function get_all_orders($id){
-		return $this->read('order', array('*'), array('buyer_id'=>$id));
-
+		  return $this->read('order', array('*'), array('buyer_id'=>$id));
     }
+
+    public function get_all_for_chart(){
+      $sql="Select CAST(order_date AS DATE) as count_date, count(order_date) as counted_leads from orders group by order_date";
+      $result=$this->connection->query($sql);
+      $arr=array();
+      if($result){
+       while($row=mysqli_fetch_assoc($result))
+       array_push($arr,$row);
+     return $arr;
+   
+
+       }else
+       echo "error";
+    }
+
+
     
 }
