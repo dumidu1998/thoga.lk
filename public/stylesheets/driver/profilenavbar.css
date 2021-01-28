@@ -34,7 +34,7 @@ body {
   
 .topnav a:hover, .topnav a.active:hover {
     background-color: white;
-    color: yellow;
+    /* color: yellow; */
     text-decoration: none !important;
     border-bottom: 3px solid #63626259; 
   }

@@ -42,7 +42,7 @@ h1{
   padding: 0px;
   padding-top:50px;
   padding-bottom:50px;
-  border: 2px solid #2E5F3E ;
+  /* border: 2px solid #2E5F3E ; */
   box-shadow:0 5px 15px rgba(0,0,0,.9);
   background-color:white;
 }
@@ -128,7 +128,7 @@ td{
 }
     
 tr:hover {
-  background-color:#b3d9ff;
+  background-color:#ffffff;
       
 }
     
