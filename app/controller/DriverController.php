@@ -127,7 +127,7 @@ class DriverController{
     public function changevehicle_cost(){
         $vid=$_POST['vehicleid'];
         $cost=$_POST['cost'];
-        $result = $this->vmodel->changecost($vid,$cost);//vehicle_id
+        $result = $this->vmodel->changevehicle_cost($vid,$cost);//vehicle_id
         header("location:/thoga.lk/driver/vehicles");
         
     }

@@ -151,7 +151,7 @@
                                 <div><?php echo $row['zip_code'];?></div>
                                 <br>
                                 <div>📞 <?php echo $row['contactno1'];?></div>
-                                <div> <?php echo $row['contactno2'];?></div>
+                                <div>📞 <?php echo $row['contactno2'];?></div>
                                
                                 
 
