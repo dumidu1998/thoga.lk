@@ -51,7 +51,7 @@
       <th width="10px">Id</th>
       <th>Buyer Name</th>
       <th>Order Date / Time</th>
-      <th>Total Weight</th>
+      <th>Pickup Date</th>
       <th>Total Price</th>
       <th width="10px">Status</th>
       <th>Action</th>
@@ -59,19 +59,18 @@
   </thead>
   <tbody>
   <?php 
+        print_r($results);
         foreach($upcoming as $key=> $values){
     ?>
     <tr>
-    <form action="/thoga.lk/admin/showorder" method="POST">
       <td data-column="Id"><?php echo $values['order_id']; ?></td>
       <td data-column="Buyer Name"><?php echo $values['firstname']." ".$values['lastname']; ?></td>
       <td data-column="Id"><?php echo $values['order_date']; ?></td>
-      <td data-column="Total Weight"><?php echo number_format($values['weight']); ?> Kg</td>
+      <td data-column="Total Weight"><?php echo number_format($values['pickup_date']); ?></td>
       <td data-column="Total Price"> Rs. <?php echo number_format($values['total_cost'],2); ?></td>
       <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:22px;" aria-hidden="true"></i></i></td>
       <input type="hidden" name="order_id" value="<?php echo $values['order_id']; ?>">
-      <td data-column="Action"><button type="submit" name="submit" >View More</button></td>
-      </form>
+      <td data-column="Action"><a href="showorder?ord_id=10"><button name="submit" >View More</button></a></td>
     </tr>
     <?php
         }
@@ -80,16 +79,15 @@
         foreach($results as $key=> $values){
     ?>
     <tr>
-      <form action="/thoga.lk/admin/showorder" method="POST">
       <td data-column="Id"><?php echo $values['order_id']; ?></td>
       <td data-column="Buyer Name"><?php echo $values['firstname']." ".$values['lastname']; ?></td>
       <td data-column="Id"><?php echo $values['order_date']; ?></td>
-      <td data-column="Total Weight"><?php echo $values['weight']; ?> Kg</td>
+      <td data-column="Total Weight"><?php echo $values['pickup_date']; ?></td>
       <td data-column="Total Price"> Rs. <?php echo number_format($values['total_cost'],2); ?></td>
       <td data-column="Total Price"><i class="fa fa-check" style="font-size:30px;color:green;" aria-hidden="true"></i></td>
       <input type="hidden" name="order_id" value="<?php echo $values['order_id']; ?>">
-      <td data-column="Action"><button type="submit" name="submit" >View More</button></td>
-      </form>
+      <td data-column="Action"><a href="showorder?ord_id=10"><button name="submit" >View More</button></a></td>
+      <!-- <td data-column="Action"><button type="submit" name="submit" >View More</button></td> -->
     </tr>
     <?php
         }

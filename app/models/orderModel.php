@@ -43,11 +43,27 @@ class orderModel extends db_model{
 		  return $this->read('order', array('*'), array('buyer_id'=>$id));
     }
 
+
+    public function get_all_for_chart(){
+      $sql="Select CAST(order_date AS DATE) as count_date, count(order_date) as counted_leads from orders group by order_date";
+      $result=$this->connection->query($sql);
+      $arr=array();
+      if($result){
+       while($row=mysqli_fetch_assoc($result))
+       array_push($arr,$row);
+     return $arr;
+        }else
+       echo "error";
+    }
+
     function getdriver_upcomingorders($id){
 
       return $this->read('orders', array('*'), array('driver_id'=>$id));
-
     }
+
+
+       
+
 
     function get_order_details($id){
 
@@ -115,5 +131,6 @@ class orderModel extends db_model{
 	}
 
   
+
     
 }

@@ -5,54 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/adminindexstyle.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="/thoga.lk/public/js/chart.js"></script>
 </head>
   
 <body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
     <?php include("navbar.php");?>
-    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add New Admin</button></a>
-    <a href="/thoga.lk/admin/vegetables"><button class="addnewbtn">vegetable List</button></a>
-    </div>
+
+    <div class="top_grid">
+        <div class="top_grid_item">
+            <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
+            <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>
+            <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
+            <a href="/thoga.lk/admin/showadmin"><button class="admin-btn">Add New Admin</button></a>
+            <a href="/thoga.lk/admin/vegetables"><button class="admin-btn">Vegetable List</button></a>
+
+        </div>
+
+        <div class="top_grid_item">
+            <div class="ut-hr-txt">
+                <hr><span>30 Days Summary</span>
+            </div>
+            <div class="infotable">
+                <table>
+                    <tr class="tablehead">
+                        <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div></th>
+                        <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div></th>
+                        <th>        <div class="card-title"><img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div></th>
+                        <th>         <div class="card-title-big"><img class="cardimg" width= 30px height=30px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div></th>
+                    </tr>
+                    <tr style="font-size:30px">
+                        <td>150</td>
+                        <td>70</td>
+                        <td>Rs. 1,700.00</td>
+                        <td>Rs. 71,500.00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     
-    <div class="buttonContainer">
-        <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
-        <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>
-        <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
-
     </div>
-    <div class="ut-hr-txt">
-        <hr><span>30 Days Summary</span>
-    </div>
-    <div class="statcontainer" style="margin-top:30px">
-    
-        <div class="statcard">
-        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div>
-        <div class="card-content" id="count1"><?php echo number_format(100);?></div>
-        </div>
-
-        <div class="statcard">
-        <div class="card-title"> <img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div>
-        <div class="card-content" id="count2"><?php echo number_format(80);?></div>
-        </div>
-
-        <div class="statcard">
-        <div class="card-title"><img class="cardimg" width= 40px height=35px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div>
-            <div class="card-content">Rs. <span id="count3"><?php echo number_format(235000);?></div>
-
-        </div>
-        <div class="statcard">
-        <div class="card-title-big"><img class="cardimg" width= 40px height=40px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div>
-        <span id="dapplications"></span>
-        <div class="card-content">Rs. <span id="count4"><?php echo number_format(9500);?></span></div>
-
-        </div>
-    </div>
+    <div id="curve_chart" style="width: 900px; height: 300px; margin:auto"></div>
     <div>
-        <table>
+        <table class="maintables">
         <div class="ut-hr-txt">
-            <hr ><span>Driver Applications</span>
+            <hr ><span>Driver Applications</span><a name="dapplications"></a>
         </div>
-            <thead>
-                <tr>
+            <thead >
+                <tr class="tablehead">
                 <th >Driver ID</th>
                 <th >Driver Name</th>
                 <th >District</th>
@@ -81,12 +81,12 @@
     </div>
 
     <div>
-        <table>
+        <table class="maintables">
         <div class="ut-hr-txt">
             <hr><span>Mentor Applications</span>
         </div>
             <thead>
-                <tr>
+                <tr  class="tablehead">
                 <th >Mentor ID</th>
                 <th >District</th>
                 <th >Request Date</th>
@@ -115,12 +115,12 @@
     <span id="mrequests"></span>
 
     <div>
-        <table>
+        <table class="maintables">
         <div class="ut-hr-txt">
             <hr><span>Mentor Requests</span>
         </div>
             <thead>
-                <tr>
+                <tr  class="tablehead">
                 <th >Farmer Name</th>
                 <th >District</th>
                 <th >City</th>
@@ -149,7 +149,37 @@
         </table>
 
     </div>
-    
-
 </body> 
+
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Sales'],
+                <?php
+            foreach($ordersforchart as $keys => $row){
+                echo "['".$row['count_date']."',".$row['counted_leads']."],";
+            }
+
+            ?>
+            ]);
+
+            var options = {
+                title: 'Performance - Orders',
+                curveType: 'none',
+                legend: { position: 'bottom' },
+                pointSize: 2,
+                vAxis: {format: '0',minValue: 4,title: 'Orders'},
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+    </script>
+
 </html>
