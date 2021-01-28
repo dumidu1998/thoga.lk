@@ -9,36 +9,58 @@
   
 <body style="margin-top:100px;background-image: url(/thoga.lk/public/images/admin/a.jpg); background-repeat:repeat;margin-top:120px"  >
     <?php include("navbar.php");?>
-    <div  class="addnewcont"><a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add New Admin</button></a>
-    <a href="/thoga.lk/admin/vegetables"><button class="addnewbtn">vegetable List</button></a>
+
+    <div class="top_grid">
+        <div class="top_grid_item">
+            <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
+            <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>
+            <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
+            <a href="/thoga.lk/admin/showadmin"><button class="admin-btn">Add New Admin</button></a>
+            <a href="/thoga.lk/admin/vegetables"><button class="admin-btn">Vegetable List</button></a>
+
+        </div>
+
+        <div class="top_grid_item">
+            <div class="ut-hr-txt">
+                <hr><span>30 Days Summary</span>
+            </div>
+            <div class="infotable">
+                <table>
+                    <tr class="tablehead">
+                        <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div></th>
+                        <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div></th>
+                        <th>        <div class="card-title"><img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div></th>
+                        <th>         <div class="card-title-big"><img class="cardimg" width= 30px height=30px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div></th>
+                    </tr>
+                    <tr style="font-size:30px">
+                        <td>150</td>
+                        <td>70</td>
+                        <td>Rs. 1,700.00</td>
+                        <td>Rs. 71,500.00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    
+    </div>
+    
+
+
+
+    <!--      
+    <div  class="addnewcont">
+        <a href="/thoga.lk/admin/showadmin"><button class="addnewbtn">Add New Admin</button></a>
+        <a href="/thoga.lk/admin/vegetables"><button class="addnewbtn">Vegetable List</button></a>
     </div>
     
     <div class="buttonContainer">
         <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
         <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>
         <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
-
     </div>
 
-    <div class="ut-hr-txt">
-        <hr><span>30 Days Summary</span>
-    </div>
-    <div style="width:80%;margin:auto;font-size:20px;">
-        <table>
-            <tr style="background-color:#2E5F3E;color:white">
-                <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div></th>
-                <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div></th>
-                <th>        <div class="card-title"><img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div></th>
-                <th>         <div class="card-title-big"><img class="cardimg" width= 30px height=30px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div></th>
-            </tr>
-            <tr style="font-size:35px">
-                <td>150</td>
-                <td>70</td>
-                <td>Rs. 1,700.00</td>
-                <td>Rs. 71,500.00</td>
-            </tr>
-        </table>
-    </div>
+
+          -->
 
     <div>
         <table class="maintables">
@@ -46,7 +68,7 @@
             <hr ><span>Driver Applications</span>
         </div>
             <thead >
-                <tr style="background-color:#2E5F3E;color:white">
+                <tr class="tablehead">
                 <th >Driver ID</th>
                 <th >Driver Name</th>
                 <th >District</th>
@@ -80,7 +102,7 @@
             <hr><span>Mentor Applications</span>
         </div>
             <thead>
-                <tr  style="background-color:#2E5F3E;color:white">
+                <tr  class="tablehead">
                 <th >Mentor ID</th>
                 <th >District</th>
                 <th >Request Date</th>
@@ -114,7 +136,7 @@
             <hr><span>Mentor Requests</span>
         </div>
             <thead>
-                <tr  style="background-color:#2E5F3E;color:white">
+                <tr  class="tablehead">
                 <th >Farmer Name</th>
                 <th >District</th>
                 <th >City</th>

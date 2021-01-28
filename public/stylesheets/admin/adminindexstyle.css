@@ -128,7 +128,7 @@ a.button_signup:active {
 .card-title {
     text-align: center;
     margin-top: 0;
-    font-size: 30px;
+    font-size: 28px;
     /* margin-bottom: 20px; */
     font-weight: bold;
     letter-spacing: 1.2px;
@@ -307,7 +307,7 @@ table th {
 }
 
 .admin-btn {
-    margin: 0px 7% 80px 5%;
+    margin: 0px 7% 0px 0%;
     padding: 10px 25px;
     font-family: "Roboto", sans-serif;
     font-weight: 800;
@@ -318,15 +318,16 @@ table th {
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    border: 2px solid #000;
-    width: auto;
-    height: 80px;
+    border: 0px solid #000;
+    width: 68%;
+    height: 50px;
     color: #14221a;
+    text-align: left;
+    text-decoration: underline;
 }
 
 .admin-btn:hover {
-    background: #253E30;
-    color: #fff;
+    background: #dadada;
 }
 
 .addnewcont {
@@ -334,6 +335,17 @@ table th {
     right: 15px;
     top: 66px;
     display: block;
+}
+
+.tablehead{
+    background-color:#2E5F3E;
+    color:white;
+}
+
+.infotable{
+    width:98%;
+    margin:auto;
+    font-size:20px;
 }
 
 .addnewcont .addnewbtn {
@@ -416,4 +428,20 @@ table th {
 
 .cardd {
     display: block;
+}
+
+.top_grid{
+    display: grid;
+  grid-column-gap: 30px;
+  grid-template-columns: 25% auto ;
+  background-color: transparent;
+  padding: 1px;
+}
+
+.top_grid_item{
+    background-color: transparent;
+    border: 0px solid rgba(0, 0, 0, 0.8);
+    padding: 0px;
+    font-size: 30px;
+    text-align: left;
 }
