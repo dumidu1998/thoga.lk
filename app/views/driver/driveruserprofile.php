@@ -150,7 +150,6 @@ if(isset($_GET["update"])){
 					<?php
 
 					
-					
 					foreach($details as $keys => $row){
 						$order_id=$row['order_id'];
 						$pickdate=$row['pickup_date'];

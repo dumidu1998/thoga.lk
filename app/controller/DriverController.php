@@ -79,7 +79,9 @@ class DriverController{
     }
 
     public function viewprofile(){
+        $result = $this->omodel->getdriver_orderhistory(1);//driver id
         $view = new View("driver/driveruserprofile");
+        $view->assign('details',$result);
     }
     
     public function showvehicle(){
@@ -127,8 +129,16 @@ class DriverController{
     public function changevehicle_cost(){
         $vid=$_POST['vehicleid'];
         $cost=$_POST['cost'];
-        $result = $this->vmodel->changecost($vid,$cost);//vehicle_id
+        $result = $this->vmodel->changevehicle_cost($vid,$cost);//vehicle_id
         header("location:/thoga.lk/driver/vehicles");
+        
+    }
+     
+    
+    public function getdriver_orderhistory(){
+        $result = $this->omodel->getdriver_upcomingorders(1);//driver id
+        $view = new View("driver/driveruserprofile");
+        $view->assign('details',$result);
         
     }
 

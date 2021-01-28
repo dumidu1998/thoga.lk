@@ -7,7 +7,7 @@
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="navlogo"><img width=65px src="/thoga.lk/public/images/driver/final driver.png" alt="" class = "logo"></a>
+  <a href="#home" class="navlogo"><img width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
   <a href="dashboard">Dashboard</a>
   <a href="calendar" class="active">Calendar</a>
   <a href="/thoga.lk/forum">Forum</a>
