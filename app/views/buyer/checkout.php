@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <?php session_start(); 
+    <?php 
+    //session_start(); 
     //print_r ($_SESSION["shopping_cart"]);
 //print_r($_SESSION['user']);
 
@@ -88,11 +89,6 @@
                 <h1>Order summary</h1>
                 <hr>
                 <table>
-                <tr>                       
-                        <td class="td_summary">subtotal</td>
-                        <td><?php echo $subtot ?></td>
-                    </tr>
-
                     <tr>                       
                         <td class="td_summary">Pickup Date</td>
                         <td><?php echo $pick_date ?></td>
@@ -135,7 +131,7 @@
 
                             
                         ?>
-                <form action="addr" method="post">
+                <form action="summary" method="post">
                     <div class="delivery_option-address-input">   
                         <div>
                             <label for="">Address line 1 *</label>

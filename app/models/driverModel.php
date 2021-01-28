@@ -57,13 +57,11 @@ class driverModel extends db_model{
 		}
 	}
 
-	function get($id){
 
-		return $this->read('driver', array('*'), array('id'=>$id));
-	}
-	function get_avail(){
-		$sql = "SELECT a.*, b.* FROM driver AS a INNER JOIN unavailable_dates AS b ON a.driver_id = b.driver_id WHERE b.enddate >= '2021-01-12' AND b.startdate <= '2021-01-12'";
+	function get_avail($date, $weight, $location){
+		$sql = "SELECT a.*,b.*, c.*,d.*,e.name_en AS city_name ,f.name_en AS dis_name FROM driver AS a INNER JOIN vehicles as b ON a.driver_id=b.driver_id INNER JOIN user AS c on a.user_id=c.user_id INNER join address as d ON d.user_id=c.user_id INNER join cities AS e on d.city=e.id INNER join districts AS f on d.district=f.id WHERE a.driver_id NOT IN (SELECT driver_id FROM unavailable_dates WHERE enddate >= '".$date."' AND startdate <= '".$date."') AND b.availability =1 AND b.maximum_weight>=".$weight." AND f.name_en='".$location."'";
 		$result=$this->connection->query($sql);
+		
 		$finale=array();
 		if($result){
       while($row=mysqli_fetch_assoc($result))
@@ -74,5 +72,21 @@ class driverModel extends db_model{
 		echo "error";
 
 	}
+
+	function insertunavailable_dates($driver_id,$startdate,$enddate){
+        $sql = "INSERT INTO unavailable_dates (driver_id,startdate,enddate) VALUES ('".$driver_id."','".$startdate."','".$enddate."')";
+        $result=$this->connection->query($sql);
+        if($result){}else{echo "error";}	
+    }
+	
+	function getdates($id){
+        return $this->read('unavailable_dates', array("startdate AS start","enddate AS end","'Unavailable'AS'title'","'#d00000'AS'color'"), array('driver_id'=>$id));
+	}
+	
+	function getorderdates($id){
+        return $this->read('orders',array("pickup_date AS start","concat('Order # ',order_id) AS title"),array('driver_id'=>$id));
+	}
+	
+	
 }
  ?>
