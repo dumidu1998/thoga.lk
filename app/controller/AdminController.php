@@ -6,6 +6,7 @@ require_once(__DIR__.'/../models/vegetablesModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/mentorModel.php');
 require_once(__DIR__.'/../models/farmerModel.php');
+require_once(__DIR__.'/../models/orderModel.php');
 
 
 class AdminController {
@@ -16,16 +17,19 @@ class AdminController {
         $this->drivers = new driverModel();
         $this->mentors = new mentorModel();
         $this->farmers = new farmerModel();
+        $this->orders = new orderModel();
     }
 
     public function index(){
         $results=$this->drivers->get_pending();
         $mentors=$this->mentors->get_pending();
         $farmers=$this->farmers->get_mentor_requests();
+        $orders=$this->orders->get_all_for_chart();
         $view = new View("admin/index");
         $view->assign('results', $results);
         $view->assign('mentors', $mentors);
         $view->assign('farmers', $farmers);
+        $view->assign('ordersforchart', $orders);
     }
 
     public function vieworders(){
@@ -55,8 +59,9 @@ class AdminController {
     }
 
     public function showorder(){
-        $ordid=$_POST['order_id'];
+        $ordid=$_GET['ord_id'];
         // echo $ordid;
+        
         $view = new View("admin/orderdetails");
 
     }
@@ -100,12 +105,12 @@ class AdminController {
         header("location: /thoga.lk/admin/admanager");
     }
 
-
     public function showadmin(){
         $result=$this->model->showadmins();
         $view = new View("admin/admins");
         $view->assign('results', $result); 
     }
+
     public function addadmin(){
         session_start();
         $return = $this->model->addadmin($_POST);
