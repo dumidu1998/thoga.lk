@@ -90,6 +90,19 @@ class AdminModel extends db_model
 		}
 	}
 
+	function get_Stat()
+	{
+		$sql = "INSERT INTO admin(user_name,password,name,tel_no) VALUES ('" . $uname . "','" . $pwd . "','" . $name . "','" . $tel . "')";
+		$result = $this->connection->query($sql);
+		$finale = array();
+		if ($result) {
+			while ($row = mysqli_fetch_assoc($result))
+				array_push($finale, $row);
+			return $finale;
+		} else
+			echo "error";
+	}
+
 	function getalluserdata($id)
 	{
 		$sql = "SELECT a.*, b.user_type, c.*, 
