@@ -37,6 +37,7 @@ class loginModel extends db_model
     } else
       echo "error";
   }
+
   function log_admin($uname, $pwd)
   {
     $pwd = $pwd;
@@ -48,4 +49,19 @@ class loginModel extends db_model
     } else
       echo "error0";
   }
+
+  function get_driver_id($uid){
+    $sql = "SELECT driver_id FROM driver WHERE user_id = '$uid'";
+    $result = $this->connection->query($sql);
+    $finale = array();
+    if ($result) {
+      while ($row = mysqli_fetch_assoc($result))
+        //print_r($row);
+        array_push($finale, $row);
+      return $finale;
+    } else
+      echo "error";
+  }
+  
+
 }

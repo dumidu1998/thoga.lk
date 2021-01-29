@@ -30,6 +30,8 @@ class LoginController{
                             //echo "im the farmer"; 
                             header("location:farmer/dash");
                         }elseif($values['user_type'] == 'driver'){
+                            $id=$this->user->get_driver_id($_SESSION['user'][0]['user_id']);
+                            $_SESSION['driver']['driver_id']=$id[0]['driver_id'];
                             header("location:driver/dashboard");
                         }elseif($values['user_type'] == 'mentor'){
                             header("location:mentor/dash");
