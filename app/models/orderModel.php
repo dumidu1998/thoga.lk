@@ -45,7 +45,7 @@ class orderModel extends db_model{
 
 
     public function get_all_for_chart(){
-      $sql="Select CAST(order_date AS DATE) as count_date, count(order_date) as counted_leads from orders group by order_date";
+      $sql="Select CAST(order_date AS DATE) as count_date, count(order_date) as counted_leads from orders where order_date between (CURDATE() - INTERVAL 1 MONTH ) and CURDATE() group by order_date";
       $result=$this->connection->query($sql);
       $arr=array();
       if($result){
