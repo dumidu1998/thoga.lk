@@ -43,16 +43,94 @@ class orderModel extends db_model{
 		  return $this->read('order', array('*'), array('buyer_id'=>$id));
     }
 
+
     public function get_all_for_chart(){
       $sql="Select CAST(order_date AS DATE) as count_date, count(order_date) as counted_leads from orders group by order_date";
       $result=$this->connection->query($sql);
       $arr=array();
       if($result){
-          while($row=mysqli_fetch_assoc($result))
-          array_push($arr,$row);
-      return $arr;
-      }else
-       echo "error in SQL";
+       while($row=mysqli_fetch_assoc($result))
+       array_push($arr,$row);
+     return $arr;
+        }else
+       echo "error";
     }
+
+    function getdriver_upcomingorders($id){
+
+      return $this->read('orders', array('*'), array('driver_id'=>$id));
+    }
+
+
+       
+
+
+    function get_order_details($id){
+
+      return $this->read('orders', array('*'), array('order_id'=>$id));
+      
+  }
+
+  function  order_buyername($id){
+		$sql= "SELECT a.username FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
+		
+		$result=$this->connection->query($sql);
+		
+		$finale=array();
+		if($result){
+        while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		    return $finale;
+		}else
+		echo "error";
+
+  }
+  
+  function  order_drivername($id){
+
+		$sql= "SELECT a.username FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
+
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+      while($row=mysqli_fetch_assoc($result))	
+			array_push($finale,$row);
+		return $finale;
+		}else
+		echo "error";
+
+	}
+
+  function  orderdetails_total($orderId){
+		$sql = "SELECT vegetable.vege_name, item.total_cost, order_details.weight, order_details.farmer_id, order_details.details_id, cities.name_en AS city, farmer.farm_name, districts.name_en AS district, provinces.name_en AS province, address.zip_code, address.address_line1, address.address_line2, user.firstname , user.lastname, user.contactno1 ,user.contactno2 FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id INNER JOIN farmer on farmer.farmer_id=order_details.farmer_id INNER JOIN address ON address.user_id=farmer.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN user ON farmer.user_id=user.user_id INNER JOIN districts ON districts.id=address.district INNER JOIN provinces ON provinces.id=address.province where order_details.order_id='".$orderId."'";
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+           while($row=mysqli_fetch_assoc($result)){
+			array_push($finale,$row);
+		   }
+		  return $finale;
+
+		}else
+		echo "error";
+
+  }
+  
+  function  order_city($id){
+		$sql= "SELECT a.name_en FROM districts AS a INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+		
+		$result=$this->connection->query($sql);
+		
+		$finale=array();
+		if($result){
+        while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		    return $finale;
+		}else
+		echo "error";
+	}
+
+  
+
     
 }
