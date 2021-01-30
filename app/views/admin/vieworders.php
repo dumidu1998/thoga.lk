@@ -19,14 +19,14 @@
     <h1>Orders</h1>
     
     <div class="filters">
-        <form action="" method="POST">
+        <form action="" method="GET">
             <div class="grid">
                 <div>
                     <span class="filterTopic">Filter by Date</span><br>
                     <span>Start Date :- <input type="date"  name="filterSdate" id="FSdate"></span> <span style="display:inline-block;">  End Date :- <input type="date" name="filterEdate" id="FEdate"></span>
                     <br>
-                    <input type="checkbox" class="cbox" name="ordtype" id="u" value="up"> <label for="u">Upcoming <i class="fas fa-stopwatch fa-spin" style="font-size:15px" aria-hidden="true"></i></label><br>
-                    <input type="checkbox" class="cbox" name="ordtype" id="f" value="f"> <label for="f">Finished <i class="fa fa-check" style="font-size:15px;color:green;" aria-hidden="true"></i></label>
+                    <input type="checkbox" class="cbox" name="ordtypeu" id="u" value="up"> <label for="u">Upcoming <i class="fas fa-stopwatch fa-spin" style="font-size:15px" aria-hidden="true"></i></label><br>
+                    <input type="checkbox" class="cbox" name="ordtypef" id="f" value="f"> <label for="f">Finished <i class="fa fa-check" style="font-size:15px;color:green;" aria-hidden="true"></i></label>
 
                 </div> 
                 <div>
@@ -40,7 +40,7 @@
                 </div> 
             </div>
             
-            <button class="sbutton" type="submit">Process</button>
+            <button class="sbutton" name="process" value="1" type="submit">Process</button>
         </form>
     </div>
 
@@ -59,16 +59,17 @@
   </thead>
   <tbody>
   <?php 
+        print_r($upcoming);
         print_r($results);
         foreach($upcoming as $key=> $values){
     ?>
     <tr>
       <td data-column="Id"><?php echo $values['order_id']; ?></td>
       <td data-column="Buyer Name"><?php echo $values['firstname']." ".$values['lastname']; ?></td>
-      <td data-column="Id"><?php echo $values['order_date']; ?></td>
-      <td data-column="Total Weight"><?php echo number_format($values['pickup_date']); ?></td>
+      <td data-column="Order Date / Time"><?php echo $values['order_date']; ?></td>
+      <td data-column="Pickup Date"><?php echo ($values['pickup_date']); ?></td>
       <td data-column="Total Price"> Rs. <?php echo number_format($values['total_cost'],2); ?></td>
-      <td data-column="Total Price"><i class="fas fa-stopwatch fa-spin" style="font-size:22px;" aria-hidden="true"></i></i></td>
+      <td data-column="Status"><i class="fas fa-stopwatch fa-spin" style="font-size:22px;" aria-hidden="true"></i></i></td>
       <input type="hidden" name="order_id" value="<?php echo $values['order_id']; ?>">
       <td data-column="Action"><a href="showorder?ord_id=10"><button name="submit" >View More</button></a></td>
     </tr>

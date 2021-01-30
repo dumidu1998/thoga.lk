@@ -33,8 +33,22 @@ class AdminController {
     }
 
     public function vieworders(){
-        $results=$this->model->orderdetails();
-        $upcoming=$this->model->upcomming();
+        if(isset($_GET['process'])){
+            if(isset($_GET['ordtypeu']) && isset($_GET['ordtypef']) && $_GET['ordtypeu']=="up" && $_GET['ordtypef']=="f" ){
+                $results=$this->model->orderdetails();
+                $upcoming=$this->model->upcomming();
+            }else if(isset($_GET['ordtypeu']) && $_GET['ordtypeu']=="up"){
+                $upcoming=$this->model->upcomming();
+                $results=0;
+            }else if(isset($_GET['ordtypef']) && $_GET['ordtypef']=="f"){
+                $results=$this->model->orderdetails();
+                $upcoming=0;
+            }
+            // $upcoming=$this->model->upcomming();
+        }else{
+            $results=$this->model->orderdetails();
+            $upcoming=$this->model->upcomming();
+        }
         $view = new View("admin/vieworders");
         $view->assign('results', $results); 
         $view->assign('upcoming', $upcoming); 
