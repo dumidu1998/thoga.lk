@@ -30,8 +30,8 @@
 
                 </div> 
                 <div>
-                    <span class="filterTopic">Filter by Username</span> <br>
-                    Username :- <input type="text" name="uname" id="" placeholder="Keep Empty to view all"> <br>
+                    <span class="filterTopic">Filter by Buyer Name</span> <br>
+                    Username/Name :- <input type="text" name="uname" id="" placeholder="Keep Empty to view all"> <br>
                     <input type="radio" name="utype" id="f" value="f"> <label for="f">Farmer</label>
                     <input type="radio" name="utype" id="b" value="b"> <label for="b">Buyer</label>
                     <input type="radio" name="utype" id="d" value="d"> <label for="d">Driver</label>
@@ -61,6 +61,7 @@
   <?php 
         print_r($upcoming);
         print_r($results);
+        if($upcoming!=0){
         foreach($upcoming as $key=> $values){
     ?>
     <tr>
@@ -74,9 +75,10 @@
       <td data-column="Action"><a href="showorder?ord_id=10"><button name="submit" >View More</button></a></td>
     </tr>
     <?php
-        }
+        }}
         ?>
         <?php 
+         if($results!=0){
         foreach($results as $key=> $values){
     ?>
     <tr>
@@ -91,7 +93,7 @@
       <!-- <td data-column="Action"><button type="submit" name="submit" >View More</button></td> -->
     </tr>
     <?php
-        }
+        }}
         ?>
   </tbody>
 </table>
