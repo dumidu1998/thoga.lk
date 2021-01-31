@@ -43,19 +43,13 @@ class AdminController {
             }else if(isset($_GET['ordtypef']) && $_GET['ordtypef']=="f"){
                 $results=$this->model->orderdetails();
                 $upcoming=0;
-            }else if($_GET['filterSdate']==null && $_GET['filterEdate']==null && $_GET['uname']==null){
+            }else if($_GET['uname']!=null){
+                $results=$this->model->orderdetails_uname($_GET['uname']);
+                $upcoming=$this->model->upcomming_uname($_GET['uname']);
+            }else{
                 $results=$this->model->orderdetails();
                 $upcoming=$this->model->upcomming();
-            }else if(isset($_GET['filterSdate']) && isset($_GET['filterEdate'])){
-                echo $_GET['filterSdate'] . $_GET['filterEdate'];
-            }else if(isset($_GET['filterSdate'])){
-                echo "Aaaaaaaaaaaa";
-            }else if(isset($_GET['filterEdate'])){
-                echo "ddddddddddddd";
-            }else if(isset($_GET['filterSdate']) && isset($_GET['filterEdate'])){
-            
             }
-            // $upcoming=$this->model->upcomming();
         }else{
             $results=$this->model->orderdetails();
             $upcoming=$this->model->upcomming();
@@ -63,6 +57,7 @@ class AdminController {
         $view = new View("admin/vieworders");
         $view->assign('results', $results); 
         $view->assign('upcoming', $upcoming); 
+        $view->assign('get', $_GET); 
     }
 
     public function admanager(){
@@ -85,8 +80,7 @@ class AdminController {
 
     public function showorder(){
         $ordid=$_GET['ord_id'];
-        // echo $ordid;
-        
+        //  echo $ordid;
         $view = new View("admin/orderdetails");
 
     }
