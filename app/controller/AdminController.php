@@ -81,7 +81,31 @@ class AdminController {
     public function showorder(){
         $ordid=$_GET['ord_id'];
         //  echo $ordid;
+        // $result=
+        if(isset($_GET['ord_id'])){
+            $order_id=$_GET['ord_id'];
+            $driver = $this->orders->order_drivername($order_id);
+            $buyer = $this->orders->order_buyername($order_id);
+            $items = $this->orders->orderdetails_total($order_id);
+            $city= $this->orders->order_city($order_id);
+            
+
+        
+        }
+        // print_r( $driver);
+        // print_r( $buyer);
+        // print_r( $items);
+        print_r( $city);
+        echo $buyer[0]['firstname'];
+        echo $buyer[0]['lastname'];
+        echo $city[0]['d_addline1'];
+        echo $city[0]['d_addline2'];
+
         $view = new View("admin/orderdetails");
+        $view->assign('buyer', $buyer); 
+        $view->assign('driver', $driver); 
+        $view->assign('items', $items);
+        $view->assign('city', $city);
 
     }
 

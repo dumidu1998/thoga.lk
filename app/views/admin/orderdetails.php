@@ -13,15 +13,15 @@
 <div class="container">
     <h1>Order Details</h1>
     <div class="banner">
-      <h2>Order Id - 10</h2>
-      <h2>Invoice No. - 023</h2>
+      <h2>Order Id - <?php echo $city[0]['order_id']; ?></h2>
+      <h2>Invoice No. - <?php echo $city[0]['order_id']; ?></h2>
     </div>
     <div class="MainContainer">
     <div class="detailContainer">
       <div> 
-      <label class="Dlabel bold" for="1">Buyer Name : -</label> <span class="Dlabel">Manthila Bandara</span><br><br>
+      <label class="Dlabel bold" for="1">Buyer Name : -</label> <span class="Dlabel"><?php echo $buyer[0]['firstname']." ".$buyer[0]['lastname']  ?></span><br><br>
       <label class="Dlabel" for="2" style="float:left;margin-right:30px">Address &nbsp; &nbsp; : - </label>
-      <textarea name="" id="2" cols="25" rows="3" readonly=readonly >No.122&#13;&#10;Jaya Mawatha&#13;&#10;Thalawa</textarea>
+      <textarea name="" id="2" cols="25" rows="3" readonly=readonly ><?php echo $city[0]['d_addline1']; ?>&#13;&#10;<?php echo $city[0]['d_addline2']; ?>&#13;&#10;<?php echo $city[0]['name_en']; ?></textarea>
       </div>
       <div style="float:left;clear:both">
         <br>

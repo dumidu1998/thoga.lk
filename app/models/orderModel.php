@@ -72,7 +72,7 @@ class orderModel extends db_model{
   }
 
   function  order_buyername($id){
-		$sql= "SELECT a.username FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username,a.firstname,a.lastname FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
@@ -88,7 +88,7 @@ class orderModel extends db_model{
   
   function  order_drivername($id){
 
-		$sql= "SELECT a.username FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username, a.firstname, a.lastname FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
 
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -117,7 +117,7 @@ class orderModel extends db_model{
   }
   
   function  order_city($id){
-		$sql= "SELECT a.name_en FROM districts AS a INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+		$sql= "SELECT a.name_en, b.* FROM districts AS a  INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
