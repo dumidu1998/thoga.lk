@@ -65,7 +65,7 @@ function removeunavailability(x){
       alert(convert(x) + " marked as available.");
     }
   };
-  xhttp.open("GET", "/thoga.lk/app/views/driver/test2.php?sdate="+convert(x) , true);
+  xhttp.open("GET", "/thoga.lk/driver/removeunavail?sdate="+convert(x) , true);
   xhttp.send();
 }
 
@@ -77,7 +77,7 @@ function addunavailability(x){
       alert(convert(x) + " marked as unavailable.");
     }
   };
-  xhttp.open("GET", "/thoga.lk/app/views/driver/test.php?sdate="+convert(x) , true);
+  xhttp.open("GET", "/thoga.lk/driver/addunavail?sdate="+convert(x) , true);
   xhttp.send();
 }
 

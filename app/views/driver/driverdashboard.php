@@ -17,9 +17,7 @@
 			</div>
 		</header>
 			<div class ="vehicle">
-				<form method="post" action="vehicledetails">
-					<input type="submit" value="Vehicle details" class="button2" name="vehicledetails">
-				</form>
+				<a href="vehicledetails"><button class="button2">Vehicle details</button></a>
 			</div>
 		<div class="menu">
 			

@@ -86,7 +86,19 @@ class driverModel extends db_model{
 	function getorderdates($id){
         return $this->read('orders',array("pickup_date AS start","concat('Order # ',order_id) AS title"),array('driver_id'=>$id));
 	}
+
+	function addunavailability($id,$date){
+        $sql="INSERT INTO unavailable_dates(date_id,driver_id,startdate,enddate) VALUES(null,'".$id."','".$date."','".$date."')";
+		$result=$this->connection->query($sql);
+        if($result){}else{echo "error";}
+	}
 	
-	
+	function removeunavailability($id,$date){
+		
+
+		$sql="DELETE FROM unavailable_dates WHERE startdate ='" . $date . "' AND driver_id='".$id."'" ;
+		$result=$this->connection->query($sql);
+		if($result){}else{echo "error";}
+	}
 }
  ?>
