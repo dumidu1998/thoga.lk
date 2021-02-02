@@ -86,6 +86,30 @@ class DriverController{
         }
     }
 
+    public function addunavailability(){
+        
+        $q=0;
+        if(isset($_REQUEST['sdate'])){
+            $q=$_REQUEST['sdate'];
+        }
+        session_start();
+        $id=$_SESSION['driver']['driver_id'];
+
+        $this->dmodel->addunavailability($id,$q);
+    }
+
+    public function removeunavailability(){
+        $q=0;
+    if(isset($_REQUEST['sdate'])){
+        $q=$_REQUEST['sdate'];
+    }
+
+    session_start();
+    $id=$_SESSION['driver']['driver_id'];
+    $this->dmodel->removeunavailability($id,$q);
+
+    }
+
     public function viewprofile(){
         session_start();
         $id=$_SESSION['driver']['driver_id'];

@@ -89,7 +89,9 @@ $routes = [
     'driver/changeav1' => 'DriverController@changeavailability1',
     'buyer/submitstatus' => 'BuyerController@statusUpdate',
     'driver/changecost' => 'DriverController@changevehicle_cost',
-    // 'driver/viewmore'=>'DriverController@getdriver_orderhistory',
+    'driver/addunavail'=>'DriverController@addunavailability',
+    'driver/removeunavail'=>'DriverController@removeunavailability',
+
 
 
 ];
