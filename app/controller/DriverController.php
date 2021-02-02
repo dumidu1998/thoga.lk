@@ -56,7 +56,6 @@ class DriverController{
    
 
     public function showcalendar(){
-        // $driver_id=1;//$_SESSION['driverid'];
         session_start();
         $driver_id=$_SESSION['driver']['driver_id'];
 

@@ -16,13 +16,14 @@
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+      nextDayThreshold:'00:00',
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth'
       },
       initialDate: today,
-      navLinks: false, 
+      navLinks: false,
       selectable: true,
       selectMirror: true,
       select: function(arg) {

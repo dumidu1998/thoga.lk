@@ -10,7 +10,7 @@ class orderModel extends db_model{
 
         $result=$this->connection->query($sql);
 
-        echo "done";
+        echo "done- SQL Worked";
        
     }
     public function viewmore_farmer($id){
@@ -24,7 +24,7 @@ class orderModel extends db_model{
      
  
          }else
-         echo "error";
+         echo "error in SQL";
     }
     public function viewmore_driver($id){
         $sql="SELECT a.*, b.*,c.*,e.*,f.name_en as province,g.name_en as city,i.name_en as district FROM orders as a INNER JOIN driver as b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id INNER JOIN address as e on c.user_id=e.user_id INNER JOIN provinces as f on f.id=e.province_name INNER JOIN cities as g on g.id=e.city INNER JOIN districts as i on i.id=e.province_name WHERE a.order_id=".$id;
@@ -45,7 +45,7 @@ class orderModel extends db_model{
 
 
     public function get_all_for_chart(){
-      $sql="Select CAST(order_date AS DATE) as count_date, count(order_date) as counted_leads from orders group by order_date";
+      $sql="Select CAST(order_date AS DATE) as count_date, count(order_date) as counted_leads from orders where order_date between (CURDATE() - INTERVAL 1 MONTH ) and CURDATE() group by order_date";
       $result=$this->connection->query($sql);
       $arr=array();
       if($result){
@@ -101,7 +101,7 @@ class orderModel extends db_model{
   }
 
   function  order_buyername($id){
-		$sql= "SELECT a.username FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username,a.firstname,a.lastname FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
@@ -117,7 +117,7 @@ class orderModel extends db_model{
   
   function  order_drivername($id){
 
-		$sql= "SELECT a.username FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username, a.firstname, a.lastname FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
 
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -146,7 +146,7 @@ class orderModel extends db_model{
   }
   
   function  order_city($id){
-		$sql= "SELECT a.name_en FROM districts AS a INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+		$sql= "SELECT a.name_en, b.* FROM districts AS a  INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
