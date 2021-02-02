@@ -82,9 +82,10 @@ header{
     padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 20px;
-    background-color: #4CAF50;
+    background-color: #ffffff;
     box-shadow:0 5px 15px rgba(0,0,0,.9);
-    border-radius: 25px;
+    /* border: 2px solid #2E5F3E ; */
+    /* border-radius: 25px; */
     
 }
 .transbox p {
@@ -182,7 +183,7 @@ table {
   }
       
   tr:hover {
-    background-color:#b3d9ff;
+    background-color:#ffffff;
         
   }
 
@@ -215,7 +216,9 @@ table {
     margin: auto;
     text-align: center;
     padding: 20px;
-    border: 1px solid #888;
+    border: 8px solid #4CAF50;
+    outline: 8px solid #2E5F3E;
+
     width: 40%;
   }
   

@@ -56,7 +56,7 @@
                         <span class="slider round"></span>
                     </label></td>
 					<input type="hidden"  name="vehicleid" value="<?php echo $vehicleid; ?>"> 
-					<td data-column="Action"><button name="vehicles" class="button1" > View More</button></td>
+					<td data-column="Action"><button class="button1" > View More</button></td>
 					</form>
 					</tr>
 

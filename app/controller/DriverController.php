@@ -22,7 +22,9 @@ class DriverController{
     }
 
     public function driverdashboard(){
-        $result = $this->omodel->getdriver_upcomingorders(1);//driver id
+        session_start();
+        $id=$_SESSION['driver']['driver_id'];
+        $result = $this->omodel->getdriver_upcomingorders($id);//driver id
         $view = new View("driver/driverdashboard");
         $view->assign('details',$result);
     }
@@ -54,7 +56,10 @@ class DriverController{
    
 
     public function showcalendar(){
-        $driver_id=1;//$_SESSION['driverid'];
+        // $driver_id=1;//$_SESSION['driverid'];
+        session_start();
+        $driver_id=$_SESSION['driver']['driver_id'];
+
         $dates=$this->dmodel->getdates($driver_id);
         $orderdates=$this->dmodel->getorderdates($driver_id);
         $all= json_encode(array_merge($orderdates,$dates));
@@ -70,7 +75,10 @@ class DriverController{
         
             $startdate=$_POST['startdate'];
             $enddate=$_POST['enddate'];
-            $driver_id=1;//$_SESSION['driverid'];
+            // $driver_id=1;//$_SESSION['driverid'];
+            session_start();
+            $driver_id=$_SESSION['driver']['driver_id'];
+
             $result= $this->dmodel->insertunavailable_dates($driver_id,$startdate,$enddate);
             $view = new View("driver/showcalendar");
             echo "<script>confirm('Added');</script>";
@@ -78,8 +86,37 @@ class DriverController{
         }
     }
 
+    public function addunavailability(){
+        
+        $q=0;
+        if(isset($_REQUEST['sdate'])){
+            $q=$_REQUEST['sdate'];
+        }
+        session_start();
+        $id=$_SESSION['driver']['driver_id'];
+
+        $this->dmodel->addunavailability($id,$q);
+    }
+
+    public function removeunavailability(){
+        $q=0;
+    if(isset($_REQUEST['sdate'])){
+        $q=$_REQUEST['sdate'];
+    }
+
+    session_start();
+    $id=$_SESSION['driver']['driver_id'];
+    $this->dmodel->removeunavailability($id,$q);
+
+    }
+
     public function viewprofile(){
+        session_start();
+        $id=$_SESSION['driver']['driver_id'];
+
+        $result = $this->omodel->getdriver_orderhistory($id);//driver id
         $view = new View("driver/driveruserprofile");
+        $view->assign('details',$result);
     }
     
     public function showvehicle(){
@@ -98,8 +135,11 @@ class DriverController{
     }
 
     public function vehicledetails(){
-         
-        $result = $this->vmodel->getdriver_vehicles(1);//driver_id
+        session_start();
+        $id=$_SESSION['driver']['driver_id'];
+        
+
+        $result = $this->vmodel->getdriver_vehicles($id);//driver_id
         $view = new View("driver/vehicledetails");
         $view->assign('vehicledet',$result);
     }
@@ -127,8 +167,19 @@ class DriverController{
     public function changevehicle_cost(){
         $vid=$_POST['vehicleid'];
         $cost=$_POST['cost'];
-        $result = $this->vmodel->changecost($vid,$cost);//vehicle_id
+        $result = $this->vmodel->changevehicle_cost($vid,$cost);//vehicle_id
         header("location:/thoga.lk/driver/vehicles");
+        
+    }
+     
+    
+    public function getdriver_orderhistory(){
+        session_start();
+        $id=$_SESSION['driver']['driver_id'];
+
+        $result = $this->omodel->getdriver_upcomingorders($id);//driver id
+        $view = new View("driver/driveruserprofile");
+        $view->assign('details',$result);
         
     }
 
