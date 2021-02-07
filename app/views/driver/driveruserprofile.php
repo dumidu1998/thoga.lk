@@ -21,7 +21,7 @@ if(isset($_GET["update"])){
 <body>
 
 
-   <?php include 'profilenavbar.php' ;?> 
+   <?php include 'navdriverdashboard.php' ;?> 
    <div class="topic">
                 <h1>Driver user profile</h1>
         </div>
