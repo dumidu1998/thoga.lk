@@ -159,7 +159,7 @@ if(isset($_GET["update"])){
 					<form action='/thoga.lk/driver/viewmore' method='post'>
 					<td><?php echo $order_id; ?> </td>
 					<td><?php echo $pickdate; ?> </td>
-					<td><?php echo $tcost; ?> </td>
+					<td>Rs. <?php echo number_format($tcost,2); ?> </td>
 					<input type="hidden" name="order_id" value="<?php echo $order_id; ?>"> 
 					<td><button name="viewmore" class="button1"> View More</button></td>
 					</form>

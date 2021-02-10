@@ -63,13 +63,13 @@
 									<br>
 
 									Maximum Weight         :
-									<input type="text" class="textbox1" name="maxweight" value="<?php echo $maximum_weight?>" disabled>
+									<input type="text" class="textbox1" name="maxweight" value="<?php echo number_format($maximum_weight,2);  ?> kg" disabled>
 									<br>
 
-									<label>Cost/Km   :</label>
-									<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo $cost_km?>">
+									<label>Cost/km   :</label>
+									<input type="text" class="advancedSearchTextbox1" name="cost" value="Rs. <?php echo number_format($cost_km,2); ?>">
 									<br> 
-									<input type="submit" value="Edit Details" class="button2" name="vehicledetails">	
+									<input type="submit" value="Edit Cost/km" class="button2" name="vehicledetails">	
 								</form>			
 			</div>
 			<div class="bottom">

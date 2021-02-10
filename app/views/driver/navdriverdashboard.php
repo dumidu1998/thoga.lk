@@ -9,7 +9,7 @@
 
     }else{
       $_SESSION['login_error']=1;
-      header("location:/thoga.lk");
+      // header("location:/thoga.lk");
     } 
       ?>
 <div class="topnav" id="myTopnav">
