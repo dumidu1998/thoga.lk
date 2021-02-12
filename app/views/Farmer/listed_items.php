@@ -30,7 +30,7 @@
     </tr>
 
 <?php
-     
+    
      foreach($data as $key => $values){
        $ordid = $values['vege_name'];
        $itype = $values['Item_type'];

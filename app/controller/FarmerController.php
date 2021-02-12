@@ -124,7 +124,7 @@ class FarmerController{
         $enddate=$_GET['enddate'];
         $itemdes=$_GET['ides'];
         $itemid= $_GET['itemid'];
-        $result=$this->itemModel->submit_edit($availweight, $minweight, $price, $startdate, $enddate,$itemdes, $itemid);
+        $result=$this->itemModel->submit_edit($availweight, $minweight,  $startdate, $enddate, $price, $itemdes, $itemid);
         header("location: /thoga.lk/farmer/insert");
 
 
