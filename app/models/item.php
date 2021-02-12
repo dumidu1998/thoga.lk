@@ -13,7 +13,7 @@ class item extends db_model{
   }
 
   function  joinget(){
-		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province_name=h.id WHERE a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY)";
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province=h.id WHERE a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY)";
 		
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -28,7 +28,7 @@ class item extends db_model{
 
 	}
 	function  joinget_all_org(){
-		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province_name=h.id WHERE a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.Item_type='org'";
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province=h.id WHERE a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.Item_type='org'";
 		
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -43,7 +43,7 @@ class item extends db_model{
 
 	}
 	function  joinget_home($home){
-		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province_name=h.id WHERE (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND f.name_en='".$home."') OR (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND g.name_en='".$home."')";
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province=h.id WHERE (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND f.name_en='".$home."') OR (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND g.name_en='".$home."')";
 		
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -58,7 +58,7 @@ class item extends db_model{
 
 	}
 	function  joingetOrganic($home){
-		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province_name=h.id WHERE (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND f.name_en='".$home."') OR (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND g.name_en='".$home."') AND a.Item_type='org'";
+		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province=h.id WHERE (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND f.name_en='".$home."') OR (a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND g.name_en='".$home."') AND a.Item_type='org'";
 		// echo $sql;
 		$result=$this->connection->query($sql);
 		$finale=array();

@@ -88,10 +88,12 @@ $routes = [
     'driver/changeav0' => 'DriverController@changeavailability0',
     'driver/changeav1' => 'DriverController@changeavailability1',
     'buyer/submitstatus' => 'BuyerController@statusUpdate',
-    'driver/changecost' => 'DriverController@changecost',
     'farmer/delete_item' => 'FarmerController@delete_item',
     'farmer/edit_item' => 'FarmerController@edit_item',
-    
+    'driver/changecost' => 'DriverController@changevehicle_cost',
+    'driver/addunavail'=>'DriverController@addunavailability',
+    'driver/removeunavail'=>'DriverController@removeunavailability',
+
 
 
 ];

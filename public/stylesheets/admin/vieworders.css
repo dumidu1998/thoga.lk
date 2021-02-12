@@ -83,7 +83,7 @@ input[type="text"]::placeholder {
 }
 
 .sbutton {
-    background: rgb(0, 0, 0);
+    background: #2E5F3E;
     color: white;
     font-size: 25px;
     line-height: 0.2;
@@ -94,7 +94,7 @@ input[type="text"]::placeholder {
 }
 
 .sbutton:hover {
-    background: rgba(17, 32, 32, 0.8);
+    background: rgba(1, 44, 20, 0.8);
 }
 
 .admin-btn {
@@ -236,12 +236,9 @@ th {
     }
 }
 
-.detailContainer {
-    height: auto;
-    margin: 10px 50px;
-    background-color: #01002ba2;
-    color: #fff;
-    padding: 30px 50px;
+
+.bold{
+    font-weight: bold;
 }
 
 .container2 {
@@ -254,8 +251,8 @@ input[type="text"].mdetails {
     border: none;
     font-size: 25px;
     border-radius: 0px;
-    width: 80%;
-    color: #fff;
+    width: auto;
+    color: rgb(0, 0, 0);
     background-color: transparent;
     padding-left: 5px !important;
     padding-bottom: 0px !important;
@@ -269,7 +266,7 @@ textarea {
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: transparent;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: 0px;
 }
 
@@ -278,7 +275,7 @@ input[type="text"].details {
     font-size: 25px;
     width: 50%;
     border-radius: 0px;
-    color: #fff;
+    color: rgb(0, 0, 0);
     background-color: transparent;
     padding-left: 5px !important;
     padding-bottom: 0px !important;
@@ -287,21 +284,34 @@ input[type="text"].details {
 }
 
 .Dlabel {
-    font-weight: 520;
     font-size: 24px;
     padding-bottom: 50px;
+}
+
+label{
+    font-weight: bolder;
 }
 
 .cartcontainer {
     display: block;
     width: 90%;
-    background-color: #01002ba2;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 60%);
     color: rgb(0, 0, 0);
     height: auto;
     margin: auto;
     margin-bottom: 50px;
     /* margin: 50px auto 30px auto; */
     padding: 30px 10px;
+}
+
+.detailContainer {
+    height: auto;
+    
+    margin: 30px 50px;
+    color: rgb(0, 0, 0);
+    padding: 30px 50px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 60%);
+
 }
 
 @media screen and (max-width: 768px) {
@@ -466,4 +476,11 @@ button {
     background-color: #b3dbf03b;
     border: none;
     cursor: pointer;
+}
+
+.MainContainer{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 60%);
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
 }

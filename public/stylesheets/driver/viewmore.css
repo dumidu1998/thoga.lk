@@ -16,6 +16,17 @@ header{
     padding-top:75px;
 }
 
+.button1{
+    cursor: pointer;
+    background-color: #44925b91;
+    border: none;
+    text-decoration: overline;
+    font-size: 16px;
+    font-weight: bold;
+    /* color: #ffffff; */
+
+}
+
 .left{
     float:left;
     width:40%;
@@ -71,9 +82,10 @@ header{
     padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 20px;
-    background-color: #4CAF50;
+    background-color: #ffffff;
     box-shadow:0 5px 15px rgba(0,0,0,.9);
-    border-radius: 25px;
+    /* border: 2px solid #2E5F3E ; */
+    /* border-radius: 25px; */
     
 }
 .transbox p {
@@ -171,7 +183,7 @@ table {
   }
       
   tr:hover {
-    background-color:#b3d9ff;
+    background-color:#ffffff;
         
   }
 
@@ -184,3 +196,42 @@ table {
         width:100%;
     }
 }
+
+
+.model1{
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    border: 8px solid #4CAF50;
+    outline: 8px solid #2E5F3E;
+
+    width: 40%;
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }

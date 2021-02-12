@@ -57,23 +57,17 @@ body {
       right: 0;
       top: 0;
     }
-<<<<<<< HEAD
-.topnav.responsive a {
-=======
+
   .topnav.responsive a {
->>>>>>> 17e430156934e919098ec38ceaad2d072cbe00a9
       float: none;
       display: block;
       text-align: left;
     }
-<<<<<<< HEAD
-=======
   .nav-right.responsive{
     float: none;
     display: block;
     text-align: left;
   }
->>>>>>> 17e430156934e919098ec38ceaad2d072cbe00a9
   }
 .navlogo{
     width: 200px;

@@ -40,7 +40,7 @@
                 }
             ?>         
             Order Id           : 
-            <input type="text" "class="advancedSearchTextBox"  name="orderid" value="<?php echo $ordid?>" disabled>
+            <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
             <br> 
                                  
 
@@ -128,13 +128,38 @@
 					
 					echo "<tr>";
                     echo "<td>".$row['vege_name']."</td>";
-                    echo "<td><button name=viewmore class=button1>?</button></td>";
+                    echo "<td><button name='viewAddress' class='button1' onclick='openModal(".$row['details_id'].")'>".$row['city']." 🛈</button></td>";
 					echo "<td>".$row['total_cost']."</td>";
 					echo "<td>".$row['weight']."</td>";
 					echo "<td>".$row['total_cost']*$row['weight']."</td>";
                     echo "</tr>";
                     
                     $sum=$sum+ $row['total_cost']*$row['weight'];
+            ?>
+                    <div class="model1" id="myModal<?php echo $row['details_id'] ?>">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal(<?php echo $row['details_id'] ?>)">&times;</span>
+                                
+                                <div>👨‍🌾 <?php echo $row['firstname']." ".$row['lastname'];?></div>
+                                <div>🏠 <?php echo $row['farm_name'];?></div>
+                                <br>
+                                <div>📍🖂 <?php echo $row['address_line1'];?></div>
+                                <div><?php echo $row['address_line2'];?></div>
+                                <div><?php echo $row['city'];?></div>
+                                <div><?php echo $row['district'];?></div>
+                                <div> <?php echo $row['province'];?></div>
+                                <div><?php echo $row['zip_code'];?></div>
+                                <br>
+                                <div>📞 <?php echo $row['contactno1'];?></div>
+                                <div>📞 <?php echo $row['contactno2'];?></div>
+                               
+                                
+
+                        </div>
+                    </div>
+
+                    
+            <?php
 				}
 			
 			?>
@@ -153,3 +178,23 @@
     
     </body>
 </html>
+
+<script>
+    function closeModal(id) {
+        var mod = document.querySelector("#myModal"+id);
+        mod.style.display = 'none';
+        
+    }
+
+    function openModal(id) {
+        var mod = document.querySelector("#myModal"+id);
+        mod.style.display = 'block';
+
+    }
+
+    window.onclick = function(event) {
+        if (event.target == mod) {
+        mod.style.display = "none";
+        }
+    }
+</script>

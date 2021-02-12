@@ -22,7 +22,7 @@ class AdminModel extends db_model
 
 	function orderdetails()
 	{
-		$sql = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date < CURDATE() ORDER BY user.user_id ASC";
+		$sql = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date < CURDATE() ORDER BY orders.order_id ASC";
 		$result = $this->connection->query($sql);
 		$finale = array();
 		if ($result) {
@@ -35,7 +35,7 @@ class AdminModel extends db_model
 
 	function upcomming()
 	{
-		$sql2 = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE() ORDER BY user.user_id ASC";
+		$sql2 = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE() ORDER BY orders.order_id ASC";
 		$result = $this->connection->query($sql2);
 		$finale = array();
 		if ($result) {
@@ -90,6 +90,19 @@ class AdminModel extends db_model
 		}
 	}
 
+	function get_Stat()
+	{
+		$sql = "INSERT INTO admin(user_name,password,name,tel_no) VALUES ('" . $uname . "','" . $pwd . "','" . $name . "','" . $tel . "')";
+		$result = $this->connection->query($sql);
+		$finale = array();
+		if ($result) {
+			while ($row = mysqli_fetch_assoc($result))
+				array_push($finale, $row);
+			return $finale;
+		} else
+			echo "error";
+	}
+
 	function getalluserdata($id)
 	{
 		$sql = "SELECT a.*, b.user_type, c.*, 
@@ -116,4 +129,31 @@ class AdminModel extends db_model
 		} else
 			echo "error";
 	}
+
+	function orderdetails_uname($uname)
+	{
+		$sql = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date < CURDATE() AND (user.firstname LIKE '%".$uname."%' OR user.lastname LIKE '%".$uname."%' OR user.username LIKE '%".$uname."%') ORDER BY orders.order_id ASC";
+		$result = $this->connection->query($sql);
+		$finale = array();
+		if ($result) {
+			while ($row = mysqli_fetch_assoc($result))
+				array_push($finale, $row);
+			return $finale;
+		} else
+			echo "error";
+	}
+
+	function upcomming_uname($uname)
+	{
+		$sql2 = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE() AND (user.firstname LIKE '%".$uname."%' OR user.lastname LIKE '%".$uname."%' OR user.username LIKE '%".$uname."%') ORDER BY orders.order_id ASC";
+		$result = $this->connection->query($sql2);
+		$finale = array();
+		if ($result) {
+			while ($row = mysqli_fetch_assoc($result))
+				array_push($finale, $row);
+			return $finale;
+		} else
+			echo "error";
+	}
+
 }
