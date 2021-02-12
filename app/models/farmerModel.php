@@ -59,6 +59,7 @@ class farmerModel extends db_model{
     function get_records(){
         return $this->read('vegetable',array('*'),null);
     }
+
     
 }
 

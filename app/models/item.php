@@ -71,5 +71,33 @@ class item extends db_model{
 		echo "error";
 
 	}
-    
+
+	function edit_item($id){
+		$sql = "SELECT vegetable.vege_name, item.item_id, item.item_type, item.item_des, item.min_weight, item.avail_weight, item.item_start, item.item_end, item.total_cost FROM item INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id WHERE item.item_id='".$id."'";
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+      while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		  return $finale;
+		}
+	}
+
+	function submit_edit($avail_weight, $min_weight, $item_start, $item_end, $total_cost, $item_des, $item_id){
+		$sql = "UPDATE item SET avail_weight = '".$avail_weight."', min_weight = '".$min_weight."', item_start = '".$item_start."', item_end = '".$item_end."', total_cost = '".$total_cost."', item_des = '".$item_des."' where item_id = '".$item_id."'";
+		$result=$this->connection->query($sql);
+		if($result){
+			echo "done";
+		}else echo "error";
+	}
+
+	function delete_item($id){
+		$sql = "DELETE FROM item WHERE item_id = '".$id."'";
+		$result=$this->connection->query($sql);
+		if($result){
+			echo "done";
+		}else echo "error";
+
+	}
+
 }

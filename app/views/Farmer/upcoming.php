@@ -19,7 +19,7 @@
  <?php include 'verticalnavbar.php';
  ?>
 
-
+<div class = "container">
 <div style="overflow-x:auto;">
   <table align="center">
     <tr>
@@ -65,7 +65,7 @@ foreach($data as $key => $values){
 
   </table>
 </div>
-
+</div>
 
 
 <?php include 'footer.php'; ?>

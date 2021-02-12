@@ -4,6 +4,7 @@
 require_once(__DIR__.'/../models/farmerModel.php');
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/insertmodel.php');
+require_once(__DIR__.'/../models/item.php');
 
 
 class FarmerController{
@@ -11,6 +12,7 @@ class FarmerController{
     {
         $this->model = new farmerModel();
         $this->model2 = new insertmodel();
+        $this->itemModel = new item();
 
     }
 
@@ -89,13 +91,7 @@ class FarmerController{
             $this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
             // header("location: /thoga.lk/Farmer/insert");
             header("location: /thoga.lk/farmer/insert");
-
-            
         }
-
-       
-        
-        
     }
 
 
@@ -113,10 +109,37 @@ class FarmerController{
     }
 
     public function edit(){
-        
+        $itemid=$_GET['id'];
+        echo $itemid;
+        $result=$this->itemModel->edit_item($itemid);
         $view = new View("Farmer/edit");
+        $view->assign("data",$result);
     }
-//add items
+
+    public function edit_item(){
+        $availweight=$_GET['availweight'];
+        $minweight=$_GET['minweight'];
+        $price=$_GET['price'];
+        $startdate=$_GET['startdate'];
+        $enddate=$_GET['enddate'];
+        $itemdes=$_GET['ides'];
+        $itemid= $_GET['itemid'];
+        $result=$this->itemModel->submit_edit($availweight, $minweight, $price, $startdate, $enddate,$itemdes, $itemid);
+        header("location: /thoga.lk/farmer/insert");
+
+
+    }
+
+
+    public function delete_item(){
+       
+        $itemid= $_GET['id'];
+        echo "dddd"; 
+        $result = $this->itemModel->delete_item($itemid);
+        header("location: /thoga.lk/farmer/listed");
+
+
+    }
 
 }
 

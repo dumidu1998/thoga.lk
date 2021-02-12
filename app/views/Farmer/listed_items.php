@@ -56,7 +56,7 @@
  </td>
  
  <td>
- <a class="dele"  href="delete.php">Delete</a>
+ <a class="dele" href="delete_item?id=<?php echo $itemid; ?>" onclick="confirm('Are you sure you want to delete this item ?');">Delete</a>
  </td>
 
  
