@@ -120,7 +120,7 @@ class DriverController{
     
     public function showvehicle(){
         session_start();  
-        if(isset($_GET['vehicles'])){
+        if(isset($_GET['vehicleid'])){
             $vehicleid=$_GET['vehicleid'];
             $result = $this->vmodel->getdetails_vehicle($vehicleid);
         }else {

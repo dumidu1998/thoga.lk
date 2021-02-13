@@ -5,7 +5,13 @@
 <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/profilenavbar.css">
 </head>
 <body>
+    <?php if(isset ($_SESSION['driver'])) {
 
+    }else{
+      $_SESSION['login_error']=1;
+      // header("location:/thoga.lk");
+    } 
+      ?>
 <div class="topnav" id="myTopnav">
   <a href="#home" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
   <a href="dashboard"" class="active">Dashboard</a>
