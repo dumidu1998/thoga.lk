@@ -26,80 +26,24 @@
       <th>Total Weight</th>
       <th>Price</th>
       <th>Buyer Name</th>
-      <th>Farmer Name</th>
+      
       <th>More Details</th>
       
       
     </tr>
 
-    <tr>
-        <td>1</td>
-        <td>2020-11-17</td>
-        <td>100</td>
-        <td>50</td>
-        <td>Nimal</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>2</td>
-        <td>2020-11-10</td>
-        <td>210</td>
-        <td>60</td>
-        <td>Lal</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>2020-11-20</td>
-        <td>150</td>
-        <td>55</td>
-        <td>Nimal</td>
-        <td>Nihal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>4</td>
-        <td>2020-11-21</td>
-        <td>260</td>
-        <td>50</td>
-        <td>Nimal</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>5</td>
-        <td>2020-11-25</td>
-        <td>140</td>
-        <td>65</td>
-        <td>Sunil</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>6</td>
-        <td>2020-11-17</td>
-        <td>300</td>
-        <td>50</td>
-        <td>Nimal</td>
-        <td>Sunil</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
+    
 
 <?php
-/*
+
 foreach($data as $key => $values){
   $ordid= $values['order_id'];
   $pdate= $values['pickup_date'];
   $tweight= $values['weight'];
   $cost= $values['total_cost'];
-  $bname= $values['buyer_name'];
+  $bname= $values['b_name'];
+  
+
 
 
 
@@ -110,14 +54,15 @@ foreach($data as $key => $values){
  <td><?php echo $tweight;?></td>
  <td><?php echo $cost;?></td>
  <td><?php echo $bname;?></td>
+ 
  <td>
- <a href="viewmore.php">view more</a>
+ <a class ="more" href="viewmore.php">view more</a>
  </td>
 </tr>
     
 
 <?php
-}*/
+}
 ?>
 
 

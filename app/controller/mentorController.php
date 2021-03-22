@@ -17,10 +17,38 @@ class mentorController{
         $result = $this->model2->get_records();
         $view->assign('records',$result);
 
-        
+       
+    }
+    public function add_item2(){
+        session_start();
+
+        foreach($_SESSION['user'] as $keys => $values){
+            $id = $values['user_id'];
+            $result3 = $this->model->read_id($id);
+            print_r($result3);
+        }
+
+        $result2 = $this->model->get($id);
+        $view->assign('records',$result2);
+    
+   
+        $result4 = $this->model->join_get($id);
+       
     }
 
     public function insert_items(){
+
+        session_start();
+
+        foreach($_SESSION['user'] as $keys => $values){
+            $id = $values['user_id'] ;
+            $res = $this->model->read_id($id);
+            print_r($res);
+            foreach($res as $k => $v){
+                   $m_id =  $v['mentor_id'];
+            }
+        }
+
         if(isset($_POST['submit'])){
 
             $itemname = $_POST['itemname'];
@@ -31,9 +59,9 @@ class mentorController{
             $enddate = $_POST['enddate'];
             $itemtype = $_POST['itemtype'];
             $farmername = $_POST['farmername'];
-            $itemimage = $_POST['itemimage'];
+            $ides = $_POST['ides'];
 
-            $this->model->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$itemimage);
+            $this->model->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$ides,$m_id);
             header("location: /thoga.lk/mentor/insert");
         }
 
@@ -49,8 +77,8 @@ class mentorController{
     public function upcoming()
     {
         $view = new View("mentor/mentor_upcoming");
-       /* $result = $this->model2->get_details();
-        $view ->assign('data',$result);*/
+        $result = $this->model2->get_details();
+        $view ->assign('data',$result);
         
 
        
@@ -62,8 +90,8 @@ class mentorController{
     {
        
         $view = new view("mentor/listed_item(mentor)");
-        /*$result = $this->model->get_all();
-        $view ->assign('data',$result);*/
+        $result = $this->model->get_info();
+        $view ->assign('data',$result);
 
        
          

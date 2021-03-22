@@ -9,11 +9,11 @@
 
 
 
-<body>
+<body background= "/thoga.lk/public/images/Farmer/index1.jpg">
 <?php include 'navbar_dash.php';?>
 
 <h1 class="title">Add your item here....</h1>
-
+ 
 
 
 <div class="container">
@@ -151,10 +151,7 @@
   
 </div> 
 
-<?php include("footer.php"); ?>
-
-
-
+<?php //include("footer.php"); ?>
 <script>
 var today = new Date();
 var dd = today.getDate();

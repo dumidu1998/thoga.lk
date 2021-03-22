@@ -93,6 +93,7 @@ $routes = [
     'driver/changecost' => 'DriverController@changevehicle_cost',
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
+    'farmer/add_item2' => 'FarmerController@add_item2',
 
 
 

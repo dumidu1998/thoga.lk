@@ -6,7 +6,7 @@
 
 </head>
 
-<?php include 'navbar_dash.php';?>
+<?php  include 'navbar_dash.php';?>
 
 <body>
 
@@ -27,9 +27,10 @@
           foreach($records as $key =>$values)
           {
             $vegname = $values['vege_name'];
+            $vedId = $values['vege_id'];
          
           ?>
-          <option><?php echo $vegname;?></option>
+          <option value="<?php echo $vegId;?>"><?php echo $vegname;?></option>
 
           <?php
           }
@@ -112,7 +113,21 @@
         <label for="fid">Farmer Name</label>
       </div>
       <div class="right">
-        <input type="text" id="farmername" name="farmername" required>
+      <select class="textt" id="farmername" name="farmername" required>
+        <option>------Farmers------</option>
+          <?php
+          foreach($records as $key =>$values)
+          {
+            $farmername = $values['farmer_name'];
+            $farmerId = $values['farmer_id'];
+         
+          ?>
+          <option value="<?php echo $farmerId;?>"><?php echo $farmername;?></option>
+
+          <?php
+          }
+          ?>
+        </select>
       </div>
     </div>
 
