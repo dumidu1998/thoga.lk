@@ -55,6 +55,7 @@ $routes = [
     'driver/dashboard' => 'DriverController@driverdashboard',
     'driver/viewmore' => 'DriverController@viewmore',
     'driver/profile' => 'DriverController@viewprofile',
+    'driver/editprofile' => 'DriverController@editprofile',
     'driver/calendar' => 'DriverController@showcalendar',
     'driver/unavailabledates' => 'DriverController@unavailabledates',
     'driver/vehicles' => 'DriverController@showvehicle',
@@ -91,6 +92,10 @@ $routes = [
     'driver/changecost' => 'DriverController@changevehicle_cost',
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
+    'driver/updateprofilepic'=>'DriverController@updateprofilepic',
+    'driver/updateprofilepic'=>'DriverController@edit',
+    'driver/logout' => 'DriverController@logout',
+
 
 
 

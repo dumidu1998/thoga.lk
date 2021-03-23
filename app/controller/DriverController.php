@@ -111,11 +111,15 @@ class DriverController{
 
     public function viewprofile(){
         session_start();
-        $id=$_SESSION['driver']['driver_id'];
+        $id=$_SESSION['driver']['user_id'];
+        $did=$_SESSION['driver']['driver_id'];
 
-        $result = $this->omodel->getdriver_orderhistory($id);//driver id
+        $result = $this->omodel->getdriver_orderhistory($did);//driver id
+        $details=$this->dmodel->getalldetails($id);//user id
+
         $view = new View("driver/driveruserprofile");
         $view->assign('details',$result);
+        $view->assign('all',$details[0]);
     }
     
     public function showvehicle(){
@@ -172,15 +176,58 @@ class DriverController{
     }
      
     
-    public function getdriver_orderhistory(){
+    public function updateprofilepic(){
         session_start();
-        $id=$_SESSION['driver']['driver_id'];
+        print_r($_FILES['profpic']);
+        if(isset($_FILES['profpic'])){
+            $errors= array();
+            $file_name = $_FILES['profpic']['name'];
+            $file_tmp =$_FILES['profpic']['tmp_name'];        
+            $file_type=$_FILES['profpic']['type'];
+            $temp=explode('.',$_FILES['profpic']['name']);
+            $file_ext=end($temp);
+            $extensions= array("jpeg","jpg","png");
 
-        $result = $this->omodel->getdriver_upcomingorders($id);//driver id
-        $view = new View("driver/driveruserprofile");
-        $view->assign('details',$result);
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            $id=$_SESSION['driver']['driver_id'];
+            if(empty($errors)==true){
+                move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverpropic/".$id.".jpg");
+                echo "Success";
+                header("location:/thoga.lk/driver/profile");
+             }else{
+                print_r($errors);
+             }
+        }else{
+            echo "file Upload Failed";
+        }
         
-    }
+    }  
+    
+    public function editprofile(){
+        print_r($_GET);
+        
+
+        $out= $this->dmodel->updatedetails($_GET);
+        echo $out;
+        if($out){
+            header("location:/thoga.lk/driver/profile");
+        }else{
+            header("location:/thoga.lk/driver/profile?error=1");
+        }
+
+        
+        
+
+    }  
+    public function logout(){
+        session_start();
+        session_destroy();
+        header("location:/thoga.lk/");
+        
+        
+    }  
 
 }
 
