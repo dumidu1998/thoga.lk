@@ -20,7 +20,7 @@
   <a href="about_us">About</a>
   <a id="google_translate_element"></a>
   <div class = "nav-right">
-    <a href="">Logout</a>
+    <a href="logout">Logout</a>
     
     
     <a href="#"><img src="/thoga.lk/public/images/driver/bell.jpg" alt="" class = "bell_pic" width=24px height= 24px>

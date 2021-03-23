@@ -10,7 +10,7 @@
     <header >
         
         <div class="topic">
-            <h1>Order details of Order Id - <mark>   <?php echo $order_id ?>  </mark></h1>
+            <h1>Order details of Order No - <mark>   <?php echo $order_id ?>  </mark></h1>
         </div>
         <hr>
 
@@ -39,7 +39,7 @@
                     $city=$row['name_en'];
                 }
             ?>         
-            Order Id           : 
+            Order No          : 
             <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
             <br> 
                                  

@@ -73,16 +73,15 @@ class orderModel extends db_model{
     
     }
 
-    function getdriver_orderhistory($id){
-
-      $sql= "SELECT * FROM  orders where orders.pickup_date< CURRENT_TIMESTAMP AND driver_id='".$id."'";
+    function getdriver_orderhistory($did){
+      $sql= "SELECT * FROM  orders where orders.pickup_date < CURRENT_TIMESTAMP AND driver_id='".$did."'";
 		
       $result=$this->connection->query($sql);
       
       $finale=array();
       if($result){
           while($row=mysqli_fetch_assoc($result))
-        array_push($finale,$row);
+          array_push($finale,$row);
           return $finale;
       }else
       echo "error";
