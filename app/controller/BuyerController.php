@@ -225,9 +225,17 @@ class BuyerController {
     }
     public function summery(){
         session_start();
-
+        // echo "ddd";
         $view = new View("buyer/summary");
+        if(isset($_GET['vehicle_id'])){
+            echo "ddd";
+            $vehicle_id = $_GET['vehicle_id'];
+            $view->assign('driv',$vehicle_id);
+
+        }
+        
     }
+
     public function logout(){
         session_start();
         session_destroy();
@@ -303,6 +311,10 @@ class BuyerController {
 
             $view = new View("buyer/summary");
             $view->assign('address', $arr);
+                $vehicle_id=0;
+                $view->assign('driv',$vehicle_id);
+            
+    
        
 
         }else if(isset($_POST['selectDriver'])){

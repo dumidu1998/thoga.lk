@@ -133,6 +133,9 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
   }
+input[type=radio]{
+    width: 10px;
+}
 .checkout_btn_back{
     align-items: flex-end;
     background-color:red;

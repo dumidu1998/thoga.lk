@@ -8,8 +8,8 @@
 </head>
 <body >
 <?php
-print_r($details);
-echo"</br>";
+// print_r($details);
+// echo"</br>";
 // print_r($driver_details);
 
 ?>
@@ -21,11 +21,12 @@ foreach($driver_details as $keys => $values)
     ?>
         <h3>Order no : <?php echo $values['order_id'] ?> </h3>
         <br>
-        <h4>Delivery address : </h4> <p> 388/53 stage1 apura</p> 
+        <h4>Delivery address : </h4> <p> <?php echo $values['d_addline1']?>, <?php echo $values['d_addline2']?></p> 
         <!-- need to be done -->
         <br>
         <h4>Telephone no</h4>
-        <p>0764229830</p>
+        <p><?php echo $values['contact1']?></p>
+        <p><?php echo $values['contact2']?></p>
         <div class="check">
             <!-- grid -->
             <div class="tbl">
@@ -63,12 +64,12 @@ foreach($driver_details as $keys => $values)
                 <table>
                 <tr>                       
                         <td class="td_summary">Total cost</td>
-                        <td>2000</td>
+                        <td>Rs <?php echo $values['total_cost']?>.00</td>
                     </tr>
 
                     <tr>                       
                         <td class="td_summary">Total weight</td>
-                        <td>100 kg</td>
+                        <td><?php echo $values['weight']?> kg</td>
                     </tr>
                     <tr>                       
                         <td class="td_summary">Order Status</td>
@@ -117,35 +118,24 @@ foreach($driver_details as $keys => $values)
                 </tr>
             </thead>
             <tbody>
+                <?php
+                foreach($details as $keys => $values)  
+                {  
+                
+                    ?>
             <tr>
-                <td data-label="Item id">#345</td>
-                <td data-label="Item name">Carrot</td>
-                <td data-label="Weight">30kg</td>
-                <td data-label="Price">rs. 5000</td>
-                <td data-label="Farmer name">Akila de silva</td>
+                <td data-label="Item id"><?php echo $values['vege_id']?></td>
+                <td data-label="Item name"><?php echo $values['vege_name']?></td>
+                <td data-label="Weight"><?php echo $values['item_weight']?>kg </td>
+                <td data-label="Price"><?php echo $values['current_price']?></td>
+                <td data-label="Farmer name"><?php echo $values['firstname']?> <?php echo $values['lastname']?></td>
                 <td data-label= "Farmer details" id=""><button id="myBtn">View Profile</button></td>
 
                 </tr>
 
-                <tr>
-                <td data-label="Item id">#349</td>
-                <td data-label="Item name">Potato</td>
-                <td data-label="Weight">33kg</td>
-                <td data-label="Price">rs. 4519</td>
-                <td data-label="Farmer name">P.B. Sumanadasa</td>
-                <td data-label= "Farmer details">View profile</td>
-
-                </tr>
-                
-                <tr>
-                <td data-label="Item id">#333</td>
-                <td data-label="Item name">Tomato</td>
-                <td data-label="Weight">90kg</td>
-                <td data-label="Price">rs. 23456 </td>
-                <td data-label="Farmer name">K.L. Rahul</td>
-                <td data-label= "Farmer details">View profile</td>
-
-                </tr>
+               <?php
+                }
+                ?>
             </tbody>
         </table>
 

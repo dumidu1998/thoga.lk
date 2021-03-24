@@ -14,7 +14,7 @@ class orderModel extends db_model{
        
     }
     public function viewmore_farmer($id){
-        $sql = "SELECT a.*, b.*,c.*, d.* from orders as a INNER join order_details as b on a.order_id=b.order_id INNER join farmer AS c ON c.farmer_id=b.farmer_id INNER join user as d on c.user_id=d.user_id where a.order_id=".$id;
+        $sql = "SELECT a.*, b.*,c.*, d.*, e.* from orders as a INNER join order_details as b on a.order_id=b.order_id INNER join farmer AS c ON c.farmer_id=b.farmer_id INNER join user as d on c.user_id=d.user_id INNER JOIN vegetable AS e ON e.vege_id= b.item_id where a.order_id=".$id;
         $result=$this->connection->query($sql);
         $arr=array();
         if($result){

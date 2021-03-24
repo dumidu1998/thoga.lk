@@ -117,7 +117,17 @@
 
                     <tr>                       
                         <td class="td_summary">Driver Name</td>
-                        <td>Kasun</td>
+                        <td>
+                        <?php
+                        if($driv){
+                            echo "Kasun";
+
+                        }else{
+                            echo "Self pickup";
+                        }
+                        ?>
+                            
+                        </td>
                     </tr>
                     <tr>                       
                         <td class="td_summary">Service Charge</td>
@@ -134,7 +144,11 @@
             </div>
         </div> 
     </div> 
+<?php
+if($driv){
 
+
+?>
     <h1>Driver Details</h1>
     <hr>
     <div class="container-2">
@@ -147,42 +161,11 @@
         </div>
 
     </div>
+   <?php
+}
+?> 
 
-    <h1>Farmers Details</h1>
-    <hr>
     
-    <div class="card-group">
-    <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a1.png" alt="Avatar" style="width:100%">
-      <div class="container-2">
-        <h4><b>Samantha</b></h4> 
-        <p>Anuradhapura</p> 
-      </div>
-      <div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a2.png" alt="Avatar" style="width:100%">
-      <div class="container-2">
-        <h4><b>Kumara</b></h4> 
-        <p>Dambulla</p> 
-      </div>
-      <div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a4.png" alt="Avatar" style="width:100%">
-      <div class="container-2">
-        <h4><b>Nimal</b></h4> 
-        <p>Vavniya</p> 
-      </div>
-      <div>
-      </div>
-    </div>
-    
-</div>
     
 <?php include("footer.php"); ?>
     
