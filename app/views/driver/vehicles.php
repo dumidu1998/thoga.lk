@@ -86,11 +86,11 @@
 						</tr>
 						<tr>
 							<td>Vehicle Insuarance</td>
-							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/<?php echo $driver_id;?>.jpg" target="_blank" >VI <?php echo $driver_id;?></a></td>
+							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/<?php echo $vehicleid;?>.jpg" target="_blank" >VI <?php echo $vehicleid;?></a></td>
 						</tr>
 						<tr>
 							<td>Vehicle Registration</td>
-							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleregistration/<?php echo $driver_id;?>.jpg" target="_blank" >VR <?php echo $driver_id;?></a></td>
+							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleregistration/<?php echo $vehicleid;?>.jpg" target="_blank" >VR <?php echo $vehicleid;?></a></td>
 						</tr>
 					</table>
 					<a href="removevehicle?vid=<?php echo $vehicleid?>"> <button class="button2" > Remove Vehicle</button></a>	

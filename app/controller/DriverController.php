@@ -238,13 +238,11 @@ class DriverController extends db_model{
         print_r($_FILES);
         if(isset($_FILES['vehiclepic'])&&isset($_FILES['insuarancepic'])&&isset($_FILES['registrationpic'])){
             move_uploaded_file($_FILES['vehiclepic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/drivervehicles/".$newvid.".jpg");
-            move_uploaded_file($_FILES['insuarancepicpic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/".$newvid.".jpg");
+            move_uploaded_file($_FILES['insuarancepic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/".$newvid.".jpg");
             move_uploaded_file($_FILES['registrationpic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverdocuments/vehicleregistration/".$newvid.".jpg");
             echo "Success";
             header("location:/thoga.lk/driver/vehicledetails");
            
-                print_r($errors);
-            //  }
         }else{
             echo "file Upload Failed";
         }
