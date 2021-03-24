@@ -5,6 +5,7 @@ require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/forumModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
+require_once(__DIR__.'/../models/vehicleModel.php');
 
 
 class BuyerController {
@@ -14,6 +15,7 @@ class BuyerController {
         $this->forum = new forumModel();
         $this->order = new orderModel();
         $this->drivers = new driverModel();
+        $this->vehicles = new vehicleModel();
     }
 
     function getAll_get(){
@@ -228,9 +230,13 @@ class BuyerController {
         // echo "ddd";
         $view = new View("buyer/summary");
         if(isset($_GET['vehicle_id'])){
-            echo "ddd";
+            // echo "ddd";
             $vehicle_id = $_GET['vehicle_id'];
             $view->assign('driv',$vehicle_id);
+            $drivervehicle=$this->vehicles->getdriverandvehicle($vehicle_id);
+            // print_r($drivervehicle) ;
+            $view->assign('details',$drivervehicle);
+
 
         }
         
@@ -313,7 +319,6 @@ class BuyerController {
             $view->assign('address', $arr);
                 $vehicle_id=0;
                 $view->assign('driv',$vehicle_id);
-            
     
        
 

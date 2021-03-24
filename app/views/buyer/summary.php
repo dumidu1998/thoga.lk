@@ -153,12 +153,23 @@ if($driv){
     <hr>
     <div class="container-2">
         <div class="card">
-            <img width= 300px src="/thoga.lk/public/images/buyer/a3.png" alt="Avatar" style="width:100%">
+            <img width= 100px src="/thoga.lk/public/images/buyer/a3.png" alt="Avatar" style="width:100%">
             <div class="container-2">
-                <h4><b>Akila Silva</b></h4> 
-                <p>NC PT - 0543</p> 
+                <?php
+                    foreach($details as $keys=>$values){
+                        
+                    
+                ?>
+                
+                <h4><b><?php echo $values['firstname'] ?> <?php echo $values['lastname'] ?></b></h4> 
+                <p><b>Vehicle No: </b><?php echo $values['vehicle_no'] ?></p> 
+                <p><b>Contact No 1: </b><?php echo $values['contactno1'] ?></p> 
+                <p><b>Contact No 2: </b><?php echo $values['contactno2'] ?></p> 
             </div>
         </div>
+        <?php
+                    }
+        ?>
 
     </div>
    <?php
