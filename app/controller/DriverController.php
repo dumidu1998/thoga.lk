@@ -182,6 +182,15 @@ class DriverController{
         
     }
 
+    public function showbutton(){
+        session_start();
+        $view = new View("driver/test");
+        
+    }
+
+
+
+
 }
 
 ?>

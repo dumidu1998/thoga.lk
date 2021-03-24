@@ -92,6 +92,8 @@ $routes = [
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
 
+    'driver/test'=>'DriverController@showbutton' //test button
+
 
 
 ];

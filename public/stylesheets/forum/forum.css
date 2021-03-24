@@ -1,9 +1,3 @@
-body{
-    background: url(/thoga.lk/public/images/forum/forum-bg.jpg);
-    background-size:  cover;
-    background-repeat: no-repeat;
-    background-attachment:fixed ;
-}
 .container{
     height: 300px;
     margin: 80px 0px;
@@ -47,7 +41,7 @@ input[type="checkbox"]{
 
 .fbtn{
     float: right;
-    background-color: #07910c;
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 5px 20px;
@@ -57,6 +51,11 @@ input[type="checkbox"]{
     /* margin: 4px 2px; */
     cursor: pointer;
     margin-right: 20px;
+}
+
+.fbtn:hover{
+    background-color: #4CAF50;
+
 }
 
 .content{
@@ -86,49 +85,61 @@ input[type="checkbox"]{
 .forum-container{
     padding:25px;
     margin: 0px 30px;
-    background-color: rgba(255, 255, 255, 0.966);
     height: auto;
-    margin-bottom: 50px;
     font-weight: 700;
-    box-shadow: 10px 11px 8px #0202412c;
+    box-shadow: -10px -10px 10px #80808009;
 
+    
+    
+}
+.forum-container:hover{
+    box-shadow: 15px 6px 10px #4b4b4d2c;
 
 }
+
 .forum-contols{
     background-color:  rgba(236, 235, 235, 0);
     font-size: 15px;
     height: 125px;
     width: 100px;
     float: right;
-    margin: -35px 30px 0px 10px ;
     padding-top: 0px;
+    color: #2E5F3E;
+    ;
 }
 .forum-content{
     padding: 18px 30px;
-    font-size: 18px;
+    font-size: 15px;
     min-height: 55px;
 }
-
+.author{
+    font-weight: lighter;
+    font-size: 10px;
+}
 .forum-topic{
     margin-left: 30px;
     font-size: 25px;
     font-weight: bold;
     margin-bottom: -10px;
-    text-decoration: underline;
 
 }
 
 .links:link{
-    color: rgb(3, 3, 46);
-    text-decoration: none;
+    margin: auto;
+    align-content: center;
+    color: #2E5F3E;
+    text-decoration: double;
+    font-weight: bolder;
 }
 
 .links:visited{
-    color: rgb(3, 4, 41);
+    color: #2E5F3E;
+    text-decoration: none;
 }
 
 .links:hover{
-    color: #241c69;
+    color: #181d19;
+    text-decoration: none;
 }
 
 .ad{
@@ -138,21 +149,20 @@ input[type="checkbox"]{
 }
 
 .reply{
-    border:1px groove rgb(0, 0, 0);
-    font-size: 17px;
+    font-size: 13px;
     margin-left: 30px;
     margin-right: 80px;
-    padding-left: 8px;
+    padding: 5px;
+    font-weight: normal;
 }
 
 .like-unlike{
     padding: 0px 2px;
-    box-shadow: 1px 1px 1px 1px #808080;
-    height: 30px;
+    height: 20px;
 }
 
 .like-unlike:hover{
-    box-shadow: 5px 5px #888888;
+    box-shadow: 2px 2px #6e6d6d59;
 }
 
 @media screen and (max-width: 600px) {
@@ -164,6 +174,7 @@ input[type="checkbox"]{
     .reply{display: none;}
     .ad{width:50%;height: 30%;margin-left: 25%;}
     .forum-contols{margin-left: 30%;}
+    body{top:60px !important;}
 }
 
 .admin-btn {
@@ -171,16 +182,16 @@ input[type="checkbox"]{
     padding: 10px 25px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    font-size: 25px;
-    background:  rgb(41, 158, 12);
+    font-size: 20px;
+    background:  #4CAF50;
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
     border: 1px solid #000;
-    width: 200px;
-    height: 80px;
+    width: 150px;
+    height: 50px;
     color: white;
   }
   
@@ -266,7 +277,7 @@ input[type="checkbox"]{
   }
 
   input[type=text]::placeholder{
-    font-size: 32px;
+    font-size: 20px;
   }
 
   textarea{
@@ -279,7 +290,7 @@ input[type="checkbox"]{
       font-size: 20px;
       padding: 12px 20px;
       display: inline-block;
-      border: 3px solid rgb(11, 139, 21);
+      border: 2px solid rgb(11, 139, 21);
       border-radius: 4px;
       margin: 0% 0% 0% 5%;
       margin-bottom: 20px;
@@ -296,13 +307,10 @@ input[type="checkbox"]{
 
   input[type=submit]{
     font-size: 30px;
-    padding: 12px 5px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-left: 35%;
-    height: 10%;
-    width: 20%;
   }
 
   @media screen and (max-width: 768px) {
@@ -319,22 +327,62 @@ input[type="checkbox"]{
     margin: 0px 10px 30px 80px;
     padding: 10px 25px;
     font-family: "Roboto", sans-serif;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 15px;
-    background:  rgb(41, 158, 12);
+    background:  #4CAF50;
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
     border: 2px solid #000;
-    width: 200px;
-    height: 80px;
+    width: 180px;
+    height: 50px;
     color:#fff;
   }
   
-  .fsubmit-btn:hover {
+.fsubmit-btn:hover {
     background: rgb(21, 114, 9);
     color: rgb(255, 255, 255);
-  }
+}
   
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #4CAF50;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #000000;
+}
+
+.searchTerm:focus{
+  color: #000000;
+}
+
+.searchButton {
+  width: 50px;
+  height: 40px;
+  border: 1px solid #4CAF50;
+  background: #4CAF50;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wrap{
+  width: 80%;
+  position: relative;
+  top: 10%;
+}
+
