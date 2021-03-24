@@ -20,20 +20,20 @@ class orderModel extends db_model{
         if($result){
          while($row=mysqli_fetch_assoc($result))
          array_push($arr,$row);
-       return $arr;
+          return $arr;
      
  
          }else
          echo "error";
     }
     public function viewmore_driver($id){
-        $sql="SELECT a.*, b.*,c.*,e.*,f.name_en as province,g.name_en as city,i.name_en as district FROM orders as a INNER JOIN driver as b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id INNER JOIN address as e on c.user_id=e.user_id INNER JOIN provinces as f on f.id=e.province_name INNER JOIN cities as g on g.id=e.city INNER JOIN districts as i on i.id=e.province_name WHERE a.order_id=".$id;
+        $sql="SELECT a.*, b.*,c.*,e.*,f.name_en as province,g.name_en as city,i.name_en as district FROM orders as a INNER JOIN driver as b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id INNER JOIN address as e on c.user_id=e.user_id INNER JOIN provinces as f on f.id=e.province INNER JOIN cities as g on g.id=e.city INNER JOIN districts as i on i.id=e.province WHERE a.order_id=".$id;
         $result=$this->connection->query($sql);
         $arr=array();
         if($result){
          while($row=mysqli_fetch_assoc($result))
          array_push($arr,$row);
-       return $arr;
+          return $arr;
      
  
          }else

@@ -174,9 +174,9 @@
 
             </div>
         </div>
-        <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
+        <a href="home" class="checkout_btn_back">Back to shopping</a>
        
-        <a id="check"><button id="aa" name="continue" class="checkout_btn">Continue</button></a>
+        <a href="" id="check"><button id="aa" name="continue" class="checkout_btn">Continue</button></a>
     </div>
     </form>
     <?php include("footer.php"); ?>

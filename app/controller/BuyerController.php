@@ -297,7 +297,7 @@ class BuyerController {
            
             //print_r( $_SESSION['del']);
                    
-            // header("location:/thoga.lk/buyer/summery");
+            // header("location:/thoga.lk/buyer/home");
             session_start();
             $_SESSION['delivery_add']=$arr;
 

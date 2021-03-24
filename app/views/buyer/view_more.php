@@ -8,7 +8,7 @@
 </head>
 <body >
 <?php
-// print_r($details);
+print_r($details);
 echo"</br>";
 // print_r($driver_details);
 
@@ -19,12 +19,13 @@ echo"</br>";
 foreach($driver_details as $keys => $values)  
 {  
     ?>
-        <p>Invoice no : <?php echo $values['order_id'] ?> </p>
+        <h3>Order no : <?php echo $values['order_id'] ?> </h3>
         <br>
-        <p>Delivery address : 388/53 stage1 apura</p> 
+        <h4>Delivery address : </h4> <p> 388/53 stage1 apura</p> 
         <!-- need to be done -->
         <br>
-        <p>Telephone no : 0764229830</p>
+        <h4>Telephone no</h4>
+        <p>0764229830</p>
         <div class="check">
             <!-- grid -->
             <div class="tbl">
@@ -39,12 +40,12 @@ foreach($driver_details as $keys => $values)
                     </tr>
                     <tr>
                         <td class="item_name">Driver name</td>
-                        <!-- <td><?php echo $values['firstname']?> <?php echo $values['lastname']?></td> -->
+                        <td><?php echo $values['firstname']?> <?php echo $values['lastname']?></td>
                         
                     </tr>
                     <tr>
                         <td class="item_name">Driver Address</td>
-                        <td>388/ 53 <br> stage1 <br> Anuradhapura</td>
+                        <td><?php echo $values['address_line1']?><br> <?php echo $values['address_line2']?> <br> <?php echo $values['city']?></td>
                         
                     </tr>
                     <tr>

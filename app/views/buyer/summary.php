@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/summary.css">
     <title>Document</title>
 </head>
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body>
     <?php include("navbar.php") ;
     ?>
     <div class="container">
-        <p>Invoice no : 12345</p>
+        <center>
+
+            <h2>Invoice no : 12345</h2>
+        </center>
         <br>
 
         <?php
@@ -19,11 +22,26 @@
            
                       
         ?>
-        <p>Delivery address : <?php echo ($_SESSION['delivery_add']['add1'])  ?> <?php echo ($_SESSION['delivery_add']['add2'])  ?>
-        <br><?php echo ($_SESSION['delivery_add']['city'])  ?><br><?php echo ($_SESSION['delivery_add']['district'])  ?><br><?php echo ($_SESSION['delivery_add']['province'])  ?></p>
-        <br>
-        <p>Telephone no 1: <?php echo ($_SESSION['delivery_add']['contact1'])  ?></p>
-        <p>Telephone no 2: <?php echo ($_SESSION['delivery_add']['contact2'])  ?></p>
+        <div class="addr_container">
+            <div class="divider">
+                <h4 for="p"> Delivery address :</h4>
+
+                <p> <?php echo ($_SESSION['delivery_add']['add1'])  ?> <?php echo ($_SESSION['delivery_add']['add2'])  ?>,
+                <br><?php echo ($_SESSION['delivery_add']['city'])  ?>,<br><?php echo ($_SESSION['delivery_add']['district'])  ?>,<br><?php echo ($_SESSION['delivery_add']['province'])  ?>.</p>
+            </div>
+            <br>
+            <div class="divider">
+                
+                <h4>Telephone no 1: </h4>
+                <p><?php echo ($_SESSION['delivery_add']['contact1'])  ?></p>
+            </div>
+            <div class="divider">
+                <h4>Telephone no 2:</h4>
+                <p> <?php echo ($_SESSION['delivery_add']['contact2'])  ?></p>
+
+            </div>
+
+        </div>
 
         <?php
              
@@ -112,6 +130,7 @@
 
                 </table>
                 <a href="booksuccess"><button class="checkout_btn">Place Order</button></a>
+                <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
             </div>
         </div> 
     </div> 
