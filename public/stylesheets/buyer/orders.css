@@ -31,7 +31,10 @@
     font-size: .85em;
     letter-spacing: .1em;
     text-transform: uppercase;
-    text-decoration:underline ;
+    margin: auto;
+    color: white;
+    background-color: #2E5F3E;
+    
   
   }
   
@@ -69,7 +72,6 @@
       content: attr(data-label);
       float: left;
       font-weight: bold;
-      text-transform: uppercase;
     }
     
     table td:last-child {
@@ -79,13 +81,12 @@
   table button {
     background-color: white;
     color: red;
-    border: 2px solid #555555;
+    border: 1px solid #555555;
     padding: 10px;
     width: 100px;
-   
-  
   }
+
   table button:hover {
-    background-color: #555555;
+    background-color: #4CAF50;
     color: white;
   }
