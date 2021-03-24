@@ -32,7 +32,7 @@
 					</tr>
 					
 					<?php
-					// print_r($_SESSION);
+					
 					foreach($details as $keys => $row){
 						$order_id=$row['order_id'];
 						$pickdate=$row['pickup_date'];

@@ -2,6 +2,7 @@
 
 require_once(__DIR__.'/driverModel.php');
 
+
 class vehicleModel extends driverModel{
 
 	function __contruct(){
@@ -45,5 +46,36 @@ class vehicleModel extends driverModel{
             echo "done";
         }else{echo "error";}
     }
+
+    function addnewvehicle($get){
+        session_start();
+        $vno=$get['vehicleno'];
+        $vtype=$get['vehicletype'];
+        $maxweight=$get['maxweight'];
+        $vcost=$get['vehiclecost'];
+        $vtype=$get['vehicletype'];
+        $driverid=$_SESSION['driver']['driver_id'];
+
+        $sql ="INSERT INTO vehicles (vehicle_id, driver_id, vehicle_no, cost_km, vehicle_type, maximum_weight, availability, verified_state) VALUES (NULL, '".$driverid."', '".$vno."','".$vcost."', '".$vtype."', '".$maxweight."', '0', '0')";
+        $result=$this->connection->query($sql);
+        if($result){
+            echo "done";
+        }else{echo "error";}
+    }
+
+    function getnewvehicleid(){
+        $sql="SELECT LAST_INSERT_ID() as id";
+        $newvid=$this->queryfromsql($sql);
+        return $newvid[0]['id'];
+    }
+
+    function removevehicle($vid){
+        
+        $sql="DELETE FROM vehicles where vehicle_id ='".$vid."'";
+        $result=$this->queryfromsql($sql);
+        return $result;
+    }  
+    
+    
 }
  ?>

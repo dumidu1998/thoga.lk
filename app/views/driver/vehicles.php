@@ -93,6 +93,8 @@
 							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleregistration/<?php echo $driver_id;?>.jpg" target="_blank" >VR <?php echo $driver_id;?></a></td>
 						</tr>
 					</table>
+					<a href="removevehicle?vid=<?php echo $vehicleid?>"> <button class="button2" > Remove Vehicle</button></a>	
+
 			</div>
 		    
 		</div>

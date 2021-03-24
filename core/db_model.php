@@ -93,6 +93,19 @@ class db_model{
 			return 'Error at db_MODEL/update';
 
     }
+
+	function queryfromsql($sql){
+		$finale=array();
+		$result = $this->connection->query($sql);
+		if($result){
+		while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		return $finale;
+		}
+		else
+			return 'Error at db_MODEL/queryfromsql';	
+	}
+
    function delete($tableName,$whereArgs){
    		$sql='DELETE FROM '.$tableName;
 

@@ -18,11 +18,12 @@
 				<hr>
 			</div>
 		</header>
-			
+		<div class= "vehicle">	
+			<a href="addvehicle"><button class="buttonaddnewvehicle">Add New Vehicle</button></a>
+		</div>
 		<div class="menu">
 			
 			<div class="transboxx">
-
 
 
 				<table align="center">
@@ -58,8 +59,8 @@
 					<input type="hidden"  name="vehicleid" value="<?php echo $vehicleid; ?>"> 
 					<td data-column="Action"><button class="button1" > View More</button></td>
 					</form>
-					</tr>
 
+					</tr>
                     <?php 
                      }
                      ?>
