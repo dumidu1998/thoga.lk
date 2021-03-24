@@ -16,13 +16,14 @@
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+      nextDayThreshold:'00:00',
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth'
       },
       initialDate: today,
-      navLinks: false, 
+      navLinks: false,
       selectable: true,
       selectMirror: true,
       select: function(arg) {
@@ -65,7 +66,7 @@ function removeunavailability(x){
       alert(convert(x) + " marked as available.");
     }
   };
-  xhttp.open("GET", "/thoga.lk/app/views/driver/test2.php?sdate="+convert(x) , true);
+  xhttp.open("GET", "/thoga.lk/driver/removeunavail?sdate="+convert(x) , true);
   xhttp.send();
 }
 
@@ -77,7 +78,7 @@ function addunavailability(x){
       alert(convert(x) + " marked as unavailable.");
     }
   };
-  xhttp.open("GET", "/thoga.lk/app/views/driver/test.php?sdate="+convert(x) , true);
+  xhttp.open("GET", "/thoga.lk/driver/addunavail?sdate="+convert(x) , true);
   xhttp.send();
 }
 

@@ -6,11 +6,11 @@
     </head>
 
     <body>
-    <?php include("navbarviewmore.php"); ?>
+    <?php include("navdriverdashboard.php"); ?>
     <header >
         
         <div class="topic">
-            <h1>Order details of Order Id - <mark>   <?php echo $order_id ?>  </mark></h1>
+            <h1>Order details of Order No - <mark>   <?php echo $order_id ?>  </mark></h1>
         </div>
         <hr>
 
@@ -39,8 +39,8 @@
                     $city=$row['name_en'];
                 }
             ?>         
-            Order Id           : 
-            <input type="text" "class="advancedSearchTextBox"  name="orderid" value="<?php echo $ordid?>" disabled>
+            Order No          : 
+            <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
             <br> 
                                  
 
@@ -49,7 +49,7 @@
             <br>     
 
             Total Cost         :
-            <input type="text" name="total cost" value="<?php echo $totcost?>" disabled>
+            <input type="text" name="total cost" value="Rs. <?php echo number_format($totcost,2);?>" disabled>
             <br> 
 
            
@@ -123,18 +123,44 @@
 			<?php
                 $sum=0;
 				
-                 
                  foreach($items as $keys => $row){
-					
-					echo "<tr>";
-                    echo "<td>".$row['vege_name']."</td>";
-                    echo "<td><button name=viewmore class=button1>?</button></td>";
-					echo "<td>".$row['total_cost']."</td>";
-					echo "<td>".$row['weight']."</td>";
-					echo "<td>".$row['total_cost']*$row['weight']."</td>";
-                    echo "</tr>";
-                    
+
+                   
+				?>	
+					<tr>
+                    <td> <?php echo $row['vege_name'];?></td>
+                    <td><button name='viewAddress' class='button1' onclick='openModal(<?php echo $row['details_id']; ?>)'><?php echo $row['city']; ?>🛈 </button></td>
+					<td>Rs. <?php echo number_format($row['total_cost'],2);?></td>
+					<td><?php echo number_format($row['weight'],2);?></td>
+					<td>Rs. <?php echo number_format($row['total_cost']*$row['weight'],2);?></td>
+                    </tr>
+                <?php
                     $sum=$sum+ $row['total_cost']*$row['weight'];
+                ?>
+                    <div class="model1" id="myModal<?php echo $row['details_id'] ?>">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal(<?php echo $row['details_id'] ?>)">&times;</span>
+                                
+                                <div>👨‍🌾 <?php echo $row['firstname']." ".$row['lastname'];?></div>
+                                <div>🏠 <?php echo $row['farm_name'];?></div>
+                                <br>
+                                <div>📍🖂 <?php echo $row['address_line1'];?></div>
+                                <div><?php echo $row['address_line2'];?></div>
+                                <div><?php echo $row['city'];?></div>
+                                <div><?php echo $row['district'];?></div>
+                                <div> <?php echo $row['province'];?></div>
+                                <div><?php echo $row['zip_code'];?></div>
+                                <br>
+                                <div>📞 <?php echo $row['contactno1'];?></div>
+                                <div>📞 <?php echo $row['contactno2'];?></div>
+                               
+                                
+
+                        </div>
+                    </div>
+
+                    
+            <?php
 				}
 			
 			?>
@@ -144,7 +170,7 @@
             
                 
             <align=\"right\"> TOTAL  </align>
-            <input type="text"  class="advancedSearchTextBox1"  name="driver id" value="<?php echo $sum?>" disabled>
+            <input type="text"  class="advancedSearchTextBox1"   value="Rs. <?php echo number_format($sum,2);  ?>" disabled>
             
             
         </div>
@@ -153,3 +179,23 @@
     
     </body>
 </html>
+
+<script>
+    function closeModal(id) {
+        var mod = document.querySelector("#myModal"+id);
+        mod.style.display = 'none';
+        
+    }
+
+    function openModal(id) {
+        var mod = document.querySelector("#myModal"+id);
+        mod.style.display = 'block';
+
+    }
+
+    window.onclick = function(event) {
+        if (event.target == mod) {
+        mod.style.display = "none";
+        }
+    }
+</script>

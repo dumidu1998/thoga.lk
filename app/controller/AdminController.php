@@ -6,6 +6,7 @@ require_once(__DIR__.'/../models/vegetablesModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/mentorModel.php');
 require_once(__DIR__.'/../models/farmerModel.php');
+require_once(__DIR__.'/../models/orderModel.php');
 
 
 class AdminController {
@@ -16,24 +17,47 @@ class AdminController {
         $this->drivers = new driverModel();
         $this->mentors = new mentorModel();
         $this->farmers = new farmerModel();
+        $this->orders = new orderModel();
     }
 
     public function index(){
         $results=$this->drivers->get_pending();
         $mentors=$this->mentors->get_pending();
         $farmers=$this->farmers->get_mentor_requests();
+        $orders=$this->orders->get_all_for_chart();
         $view = new View("admin/index");
         $view->assign('results', $results);
         $view->assign('mentors', $mentors);
         $view->assign('farmers', $farmers);
+        $view->assign('ordersforchart', $orders);
     }
 
     public function vieworders(){
-        $results=$this->model->orderdetails();
-        $upcoming=$this->model->upcomming();
+        if(isset($_GET['process'])){
+            if(isset($_GET['ordtypeu']) && isset($_GET['ordtypef']) && $_GET['ordtypeu']=="up" && $_GET['ordtypef']=="f" ){
+                $results=$this->model->orderdetails();
+                $upcoming=$this->model->upcomming();
+            }else if(isset($_GET['ordtypeu']) && $_GET['ordtypeu']=="up"){
+                $upcoming=$this->model->upcomming();
+                $results=0;
+            }else if(isset($_GET['ordtypef']) && $_GET['ordtypef']=="f"){
+                $results=$this->model->orderdetails();
+                $upcoming=0;
+            }else if($_GET['uname']!=null){
+                $results=$this->model->orderdetails_uname($_GET['uname']);
+                $upcoming=$this->model->upcomming_uname($_GET['uname']);
+            }else{
+                $results=$this->model->orderdetails();
+                $upcoming=$this->model->upcomming();
+            }
+        }else{
+            $results=$this->model->orderdetails();
+            $upcoming=$this->model->upcomming();
+        }
         $view = new View("admin/vieworders");
         $view->assign('results', $results); 
         $view->assign('upcoming', $upcoming); 
+        $view->assign('get', $_GET); 
     }
 
     public function admanager(){
@@ -55,9 +79,33 @@ class AdminController {
     }
 
     public function showorder(){
-        $ordid=$_POST['order_id'];
-        // echo $ordid;
+        $ordid=$_GET['ord_id'];
+        //  echo $ordid;
+        // $result=
+        if(isset($_GET['ord_id'])){
+            $order_id=$_GET['ord_id'];
+            $driver = $this->orders->order_drivername($order_id);
+            $buyer = $this->orders->order_buyername($order_id);
+            $items = $this->orders->orderdetails_total($order_id);
+            $city= $this->orders->order_city($order_id);
+            
+
+        
+        }
+        // print_r( $driver);
+        // print_r( $buyer);
+        // print_r( $items);
+        print_r( $city);
+        echo $buyer[0]['firstname'];
+        echo $buyer[0]['lastname'];
+        echo $city[0]['d_addline1'];
+        echo $city[0]['d_addline2'];
+
         $view = new View("admin/orderdetails");
+        $view->assign('buyer', $buyer); 
+        $view->assign('driver', $driver); 
+        $view->assign('items', $items);
+        $view->assign('city', $city);
 
     }
 
@@ -100,12 +148,12 @@ class AdminController {
         header("location: /thoga.lk/admin/admanager");
     }
 
-
     public function showadmin(){
         $result=$this->model->showadmins();
         $view = new View("admin/admins");
         $view->assign('results', $result); 
     }
+
     public function addadmin(){
         session_start();
         $return = $this->model->addadmin($_POST);

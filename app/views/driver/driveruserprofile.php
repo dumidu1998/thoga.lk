@@ -8,20 +8,30 @@
 <?php
 $status = "disabled";
 $color = "black";
+$method="";
 
 if(isset($_GET["edit"])){
-    $status = "enabled";
+    $status = "";
     $color = "red";
+    $method="editprofile";
 }
-if(isset($_GET["update"])){
-   echo "Done"; 
+// if(isset($_GET["update"])){
+//     // header("location:/thoga.lk/driver/profile?done");
+//     $method="posjt";
+//     echo "Done";
+//    echo "Done"; 
+//     echo "Done";
+   
+// }
+if(isset($_GET['error']) && $_GET['error']==1){
+    echo"<script>alert('Error Occured!. Try again');</script>";
 }
 ?>
 
 <body>
 
 
-   <?php include 'profilenavbar.php' ;?> 
+   <?php include 'navdriverdashboard.php' ;?> 
    <div class="topic">
                 <h1>Driver user profile</h1>
         </div>
@@ -30,27 +40,32 @@ if(isset($_GET["update"])){
     <div class="wrapper">
         <div class="user_pp">
            
-            <img width="300px" src="/thoga.lk/public/images/driver/a.jpg" alt="">
-            <input type="file" value="upload image">
-
+            <img width="300px" src="/thoga.lk/public/uploads/driverpropic/<?php echo $_SESSION['driver']['driver_id'].'.jpg'?>" alt="">
+            <br><br>
+            <form action="updateprofilepic" method="post" enctype="multipart/form-data">
+            <input type="file" name="profpic" value="upload image">
+            <br>
+            <input type="submit" class="button2" value="update picture">    
+            </form>
+            
         </div>
         
         <div class="user_details">
           
-            <form action="farmer_profile.php" method="get">
+            <form action="<?php echo $method ?>" method="get">
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">First name</label>
-                    <input type="text" <?php echo $status ?>> 
+                    <input type="text" name="fname" <?php echo $status ?> value="<?php echo $all['firstname'] ?>"> 
                 </div>
 
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">Last name</label>
-                    <input type="text" <?php echo $status ?>>
+                    <input type="text" name="lname" <?php echo $status ?> value="<?php echo $all['lastname'] ?>" >
                 </div>
 
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">Email Adress</label>
-                    <input type="text" <?php echo $status ?>>
+                    <input type="text" name="email" disabled value="<?php echo $all['email'] ?>">
                 </div>
 
                 <div>
@@ -62,12 +77,12 @@ if(isset($_GET["update"])){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Mobile number</label>
-                        <input type="text" <?php echo $status ?>>
+                        <input type="text" name="mobileno1" <?php echo $status ?> value="<?php echo $all['contactno1'] ?>">
 
                     </div>
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Mobile number</label>
-                        <input type="text" <?php echo $status ?>>
+                        <input type="text" name="mobileno2"<?php echo $status ?> value="<?php echo $all['contactno2'] ?>">
 
                     </div>
                 </div>
@@ -78,48 +93,46 @@ if(isset($_GET["update"])){
                 </div>
 
 
+                
+                
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Farm no</label>
-                        <input type="text" <?php echo $status ?>>
-
+                        <label style="color : <?php echo $color ?>" for="">Address line 1</label>
+                        <input type="text" name="addr1" disabled value="<?php echo $all['NC1'] ?>">
                     </div>
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">District</label>
-                        <input type="text" <?php echo $status ?>>
-
+                        <label style="color : <?php echo $color ?>" for="">Address line 2</label>
+                        <input type="text" name="addr2" disabled value="<?php echo $all['NC2'] ?>">
                     </div>
+
                 </div>
-                
                 
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">City</label>
-                        <input type="text" <?php echo $status ?>>
+                        <input type="text" name="city" disabled value="<?php echo $all['c_name'] ?>">
+                    </div>
+                    <div>
+                        <label style="color : <?php echo $color ?>" for="">District</label>
+                        <input type="text" name="district" disabled value="<?php echo $all['d_name'] ?>">
+    
                     </div>
 
-                    <div>
-                        <label style="color : <?php echo $color ?>" for="">zip code</label>
-                        <input type="text" <?php echo $status ?>>
-                    </div>
                     
                 </div>
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Nearest City 1</label>
-                        <input type="text" <?php echo $status ?>>
+                        <label style="color : <?php echo $color ?>" for="">zip code</label>
+                        <input type="text" name="zip" disabled  value="<?php echo $all['zip_code'] ?>">
                     </div>
-                    <div>
-                        <label style="color : <?php echo $color ?>" for="">Nearest City 2</label>
-                        <input type="text" <?php echo $status ?>>
-                    </div>
-
+                   
                 </div>
+                
 
                 <hr>
                 <br>
-                <button id="myBtn" name="edit">Edit</button>
-                 <button name="update" class="updt_btn" <?php echo $status ?>>Update</button>
+                <button type="submit" id="myBtn" name="edit">Edit</button>
+                <button type="submit" name="update" class="updt_btn" <?php echo $status ?>>Update</button>
 
             </form>
 
@@ -148,9 +161,6 @@ if(isset($_GET["update"])){
 					</tr>
 					
 					<?php
-
-					
-					
 					foreach($details as $keys => $row){
 						$order_id=$row['order_id'];
 						$pickdate=$row['pickup_date'];
@@ -160,7 +170,7 @@ if(isset($_GET["update"])){
 					<form action='/thoga.lk/driver/viewmore' method='post'>
 					<td><?php echo $order_id; ?> </td>
 					<td><?php echo $pickdate; ?> </td>
-					<td><?php echo $tcost; ?> </td>
+					<td>Rs. <?php echo number_format($tcost,2); ?> </td>
 					<input type="hidden" name="order_id" value="<?php echo $order_id; ?>"> 
 					<td><button name="viewmore" class="button1"> View More</button></td>
 					</form>
@@ -178,15 +188,4 @@ if(isset($_GET["update"])){
     <?php include("footer.php"); ?> 
 </body>
 
-<script>
-var upBtn = document.getElementById("upBtn");
-var btn = document.getElementById("myBtn");
-
-btn.onclick = function() {
-    upBtn.style.display = "block";
-    btn.style.display = "none";
-}
-
-
-</script>
 </html>

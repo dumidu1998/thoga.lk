@@ -5,16 +5,22 @@
 <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/profilenavbar.css">
 </head>
 <body>
+    <?php if(isset ($_SESSION['driver'])) {
 
+    }else{
+      $_SESSION['login_error']=1;
+      // header("location:/thoga.lk");
+    } 
+      ?>
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/driver/final driver.png" alt="" class = "logo"></a>
+  <a href="#home" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
   <a href="dashboard"" class="active">Dashboard</a>
   <a href="calendar">Calendar</a>
   <a href="/thoga.lk/forum">Forum</a>
   <a href="about_us">About</a>
   <a id="google_translate_element"></a>
   <div class = "nav-right">
-    <a href="">Logout</a>
+    <a href="logout">Logout</a>
     
     
     <a href="#"><img src="/thoga.lk/public/images/driver/bell.jpg" alt="" class = "bell_pic" width=24px height= 24px>

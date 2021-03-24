@@ -17,9 +17,7 @@
 			</div>
 		</header>
 			<div class ="vehicle">
-				<form method="post" action="vehicledetails">
-					<input type="submit" value="Vehicle details" class="button2" name="vehicledetails">
-				</form>
+				<a href="vehicledetails"><button class="button2">Vehicle details</button></a>
 			</div>
 		<div class="menu">
 			
@@ -34,9 +32,7 @@
 					</tr>
 					
 					<?php
-
-					
-					
+					// print_r($_SESSION);
 					foreach($details as $keys => $row){
 						$order_id=$row['order_id'];
 						$pickdate=$row['pickup_date'];
@@ -46,7 +42,7 @@
 					<form action='/thoga.lk/driver/viewmore' method='post'>
 					<td><?php echo $order_id; ?> </td>
 					<td><?php echo $pickdate; ?> </td>
-					<td><?php echo $tcost; ?> </td>
+					<td>Rs. <?php echo number_format($tcost,2); ?> </td>
 					<input type="hidden" name="order_id" value="<?php echo $order_id; ?>"> 
 					<td><button name="viewmore" class="button1"> View More</button></td>
 					</form>

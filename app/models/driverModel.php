@@ -57,10 +57,7 @@ class driverModel extends db_model{
 		}
 	}
 
-	function get($id){
 
-		return $this->read('driver', array('*'), array('id'=>$id));
-	}
 	function get_avail($date, $weight, $location){
 		$sql = "SELECT a.*,b.*, c.*,d.*,e.name_en AS city_name ,f.name_en AS dis_name FROM driver AS a INNER JOIN vehicles as b ON a.driver_id=b.driver_id INNER JOIN user AS c on a.user_id=c.user_id INNER join address as d ON d.user_id=c.user_id INNER join cities AS e on d.city=e.id INNER join districts AS f on d.district=f.id WHERE a.driver_id NOT IN (SELECT driver_id FROM unavailable_dates WHERE enddate >= '".$date."' AND startdate <= '".$date."') AND b.availability =1 AND b.maximum_weight>=".$weight." AND f.name_en='".$location."'";
 		$result=$this->connection->query($sql);
@@ -74,6 +71,75 @@ class driverModel extends db_model{
 		}else
 		echo "error";
 
+	}
+
+	function insertunavailable_dates($driver_id,$startdate,$enddate){
+        $sql = "INSERT INTO unavailable_dates (driver_id,startdate,enddate) VALUES ('".$driver_id."','".$startdate."','".$enddate."')";
+        $result=$this->connection->query($sql);
+        if($result){}else{echo "error";}	
+    }
+	
+	function getdates($id){
+        return $this->read('unavailable_dates', array("startdate AS start","DATE_ADD(enddate,INTERVAL 1 DAY) AS end","'Unavailable'AS'title'","'#d00000'AS'color'"), array('driver_id'=>$id));
+	}
+	
+	function getorderdates($id){
+        return $this->read('orders',array("pickup_date AS start","concat('Order # ',order_id) AS title"),array('driver_id'=>$id));
+	}
+
+	function addunavailability($id,$date){
+        $sql="INSERT INTO unavailable_dates(date_id,driver_id,startdate,enddate) VALUES(null,'".$id."','".$date."','".$date."')";
+		$result=$this->connection->query($sql);
+        if($result){}else{echo "error";}
+	}
+	
+	function removeunavailability($id,$date){
+		$sql="DELETE FROM unavailable_dates WHERE startdate ='" . $date . "' AND driver_id='".$id."'" ;
+		$result=$this->connection->query($sql);
+		if($result){}else{echo "error";}
+	}
+
+	function getalldetails($id){
+		$sql="SELECT a.*, b.user_type, c.*, 
+		d.name_en AS c_name, 
+		p.name_en AS p_name, 
+		t.name_en AS d_name, 
+		d2.name_en AS NC1,
+		d3.name_en AS NC2
+		FROM user as a 
+		INNER JOIN usertype AS b ON a.usertype_id = b.type_id 
+		INNER JOIN address as c on a.user_id=c.user_id 
+		INNER JOIN cities AS d on c.city=d.id 
+		INNER JOIN cities as d2  ON a.nearestcity1=d2.id 
+		INNER JOIN cities as d3 ON a.nearestcity2=d3.id
+		INNER JOIN provinces AS p on c.province=p.id 
+		INNER JOIN districts AS t on c.district=t.id 
+		WHERE a.user_id = " . $id;
+		$result=$this->connection->query($sql);
+		$output=array();
+		if($result){
+           while($row=mysqli_fetch_assoc($result)){
+			array_push($output,$row);
+		   }
+		  return $output;
+
+		}else{
+		echo "error";
+		}
+	}	
+
+	function updatedetails($data){
+		session_start();
+		$firstname=$data['fname'];
+        $lastname=$data['lname'];
+        $mobile1=$data['mobileno1'];
+        $mobile2=$data['mobileno2'];
+		$user_id=$_SESSION['driver']['user_id'];
+
+
+		$sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
+		$result=$this->connection->query($sql);
+		if($result){ return true;}else{return false;}
 	}
 }
  ?>
