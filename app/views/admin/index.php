@@ -30,15 +30,15 @@
                 <table>
                     <tr class="tablehead">
                         <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/usericon.png" alt=""> Users</div></th>
+                        <th>        <div class="card-title-big"><img class="cardimg" width= 30px height=30px src="/thoga.lk/public/images/admin/productsicon.png" alt="" > Products</div></th>
                         <th>        <div class="card-title"> <img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/ordicon.png" alt=""> Orders</div></th>
                         <th>        <div class="card-title"><img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div></th>
-                        <th>         <div class="card-title-big"><img class="cardimg" width= 30px height=30px src="/thoga.lk/public/images/admin/tsalesicon.png" alt="" > Today Sales**</div></th>
                     </tr>
-                    <tr style="font-size:30px">
+                    <tr style="font-size:28px">
                         <td>150</td>
                         <td>70</td>
-                        <td>Rs. 1,700.00</td>
-                        <td>Rs. 71,500.00</td>
+                        <td>230</td>
+                        <td>Rs. 12,500.00</td>
                     </tr>
                 </table>
             </div>

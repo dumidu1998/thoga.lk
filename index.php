@@ -97,6 +97,8 @@ $routes = [
     'driver/logout' => 'DriverController@logout',
 
 
+    'driver/test'=>'DriverController@showbutton' //test button
+
 
 
 ];
