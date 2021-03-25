@@ -18,7 +18,7 @@ class vehicleModel extends driverModel{
 	
 	function getdriver_vehicles($id){
 
-        return $this->read('vehicles', array('*'), array('driver_id'=>$id));
+        return $this->read('vehicles', array('*'), array('driver_id'=>$id,'verified_state'=>'1'));
 
         
 	}

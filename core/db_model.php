@@ -62,7 +62,7 @@ class db_model{
 		$sql= $this->where($sql,$whereArgs);	
 
 	   $sql=$this->appendSemicolon($sql);
-	   //echo $sql.'<br>';
+	   echo $sql.'<br>';
 		$finale=array();
 
 		$result = $this->connection->query($sql);
