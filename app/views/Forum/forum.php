@@ -12,24 +12,28 @@
 </head>
 <body onload="my()">
     <?php 
-        $user_data=$_SESSION['user'];
-        foreach($user_data as $keys => $values){
-            if($values['user_type'] == 'buyer'){
-                include (__DIR__."/../buyer/navbar.php");
-            }elseif($values['user_type'] == 'farmer'){
-                include (__DIR__."/../farmer/navbar_dash.php");
-            }elseif($values['user_type'] == 'driver'){
-                include (__DIR__."/../driver/navdriverdashboard.php");
-            }elseif($values['user_type'] == 'mentor'){
-                include (__DIR__."/../mentor/navbar_dash.php");
-            }elseif($values['user_type'] == 'admin'){
-                include (__DIR__."/../admin/navbar.php");
-            }else{
-                include (__DIR__."/../buyer/navbar.php");
+        if(isset($_SESSION['user'])){
+            $user_data=$_SESSION['user'];
+            foreach($user_data as $keys => $values){
+                if($values['user_type'] == 'buyer'){
+                    include (__DIR__."/../buyer/navbar.php");
+                }elseif($values['user_type'] == 'farmer'){
+                    include (__DIR__."/../farmer/navbar_dash.php");
+                }elseif($values['user_type'] == 'driver'){
+                    include (__DIR__."/../driver/navdriverdashboard.php");
+                }elseif($values['user_type'] == 'mentor'){
+                    include (__DIR__."/../mentor/navbar_dash.php");
+                }elseif($values['user_type'] == 'admin'){
+                    include (__DIR__."/../admin/navbar.php");
+                }else{
+                    include (__DIR__."/../buyer/navbar.php");
+                }
             }
+        }else{
+            include (__DIR__."/../buyer/navbar.php");
         }
-    
     ?>
+
     <div class="container">
         <div class="grid-item0">
             <form action="">
@@ -80,37 +84,38 @@
             </div>
 
             <?php
-                    print_r($data);
                     foreach($data as $key=>$value){
-                        $user=$value['firstname'].' '.$value['lastname'];
+                        $addeduser=$value['firstname'].' '.$value['lastname'];
                         $title=$value['title'];
                         $content=$value['description'];
                         $reply=$value['reply'];
-                    
+                        $date_time=$value['date/time'];
+                        $vote=$value['vote'];
+                        $postid=$value['post_id'];
             ?>
                     <!-- Questions start here -->
 
             <!-- /***************/ -->
             <div class="forum-container">
-                    <div class="forum-topic"><a class="links" href="/thoga.lk/forum/fullview">My tomato plants are damaged by insects</a><br>
-                <span class="author">By - Dumidu Kasun Bandara </span>
+                    <div class="forum-topic"><a class="links" href="/thoga.lk/forum/fullview?post_id=<?php echo $postid;?>"><?php echo ucfirst($title);?></a><br>
+                <span class="author">By - <?php echo $addeduser." on ".$date_time;?> </span>
                 </div>
                 <div class="forum-contols">
-                    <center style="font-size:20px;">0</center>
+                    <center style="font-size:20px;"><?php echo $vote; ?></center>
                     <center style="font-size:20px;">Votes</center><br>
                     <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
                     <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
                     <br> Like &nbsp &nbsp &nbsp  Unlike
                 </div>
                 <div class="forum-content">
-                    My Problem is that I have an insect that eats the leaves of my tomato plant. It is a small insect difficult to see using the eye. 
-                    Can someone help me to get rid of that insect. <br>
-                    Thank you. 
+                    <?php echo ucfirst($content) ?> 
                 </div>
                 <div class="reply">
-                    <b style="color:#2E5F3E">Top Reply</b><br>
-                    <span class="author" >By - Dumidu Kasun Bandara </span><br>
-                    Cause for this is the mine bug. To remove mine bug you have to spray water mixed with soap untill the patches get healed. 
+                    <b style="color:#2E5F3E;font-size:14px;">Top Reply</b><br>
+                    <!-- <span class="author" >By - Dumidu Kasun Bandara </span><br> -->
+                    <p>
+                        <?php echo ($reply==null)?"<span style='color:#969696'>No any replies</p>":"<span style='color:black'>".ucfirst($reply)."</span>" ?>
+                    </p>
                 </div>
                 
             </div>
@@ -119,37 +124,12 @@
                 }
             ?>
             <!-- *************** -->
-
-            <!-- /***************/ -->
-            <div class="forum-container">
-                    <div class="forum-topic"><a class="links" href="/thoga.lk/forum/fullview">My tomato plants are damaged by insects</a><br>
-                <span class="author">By - Dumidu Kasun Bandara </span>
-                </div>
-                <div class="forum-contols">
-                    <center style="font-size:20px;">0</center>
-                    <center style="font-size:20px;">Votes</center><br>
-                    <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
-                    <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
-                    <br> Like &nbsp &nbsp &nbsp  Unlike
-                </div>
-                <div class="forum-content">
-                    My Problem is that I have an insect that eats the leaves of my tomato plant. It is a small insect difficult to see using the eye. 
-                    Can someone help me to get rid of that insect. <br>
-                    Thank you. 
-                </div>
-                <div class="reply">
-                    <b style="color:#2E5F3E">Top Reply</b><br>
-                    <span class="author" >By - Dumidu Kasun Bandara </span><br>
-                    Cause for this is the mine bug. To remove mine bug you have to spray water mixed with soap untill the patches get healed. 
-                </div>
-                
-            </div>
-            <hr>
-            <!-- *************** -->
-
         </div>
         <div >
             <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
+                <br>
+            <img class="ad ad2" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
+                
 
         </div>
     </div>
