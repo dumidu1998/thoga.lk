@@ -12,6 +12,7 @@
 
 <div class="container">
     <h1>Mentor Application</h1>
+    <center><h2>ID - <?php printf('%03d',  $all['mentor_id']); ?></h2></center>
     <div class="grid">
         <div class="grid-item0">
             <img src="/thoga.lk/public/images/buyer/icons/mentoricon.png" alt="" class="image" >
@@ -20,90 +21,80 @@
         <table style="width:100%;border-collapse: collapse;" >
             <tr>
                 <td>First Name:</td>
-                <td>Hiruni</td>
+                <td><?php echo $all['firstname'] ;?></td>
             </tr>
             <tr>
                 <td>Last Name:</td>
-                <td>Amarakoon</td>
+                <td><?php echo $all['lastname'] ;?></td>
             </tr>
             <tr>
                 <td >Address:</td>
-                <td>No. 15</td>
+                <td><?php echo $all['address_line1'] ;?></td>
 
             </tr>
             <tr>
                 <td> </td>
-                <td>Kuliyapitiya Rd</td>
+                <td><?php echo $all['address_line2'] ;?></td>
             </tr>
             <tr>
                 <td> </td>
-                <td>Kurunegala</td>
+                <td><?php echo $all['city'] ;?></td>
             </tr>
             <tr>
                 <td> </td>
-                <td>30000</td>
+                <td><?php echo $all['district'] ;?></td>
             </tr>
             <tr>
                 <td>Contact No.1:</td>
-                <td>076 - 948 96 78</td>
+                <td><?php printf("%s - %s %s %s",substr($all['contactno1'], 0, 3), substr($all['contactno1'], 3, 3), substr($all['contactno1'], 6,2), substr($all['contactno1'], 8)); ?></td>
             </tr>
             <tr>
                 <td>Contact No.2:</td>
-                <td>076 - 948 96 78</td>
+                <td><?php printf("%s - %s %s %s",substr($all['contactno2'], 0, 3), substr($all['contactno2'], 3, 3), substr($all['contactno2'], 6,2), substr($all['contactno2'], 8)); ?></td>
             </tr>
             <tr>
                 <td>NIC</td>
-                <td>982790182 V</td>
+                <td><?php echo $all['NIC'] ;?></td>
             </tr>
-            
+            <tr>
+                <td>E-mail</td>
+                <td><?php echo $all['email'] ;?></td>
+            </tr>
+            <tr>
+                <td>Home-town</td>
+                <td><?php echo $all['HT'] ;?></td>
+            </tr>
+            <tr>
+                <td>Nearest City 1</td>
+                <td><?php echo $all['NS1'] ;?></td>
+            </tr>
+            <tr>
+                <td>Nearest City 2</td>
+                <td><?php echo $all['NS2'] ;?></td>
+            </tr>
         </table>    
     </div>
 </div>
-<div class="listp2">
-    <div>
-    <table style="float:left;margin-bottom:50px">
+<br><br>
+<div>
+<center>
+    <table style="font-size:20px">
         <tr>
-            <td>E-mail</td>
-            <td>lacd@gmail.com</td>
+            <td>Skills : </td>
+            <td><?php echo $all['Skills'] ;?></td>
         </tr>
         <tr>
-            <td>Home-town</td>
-            <td>Anuradhapura</td>
-        </tr>
-        <tr>
-            <td>Nearest City 1</td>
-            <td>Anuradhapura</td>
-        </tr>
-        <tr>
-            <td>Nearest City 2</td>
-            <td>Dambulla</td>
+            <td>Why am I suit for mentoring : </td>
+            <td><?php echo $all['why'] ;?></td>
         </tr>
     </table>
-   
-    <table style="float:left;" class="t2">
-        <tr>
-            <td>E-mail</td>
-            <td>lacd@gmail.com</td>
-        </tr>
-        <tr>
-            <td>Home-town</td>
-            <td>Anuradhapura</td>
-        </tr>
-        <tr>
-            <td>Nearest City 1</td>
-            <td>Anuradhapura</td>
-        </tr>
-        <tr>
-            <td>Nearest City 2</td>
-            <td>Dambulla</td>
-        </tr>
-    </table>
-</div>
+</center>
 </div>
     <div class="Bcontainer">
         <h1>Accept or Reject</h1>
         <br>
-        <form action="a.php" method="get">
+        <form action="acceptmentor" method="post">
+            <input type="hidden" name="mentor_id" value="<?php echo $all['mentor_id'];?>">
         <label class="CBcontainer">&nbsp Accept
             <input type="checkbox" name="accpted" id="accept" onchange="checkfunc(this.id)" >
             <span class="checkmark"></span>

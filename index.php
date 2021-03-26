@@ -79,6 +79,7 @@ $routes = [
     'admin/mappl' => 'AdminController@mentorapplication',
     'admin/mrequest' => 'AdminController@mentorrequest',
     'admin/driveraccept' => 'AdminController@driveraccept',
+    'admin/acceptmentor' => 'AdminController@acceptmentor',
     'admin/adsubmit' => 'AdminController@adsubmit',
     'admin/showadmin' => 'AdminController@showadmin',
     'admin/addadmin' => 'AdminController@addadmin',

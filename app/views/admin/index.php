@@ -123,7 +123,7 @@
                 <?php } ?>
             </tbody>
         </table>
-
+        <?php echo ($mentors==null)?'<center>No any Requests.</center>':''; ?>
     </div>
     <span id="mrequests"></span>
 
@@ -160,7 +160,7 @@
                 
             </tbody>
         </table>
-
+        <?php echo ($farmers==null)?'<center>No any Requests.</center>':''; ?>
     </div>
 </body> 
 

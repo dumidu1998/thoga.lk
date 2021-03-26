@@ -84,17 +84,12 @@ class AdminController {
 
     public function showorder(){
         $ordid=$_GET['ord_id'];
-        //  echo $ordid;
-        // $result=
         if(isset($_GET['ord_id'])){
             $order_id=$_GET['ord_id'];
             $driver = $this->orders->order_drivername($order_id);
             $buyer = $this->orders->order_buyername($order_id);
             $items = $this->orders->orderdetails_total($order_id);
             $city= $this->orders->order_city($order_id);
-            
-
-        
         }
         // print_r( $driver);
         // print_r( $buyer);
@@ -138,8 +133,27 @@ class AdminController {
     }
 
     public function mentorapplication(){
+        $m_id = $_GET['id'];
+        $output=$this->mentors->getallbyid($m_id);
         $view = new View("admin/Mentor_application");
+        $view->assign('all', $output[0]);
     }
+
+    public function acceptmentor(){
+        print_r($_POST);
+        $mentor_id=$_POST['mentor_id'];
+        if(isset($_POST['rejected'])&&isset($_POST['reason'])){
+            $output=$this->mentors->reject($mentor_id,$_POST['reason']);
+            header("location: ../admin?acceptm=0");
+            
+        }
+        if(isset($_POST['accpted'])){
+            $output=$this->mentors->accept($mentor_id);
+            header("location: ../admin?acceptm=1");
+
+        }
+    }
+
 
     public function mentorrequest(){
         $view = new View("admin/Mentor_request");
@@ -215,21 +229,21 @@ class AdminController {
         if(isset($_POST['accepted']) && isset($_POST['existing_driver'])){
             $this->vehicles->accept($_POST['vid']);
             echo "accepted";
-            header("location: ../admin?accept=1");
+            header("location: ../admin?acceptd=1");
         }else if(isset($_POST['rejected']) && isset($_POST['existing_driver'])){
             $this->vehicles->reject($_POST['vid'],$_POST['reason']);
             echo "rejected";
-            header("location: ../admin?accept=0");
+            header("location: ../admin?acceptd=0");
         }else if(isset($_POST['accepted']) && !isset($_POST['existing_driver'])){
             $this->drivers->accept($_POST['driverid']);
             $this->vehicles->accept($_POST['vid']);
             echo "accepted";
-            header("location: ../admin?accept=1");
+            header("location: ../admin?acceptd=1");
         }else if(isset($_POST['rejected']) && !isset($_POST['existing_driver'])){
             $this->drivers->reject($_POST['driverid'],$_POST['reason']);
             $this->vehicles->reject($_POST['vid'],$_POST['reason']);
             echo "rejected";
-            header("location: ../admin?accept=0");
+            header("location: ../admin?acceptd=0");
         }
     }
 
