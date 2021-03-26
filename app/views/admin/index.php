@@ -53,10 +53,10 @@
         </div>
             <thead >
                 <tr class="tablehead">
-                <th >Driver ID</th>
-                <th >Driver Name</th>
-                <th >District</th>
-                <th >Action</th>
+                    <th >Driver ID</th>
+                    <th >Driver Name</th>
+                    <th >District</th>
+                    <th >Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,19 +65,33 @@
                         $driver_id=$row['driver_id'];
                         $name=$row['firstname'] ." ". $row['lastname'] ;
                         $district=$row['name_en'];
-                        
                 ?>
                 <tr>
-                <td data-label="Driver ID"><?php printf('%03d', $driver_id) ?></td>
-                <td data-label="Driver Name"><?php echo $name; ?></td>
-                <td data-label="District"><?php echo $district; ?></td>
-                <td data-label="Action"><a href="admin/dappl?id=<?php echo $driver_id;?>" > View More</a></td>
+                    <td data-label="Driver ID"><?php printf('%03d', $driver_id) ?></td>
+                    <td data-label="Driver Name"><?php echo $name; ?></td>
+                    <td data-label="District"><?php echo $district; ?></td>
+                    <td data-label="Action"><a href="admin/dappl?id=<?php echo $driver_id;?>" > View More</a></td>
+                </tr>
+                <?php } ?>
+
+                <?php
+                    foreach($resultsvehcles as $keys => $row){
+                        $driver_id=$row['driver_id'];
+                        $name=$row['firstname'] ." ". $row['lastname'] ;
+                        $district=$row['name_en'];
+                        $vehicleid=$row['vehicle_id'];
+                ?>
+                <tr>
+                    <td data-label="Driver ID"><?php printf('%03d', $driver_id) ?></td>
+                    <td data-label="Driver Name"><?php echo $name; ?></td>
+                    <td data-label="District"><?php echo $district; ?></td>
+                    <td data-label="Action"><a href="admin/dappl?id=<?php echo $driver_id;?>&vid=<?php echo $vehicleid;?>" > View More</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
             <span id="mapplications"></span>
         </table>
-
+        <?php echo ($results==null && $resultsvehcles==null)?'<center>No any Requests.</center>':''; ?>
     </div>
 
     <div>
@@ -99,7 +113,6 @@
                         $mentor_id=$row['mentor_id'];
                         $date=$row['date'];
                         $district=$row['name_en'];
-                        
                 ?>
                 <tr>
                 <td data-label="Mentor ID"><?php printf('%03d', $mentor_id) ?></td>
