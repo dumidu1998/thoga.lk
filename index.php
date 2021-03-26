@@ -94,8 +94,11 @@ $routes = [
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
-    'driver/updateprofilepic'=>'DriverController@edit',
     'driver/logout' => 'DriverController@logout',
+    'driver/addvehicle'=> 'DriverController@addvehicle',
+    'driver/addVehicleController'=> 'DriverController@addnewvehicle',
+    'driver/removevehicle'=> 'DriverController@removevehicle',
+
 
 
     'driver/test'=>'DriverController@showbutton' //test button

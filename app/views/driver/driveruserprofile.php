@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/userprofile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
 </head>
 <?php
 $status = "disabled";
@@ -131,8 +132,15 @@ if(isset($_GET['error']) && $_GET['error']==1){
 
                 <hr>
                 <br>
-                <button type="submit" id="myBtn" name="edit">Edit</button>
-                <button type="submit" name="update" class="updt_btn" <?php echo $status ?>>Update</button>
+                <?php 
+                if(isset($_GET['edit'])){
+                    echo "<button type='submit' id='myBtn' name='cancel'>Cancel</button>";
+                }else{
+                    echo "<button type='submit' id='myBtn' name='edit'>Edit</button>";
+                }
+                ?>
+                
+                <button type='submit' name='update' class='updt_btn' <?php echo $status ?>>Update</button>
 
             </form>
 
@@ -187,5 +195,25 @@ if(isset($_GET['error']) && $_GET['error']==1){
     
     <?php include("footer.php"); ?> 
 </body>
+
+<script>
+
+function success(){
+	swal("SUCCESS!", "Profile updated successfully!", "success");
+};
+function error(){
+	swal("ERROR", "Please Try Again!", "error");
+};
+
+
+
+</script>
+<?php
+if ($_GET['error']==0 && isset($_GET['error'])){
+    echo "<script>success();</script>";
+}else if ($_GET['error']==1 && isset($_GET['error'])){
+    echo "<script>error();</script>";
+}
+?>
 
 </html>
