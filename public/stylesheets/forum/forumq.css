@@ -73,16 +73,21 @@
     margin: 0px 30px;
     background-color: rgba(255, 255, 255, 0.918);
     height: auto;
+    width: 90%;
     margin-bottom: 20px;
     box-shadow: 10px 11px 8px #ffffff2f;
     display: inline-block;
 }
 
-
+.noreply{
+    color: rgba(87, 87, 87, 0.815);
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
 
 .reply-container{
     padding:10px;
-    margin: 0px 30px;
+    margin: 0px 40px;
     background-color: rgba(255, 255, 255, 0.932);
     height: auto;
     width: 90%;
@@ -94,8 +99,15 @@
 .profile{
     border-radius: 50%;
     width: 50px;
+    height: 50px;
 }
 
+.profile0{
+    margin-left: 30px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
 .reply-content{
     margin: 1% 12%;
     font-size: 18px;
@@ -127,6 +139,7 @@
    
 }
 .forum-content{
+    width: 80%;
     padding: 20px 30px;
     font-size: 18px;
 }

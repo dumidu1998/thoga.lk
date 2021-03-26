@@ -154,6 +154,12 @@ input[type="checkbox"]{
     margin-right: 80px;
     padding: 5px;
     font-weight: normal;
+    
+}
+
+.reply > p{
+    color: #969696;
+    margin-top: 5px;
 }
 
 .like-unlike{
@@ -357,8 +363,8 @@ input[type="checkbox"]{
   width: 100%;
   border: 3px solid #4CAF50;
   border-right: none;
-  padding: 5px;
-  height: 40px;
+  padding: 5px !important;
+  height: 30px;
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #000000;
@@ -370,7 +376,7 @@ input[type="checkbox"]{
 
 .searchButton {
   width: 50px;
-  height: 40px;
+  height: 45px;
   border: 1px solid #4CAF50;
   background: #4CAF50;
   text-align: center;
@@ -386,3 +392,7 @@ input[type="checkbox"]{
   top: 10%;
 }
 
+
+.ad2{
+    margin-top: 500px;
+}

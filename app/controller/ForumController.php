@@ -16,15 +16,20 @@ class ForumController{
 
     public function forum(){
         session_start();
-        $out=$this->forum->getposts();
+        $all=$this->forum->getpostswithtopreply();
+        if(isset($_GET['added'])&&$_GET['added']==1){
+            $sucess=1;
+        }
         $view = new View("forum/forum");
-        $view->assign('data',$out);
+        $view->assign('data',$all);
+        if(isset($sucess)){
+            $view->assign('sucess',$sucess);
+        }
     }
 
     public function postForum(){
         session_start();
         // $_SESSION['user']=array("user_type"=>"1");
-        print_r($_SESSION['user']);
         if(isset($_POST['post_forum'])){
             $title= $_POST['topic'];
             $description = $_POST['description'];
@@ -33,17 +38,34 @@ class ForumController{
             $forum_array = array('user_id'=>$values['user_id'],'title' => $title , 'description' => $description, 'category' => $values['user_type']);
             }
             $result = $this->forum->insertForum($forum_array);
-            print_r($forum_array);
-            print_r($result);
-            header("location: /thoga.lk/forum");
-
-            
+            header("location: /thoga.lk/forum?added=1");
         }
     }
 
     public function viewfull(){
+        $post_id=$_GET['post_id'];
+        $question = $this->forum->getpostandauthor($post_id);
+        $replies = $this->forum->getreplyandauthor($post_id);
+        $count = $this->forum->getcountofreplies($post_id);
         $view = new View("forum/forumq");
-        
+        $view->assign('post_id',$post_id);
+        $view->assign('question',$question);
+        $view->assign('replies',$replies);
+        $view->assign('count',$count);
     }
+
+    public function addreply(){
+        session_start();
+        if(isset($_POST['reply'])&&isset($_SESSION['user'])){
+            $reply=array('user_id'=>$_SESSION['user'][0]['user_id'],'reply'=>$_POST['reply'],'vote'=>0,'post_id'=>$_POST['post_id']);
+            $output=$this->forum->addreply($reply);
+            if($output==1){
+                header("location: /thoga.lk/forum/fullview?post_id=".$_POST['post_id']."&added=1");
+            }else{
+                header("location: /thoga.lk/forum/fullview?post_id=".$_POST['post_id']."&added=0");
+            }
+        }
+    }
+
 
 }

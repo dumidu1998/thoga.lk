@@ -64,7 +64,7 @@ class db_model{
 		
 		$sql=$this->appendSemicolon($sql);
 
-		echo $sql;
+		// echo $sql;
 		$finale=array();
 
 		$result = $this->connection->query($sql);
@@ -93,7 +93,7 @@ class db_model{
 		
 		$sql=$this->appendSemicolon($sql);
 
-		echo $sql;
+		// echo $sql;
 		$finale=array();
 		$result = $this->connection->query($sql);
 		if($result){
@@ -103,6 +103,11 @@ class db_model{
 		}
 		else
 			return 'Error at db_MODEL/join2tables';
+	}
+
+	function countrows($sql){
+		$result = $this->connection->query($sql);
+		return $result->num_rows;
 	}
 
 
