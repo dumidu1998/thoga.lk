@@ -13,11 +13,6 @@
  ?>
 
 <div class="container">
-    <div>
-        <a class="back-button"  onclick="goback()">
-            &lt;&nbsp;Back
-        </a>
-    </div>
     <h1>User Profile </h1>
     <center><h2>ID - 17 </h2></center>
     <center><h2><?php echo ucfirst($user) ?> </h2></center>

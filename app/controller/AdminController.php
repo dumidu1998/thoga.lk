@@ -8,6 +8,7 @@ require_once(__DIR__.'/../models/mentorModel.php');
 require_once(__DIR__.'/../models/farmerModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
+require_once(__DIR__.'/../models/userModel.php');
 
 
 class AdminController {
@@ -20,6 +21,7 @@ class AdminController {
         $this->farmers = new farmerModel();
         $this->orders = new orderModel();
         $this->vehicles = new vehicleModel();
+        $this->users = new userModel();
     }
 
     public function index(){
@@ -120,7 +122,21 @@ class AdminController {
     }
 
     public function usermanager(){
+        if(isset($_GET['process'])){
+            if(isset($_GET['uname'],$_GET['utype']) && $_GET['uname']==""){
+                $output=$this->users->getallbyutype($_GET['utype']);
+            }else if(isset($_GET['uname'],$_GET['utype']) && $_GET['uname']!=""){
+                $output=$this->users->getallbyutypeanduname($_GET['utype'],$_GET['uname']);
+            }else if(isset($_GET['uname']) && $_GET['uname']!=""){
+                $output=$this->users->getallusersbyuname($_GET['uname']);
+            }else if(isset($_GET['uname']) && $_GET['uname']==""){
+                $output=$this->users->getallusers();
+            }
+        }else{
+            $output=$this->users->getallusers();
+        }
         $view = new View("admin/usermanager");
+        $view->assign('users', $output);
     }
     
     public function showpricelist(){

@@ -62,7 +62,7 @@ input[type="date"] {
 
 #resetb {
     margin-left: 10px;
-    background-color: #013457;
+    background-color: #01572c;
     color: azure;
 }
 
@@ -167,7 +167,7 @@ tr:nth-of-type(odd) {
 }
 
 th {
-    background: #253e30;
+    background: #2E5F3E;
     color: white;
     font-weight: bold;
 }
@@ -460,7 +460,7 @@ option:hover {
 }
 
 .sbuttonp {
-    background: rgb(0, 0, 0);
+    background: #2E5F3E;
     color: white;
     font-size: 25px;
     line-height: 0.2;
