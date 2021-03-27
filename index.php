@@ -51,11 +51,13 @@ $routes = [
     '' => 'LoginController@view',
     'login' => 'LoginController@login',
     'forum' => 'ForumController@forum',
+    'forum/addreply' => 'ForumController@addreply',
     'forum/postForum' => 'ForumController@postForum',
     'forum/fullview' => 'ForumController@viewfull',
     'driver/dashboard' => 'DriverController@driverdashboard',
     'driver/viewmore' => 'DriverController@viewmore',
     'driver/profile' => 'DriverController@viewprofile',
+    'driver/editprofile' => 'DriverController@editprofile',
     'driver/calendar' => 'DriverController@showcalendar',
     'driver/unavailabledates' => 'DriverController@unavailabledates',
     'driver/vehicles' => 'DriverController@showvehicle',
@@ -69,7 +71,7 @@ $routes = [
     'farmer/aboutus' => 'FarmerController@about',
     'mentor/aboutus' => 'mentorController@about',
     'admin/admanager' => 'AdminController@admanager',
-    'admin/login' => 'LoginController@admin_login',
+    'adminlogin' => 'LoginController@admin_login',
     'admin/log' => 'LoginController@admin_log',
     'admin/usermanager' => 'AdminController@usermanager',
     'admin/showorder' => 'AdminController@showorder',
@@ -77,6 +79,8 @@ $routes = [
     'admin/dappl' => 'AdminController@driverapplication',
     'admin/mappl' => 'AdminController@mentorapplication',
     'admin/mrequest' => 'AdminController@mentorrequest',
+    'admin/driveraccept' => 'AdminController@driveraccept',
+    'admin/acceptmentor' => 'AdminController@acceptmentor',
     'admin/adsubmit' => 'AdminController@adsubmit',
     'admin/showadmin' => 'AdminController@showadmin',
     'admin/addadmin' => 'AdminController@addadmin',
@@ -95,6 +99,15 @@ $routes = [
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
     'farmer/add_item2' => 'FarmerController@add_item2',
+    'driver/updateprofilepic'=>'DriverController@updateprofilepic',
+    'driver/logout' => 'DriverController@logout',
+    'driver/addvehicle'=> 'DriverController@addvehicle',
+    'driver/addVehicleController'=> 'DriverController@addnewvehicle',
+    'driver/removevehicle'=> 'DriverController@removevehicle',
+
+
+
+    'driver/test'=>'DriverController@showbutton' //test button
 
 
 

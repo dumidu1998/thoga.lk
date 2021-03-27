@@ -47,10 +47,10 @@ if(!empty($_SESSION['e_dateArray'])){
      
 
       <div class="checkout_icon">
-        <a href="checkout">
-          <img width=20px align="left" src="/thoga.lk/public/images/buyer/icons/cart.png" alt="">
+        
+          <img id="cart" width=20px align="left" src="/thoga.lk/public/images/buyer/icons/cart.png" alt="">
 
-        </a>
+        
       </div>
 
       
@@ -105,8 +105,10 @@ if(!empty($_SESSION['e_dateArray'])){
     ?>
     
     <!-- shopping cart -->
-    <div class="cart">
+    <div class="cart" id="shop_cart">
+      <span id="close_cart" class="close_cart">&times;</span>
       <h1>Shopping Cart</h1>
+
       <hr>
       <div style="height:55vh;"> 
         <?php 
@@ -227,6 +229,17 @@ var yyyy = today.getFullYear();
 
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("datefield").setAttribute("min", today);
+</script>
+<script>
+var model = document.getElementById("shop_cart");
+var btn = document.getElementById("cart");
+var close = document.getElementById("close_cart");
+btn.onclick = function(){
+  model.style.display="block";
+}
+close.onclick= function(){
+  model.style.display="none";
+}
 </script>
 
 <?php include("footer.php"); ?>

@@ -7,7 +7,7 @@
 
     <title>Orders</title>
 </head>
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body>
 
 <?php include("navbar.php");?>
 

@@ -37,7 +37,7 @@
 							
 						<div class="contain">
 								<div class = "image">
-									<img src="/thoga.lk/public/images/driver/<?php echo $vehicleid;?>.jpg" alt="" class="imagevehicle">
+									<img src="/thoga.lk/public/uploads/drivervehicles/<?php echo $vehicleid;?>.jpg" alt="" class="imagevehicle">
 								</div>	
 						</div>
 			<div class ="sright">				
@@ -63,13 +63,13 @@
 									<br>
 
 									Maximum Weight         :
-									<input type="text" class="textbox1" name="maxweight" value="<?php echo $maximum_weight?>" disabled>
+									<input type="text" class="textbox1" name="maxweight" value="<?php echo number_format($maximum_weight,2);  ?> kg" disabled>
 									<br>
 
-									<label>Cost/Km   :</label>
-									<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo $cost_km?>">
+									<label>Cost/km (Rs.):</label>
+									<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo number_format($cost_km,2); ?>">
 									<br> 
-									<input type="submit" value="Edit Details" class="button2" name="vehicledetails">	
+									<input type="submit" value="Edit Cost/km" class="button2" name="vehicledetails">	
 								</form>			
 			</div>
 			<div class="bottom">
@@ -78,21 +78,23 @@
 						<th colspan="2">Documents	</th>	
 						<tr>
 							<td>Driving License Front</td>
-							<td><a href="#" target="_blank" >DL 0005</a></td>
+							<td><a href="/thoga.lk/public/uploads/driverdocuments/drivinglicensefront/<?php echo $driver_id;?>.jpg" target="_blank" >DLF <?php echo $driver_id;?></a></td>
 						</tr>
 						<tr>
 							<td>Driving License Back</td>
-							<td><a href="#" target="_blank" >DL 0005</a></td>
+							<td><a href="/thoga.lk/public/uploads/driverdocuments/drivinglicenseback/<?php echo $driver_id;?>.jpg" target="_blank" >DLB <?php echo $driver_id;?></a></td>
 						</tr>
 						<tr>
 							<td>Vehicle Insuarance</td>
-							<td><a href="#" target="_blank" >DL 0005</a></td>
+							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/<?php echo $vehicleid;?>.jpg" target="_blank" >VI <?php echo $vehicleid;?></a></td>
 						</tr>
 						<tr>
 							<td>Vehicle Registration</td>
-							<td><a href="#" target="_blank" >DL 0005</a></td>
+							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleregistration/<?php echo $vehicleid;?>.jpg" target="_blank" >VR <?php echo $vehicleid;?></a></td>
 						</tr>
 					</table>
+					<a href="removevehicle?vid=<?php echo $vehicleid?>"> <button class="button2" > Remove Vehicle</button></a>	
+
 			</div>
 		    
 		</div>

@@ -32,6 +32,7 @@ class LoginController{
                         }elseif($values['user_type'] == 'driver'){
                             $id=$this->user->get_driver_id($_SESSION['user'][0]['user_id']);
                             $_SESSION['driver']['driver_id']=$id[0]['driver_id'];
+                            $_SESSION['driver']['user_id']=$_SESSION['user'][0]['user_id'];
                             header("location:driver/dashboard");
                         }elseif($values['user_type'] == 'mentor'){
                             header("location:mentor/dash");
@@ -47,20 +48,19 @@ class LoginController{
     }
 
     public function view(){
-        
         $View = new View("login/login");
     }
+
     public function admin_login(){
-        
         $View = new View("login/admin_login");
     }
+
     public function admin_log(){
         if(isset($_POST['login'])){
             $uname = $_POST['uname'];
             $pwd = md5($_POST['pwd']);
             $result = $this->user->log_admin($uname,$pwd);
             if(mysqli_num_rows($result)){
-                // echo "kk";
                 header("location:/thoga.lk/admin");
             }
         }

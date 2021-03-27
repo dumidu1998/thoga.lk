@@ -42,8 +42,23 @@ class driverModel extends db_model{
 		}
 	}
 
+	function get_vehicle_detailsbyvid($id){
+		$sql = "SELECT vehicles.*,driver.* from vehicles INNER JOIN driver ON vehicles.driver_id=driver.driver_id where vehicles.vehicle_id=".$id;
+		$result=$this->connection->query($sql);
+		$output=array();
+		if($result){
+           while($row=mysqli_fetch_assoc($result)){
+			array_push($output,$row);
+		   }
+		  return $output;
+
+		}else{
+		echo "error";
+		}
+	}
+
 	function get_pending(){
-		$sql = "SELECT driver.driver_id ,user.firstname,user.lastname, districts.name_en FROM driver INNER JOIN user ON driver.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON address.district=districts.id where driver.verified_state=0";
+		$sql = "SELECT driver.driver_id ,user.firstname,user.lastname, districts.name_en FROM driver INNER JOIN user ON driver.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON address.district=districts.id where driver.verified_state=0 AND driver.reject_reason IS NULL";
 		$result=$this->connection->query($sql);
 		$output=array();
 		if($result){
@@ -94,11 +109,61 @@ class driverModel extends db_model{
 	}
 	
 	function removeunavailability($id,$date){
-		
-
 		$sql="DELETE FROM unavailable_dates WHERE startdate ='" . $date . "' AND driver_id='".$id."'" ;
 		$result=$this->connection->query($sql);
 		if($result){}else{echo "error";}
 	}
+
+	function getalldetails($id){
+		$sql="SELECT a.*, b.user_type, c.*, 
+		d.name_en AS c_name, 
+		p.name_en AS p_name, 
+		t.name_en AS d_name, 
+		d2.name_en AS NC1,
+		d3.name_en AS NC2
+		FROM user as a 
+		INNER JOIN usertype AS b ON a.usertype_id = b.type_id 
+		INNER JOIN address as c on a.user_id=c.user_id 
+		INNER JOIN cities AS d on c.city=d.id 
+		INNER JOIN cities as d2  ON a.nearestcity1=d2.id 
+		INNER JOIN cities as d3 ON a.nearestcity2=d3.id
+		INNER JOIN provinces AS p on c.province=p.id 
+		INNER JOIN districts AS t on c.district=t.id 
+		WHERE a.user_id = " . $id;
+		$result=$this->connection->query($sql);
+		$output=array();
+		if($result){
+           while($row=mysqli_fetch_assoc($result)){
+			array_push($output,$row);
+		   }
+		  return $output;
+
+		}else{
+		echo "error";
+		}
+	}	
+
+	function updatedetails($data){
+		session_start();
+		$firstname=$data['fname'];
+        $lastname=$data['lname'];
+        $mobile1=$data['mobileno1'];
+        $mobile2=$data['mobileno2'];
+		$user_id=$_SESSION['driver']['user_id'];
+
+
+		$sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
+		$result=$this->connection->query($sql);
+		if($result){ return true;}else{return false;}
+	}
+
+	function accept($did){
+        return $this->update('driver',array('verified_state'=>'1'),array('driver_id'=>$did));
+    }
+
+    function reject($did,$reason){
+        return $this->update('driver',array('verified_state'=>'0','reject_reason'=>$reason),array('driver_id'=>$did));
+    }
+
 }
  ?>

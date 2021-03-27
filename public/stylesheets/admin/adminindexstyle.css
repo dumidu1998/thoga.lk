@@ -128,14 +128,14 @@ a.button_signup:active {
 .card-title {
     text-align: center;
     margin-top: 0;
-    font-size: 28px;
+    font-size: 18px;
     /* margin-bottom: 20px; */
     font-weight: bold;
     letter-spacing: 1.2px;
 }
 
 .card-title-big {
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     margin-top: 0;
     /* margin-bottom: 20px; */
@@ -207,7 +207,7 @@ table tr {
 
 table th,
 table td {
-    padding: .625em;
+    padding: .550em;
     text-align: center;
 }
 

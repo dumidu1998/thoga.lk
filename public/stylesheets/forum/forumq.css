@@ -1,12 +1,7 @@
-body{
-    background: url(/thoga.lk/public/images/forum/forum-bg.jpg);
-    background-size:  cover;
-    background-repeat: no-repeat;
-    background-attachment:fixed ;
-}
+
 
 .container{
-    margin: 10px 0px;
+    margin: 80px 10px;
     display: grid;
     grid-template-columns: 75% auto;
     grid-gap: 10px;
@@ -15,15 +10,24 @@ body{
 
 }
 
-.sbtn{
-    padding: 10px 20px;
-    float: right;
+
+.sbtn {
     margin-top: 20px;
-    margin-right: 50%;
-    background-color: #068b06;
-    color: white;
-    font-size: 25px;
+    padding: 10px 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    background:  #4CAF50;
+    outline: none !important;
     cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #000;
+    width: 150px;
+    height: 50px;
+    margin-right: 50%;
+    color: white;
+    float: right;
 }
 
 .replyh{
@@ -56,9 +60,6 @@ body{
     height: auto;
 }
 
-.adcontainer{
-    /* height: auto; */
-}
 
 .ad{
     margin-top: 20px;
@@ -72,14 +73,21 @@ body{
     margin: 0px 30px;
     background-color: rgba(255, 255, 255, 0.918);
     height: auto;
+    width: 90%;
     margin-bottom: 20px;
     box-shadow: 10px 11px 8px #ffffff2f;
     display: inline-block;
 }
 
+.noreply{
+    color: rgba(87, 87, 87, 0.815);
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
 .reply-container{
     padding:10px;
-    margin: 0px 30px;
+    margin: 0px 40px;
     background-color: rgba(255, 255, 255, 0.932);
     height: auto;
     width: 90%;
@@ -91,8 +99,15 @@ body{
 .profile{
     border-radius: 50%;
     width: 50px;
+    height: 50px;
 }
 
+.profile0{
+    margin-left: 30px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
 .reply-content{
     margin: 1% 12%;
     font-size: 18px;
@@ -112,7 +127,7 @@ body{
     margin-left: 5px;
     position: relative;
     top:0px;
-    font-size: 16px;
+    font-size: 12px;
 }
 .forum-contols{
     background-color: rgba(255, 255, 255, 0.26);
@@ -124,37 +139,29 @@ body{
    
 }
 .forum-content{
+    width: 80%;
     padding: 20px 30px;
     font-size: 18px;
 }
 
 .forum-topic{
     margin-left: 30px;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: bold;
-}
+    color: #2E5F3E;
 
-.links:link{
-    color: black;
-}
-
-.links:visited{
-    color: rgb(32, 27, 27);
-}
-
-.links:hover{
-    color: #241c69;
 }
 
 .like-unlike{
     padding: 0px 2px;
-    box-shadow: 1px 1px 1px 1px #2c2266;
-    height: 28px;
+    height: 25px;
 }
 
 .like-unlike:hover{
-    box-shadow: 5px 5px #888888;
+    box-shadow: 2px 2px #6e6d6d59;
 }
+
+
 
 hr{
     background-color: rgb(0, 0, 0);

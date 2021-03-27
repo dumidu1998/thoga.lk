@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__.'/../../core/View.php');
+require_once(__DIR__.'/../../core/db_model.php');
 
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
@@ -8,17 +9,13 @@ require_once(__DIR__.'/../models/orderModel.php');
 
 
 
-class DriverController{
+class DriverController extends db_model{
     
     function __construct()
     {
-        
-
         $this->dmodel = new driverModel();
         $this->vmodel = new vehicleModel();
         $this->omodel = new orderModel();
-
-        
     }
 
     public function driverdashboard(){
@@ -36,10 +33,8 @@ class DriverController{
             $buyer = $this->omodel->order_buyername($order_id);
             $items = $this->omodel->orderdetails_total($order_id);
             $city= $this->omodel->order_city($order_id);
-            
-
-        
         }
+
         $result = $this->omodel->get_order_details($order_id);
         $view = new View("driver/viewmore");
         $view->assign('order_id',$order_id);
@@ -48,9 +43,6 @@ class DriverController{
         $view->assign('buyer',$buyer);
         $view->assign('cityy',$city);
         $view->assign('items',$items);
-
-        
-        
     }
 
    
@@ -111,16 +103,20 @@ class DriverController{
 
     public function viewprofile(){
         session_start();
-        $id=$_SESSION['driver']['driver_id'];
+        $id=$_SESSION['driver']['user_id'];
+        $did=$_SESSION['driver']['driver_id'];
 
-        $result = $this->omodel->getdriver_orderhistory($id);//driver id
+        $result = $this->omodel->getdriver_orderhistory($did);//driver id
+        $details=$this->dmodel->getalldetails($id);//user id
+
         $view = new View("driver/driveruserprofile");
         $view->assign('details',$result);
+        $view->assign('all',$details[0]);
     }
     
     public function showvehicle(){
         session_start();  
-        if(isset($_GET['vehicles'])){
+        if(isset($_GET['vehicleid'])){
             $vehicleid=$_GET['vehicleid'];
             $result = $this->vmodel->getdetails_vehicle($vehicleid);
         }else {
@@ -172,15 +168,95 @@ class DriverController{
     }
      
     
-    public function getdriver_orderhistory(){
+    public function updateprofilepic(){
         session_start();
-        $id=$_SESSION['driver']['driver_id'];
+        print_r($_FILES['profpic']);
+        if(isset($_FILES['profpic'])){
+            $errors= array();
+            $file_name = $_FILES['profpic']['name'];
+            $file_tmp =$_FILES['profpic']['tmp_name'];        
+            $file_type=$_FILES['profpic']['type'];
+            $temp=explode('.',$_FILES['profpic']['name']);
+            $file_ext=end($temp);
+            $extensions= array("jpeg","jpg","png");
 
-        $result = $this->omodel->getdriver_upcomingorders($id);//driver id
-        $view = new View("driver/driveruserprofile");
-        $view->assign('details',$result);
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            $id=$_SESSION['driver']['driver_id'];
+            if(empty($errors)==true){
+                move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverpropic/".$id.".jpg");
+                echo "Success";
+                header("location:/thoga.lk/driver/profile");
+             }else{
+                print_r($errors);
+             }
+        }else{
+            echo "file Upload Failed";
+        }
+        
+    }  
+    
+    public function editprofile(){
+        print_r($_GET);
+        
+
+        $out= $this->dmodel->updatedetails($_GET);
+        if($out){
+            header("location:/thoga.lk/driver/profile?error=0");
+        }else{
+            header("location:/thoga.lk/driver/profile?error=1");
+        }
+
+         
+
+
+    }  
+
+    public function addvehicle(){
+        $view = new View("driver/addvehicle");
+    }    
+
+    public function logout(){
+        session_start();
+        session_destroy();
+        header("location:/thoga.lk/");
+    } 
+    
+    public function addnewvehicle(){
+        $result= $this->vmodel->addnewvehicle($_POST);
+        $newvid=$this->vmodel->getnewvehicleid();
+        print_r($_FILES);
+        if(isset($_FILES['vehiclepic'])&&isset($_FILES['insuarancepic'])&&isset($_FILES['registrationpic'])){
+            move_uploaded_file($_FILES['vehiclepic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/drivervehicles/".$newvid.".jpg");
+            move_uploaded_file($_FILES['insuarancepic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/".$newvid.".jpg");
+            move_uploaded_file($_FILES['registrationpic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverdocuments/vehicleregistration/".$newvid.".jpg");
+            echo "Success";
+            header("location:/thoga.lk/driver/vehicledetails");
+           
+        }else{
+            echo "file Upload Failed";
+        }
+
+    }
+
+    public function removevehicle(){
+        $vehicleid=$_GET['vid'];
+        $removevid=$this->vmodel->removevehicle($vehicleid);
+        header("location:/thoga.lk/driver/vehicledetails");
+
+
+    }
+    
+
+    public function showbutton(){
+        session_start();
+        $view = new View("driver/test");
         
     }
+
+
+
 
 }
 
