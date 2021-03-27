@@ -170,4 +170,6 @@ class AdminModel extends db_model
 		return $this->queryfromsql($sql);
 	}
 
+	
+
 }

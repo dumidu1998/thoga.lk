@@ -483,4 +483,11 @@ button {
     width: 90%;
     margin: auto;
     padding-top: 10px;
+    margin-bottom: 60px;
 }
+
+@media print {
+    .noPrint{
+      display:none;
+    }
+  }

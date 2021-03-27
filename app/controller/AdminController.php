@@ -47,28 +47,71 @@ class AdminController {
             if(isset($_GET['ordtypeu']) && isset($_GET['ordtypef']) && $_GET['ordtypeu']=="up" && $_GET['ordtypef']=="f" ){
                 $results=$this->model->orderdetails();
                 $upcoming=$this->model->upcomming();
+                $cancelled=0;
             }else if(isset($_GET['ordtypeu']) && $_GET['ordtypeu']=="up"){
                 $upcoming=$this->model->upcomming();
                 $results=0;
+                $cancelled=0;
             }else if(isset($_GET['ordtypef']) && $_GET['ordtypef']=="f"){
                 $results=$this->model->orderdetails();
                 $upcoming=0;
+                $cancelled=0;
             }else if($_GET['uname']!=null){
                 $results=$this->model->orderdetails_uname($_GET['uname']);
                 $upcoming=$this->model->upcomming_uname($_GET['uname']);
+                $cancelled=0;
             }else{
                 $results=$this->model->orderdetails();
                 $upcoming=$this->model->upcomming();
+                $cancelled=$this->orders->getcancelled();
             }
         }else{
             $results=$this->model->orderdetails();
             $upcoming=$this->model->upcomming();
+            $cancelled=$this->orders->getcancelled();
         }
         $view = new View("admin/vieworders");
         $view->assign('results', $results); 
         $view->assign('upcoming', $upcoming); 
+        $view->assign('cancelled', $cancelled); 
         $view->assign('get', $_GET); 
     }
+    
+    public function showorder(){
+        $ordid=$_GET['ord_id'];
+        if(isset($_GET['ord_id'])){
+            $order_id=$_GET['ord_id'];
+            $driver = $this->orders->order_drivername($order_id);
+            $buyer = $this->orders->order_buyername($order_id);
+            $items = $this->orders->orderdetails_total($order_id);
+            $order_all= $this->orders->order_all($order_id);
+            $rating=$this->orders->getrating($order_id);
+        }
+        if(empty($rating)){
+            $rating[0]['points']="Not Rated";
+        }
+        // print_r( $buyer[0]);
+        // print_r( $driver[0]);
+        // print_r( $order_all[0]);
+
+        // print_r( $rating);
+        // print_r( $items[0]);
+
+        $view = new View("admin/orderdetails");
+        $view->assign('buyer', $buyer[0]); 
+        $view->assign('driver', $driver[0]); 
+        $view->assign('items', $items);
+        $view->assign('order_all', $order_all[0]);
+        $view->assign('rating', $rating[0]);
+    }
+
+    public function cancelorder(){
+        $order_id=$_GET['ordid'];
+        echo $order_id;
+        $out=$this->orders->cancelorder($order_id);
+        header("location: ../admin/vieworders?cancelled=$order_id");
+    }
+    
 
     public function admanager(){
         $ads=$this->model->getads();
@@ -86,31 +129,6 @@ class AdminController {
 
     public function viewuser(){
         $view = new View("admin/userview");
-    }
-
-    public function showorder(){
-        $ordid=$_GET['ord_id'];
-        if(isset($_GET['ord_id'])){
-            $order_id=$_GET['ord_id'];
-            $driver = $this->orders->order_drivername($order_id);
-            $buyer = $this->orders->order_buyername($order_id);
-            $items = $this->orders->orderdetails_total($order_id);
-            $city= $this->orders->order_city($order_id);
-        }
-        // print_r( $driver);
-        // print_r( $buyer);
-        // print_r( $items);
-        print_r( $city);
-        echo $buyer[0]['firstname'];
-        echo $buyer[0]['lastname'];
-        echo $city[0]['d_addline1'];
-        echo $city[0]['d_addline2'];
-
-        $view = new View("admin/orderdetails");
-        $view->assign('buyer', $buyer); 
-        $view->assign('driver', $driver); 
-        $view->assign('items', $items);
-        $view->assign('city', $city);
     }
 
     public function driverapplication(){
