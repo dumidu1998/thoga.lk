@@ -35,10 +35,10 @@
                         <th>        <div class="card-title"><img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div></th>
                     </tr>
                     <tr style="font-size:28px">
-                        <td>150</td>
-                        <td>70</td>
-                        <td>230</td>
-                        <td>Rs. 12,500.00</td>
+                        <td><?php echo $userscount['count_users'];?></td>
+                        <td><?php echo $activeproducts['itemcount'];?></td>
+                        <td><?php echo $summary30days['ordcount'];?></td>
+                        <td>Rs. <?php echo number_format($summary30days['totalsales'],2);?></td>
                     </tr>
                 </table>
             </div>

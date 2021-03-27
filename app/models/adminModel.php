@@ -156,4 +156,18 @@ class AdminModel extends db_model
 			echo "error";
 	}
 
+	function get30days(){
+		$sql="SELECT COUNT(orders.order_id) AS ordcount, SUM(orders.total_cost) as totalsales FROM orders WHERE orders.order_date<DATE_SUB(CURDATE(),INTERVAL 0 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY)";
+		return $this->queryfromsql($sql);
+	}
+
+	function getusers(){
+		$sql="SELECT COUNT(user_id)as count_users FROM user WHERE user.usertype_id!=100 ";
+		return $this->queryfromsql($sql);
+	}
+	function getactiveproducts(){
+		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end<DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
+		return $this->queryfromsql($sql);
+	}
+
 }

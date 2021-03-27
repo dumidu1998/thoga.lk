@@ -23,6 +23,9 @@ class AdminController {
     }
 
     public function index(){
+        $summary30days=$this->model->get30days();
+        $userscount=$this->model->getusers();
+        $activeproducts=$this->model->getactiveproducts();
         $results=$this->drivers->get_pending();
         $resultsvehcles=$this->vehicles->get_pending();
         $mentors=$this->mentors->get_pending();
@@ -34,6 +37,9 @@ class AdminController {
         $view->assign('mentors', $mentors);
         $view->assign('farmers', $farmers);
         $view->assign('ordersforchart', $orders);
+        $view->assign('summary30days', $summary30days[0]);
+        $view->assign('userscount', $userscount[0]);
+        $view->assign('activeproducts', $activeproducts[0]);
     }
 
     public function vieworders(){
