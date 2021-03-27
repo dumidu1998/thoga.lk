@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>User #<?php echo $_GET['uid'];?> Profile</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
 </head>
 <body>
 <?php 
  include("navbar.php"); 
- $user="driver";
+ $user=$userdetails['user_type'];
  ?>
 
 <div class="container">
     <h1>User Profile </h1>
-    <center><h2>ID - 17 </h2></center>
-    <center><h2><?php echo ucfirst($user) ?> </h2></center>
+    <center><h2>ID - <?php printf('%03d',$_GET['uid']);?> </h2></center>
+    <?php if($userdetails['usertype_id']==100){
+        echo "<center style='color:red'><h2>Blocked User!</h2></center>";
+        echo "<center><h2>".ucfirst($user)."</h2></center>";
+    }else echo "<center><h2>".ucfirst($user)."</h2></center>";?>
+    <?php if(isset($typedetails['verified_state']) && $typedetails['verified_state']==0 && $typedetails['reject_reason']!=''){
+            echo "<center style='color:red'><h2>Rejected Mentor!</h2></center>";
+        }
+        ?>
     <div>
-        <button class="Criticalbtn">Reset Password </button>
-        <button class="Criticalbtn">Delete User</button>
-        <button class="Criticalbtn">Block</button>
+        <form action="profileaction" method="post" id="theForm">
+            <input type="hidden" name="id" value="<?php echo $_GET['uid'];?>" >
+            <input type="hidden" id="actionn" name="action" value="" >
+            <input type="hidden" id="pwd" name="pwd" value="" >
+            <button type="button" id="a" class="Criticalbtn" onclick="actiona(this)" name="rstpwd">Reset Password</button>
+            <button type="button" class="Criticalbtn" onclick="actiona(this)" name="deleteuser">Delete User</button>
+            <button type="button" class="Criticalbtn" onclick="actiona(this)" name="block">Block</button>
+        </form>
     </div>
     <div class="grid">
         <div class="grid-item0">
@@ -29,44 +41,48 @@
         <table style="width:100%;border-collapse: collapse;" >
             <tr>
                 <td>Username:</td>
-                <td>Manthila</td>
+                <td><?php echo $userdetails['username'];?></td>
             </tr>
             <tr>
                 <td>First Name:</td>
-                <td>Manthila</td>
+                <td><?php echo $userdetails['firstname'];?></td>
             </tr>
             <tr>
                 <td>Last Name:</td>
-                <td>Bandara</td>
+                <td><?php echo $userdetails['lastname'];?></td>
             </tr>
             <tr>
                 <td >Address:</td>
-                <td>No. 15</td>
+                <td><?php echo $userdetails['address_line1'];?></td>
 
             </tr>
             <tr>
                 <td> </td>
-                <td>Galle Road</td>
+                <td><?php echo $userdetails['address_line2'];?></td>
             </tr>
             <tr>
                 <td> </td>
-                <td>Ambalangoda</td>
+                <td><?php echo $userdetails['c_name'];?></td>
             </tr>
             <tr>
                 <td> </td>
-                <td>80300</td>
+                <td><?php echo $userdetails['d_name'];?></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><?php echo $userdetails['zip_code'];?></td>
             </tr>
             <tr>
                 <td>Contact No.1:</td>
-                <td>076 - 948 96 78</td>
+                <td><?php printf("%s - %s %s %s",substr($userdetails['contactno1'], 0, 3), substr($userdetails['contactno1'], 3, 3), substr($userdetails['contactno1'], 6,2), substr($userdetails['contactno1'], 8)); ?></td>
             </tr>
             <tr>
                 <td>Contact No.2:</td>
-                <td>076 - 948 96 78</td>
+                <td><?php printf("%s - %s %s %s",substr($userdetails['contactno2'], 0, 3), substr($userdetails['contactno2'], 3, 3), substr($userdetails['contactno2'], 6,2), substr($userdetails['contactno2'], 8)); ?></td>
             </tr>
             <tr>
                 <td>NIC</td>
-                <td>982790182 V</td>
+                <td><?php echo $userdetails['NIC'];?></td>
             </tr>
             <tr>
                 <td>Password</td>
@@ -81,34 +97,34 @@
     <table style="float:left;margin-bottom:50px;" >
         <tr>
             <td>E - mail</td>
-            <td>lacd@gmail.com</td>
+            <td><?php echo $userdetails['email'];?></td>
         </tr>
         <tr>
             <td>Home Province</td>
-            <td>Southern</td>
+            <td><?php echo $userdetails['p_name'];?></td>
         </tr>
         <tr>
             <td>Home-town</td>
-            <td>Ambalangoda</td>
+            <td><?php echo $userdetails['c_name'];?></td>
         </tr>
         <tr>
             <td>Nearest City 1</td>
-            <td>Balapitiya</td>
+            <td><?php echo $userdetails['NC1'];?></td>
         </tr>
         <tr>
             <td>Nearest City 2</td>
-            <td>Lenaduwa</td>
+            <td><?php echo $userdetails['NC2'];?></td>
         </tr>
     </table>
 
     <table style="float:left;margin-bottom:50px;" class="hide <?php if($user=='buyer') echo "show"; ?>" >
         <tr>
             <td>BR No</td>
-            <td>17546109</td>
+            <td><?php echo $typedetails['br_no'];?></td>
         </tr>
         <tr>
             <td>Business Name</td>
-            <td>Infini Solution</td>
+            <td><?php echo $typedetails['b_name'];?></td>
         </tr>
     </table>
 
@@ -116,45 +132,40 @@
     <table style="float:left;margin-bottom:50px;display:" class='hide <?php if($user=='farmer') echo "show"; ?>'>
         <tr>
             <td>Farmer's ID</td>
-            <td>171546109</td>
+            <td><?php echo $typedetails["farmer's_idNo"];?></td>
         </tr>
         <tr>
             <td>Farm Name</td>
-            <td>-</td>
+            <td><?php echo $typedetails['farm_name'];?></td>
+        </tr>
+        <tr>
+            <td>Mentor id</td>
+            <td><?php echo $typedetails['mentor_id'];?></td>
         </tr>
     </table>
 
     <table style="float:left;margin-bottom:50px;" class="hide <?php if($user=='mentor') echo "show"; ?>">
         <tr>
             <td>Why</td>
-            <td>I would like to help farmers</td>
+            <td><?php echo $typedetails['why'];?></td>
         </tr>
         <tr>
             <td>Skills</td>
-            <td>Leadership</td>
+            <td><?php echo $typedetails['Skills'];?></td>
         </tr>
+        <?php if(isset($typedetails['verified_state'],$typedetails['reject_reason']) && $typedetails['verified_state']==0 && $typedetails['reject_reason']!=''){
+            echo "<tr>
+            <td>Rejected Reason</td>
+            <td>".$typedetails['Skills']."</td>
+        </tr>";
+        }
+        ?>
     </table>
    
     <table style="float:left;" class="t2 hide <?php if($user=='driver') echo "show"; ?>">
         <tr>
             <td>DL No</td>
-            <td>17546109</td>
-        </tr>
-        <tr>
-            <td>Vehicle Model</td>
-            <td>Dimo Batta</td>
-        </tr>
-        <tr>
-            <td>Vehicle Number</td>
-            <td>NC - KT 0246</td>
-        </tr>
-        <tr>
-            <td>Cost / km</td>
-            <td>Rs. 60.00</td>
-        </tr>
-        <tr>
-            <td>Max Weight</td>
-            <td>1000 kg</td>
+            <td><?php echo $typedetails['license_no'];?></td>
         </tr>
     </table>
 </div>
@@ -181,4 +192,14 @@ function checkfunc(id){
 function goback(){
             window.history.back();
         }
+
+function actiona(btn){
+    var x =btn.name;
+    document.getElementById('actionn').value=x;
+    var pwd=prompt("please type your password to continue.....");
+    if(pwd!=null){
+        document.getElementById('pwd').value=pwd;
+        document.getElementById('theForm').submit();
+    }
+}
 </script>

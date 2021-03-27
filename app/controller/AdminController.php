@@ -144,7 +144,37 @@ class AdminController {
     }
 
     public function viewuser(){
+        $user_id=$_GET['uid'];
+        $output=$this->users->getAlldetailsforprofile($user_id);
+        $usertype=$output[0]['user_type'];
+        $typedetails=$this->users->gettypedetails($user_id,$usertype);
         $view = new View("admin/userview");
+        $view->assign('userdetails', $output[0]);
+        $view->assign('typedetails', $typedetails[0]);
+    }
+
+    public function profileaction(){
+        print_r($_POST);
+        $uid=$_POST['id'];
+        $pwd=$_POST['pwd'];
+        $action=$_POST['action'];
+        $out=$this->model->checkpwd(1,$pwd);
+        $out=$out[0]['numrow'];
+        if($out==1){
+            if($action=='rstpwd'){
+                $this->model->rstpwd($uid);
+                header("location: userview?uid=$uid&pwdresetted=1");
+            }else if($action=='deleteuser'){
+                $this->model->removeuser($uid);
+                header("location: usermanager?usrremoved=1");
+            }else if($action=='block'){
+                $this->model->blockuser($uid);
+                header("location: userview?uid=$uid&blocked=1");
+            }
+        }else{
+            header("location: userview?uid=$uid&pwderror=1");
+        }
+
     }
 
     public function driverapplication(){

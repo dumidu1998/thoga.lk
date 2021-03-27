@@ -75,6 +75,7 @@ $routes = [
     'admin/usermanager' => 'AdminController@usermanager',
     'admin/showorder' => 'AdminController@showorder',
     'admin/userview' => 'AdminController@viewuser',
+    'admin/profileaction' => 'AdminController@profileaction',
     'admin/dappl' => 'AdminController@driverapplication',
     'admin/mappl' => 'AdminController@mentorapplication',
     'admin/mrequest' => 'AdminController@mentorrequest',

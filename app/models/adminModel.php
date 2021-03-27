@@ -165,11 +165,33 @@ class AdminModel extends db_model
 		$sql="SELECT COUNT(user_id)as count_users FROM user WHERE user.usertype_id!=100 ";
 		return $this->queryfromsql($sql);
 	}
+
 	function getactiveproducts(){
 		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end<DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
 		return $this->queryfromsql($sql);
 	}
 
-	
+	function checkpwd($user,$pwd){
+		$pwd=md5($pwd);
+		$sql="SELECT count(admin_id) as numrow FROM admin WHERE admin_id=".$user." AND password='".$pwd."'";
+		return $this->queryfromsql($sql);
+	}
+
+	function rstpwd($user){
+		$pwd=md5("thoga.lk");
+		return $this->update('user',array('password'=>$pwd),array('user_id'=>$user));
+
+	}
+
+	function blockuser($user){
+		return $this->update('user',array('usertype_id'=>'100'),array('user_id'=>$user));
+
+	}
+	function removeuser($user){
+		return $this->delete('user',array('user_id'=>$user));
+
+	}
+
+
 
 }
