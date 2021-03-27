@@ -112,11 +112,12 @@ input[type="text"]::placeholder {
     border: 2px solid #000;
     width: 180px;
     height: 60px;
-    color: #0a110d;
+    color: white;
+    background: #253e30;
 }
 
 .admin-btn:hover {
-    background: #253e30;
+    background: #355845;
     color: rgb(255, 255, 255);
 }
 

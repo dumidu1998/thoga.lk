@@ -259,6 +259,18 @@ class AdminController {
         $view = new View("admin/admins");
         $view->assign('results', $result); 
     }
+    
+    public function deletead(){
+        $id=$_GET['id'];
+        $this->model->deletead($id);
+        header("location: /thoga.lk/admin/admanager?deleted=1");
+    }
+    
+    public function disablead(){
+        $id=$_GET['id'];
+        $this->model->disablead($id);
+        header("location: /thoga.lk/admin/admanager");
+    }
 
     public function addadmin(){
         session_start();
@@ -296,6 +308,33 @@ class AdminController {
         if(isset($_POST['add'])){
             $this->vegetables->add_vegetable($_POST['veg_name'],$_POST['price']);
         } 
+    }
+
+    public function addupload(){
+        session_start();
+        $out=$this->model->getmaxadid();
+        $uid=$out[0]['maxid'];
+        $uid++;
+        $_SESSION['aduploadid']=$uid;
+        $fileN = $_FILES["file"]["name"]; // The file name
+        $fileTmpLoc = $_FILES["file"]["tmp_name"]; // File in the PHP tmp folder
+        $fileType = $_FILES["file"]["type"]; // The type of file it is
+        $fileSize = $_FILES["file"]["size"]; // File size in bytes
+        $fileErrorMsg = $_FILES["file"]["error"]; // 0 for NO erros... and 1 for errors
+        $ext = "jpg";
+        
+        $fileName="AD_".$uid.".".$ext;
+        
+        if (!$fileTmpLoc) { // if file not chosen
+            echo "ERROR: Please browse for a file before clicking the upload button.";
+            exit();
+        }
+        
+        if(move_uploaded_file($fileTmpLoc, $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/tmpuploads/$fileName")){
+            echo "File upload is complete";
+        } else {
+            echo "move_uploaded_file function failed";
+        }
     }
 
 
