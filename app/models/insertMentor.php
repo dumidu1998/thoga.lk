@@ -8,6 +8,7 @@ class insertMentor extends db_model{
 
 
             $query = "INSERT into item (veg_Id,avail_weight,min_weight,total_cost,item_start,item_end,item_type,farmer_id,item_des,mentor_id) values ('".$itemname."','".$avaiweight."','".$minweight."','".$price."','".$startdate."','".$enddate."','".$itemtype."','".$farmername."','".$ides."','".$m_id."')";
+            echo $query;
             $result =$this->connection->query($query);
            
 
@@ -42,8 +43,7 @@ class insertMentor extends db_model{
      }
 
      function get($id){
-
-		return $this->read('farmer', array('*'), array('mentor_id'=>$id));
+		    return $this->read('mentor', array('mentor_id'), array('user_id'=>$id));
      }
 
      public function read_id($id){
@@ -51,8 +51,8 @@ class insertMentor extends db_model{
 
     }
 
-    public function join_get($id){
-        $sql = "SELECT user.user_id , mentor.mentor_id FROM user INNER JOIN mentor ON user.user_id = mentor.mentor_id WHERE user.user_id = '".$id."'  ";
+    public function join_get($mentorid){
+        $sql = "SELECT *,user.firstname,user.lastname from farmer INNER join mentor on farmer.mentor_id=mentor.mentor_id inner join user on farmer.user_id=user.user_id WHERE mentor.mentor_id = '".$mentorid."'  ";
         $result=$this->connection->query($sql);
         $arr=array();
         if($result){

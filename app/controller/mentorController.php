@@ -13,28 +13,21 @@ class mentorController{
 
     public function add_item()
     {
-        $view = new view("mentor/add_item(mentor)");
-        $result = $this->model2->get_records();
-        $view->assign('records',$result);
-
-       
-    }
-    public function add_item2(){
         session_start();
-
-        foreach($_SESSION['user'] as $keys => $values){
-            $id = $values['user_id'];
-            $result3 = $this->model->read_id($id);
-            print_r($result3);
-        }
-
-        $result2 = $this->model->get($id);
-        $view->assign('records',$result2);
-    
-   
-        $result4 = $this->model->join_get($id);
+        $mentoruserid=$_SESSION['user'][0]['user_id'];
+        $mentorid = $this->model->get($mentoruserid);
+      //  print_r($mentoruserid);
+      //  print_r($mentorid);
+        $result = $this->model2->get_records();
+        $result3 = $this->model-> join_get($mentorid[0]['mentor_id']);
+        
+        $view = new view("mentor/add_item(mentor)");
+        $view->assign('records',$result);
+        $view->assign('farmers',$result3);
+        
        
     }
+    
 
     public function insert_items(){
 
@@ -62,14 +55,14 @@ class mentorController{
             $ides = $_POST['ides'];
 
             $this->model->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$ides,$m_id);
-            header("location: /thoga.lk/mentor/insert");
+            header("location: /thoga.lk/mentor/insert_sucess");
         }
 
         
         
     }
 
-    public function insert_success(){
+    public function insert_success(){  // not used
         $view = new view("mentor/insert");
     }
 
