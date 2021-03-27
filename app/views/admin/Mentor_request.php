@@ -16,6 +16,7 @@
 
 <div class="container">
     <h1>Request for Mentor</h1>
+    <center><h2>ID - <?php printf('%03d',  $alldetails['farmer_id']); ?></h2></center>
     <div class="grid">
         <div class="grid-item0">
             <img src="/thoga.lk/public/images/buyer/icons/farmer.png" alt="" class="image" >
@@ -25,35 +26,35 @@
             <span><h3><u>Farmer's Details</u></h3></span>
             <tr>
                 <td>Farmer Id:</td>
-                <td>31</td>
+                <td><?php echo $alldetails['farmer_id'];?></td>
             </tr>
             <tr>
                 <td>Full Name:</td>
-                <td>Manthila Bandara</td>
+                <td><?php echo $alldetails['firstname']." ".$alldetails['lastname'];?></td>
             </tr>
             <tr>
                 <td >Address:</td>
-                <td>Line 1</td>
+                <td><?php echo $alldetails['address_line1'];?></td>
             </tr>
             <tr>
                 <td> </td>
-                <td>Line 2</td>
+                <td><?php echo $alldetails['address_line2'];?></td>
             </tr>
             <tr>
                 <td> </td>
-                <td>City</td>
+                <td><?php echo $alldetails['city'];?></td>
             </tr>
             <tr>
                 <td> </td>
-                <td>ZIP code</td>
+                <td><?php echo $alldetails['district'];?></td>
             </tr>
             <tr>
                 <td>Contact No.1:</td>
-                <td>076 - 948 96 78</td>
+                <td><?php printf("%s - %s %s %s",substr($alldetails['contactno1'], 0, 3), substr($alldetails['contactno1'], 3, 3), substr($alldetails['contactno1'], 6,2), substr($alldetails['contactno1'], 8)); ?></td>
             </tr>
             <tr>
                 <td>Contact No.2:</td>
-                <td>076 - 948 96 78</td>
+                <td><?php printf("%s - %s %s %s",substr($alldetails['contactno2'], 0, 3), substr($alldetails['contactno2'], 3, 3), substr($alldetails['contactno2'], 6,2), substr($alldetails['contactno2'], 8)); ?></td>
             </tr>
             <tr>
                 <td>NIC</td>
@@ -65,14 +66,15 @@
 </div>
 <div class="selectcontainer">
     
+    <form action="assignmentor" method="post">
+    <input type="hidden" name="farmer_id" value="<?php echo $alldetails['farmer_id'];?>">
     <h1>Select a Mentor</h1>
     <h3>Select mentor from suggestion list</h3>
-    <select name="" id="selectmentor" class="select-css" required placeholder="dd">
-
-        <option value="0" selected disabled hidden>Select a mentor (Name - District - No.of farmers)</option>
-        <option value="1">A.K. Jayarathna - Anuradhapura (2)</option>
-        <option value="1">C.B. Wickramasingha - Matale (4)</option>
-        <option value="1">N. Thilakarathna - Jaffna (1)</option>
+    <select name="mentor_id" id="selectmentor" class="select-css" required>
+        <option value="0" selected disabled hidden>Select a mentor (Name - City - No.of farmers)</option>
+    <?php foreach($mentors as $keys => $row){?>
+        <option value="<?php echo $row['mentor_id'];?>"><?php echo $row['firstname']." ".$row['lastname'];?> - <?php echo $row['city'];?> (<?php echo $row['farmer_count'];?>)</option>
+    <?php }?>
     </select>
     <div class="">
 
@@ -82,7 +84,6 @@
     <div class="Bcontainer">
         <h1>Accept or Reject</h1>
         <br>
-        <form action="a.php" method="get">
         <label class="CBcontainer">&nbsp Accept
             <input type="checkbox" name="accpted" id="accept" onchange="checkfunc(this.id)" >
             <span class="checkmark"></span>

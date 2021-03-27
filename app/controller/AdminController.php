@@ -154,9 +154,14 @@ class AdminController {
         }
     }
 
-
     public function mentorrequest(){
+        $farmer_id=$_GET['id'];
+        $output=$this->farmers->getfarmerallbyid($farmer_id);
+        $farmerdistrict=$output[0]['disid'];
+        $mentors=$this->mentors->getallmentorsindistrict($farmerdistrict);
         $view = new View("admin/Mentor_request");
+        $view->assign('alldetails', $output[0]);
+        $view->assign('mentors', $mentors);
     }
 
     public function adsubmit(){
@@ -224,6 +229,22 @@ class AdminController {
     }
 
 
+    public function assignmentor(){
+        print_r($_POST);
+        if(isset($_POST['accpted']) && isset($_POST['mentor_id']) && isset($_POST['farmer_id'])){
+            $out=$this->mentors->assignmentor($_POST['mentor_id'],$_POST['farmer_id']);
+            header("location: ../admin?mentor_assigned=1");
+        }else if(isset($_POST['rejected']) && isset($_POST['reason'])){
+            $out=$this->mentors->rejectassignmentor($_POST['mentor_id'],$_POST['farmer_id']);
+            //send email/sms with reason
+            header("location: ../admin?mentor_assigned=0");
+        }else{
+            header("location: ../admin?mentor_assign_error=1");
+        }
+    }
+
+
+    
     public function driveraccept(){
         print_r($_POST);
         if(isset($_POST['accepted']) && isset($_POST['existing_driver'])){

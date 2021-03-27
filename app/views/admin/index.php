@@ -132,6 +132,7 @@
         <div class="ut-hr-txt">
             <hr><span>Mentor Requests</span>
         </div>
+
             <thead>
                 <tr  class="tablehead">
                 <th >Farmer Name</th>
@@ -140,6 +141,7 @@
                 <th >Action</th>
                 </tr>
             </thead>
+
             <tbody>
                 <?php
                     foreach($farmers as $keys => $row){
@@ -155,9 +157,7 @@
                 <td data-label="City"><?php echo $city; ?></td>
                 <td data-label="Action"><a href="admin/mrequest?id=<?php echo $farmer_id; ?>">Assign Mentor</a></td>
                 </tr>
-
                 <?php } ?>
-                
             </tbody>
         </table>
         <?php echo ($farmers==null)?'<center>No any Requests.</center>':''; ?>
@@ -169,17 +169,14 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-
             var data = google.visualization.arrayToDataTable([
                 ['Year', 'Sales'],
                 <?php
-            foreach($ordersforchart as $keys => $row){
-                echo "['".$row['count_date']."',".$row['counted_leads']."],";
-            }
-
-            ?>
+                    foreach($ordersforchart as $keys => $row){
+                        echo "['".$row['count_date']."',".$row['counted_leads']."],";
+                    }
+                ?>
             ]);
-
             var options = {
                 title: 'Performance - Orders',
                 curveType: 'none',
@@ -187,12 +184,10 @@
                 pointSize: 2,
                 vAxis: {format: '0',minValue: 4,title: 'Orders'},
             };
-
             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
             chart.draw(data, options);
         }
 
     </script>
-
+    
 </html>
