@@ -6,6 +6,7 @@ require_once(__DIR__.'/../models/forumModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
+require_once(__DIR__.'/../models/buyerModel.php');
 
 
 class BuyerController {
@@ -16,16 +17,23 @@ class BuyerController {
         $this->order = new orderModel();
         $this->drivers = new driverModel();
         $this->vehicles = new vehicleModel();
+        $this->buyer = new buyerModel();
     }
 
     function getAll_get(){
         $result = $this->model->get_all();
-        print_r($result);
+        ($result);
         
     }
     public function index(){
          session_start();
-        $view = new View("buyer/index");
+         $id = $_SESSION['user'][0]['user_id'];
+         $result = $this->buyer->get_id($id);
+         $_SESSION['buyer_id'] = $result;
+         $view = new View("buyer/index");
+
+
+
 
         if(isset($_SESSION['user'])){
             foreach ($_SESSION['user'] as $keys=>$values){
@@ -96,7 +104,7 @@ class BuyerController {
         $view = new View("buyer/item_non_org");
         
     }
-    public function book(){
+    public function placeOrder(){
         session_start();
 
         foreach($_SESSION["shopping_cart"] as $keys => $values)  
@@ -349,6 +357,53 @@ class BuyerController {
         $result = $this->order->setstaus($id);
 
         echo $result;
+    }
+    public function book(){
+        session_start();
+        $arr = array();
+        
+        
+
+        
+        if(isset($_POST['order'])){
+            // print_r($_SESSION['shopping_cart']);
+            // print_r($_SESSION['delivery_add']);
+            // print_r($_SESSION['pickup_date']);
+            // echo "</br>";
+            // print_r($_SESSION['user']);
+            // print_r($_SESSION['driver']);
+            // print_r($_POST['total_cost']);
+            // print_r($_POST['total_weight']);
+            // echo "</br>";
+            // print_r($_SESSION['buyer_id']);
+
+            if($_SESSION['driver']){
+                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'driver_id'=>$_SESSION['driver'],'status'=>1);
+
+            }else{
+                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'status'=>1);
+            }
+            $result = $this->order->insert_order($data);
+            $newid=$this->order->getneworderid();
+
+            foreach($_SESSION['shopping_cart'] as $keys=>$values){
+                // print_r($values['item_id']);
+                $result = $this->model->get_farmer($values['item_id']);
+                // echo"--";
+                // print_r($result);
+
+                $order_details = array('farmer_id'=>$result[0]['farmer_id'],'item_id'=>$values['item_id'],'item_weight'=>$values['item_quantity'],'order_id'=>$newid);
+                 $this->order->insert_order_details($order_details);
+                 $this->model->reduce_avail($values['item_id'],$values['item_quantity']);
+            }
+
+
+        }
+        $view = new View("buyer/booksuccess");
+       
+        
+
+
     }
 
     

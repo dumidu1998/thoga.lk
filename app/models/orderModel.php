@@ -158,6 +158,24 @@ class orderModel extends db_model{
 		echo "error";
 	}
 
+  function insert_order($data){
+    // $sql = "INSERT INTO orders(weight,total_cost,order_date,pickup_date,d_addline1,d_addline2,city,district,province,contact1,contact2,buyer_id,driver_id,status) VALUES(123,5000,CURRENT_DATE,'2020-11-17',123,'reid avenur', 'Colombo', 'Colombo', 'western prov','077123456','071123456',2,1,1);";
+    return $this->create('orders',$data);
+
+
+  }
+  function getneworderid(){
+    $sql="SELECT LAST_INSERT_ID() as id";
+    $newvid=$this->queryfromsql($sql);
+    return $newvid[0]['id'];
+  } 
+
+  function insert_order_details($order_details){
+    return $this->create('order_details',$order_details);
+  }
+
+  
+
   
 
     

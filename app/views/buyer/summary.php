@@ -56,91 +56,82 @@
             //    print_r($_SESSION['shopping_cart']);
                 ?>
                 <hr>
-                <table style="overflow-x:auto;">
-                    <tr>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>quantity</th>
-                        <th>Subtotal</th>
-                    </tr>
-                    <?php
-                    $tot=0;
-                        foreach($_SESSION['shopping_cart'] as $keys => $values){
-                            $tot = $tot +($values['item_price'] * $values['item_quantity']);
-                        
-                    ?>
-                    <tr>
-                        <td class="item_name"><?php echo $values['item_name']?></td>
-                        <td><?php echo $values['item_price']?></td>
-                        <td><?php echo $values['item_quantity']?></td>
-                        <td><?php echo ($values['item_price'] * $values['item_quantity'])?></td>
-                    </tr>
-                    <?php
-                        }
-                    ?>
-                    <!-- <tr>
-                        <td colspan=2></td>
-                       
-                        <td class="td_summary">subtotal</td>
-                        <td>2000</td>
-                    </tr>
+                <form action="booksuccess" method="post">
 
-                    <tr>
-                        <td colspan=2></td>
-                       
-                        <td class="td_summary">Discount Amount</td>
-                        <td>00</td>
-                    </tr>
-                    <tr>
-                        <td colspan=2></td>
-                       
-                        <td class="td_summary">Service Charge</td>
-                        <td>00</td>
-                    </tr> -->
-                    <tr>
-                        <td colspan=2></td>
-                       
-                        <td class="td_summary ">Total Amount</td>
-                        <td class="item_name"><?php echo $tot?></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="summary">
-                <!-- summery -->
-                <h1>Order summary</h1>
-                <hr>
-                <table>
-                <tr>                       
-                        <td class="td_summary">Pickup Date</td>
-                        <td><?php print_r($_SESSION['pickup_date']) ?></td>
-                    </tr>
-
-                    <tr>                       
-                        <td class="td_summary">Driver Name</td>
-                        <td>
+                    <table style="overflow-x:auto;">
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
                         <?php
-                        if($driv){
-                            echo "Kasun";
-
-                        }else{
-                            echo "Self pickup";
-                        }
-                        ?>
+                        $tot=0;
+                        $tot_weight=0;
+                            foreach($_SESSION['shopping_cart'] as $keys => $values){
+                                $tot = $tot +($values['item_price'] * $values['item_quantity']);
+                                $tot_weight = $tot_weight + $values['item_quantity'];
                             
-                        </td>
-                    </tr>
+                        ?>
+                        <tr>
+                            <td class="item_name"><?php echo $values['item_name']?></td>
+                            <td><?php echo $values['item_price']?></td>
+                            <td><?php echo $values['item_quantity']?></td>
+                            <td><?php echo ($values['item_price'] * $values['item_quantity'])?></td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                        
+                        <tr>
+                            <td colspan=2></td>
+                           
+                            <td class="td_summary ">Total Amount</td>
+                            <td class="item_name"><?php echo $tot?></td>
+                            <input type="hidden" name="total_cost" value="<?php echo $tot ;?>">
+                            <input type="hidden" name="total_weight" value="<?php echo $tot_weight ;?>">
+                        </tr>
+                    </table>
+                </div>
+                <div class="summary">
+                    <!-- summery -->
+                    <h1>Order summary</h1>
+                    <hr>
+                    <table>
                     <tr>                       
-                        <td class="td_summary">Service Charge</td>
-                        <td>00</td>
-                    </tr>
-                    <tr>                       
-                        <td class="td_summary">Total Amount</td>
-                        <td class="item_name"><?php echo $tot?></td>
-                    </tr>
-
-                </table>
-                <a href="booksuccess"><button class="checkout_btn">Place Order</button></a>
-                <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
+                            <td class="td_summary">Pickup Date</td>
+                            <td><?php print_r($_SESSION['pickup_date']) ?></td>
+                        </tr>
+    
+                        <tr>                       
+                            <td class="td_summary">Driver Name</td>
+                            <td>
+                            <?php
+                            if($driv){
+                                // print_r($details);
+                                echo $details[0]['firstname']." " . $details[0]['lastname'];
+                                 $_SESSION['driver'] = $details[0]['driver_id'];
+                            }else{
+                                echo "Self pickup";
+                               $_SESSION['driver'] = NULL; 
+                            }
+                            ?>
+                                
+                            </td>
+                        </tr>
+                        <tr>                       
+                            <td class="td_summary">Service Charge</td>
+                            <td>00</td>
+                        </tr>
+                        <tr>                       
+                            <td class="td_summary">Total Amount</td>
+                            <td class="item_name"><?php echo $tot?></td>
+                        </tr>
+    
+                    </table>
+                    <button name="order" class="checkout_btn">Place Order</button>
+                    <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
+                </form>
             </div>
         </div> 
     </div> 
@@ -174,6 +165,9 @@ if($driv){
     </div>
    <?php
 }
+
+
+
 ?> 
 
     
