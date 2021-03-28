@@ -70,12 +70,23 @@ class vehicleModel extends driverModel{
     }
 
     function removevehicle($vid){
-        
         $sql="DELETE FROM vehicles where vehicle_id ='".$vid."'";
         $result=$this->queryfromsql($sql);
         return $result;
     }  
+
+    function get_pending(){
+		$sql = "SELECT driver.driver_id ,user.firstname,user.lastname, districts.name_en, vehicles.vehicle_id FROM driver INNER JOIN user ON driver.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON address.district=districts.id INNER JOIN vehicles ON driver.driver_id=vehicles.driver_id WHERE driver.verified_state=1 AND vehicles.verified_state=0 AND vehicles.reject_reason IS NULL";
+        return $this->queryfromsql($sql);
+	}
     
+    function accept($vid){
+        return $this->update('vehicles',array('verified_state'=>'1'),array('driver_id'=>$vid));
+    }
+
+    function reject($vid,$reason){
+        return $this->update('vehicles',array('verified_state'=>'0','reject_reason'=>$reason),array('vehicle_id'=>$vid,));
+    }
     
 }
  ?>

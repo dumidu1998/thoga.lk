@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/summary.css">
     <title>Document</title>
 </head>
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body>
     <?php include("navbar.php") ;
     ?>
     <div class="container">
-        <p>Invoice no : 12345</p>
+        <center>
+
+            <h2>Invoice no : 12345</h2>
+        </center>
         <br>
 
         <?php
@@ -19,11 +22,26 @@
            
                       
         ?>
-        <p>Delivery address : <?php echo ($_SESSION['delivery_add']['add1'])  ?> <?php echo ($_SESSION['delivery_add']['add2'])  ?>
-        <br><?php echo ($_SESSION['delivery_add']['city'])  ?><br><?php echo ($_SESSION['delivery_add']['district'])  ?><br><?php echo ($_SESSION['delivery_add']['province'])  ?></p>
-        <br>
-        <p>Telephone no 1: <?php echo ($_SESSION['delivery_add']['contact1'])  ?></p>
-        <p>Telephone no 2: <?php echo ($_SESSION['delivery_add']['contact2'])  ?></p>
+        <div class="addr_container">
+            <div class="divider">
+                <h4 for="p"> Delivery address :</h4>
+
+                <p> <?php echo ($_SESSION['delivery_add']['add1'])  ?> <?php echo ($_SESSION['delivery_add']['add2'])  ?>,
+                <br><?php echo ($_SESSION['delivery_add']['city'])  ?>,<br><?php echo ($_SESSION['delivery_add']['district'])  ?>,<br><?php echo ($_SESSION['delivery_add']['province'])  ?>.</p>
+            </div>
+            <br>
+            <div class="divider">
+                
+                <h4>Telephone no 1: </h4>
+                <p><?php echo ($_SESSION['delivery_add']['contact1'])  ?></p>
+            </div>
+            <div class="divider">
+                <h4>Telephone no 2:</h4>
+                <p> <?php echo ($_SESSION['delivery_add']['contact2'])  ?></p>
+
+            </div>
+
+        </div>
 
         <?php
              
@@ -99,7 +117,17 @@
 
                     <tr>                       
                         <td class="td_summary">Driver Name</td>
-                        <td>Kasun</td>
+                        <td>
+                        <?php
+                        if($driv){
+                            echo "Kasun";
+
+                        }else{
+                            echo "Self pickup";
+                        }
+                        ?>
+                            
+                        </td>
                     </tr>
                     <tr>                       
                         <td class="td_summary">Service Charge</td>
@@ -112,10 +140,15 @@
 
                 </table>
                 <a href="booksuccess"><button class="checkout_btn">Place Order</button></a>
+                <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
             </div>
         </div> 
     </div> 
+<?php
+if($driv){
 
+
+?>
     <h1>Driver Details</h1>
     <hr>
     <div class="container-2">
@@ -128,42 +161,11 @@
         </div>
 
     </div>
+   <?php
+}
+?> 
 
-    <h1>Farmers Details</h1>
-    <hr>
     
-    <div class="card-group">
-    <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a1.png" alt="Avatar" style="width:100%">
-      <div class="container-2">
-        <h4><b>Samantha</b></h4> 
-        <p>Anuradhapura</p> 
-      </div>
-      <div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a2.png" alt="Avatar" style="width:100%">
-      <div class="container-2">
-        <h4><b>Kumara</b></h4> 
-        <p>Dambulla</p> 
-      </div>
-      <div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="/thoga.lk/public/images/buyer/a4.png" alt="Avatar" style="width:100%">
-      <div class="container-2">
-        <h4><b>Nimal</b></h4> 
-        <p>Vavniya</p> 
-      </div>
-      <div>
-      </div>
-    </div>
-    
-</div>
     
 <?php include("footer.php"); ?>
     

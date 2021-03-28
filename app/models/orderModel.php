@@ -14,26 +14,26 @@ class orderModel extends db_model{
        
     }
     public function viewmore_farmer($id){
-        $sql = "SELECT a.*, b.*,c.*, d.* from orders as a INNER join order_details as b on a.order_id=b.order_id INNER join farmer AS c ON c.farmer_id=b.farmer_id INNER join user as d on c.user_id=d.user_id where a.order_id=".$id;
+        $sql = "SELECT a.*, b.*,c.*, d.*, e.* from orders as a INNER join order_details as b on a.order_id=b.order_id INNER join farmer AS c ON c.farmer_id=b.farmer_id INNER join user as d on c.user_id=d.user_id INNER JOIN vegetable AS e ON e.vege_id= b.item_id where a.order_id=".$id;
         $result=$this->connection->query($sql);
         $arr=array();
         if($result){
          while($row=mysqli_fetch_assoc($result))
          array_push($arr,$row);
-       return $arr;
+          return $arr;
      
  
          }else
          echo "error in SQL";
     }
     public function viewmore_driver($id){
-        $sql="SELECT a.*, b.*,c.*,e.*,f.name_en as province,g.name_en as city,i.name_en as district FROM orders as a INNER JOIN driver as b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id INNER JOIN address as e on c.user_id=e.user_id INNER JOIN provinces as f on f.id=e.province_name INNER JOIN cities as g on g.id=e.city INNER JOIN districts as i on i.id=e.province_name WHERE a.order_id=".$id;
+        $sql="SELECT a.*, b.*,c.*,e.*,f.name_en as province,g.name_en as city,i.name_en as district FROM orders as a INNER JOIN driver as b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id INNER JOIN address as e on c.user_id=e.user_id INNER JOIN provinces as f on f.id=e.province INNER JOIN cities as g on g.id=e.city INNER JOIN districts as i on i.id=e.province WHERE a.order_id=".$id;
         $result=$this->connection->query($sql);
         $arr=array();
         if($result){
          while($row=mysqli_fetch_assoc($result))
          array_push($arr,$row);
-       return $arr;
+          return $arr;
      
  
          }else
@@ -100,7 +100,7 @@ class orderModel extends db_model{
   }
 
   function  order_buyername($id){
-		$sql= "SELECT a.username,a.firstname,a.lastname FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username,a.firstname,a.lastname,a.contactno1,a.contactno2 FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
@@ -116,7 +116,7 @@ class orderModel extends db_model{
   
   function  order_drivername($id){
 
-		$sql= "SELECT a.username, a.firstname, a.lastname FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username, a.firstname, a.lastname, a.contactno1, a.contactno2 FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
 
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -144,19 +144,34 @@ class orderModel extends db_model{
 
   }
   
-  function  order_city($id){
-		$sql= "SELECT a.name_en, b.* FROM districts AS a  INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+  function  cancelorder($oid){
+    return $this->update('orders',array('status'=>'4'),array('order_id'=>$oid));
+ 
+  }
+
+  function  order_all($id){
+    $sql= "SELECT b.*,a.description FROM orders AS b INNER JOIN status as a ON b.status=a.status_id where b.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
 		$finale=array();
 		if($result){
-        while($row=mysqli_fetch_assoc($result))
+      while($row=mysqli_fetch_assoc($result))
 			array_push($finale,$row);
-		    return $finale;
+      return $finale;
 		}else
 		echo "error";
 	}
+  
+  function  getrating($id){
+    $sql="SELECT * FROM feedback where order_id=".$id;
+    return $this->queryfromsql($sql);
+  }
+  
+  function getcancelled(){
+    $sql = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.status=4 ORDER BY orders.order_id ASC";
+    return $this->queryfromsql($sql);
+  }
 
     function changeorder_status($orderid,$status){
       return $this->update('orders',array('status'=>$status),array('order_id'=>$orderid));

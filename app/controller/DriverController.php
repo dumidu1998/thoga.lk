@@ -13,13 +13,9 @@ class DriverController extends db_model{
     
     function __construct()
     {
-        
-
         $this->dmodel = new driverModel();
         $this->vmodel = new vehicleModel();
         $this->omodel = new orderModel();
-
-        
     }
 
     public function driverdashboard(){
@@ -42,6 +38,7 @@ class DriverController extends db_model{
 
         
         }
+
         $result = $this->omodel->get_order_details($order_id);
         $view = new View("driver/viewmore");
         $view->assign('order_id',$order_id);
@@ -50,9 +47,6 @@ class DriverController extends db_model{
         $view->assign('buyer',$buyer);
         $view->assign('cityy',$city);
         $view->assign('items',$items);
-
-        
-        
     }
 
    
@@ -266,6 +260,15 @@ class DriverController extends db_model{
         
     }
     
+
+    public function showbutton(){
+        session_start();
+        $view = new View("driver/test");
+        
+    }
+
+
+
 
 }
 

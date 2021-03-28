@@ -50,6 +50,7 @@ $routes = [
     '' => 'LoginController@view',
     'login' => 'LoginController@login',
     'forum' => 'ForumController@forum',
+    'forum/addreply' => 'ForumController@addreply',
     'forum/postForum' => 'ForumController@postForum',
     'forum/fullview' => 'ForumController@viewfull',
     'driver/dashboard' => 'DriverController@driverdashboard',
@@ -69,20 +70,28 @@ $routes = [
     'farmer/aboutus' => 'FarmerController@about',
     'mentor/aboutus' => 'mentorController@about',
     'admin/admanager' => 'AdminController@admanager',
-    'admin/login' => 'LoginController@admin_login',
+    'adminlogin' => 'LoginController@admin_login',
     'admin/log' => 'LoginController@admin_log',
     'admin/usermanager' => 'AdminController@usermanager',
     'admin/showorder' => 'AdminController@showorder',
     'admin/userview' => 'AdminController@viewuser',
+    'admin/profileaction' => 'AdminController@profileaction',
     'admin/dappl' => 'AdminController@driverapplication',
     'admin/mappl' => 'AdminController@mentorapplication',
     'admin/mrequest' => 'AdminController@mentorrequest',
+    'admin/driveraccept' => 'AdminController@driveraccept',
+    'admin/acceptmentor' => 'AdminController@acceptmentor',
+    'admin/assignmentor' => 'AdminController@assignmentor',
     'admin/adsubmit' => 'AdminController@adsubmit',
+    'admin/disablead' => 'AdminController@disablead',
+    'admin/deletead' => 'AdminController@deletead',
     'admin/showadmin' => 'AdminController@showadmin',
     'admin/addadmin' => 'AdminController@addadmin',
     'admin/vegetables' => 'AdminController@addVeg', 
+    'admin/cancelorder'=>'AdminController@cancelorder',
     'admin/pricelist' => 'AdminController@showpricelist',
     'admin/edit' => 'AdminController@editVeg',
+    'admin/addupload' => 'AdminController@addupload',
     'buyer/summary' => 'BuyerController@summary',
     'admin/addveg' => 'AdminController@addnewveg',
     'buyer/addr' => 'BuyerController@addr',
@@ -101,6 +110,8 @@ $routes = [
 
 
 
+
+    'driver/test'=>'DriverController@showbutton' //test button
 
 
 

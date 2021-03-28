@@ -42,8 +42,23 @@ class driverModel extends db_model{
 		}
 	}
 
+	function get_vehicle_detailsbyvid($id){
+		$sql = "SELECT vehicles.*,driver.* from vehicles INNER JOIN driver ON vehicles.driver_id=driver.driver_id where vehicles.vehicle_id=".$id;
+		$result=$this->connection->query($sql);
+		$output=array();
+		if($result){
+           while($row=mysqli_fetch_assoc($result)){
+			array_push($output,$row);
+		   }
+		  return $output;
+
+		}else{
+		echo "error";
+		}
+	}
+
 	function get_pending(){
-		$sql = "SELECT driver.driver_id ,user.firstname,user.lastname, districts.name_en FROM driver INNER JOIN user ON driver.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON address.district=districts.id where driver.verified_state=0";
+		$sql = "SELECT driver.driver_id ,user.firstname,user.lastname, districts.name_en FROM driver INNER JOIN user ON driver.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON address.district=districts.id where driver.verified_state=0 AND driver.reject_reason IS NULL";
 		$result=$this->connection->query($sql);
 		$output=array();
 		if($result){
@@ -141,5 +156,14 @@ class driverModel extends db_model{
 		$result=$this->connection->query($sql);
 		if($result){ return true;}else{return false;}
 	}
+
+	function accept($did){
+        return $this->update('driver',array('verified_state'=>'1'),array('driver_id'=>$did));
+    }
+
+    function reject($did,$reason){
+        return $this->update('driver',array('verified_state'=>'0','reject_reason'=>$reason),array('driver_id'=>$did));
+    }
+
 }
  ?>

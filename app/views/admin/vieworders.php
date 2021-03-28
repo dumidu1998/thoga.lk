@@ -70,8 +70,10 @@
     <?php
         }}
         ?>
-        <?php 
-         if($results!=0){
+
+    
+    <?php 
+      if($results!=0){
         foreach($results as $key=> $values){
     ?>
     <tr>
@@ -87,7 +89,26 @@
     </tr>
     <?php
         }}
-        if ($upcoming!=0 && $results!=0 && count($results) ==0 && count($upcoming)==0 ){
+    ?>
+    <?php 
+        if($cancelled!=0){
+        foreach($cancelled as $key=> $values){
+    ?>
+    <tr>
+      <td data-column="Id"><?php echo $values['order_id']; ?></td>
+      <td data-column="Buyer Name"><?php echo $values['firstname']." ".$values['lastname']; ?></td>
+      <td data-column="Order Date / Time"><?php echo $values['order_date']; ?></td>
+      <td data-column="Pickup Date"><?php echo ($values['pickup_date']); ?></td>
+      <td data-column="Total Price"> Rs. <?php echo number_format($values['total_cost'],2); ?></td>
+      <td data-column="Status"><i class="fas fa-times" style="font-size:30px;color:red" aria-hidden="true"></i></i></td>
+      <input type="hidden" name="order_id" value="<?php echo $values['order_id']; ?>">
+      <td data-column="Action"><a href="showorder?ord_id=<?php echo $values['order_id']; ?>"><button name="submit" >View More</button></a></td>
+    </tr>
+    <?php
+        }}
+    ?>
+    <?php
+        if ($upcoming!=0 && $results!=0 && $cancelled!=0 && count($results) ==0 && count($upcoming)==0 && count($cancelled)==0 ){
           echo "<td colspan='7' ><center>No any orders<center></td>";
 
         }

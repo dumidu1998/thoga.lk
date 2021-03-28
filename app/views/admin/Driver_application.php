@@ -7,15 +7,24 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
 </head>
 <body>
-<?php 
- include("navbar.php"); ?>
+<?php  
+    $user_id=$basic[0]['user_id'];
+    $driver_id=$basic[0]['driver_id'];
+    if(file_exists("/thoga.lk/public/uploads/$user_id.jpg")){
+        $fileName = "/thoga.lk/public/uploads/$user_id.jpg";
+        echo $fileName;
+    }else
+        $fileName = "/thoga.lk/public/images/buyer/icons/drivericon.jpg";
+    include("navbar.php"); 
+?>
 
 <div class="container">
     <h1>Driver Application</h1>
     <center><h2>ID - <?php printf('%03d',  $id); ?></h2></center>
+    <center><h3><?php echo ucfirst($status); ?></h3></center>
     <div class="grid">
         <div class="grid-item0">
-            <img src="/thoga.lk/public/images/buyer/icons/drivericon.jpg" alt="Default Image" class="image" >
+            <img src="<?php echo $fileName?>" alt="Default Image" class="image" >
         </div>
     <div class="grid-item1">
         <table style="width:100%;border-collapse: collapse;" >
@@ -92,7 +101,7 @@
     <table style="float:left;" class="t2">
         <tr>
             <td>DL No</td>
-            <td><?php echo $vehicle[0]['license_no']  ?></td>
+            <td><?php echo $basic[0]['license_no']  ?></td>
         </tr>
         <tr>
             <td>Vehicle Model</td>
@@ -121,19 +130,23 @@
         <table style="width:100%">
             <tr>
                 <td>Driving License - Front</td>
-                <td><a href="/thoga.lk/public/uploads/driveruploads/<?php echo $id;?>_DLF.jpg" target="_blank" >DLF <?php printf('%03d',  $id);?></a></td>
+                <td><a href="/thoga.lk/public/uploads/driverdocuments/drivinglicensefront/<?php echo $driver_id;?>.jpg" target="_blank" >DLF <?php printf('%03d',  $driver_id);?></a></td>
             </tr>
             <tr>
                 <td>Driving License - Back</td>
-                <td><a href="/thoga.lk/public/uploads/driveruploads/<?php echo $id;?>_DLB.jpg" target="_blank" >DLB <?php printf('%03d',  $id);?></a></td>
+                <td><a href="/thoga.lk/public/uploads/driverdocuments/drivinglicenseback/<?php echo $driver_id;?>.jpg" target="_blank" >DLB <?php printf('%03d',  $driver_id);?></a></td>
             </tr>
             <tr>
                 <td>Vehicle</td>
-                <td><a href="/thoga.lk/public/uploads/driveruploads/<?php echo $id;?>_V.jpg" target="_blank" >V <?php printf('%03d',  $id);?></a></td>
+                <td><a href="/thoga.lk/public/uploads/drivervehicles/<?php echo $vehicle[0]['vehicle_id'];?>.jpg" target="_blank" >V <?php printf('%03d',  $vehicle[0]['vehicle_id']);?></a></td>
             </tr>
             <tr>
                 <td>Revenue License</td>
-                <td><a href="/thoga.lk/public/uploads/driveruploads/<?php echo $id;?>_RL.jpg" target="_blank" >RL <?php printf('%03d',  $id);?></a></td>
+                <td><a href="/thoga.lk/public/uploads/driveruploads/vehicleregistration/<?php echo $vehicle[0]['vehicle_id'];?>.jpg" target="_blank" >RL <?php printf('%03d',  $vehicle[0]['vehicle_id']);?></a></td>
+            </tr>
+            <tr>
+                <td>Vehicle Insurance</td>
+                <td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/<?php echo $vehicle[0]['vehicle_id'];?>.jpg" target="_blank" >VI <?php printf('%03d',  $vehicle[0]['vehicle_id']);?></a></td>
             </tr>
         </table>
     </div>
@@ -142,16 +155,22 @@
     <div class="Bcontainer">
         <h1>Accept or Reject</h1>
         <br>
-        <form action="a.php" method="get">
+        <form action="driveraccept" method="post">
+        <input type="hidden" name="vid" value="<?php echo $vehicle[0]['vehicle_id'] ?>">
+        <input type="hidden" name="driverid" value="<?php echo $driver_id ?>">
+        <?php if($status=="Adding New Vehicle"){
+                echo "<input type='hidden' name='existing_driver' value='1'>";
+               }
+        ?>
         <label class="CBcontainer">&nbsp Accept
-            <input type="checkbox" name="accpted" id="accept" onchange="checkfunc(this.id)" >
+            <input type="checkbox" name="accepted" id="accept" onchange="checkfunc(this.id)" >
             <span class="checkmark"></span>
         </label>
         <label class="CBcontainer">&nbsp Reject
             <input type="checkbox" id="reject" name="rejected" onchange="checkfunc(this.id)" >
             <span class="checkmark"></span>
         </label>
-        <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection" style="display:none;margin-left:30%" ></textarea>
+        <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection (required)" style="display:none;margin-left:30%" ></textarea>
        <input type="submit" class="accept-btn" value="Submit    ">
         </form>
     </div>

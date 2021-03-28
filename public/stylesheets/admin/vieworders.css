@@ -62,7 +62,7 @@ input[type="date"] {
 
 #resetb {
     margin-left: 10px;
-    background-color: #013457;
+    background-color: #01572c;
     color: azure;
 }
 
@@ -112,11 +112,12 @@ input[type="text"]::placeholder {
     border: 2px solid #000;
     width: 180px;
     height: 60px;
-    color: #0a110d;
+    color: white;
+    background: #253e30;
 }
 
 .admin-btn:hover {
-    background: #253e30;
+    background: #355845;
     color: rgb(255, 255, 255);
 }
 
@@ -167,7 +168,7 @@ tr:nth-of-type(odd) {
 }
 
 th {
-    background: #253e30;
+    background: #2E5F3E;
     color: white;
     font-weight: bold;
 }
@@ -460,7 +461,7 @@ option:hover {
 }
 
 .sbuttonp {
-    background: rgb(0, 0, 0);
+    background: #2E5F3E;
     color: white;
     font-size: 25px;
     line-height: 0.2;
@@ -483,4 +484,11 @@ button {
     width: 90%;
     margin: auto;
     padding-top: 10px;
+    margin-bottom: 60px;
 }
+
+@media print {
+    .noPrint{
+      display:none;
+    }
+  }
