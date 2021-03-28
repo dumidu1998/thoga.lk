@@ -158,7 +158,12 @@ class orderModel extends db_model{
 		echo "error";
 	}
 
+    function changeorder_status($orderid,$status){
+      return $this->update('orders',array('status'=>$status),array('order_id'=>$orderid));
+    }
   
-
+    function getstatus($order_id){
+      return $this->read(order)
+    }
     
 }

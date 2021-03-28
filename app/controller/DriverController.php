@@ -37,6 +37,7 @@ class DriverController extends db_model{
             $buyer = $this->omodel->order_buyername($order_id);
             $items = $this->omodel->orderdetails_total($order_id);
             $city= $this->omodel->order_city($order_id);
+            $status=$this->omodel->getstatus($order_id);
             
 
         
@@ -255,6 +256,14 @@ class DriverController extends db_model{
         header("location:/thoga.lk/driver/vehicledetails");
 
 
+    }
+    public function changeorder_status(){
+        $orderid=$_POST['orderid'];
+        $status=$_POST['orderstatus'];
+        $this->omodel->changeorder_status($orderid,$status);
+        // header("location:/thoga.lk/driver/dashboard");
+
+        
     }
     
 

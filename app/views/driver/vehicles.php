@@ -93,7 +93,7 @@
 							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleregistration/<?php echo $vehicleid;?>.jpg" target="_blank" >VR <?php echo $vehicleid;?></a></td>
 						</tr>
 					</table>
-					<a href="removevehicle?vid=<?php echo $vehicleid?>"> <button class="button2" > Remove Vehicle</button></a>	
+					<a href="removevehicle?vid=<?php echo $vehicleid?>" onclick="return confirm('Are you sure you want to remove?')"> <button class="button2" > Remove Vehicle</button></a>	
 
 			</div>
 		    
