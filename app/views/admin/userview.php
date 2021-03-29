@@ -66,11 +66,11 @@
             </tr>
             <tr>
                 <td> </td>
-                <td><?php echo $userdetails['d_name'];?></td>
+                <td><?php echo $userdetails['zip_code'];?></td>
             </tr>
             <tr>
-                <td> </td>
-                <td><?php echo $userdetails['zip_code'];?></td>
+                <td>District:</td>
+                <td><?php echo $userdetails['d_name'];?></td>
             </tr>
             <tr>
                 <td>Contact No.1:</td>

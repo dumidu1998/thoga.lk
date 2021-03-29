@@ -19,6 +19,7 @@
             <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
             <a href="/thoga.lk/admin/showadmin"><button class="admin-btn">Add New Admin</button></a>
             <a href="/thoga.lk/admin/vegetables"><button class="admin-btn">Vegetable List</button></a>
+            <a href="/thoga.lk/admin/forummanager"><button class="admin-btn">Forum Manager</button></a>
 
         </div>
 
