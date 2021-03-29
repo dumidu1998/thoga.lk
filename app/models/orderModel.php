@@ -17,6 +17,7 @@ class orderModel extends db_model{
         $sql = "SELECT a.*, b.*,c.*, d.*, e.* from orders as a INNER join order_details as b on a.order_id=b.order_id INNER join farmer AS c ON c.farmer_id=b.farmer_id INNER join user as d on c.user_id=d.user_id INNER JOIN vegetable AS e ON e.vege_id= b.item_id where a.order_id=".$id;
         $result=$this->connection->query($sql);
         $arr=array();
+        // echo $sql;
         if($result){
          while($row=mysqli_fetch_assoc($result))
          array_push($arr,$row);
@@ -27,9 +28,10 @@ class orderModel extends db_model{
          echo "error in SQL";
     }
     public function viewmore_driver($id){
-        $sql="SELECT a.*, b.*,c.*,e.*,f.name_en as province,g.name_en as city,i.name_en as district FROM orders as a INNER JOIN driver as b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id INNER JOIN address as e on c.user_id=e.user_id INNER JOIN provinces as f on f.id=e.province INNER JOIN cities as g on g.id=e.city INNER JOIN districts as i on i.id=e.province WHERE a.order_id=".$id;
+        $sql="SELECT a.*, b.*,c.*,e.*,x.*,f.name_en as province,g.name_en as city,i.name_en as district FROM orders as a INNER JOIN driver as b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id INNER JOIN address as e on c.user_id=e.user_id INNER JOIN provinces as f on f.id=e.province INNER JOIN cities as g on g.id=e.city INNER JOIN districts as i on i.id=e.province INNER JOIN status AS x on a.status=x.status_id WHERE a.order_id=".$id;
         $result=$this->connection->query($sql);
         $arr=array();
+        // echo $sql;
         if($result){
          while($row=mysqli_fetch_assoc($result))
          array_push($arr,$row);
@@ -174,6 +176,39 @@ class orderModel extends db_model{
     return $this->create('order_details',$order_details);
   }
 
+  function get_buyer_upcoming($id){
+    $sql= "SELECT a.*,b.*,c.* FROM  orders AS a INNER JOIN driver AS b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id  where a.pickup_date>= CURRENT_TIMESTAMP AND buyer_id='".$id."' AND a.status != 4";
+		
+    $result=$this->connection->query($sql);
+    // echo $sql;
+    $finale=array();
+    if($result){
+        while($row=mysqli_fetch_assoc($result))
+      array_push($finale,$row);
+        return $finale;
+    }else
+    echo "error";
+  }
+
+  function getbuyer_orderhistory($id){
+    $sql= "SELECT a.*,b.*,c.* FROM  orders AS a INNER JOIN driver AS b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id  where a.pickup_date < CURRENT_TIMESTAMP AND buyer_id='".$id."'";
+  
+    $result=$this->connection->query($sql);
+    
+    $finale=array();
+    if($result){
+        while($row=mysqli_fetch_assoc($result))
+        array_push($finale,$row);
+        return $finale;
+    }else
+    echo "error";
+  
+
+  }
+  function cancelOrder($id){
+    return $this->update('orders',array('status' => 4),array('order_id' => $id));
+
+  }
   
 
   

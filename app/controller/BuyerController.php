@@ -104,20 +104,7 @@ class BuyerController {
         $view = new View("buyer/item_non_org");
         
     }
-    public function placeOrder(){
-        session_start();
-
-        foreach($_SESSION["shopping_cart"] as $keys => $values)  
-                    {  
-                       
-                    unset($_SESSION["shopping_cart"][$keys]);  
-                          
-                    }  
-        $view = new View("buyer/booksuccess");
-        
-
-        
-    }
+    
 
     public function selectDriver( ){
         session_start();
@@ -269,15 +256,22 @@ class BuyerController {
     }
     public function orders(){
         session_start();
+        $result = $this->order->get_buyer_upcoming($_SESSION['buyer_id'][0]['buyer_id']);
+        $his_result = $this->order->getbuyer_orderhistory($_SESSION['buyer_id'][0]['buyer_id']);
         $view = new View("buyer/orders");
+        $view->assign('upcoming_orders',$result);
+        $view->assign('previous_orders',$his_result);
     }
     public function viewmore(){
         session_start();
+        $id=$_GET['id'];
         $view = new View("buyer/view_more");
-        $details = $this->order->viewmore_farmer(1);
-        $driver_details = $this->order->viewmore_driver(1);
+        $details = $this->order->viewmore_farmer($id);
+        $driver_details = $this->order->viewmore_driver($id);
+        $buyer_details = $this->order->get_order_details($id);
         $view->assign('details', $details);
         $view->assign('driver_details', $driver_details);
+        $view->assign('buyer_details', $buyer_details);
 
 
     }
@@ -366,22 +360,13 @@ class BuyerController {
 
         
         if(isset($_POST['order'])){
-            // print_r($_SESSION['shopping_cart']);
-            // print_r($_SESSION['delivery_add']);
-            // print_r($_SESSION['pickup_date']);
-            // echo "</br>";
-            // print_r($_SESSION['user']);
-            // print_r($_SESSION['driver']);
-            // print_r($_POST['total_cost']);
-            // print_r($_POST['total_weight']);
-            // echo "</br>";
-            // print_r($_SESSION['buyer_id']);
+           
 
             if($_SESSION['driver']){
-                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'driver_id'=>$_SESSION['driver'],'status'=>1);
+                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'driver_id'=>$_SESSION['driver'],'status'=>0);
 
             }else{
-                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'status'=>1);
+                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'status'=>0);
             }
             $result = $this->order->insert_order($data);
             $newid=$this->order->getneworderid();
@@ -398,12 +383,28 @@ class BuyerController {
             }
 
 
+            foreach($_SESSION["shopping_cart"] as $keys => $values)  
+                        {  
+                           
+                        unset($_SESSION["shopping_cart"][$keys]);  
+                              
+                        } 
+    
+                        if($_SESSION['driver']){
+                            $driver_data = array('driver_id'=>$_SESSION['driver'],'startdate' =>$_SESSION['pickup_date'] ,'enddate' =>$_SESSION['pickup_date'] );
+                            $result = $this->drivers->driverUnavailabel_order($driver_data);
+                        } 
         }
         $view = new View("buyer/booksuccess");
        
         
 
 
+    }
+
+    public function cancelOrder(){
+        $id = $_GET['id'];
+        $this->order->cancelOrder($id);
     }
 
     

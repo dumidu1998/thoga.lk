@@ -63,6 +63,7 @@ class driverModel extends db_model{
 		$result=$this->connection->query($sql);
 		
 		$finale=array();
+		// echo $sql;
 		if($result){
       while($row=mysqli_fetch_assoc($result))
       //print_r($row);
@@ -140,6 +141,11 @@ class driverModel extends db_model{
 		$sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
 		$result=$this->connection->query($sql);
 		if($result){ return true;}else{return false;}
+	}
+
+	function driverUnavailabel_order($driver_data){
+		return $this->create('unavailable_dates',$driver_data);
+
 	}
 }
  ?>

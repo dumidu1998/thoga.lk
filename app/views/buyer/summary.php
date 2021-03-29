@@ -107,13 +107,13 @@
                             <td class="td_summary">Driver Name</td>
                             <td>
                             <?php
-                            if($driv){
+                            if(empty($driv)){
                                 // print_r($details);
-                                echo $details[0]['firstname']." " . $details[0]['lastname'];
-                                 $_SESSION['driver'] = $details[0]['driver_id'];
-                            }else{
                                 echo "Self pickup";
                                $_SESSION['driver'] = NULL; 
+                            }else{
+                                echo $details[0]['firstname']." " . $details[0]['lastname'];
+                                 $_SESSION['driver'] = $details[0]['driver_id'];
                             }
                             ?>
                                 
@@ -136,7 +136,7 @@
         </div> 
     </div> 
 <?php
-if($driv){
+if(!empty($driv)){
 
 
 ?>

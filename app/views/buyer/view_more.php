@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/v_more.css">
-    <title>Document</title>
+    <title>View more</title>
 </head>
 <body >
+<?php include("navbar.php"); ?>
+
 <?php
 // print_r($details);
 // echo"</br>";
@@ -21,7 +23,9 @@ foreach($driver_details as $keys => $values)
     ?>
         <h3>Order no : <?php echo $values['order_id'] ?> </h3>
         <br>
-        <h4>Delivery address : </h4> <p> <?php echo $values['d_addline1']?>, <?php echo $values['d_addline2']?></p> 
+        <h4>Delivery address : </h4> <p> <?php echo $values['d_addline1']?> <?php echo $values['d_addline2']?></p> 
+        <p><?php echo $buyer_details[0]['city'] ?>, <?php echo $buyer_details[0]['district'] ?>, </p>
+        <p><?php echo $buyer_details[0]['province'] ?>.</p>
         <!-- need to be done -->
         <br>
         <h4>Telephone no</h4>
@@ -51,7 +55,7 @@ foreach($driver_details as $keys => $values)
                     </tr>
                     <tr>
                         <td class="item_name"> Driver Tel. No</td>
-                        <td>0775509830</td>
+                        <td><?php echo $values['contactno1']?></td>
                         
                     </tr>
                     
@@ -73,7 +77,7 @@ foreach($driver_details as $keys => $values)
                     </tr>
                     <tr>                       
                         <td class="td_summary">Order Status</td>
-                        <td class="item_name">on your way</td>
+                        <td class="item_name"><?php echo $values['description']?></td>
                     </tr>
                     <tr>                       
                         <td class="td_summary">Update status</td>
@@ -143,7 +147,16 @@ foreach($driver_details as $keys => $values)
     </div>
     
  </div>
- <button class="checkout_btn_back">Cancel Order</button>
+ <?php
+    if(isset($_GET['prv']) && $_GET['prv']=1){
+
+    }else{
+        ?>
+        <a href="cancelOrder?id=<?php echo $values['order_id'];?>"><button class="checkout_btn_back">Cancel Order</button></a>
+<?php
+    }
+?>
+    
 
 </div>
 

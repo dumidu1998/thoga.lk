@@ -29,7 +29,8 @@
             <?php
 
 // print_r($data);
-foreach($data as $keys => $value){
+if($data){
+    foreach($data as $keys => $value){
     
     
     ?>
@@ -46,6 +47,13 @@ foreach($data as $keys => $value){
             </tr>
             <?php
             }
+        }else{
+            echo "<center>
+            <h3 style='color:red' > Sorry!! </h3>
+            <p style='font-weight:lighter'>we dont have any available Drivers.</p>
+            <p> If you continue you will pickup by your self </p>
+            </center>";
+        }
             ?>
            
             </table>

@@ -95,6 +95,7 @@ $routes = [
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
     'driver/updateprofilepic'=>'DriverController@edit',
     'driver/logout' => 'DriverController@logout',
+    'buyer/cancelOrder' => 'BuyerController@cancelOrder',
 
 
     'driver/test'=>'DriverController@showbutton' //test button
