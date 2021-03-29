@@ -59,6 +59,7 @@ class FarmerController{
         $farmerid=$this->model2->read_id($farmeruserid);
 
         $result = $this->model->get_profiledetails($farmerid[0]['farmer_id']);
+        print_r($result);
         $view = new View("Farmer/profile");
         $view->assign('all',$result);
 
