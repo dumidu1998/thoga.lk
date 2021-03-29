@@ -10,7 +10,7 @@
 <?php include("navbar.php"); ?>
 
 <?php
-// print_r($details);
+ print_r($details);
 // echo"</br>";
 // print_r($driver_details);
 
@@ -82,9 +82,21 @@ foreach($driver_details as $keys => $values)
                     <tr>                       
                         <td class="td_summary">Update status</td>
                         <td class="td_summary">Collected  <label class="switch">
-                                                            <input type="checkbox" id="toggle">
-                                                            <span class="slider round"></span>
-                                                            </label></td>
+                        <?php 
+                            if($values['description']=='Completed'){
+                            ?>
+                            <input type="checkbox" id="toggle" checked disabled>
+                            <span class="slider round"></span>
+                            <?php
+                            }else{
+
+                            ?>
+                            <input type="checkbox" id="toggle">
+                            <span class="slider round"></span>
+                            <?php
+                            }
+                            ?>
+                            </label></td>
                     </tr>
 
                 </table>
@@ -127,21 +139,37 @@ foreach($driver_details as $keys => $values)
                 {  
                 
                     ?>
-            <tr>
+             <tr>
                 <td data-label="Item id"><?php echo $values['vege_id']?></td>
                 <td data-label="Item name"><?php echo $values['vege_name']?></td>
                 <td data-label="Weight"><?php echo $values['item_weight']?>kg </td>
                 <td data-label="Price"><?php echo $values['current_price']?></td>
                 <td data-label="Farmer name"><?php echo $values['firstname']?> <?php echo $values['lastname']?></td>
-                <td data-label= "Farmer details" id=""><button id="myBtn">View Profile</button></td>
+                <td data-label= "Farmer details" id=""><button id="myBtn" onclick="openModal(<?php echo $values['farmer_id']; ?>)">View Profile</button></td>
 
                 </tr>
+                <div class="model1" id="farmPro<?php echo $values['farmer_id'] ?>">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal(<?php echo $values['farmer_id'] ?>)">&times;</span>
+                                
+                                <div>👨‍🌾 <?php echo $values['firstname']." ".$values['lastname'];?></div>
+                                <div>🏠 <?php echo $values['farm_name'];?></div>
+                                <br>
+                                <div>📞 <?php echo $values['contactno1'];?></div>
+                                <div>📞 <?php echo $values['contactno2'];?></div>
+                               
+                                
+
+                        </div>
+                    </div>
 
                <?php
                 }
                 ?>
             </tbody>
         </table>
+        
+        
 
 
     </div>
@@ -159,6 +187,25 @@ foreach($driver_details as $keys => $values)
     
 
 </div>
+<script>
+    function closeModal(id) {
+        var mod = document.querySelector("#farmPro"+id);
+        mod.style.display = 'none';
+        
+    }
+
+    function openModal(id) {
+        var mod = document.querySelector("#farmPro"+id);
+        mod.style.display = 'block';
+
+    }
+
+    window.onclick = function(event) {
+        if (event.target == mod) {
+        mod.style.display = "none";
+        }
+    }
+</script>
 
 <?php //include("profile-popup.php"); ?>
 
