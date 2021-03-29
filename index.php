@@ -104,6 +104,12 @@ $routes = [
     'driver/addvehicle'=> 'DriverController@addvehicle',
     'driver/addVehicleController'=> 'DriverController@addnewvehicle',
     'driver/removevehicle'=> 'DriverController@removevehicle',
+    'mentor/delete_item' => 'mentorController@delete_item',
+    'mentor/edit_item' => 'mentorController@edit_item',
+    'mentor/public_profile' => 'mentorController@public_profile',
+    'mentor/verticalnavbar' => 'mentorController@view_farmerlist',
+    
+    
 
 
 

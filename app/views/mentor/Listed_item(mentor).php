@@ -31,7 +31,6 @@
     </tr>
 
     <?php
-    
      foreach($data as $key => $values){
        $ordid = $values['vege_name'];
        $itype = $values['Item_type'];
@@ -39,7 +38,7 @@
        $minweight = $values['min_weight'];
        $enddate = $values['item_end'];
        $price = $values['total_cost'];
-       $fname = $values['firstname'];
+       $fname = $values['firstname']." ".$values['lastname'];
        $itemid = $values['item_id'];
 
 

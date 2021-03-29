@@ -75,7 +75,9 @@ class item extends db_model{
 	function edit_item($id){
 		$sql = "SELECT vegetable.vege_name, item.item_id, item.item_type, item.item_des, item.min_weight, item.avail_weight, item.item_start, item.item_end, item.total_cost FROM item INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id WHERE item.item_id='".$id."'";
 		$result=$this->connection->query($sql);
+		
 		$finale=array();
+		
 		if($result){
       while($row=mysqli_fetch_assoc($result))
 			array_push($finale,$row);

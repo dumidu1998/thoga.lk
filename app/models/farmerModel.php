@@ -60,6 +60,20 @@ class farmerModel extends db_model{
         return $this->read('vegetable',array('*'),null);
     }
 
+    function get_profiledetails($farmerid){
+      $sql="SELECT *,address.address_line1,address.address_line2,address.city,address.district,address.zip_code,address.user_id,cities.id,cities.name_en,districts.id,district.name_en,farmer.farmer_id,farmer.farm_name FROM user INNER JOIN address ON user.user_id=address.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN districts ON address.district=districts.id INNER JOIN cities ON user.nearestcity1=cities.id INNER JOIN cities ON user.nearestcity2=cities.id INNER JOIN farmer ON user.user_id=farmer.user_id WHERE farmer.farmer_id = '".$farmerid."' ";
+      $result=$this->connection->query($sql);
+        $arr=array();
+        if($result){
+         while($row=mysqli_fetch_assoc($result))
+         array_push($arr,$row);
+       return $arr;
+     
+ 
+         }else
+         echo "error";
+    }
+
     
 }
 

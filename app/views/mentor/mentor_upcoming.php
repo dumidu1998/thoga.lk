@@ -3,19 +3,35 @@
 <title>Mentor Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/mentor/upcoming.css">
+<link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/mentor/vertical.css">
 
 
 </head>
  
 <body>
    <?php 
-   include 'navbar_dash.php';
+   include  'navbar_dash.php';
    
    ?>
 
 
  <h1 class="title">Upcoming Orders</h1>
- <?php include 'verticalnavbar.php';?>
+ <div class="dropdown">
+  <button class="dropbtn">Farmer List</button>
+  <div class="dropdown-content">
+<?php
+   //print_r($data1);
+  foreach($data1 as $keys => $row){
+    $farmername = $row['firstname']." ".$row['lastname'];
+    $fid=$row['farmer_id'];?>
+    <a href="public_profile?id=<?php echo $fid; ?>"><?php echo $farmername; ?></a>
+    
+<?php
+  }
+  ?>
+    
+  </div>
+</div>
 <div  style="height:auto;">
 
 <div style="overflow-x:auto;">
