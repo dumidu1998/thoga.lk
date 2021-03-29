@@ -26,9 +26,23 @@ class mentorModel extends db_model{
 	}
     
 	public function reject($id,$reason){
-        return $this->update('mentor',array('verified_state'=>'0','reject_reason'=>$reason),array('mentor_id'=>$id,));
+		return $this->update('mentor',array('verified_state'=>'0','reject_reason'=>$reason),array('mentor_id'=>$id,));
+	}
+	
+	public function getallmentorsindistrict($id){
+		$sql="SELECT mentor.*,user.*,address.*,cities.name_en as city FROM mentor INNER JOIN user ON mentor.user_id=user.user_id 
+		INNER JOIN address ON address.user_id=user.user_id INNER JOIN cities ON address.city=cities.id WHERE address.district=".$id;
+		return $this->queryfromsql($sql);
 	}
     
+	public function rejectassignmentor($mid,$fid){
+		return $this->update('farmer',array('mentor_id'=>'-1'),array('farmer_id'=>$fid));
+	}
+
+	public function assignmentor($mid,$fid){
+		$this->queryfromsql("UPDATE mentor SET farmer_count= farmer_count+1");
+		return $this->update('farmer',array('mentor_id'=>$mid),array('farmer_id'=>$fid));
+	}
 
 }
 

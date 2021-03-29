@@ -59,7 +59,8 @@ class ForumController{
         if(isset($_POST['reply'])&&isset($_SESSION['user'])){
             $reply=array('user_id'=>$_SESSION['user'][0]['user_id'],'reply'=>$_POST['reply'],'vote'=>0,'post_id'=>$_POST['post_id']);
             $output=$this->forum->addreply($reply);
-            if($output==1){
+            print_r($reply);
+            if($output){
                 header("location: /thoga.lk/forum/fullview?post_id=".$_POST['post_id']."&added=1");
             }else{
                 header("location: /thoga.lk/forum/fullview?post_id=".$_POST['post_id']."&added=0");

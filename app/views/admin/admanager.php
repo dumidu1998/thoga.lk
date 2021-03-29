@@ -48,9 +48,9 @@
         <td data-column="Caption"><?php echo $caption; ?></td>
         <td data-column="Company"><?php echo $company; ?></td>
         <td data-column="Position"><?php echo $position; ?></td>
-        <td data-column="Status"><?php echo ($id==1?"Active":"Disabled"); ?></td>
+        <td data-column="Status"><?php echo ($status==1?"Active":"Disabled"); ?></td>
         <td class="centerit" data-column="Preview"><img src="<?php echo "/thoga.lk/public/uploads/ads/AD_".$id.".jpg" ?>" alt="<?php echo $caption;?>" class="preview"></td>
-        <td data-column="Action"><a href="" class="actionA">Disable</a><a href="" class="actionA">Delete</a></td>
+        <td data-column="Action"><a href="disablead?id=<?php echo $id; ?>" class="actionA">Disable/Enable</a><a href="deletead?id=<?php echo $id; ?>" class="actionA">Delete</a></td>
       </tr>
       <?php } ?>
     </tbody>
