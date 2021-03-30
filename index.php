@@ -94,6 +94,9 @@ $routes = [
     'admin/addupload' => 'AdminController@addupload',
     'buyer/summary' => 'BuyerController@summary',
     'admin/addveg' => 'AdminController@addnewveg',
+    'admin/forummanager' =>'AdminController@forummanager',
+    'admin/deletereply' =>'AdminController@deletereply',
+    'admin/deletepost' =>'AdminController@deletepost',
     'buyer/addr' => 'BuyerController@addr',
     'driver/changeav0' => 'DriverController@changeavailability0',
     'driver/changeav1' => 'DriverController@changeavailability1',
@@ -109,6 +112,11 @@ $routes = [
     'driver/changestatus' => 'DriverController@changeorder_status',
     'driver/changepwd' => 'DriverController@changepwd',
 
+    'forum/unliker'=>'ForumController@unliker',
+    'forum/liker'=>'ForumController@liker',
+    'forum/likep'=>'ForumController@likep',
+    'forum/unlikep'=>'ForumController@unlikep',
+    'logout'=>'LoginController@logout',
 
 
 

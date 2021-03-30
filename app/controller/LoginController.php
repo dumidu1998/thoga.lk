@@ -54,14 +54,32 @@ class LoginController{
     public function admin_login(){
         $View = new View("login/admin_login");
     }
+    public function logout(){
+        session_destroy();
+        header("location: /thoga.lk");
+    }
 
     public function admin_log(){
+        // session_destroy();
+        session_start();
         if(isset($_POST['login'])){
             $uname = $_POST['uname'];
             $pwd = md5($_POST['pwd']);
             $result = $this->user->log_admin($uname,$pwd);
+            $out = array();
             if(mysqli_num_rows($result)){
+                while ($row = mysqli_fetch_assoc($result))
+                    array_push($out, $row);
+                $adminid=$out[0]['user_name'];
+                $_SESSION['loginerror']=0;
+                $_SESSION['usertype']='admin';
+                $_SESSION['admin_uname']=$adminid;
+                print_r($_SESSION);
                 header("location:/thoga.lk/admin");
+            }else{
+                $_SESSION['loginerror']=1;
+                header("location:/thoga.lk/adminlogin?error=1");
+                
             }
         }
     }

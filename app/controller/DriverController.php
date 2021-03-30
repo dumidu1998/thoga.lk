@@ -2,7 +2,6 @@
 
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../../core/db_model.php');
-
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
@@ -63,8 +62,6 @@ class DriverController extends db_model{
         $all= json_encode(array_merge($orderdates,$dates));
         $view = new View("driver/showcalendar");
         $view->assign('alldates',$all);
-
-        
     }
 
     public function unavailabledates(){

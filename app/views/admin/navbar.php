@@ -9,12 +9,21 @@
 </head>
 <body>
 <div>
+<?php
+  session_start();
+  $url= $_SERVER['REQUEST_URI'];
+  if(isset($_SESSION['admin_uname']) && $_SESSION['usertype']=='admin'){
+    // header("location:/thoga.lk/adminlogin?logintogo=1");
+  }else{
+    header("location:/thoga.lk/adminlogin?logintogo=1");
+  }
+?>
 <div class="topnav" id="myTopnav">
   <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class = "logo"></a>
-  <a href="/thoga.lk/admin" class="active">Dashboard</a>
-  <a href="/thoga.lk/admin#dapplications">Requests</a>
-  <a href="/thoga.lk/admin/admanager">Ad Management</a>
-  <a href="/thoga.lk/forum">Forum</a>
+  <a href="/thoga.lk/admin" class="<?php echo ($url=='/thoga.lk/admin')?'active':'';?>">Dashboard</a>
+  <a href="/thoga.lk/admin#dapplications" >Requests</a>
+  <a href="/thoga.lk/admin/admanager" class="<?php echo ($url=='/thoga.lk/admin/admanager')?'active':'';?>">Ad Management</a>
+  <a href="/thoga.lk/forum" target="_blank">Forum</a>
   <div class = "nav-right">
     <a href="/thoga.lk/logout">Log Out</a>
 

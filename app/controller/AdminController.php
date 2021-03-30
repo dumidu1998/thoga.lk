@@ -9,6 +9,7 @@ require_once(__DIR__.'/../models/farmerModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/userModel.php');
+require_once(__DIR__.'/../models/forumModel.php');
 
 
 class AdminController {
@@ -22,6 +23,7 @@ class AdminController {
         $this->orders = new orderModel();
         $this->vehicles = new vehicleModel();
         $this->users = new userModel();
+        $this->forum = new forumModel();
     }
 
     public function index(){
@@ -271,6 +273,16 @@ class AdminController {
         $this->model->disablead($id);
         header("location: /thoga.lk/admin/admanager");
     }
+    public function deletepost(){
+        $id=$_GET['id'];
+        $this->forum->deletepost($id);
+        header("location: /thoga.lk/admin/forummanager");
+    }
+    public function deletereply(){
+        $id=$_GET['id'];
+        $this->forum->deletereply($id);
+        header("location: /thoga.lk/admin/forummanager");
+    }
 
     public function addadmin(){
         session_start();
@@ -289,8 +301,8 @@ class AdminController {
         
         $view = new View("admin/add_veg");
         $view->assign('vegetables', $results);
-        
     }
+
     public function editVeg(){
         if(isset($_POST['edit'])){
             $this->vegetables->update_vegetables($_POST['id'],$_POST['prev_price'],$_POST['curr_price'],$_POST['veg_name']);
@@ -307,7 +319,26 @@ class AdminController {
     public function addnewveg(){
         if(isset($_POST['add'])){
             $this->vegetables->add_vegetable($_POST['veg_name'],$_POST['price']);
-        } 
+        }
+        header("location: vegetables");
+
+    }
+
+    public function forummanager(){
+        $postsandreplies=$this->forum->getpostswithtopreply();
+        $arr=array();
+        $replies=array();
+        $reply=array();
+        foreach($postsandreplies as $key=>$values){
+            array_push($arr,['id'=>$values['post_id'],'user_id'=>$values['user_id'],'title'=>$values['title'],'description'=>$values['description'],'fname'=>$values['firstname'],'lname'=>$values['lastname']]);
+            $replies=$this->forum->getreplyandauthor($values['post_id']);
+            array_push($arr[$key],['replies'=>$replies]);
+        }
+        $key=0;
+        // print_r($arr);
+        $view = new View("admin/forumManager");
+        $view->assign('data', $arr);
+
     }
 
     public function addupload(){

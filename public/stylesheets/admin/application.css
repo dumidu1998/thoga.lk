@@ -279,6 +279,7 @@ tr td{
   background-color: rgb(170, 0, 0);
   font-size: 18px;
   color:white;
+  cursor: pointer;
 }
 
 .back-button {

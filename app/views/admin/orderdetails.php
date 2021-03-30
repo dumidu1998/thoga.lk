@@ -66,7 +66,7 @@
             <td data-column="Unit Price">Rs. <?php echo number_format($values['total_cost'],2) ?></td>
             <td data-column="Weight"><?php echo number_format($values['weight'],2) ?> kg</td>
             <td data-column="Total Price">Rs. <?php echo number_format($values['weight']*$values['total_cost'],2) ?></td>
-            <td data-column="Farmer Name"><a href="user?id=<?php echo $values['farmer_id']?>" target="_blank"><?php echo $values['firstname']." ".$values['lastname'] ?></a></td>
+            <td data-column="Farmer Name"><a href="userview?uid=<?php echo $values['farmer_id']?>" target="_blank"><?php echo $values['firstname']." ".$values['lastname'] ?></a></td>
           </tr>
           <?php }?>
         </tbody>

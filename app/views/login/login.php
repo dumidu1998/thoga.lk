@@ -36,9 +36,13 @@
   session_start();
   if(isset($_SESSION['signupstatus'])){
     $status=$_SESSION['signupstatus'];
-    if($status==3){include ('sucess.php');
-    }elseif($status==4){include('sucess-SMS.php');
-    }else{include('failed.php');}
+    if($status==3){
+      include ('sucess.php');
+    }elseif($status==4){
+      include('sucess-SMS.php');
+    }else{
+      include('failed.php');
+    }
     unset($_SESSION['signupstatus']);
   }
   if(isset($_SESSION['loginerror'])){
