@@ -107,6 +107,7 @@ $routes = [
     'driver/removeunavail'=>'DriverController@removeunavailability',
     'farmer/add_item2' => 'FarmerController@add_item2',
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
+    'farmer/updateprofilepic'=>'FarmerController@updateprofilepic',
     'driver/logout' => 'DriverController@logout',
     'buyer/cancelOrder' => 'BuyerController@cancelOrder',
     'driver/addvehicle'=> 'DriverController@addvehicle',
@@ -118,6 +119,8 @@ $routes = [
     'mentor/verticalnavbar' => 'mentorController@view_farmerlist',
     'farmer/editprofile' => 'FarmerController@editprofile',
     'farmer/removementor' => 'FarmerController@removementor',
+    'farmer/changepwd' => 'FarmerController@changepwd',
+    'farmer/requestmentor' => 'FarmerController@requestmentor',
     'mentor/editprofile' => 'mentorController@editprofile',
     'farmer/viewmore' => 'FarmerController@viewmore',
     

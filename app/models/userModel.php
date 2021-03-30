@@ -55,6 +55,10 @@ class userModel extends db_model
 
     public function obtainpassword($uid){
 		return $this->read('user',array('password'),array('user_id'=>$uid));
+    }
+    
+    public function getmentorid($uid){
+		return $this->read('farmer',array('mentor_id'),array('user_id'=>$uid));
         
     }
 

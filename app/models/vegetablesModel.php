@@ -22,4 +22,8 @@ class vegetablesModel extends db_model{
         $sql= "INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`, `current_price`, `prev_price`) VALUES (NULL, '".$name."', '".$name.".jpg', ".$price.", '')";
         $result = $this->connection->query($sql);
     }
+    
+    public function getmprices(){
+        return $this->read('vegetable',array('*'),null);
+    }
 }

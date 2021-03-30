@@ -34,7 +34,6 @@
     </tr>
 
 <?php
-
 foreach($data as $key => $values){
   $ordid= $values['order_id'];
   $pdate= $values['pickup_date'];
@@ -48,21 +47,16 @@ foreach($data as $key => $values){
  <tr>
  <td><?php echo $ordid;?></td>
  <td><?php echo $pdate;?></td>
- <td><?php echo number_format($tweight,2).' kg';?></td>
+ <td><?php echo number_format($tweight,0).' kg';?></td>
  <td>Rs. <?php echo number_format($cost,2);?></td>
  <td><?php echo $bname;?></td>
  <td>
- <a class="more" href="viewmore">view more</a>
+ <a class="more" name='link' onclick="" href="viewmore?id=<?php echo $ordid;?>">view more</a>
  </td>
 </tr>
-    
-
 <?php
 }
 ?>
-
-
-
   </table>
 </div>
 </div>

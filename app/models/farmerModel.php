@@ -102,7 +102,17 @@ class farmerModel extends db_model{
     }
     
 public function read_id($id){
-return $this->read('farmer', array('*'), array('user_id'=>$id));
+  return $this->read('farmer', array('*'), array('user_id'=>$id));
+
+}
+
+public function requestmentor($id){
+  return $this->update('farmer', array('mentor_id'=>'0'), array('user_id'=>$id));
+
+}
+
+public function removementor($id){
+  return $this->update('farmer', array('mentor_id'=>'-1'), array('farmer_id'=>$id));
 
 }
 

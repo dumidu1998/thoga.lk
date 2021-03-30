@@ -8,6 +8,7 @@ require_once(__DIR__.'/../models/insertmodel.php');
 require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../models/insertMentor.php');
 require_once(__DIR__.'/../models/orderModel.php');
+require_once(__DIR__.'/../models/vegetablesModel.php');
 
 
 
@@ -20,6 +21,7 @@ class FarmerController{
         $this->itemModel = new item();
         $this->userModel = new userModel();
         $this->oModel = new orderModel();
+        $this->vegeModel = new vegetablesModel();
 
 
 
@@ -61,7 +63,9 @@ class FarmerController{
         
     }
     public function view_price(){
+        $market=$this->vegeModel->getmprices();
         $view = new view("Farmer/price");
+        $view->assign('marketp',$market);
     }
 
     public function profile(){
@@ -93,12 +97,79 @@ class FarmerController{
 
     }
 
+    public function requestmentor(){
+        $fid=$_GET['id'];
+        $out=$this->fmodel->requestmentor($fid);
+        session_start();
+        print_r($out);
+        if($out){
+            $_SESSION['farmer']['mentor_id']=0;
+            header("location:/thoga.lk/farmer/dash");
+        }
+    }
     
+    public function changepwd(){
+        if(isset($_POST['changepwd'])){
+            $curpwd=$_POST['currentpwd'];
+            $newpwd=$_POST['newpwd'];
+            $confirmpwd=$_POST['confirmpwd'];
+            $uid=$_POST['id'];
+            $curpwddb=$this->userModel->obtainpassword($uid);
+            print_r($curpwddb);
+            $curpwddb=$curpwddb[0]['password'];
+            print_r($curpwddb);
+            if(strcmp($curpwddb,md5($curpwd))){
+                echo "error";
+            header("location:/thoga.lk/farmer/profile?error=1");
+        }else{
+            echo"db ok";
+            if(strcmp($confirmpwd,$newpwd)){
+                echo "error1";
+                header("location:/thoga.lk/farmer/profile?error=1");
+            }else{
+                $out=$this->userModel->editpassword(md5($newpwd),$uid);
+                if($out){
+                    header("location:/thoga.lk/farmer/profile?pwderror=0");
+                }else{
 
+                }
+                }
+            }
+        }
+
+    }
+
+    public function updateprofilepic(){
+        session_start();
+        print_r($_FILES['profpic']);
+        if(isset($_FILES['profpic'])){
+            $errors= array();
+            $file_name = $_FILES['profpic']['name'];
+            $file_tmp =$_FILES['profpic']['tmp_name'];        
+            $file_type=$_FILES['profpic']['type'];
+            $temp=explode('.',$_FILES['profpic']['name']);
+            $file_ext=end($temp);
+            $extensions= array("jpeg","jpg","png");
+
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            $id=$_SESSION['user'][0]['user_id'];
+            if(empty($errors)==true){
+                move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/farmerpropics/".$id.".jpg");
+                echo "Success";
+                header("location:/thoga.lk/farmer/profile");
+             }else{
+                print_r($errors);
+             }
+        }else{
+            echo "file Upload Failed";
+        }
+        
+    }  
+   
     public function editprofile(){
         print_r($_GET);
-        
-
         $out= $this->fmodel->updatedetails($_GET);
         if($out){
             header("location:/thoga.lk/farmer/profile?error=0");
@@ -133,13 +204,7 @@ class FarmerController{
             $itemtype = $_POST['itemtype'];
             $ides = $_POST['ides'];
             
-           
-
-
-            // $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides);
-            
             $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
-            // header("location: /thoga.lk/Farmer/insert");
             header("location: /thoga.lk/farmer/insert");
         }
     }
@@ -153,9 +218,24 @@ class FarmerController{
         $view = new view("Farmer/aboutus");
     }
 
-    public function view_more(){
-        
+    public function viewmore(){
+        if(isset($_GET['id'])){
+            $order_id=$_GET['id'];
+            $res = $this->oModel->order_drivername($order_id);
+            $buyer = $this->oModel->order_buyername($order_id);
+            $items = $this->oModel->orderdetails_total($order_id);
+            $city= $this->oModel->order_city($order_id);
+            $ordstatus=$this->oModel->getstatus($order_id);
+        }
+        $result = $this->oModel->get_order_details($order_id);
         $view = new View("Farmer/view_more");
+        $view->assign('order_id',$order_id);
+        $view->assign('view',$result);
+        $view->assign('res',$res);
+        $view->assign('buyer',$buyer);
+        $view->assign('cityy',$city);
+        $view->assign('items',$items);
+        $view->assign('ordstatus',$ordstatus);
     }
 
     public function edit(){
@@ -176,39 +256,21 @@ class FarmerController{
         $itemid= $_GET['itemid'];
         $result=$this->itemModel->submit_edit($availweight, $minweight,  $startdate, $enddate, $price, $itemdes, $itemid);
         header("location: /thoga.lk/farmer/insert");
-
-
     }
 
-
     public function delete_item(){
-       
         $itemid= $_GET['id'];
         echo "dddd"; 
         $result = $this->itemModel->delete_item($itemid);
         header("location: /thoga.lk/farmer/listed");
-
-
     }
 
-
-    public function viewmore(){
-        if(isset($_POST['viewmore'])){
-            $order_id=$_POST['order_id'];
-            $res = $this->oModel->order_drivername($order_id);
-            $buyer = $this->oModel->order_buyername($order_id);
-            $items = $this->oModel->orderdetails_total($order_id);
-            $city= $this->oModel->order_city($order_id);
-            $result = $this->oModel->get_order_details($order_id);
-        }
-        $view = new View("farmer/farmer_viewmore");
-        $view->assign('order_id',$order_id);
-        $view->assign('view',$result);
-        $view->assign('res',$res);
-        $view->assign('buyer',$buyer);
-        $view->assign('cityy',$city);
-        $view->assign('items',$items);
+    public function removementor(){
+        $fid=$_GET['fid'];
+        $this->fmodel->removementor($fid);
+        header("location: /thoga.lk/farmer/profile");
     }
+
 
 }
 

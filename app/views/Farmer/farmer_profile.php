@@ -35,8 +35,14 @@ if(isset($_GET['error']) && $_GET['error']==1){
     <div class="wrapper">
         <div class="user_pp">
             <!-- img -->
-            <img width="300px" src="/thoga.lk/public/images/Farmer/a.jpg" alt="">
-            <input type="file" value="upload image">
+            <img width="300px" src="/thoga.lk/public/uploads/farmerpropics/<?php echo $_SESSION['user'][0]['user_id'].'.jpg'?>" alt="">
+
+            <br><br>
+            <form action="updateprofilepic" method="post" enctype="multipart/form-data">
+            <input type="file" name="profpic" value="upload image">
+            <br>
+            <input type="submit" class="button2" value="update picture">    
+            </form>
 
         </div>
         <div class="user_details">
@@ -165,6 +171,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
 
 
             </form>
+            <button type='button' name='update' class='updt_btn' style="width:160px"  onclick='openModal()'>Update Password</button>
 
         </div>
 
@@ -173,6 +180,30 @@ if(isset($_GET['error']) && $_GET['error']==1){
             <img width="400px" src="/thoga.lk/public/images/Farmer/add.jpg" alt="">
 
         </div>
+        <div class="model1" id="myModal">
+                    <div class="modal-content" style="height:280px;">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <form action="changepwd" style="float:left" method="POST" autocomplete="new-password"  >
+                            <input type="hidden" value="<?php echo $all['user_id']?>" name="id">
+                            Current Password          : 
+                            <input type="password" style="width:60%"  name="currentpwd" required >
+                            <br>
+                            New Password          : 
+                            <input type="password" style="width:60%"  name="newpwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$">
+                            <br>
+                            
+                            Confirm New Password          : 
+                            <input type="password"  name="confirmpwd" style="width:60%" required  >
+                            <br>
+                            <center>
+                                <span>password should contain minimum 8 characters and with Digits and Letters including Capital Letter</span>
+                                <br>
+                                <button type='submit' name='changepwd' method="post" class='updt_btn'>Submit</button>
+                                <br>
+                            </center>
+                        </form>   
+                    </div>
+                </div>
 
     </div>
 
@@ -237,15 +268,32 @@ if(isset($_GET['error']) && $_GET['error']==1){
     </body>
 
 <script>
-var upBtn = document.getElementById("upBtn");
-var btn = document.getElementById("myBtn");
+    var upBtn = document.getElementById("upBtn");
+    var btn = document.getElementById("myBtn");
 
-btn.onclick = function() {
-    upBtn.style.display = "block";
-    btn.style.display = "none";
-}
+    btn.onclick = function() {
+        upBtn.style.display = "block";
+        btn.style.display = "none";
+    }
 
 
+    function closeModal() {
+        var mod = document.querySelector("#myModal");
+        mod.style.display = 'none';
+        
+    }
+
+    function openModal() {
+        var mod = document.querySelector("#myModal");
+        mod.style.display = 'block';
+
+    }
+
+    window.onclick = function(event) {
+        if (event.target == mod) {
+        mod.style.display = "none";
+        }
+    }
 </script>
 
 </html>
