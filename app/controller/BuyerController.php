@@ -27,9 +27,12 @@ class BuyerController {
     }
     public function index(){
          session_start();
-         $id = $_SESSION['user'][0]['user_id'];
-         $result = $this->buyer->get_id($id);
-         $_SESSION['buyer_id'] = $result;
+         if(!empty($_SESSION['user'][0]['user_id'])){
+             $id = $_SESSION['user'][0]['user_id'];
+             $result = $this->buyer->get_id($id);
+             $_SESSION['buyer_id'] = $result;
+
+         }
          $view = new View("buyer/index");
 
 

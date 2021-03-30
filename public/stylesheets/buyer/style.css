@@ -310,7 +310,7 @@ a.button_signup{
   font-family: Arial, Helvetica, sans-serif;
   background-color: whitesmoke;
   width: 100%;
-  margin-top: 31px;
+  margin-top: 100px;
 }
 @media (max-width: 768px){
 .organic_container{
@@ -565,10 +565,46 @@ img{
   .close_cart{
     display: block;
   }
+}
 
 
 
 
+.notice div {
+  display: none;
+  width: 130px;
+  padding: 10px;
+  font-size: .75em;
+  text-align: left;
+  background-color: inherit;
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: 10px;    
+}
+
+.notice div:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 11px solid #999999;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.notice:hover div {
+  display: block;
+}
+
+
+  
 
 
 

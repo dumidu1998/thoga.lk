@@ -28,7 +28,9 @@
     <?php
     // print_r($_SESSION['user']);
       if(isset($_SESSION['user'])){
-        echo  "<a href='#'><img src='/thoga.lk/public/images/driver/bell.jpg' alt='' class = 'bell_pic' width=50px height= 50px>";
+        echo  "<a href='#'><div class='notice'><img src='/thoga.lk/public/images/driver/bell.jpg' alt='' class = 'bell_pic' width=50px height= 50px> <div >
+        Here is the applicable note.
+    </div>  </div>";
 
       echo "<a href='logout'><button class='logout'>Log Out</button></a>";
       echo   "<a href='profile'><img src='/thoga.lk/public/images/buyer/b.png' alt='' class = 'user_pic' width=50px></a>";
@@ -38,7 +40,11 @@
 
       }
     ?>
-
+    
+        
+             
+       
+    
 
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
