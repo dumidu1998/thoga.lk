@@ -18,17 +18,16 @@
 
       ?>
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
+  <a href="dashboard" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
   <a href="dashboard" <?php echo (($url== "/thoga.lk/driver/dashboard")?( "class='active'"):("")); ?> >Dashboard</a>
   <a href="calendar" <?php echo (($url== "/thoga.lk/driver/calendar")?( "class='active'"):("")); ?> >Calendar</a>
-  <a href="/thoga.lk/forum" >Forum</a>
+  <a href="/thoga.lk/forum" <?php echo (($url== "/thoga.lk/forum")?( "class='active'"):("")); ?> >Forum</a>
   <a href="about_us" <?php echo (($url== "/thoga.lk/driver/about_us")?( "class='active'"):("")); ?> >About</a>
   <a id="google_translate_element"></a>
   <div class = "nav-right">
     <a href="logout">Logout</a>
     
     
-    <a href="#"><img src="/thoga.lk/public/images/driver/bell.jpg" alt="" class = "bell_pic" width=24px height= 24px>
     <a href="profile"<?php echo (($url== "/thoga.lk/driver/profile")?( "class='active'"):("")); ?> ><img src="/thoga.lk/public/images/driver/profile.png" alt="" class = "index_pic" width=24px height= 24px>
     
   </div>

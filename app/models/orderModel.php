@@ -59,7 +59,7 @@ class orderModel extends db_model{
     function getdriver_upcomingorders($id){
 
 
-      $sql= "SELECT * FROM  orders where orders.pickup_date>= CURRENT_TIMESTAMP AND driver_id='".$id."'";
+      $sql= "SELECT * FROM  orders where orders.pickup_date>= CURRENT_TIMESTAMP AND status='0' AND driver_id='".$id."'" ;
 		
       $result=$this->connection->query($sql);
       
@@ -143,6 +143,19 @@ class orderModel extends db_model{
 		echo "error";
 
   }
+  function  order_city($id){
+		$sql= "SELECT a.name_en, b.* FROM districts AS a  INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+		
+		$result=$this->connection->query($sql);
+		
+		$finale=array();
+		if($result){
+        while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		    return $finale;
+		}else
+		echo "error";
+	}
   
   function  cancelorder($oid){
     return $this->update('orders',array('status'=>'4'),array('order_id'=>$oid));
@@ -215,7 +228,12 @@ class orderModel extends db_model{
 
  }
 
+    function changeorder_status($orderid,$status){
+      return $this->update('orders',array('status'=>$status),array('order_id'=>$orderid));
+    }
   
-
+    function getstatus($order_id){
+      return $this->join2tables(array('status.description'),'orders','status','orders.status=status.status_id',array('orders.order_id'=>$order_id));
+    }
     
 }

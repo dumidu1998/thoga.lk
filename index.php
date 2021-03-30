@@ -68,8 +68,6 @@ $routes = [
     'buyer/about_us' => 'BuyerController@aboutus',
     'admin' => 'AdminController@index',
     'admin/vieworders' => 'AdminController@vieworders',
-    'farmer/aboutus' => 'FarmerController@about',
-    'mentor/aboutus' => 'mentorController@about',
     'admin/admanager' => 'AdminController@admanager',
     'adminlogin' => 'LoginController@admin_login',
     'admin/log' => 'LoginController@admin_log',
@@ -123,6 +121,9 @@ $routes = [
     'farmer/viewmore' => 'FarmerController@viewmore',
     
     
+    'driver/changestatus' => 'DriverController@changeorder_status',
+    'driver/changepwd' => 'DriverController@changepwd',
+
     'forum/unliker'=>'ForumController@unliker',
     'forum/liker'=>'ForumController@liker',
     'forum/likep'=>'ForumController@likep',

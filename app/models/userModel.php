@@ -49,7 +49,14 @@ class userModel extends db_model
         return $this->queryfromsql($sql);
     }
 
+    public function editpassword($pwd,$uid){
+        return $this->update('user',array('password'=>$pwd),array('user_id'=>$uid));
+    }
 
+    public function obtainpassword($uid){
+		return $this->read('user',array('password'),array('user_id'=>$uid));
+        
+    }
 
 }
 ?>
