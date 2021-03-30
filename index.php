@@ -113,6 +113,7 @@ $routes = [
     'forum/liker'=>'ForumController@liker',
     'forum/likep'=>'ForumController@likep',
     'forum/unlikep'=>'ForumController@unlikep',
+    'logout'=>'LoginController@logout',
 
 
 

@@ -10,7 +10,13 @@
 <body>
 <div>
 <?php
+  session_start();
   $url= $_SERVER['REQUEST_URI'];
+  if(isset($_SESSION['admin_uname']) && $_SESSION['usertype']=='admin'){
+    // header("location:/thoga.lk/adminlogin?logintogo=1");
+  }else{
+    header("location:/thoga.lk/adminlogin?logintogo=1");
+  }
 ?>
 <div class="topnav" id="myTopnav">
   <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class = "logo"></a>

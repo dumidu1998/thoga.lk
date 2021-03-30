@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.min.css" type='text/css'>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.css" type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
+
 
     <title>Forum</title>
 </head>
@@ -32,6 +34,9 @@
         }else{
             include (__DIR__."/../buyer/navbar.php");
         }
+
+        
+        ?>
     ?>
 
     <div class="container">
@@ -158,10 +163,7 @@
         }
         }
 
-        function dd(){
-            alert("d");
-        }
-
+        
         function my(){
             vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
             var z=document.querySelectorAll('.like-unlike');
@@ -171,10 +173,22 @@
             }
         }
 
+        function success(){
+            swal("SUCCESS!", "Profile updated successfully!", "success");
+        };
+        function error(){
+            swal("ERROR", "Please Try Again!", "error");
+        };
+
         function auto_grow(element) {
             element.style.height = "5px";
             element.style.height = (element.scrollHeight)+"px";
         }
     </script>
+    <?php 
+    if(isset($_GET['added'])){
+            echo"<script>success();</script>";
+        }
+        ?>
 </body>
 </html>
