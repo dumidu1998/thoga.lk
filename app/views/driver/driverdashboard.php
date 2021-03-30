@@ -5,10 +5,12 @@
 		<title>Driver Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/driverdashboard.css">
+
 	</head>
 
 	<body>
-	<?php include("navdriverdashboard.php"); ?>
+	<?php include("navdriverdashboard.php"); 
+	?>
 
 		<header>
 			<div class="topic">
@@ -66,7 +68,10 @@
 		</div>
     
 	
-		<?php include("footer.php"); ?> 
+		<?php 
+			
+	include("footer.php"); ?> 
 		
 	</body>
+	
 </html>

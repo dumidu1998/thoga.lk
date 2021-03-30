@@ -107,6 +107,7 @@ $routes = [
     'driver/addVehicleController'=> 'DriverController@addnewvehicle',
     'driver/removevehicle'=> 'DriverController@removevehicle',
     'driver/changestatus' => 'DriverController@changeorder_status',
+    'driver/changepwd' => 'DriverController@changepwd',
 
 
 

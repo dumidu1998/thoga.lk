@@ -19,7 +19,7 @@ header{
 .button1{
     cursor: pointer;
     background-color: #44925b91;
-    border: none;
+    border: 1px;
     text-decoration: overline;
     font-size: 16px;
     font-weight: bold;

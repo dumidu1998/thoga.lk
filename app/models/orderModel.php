@@ -143,6 +143,19 @@ class orderModel extends db_model{
 		echo "error";
 
   }
+  function  order_city($id){
+		$sql= "SELECT a.name_en, b.* FROM districts AS a  INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+		
+		$result=$this->connection->query($sql);
+		
+		$finale=array();
+		if($result){
+        while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		    return $finale;
+		}else
+		echo "error";
+	}
   
   function  cancelorder($oid){
     return $this->update('orders',array('status'=>'4'),array('order_id'=>$oid));
@@ -178,7 +191,7 @@ class orderModel extends db_model{
     }
   
     function getstatus($order_id){
-      return $this->read(order)
+      return $this->join2tables(array('status.description'),'orders','status','orders.status=status.status_id',array('orders.order_id'=>$order_id));
     }
     
 }
