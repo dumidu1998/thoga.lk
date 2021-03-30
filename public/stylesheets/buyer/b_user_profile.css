@@ -1,43 +1,77 @@
-.wrapper2{
-  margin-top: 100px;
+
+
+body {
+  /* background-color: rgb(255, 255, 255); */
+  /* background: url('/thoga.lk/public/images/driver/98.jpg'); */
+  /* #background-image:url("../../../public/images/driver/img7.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.picturebox{
+  margin:10px;
+}
+.wrapper{
+  margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-gap: 10px ;
+  grid-gap: 90px ;
+  
+}
+.user_pp{
+  margin:10px;
+}
+.topic{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align:center;
+  color:darkblue;
+  margin-top:80px;
 }
 .user_details{
  margin-top: auto;
+}
 
-
+h1{
+  color:black;
 }
 .user_details label{
   font-size: large;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-right: 20px;
+  margin-right: 10px;
 
 
 }
 .adress_data label{
   font-size: medium;
-  font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-right: 20px;
+  font-family: sans-serif;
+  margin-right: 10px;
 
 
 }
-@media (max-width:768px){
-  .wrapper2{
+@media screen and (max-width:768px){
+  .wrapper{
       display: block;
   }
-  .wrapper2 img{
+  .wrapper img{
       width: 100%;
   }
  
 }
 .data_wrapper{
-  margin: 30px;
+  margin: 2px;
 }
 input[type = text]{
   width: 75%;
   padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+}
+input[type = password]{
+  width: 75%;
+  padding: 10px 15px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -58,8 +92,25 @@ input[type = text]{
   width: 90%;
   margin: auto;
   margin-top: 50px;
+  margin-bottom: 30px;
+}
+.button2 {
+  color:white;
+  text-decoration: none;
+  background:  #4CAF50;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  margin: 10px;
 }
 
+.swal-footer {
+  text-align: center;
+}
 
 table {
   
@@ -119,7 +170,7 @@ table th {
   }
   
   table td::before {
-    
+   
     content: attr(data-label);
     float: left;
     font-weight: bold;
@@ -136,7 +187,7 @@ table th {
   z-index: 1; 
   position: fixed;
   padding-bottom: 20%;
-  padding-top: 100px;
+  padding-top: 100px; 
   left: 0;
   top: 0;
   width: 100%; 
@@ -144,7 +195,6 @@ table th {
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
 }
-
 
 .modal-content {
   background-color: #fefefe;
@@ -198,5 +248,46 @@ button:hover {
   border: 2px solid #555555;
   padding: 10px;
   width: 100px;
+  margin-top:5px;
 
 }
+
+
+.model1{
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 25px;
+  border: 8px solid #4CAF50;
+  outline: 8px solid #2E5F3E;
+  font-size:12px;
+  width: 45%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
