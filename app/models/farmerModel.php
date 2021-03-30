@@ -60,6 +60,21 @@ class farmerModel extends db_model{
         return $this->read('vegetable',array('*'),null);
     }
 
+    function updatedetails($data){
+      session_start();
+      $firstname=$data['fname'];
+          $lastname=$data['lname'];
+          $mobile1=$data['mobileno1'];
+          $mobile2=$data['mobileno2'];
+        $user_id=$_SESSION['user'][0]['user_id'];;
+  
+  
+      $sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
+      $result=$this->connection->query($sql);
+      if($result){ return true;}else{return false;}
+    }
+  
+
 
     
     function getfarmerallbyid($id){

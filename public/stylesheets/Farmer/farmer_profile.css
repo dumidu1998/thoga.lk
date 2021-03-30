@@ -205,3 +205,35 @@ input[type = text]{
     padding: 10px;
     width: 100px;
 
+  }
+  .dele{
+
+    background-color: white;
+    color:red;
+    border: 2px solid #555555;
+    padding: 10px;
+    width: 70px;
+    
+    
+  
+  }
+  .dele:hover{
+    background-color: #555555;
+    color: white;
+  }
+
+  .more{
+
+    background-color: white;
+    color:blue;
+    border: 2px solid #555555;
+    padding: 10px;
+    width: 70px;
+    
+    
+  
+  }
+  .more:hover{
+    background-color: #555555;
+    color: white;
+  }

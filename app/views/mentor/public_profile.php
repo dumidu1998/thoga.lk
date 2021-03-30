@@ -10,7 +10,7 @@
 <body>
 
 
-   <?php// include 'navbar_dash.php';?> 
+   <?php include 'navbar_dash.php';?> 
 
    
     <div class="wrapper">

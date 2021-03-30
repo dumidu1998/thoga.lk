@@ -130,7 +130,7 @@ class orderModel extends db_model{
 	}
 
   function  orderdetails_total($orderId){
-		$sql = "SELECT vegetable.vege_name, item.total_cost, order_details.weight, order_details.farmer_id, order_details.details_id, cities.name_en AS city, farmer.farm_name, districts.name_en AS district, provinces.name_en AS province, address.zip_code, address.address_line1, address.address_line2, user.firstname , user.lastname, user.contactno1 ,user.contactno2 FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id INNER JOIN farmer on farmer.farmer_id=order_details.farmer_id INNER JOIN address ON address.user_id=farmer.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN user ON farmer.user_id=user.user_id INNER JOIN districts ON districts.id=address.district INNER JOIN provinces ON provinces.id=address.province where order_details.order_id='".$orderId."'";
+		$sql = "SELECT vegetable.vege_name, item.total_cost, order_details.weight, order_details.farmer_id, order_details.details_id, order_details.order_id,orders.total_cost,orders.weight,orders.pickup_date,orders.buyer_id,buyer.buyer_id,buyer.b_name, cities.name_en AS city, farmer.farm_name, districts.name_en AS district, provinces.name_en AS province, address.zip_code, address.address_line1, address.address_line2, user.firstname , user.lastname, user.contactno1 ,user.contactno2 FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN orders ON order_details.order_id=orders.order_id INNER JOIN buyer ON buyer.buyer_id=orders.buyer_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id INNER JOIN farmer on farmer.farmer_id=order_details.farmer_id INNER JOIN address ON address.user_id=farmer.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN user ON farmer.user_id=user.user_id INNER JOIN districts ON districts.id=address.district INNER JOIN provinces ON provinces.id=address.province where order_details.order_id='".$orderId."'";
 		$result=$this->connection->query($sql);
 		$finale=array();
 		if($result){
@@ -171,6 +171,32 @@ class orderModel extends db_model{
   function getcancelled(){
     $sql = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.status=4 ORDER BY orders.order_id ASC";
     return $this->queryfromsql($sql);
+  }
+
+  function getOrderHistory($farmerid){
+    $sql="SELECT DISTINCT(order_details.order_id),buyer.b_name,order_details.order_id,order_details.farmer_id FROM orders 
+    INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id 
+    INNER JOIN order_details ON orders.order_id=order_details.order_id 
+    where orders.pickup_date < CURDATE() AND order_details.farmer_id='".$farmerid."' ";
+        $result=$this->connection->query($sql);
+        $arr=array();
+        $final=array();
+        if($result){
+         while($row=mysqli_fetch_assoc($result))
+         array_push($arr,$row);
+         foreach($arr as $key=>$values){
+           $orderdetails=$this->orderdetails_total($values['order_id']);
+            array_push($final,$orderdetails);
+         }
+        //  print_r($final);
+       return $final;
+     
+ 
+         }else
+         echo "error";
+          
+ 
+     
   }
 
   

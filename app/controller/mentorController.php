@@ -3,12 +3,18 @@
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/insertMentor.php');
 require_once(__DIR__.'/../models/farmerModel.php');
+require_once(__DIR__.'/../models/userModel.php');
+require_once(__DIR__.'/../models/mentorModel.php');
+
 
 class mentorController{
     function __construct(){
 
         $this->model=new insertMentor();
         $this->model2=new farmerModel();
+        $this->userModel = new userModel();
+        $this->mModel = new mentorModel();
+
        
     }
 
@@ -107,8 +113,31 @@ class mentorController{
         $view = new view("mentor/aboutus");
     }
     public function profile(){
+        session_start();
+        $id=$_SESSION['user'][0]['user_id'];
+        echo $id;
+
+        $result = $this->mModel->getmentorallbyid($id);
         $view = new view("mentor/profile");
+        $view->assign('all',$result[0]);
     }
+
+    public function editprofile(){
+        print_r($_GET);
+        
+
+        $out= $this->mModel->updatedetails($_GET);
+        if($out){
+            header("location:/thoga.lk/mentor/profile?error=0");
+        }else{
+            header("location:/thoga.lk/mentor/profile?error=1");
+        }
+    }  
+
+
+
+
+
   public function public_profile(){
         $farmerid=$_GET['id'];
        

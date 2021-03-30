@@ -29,7 +29,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
 <body>
 
 
-   <?php include 'profilenavbar.php';?> 
+   <?php //include 'navbar_dash.php';?> 
 
    
     <div class="wrapper">
@@ -39,18 +39,17 @@ if(isset($_GET['error']) && $_GET['error']==1){
             <input type="file" value="upload image">
 
         </div>
-        
         <div class="user_details">
             <!-- user details -->
             <form action="<?php echo $method ?>" method="get">
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">First name</label>
-                    <input type="text" <?php echo $status ?> value="<?php echo $all['firstname'] ?>"> 
+                    <input type="text" <?php echo $status ?> name="fname" value="<?php echo $all['firstname'] ?>"> 
                 </div>
 
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">Last name</label>
-                    <input type="text" <?php echo $status ?> value="<?php echo $all['lastname'] ?>" >
+                    <input type="text" <?php echo $status ?> name="lname" value="<?php echo $all['lastname'] ?>" >
                 </div>
 
                 <div class="data_wrapper">
@@ -105,7 +104,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
                     </div>
                     <div>
                         <label style="color : <?php echo $color ?>" for="">District</label>
-                        <input type="text" name="district" disabled value="<?php echo $all['name_en'] ?>">
+                        <input type="text" name="district" disabled value="<?php echo $all['district'] ?>">
 
                     </div>
                 </div>
@@ -114,7 +113,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">City</label>
-                        <input type="text" name="city" disabled value="<?php echo $all['name_en'] ?>">
+                        <input type="text" name="city" disabled value="<?php echo $all['city'] ?>">
                     </div>
 
                     <div>
@@ -126,13 +125,30 @@ if(isset($_GET['error']) && $_GET['error']==1){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Nearest City 1</label>
-                        <input type="text" name="nr1" disabled  value="<?php echo $all['nearestcity1'] ?>">
+                        <input type="text" name="nr1" disabled  value="<?php echo $all['NS1'] ?>">
                     </div>
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Nearest City 2</label>
-                        <input type="text" name="nr2" disabled  value="<?php echo $all['nearestcity2'] ?>">
+                        <input type="text" name="nr2" disabled  value="<?php echo $all['NS2'] ?>">
                     </div>
 
+                </div>
+
+                <div>
+                    <br>
+                    <label for="">Mentor</label>
+
+                </div>
+
+                <div class="data_wrapper adress_data">
+                    <div>
+                        <label style="color : <?php echo $color ?>" for="">Mentor Name</label>
+                        <input type="text" name="nr1" disabled  value="<?php echo $mentor['firstname']." ".$mentor['lastname'] ?>">
+                        <br>
+                        <br>
+                        <a class= "dele" href="removementor?fid=<?php echo $fid; ?>">Unassign Mentor</a>
+
+                    </div>
                 </div>
 
                 <hr>
@@ -170,43 +186,48 @@ if(isset($_GET['error']) && $_GET['error']==1){
             <thead>
                 <tr>
                 <th scope="col">Order id</th>
-                <th scope="col">Buyer Name</th>
                 <th scope="col">Pickup date</th>
                 <th scope="col">Total weight</th>
                 <th scope="col">Total Price</th>
+                <th scope="col">Buyer Name</th>
+                <th scope="col">Action</th>
+
                 </tr>
             </thead>
             <tbody>
+            <?php
+          print_r($data);
+            foreach($data as $key => $values){
+            $ordid= $values['order_id'];
+            $pdate= $values['pickup_date'];
+            $tweight= $values['weight'];
+            $cost= $values['total_cost'];
+            $bname= $values['b_name'];
+            
+
+
+
+            
+            ?>
             <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
-
-                </tr>
-
-                <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
-
-                </tr>
+            <form action='/thoga.lk/farmer/farmer_viewmore' method='post'>
+                <td data-label="Order id"><?php echo $ordid;?></td>
+                <td data-label="Pickup date"><?php echo $pdate;?></td>
+                <td data-label="Total Weight"><?php echo $tweight;?></td>
+                <td data-label="Total Price"><?php echo $cost;?></td>
+                <td data-label= "Buyer Name"><?php echo $bname;?></td>
+                <td>
+                <input type="hidden" name="order_id" value="<?php echo $order_id; ?>"> 
+                    <a class = "more" > View More </a>
+                </td>
                 
-                <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td> <button type="submit">view more</button> </td>
+            </form>
+            </tr>
 
-                </tr>
+                
             </tbody>
+            <?php }?>
+
         </table>
 
 

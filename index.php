@@ -117,6 +117,10 @@ $routes = [
     'mentor/edit_item' => 'mentorController@edit_item',
     'mentor/public_profile' => 'mentorController@public_profile',
     'mentor/verticalnavbar' => 'mentorController@view_farmerlist',
+    'farmer/editprofile' => 'FarmerController@editprofile',
+    'farmer/removementor' => 'FarmerController@removementor',
+    'mentor/editprofile' => 'mentorController@editprofile',
+    'farmer/viewmore' => 'FarmerController@viewmore',
     
     
 

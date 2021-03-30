@@ -2,9 +2,13 @@
 
 
 require_once(__DIR__.'/../models/farmerModel.php');
+require_once(__DIR__.'/../models/userModel.php');
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/insertmodel.php');
 require_once(__DIR__.'/../models/item.php');
+require_once(__DIR__.'/../models/insertMentor.php');
+require_once(__DIR__.'/../models/orderModel.php');
+
 
 
 class FarmerController{
@@ -12,7 +16,12 @@ class FarmerController{
     {
         $this->model = new farmerModel();
         $this->model2 = new insertmodel();
+        $this->model3 = new insertMentor();
         $this->itemModel = new item();
+        $this->userModel = new userModel();
+        $this->oModel = new orderModel();
+
+
 
     }
 
@@ -37,6 +46,8 @@ class FarmerController{
              
         
     }
+
+    
    
     //upcoming
 
@@ -56,14 +67,42 @@ class FarmerController{
     public function profile(){
         session_start();
         $farmeruserid=$_SESSION['user'][0]['user_id'];
+        //echo $farmeruserid;
+  
         $farmerid=$this->model2->read_id($farmeruserid);
+        // print_r ($farmerid[0]['mentor_id']);
+        $mentorid=$farmerid[0]['mentor_id'];
+        // print_r($farmerid[0]['farmer_id']);
+        $result = $this->model-> getfarmerallbyid($farmerid[0]['farmer_id']);
 
-        $result = $this->model->get_profiledetails($farmerid[0]['farmer_id']);
-        print_r($result);
-        $view = new View("Farmer/profile");
-        $view->assign('all',$result);
+        $result2 = $this->oModel->getOrderHistory($farmerid[0]['farmer_id']);
+        print_r($result2);
+        $view = new View("Farmer/farmer_profile");
+        if((int)$mentorid>0){
+            // echo  $mentorid;
+            $mentordetails=$this->model3->getMentor_details($mentorid);
+            // print_r($mentordetails);
+            $view->assign('mentor',$mentordetails[0]);
+        }
+        $view->assign('all',$result[0]);
+        $view->assign('fid',$farmerid[0]['farmer_id']);
+       $view->assign('data',$result2[0]);
 
     }
+
+    
+
+    public function editprofile(){
+        print_r($_GET);
+        
+
+        $out= $this->model->updatedetails($_GET);
+        if($out){
+            header("location:/thoga.lk/farmer/profile?error=0");
+        }else{
+            header("location:/thoga.lk/farmer/profile?error=1");
+        }
+    }  
 
     public function insert_mess(){
         $view = new view("Farmer/insert");
@@ -147,6 +186,26 @@ class FarmerController{
         header("location: /thoga.lk/farmer/listed");
 
 
+    }
+
+
+    public function viewmore(){
+        if(isset($_POST['viewmore'])){
+            $order_id=$_POST['order_id'];
+            $res = $this->oModel->order_drivername($order_id);
+            $buyer = $this->oModel->order_buyername($order_id);
+            $items = $this->oModel->orderdetails_total($order_id);
+            $city= $this->oModel->order_city($order_id);
+        }
+
+        $result = $this->omodel->get_order_details($order_id);
+        $view = new View("farmer/farmer_viewmore");
+        $view->assign('order_id',$order_id);
+        $view->assign('view',$result);
+        $view->assign('res',$res);
+        $view->assign('buyer',$buyer);
+        $view->assign('cityy',$city);
+        $view->assign('items',$items);
     }
 
 }
