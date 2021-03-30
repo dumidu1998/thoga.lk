@@ -198,6 +198,22 @@ class orderModel extends db_model{
  
      
   }
+  function get_details(){
+    $sql="SELECT orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,buyer.b_name, FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id where orders.pickup_date >= CURDATE() 
+    ";
+    $result=$this->connection->query($sql);
+    $arr=array();
+    if($result){
+     while($row=mysqli_fetch_assoc($result))
+     array_push($arr,$row);
+   return $arr;
+ 
+
+     }else
+     echo "error";
+      
+
+ }
 
   
 

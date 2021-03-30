@@ -87,6 +87,28 @@ class farmerModel extends db_model{
       
 		  return $this->queryfromsql($sql);
     }
+    function view_public_profile($farmerid){
+      $sql= "SELECT *,address.address_id,address.address_line1,address.address_line2,address.city,address.zip_code,cities.id,farmer.user_id,farmer.mentor_id,mentor.mentor_id FROM user INNER JOIN address ON user.user_id = address.user_id INNER JOIN cities ON address.city = cities.id INNER JOIN farmer ON user.user_id=farmer.user_id INNER JOIN mentor ON farmer.mentor_id=mentor.mentor_id WHERE farmer.farmer_id = '".$farmerid."' ";
+      $result=$this->connection->query($sql);
+      $finale=array();
+    
+      if($result){
+        while($row=mysqli_fetch_assoc($result))
+        array_push($finale,$row);
+        return $finale;
+        
+      
+      }else echo "error";
+    }
+    
+public function read_id($id){
+return $this->read('farmer', array('*'), array('user_id'=>$id));
+
+}
+
+
+
+    
 }
 
 

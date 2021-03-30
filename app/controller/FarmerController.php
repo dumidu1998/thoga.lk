@@ -14,8 +14,8 @@ require_once(__DIR__.'/../models/orderModel.php');
 class FarmerController{
     function __construct()
     {
-        $this->model = new farmerModel();
-        $this->model2 = new insertmodel();
+        $this->fmodel = new farmerModel();
+        $this->itemModel = new item();
         $this->model3 = new insertMentor();
         $this->itemModel = new item();
         $this->userModel = new userModel();
@@ -30,7 +30,7 @@ class FarmerController{
     {
        
         $view = new view("Farmer/listed_items");
-        $result = $this->model->get_info();
+        $result = $this->fmodel->get_info();
         $view ->assign('data',$result);
 
        
@@ -41,7 +41,7 @@ class FarmerController{
     public function upcoming()
     {
         $view = new View("Farmer/upcoming");
-        $result = $this->model->get_details();
+        $result = $this->fmodel->get_details();
         $view ->assign('data',$result);
              
         
@@ -55,7 +55,7 @@ class FarmerController{
     public function add_item()
     {
         $view = new view("Farmer/add_item");
-        $result = $this->model->get_records();
+        $result = $this->fmodel->get_records();
         $view->assign('records',$result);
         
         
@@ -69,14 +69,14 @@ class FarmerController{
         $farmeruserid=$_SESSION['user'][0]['user_id'];
         //echo $farmeruserid;
   
-        $farmerid=$this->model2->read_id($farmeruserid);
+        $farmerid=$this->fmodel->read_id($farmeruserid);
         // print_r ($farmerid[0]['mentor_id']);
         $mentorid=$farmerid[0]['mentor_id'];
         // print_r($farmerid[0]['farmer_id']);
-        $result = $this->model-> getfarmerallbyid($farmerid[0]['farmer_id']);
+        $result = $this->fmodel-> getfarmerallbyid($farmerid[0]['farmer_id']);
 
         $result2 = $this->oModel->getOrderHistory($farmerid[0]['farmer_id']);
-        print_r($result2);
+       // print_r($result2);
         $view = new View("Farmer/farmer_profile");
         if((int)$mentorid>0){
             // echo  $mentorid;
@@ -96,7 +96,7 @@ class FarmerController{
         print_r($_GET);
         
 
-        $out= $this->model->updatedetails($_GET);
+        $out= $this->fmodel->updatedetails($_GET);
         if($out){
             header("location:/thoga.lk/farmer/profile?error=0");
         }else{
@@ -113,7 +113,7 @@ class FarmerController{
 
         foreach($_SESSION['user'] as $keys => $values){
             $id = $values['user_id'] ;
-            $res = $this->model2->read_id($id);
+            $res = $this->fmodel->read_id($id);
             print_r($res);
             foreach($res as $k => $v){
                    $f_id =  $v['farmer_id'];
@@ -133,9 +133,9 @@ class FarmerController{
            
 
 
-            // $this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides);
+            // $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides);
             
-            $this->model2->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
+            $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
             // header("location: /thoga.lk/Farmer/insert");
             header("location: /thoga.lk/farmer/insert");
         }

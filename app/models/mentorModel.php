@@ -68,6 +68,40 @@ class mentorModel extends db_model{
 		if($result){ return true;}else{return false;}
 	  }
 
+	  function view_farmers($mentorid){
+		$sql = "SELECT *,user.firstname,user.lastname from farmer INNER join mentor on farmer.mentor_id=mentor.mentor_id inner join user on farmer.user_id=user.user_id WHERE mentor.mentor_id = '".$mentorid."'  ";
+		$result=$this->connection->query($sql);
+		$finale=array();
+		if($result){
+		  while($row=mysqli_fetch_assoc($result))
+		  array_push($finale,$row);
+		  return $finale;
+		  }
+		else echo "error";
+	  }
+
+	  function get($id){
+		return $this->read('mentor', array('mentor_id'), array('user_id'=>$id));
+ }
+ public function join_get($mentorid){
+	$sql = "SELECT *,user.firstname,user.lastname from farmer INNER join mentor on farmer.mentor_id=mentor.mentor_id inner join user on farmer.user_id=user.user_id WHERE mentor.mentor_id = '".$mentorid."'  ";
+	$result=$this->connection->query($sql);
+	$arr=array();
+	if($result){
+	 while($row=mysqli_fetch_assoc($result))
+	 array_push($arr,$row);
+   return $arr;
+ 
+
+	 }else
+	 echo "error";
+}
+public function read_id($id){
+	return $this->read('mentor', array('*'), array('user_id'=>$id));
+
+}
+
+
 }
 
 ?>

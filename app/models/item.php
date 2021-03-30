@@ -102,4 +102,75 @@ class item extends db_model{
 
 	}
 
+	public function insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id){
+
+
+		$query = "INSERT into item (veg_Id,avail_weight,min_weight,total_cost,item_start,item_end,item_type,item_des,farmer_id) values ('".$itemname."','".$avaiweight."','".$minweight."','".$price."','".$startdate."','".$enddate."','".$itemtype."','".$ides."','".$f_id."')";
+		echo $query;
+		
+		$result =$this->connection->query($query);
+	   
+
+		if($result){
+	   echo "Insert Data Successfully.";
+		}
+		else{
+			echo "Error...!";
+		}
+
+
+
+	
+	
+}
+public function insert_databymentor($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$ides,$m_id){
+
+
+	$query = "INSERT into item (veg_Id,avail_weight,min_weight,total_cost,item_start,item_end,item_type,farmer_id,item_des,mentor_id) values ('".$itemname."','".$avaiweight."','".$minweight."','".$price."','".$startdate."','".$enddate."','".$itemtype."','".$farmername."','".$ides."','".$m_id."')";
+	echo $query;
+	$result =$this->connection->query($query);
+   
+
+	if($result){
+	echo "Insert Data Successfully.";
+	}
+	else{
+		echo "Error...!";
+	}
+
+
+
+
+
+}
+function get_info(){
+	$sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,item.farmer_id,vegetable.vege_name, user.user_id, farmer.user_id,farmer.farmer_id,user.firstname , user.lastname FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id INNER JOIN farmer on item.farmer_id=farmer.farmer_id INNER JOIN user ON farmer.user_id=user.user_id where item.item_end >= CURDATE()";
+	$result=$this->connection->query($sql);
+	$arr=array();
+	if($result){
+	 while($row=mysqli_fetch_assoc($result))
+	 array_push($arr,$row);
+   return $arr;
+ 
+
+	 }else
+	 echo "error";
+}
+
+function edit_itembyid($id){
+	$sql = "SELECT vegetable.vege_name,item.item_id,item.item_type,item.item_des,item.min_weight,item.avail_weight,item.item_start,item.item_end,item.total_cost,item.farmer_id,farmer.user_id,user.username,user.firstname,user.lastname FROM item INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id INNER JOIN farmer ON item.farmer_id=farmer.farmer_id INNER JOIN user ON user.user_id=farmer.user_id WHERE item.item_id='".$id."'";
+	
+	$result=$this->connection->query($sql);
+	
+	  $finale=array();
+ 
+	  if($result){
+	while($row=mysqli_fetch_assoc($result))
+		  array_push($finale,$row);
+		return $finale;
+		}
+  }
+
+
+
 }

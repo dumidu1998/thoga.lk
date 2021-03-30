@@ -29,7 +29,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
 <body>
 
 
-   <?php //include 'navbar_dash.php';?> 
+   <?php include 'navbar_dash.php';?> 
 
    
     <div class="wrapper">
@@ -196,7 +196,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
             </thead>
             <tbody>
             <?php
-          print_r($data);
+          //print_r($data);
             foreach($data as $key => $values){
             $ordid= $values['order_id'];
             $pdate= $values['pickup_date'];
