@@ -300,6 +300,35 @@ class BuyerController {
         $view = new View("buyer/aboutus");
     }
 
+    public function updateprofilepic(){
+        session_start();
+        print_r($_FILES['profpic']);
+        if(isset($_FILES['profpic'])){
+            $errors= array();
+            $file_name = $_FILES['profpic']['name'];
+            $file_tmp =$_FILES['profpic']['tmp_name'];        
+            $file_type=$_FILES['profpic']['type'];
+            $temp=explode('.',$_FILES['profpic']['name']);
+            $file_ext=end($temp);
+            $extensions= array("jpeg","jpg","png");
+
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            $id=$_SESSION['user'][0]['user_id'];
+            if(empty($errors)==true){
+                move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/buyerpropic/".$id.".jpg");
+                echo "Success";
+                header("location:/thoga.lk/buyer/profile");
+             }else{
+                print_r($errors);
+             }
+        }else{
+            echo "file Upload Failed";
+        }
+        
+    }  
+
     public function postForum(){
         session_start();
 

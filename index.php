@@ -105,6 +105,7 @@ $routes = [
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
+    'buyer/updateprofilepic'=>'BuyerController@updateprofilepic',
     'driver/logout' => 'DriverController@logout',
     'buyer/cancelOrder' => 'BuyerController@cancelOrder',
     'driver/addvehicle'=> 'DriverController@addvehicle',
