@@ -50,6 +50,7 @@ $routes = [
     '' => 'LoginController@view',
     'login' => 'LoginController@login',
     'forum' => 'ForumController@forum',
+    'forum/addreply' => 'ForumController@addreply',
     'forum/postForum' => 'ForumController@postForum',
     'forum/fullview' => 'ForumController@viewfull',
     'driver/dashboard' => 'DriverController@driverdashboard',
@@ -69,7 +70,7 @@ $routes = [
     'farmer/aboutus' => 'FarmerController@about',
     'mentor/aboutus' => 'mentorController@about',
     'admin/admanager' => 'AdminController@admanager',
-    'admin/login' => 'LoginController@admin_login',
+    'adminlogin' => 'LoginController@admin_login',
     'admin/log' => 'LoginController@admin_log',
     'admin/usermanager' => 'AdminController@usermanager',
     'admin/showorder' => 'AdminController@showorder',
@@ -93,9 +94,12 @@ $routes = [
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
-    'driver/updateprofilepic'=>'DriverController@edit',
     'driver/logout' => 'DriverController@logout',
     'buyer/cancelOrder' => 'BuyerController@cancelOrder',
+    'driver/addvehicle'=> 'DriverController@addvehicle',
+    'driver/addVehicleController'=> 'DriverController@addnewvehicle',
+    'driver/removevehicle'=> 'DriverController@removevehicle',
+
 
 
     'driver/test'=>'DriverController@showbutton' //test button

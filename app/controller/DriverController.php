@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__.'/../../core/View.php');
+require_once(__DIR__.'/../../core/db_model.php');
 
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
@@ -8,7 +9,7 @@ require_once(__DIR__.'/../models/orderModel.php');
 
 
 
-class DriverController{
+class DriverController extends db_model{
     
     function __construct()
     {
@@ -210,24 +211,52 @@ class DriverController{
         
 
         $out= $this->dmodel->updatedetails($_GET);
-        echo $out;
         if($out){
-            header("location:/thoga.lk/driver/profile");
+            header("location:/thoga.lk/driver/profile?error=0");
         }else{
             header("location:/thoga.lk/driver/profile?error=1");
         }
 
-        
-        
+         
+
 
     }  
+
+    public function addvehicle(){
+        $view = new View("driver/addvehicle");
+    }    
+
     public function logout(){
         session_start();
         session_destroy();
         header("location:/thoga.lk/");
-        
-        
-    }  
+    } 
+    
+    public function addnewvehicle(){
+        $result= $this->vmodel->addnewvehicle($_POST);
+        $newvid=$this->vmodel->getnewvehicleid();
+        print_r($_FILES);
+        if(isset($_FILES['vehiclepic'])&&isset($_FILES['insuarancepic'])&&isset($_FILES['registrationpic'])){
+            move_uploaded_file($_FILES['vehiclepic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/drivervehicles/".$newvid.".jpg");
+            move_uploaded_file($_FILES['insuarancepic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/".$newvid.".jpg");
+            move_uploaded_file($_FILES['registrationpic']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/driverdocuments/vehicleregistration/".$newvid.".jpg");
+            echo "Success";
+            header("location:/thoga.lk/driver/vehicledetails");
+           
+        }else{
+            echo "file Upload Failed";
+        }
+
+    }
+
+    public function removevehicle(){
+        $vehicleid=$_GET['vid'];
+        $removevid=$this->vmodel->removevehicle($vehicleid);
+        header("location:/thoga.lk/driver/vehicledetails");
+
+
+    }
+    
 
     public function showbutton(){
         session_start();

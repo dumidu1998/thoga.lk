@@ -15,11 +15,8 @@ class userModel extends loginModel
     }
 
 }
-
-userModel u = new userModel();
-u->login();
-
-
+// userModel u = new userModel();
+// u->login();
 ?>
 
 
