@@ -102,7 +102,7 @@ class orderModel extends db_model{
   }
 
   function  order_buyername($id){
-		$sql= "SELECT a.username,a.firstname,a.lastname FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username,a.firstname,a.lastname,a.contactno1,a.contactno2 FROM user AS a INNER JOIN buyer AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.buyer_id=c.buyer_id where c.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
@@ -118,7 +118,7 @@ class orderModel extends db_model{
   
   function  order_drivername($id){
 
-		$sql= "SELECT a.username, a.firstname, a.lastname FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
+		$sql= "SELECT a.username, a.firstname, a.lastname, a.contactno1, a.contactno2 FROM user AS a INNER JOIN driver AS b ON a.user_id=b.user_id INNER JOIN orders AS c ON b.driver_id=c.driver_id where c.order_id='".$id."'";
 
 		$result=$this->connection->query($sql);
 		$finale=array();
@@ -147,19 +147,34 @@ class orderModel extends db_model{
 
   }
   
-  function  order_city($id){
-		$sql= "SELECT a.name_en, b.* FROM districts AS a  INNER JOIN orders AS b ON a.id=b.city where b.order_id='".$id."'";
+  function  cancelorder($oid){
+    return $this->update('orders',array('status'=>'4'),array('order_id'=>$oid));
+ 
+  }
+
+  function  order_all($id){
+    $sql= "SELECT b.*,a.description FROM orders AS b INNER JOIN status as a ON b.status=a.status_id where b.order_id='".$id."'";
 		
 		$result=$this->connection->query($sql);
 		
 		$finale=array();
 		if($result){
-        while($row=mysqli_fetch_assoc($result))
+      while($row=mysqli_fetch_assoc($result))
 			array_push($finale,$row);
-		    return $finale;
+      return $finale;
 		}else
 		echo "error";
 	}
+  
+  function  getrating($id){
+    $sql="SELECT * FROM feedback where order_id=".$id;
+    return $this->queryfromsql($sql);
+  }
+  
+  function getcancelled(){
+    $sql = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.status=4 ORDER BY orders.order_id ASC";
+    return $this->queryfromsql($sql);
+  }
 
   function insert_order($data){
     // $sql = "INSERT INTO orders(weight,total_cost,order_date,pickup_date,d_addline1,d_addline2,city,district,province,contact1,contact2,buyer_id,driver_id,status) VALUES(123,5000,CURRENT_DATE,'2020-11-17',123,'reid avenur', 'Colombo', 'Colombo', 'western prov','077123456','071123456',2,1,1);";

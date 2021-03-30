@@ -28,6 +28,7 @@ class db_model{
 
 		  $sql=$this->appendSemicolon($sql);
 		//  echo $sql.'<br>';
+		// echo $sql.'<br>';
 
 	   $result = $this->connection->query($sql);
 		if($result)
@@ -112,6 +113,21 @@ class db_model{
 
 
 
+	function queryfromsql($sql){
+		$finale=array();
+		$result = $this->connection->query($sql);
+		// echo $sql;
+		if($result){
+		while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		return $finale;
+		}
+		else
+			return 'Error at db_MODEL/queryfromsql';	
+	}
+
+	
+
 	function read($tableName,$args,$whereArgs){
 	
 		  $sql='SELECT ';
@@ -147,7 +163,7 @@ class db_model{
 	   if($whereArgs)
 		$sql= $this->where($sql,$whereArgs);	
 		$sql=$this->appendSemicolon($sql);
-    	echo $sql.'<br>';
+    	// echo $sql.'<br>';
 	  $result = $this->connection->query($sql);
 
 		if($result)
@@ -157,17 +173,7 @@ class db_model{
 
     }
 
-	function queryfromsql($sql){
-		$finale=array();
-		$result = $this->connection->query($sql);
-		if($result){
-		while($row=mysqli_fetch_assoc($result))
-			array_push($finale,$row);
-		return $finale;
-		}
-		else
-			return 'Error at db_MODEL/queryfromsql';	
-	}
+	
 
    function delete($tableName,$whereArgs){
    		$sql='DELETE FROM '.$tableName;
@@ -175,7 +181,7 @@ class db_model{
 	   if($whereArgs)
 	   	$sql=$this->where($sql,$whereArgs);
 	   $sql=$this->appendSemicolon($sql);
-	   echo $sql.'<br>';
+	//    echo $sql.'<br>';
 	   $result = $this->connection->query($sql);
 
 		if($result)

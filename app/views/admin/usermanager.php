@@ -16,21 +16,20 @@
 
 <div class="container">
     <h1>User Manager</h1>
-    
     <div class="filters">
-        <form action="" method="POST">
+        <form action="" method="get">
             
                 <div>
                     <span class="filterTopic">Search by Username</span> <br>
                     Username :- <input type="text" name="uname" id="" placeholder="Keep Empty to view all"> <br>
                     <span style="margin-bottom:30px;font-size:28px">Filter by user types</span><br>
-                    <input type="radio" name="utype" id="f" value="f"> <label for="f">Farmer</label>
-                    <input type="radio" name="utype" id="b" value="b"> <label for="b">Buyer</label>
-                    <input type="radio" name="utype" id="d" value="d"> <label for="d">Driver</label>
-                    <input type="radio" name="utype" id="m" value="m"> <label for="m">Mentor</label>
+                    <input type="radio" name="utype" id="f" value="farmer"> <label for="f">Farmer</label>
+                    <input type="radio" name="utype" id="b" value="buyer"> <label for="b">Buyer</label>
+                    <input type="radio" name="utype" id="d" value="driver"> <label for="d">Driver</label>
+                    <input type="radio" name="utype" id="m" value="mentor"> <label for="m">Mentor</label>
                     <input type="reset" id="resetb" value="Reset">
                 </div> 
-                <button class="sbuttonp" type="submit">Process</button>
+                <button class="sbuttonp" type="submit" name='process'>Process</button>
             </div>
             
         </form>
@@ -45,53 +44,31 @@
       <th>Username</th>
       <th>Email</th>
       <th >Tel</th>
-      <th >type</th>
+      <th >Type</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <?php $i=1; while($i<=15){
-      $i++;
+    <?php foreach($users as $key=>$values){
       ?>
     <tr>
-      <form method="POST" action="userview">
-        <td data-column="Id">2</td>
-        <td data-column="Name">Andor</td>
-        <td data-column="Username">Andro123</td>
-        <td data-column="Email">dumiduraj@gmail.com</td>
-        <td data-column="Tel">0715597852</td>
-        <td data-column="type">Farmer</td>
-        <td data-column="Action"><button type="submit" name="submit" >View More</button></td>
-      </form>
+        <td data-column="Id"><?php echo $values['user_id'];?></td>
+        <td data-column="Name"><?php echo $values['firstname']." ".$values['lastname'];?></td>
+        <td data-column="Username"><?php echo $values['username'];?></td>
+        <td data-column="Email"><?php echo $values['email'];?></td>
+        <td data-column="Tel"><?php echo $values['contactno1'];?></td>
+        <td data-column="type"><?php echo $values['user_type'];?></td>
+        <td data-column="Action"><a href="userview?uid=<?php echo $values['user_id'];?>"><button type="submit" name="submit" >View More</button></a></td>
     </tr>
     <?php } ?>
-    <tr>
-      <td data-column="Id">3</td>
-      <td data-column="Name">Tamas</td>
-      <td data-column="Username">Andro123</td>
-      <td data-column="Email">dumiduraj@gmail.com</td>
-      <td data-column="Tel">0715597852</td>
-      <td data-column="type">Farmer</td>
-      <td data-column="Action"><a href="">View More</a></td>
-    </tr>
-    <tr>
-      <td data-column="Id">4</td>
-      <td data-column="Name">Zoli</td>
-      <td data-column="Username">Andro123</td>
-      <td data-column="Email">dumiduraj@gmail.com</td>
-      <td data-column="Tel">0715597852</td>
-      <td data-column="type">Farmer</td>
-      <td data-column="Action"><a href="">View More</a></td>
-    </tr>
-    <tr>
-      <td data-column="Id">5</td>
-      <td data-column="Name">Szabi</td>
-      <td data-column="Username">Andro123</td>
-      <td data-column="Email">dumiduraj@gmail.com</td>
-      <td data-column="Tel">0715597852</td>
-      <td data-column="type">Farmer</td>
-      <td data-column="Action"><a href="">View More</a></td>
-      </tr>
+    <?php
+
+        if (count($users)==0 ){
+          echo "<td colspan='7' ><center>No any maching users<center></td>";
+
+        }
+        ?>
+    
   </tbody>
 </table>
     </div>

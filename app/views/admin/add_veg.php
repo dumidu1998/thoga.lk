@@ -23,8 +23,6 @@
              <!-- veg items -->
              <?php
                 foreach($vegetables as $keys => $values){
-
-                
              ?>
              <div>
                 <h3><?php echo $values['vege_name'] ?></h3>
@@ -45,8 +43,8 @@
 
               </div>
 
-             <div>
-                    <button id="myBtn" onclick="openModal(<?php  echo $values['vege_id'] ?>)" class="edit_btn">Edit</button>
+             <div style="align-self: stretch;">
+                    <button id="myBtn" style="margin-top:0px;margin-left:-150px" onclick="openModal(<?php  echo $values['vege_id'] ?>)" class="edit_btn">Edit</button>
 
              </div>
 

@@ -19,6 +19,7 @@
             <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
             <a href="/thoga.lk/admin/showadmin"><button class="admin-btn">Add New Admin</button></a>
             <a href="/thoga.lk/admin/vegetables"><button class="admin-btn">Vegetable List</button></a>
+            <a href="/thoga.lk/admin/forummanager"><button class="admin-btn">Forum Manager</button></a>
 
         </div>
 
@@ -35,10 +36,10 @@
                         <th>        <div class="card-title"><img class="cardimg" width= 30px height=25px src="/thoga.lk/public/images/admin/salesicon.png" alt=""> Sales</div></th>
                     </tr>
                     <tr style="font-size:28px">
-                        <td>150</td>
-                        <td>70</td>
-                        <td>230</td>
-                        <td>Rs. 12,500.00</td>
+                        <td><?php echo $userscount['count_users'];?></td>
+                        <td><?php echo $activeproducts['itemcount'];?></td>
+                        <td><?php echo $summary30days['ordcount'];?></td>
+                        <td>Rs. <?php echo number_format($summary30days['totalsales'],2);?></td>
                     </tr>
                 </table>
             </div>
@@ -53,10 +54,10 @@
         </div>
             <thead >
                 <tr class="tablehead">
-                <th >Driver ID</th>
-                <th >Driver Name</th>
-                <th >District</th>
-                <th >Action</th>
+                    <th >Driver ID</th>
+                    <th >Driver Name</th>
+                    <th >District</th>
+                    <th >Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,19 +66,33 @@
                         $driver_id=$row['driver_id'];
                         $name=$row['firstname'] ." ". $row['lastname'] ;
                         $district=$row['name_en'];
-                        
                 ?>
                 <tr>
-                <td data-label="Driver ID"><?php printf('%03d', $driver_id) ?></td>
-                <td data-label="Driver Name"><?php echo $name; ?></td>
-                <td data-label="District"><?php echo $district; ?></td>
-                <td data-label="Action"><a href="admin/dappl?id=<?php echo $driver_id;?>" > View More</a></td>
+                    <td data-label="Driver ID"><?php printf('%03d', $driver_id) ?></td>
+                    <td data-label="Driver Name"><?php echo $name; ?></td>
+                    <td data-label="District"><?php echo $district; ?></td>
+                    <td data-label="Action"><a href="admin/dappl?id=<?php echo $driver_id;?>" > View More</a></td>
+                </tr>
+                <?php } ?>
+
+                <?php
+                    foreach($resultsvehcles as $keys => $row){
+                        $driver_id=$row['driver_id'];
+                        $name=$row['firstname'] ." ". $row['lastname'] ;
+                        $district=$row['name_en'];
+                        $vehicleid=$row['vehicle_id'];
+                ?>
+                <tr>
+                    <td data-label="Driver ID"><?php printf('%03d', $driver_id) ?></td>
+                    <td data-label="Driver Name"><?php echo $name; ?></td>
+                    <td data-label="District"><?php echo $district; ?></td>
+                    <td data-label="Action"><a href="admin/dappl?id=<?php echo $driver_id;?>&vid=<?php echo $vehicleid;?>" > View More</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
             <span id="mapplications"></span>
         </table>
-
+        <?php echo ($results==null && $resultsvehcles==null)?'<center>No any Requests.</center>':''; ?>
     </div>
 
     <div>
@@ -99,7 +114,6 @@
                         $mentor_id=$row['mentor_id'];
                         $date=$row['date'];
                         $district=$row['name_en'];
-                        
                 ?>
                 <tr>
                 <td data-label="Mentor ID"><?php printf('%03d', $mentor_id) ?></td>
@@ -110,7 +124,7 @@
                 <?php } ?>
             </tbody>
         </table>
-
+        <?php echo ($mentors==null)?'<center>No any Requests.</center>':''; ?>
     </div>
     <span id="mrequests"></span>
 
@@ -119,6 +133,7 @@
         <div class="ut-hr-txt">
             <hr><span>Mentor Requests</span>
         </div>
+
             <thead>
                 <tr  class="tablehead">
                 <th >Farmer Name</th>
@@ -127,6 +142,7 @@
                 <th >Action</th>
                 </tr>
             </thead>
+
             <tbody>
                 <?php
                     foreach($farmers as $keys => $row){
@@ -142,12 +158,10 @@
                 <td data-label="City"><?php echo $city; ?></td>
                 <td data-label="Action"><a href="admin/mrequest?id=<?php echo $farmer_id; ?>">Assign Mentor</a></td>
                 </tr>
-
                 <?php } ?>
-                
             </tbody>
         </table>
-
+        <?php echo ($farmers==null)?'<center>No any Requests.</center>':''; ?>
     </div>
 </body> 
 
@@ -156,17 +170,14 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-
             var data = google.visualization.arrayToDataTable([
                 ['Year', 'Sales'],
                 <?php
-            foreach($ordersforchart as $keys => $row){
-                echo "['".$row['count_date']."',".$row['counted_leads']."],";
-            }
-
-            ?>
+                    foreach($ordersforchart as $keys => $row){
+                        echo "['".$row['count_date']."',".$row['counted_leads']."],";
+                    }
+                ?>
             ]);
-
             var options = {
                 title: 'Performance - Orders',
                 curveType: 'none',
@@ -174,12 +185,10 @@
                 pointSize: 2,
                 vAxis: {format: '0',minValue: 4,title: 'Orders'},
             };
-
             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
             chart.draw(data, options);
         }
 
     </script>
-
+    
 </html>

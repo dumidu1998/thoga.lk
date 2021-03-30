@@ -1,8 +1,8 @@
 
-function _(el){
+function _(el) {
 	return document.getElementById(el);
 }
-function uploadAd(){
+function uploadAd() {
 	var file = _("file").files[0];
 	// alert(file.name+" | "+file.size+" | "+file.type);
 	var formdata = new FormData();
@@ -12,21 +12,21 @@ function uploadAd(){
 	ajax.addEventListener("load", completeHandler, false);
 	ajax.addEventListener("error", errorHandler, false);
 	ajax.addEventListener("abort", abortHandler, false);
-	ajax.open("POST", "/thoga.lk/upload/ad_upload_parser.php");
+	ajax.open("POST", "/thoga.lk/admin/addupload");
 	ajax.send(formdata);
 }
-function progressHandler(event){
-	_("loaded_n_total").innerHTML = "Uploaded "+event.loaded+" bytes of "+event.total;
+function progressHandler(event) {
+	_("loaded_n_total").innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
 	var percent = (event.loaded / event.total) * 100;
 	_("progressBar").value = Math.round(percent);
-	_("status").innerHTML = Math.round(percent)+"% uploaded... please wait";
+	_("status").innerHTML = Math.round(percent) + "% uploaded... please wait";
 }
-function completeHandler(event){
+function completeHandler(event) {
 	_("status").innerHTML = event.target.responseText;
 }
-function errorHandler(event){
+function errorHandler(event) {
 	_("status").innerHTML = "Upload Failed";
 }
-function abortHandler(event){
+function abortHandler(event) {
 	_("status").innerHTML = "Upload Aborted";
 }
