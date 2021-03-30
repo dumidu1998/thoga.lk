@@ -3,7 +3,7 @@
 .container{
     margin: 80px 10px;
     display: grid;
-    grid-template-columns: 75% auto;
+    grid-template-columns: 80% auto;
     grid-gap: 10px;
     font-family:  Merriweather;
     font-weight: 540;

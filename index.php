@@ -109,6 +109,10 @@ $routes = [
     'driver/addvehicle'=> 'DriverController@addvehicle',
     'driver/addVehicleController'=> 'DriverController@addnewvehicle',
     'driver/removevehicle'=> 'DriverController@removevehicle',
+    'forum/unliker'=>'ForumController@unliker',
+    'forum/liker'=>'ForumController@liker',
+    'forum/likep'=>'ForumController@likep',
+    'forum/unlikep'=>'ForumController@unlikep',
 
 
 

@@ -35,7 +35,7 @@ class AdminModel extends db_model
 
 	function upcomming()
 	{
-		$sql2 = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE() ORDER BY orders.order_id ASC";
+		$sql2 = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE() AND orders.status!=4 ORDER BY orders.order_id ASC";
 		$result = $this->connection->query($sql2);
 		$finale = array();
 		if ($result) {

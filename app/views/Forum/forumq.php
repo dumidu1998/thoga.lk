@@ -35,8 +35,9 @@
         $content=$question[0]['description'];
         $date_time=$question[0]['date/time'];
         $vote=$question[0]['vote'];
-    ?>                                                                                         
-    a<?php echo $content ?>z
+        $post_id=$question[0]['post_id'];
+    ?>                 
+                                                                            
     <div class="container">
         <div class="maincontainer">
                 <div class="forum-container">
@@ -47,8 +48,8 @@
                     <div class="forum-contols">
                         <center style="font-size:35px;"><?php echo $vote ?></center>
                         <center style="font-size:20;">Votes</center><br>
-                        <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
-                        <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
+                        <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="likepost('<?php echo $post_id;?>')" style="margin-right:20px;margin-left:2px" >
+                        <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="unlikepost('<?php echo $post_id;?>')">
                         <br> Like &nbsp &nbsp &nbsp  Unlike
                     </div>
                     <div class="forum-content">
@@ -68,13 +69,14 @@
                         $vote=$value['vote'];
                         $postid=$value['post_id'];
                         $userid=$value['user_id'];
+                        $reply_id=$value['reply_id'];
                 ?>
                 <div class="reply-container">
                     <div>
                         <div class="re-vote">
                             <?php echo $vote ?> votes
-                            <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" style="margin-right:20px;margin-left:19px" >
-                            <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" > 
+                            <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" style="margin-right:20px;margin-left:19px"  onclick="likerep('<?php echo $reply_id;?>','<?php echo $post_id;?>')">
+                            <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" onclick="unlikerep('<?php echo $reply_id;?>','<?php echo $post_id;?>')"> 
                         </div>
                         <img src="../public/uploads/userprofilepictures/<?php echo $userid?>.jpg" alt="" class="profile"> 
                         <span class="rname">By <?php echo $addeduser ?> on <?php echo $date_time;?></span>
@@ -114,6 +116,24 @@
     <script type="text/javascript">
         bkLib.onDomLoaded(nicEditors.allTextAreas);
         new nicEditor({buttonList : ['fontSize','bold','italic','underline','strikeThrough','subscript','superscript','html','image']}).panelInstance('reply');
+    
+    function likepost(type){
+       window.location.href='likep?id='+type;
+    }
+
+    function unlikepost(type){
+       window.location.href='unlikep?id='+type;
+    }
+
+    function unlikerep(type,pid){
+       window.location.href='unliker?id='+type+'&pid='+pid;
+    }
+
+    function likerep(type,pid){
+       window.location.href='liker?id='+type+'&pid='+pid;
+    }
+    
+    
     </script>	
     <?php include("footer.php"); ?>			
 </body>
