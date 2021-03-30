@@ -21,7 +21,7 @@
   <a href="dashboard" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
   <a href="dashboard" <?php echo (($url== "/thoga.lk/driver/dashboard")?( "class='active'"):("")); ?> >Dashboard</a>
   <a href="calendar" <?php echo (($url== "/thoga.lk/driver/calendar")?( "class='active'"):("")); ?> >Calendar</a>
-  <a href="/thoga.lk/forum" >Forum</a>
+  <a href="/thoga.lk/forum" <?php echo (($url== "/thoga.lk/forum")?( "class='active'"):("")); ?> >Forum</a>
   <a href="about_us" <?php echo (($url== "/thoga.lk/driver/about_us")?( "class='active'"):("")); ?> >About</a>
   <a id="google_translate_element"></a>
   <div class = "nav-right">
