@@ -108,6 +108,7 @@ $routes = [
     'farmer/add_item2' => 'FarmerController@add_item2',
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
     'farmer/updateprofilepic'=>'FarmerController@updateprofilepic',
+    'buyer/updateprofilepic'=>'BuyerController@updateprofilepic',
     'driver/logout' => 'DriverController@logout',
     'buyer/cancelOrder' => 'BuyerController@cancelOrder',
     'driver/addvehicle'=> 'DriverController@addvehicle',
@@ -133,6 +134,7 @@ $routes = [
     'forum/likep'=>'ForumController@likep',
     'forum/unlikep'=>'ForumController@unlikep',
     'logout'=>'LoginController@logout',
+    'buyer/editprofile' => 'BuyerController@editprofile',
 
 
 

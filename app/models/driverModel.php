@@ -158,6 +158,7 @@ class driverModel extends db_model{
 		if($result){ return true;}else{return false;}
 	}
 
+	
 	function accept($did){
         return $this->update('driver',array('verified_state'=>'1'),array('driver_id'=>$did));
     }

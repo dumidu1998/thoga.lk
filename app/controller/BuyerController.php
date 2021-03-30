@@ -7,6 +7,8 @@ require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/buyerModel.php');
+require_once(__DIR__.'/../models/userModel.php');
+require_once(__DIR__.'/../models/vegetablesModel.php');
 
 
 class BuyerController {
@@ -18,6 +20,8 @@ class BuyerController {
         $this->drivers = new driverModel();
         $this->vehicles = new vehicleModel();
         $this->buyer = new buyerModel();
+        $this->user = new userModel();
+        $this->vege = new vegetablesModel();
     }
 
     function getAll_get(){
@@ -33,6 +37,8 @@ class BuyerController {
              $_SESSION['buyer_id'] = $result;
 
          }
+         $vege_names = $this->vege->get_all_vegetables();
+
          $view = new View("buyer/index");
 
 
@@ -60,12 +66,18 @@ class BuyerController {
             $view->assign('data', $result);
             
         }
-
+        
         $class="org_active";
         $view->assign('data', $result);
+        $view->assign('vege_names', $vege_names);
 
         $view->assign('class', $class); 
-        
+        if(isset($_GET['search'])){
+            $vegeSet = $this->model->get_vegeItem($_GET['search']);
+            $view->assign('data', $vegeSet);
+
+
+        }
         
     }
     public function organic(){
@@ -249,8 +261,9 @@ class BuyerController {
     }
     public function profile(){
         session_start();
-
+        $result = $this->order->get_all_orders($_SESSION['buyer_id'][0]['buyer_id']);
         $view = new View("buyer/Buyer_user_profile");
+        $view->assign('details', $result);
     }
 
     public function forum(){
@@ -261,9 +274,11 @@ class BuyerController {
         session_start();
         $result = $this->order->get_buyer_upcoming($_SESSION['buyer_id'][0]['buyer_id']);
         $his_result = $this->order->getbuyer_orderhistory($_SESSION['buyer_id'][0]['buyer_id']);
+        $pickup = $this->order->get_buyer_upcoming_pick($_SESSION['buyer_id'][0]['buyer_id']);
         $view = new View("buyer/orders");
         $view->assign('upcoming_orders',$result);
         $view->assign('previous_orders',$his_result);
+        $view->assign('pickup',$pickup);
     }
     public function viewmore(){
         session_start();
@@ -284,6 +299,35 @@ class BuyerController {
         session_start();
         $view = new View("buyer/aboutus");
     }
+
+    public function updateprofilepic(){
+        session_start();
+        print_r($_FILES['profpic']);
+        if(isset($_FILES['profpic'])){
+            $errors= array();
+            $file_name = $_FILES['profpic']['name'];
+            $file_tmp =$_FILES['profpic']['tmp_name'];        
+            $file_type=$_FILES['profpic']['type'];
+            $temp=explode('.',$_FILES['profpic']['name']);
+            $file_ext=end($temp);
+            $extensions= array("jpeg","jpg","png");
+
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            $id=$_SESSION['user'][0]['user_id'];
+            if(empty($errors)==true){
+                move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/buyerpropic/".$id.".jpg");
+                echo "Success";
+                header("location:/thoga.lk/buyer/profile");
+             }else{
+                print_r($errors);
+             }
+        }else{
+            echo "file Upload Failed";
+        }
+        
+    }  
 
     public function postForum(){
         session_start();
@@ -410,8 +454,20 @@ class BuyerController {
     public function cancelOrder(){
         $id = $_GET['id'];
         $this->order->cancelOrder($id);
+        header("location:/thoga.lk/buyer/orders");
+        
+    }
+    public function editprofile(){
+        $out= $this->user->updatedetails($_GET);
+        if($out){
+            header("location:/thoga.lk/buyer/profile?error=0");
+        }else{
+            header("location:/thoga.lk/buyer/profile?error=1");
+        }
+
     }
 
+    
     
 
 }

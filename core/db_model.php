@@ -28,7 +28,6 @@ class db_model{
 
 		  $sql=$this->appendSemicolon($sql);
 		// echo $sql.'<br>';
-		//  echo $sql.'<br>';
 
 	   $result = $this->connection->query($sql);
 		if($result)

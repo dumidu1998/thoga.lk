@@ -14,6 +14,51 @@
 <br>
 
 <div class="container">
+<h1 align="center">Upcoming Pickup Orders</h1>
+    <hr>
+        <!-- Upcoming pickup Orders -->
+        <table>
+
+            <thead>
+                <tr>
+                <th scope="col">Order id</th>
+                <th scope="col">Pickup date</th>
+                <th scope="col">Total weight</th>
+                <th scope="col" style="text-align:left ;" colspan="2">Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            <?php
+            if(empty($pickup)){
+                echo "<center>
+                <p style='color:red'>
+                You have no pickup orders
+                </p>
+            
+                </center>";
+            }  else{
+                foreach ($pickup as $keys => $values){
+
+            
+            ?>
+            <tr>
+                <td data-label="Order id"><?php echo $values['order_id']  ?></td>
+                <td data-label="Pickup date"><?php echo $values['pickup_date']  ?></td>
+                <td data-label="Total Weight"><?php echo $values['weight']  ?></td>
+                <td data-label= "Total Price"><?php echo $values['total_cost']  ?></td>
+                <td data-label><button onclick="location.href = 'viewmore?id=<?php echo $values['order_id'];?>';" type="submit">view more</button> </td>
+
+                </tr>
+                <?php
+                    }
+                }
+                 ?>
+            </tbody>
+        </table>
+
+
+    </div>
 <h1 align="center">Upcoming Orders</h1>
     <hr>
         <!-- Upcoming Orders -->
@@ -29,7 +74,7 @@
                 </tr>
             </thead>
             <tbody>
-
+            
             <?php
             if(empty($upcoming_orders)){
                 echo "<center>

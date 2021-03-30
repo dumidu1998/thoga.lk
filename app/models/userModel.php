@@ -25,6 +25,7 @@ class userModel extends db_model
         return $this->queryfromsql($sql);
     }
     
+    
     public function  getAlldetailsforprofile($id){
         $sql="SELECT a.*, b.user_type, c.*, 
 		d.name_en AS c_name, 
@@ -43,6 +44,8 @@ class userModel extends db_model
 		WHERE a.user_id = " . $id;        
         return $this->queryfromsql($sql);
     }
+
+    
     
     public function  gettypedetails($uid,$utype){
         $sql="SELECT * FROM ".$utype." WHERE user_id=".$uid;           
@@ -61,6 +64,22 @@ class userModel extends db_model
 		return $this->read('farmer',array('mentor_id'),array('user_id'=>$uid));
         
     }
+
+    function updatedetails($data){
+		session_start();
+		$firstname=$data['fname'];
+        $lastname=$data['lname'];
+        $mobile1=$data['mobileno1'];
+        $mobile2=$data['mobileno2'];
+		$user_id=$_SESSION['user'][0]['user_id'];
+
+
+		$sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
+		$result=$this->connection->query($sql);
+		if($result){ return true;}else{return false;}
+	}
+
+
 
 }
 ?>

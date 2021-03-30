@@ -42,7 +42,7 @@ class orderModel extends db_model{
          echo "error";
     }
     public function get_all_orders($id){
-		  return $this->read('order', array('*'), array('buyer_id'=>$id));
+		  return $this->read('orders', array('*'), array('buyer_id'=>$id));
     }
 
 
@@ -159,10 +159,6 @@ class orderModel extends db_model{
 		echo "error";
 	}
   
-  function  cancelorder($oid){
-    return $this->update('orders',array('status'=>'4'),array('order_id'=>$oid));
- 
-  }
 
   // function cancelOrder($id){
   //   return $this->update('orders',array('status' => 4),array('order_id' => $id));
@@ -203,6 +199,19 @@ class orderModel extends db_model{
 		
     $result=$this->connection->query($sql);
     // echo $sql;
+    $finale=array();
+    if($result){
+        while($row=mysqli_fetch_assoc($result))
+      array_push($finale,$row);
+        return $finale;
+    }else
+    echo "error";
+  }
+  function get_buyer_upcoming_pick($id){
+    $sql= "SELECT * FROM  orders where pickup_date>= CURRENT_TIMESTAMP AND buyer_id='".$id."' AND status != 4 AND driver_id is NULL ";
+		
+    $result=$this->connection->query($sql);
+     echo $sql;
     $finale=array();
     if($result){
         while($row=mysqli_fetch_assoc($result))
