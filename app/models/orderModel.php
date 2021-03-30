@@ -42,7 +42,7 @@ class orderModel extends db_model{
          echo "error";
     }
     public function get_all_orders($id){
-		  return $this->read('order', array('*'), array('buyer_id'=>$id));
+		  return $this->read('orders', array('*'), array('buyer_id'=>$id));
     }
 
 
@@ -147,10 +147,6 @@ class orderModel extends db_model{
 
   }
   
-  function  cancelorder($oid){
-    return $this->update('orders',array('status'=>'4'),array('order_id'=>$oid));
- 
-  }
 
   function  order_all($id){
     $sql= "SELECT b.*,a.description FROM orders AS b INNER JOIN status as a ON b.status=a.status_id where b.order_id='".$id."'";

@@ -30,14 +30,14 @@ if(isset($_GET["edit"])){
 <body>
 
 
+<?php include("navbar.php");?>
    
    <div class="topic">
                 <h1><?php echo $_SESSION['user'][0]['firstname'] ?> user profile</h1>
         </div>
         <hr>
    
-    <div class="wrapper">
-    
+    <div class="wrapper5">
         <div class="user_pp">
            
             <img width="300px" src="/thoga.lk/public/uploads/driverpropic/<?php echo $_SESSION['buyer_id'][0]['buyer_id'].'.jpg'?>" alt="">
@@ -55,17 +55,17 @@ if(isset($_GET["edit"])){
             <form action="<?php echo $method ?>" method="get">
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">First name</label>
-                    <input type="text" name="fname" <?php echo $status ?> value="<?php echo $all['firstname'] ?>"> 
+                    <input type="text" name="fname" <?php echo $status ?> value="<?php echo $_SESSION['user'][0]['firstname'] ?>"> 
                 </div>
 
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">Last name</label>
-                    <input type="text" name="lname" <?php echo $status ?> value="<?php echo $all['lastname'] ?>" >
+                    <input type="text" name="lname" <?php echo $status ?> value="<?php echo $_SESSION['user'][0]['lastname'] ?>" >
                 </div>
 
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">Email Adress</label>
-                    <input type="text" name="email" disabled value="<?php echo $all['email'] ?>">
+                    <input type="text" name="email" disabled value="<?php echo $_SESSION['user'][0]['email'] ?>">
                 </div>
 
                 <div>
@@ -77,12 +77,12 @@ if(isset($_GET["edit"])){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Mobile number</label>
-                        <input type="text" name="mobileno1" <?php echo $status ?> value="<?php echo $all['contactno1'] ?>">
+                        <input type="text" name="mobileno1" <?php echo $status ?> value="<?php echo $_SESSION['user'][0]['contactno1'] ?>">
 
                     </div>
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Mobile number</label>
-                        <input type="text" name="mobileno2"<?php echo $status ?> value="<?php echo $all['contactno2'] ?>">
+                        <input type="text" name="mobileno2"<?php echo $status ?> value="<?php echo $_SESSION['user'][0]['contactno2'] ?>">
 
                     </div>
                 </div>
@@ -98,11 +98,11 @@ if(isset($_GET["edit"])){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Address line 1</label>
-                        <input type="text" name="addr1" disabled value="<?php echo $all['NC1'] ?>">
+                        <input type="text" name="addr1" disabled value="<?php echo $_SESSION['user'][0]['address_line1'] ?>">
                     </div>
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Address line 2</label>
-                        <input type="text" name="addr2" disabled value="<?php echo $all['NC2'] ?>">
+                        <input type="text" name="addr2" disabled value="<?php echo $_SESSION['user'][0]['address_line2'] ?>">
                     </div>
 
                 </div>
@@ -110,11 +110,11 @@ if(isset($_GET["edit"])){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">City</label>
-                        <input type="text" name="city" disabled value="<?php echo $all['c_name'] ?>">
+                        <input type="text" name="city" disabled value="<?php echo $_SESSION['user'][0]['c_name'] ?>">
                     </div>
                     <div>
                         <label style="color : <?php echo $color ?>" for="">District</label>
-                        <input type="text" name="district" disabled value="<?php echo $all['d_name'] ?>">
+                        <input type="text" name="district" disabled value="<?php echo $_SESSION['user'][0]['d_name'] ?>">
     
                     </div>
 
@@ -123,7 +123,7 @@ if(isset($_GET["edit"])){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">zip code</label>
-                        <input type="text" name="zip" disabled  value="<?php echo $all['zip_code'] ?>">
+                        <input type="text" name="zip" disabled  value="<?php echo $_SESSION['user'][0]['zip_code'] ?>">
                     </div>
                    
                 </div>
@@ -157,7 +157,7 @@ if(isset($_GET["edit"])){
                     <div class="modal-content" style="height:280px;">
                         <span class="close" onclick="closeModal()">&times;</span>
                         <form action="changepwd" style="float:left" method="POST" autocomplete="new-password"  >
-                            <input type="hidden" value="<?php echo $all['user_id']?>" name="id">
+                            <input type="hidden" value="<?php echo $_SESSION['user'][0]['user_id']?>" name="id">
                             Current Password          : 
                             <input type="password" style="width:60%"  name="currentpwd" required >
                             <br>
@@ -195,19 +195,18 @@ if(isset($_GET["edit"])){
 					</tr>
 					
 					<?php
+                    // print_r($details);
 					foreach($details as $keys => $row){
 						$order_id=$row['order_id'];
 						$pickdate=$row['pickup_date'];
 						$tcost=$row['total_cost'];
 					?>
 					<tr>
-					<form action='/thoga.lk/driver/viewmore' method='post'>
 					<td><?php echo $order_id; ?> </td>
 					<td><?php echo $pickdate; ?> </td>
 					<td>Rs. <?php echo number_format($tcost,2); ?> </td>
 					<input type="hidden" name="order_id" value="<?php echo $order_id; ?>"> 
-					<td><button name="viewmore" class="button1"> View More</button></td>
-					</form>
+					<td><a href="viewmore?id=<?php echo $order_id;?>"> <button name="viewmore" class="button1"> View More</button></a></td>
 					</tr>
 
 					<?php } ?>

@@ -7,6 +7,7 @@ require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/buyerModel.php');
+require_once(__DIR__.'/../models/userModel.php');
 require_once(__DIR__.'/../models/vegetablesModel.php');
 
 
@@ -19,6 +20,7 @@ class BuyerController {
         $this->drivers = new driverModel();
         $this->vehicles = new vehicleModel();
         $this->buyer = new buyerModel();
+        $this->user = new userModel();
         $this->vege = new vegetablesModel();
     }
 
@@ -259,8 +261,9 @@ class BuyerController {
     }
     public function profile(){
         session_start();
-
+        $result = $this->order->get_all_orders($_SESSION['buyer_id'][0]['buyer_id']);
         $view = new View("buyer/Buyer_user_profile");
+        $view->assign('details', $result);
     }
 
     public function forum(){
@@ -424,6 +427,15 @@ class BuyerController {
         $this->order->cancelOrder($id);
         header("location:/thoga.lk/buyer/orders");
         
+    }
+    public function editprofile(){
+        $out= $this->user->updatedetails($_GET);
+        if($out){
+            header("location:/thoga.lk/buyer/profile?error=0");
+        }else{
+            header("location:/thoga.lk/buyer/profile?error=1");
+        }
+
     }
 
     

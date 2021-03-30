@@ -11,7 +11,7 @@ body {
 .picturebox{
   margin:10px;
 }
-.wrapper{
+.wrapper5{
   margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -25,7 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align:center;
   color:darkblue;
-  margin-top:80px;
+  margin-top:120px;
 }
 .user_details{
  margin-top: auto;
@@ -49,10 +49,10 @@ h1{
 
 }
 @media screen and (max-width:768px){
-  .wrapper{
+  .wrapper5{
       display: block;
   }
-  .wrapper img{
+  .wrapper5 img{
       width: 100%;
   }
  

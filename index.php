@@ -115,6 +115,7 @@ $routes = [
     'forum/likep'=>'ForumController@likep',
     'forum/unlikep'=>'ForumController@unlikep',
     'logout'=>'LoginController@logout',
+    'buyer/editprofile' => 'BuyerController@editprofile',
 
 
 
