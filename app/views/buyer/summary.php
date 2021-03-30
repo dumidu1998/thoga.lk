@@ -129,7 +129,13 @@
                         </tr>
     
                     </table>
-                    <button name="order" class="checkout_btn">Place Order</button>
+                    <button name="order" class="confirm_btn">Confirm Order</button>
+
+                    <form action="/lib/OTP.php" method="GET">
+                        <input type="text" class="otp" name="otp" id="" placeholder="OTP">
+                        <button name="order" class="checkout_btn_sum">Place Order</button>
+
+                    </form>
                     <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
                 </form>
             </div>

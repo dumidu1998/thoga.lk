@@ -17,7 +17,7 @@ class item extends db_model{
 		
 		$result=$this->connection->query($sql);
 		$finale=array();
-		// echo $sql;
+		//  echo $sql;
 		if($result){
       	while($row=mysqli_fetch_assoc($result))
 			array_push($finale,$row);
