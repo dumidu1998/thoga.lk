@@ -6,6 +6,10 @@
 
 <link href="/thoga.lk/public/stylesheets/buyer/font-awesome.min.css" rel="stylesheet">	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php
+    $url= $_SERVER['REQUEST_URI'];
+
+?>
 </head>
 <body>
 <div>
@@ -13,10 +17,10 @@
   <div class="nav-left">
 
     <a href="/thoga.lk/buyer/home" class="navlogo"><img  width=100px src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="" class = "logo"></a>
-    <a href="home" class="active">Home</a>
-    <a href="/thoga.lk/forum">Forum</a>
-    <a href="orders">Orders</a>
-    <a href="about_us">About Thoga.lk</a>
+    <a href="home" <?php echo (($url== "/thoga.lk/buyer/home")?( "class='active'"):("")); ?>>Home</a>
+    <a href="/thoga.lk/forum" <?php echo (($url== "/thoga.lk/buyer/forum")?( "class='active'"):("")); ?>>Forum</a>
+    <a href="orders" <?php echo (($url== "/thoga.lk/buyer/orders")?( "class='active'"):("")); ?>>Orders</a>
+    <a href="about_us" <?php echo (($url== "/thoga.lk/buyer/about_us")?( "class='active'"):("")); ?>>About Thoga.lk</a>
      <a id="google_translate_element"></a> 
   </div>
 
@@ -24,6 +28,8 @@
     <?php
     // print_r($_SESSION['user']);
       if(isset($_SESSION['user'])){
+        echo  "<a href='#'><img src='/thoga.lk/public/images/driver/bell.jpg' alt='' class = 'bell_pic' width=50px height= 50px>";
+
       echo "<a href='logout'><button class='logout'>Log Out</button></a>";
       echo   "<a href='profile'><img src='/thoga.lk/public/images/buyer/b.png' alt='' class = 'user_pic' width=50px></a>";
     

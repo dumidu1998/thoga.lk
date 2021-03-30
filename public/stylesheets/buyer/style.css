@@ -5,41 +5,50 @@ body {
     margin-top: 60px;
   }
   
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0;
+    margin-top: 0px;
+    z-index: 1;
+  }
+  
 .topnav {
     top: 0;
-    
     width: 100%;
     position: fixed;
     overflow: hidden;
     background-color: white;
     border: 1px solid rgba(141, 136, 136, 0.315);
     margin-bottom: 2px;
-    
+    z-index: 999;
+
+
     
   }
   
-.nav-left a {
+.topnav a {
     float: left;
     display: block;
     color: #000000;
     text-align: center;
     padding: 17px 20px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
     transition: 0.8s;
     padding-right: 15px;
   }
   
-.nav-left a:hover, .nav-left a.active:hover {
-    background-color: #ddd;
-    color: #2E5F3E    ;
+.topnav a:hover, .topnav a.active:hover {
+    background-color: white;
+    /* color: yellow; */
     text-decoration: none !important;
     border-bottom: 3px solid #63626259; 
   }
   
-.nav-left a.active {
+.topnav a.active {
    
-    border-bottom: 3px solid red; 
+    border-bottom: 3px solid black; 
     text-decoration: none !important;
     transition: 0.8s;
 
@@ -51,24 +60,9 @@ body {
   
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
-    .topnav{
-     
-      background-color: white;
-    }
-    .nav-left{
-      background-color: white;
-      
-    }
-     .logo{
-      width: 200px;
-      margin-left: 55px;
-    }
-    .nav-right{
-      display: none;
-    }
     .topnav a.icon {
       float: right;
-      display: inline-flex;
+      display: block;
     }
   }
   
@@ -76,44 +70,64 @@ body {
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
       position: absolute;
-      width: 100px;
       right: 0;
       top: 0;
     }
-.topnav.responsive a, .topnav.responsive img {
+.topnav.responsive a {
       float: none;
       display: block;
       text-align: left;
-      background-color: white;
     }
   }
 .navlogo{
     width: 200px;
+
     
 }
 .nav-right{
     float: right;
-    bottom: 2px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
 }
-@media screen and (max-width: 600px){
-  .nav-right a, .nav-right img{
-    display: none;
-  }
+.goog-te-gadget {
+  font-size: 0px;
 }
-.nav-right a:hover{
-  
-    text-align: center;
-   
-    text-decoration: none;
-    
+.goog-logo-link{
+display:none;
+}
+.goog-logo-link, .goog-logo-link:link, .goog-logo-link:visited, .goog-logo-link:hover, .goog-logo-link:active {
+  display:none;
+}
+.goog-te-banner-frame{
+  display:none;
+}
 
+.button_signup{
+    display:inline-block;
+    padding:0.7em 1.7em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.2em;
+    box-sizing: border-box;
+    margin: 12px 18px;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    color:#FFFFFF;
+    background-color:#70a401;
+    box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+    text-align:center;
+    position:relative;
+    
 }
-.nav-right img{
- margin: auto;
+
+a.button_signup:active{
+    box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
+@media all and (max-width:30em){
+a.button_signup{
+    display:block;
+    margin:0.4em auto;
+}
+}
+
 .logout{
   background-color:  #2E5F3E; /* Green */
   border: none;
