@@ -2,7 +2,6 @@
 
 require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../../core/db_model.php');
-
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
@@ -13,13 +12,9 @@ class DriverController extends db_model{
     
     function __construct()
     {
-        
-
         $this->dmodel = new driverModel();
         $this->vmodel = new vehicleModel();
         $this->omodel = new orderModel();
-
-        
     }
 
     public function driverdashboard(){
@@ -37,10 +32,8 @@ class DriverController extends db_model{
             $buyer = $this->omodel->order_buyername($order_id);
             $items = $this->omodel->orderdetails_total($order_id);
             $city= $this->omodel->order_city($order_id);
-            
-
-        
         }
+
         $result = $this->omodel->get_order_details($order_id);
         $view = new View("driver/viewmore");
         $view->assign('order_id',$order_id);
@@ -49,9 +42,6 @@ class DriverController extends db_model{
         $view->assign('buyer',$buyer);
         $view->assign('cityy',$city);
         $view->assign('items',$items);
-
-        
-        
     }
 
    
@@ -65,8 +55,6 @@ class DriverController extends db_model{
         $all= json_encode(array_merge($orderdates,$dates));
         $view = new View("driver/showcalendar");
         $view->assign('alldates',$all);
-
-        
     }
 
     public function unavailabledates(){

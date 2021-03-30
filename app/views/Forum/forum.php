@@ -55,11 +55,13 @@
         <div class="grid-item1">
             <div>
                 <div class="wrap">
+                    <form action="" method="get">
                     <div class="search">
-                        <input type="text" class="searchTerm" placeholder="Search for Topic...">
+                        <input type="text" class="searchTerm" name="search" value="<?php echo isset($_GET['search'])?$_GET['search']:''?>" placeholder="Search for Topic...">
                         <button type="submit" class="searchButton">
                             <i class="fa fa-search"></i>
                         </button>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -101,17 +103,17 @@
                 <span class="author">By - <?php echo $addeduser." on ".$date_time;?> </span>
                 </div>
                 <div class="forum-contols">
-                    <center style="font-size:20px;"><?php echo $vote; ?></center>
+                    <center style="font-size:28px;"><?php echo $vote; ?></center>
                     <center style="font-size:20px;">Votes</center><br>
-                    <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
-                    <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()">
-                    <br> Like &nbsp &nbsp &nbsp  Unlike
+                    <!-- <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" alt="" onclick="dd()" style="margin-right:20px;margin-left:2px" >
+                    <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" alt="Submit"  onclick="dd()"> -->
+                    <!-- <br> Like &nbsp &nbsp &nbsp  Unlike -->
                 </div>
                 <div class="forum-content">
                     <?php echo ucfirst($content) ?> 
                 </div>
                 <div class="reply">
-                    <b style="color:#2E5F3E;font-size:14px;">Top Reply</b><br>
+                    <b style="color:#2E5F3E;font-size:19px;">Top Reply</b><br>
                     <!-- <span class="author" >By - Dumidu Kasun Bandara </span><br> -->
                     <p>
                         <?php echo ($reply==null)?"<span style='color:#969696'>No any replies</p>":"<span style='color:black'>".ucfirst($reply)."</span>" ?>
@@ -159,6 +161,7 @@
         function dd(){
             alert("d");
         }
+
         function my(){
             vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
             var z=document.querySelectorAll('.like-unlike');

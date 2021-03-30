@@ -35,7 +35,7 @@ class AdminModel extends db_model
 
 	function upcomming()
 	{
-		$sql2 = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE() ORDER BY orders.order_id ASC";
+		$sql2 = "SELECT orders.*, buyer.*,user.* FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON buyer.user_id=user.user_id WHERE orders.pickup_date >= CURDATE() AND orders.status!=4 ORDER BY orders.order_id ASC";
 		$result = $this->connection->query($sql2);
 		$finale = array();
 		if ($result) {
@@ -46,14 +46,22 @@ class AdminModel extends db_model
 			echo "error";
 	}
 
+	function getmaxadid(){
+		$sql="SELECT MAX(ad_id) AS maxid FROM advertisement";
+		return $this->queryfromsql($sql);
+	}
+
 	function adsubmit($data)
 	{
 		$caption = $data['caption'];
 		$company = $data['company'];
 		$position = $data['position'];
+		$id=$this->getmaxadid();
+		$id=$id[0]['maxid'];
+		$id++;
 		$status = 1;
-		$sql = "INSERT INTO advertisement(ad_caption, company, position,	status) Values
-		 ('" . $caption . "','" . $company . "','" . $position . "','" . $status . "')";
+		$sql = "INSERT INTO advertisement(ad_id,ad_caption, company, position,	status) Values
+		 ('".$id."','" . $caption . "','" . $company . "','" . $position . "','" . $status . "')";
 		$result = $this->connection->query($sql);
 		echo $sql;
 		if ($result) {
@@ -155,5 +163,60 @@ class AdminModel extends db_model
 		} else
 			echo "error";
 	}
+
+	function get30days(){
+		$sql="SELECT COUNT(orders.order_id) AS ordcount, SUM(orders.total_cost) as totalsales FROM orders WHERE orders.order_date<DATE_SUB(CURDATE(),INTERVAL 0 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY)";
+		return $this->queryfromsql($sql);
+	}
+
+	function getusers(){
+		$sql="SELECT COUNT(user_id)as count_users FROM user WHERE user.usertype_id!=100 ";
+		return $this->queryfromsql($sql);
+	}
+
+	function getactiveproducts(){
+		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end<DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
+		return $this->queryfromsql($sql);
+	}
+
+	function checkpwd($user,$pwd){
+		$pwd=md5($pwd);
+		$sql="SELECT count(admin_id) as numrow FROM admin WHERE admin_id=".$user." AND password='".$pwd."'";
+		return $this->queryfromsql($sql);
+	}
+
+	function rstpwd($user){
+		$pwd=md5("thoga.lk");
+		return $this->update('user',array('password'=>$pwd),array('user_id'=>$user));
+
+	}
+
+	function blockuser($user){
+		return $this->update('user',array('usertype_id'=>'100'),array('user_id'=>$user));
+
+	}
+
+	function removeuser($user){
+		return $this->delete('user',array('user_id'=>$user));
+
+	}
+	
+	function disablead($adid){
+		$sql="UPDATE advertisement SET status=NOT status WHERE ad_id =".$adid;
+		return $this->queryfromsql($sql);
+	}
+
+	function deletead($adid){
+		return $this->delete('advertisement',array('ad_id'=>$adid));
+
+	}
+
+	function getrandadid(){
+		$sql="SELECT advertisement.ad_id FROM advertisement ORDER BY RAND() LIMIT 1";
+		return $this->queryfromsql($sql);
+	}
+	
+
+
 
 }

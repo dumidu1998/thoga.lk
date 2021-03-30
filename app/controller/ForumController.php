@@ -16,7 +16,13 @@ class ForumController{
 
     public function forum(){
         session_start();
-        $all=$this->forum->getpostswithtopreply();
+        $all;
+        if(isset($_GET['search'])){
+            $all=$this->forum->getposgetpostswithtopreplywithkey($_GET['search']);
+        }else{
+            $all=$this->forum->getpostswithtopreply();
+
+        }
         if(isset($_GET['added'])&&$_GET['added']==1){
             $sucess=1;
         }
@@ -59,13 +65,50 @@ class ForumController{
         if(isset($_POST['reply'])&&isset($_SESSION['user'])){
             $reply=array('user_id'=>$_SESSION['user'][0]['user_id'],'reply'=>$_POST['reply'],'vote'=>0,'post_id'=>$_POST['post_id']);
             $output=$this->forum->addreply($reply);
-            if($output==1){
+            print_r($reply);
+            if($output){
                 header("location: /thoga.lk/forum/fullview?post_id=".$_POST['post_id']."&added=1");
             }else{
                 header("location: /thoga.lk/forum/fullview?post_id=".$_POST['post_id']."&added=0");
             }
         }
     }
+
+    public function unlikep(){
+        $post_id=$_GET['id'];
+        $target='forum_post';
+        $result=$this->forum->remvote($target,$post_id);
+        header("location: /thoga.lk/forum/fullview?post_id=".$post_id);
+
+    }
+    
+    public function likep(){
+        $post_id=$_GET['id'];
+        $target='forum_post';
+        $result=$this->forum->addlike($target,$post_id);
+        header("location: /thoga.lk/forum/fullview?post_id=".$post_id);
+        
+        
+    }
+    
+    public function liker(){
+        $pid=$_GET['pid'];
+        $post_id=$_GET['id'];
+        $target='forum_replies';
+        $result=$this->forum->addlike($target,$post_id);
+        header("location: /thoga.lk/forum/fullview?post_id=".$pid);
+        
+    }
+    
+    public function unliker(){
+        $pid=$_GET['pid'];
+        $post_id=$_GET['id'];
+        $target='forum_replies';
+        $result=$this->forum->remvote($target,$post_id);
+        header("location: /thoga.lk/forum/fullview?post_id=".$pid);
+
+    }
+
 
 
 }

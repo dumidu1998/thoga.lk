@@ -167,14 +167,14 @@ tr:nth-of-type(odd) {
     background: #eee;
 }
 
-th {
+th{
     background: #2E5F3E;
     color: white;
     font-weight: bold;
 }
 
 td,
-th {
+th{
     padding: 10px;
     border: 1px solid #ccc;
     text-align: left;
