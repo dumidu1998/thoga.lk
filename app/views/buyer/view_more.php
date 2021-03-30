@@ -10,9 +10,9 @@
 <?php include("navbar.php"); ?>
 
 <?php
- print_r($details);
+//  print_r($details);
 // echo"</br>";
-// print_r($driver_details);
+// print_r($farmer_details);
 
 ?>
 
@@ -135,28 +135,38 @@ foreach($driver_details as $keys => $values)
             </thead>
             <tbody>
                 <?php
-                foreach($details as $keys => $values)  
+                foreach($farmer_details as $keys => $values)  
                 {  
                 
                     ?>
              <tr>
-                <td data-label="Item id"><?php echo $values['vege_id']?></td>
+                <td data-label="Item id"><?php echo $values['item_id']?></td>
                 <td data-label="Item name"><?php echo $values['vege_name']?></td>
-                <td data-label="Weight"><?php echo $values['item_weight']?>kg </td>
-                <td data-label="Price"><?php echo $values['current_price']?></td>
+                <td data-label="Weight"><?php echo $values['weight']?>kg </td>
+                <td data-label="Price"><?php echo $values['total_cost']?></td>
                 <td data-label="Farmer name"><?php echo $values['firstname']?> <?php echo $values['lastname']?></td>
                 <td data-label= "Farmer details" id=""><button id="myBtn" onclick="openModal(<?php echo $values['farmer_id']; ?>)">View Profile</button></td>
 
                 </tr>
                 <div class="model1" id="farmPro<?php echo $values['farmer_id'] ?>">
-                        <div class="modal-content">
+                        <div class="modal-content2">
+                            
                             <span class="close" onclick="closeModal(<?php echo $values['farmer_id'] ?>)">&times;</span>
-                                
-                                <div>👨‍🌾 <?php echo $values['firstname']." ".$values['lastname'];?></div>
-                                <div>🏠 <?php echo $values['farm_name'];?></div>
-                                <br>
-                                <div>📞 <?php echo $values['contactno1'];?></div>
-                                <div>📞 <?php echo $values['contactno2'];?></div>
+                                <div class="farmer_content">
+
+                                    <div>👨‍🌾 <?php echo $values['firstname']." ".$values['lastname'];?></div>
+                                    <div>🏠 <?php echo $values['farm_name'];?></div>
+                                    <br>
+                                    <div>📍🖂 <?php echo $values['address_line1'];?></div>
+                                    <div> &emsp;<?php echo $values['address_line2'];?></div>
+                                    <div> &emsp;<?php echo $values['city'];?></div>
+                                    <div> &emsp;<?php echo $values['district'];?></div>
+                                    <div> &emsp;<?php echo $values['province'];?></div>
+                                    <div> &emsp; <?php echo $values['zip_code'];?></div>
+                                    <br>
+                                    <div>📞 <?php echo $values['contactno1'];?></div>
+                                    <div>📞 <?php echo $values['contactno2'];?></div>
+                                </div>
                                
                                 
 

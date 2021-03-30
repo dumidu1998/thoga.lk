@@ -269,9 +269,11 @@ class BuyerController {
         $details = $this->order->viewmore_farmer($id);
         $driver_details = $this->order->viewmore_driver($id);
         $buyer_details = $this->order->get_order_details($id);
+        $farmer_details = $this->order->orderdetails_total($id);
         $view->assign('details', $details);
         $view->assign('driver_details', $driver_details);
         $view->assign('buyer_details', $buyer_details);
+        $view->assign('farmer_details', $farmer_details);
 
 
     }
@@ -377,7 +379,7 @@ class BuyerController {
                 // echo"--";
                 // print_r($result);
 
-                $order_details = array('farmer_id'=>$result[0]['farmer_id'],'item_id'=>$values['item_id'],'item_weight'=>$values['item_quantity'],'order_id'=>$newid);
+                $order_details = array('farmer_id'=>$result[0]['farmer_id'],'item_id'=>$values['item_id'],'weight'=>$values['item_quantity'],'order_id'=>$newid);
                  $this->order->insert_order_details($order_details);
                  $this->model->reduce_avail($values['item_id'],$values['item_quantity']);
             }
