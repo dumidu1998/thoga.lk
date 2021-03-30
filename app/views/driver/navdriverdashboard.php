@@ -28,7 +28,6 @@
     <a href="logout">Logout</a>
     
     
-    <a href="#"><img src="/thoga.lk/public/images/driver/bell.jpg" alt="" class = "bell_pic" width=24px height= 24px>
     <a href="profile"<?php echo (($url== "/thoga.lk/driver/profile")?( "class='active'"):("")); ?> ><img src="/thoga.lk/public/images/driver/profile.png" alt="" class = "index_pic" width=24px height= 24px>
     
   </div>
