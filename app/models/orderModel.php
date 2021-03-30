@@ -59,7 +59,7 @@ class orderModel extends db_model{
     function getdriver_upcomingorders($id){
 
 
-      $sql= "SELECT * FROM  orders where orders.pickup_date>= CURRENT_TIMESTAMP AND driver_id='".$id."'";
+      $sql= "SELECT * FROM  orders where orders.pickup_date>= CURRENT_TIMESTAMP AND status='0' AND driver_id='".$id."'" ;
 		
       $result=$this->connection->query($sql);
       
