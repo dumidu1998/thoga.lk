@@ -123,6 +123,11 @@ $routes = [
     'farmer/viewmore' => 'FarmerController@viewmore',
     
     
+    'forum/unliker'=>'ForumController@unliker',
+    'forum/liker'=>'ForumController@liker',
+    'forum/likep'=>'ForumController@likep',
+    'forum/unlikep'=>'ForumController@unlikep',
+    'logout'=>'LoginController@logout',
 
 
 
