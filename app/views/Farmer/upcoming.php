@@ -8,11 +8,11 @@
 
 </head>
  
-<body >
    <?php 
    include 'navbar_dash.php';
    
    ?>
+<body >
 
 
  <h1 class="title">Upcoming Orders</h1>
@@ -20,7 +20,7 @@
  ?>
 
 <div class = "container">
-<div style="overflow-x:auto;">
+<div style="overflow-x:auto;height: 50%;min-height:0px">
   <table align="center">
     <tr>
       <th>Order Id</th>

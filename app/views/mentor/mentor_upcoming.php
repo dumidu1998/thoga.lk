@@ -32,7 +32,7 @@
     
   </div>
 </div>
-<div  style="height:auto;">
+<div  style="height:auto;height: 50%;min-height:0px">
 
 <div style="overflow-x:auto;">
   <table align="center">

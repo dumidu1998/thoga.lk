@@ -160,8 +160,12 @@
     </form>
     
   
-</div>    
+</div>  
+</div>  
 
+
+
+</body>
 <script>
 var today = new Date();
 var dd = today.getDate();
@@ -180,8 +184,7 @@ document.getElementById("startdate").setAttribute("min", today);
 
 </script>
 
-
-</body>
 </html>
+<?php include("footer.php"); ?>
 
 

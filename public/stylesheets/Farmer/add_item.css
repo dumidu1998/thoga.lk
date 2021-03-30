@@ -5,7 +5,7 @@ body{
     font-family: sans-serif;
     color: #181617;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 100px;
    
 
 }
@@ -96,10 +96,7 @@ button:hover {
   text-align: center;
   width:70%;
   background:white;
-  position: absolute;
-  top:54%;
-  left:50%;
-  transform:translate(-50%,-50%);
+  margin: auto;
   box-sizing:border-box;
   font-size:18px;
   border-radius: 50px;
