@@ -18,7 +18,7 @@
 
       ?>
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
+  <a href="dashboard" class="navlogo"><img height=24px width=65px src="/thoga.lk/public/images/farmer/logo1.png" alt="" class = "logo"></a>
   <a href="dashboard" <?php echo (($url== "/thoga.lk/driver/dashboard")?( "class='active'"):("")); ?> >Dashboard</a>
   <a href="calendar" <?php echo (($url== "/thoga.lk/driver/calendar")?( "class='active'"):("")); ?> >Calendar</a>
   <a href="/thoga.lk/forum" >Forum</a>

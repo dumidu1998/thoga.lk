@@ -155,7 +155,7 @@ if(isset($_GET["edit"])){
             <div class="model1" id="myModal">
                     <div class="modal-content" style="height:280px;">
                         <span class="close" onclick="closeModal()">&times;</span>
-                        <form action="changepwd" style="float:left" method="POST"  >
+                        <form action="changepwd" style="float:left" method="POST" autocomplete="new-password"  >
                             <input type="hidden" value="<?php echo $all['user_id']?>" name="id">
                             Current Password          : 
                             <input type="password" style="width:60%"  name="currentpwd" required >
