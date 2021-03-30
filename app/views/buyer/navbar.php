@@ -24,14 +24,14 @@
      <a id="google_translate_element"></a> 
   </div>
 
-  <div class = "nav-right">
+  <div class = "nav-right" id="right">
     <?php
     // print_r($_SESSION['user']);
       if(isset($_SESSION['user'])){
         
 
-      echo "<a href='logout'><button class='logout'>Log Out</button></a>";
-      echo   "<a href='profile'><img src='/thoga.lk/public/images/buyer/b.png' alt='' class = 'user_pic' width=50px></a>";
+        echo   "<a href='profile'><img src='/thoga.lk/public/images/buyer/b.png' alt='' class = 'user_pic' width=50px></a>";
+        echo "<a href='logout'><button class='logout'>Log Out</button></a>";
     
       }else{
       echo "<a href='/thoga.lk'><button class='logout'>SignUp/Login</button></a>";
@@ -56,11 +56,14 @@
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
+  var y = document.getElementById("right");
+  
   if (x.className === "topnav" ) {
     x.className += " responsive";
   } else {
     x.className = "topnav";
   }
+  y.style.display="block";
 }
 // function myFunction() {
 //   var x = document.getElementById("nav-right");

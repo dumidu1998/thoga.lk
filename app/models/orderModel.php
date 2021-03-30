@@ -190,6 +190,19 @@ class orderModel extends db_model{
     }else
     echo "error";
   }
+  function get_buyer_upcoming_pick($id){
+    $sql= "SELECT * FROM  orders where pickup_date>= CURRENT_TIMESTAMP AND buyer_id='".$id."' AND status != 4 AND driver_id is NULL ";
+		
+    $result=$this->connection->query($sql);
+     echo $sql;
+    $finale=array();
+    if($result){
+        while($row=mysqli_fetch_assoc($result))
+      array_push($finale,$row);
+        return $finale;
+    }else
+    echo "error";
+  }
 
   function getbuyer_orderhistory($id){
     $sql= "SELECT a.*,b.*,c.* FROM  orders AS a INNER JOIN driver AS b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id  where a.pickup_date < CURRENT_TIMESTAMP AND buyer_id='".$id."'";
