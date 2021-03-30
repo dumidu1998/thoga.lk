@@ -92,11 +92,11 @@ input[type="submit"]
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: white;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px rgba(128, 128, 128, 0.308);
   }
   
   input:checked + .slider:before {

@@ -19,7 +19,7 @@ class db_connection{
 
 
 	function getConnection(){
-		$conn = new mysqli('localhost', 'root', '' , 'thoga.lk');
+		$conn = new mysqli('localhost', 'root', '' , 'thoga_lk');
 
 
 		// $conn = new mysqli('localhost', 'root', '' , 'thoga.lk');

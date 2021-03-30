@@ -108,6 +108,7 @@ $routes = [
     'farmer/add_item2' => 'FarmerController@add_item2',
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
     'driver/logout' => 'DriverController@logout',
+    'buyer/cancelOrder' => 'BuyerController@cancelOrder',
     'driver/addvehicle'=> 'DriverController@addvehicle',
     'driver/addVehicleController'=> 'DriverController@addnewvehicle',
     'driver/removevehicle'=> 'DriverController@removevehicle',
