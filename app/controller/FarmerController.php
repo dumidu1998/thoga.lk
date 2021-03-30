@@ -84,6 +84,9 @@ class FarmerController{
             // print_r($mentordetails);
             $view->assign('mentor',$mentordetails[0]);
         }
+        $mentordetails[0]['firstname']='No Mentor ';
+        $mentordetails[0]['lastname']='Requested';
+        $view->assign('mentor',$mentordetails[0]);
         $view->assign('all',$result[0]);
         $view->assign('fid',$farmerid[0]['farmer_id']);
        $view->assign('data',$result2[0]);
@@ -196,9 +199,8 @@ class FarmerController{
             $buyer = $this->oModel->order_buyername($order_id);
             $items = $this->oModel->orderdetails_total($order_id);
             $city= $this->oModel->order_city($order_id);
+            $result = $this->oModel->get_order_details($order_id);
         }
-
-        $result = $this->omodel->get_order_details($order_id);
         $view = new View("farmer/farmer_viewmore");
         $view->assign('order_id',$order_id);
         $view->assign('view',$result);

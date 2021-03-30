@@ -20,12 +20,10 @@
   <button class="dropbtn">Farmer List</button>
   <div class="dropdown-content">
 <?php
-   //print_r($data1);
   foreach($data1 as $keys => $row){
     $farmername = $row['firstname']." ".$row['lastname'];
     $fid=$row['farmer_id'];?>
     <a href="public_profile?id=<?php echo $fid; ?>"><?php echo $farmername; ?></a>
-    
 <?php
   }
   ?>

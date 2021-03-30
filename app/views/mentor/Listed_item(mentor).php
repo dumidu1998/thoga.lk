@@ -12,7 +12,6 @@
 
   
 <h1 class="title">Listed Items</h1>
-<?php include 'verticalnavbar.php';?>
 
 <div style="overflow-x:auto;">
   <table align="center">

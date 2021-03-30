@@ -71,6 +71,7 @@ class mentorModel extends db_model{
 	  function view_farmers($mentorid){
 		$sql = "SELECT *,user.firstname,user.lastname from farmer INNER join mentor on farmer.mentor_id=mentor.mentor_id inner join user on farmer.user_id=user.user_id WHERE mentor.mentor_id = '".$mentorid."'  ";
 		$result=$this->connection->query($sql);
+		// echo $sql;
 		$finale=array();
 		if($result){
 		  while($row=mysqli_fetch_assoc($result))
