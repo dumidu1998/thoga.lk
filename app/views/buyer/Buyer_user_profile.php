@@ -40,7 +40,7 @@ if(isset($_GET["edit"])){
     <div class="wrapper5">
         <div class="user_pp">
            
-            <img width="300px" src="/thoga.lk/public/uploads/buyerpropic/<?php echo $_SESSION['buyer_id'][0]['user_id'].'.jpg'?>" alt="">
+            <img width="300px" src="/thoga.lk/public/uploads/buyerpropic/<?php echo $_SESSION['user'][0]['user_id'].'.jpg'?>" alt="">
             <br><br>
             <form action="updateprofilepic" method="post" enctype="multipart/form-data">
             <input type="file" name="profpic" value="upload image">

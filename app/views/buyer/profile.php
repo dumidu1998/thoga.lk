@@ -31,7 +31,7 @@ if(isset($_GET["update"])){
     <div class="wrapper">
         <div class="user_pp">
             <!-- img -->
-            <img width="300px" src="../imgs/a.jpg" alt="">
+            <img width="300px" src="/thoga.lk/public/uploads/buyerpropic/2.jpg" alt="">
             <input type="file" value="upload image">
 
         </div>
