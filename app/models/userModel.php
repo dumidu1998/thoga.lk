@@ -73,13 +73,10 @@ class userModel extends db_model
         $mobile2=$data['mobileno2'];
 		$user_id=$_SESSION['user'][0]['user_id'];
 
-
 		$sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
 		$result=$this->connection->query($sql);
 		if($result){ return true;}else{return false;}
 	}
-
-
 
 }
 ?>
