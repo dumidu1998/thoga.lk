@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor Application</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
+	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 <body>
 <?php 

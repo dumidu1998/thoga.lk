@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/summary.css">
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
     <title>Document</title>
 </head>
 <body>
@@ -75,9 +77,9 @@
                         ?>
                         <tr>
                             <td class="item_name"><?php echo $values['item_name']?></td>
-                            <td><?php echo $values['item_price']?></td>
+                            <td>Rs.<?php echo number_format($values['item_price'],2)?></td>
                             <td><?php echo $values['item_quantity']?></td>
-                            <td><?php echo ($values['item_price'] * $values['item_quantity'])?></td>
+                            <td>Rs. <?php echo number_format(($values['item_price'] * $values['item_quantity']),2)?></td>
                         </tr>
                         <?php
                             }
@@ -87,7 +89,7 @@
                             <td colspan=2></td>
                            
                             <td class="td_summary ">Total Amount</td>
-                            <td class="item_name"><?php echo $tot?></td>
+                            <td class="item_name">Rs. <?php echo number_format($tot,2)?></td>
                             <input type="hidden" name="total_cost" value="<?php echo $tot ;?>">
                             <input type="hidden" name="total_weight" value="<?php echo $tot_weight ;?>">
                         </tr>
@@ -125,7 +127,7 @@
                         </tr>
                         <tr>                       
                             <td class="td_summary">Total Amount</td>
-                            <td class="item_name"><?php echo $tot?></td>
+                            <td class="item_name">Rs. <?php echo number_format($tot,2)?></td>
                         </tr>
     
                     </table>

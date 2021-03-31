@@ -221,7 +221,7 @@ class AdminController {
         }
         if(isset($_POST['accpted'])){
             $output=$this->mentors->accept($mentor_id);
-            header("location: ../admin?acceptm=1");
+            header("location: ../admin?acceptd=1");
 
         }
     }
@@ -289,16 +289,15 @@ class AdminController {
         $return = $this->model->addadmin($_POST);
         if($return ==1){
             $_SESSION['msg']="New Admin Added Sucessfully";
-            header("location: showadmin");
+            // header("location: showadmin");
         }else{
-            $_SESSION['error']="New Admin Added Sucessfully";
-            header("location: showadmin");
+            $_SESSION['error']="1";
+            // header("location: showadmin");
         }
     }
     
     public function addVeg(){
         $results=$this->vegetables->get_all_vegetables();
-        
         $view = new View("admin/add_veg");
         $view->assign('vegetables', $results);
     }
@@ -311,16 +310,14 @@ class AdminController {
             echo "<script>confirm('Are you sure to delete vegetable?');</script>";
             $this->vegetables->delete_vegetables($_POST['id']);
         }
-        
-        header("location: vegetables");
-
+        header("location: vegetables?success=1");
     }
 
     public function addnewveg(){
         if(isset($_POST['add'])){
             $this->vegetables->add_vegetable($_POST['veg_name'],$_POST['price']);
         }
-        header("location: vegetables");
+        header("location: vegetables?success=1");
 
     }
 
@@ -377,7 +374,7 @@ class AdminController {
         }else if(isset($_POST['rejected']) && isset($_POST['reason'])){
             $out=$this->mentors->rejectassignmentor($_POST['mentor_id'],$_POST['farmer_id']);
             //send email/sms with reason
-            header("location: ../admin?mentor_assigned=0");
+            header("location: ../admin?mentor_assigned=1");
         }else{
             header("location: ../admin?mentor_assign_error=1");
         }
@@ -388,7 +385,7 @@ class AdminController {
     public function driveraccept(){
         print_r($_POST);
         if(isset($_POST['accepted']) && isset($_POST['existing_driver'])){
-            $this->vehicles->accept($_POST['vid']);
+            $this->vehicles->accept($_POST['driverid']);
             echo "accepted";
             header("location: ../admin?acceptd=1");
         }else if(isset($_POST['rejected']) && isset($_POST['existing_driver'])){

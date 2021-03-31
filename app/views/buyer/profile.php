@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="profile1.css">
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 <?php
 $status = "disabled";
@@ -31,7 +33,7 @@ if(isset($_GET["update"])){
     <div class="wrapper">
         <div class="user_pp">
             <!-- img -->
-            <img width="300px" src="../imgs/a.jpg" alt="">
+            <img width="300px" src="/thoga.lk/public/uploads/buyerpropic/2.jpg" alt="">
             <input type="file" value="upload image">
 
         </div>

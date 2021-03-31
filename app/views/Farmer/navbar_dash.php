@@ -4,6 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/thoga.lk/public/stylesheets/Farmer/navbar_dash.css">
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 
 </head>
 <body>
@@ -21,7 +23,7 @@
  
   <div class = "nav-right">
     <a href ="aboutus">About Us</a>
-    <a href="#logout">Logout</a>
+    <a href="../logout">Logout</a>
     
     <a href='profile'> <img width=50px src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" > </a>
 

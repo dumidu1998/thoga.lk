@@ -24,6 +24,35 @@ class mentorController{
        
     }
 
+    public function updateprofilepic(){
+        session_start();
+        print_r($_FILES['profpic']);
+        if(isset($_FILES['profpic'])){
+            $errors= array();
+            $file_name = $_FILES['profpic']['name'];
+            $file_tmp =$_FILES['profpic']['tmp_name'];        
+            $file_type=$_FILES['profpic']['type'];
+            $temp=explode('.',$_FILES['profpic']['name']);
+            $file_ext=end($temp);
+            $extensions= array("jpeg","jpg","png","JPG","JPEG");
+
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            $id=$_SESSION['user'][0]['user_id'];
+            if(empty($errors)==true){
+                move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/mentorpropic/".$id.".jpg");
+                echo "Success";
+                header("location:/thoga.lk/mentor/profile?sucess=1");
+             }else{
+                print_r($errors);
+             }
+        }else{
+            echo "file Upload Failed";
+        }
+        
+    }
+
     public function add_item()
     {
         session_start();
@@ -86,18 +115,14 @@ class mentorController{
         session_start();
         $mentoruserid=$_SESSION['user'][0]['user_id'];
         $mentorid = $this->mModel->get($mentoruserid);
-
         $result1=$this->mModel->view_farmers($mentorid[0]['mentor_id']);
-       // print_r($result);
+        $result=array();
+        foreach($result1 as $key=>$values){
+            array_push($result,$this->fmodel->get_details($values['farmer_id']));
+        }
         $view = new View("mentor/mentor_upcoming");
-        $result = $this->fmodel->get_details();
         $view ->assign('data',$result);
         $view->assign('data1',$result1);
-        
-
-       
-         
-        
     }
 
     public function listed_items()

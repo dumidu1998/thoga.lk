@@ -19,7 +19,7 @@ class vegetablesModel extends db_model{
     }
 
     public function add_vegetable($name,$price){
-        $sql= "INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`, `current_price`, `prev_price`) VALUES (NULL, '".$name."', '".$name.".jpg', ".$price.", '')";
+        $sql= "INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`, `current_price`, `prev_price`) VALUES (NULL, '".$name."', '".$name.".jpg', ".$price.", '0')";
         $result = $this->connection->query($sql);
     }
     

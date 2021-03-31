@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.min.css" type='text/css'>
+	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 
 
 </head>

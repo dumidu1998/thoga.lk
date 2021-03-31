@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/v_more.css">
     <title>View more</title>
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
+    <title>Document</title>
 </head>
 <body >
 <?php include("navbar.php"); ?>

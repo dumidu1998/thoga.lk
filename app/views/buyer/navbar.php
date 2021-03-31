@@ -10,6 +10,8 @@
     $url= $_SERVER['REQUEST_URI'];
 
 ?>
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 <body>
 <div>

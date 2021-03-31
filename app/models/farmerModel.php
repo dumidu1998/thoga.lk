@@ -41,6 +41,23 @@ class farmerModel extends db_model{
 
     }
 
+    function get_detailsbymid($mentorid){
+       $sql="SELECT order_details.order_id,order_details.farmer_id, orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,  buyer.buyer_id,buyer.user_id,user.user_id,user.firstname,user.lastname FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON user.user_id=buyer.user_id INNER JOIN order_details ON order_details.order_id=orders.order_id where orders.pickup_date >= CURDATE() AND order_details.farmer_id = '".$farmerid."'
+       ";
+       $result=$this->connection->query($sql);
+       $arr=array();
+       if($result){
+        while($row=mysqli_fetch_assoc($result))
+        array_push($arr,$row);
+      return $arr;
+    
+
+        }else
+        echo "error";
+         
+
+    }
+
     function get_info(){
         $sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,vegetable.vege_name FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id where item.item_end >= CURDATE()
         ";
@@ -74,6 +91,9 @@ class farmerModel extends db_model{
       if($result){ return true;}else{return false;}
     }
   
+    public function get_all_orders($id){
+		  return $this->read('orders', array('*'), array('farmer_id'=>$id));
+    }
 
 
     
