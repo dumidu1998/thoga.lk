@@ -4,6 +4,8 @@
   <title>Sign Up</title>
   <link rel="stylesheet" type="text/css" href="Farmer_signUp.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="padding: 20px" background="index1.jpg">
