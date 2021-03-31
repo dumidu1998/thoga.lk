@@ -227,7 +227,6 @@ if(isset($_GET['error']) && $_GET['error']==1){
             </thead>
             <tbody>
             <?php
-          //print_r($data);
             foreach($data as $key => $values){
             $ordid= $values['order_id'];
             $pdate= $values['pickup_date'];
@@ -244,12 +243,11 @@ if(isset($_GET['error']) && $_GET['error']==1){
             <form action='/thoga.lk/farmer/farmer_viewmore' method='post'>
                 <td data-label="Order id"><?php echo $ordid;?></td>
                 <td data-label="Pickup date"><?php echo $pdate;?></td>
-                <td data-label="Total Weight"><?php echo $tweight;?></td>
-                <td data-label="Total Price"><?php echo $cost;?></td>
+                <td data-label="Total Weight"><?php echo number_format($tweight,2);?> kg</td>
+                <td data-label="Total Price">Rs. <?php echo number_format($cost,2);?></td>
                 <td data-label= "Buyer Name"><?php echo $bname;?></td>
                 <td>
-                <input type="hidden" name="order_id" value="<?php echo $order_id; ?>"> 
-                    <a class = "more" > View More </a>
+                    <a class = "more" href="viewmore?id=<?php echo $ordid;?>" > View More </a>
                 </td>
                 
             </form>

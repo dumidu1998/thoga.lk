@@ -22,9 +22,6 @@ class FarmerController{
         $this->userModel = new userModel();
         $this->oModel = new orderModel();
         $this->vegeModel = new vegetablesModel();
-
-
-
     }
 
     
@@ -34,10 +31,6 @@ class FarmerController{
         $view = new view("Farmer/listed_items");
         $result = $this->fmodel->get_info();
         $view ->assign('data',$result);
-
-       
-         
-        
     }
 
     public function upcoming()
@@ -45,15 +38,10 @@ class FarmerController{
         $view = new View("Farmer/upcoming");
         $result = $this->fmodel->get_details();
         $view ->assign('data',$result);
-             
-        
     }
 
-    
-   
     //upcoming
 
-    
     public function add_item()
     {
         $view = new view("Farmer/add_item");
@@ -76,7 +64,7 @@ class FarmerController{
         $farmerid=$this->fmodel->read_id($farmeruserid);
         // print_r ($farmerid[0]['mentor_id']);
         $mentorid=$farmerid[0]['mentor_id'];
-        // print_r($farmerid[0]['farmer_id']);
+        print_r($farmerid[0]['farmer_id']);
         $result = $this->fmodel-> getfarmerallbyid($farmerid[0]['farmer_id']);
 
         $result2 = $this->oModel->getOrderHistory($farmerid[0]['farmer_id']);
@@ -93,7 +81,7 @@ class FarmerController{
         $view->assign('mentor',$mentordetails[0]);
         $view->assign('all',$result[0]);
         $view->assign('fid',$farmerid[0]['farmer_id']);
-       $view->assign('data',$result2[0]);
+        $view->assign('data',$result2);
 
     }
 

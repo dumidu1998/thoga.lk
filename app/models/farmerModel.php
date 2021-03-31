@@ -74,6 +74,9 @@ class farmerModel extends db_model{
       if($result){ return true;}else{return false;}
     }
   
+    public function get_all_orders($id){
+		  return $this->read('orders', array('*'), array('farmer_id'=>$id));
+    }
 
 
     

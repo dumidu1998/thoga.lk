@@ -41,6 +41,7 @@ class orderModel extends db_model{
          }else
          echo "error";
     }
+
     public function get_all_orders($id){
 		  return $this->read('orders', array('*'), array('buyer_id'=>$id));
     }
@@ -207,6 +208,7 @@ class orderModel extends db_model{
     }else
     echo "error";
   }
+
   function get_buyer_upcoming_pick($id){
     $sql= "SELECT * FROM  orders where pickup_date>= CURRENT_TIMESTAMP AND buyer_id='".$id."' AND status != 4 AND driver_id is NULL ";
 		
@@ -236,9 +238,6 @@ class orderModel extends db_model{
   
 
   }
- 
-  
-
   
   function  getrating($id){
     $sql="SELECT * FROM feedback where order_id=".$id;
@@ -251,7 +250,7 @@ class orderModel extends db_model{
   }
 
   function getOrderHistory($farmerid){
-    $sql="SELECT DISTINCT(order_details.order_id),buyer.b_name,order_details.order_id,order_details.farmer_id FROM orders 
+    $sql="SELECT DISTINCT(order_details.order_id),buyer.b_name,orders.order_id,orders.total_cost,orders.weight,orders.pickup_date,orders.order_id FROM orders 
     INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id 
     INNER JOIN order_details ON orders.order_id=order_details.order_id 
     where orders.pickup_date < CURDATE() AND order_details.farmer_id='".$farmerid."' ";
@@ -263,7 +262,7 @@ class orderModel extends db_model{
          array_push($arr,$row);
          foreach($arr as $key=>$values){
            $orderdetails=$this->orderdetails_total($values['order_id']);
-            array_push($final,$orderdetails);
+            array_push($final,$orderdetails[0]);
          }
         //  print_r($final);
        return $final;
