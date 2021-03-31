@@ -175,7 +175,7 @@ class AdminModel extends db_model
 	}
 
 	function getactiveproducts(){
-		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end<DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
+		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end>DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
 		return $this->queryfromsql($sql);
 	}
 

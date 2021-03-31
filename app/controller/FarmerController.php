@@ -137,7 +137,7 @@ class FarmerController{
             $file_type=$_FILES['profpic']['type'];
             $temp=explode('.',$_FILES['profpic']['name']);
             $file_ext=end($temp);
-            $extensions= array("jpeg","jpg","png");
+            $extensions= array("jpeg","jpg","png","JPG","JPEG");
 
             if(in_array($file_ext,$extensions)=== false){
                 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
