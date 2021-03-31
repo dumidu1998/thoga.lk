@@ -129,18 +129,6 @@
       </div>
     </div>
     
-    
-   
-    
-    <div class="row">
-      <div class="left">
-        <label for="pic">Item Image</label>
-      </div>
-      <div class="right">
-        <input type="file" id="itemimage" name="itemimage">
-      </div>
-    </div>
-    
     <div class="clearfix">
       <button type="button" class="cancelbtn" onClick="window.location.href='add_item'">Cancel</button>
       <button type="submit" class="submitbtn" name="submit">Submit</button>

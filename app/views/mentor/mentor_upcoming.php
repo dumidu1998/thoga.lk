@@ -49,13 +49,12 @@
     
 
 <?php
-
-foreach($data as $key => $values){
+foreach($data[0] as $key => $values){
   $ordid= $values['order_id'];
   $pdate= $values['pickup_date'];
   $tweight= $values['weight'];
   $cost= $values['total_cost'];
-  $bname= $values['b_name'];
+  $bname= $values['firstname'].' '.$values['lastname'];
   
 
 

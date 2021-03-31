@@ -123,6 +123,7 @@ $routes = [
     'farmer/changepwd' => 'FarmerController@changepwd',
     'farmer/requestmentor' => 'FarmerController@requestmentor',
     'mentor/editprofile' => 'mentorController@editprofile',
+    'mentor/updateprofilepic' => 'mentorController@updateprofilepic',
     'farmer/viewmore' => 'FarmerController@viewmore',
     
     

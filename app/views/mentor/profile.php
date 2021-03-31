@@ -33,10 +33,16 @@ if(isset($_GET['error']) && $_GET['error']==1){
 
    
     <div class="wrapper">
-        <div class="user_pp">
+    <div class="user_pp">
             <!-- img -->
-            <img width="300px" src="/thoga.lk/public/images/Farmer/a.jpg" alt="">
-            <input type="file" value="upload image">
+            <img width="300px" src="/thoga.lk/public/uploads/mentorpropic/<?php echo $_SESSION['user'][0]['user_id'].'.jpg'?>" alt="">
+
+            <br><br>
+            <form action="updateprofilepic" method="post" enctype="multipart/form-data">
+            <input type="file" name="profpic" value="upload image">
+            <br>
+            <input type="submit" class="button2" value="update picture">    
+            </form>
 
         </div>
         <div class="user_details">
