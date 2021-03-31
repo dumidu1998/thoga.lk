@@ -4,6 +4,7 @@
 <title>Farmer Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/Farmer/upcoming.css">
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
 
 
 </head>

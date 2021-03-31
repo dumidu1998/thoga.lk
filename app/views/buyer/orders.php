@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/orders.css">
+    <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
 
     <title>Orders</title>
 </head>

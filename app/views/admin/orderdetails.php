@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Details #<?php printf('%02d',  $order_all['order_id']); ?></title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/vieworders.css">
+	  <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 <body>
 <?php 

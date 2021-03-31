@@ -23,6 +23,8 @@ if(!empty($_SESSION['e_dateArray'])){
   <title>Home</title>
   <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/index.css">
   <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/shopping_Cart.css">
+  <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+  
 
   <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
