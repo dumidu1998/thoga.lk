@@ -174,7 +174,7 @@
         }
 
         function success(){
-            swal("SUCCESS!", "Profile updated successfully!", "success");
+            swal("SUCCESS!", "Post added Successfully!", "success");
         };
         function error(){
             swal("ERROR", "Please Try Again!", "error");

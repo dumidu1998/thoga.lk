@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/addVeg.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
+
 
     <title>Add item</title>
 </head>
@@ -12,6 +14,10 @@
 <?php 
  include("navbar.php"); 
 //  print_r($vegetables)
+if(isset($_GET['success'])){
+  echo "<script>swal('SUCCESS!', 'Vegetable Updated Successfully!', 'success');</script>";
+
+}
  ?>
  <div class="veg_container">
      <!-- veg list container -->

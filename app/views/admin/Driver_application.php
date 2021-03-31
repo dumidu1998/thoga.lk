@@ -8,8 +8,10 @@
 </head>
 <body>
 <?php  
+// print_r( $basic);
     $user_id=$basic[0]['user_id'];
     $driver_id=$basic[0]['driver_id'];
+    echo $driver_id;
     if(file_exists("/thoga.lk/public/uploads/$user_id.jpg")){
         $fileName = "/thoga.lk/public/uploads/$user_id.jpg";
         echo $fileName;

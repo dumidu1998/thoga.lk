@@ -54,23 +54,25 @@ class signupModel extends db_model{
         $gpsLa."','".$usertype."')";
         $result=$this->connection->query($sql);
         
-        if($result){$return+=$result;}else echo "<script>alert('error in SignUp');</script>";
+        if($result){$return+=$result;}else echo "<script>alert('error in SignUp1');</script>";
 
         $sql1 = "SELECT * FROM user WHERE username='".$username."'";
         $result1=$this->connection->query($sql1);
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user_id'];
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province, zip_code) VALUES ('".$uid."','"
         .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
-        if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp');</script>";
+        if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp2');</script>";
 
         $sql2="INSERT INTO buyer (user_id, br_no, b_name) Values ('".$uid."','".$businessname."','".$brNO."')";
         $result2=$this->connection->query($sql2);
-        if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp');</script>";
+        if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp3');</script>";
 
-
+        echo $sql1;
+        echo $sql2;
+        echo $sql3;
         return $return;
     }
 
@@ -119,13 +121,13 @@ class signupModel extends db_model{
 
         $sql2="INSERT INTO farmer (user_id, `farmer's_idNo`, farm_name, mentor_id) Values ('".$uid."','".$FarmerIDno."','".$FarmName."','".$mid."')";
         $result2=$this->connection->query($sql2);
-        if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp');</script>";
+        if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp2');</script>";
         
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province, zip_code) VALUES ('".$uid."','"
         .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
-        if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp');</script>";
+        if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp3');</script>";
 
         return $return;
 
@@ -198,7 +200,7 @@ class signupModel extends db_model{
         if($result4){}else echo "<script>alert('error in SignUp');</script>";
         
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province, zip_code) VALUES ('".$uid."','"
         .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
         if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp');</script>";
@@ -251,7 +253,7 @@ class signupModel extends db_model{
         $row=mysqli_fetch_assoc($result1);
         $uid=$row['user_id'];
 
-        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province_name, zip_code) VALUES ('".$uid."','"
+        $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province, zip_code) VALUES ('".$uid."','"
         .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
         if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp1');</script>";

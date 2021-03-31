@@ -36,7 +36,6 @@ class SignUpController {
         if(isset($_POST['submit'])){
             $status = $this->model->addfarmer($_POST);
             $_SESSION['signupstatus']=$status;
-
             header ("Location: /thoga.lk");
         }
     }

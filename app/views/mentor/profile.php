@@ -22,8 +22,6 @@ if(isset($_GET["edit"])){
 if(isset($_GET['error']) && $_GET['error']==1){
     echo"<script>alert('Error Occured!. Try again');</script>";
 }
-
-
 ?>
 
 <body>

@@ -43,7 +43,7 @@ class mentorController{
             if(empty($errors)==true){
                 move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/mentorpropic/".$id.".jpg");
                 echo "Success";
-                header("location:/thoga.lk/farmer/profile");
+                header("location:/thoga.lk/mentor/profile?sucess=1");
              }else{
                 print_r($errors);
              }
