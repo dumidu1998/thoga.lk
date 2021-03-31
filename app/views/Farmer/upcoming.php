@@ -39,7 +39,7 @@ foreach($data as $key => $values){
   $pdate= $values['pickup_date'];
   $tweight= $values['weight'];
   $cost= $values['total_cost'];
-  $bname= $values['b_name'];
+  $bname= $values['firstname']." ".$values['lastname'];
 
 
 

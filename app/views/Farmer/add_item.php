@@ -111,8 +111,8 @@
       </div>
       <div class="right">
         <select class="textt" id="itemtype" name="itemtype"  required>
-          <option value="organic">Organic</option>
-          <option value="inorganic">Non-organic</option>
+          <option value="org">Organic</option>
+          <option value="non">Non-organic</option>
           
         </select>
       </div>

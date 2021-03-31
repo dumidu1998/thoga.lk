@@ -33,7 +33,7 @@
     
      foreach($data as $key => $values){
        $ordid = $values['vege_name'];
-       $itype = $values['Item_type'];
+       $itype = ($values['Item_type']=='org')?'Organic':'Non Organic';
        $avaweight = $values['avail_weight'];
        $minweight = $values['min_weight'];
        $enddate = $values['item_end'];
@@ -47,10 +47,10 @@
 
 <td><?php echo $ordid; ?></td>
 <td><?php echo $itype; ?></td>
-<td><?php echo $avaweight; ?></td>
-<td><?php echo $minweight; ?></td>
+<td><?php echo number_format($avaweight,0); ?> kg</td>
+<td><?php echo number_format($minweight,0); ?> kg</td>
 <td><?php echo $enddate; ?></td>
-<td><?php echo $price; ?></td>
+<td>Rs. <?php echo number_format($price,2); ?></td>
 <td>
  <a class="more" href="edit?id=<?php echo $itemid; ?>">Edit</a>
  </td>

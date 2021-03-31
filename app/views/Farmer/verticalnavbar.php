@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/Farmer/vertical.css">
 </head>
 <body>
-<?php session_start();//echo $_SESSION['farmer']['mentor_id'];?>
+<?php //echo $_SESSION['farmer']['mentor_id'];?>
 <div class="sidebar">
 <a  href="add_item">Add Items</a>
   <a href="listed">Listed Items</a>

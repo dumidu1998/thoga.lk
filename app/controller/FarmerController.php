@@ -30,6 +30,7 @@ class FarmerController{
     
     public function listed_items()
     {
+        session_start();
        
         $view = new view("Farmer/listed_items");
         $result = $this->fmodel->get_info();
@@ -42,8 +43,15 @@ class FarmerController{
 
     public function upcoming()
     {
+        session_start();
+
+        $farmeruserid=$_SESSION['user'][0]['user_id'];
+
+        $farmerid=$this->fmodel->read_id($farmeruserid);
+        // print_r($farmerid[0]['farmer_id']);
+
         $view = new View("Farmer/upcoming");
-        $result = $this->fmodel->get_details();
+        $result = $this->fmodel->get_details($farmerid[0]['farmer_id']);
         $view ->assign('data',$result);
              
         
