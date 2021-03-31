@@ -1,11 +1,13 @@
 <?php
 require_once(__DIR__.'/../models/loginModel.php');
+require_once(__DIR__.'/../models/userModel.php');
 require_once(__DIR__.'/../../core/View.php');
 
 class LoginController{
     public function __construct()
     {
         $this->user = new loginModel();
+        $this->userM = new userModel();
     }
     public function login(){
         session_start();
@@ -23,11 +25,10 @@ class LoginController{
                     foreach($user_data as $keys => $values){
                          echo $values['user_type'];
                         if($values['user_type'] == 'buyer'){
-                           // echo ("buyer");
                             header("location:buyer/home");
                         }elseif($values['user_type'] == 'farmer'){
-                            //print_r($user_data);
-                            //echo "im the farmer"; 
+                            $mid=$this->userM->getmentorid($_SESSION['user'][0]['user_id']);
+                            $_SESSION['farmer']['mentor_id']=$mid[0]['mentor_id'];
                             header("location:farmer/dash");
                         }elseif($values['user_type'] == 'driver'){
                             $id=$this->user->get_driver_id($_SESSION['user'][0]['user_id']);

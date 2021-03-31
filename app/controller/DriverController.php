@@ -5,6 +5,7 @@ require_once(__DIR__.'/../../core/db_model.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
+require_once(__DIR__.'/../models/userModel.php');
 
 
 
@@ -12,6 +13,7 @@ class DriverController extends db_model{
     
     function __construct()
     {
+        $this->umodel = new userModel();
         $this->dmodel = new driverModel();
         $this->vmodel = new vehicleModel();
         $this->omodel = new orderModel();
@@ -32,8 +34,8 @@ class DriverController extends db_model{
             $buyer = $this->omodel->order_buyername($order_id);
             $items = $this->omodel->orderdetails_total($order_id);
             $city= $this->omodel->order_city($order_id);
+            $ordstatus=$this->omodel->getstatus($order_id);
         }
-
         $result = $this->omodel->get_order_details($order_id);
         $view = new View("driver/viewmore");
         $view->assign('order_id',$order_id);
@@ -42,6 +44,7 @@ class DriverController extends db_model{
         $view->assign('buyer',$buyer);
         $view->assign('cityy',$city);
         $view->assign('items',$items);
+        $view->assign('ordstatus',$ordstatus);
     }
 
    
@@ -102,6 +105,7 @@ class DriverController extends db_model{
         session_start();
         $id=$_SESSION['driver']['user_id'];
         $did=$_SESSION['driver']['driver_id'];
+        
 
         $result = $this->omodel->getdriver_orderhistory($did);//driver id
         $details=$this->dmodel->getalldetails($id);//user id
@@ -142,8 +146,39 @@ class DriverController extends db_model{
     
     public function forum(){
         $view = new View("forum");
-        
     }
+    
+    public function changepwd(){
+        if(isset($_POST['changepwd'])){
+            $curpwd=$_POST['currentpwd'];
+            $newpwd=$_POST['newpwd'];
+            $confirmpwd=$_POST['confirmpwd'];
+            $uid=$_POST['id'];
+            $curpwddb=$this->umodel->obtainpassword($uid);
+            print_r($curpwddb);
+            $curpwddb=$curpwddb[0]['password'];
+            print_r($curpwddb);
+            if(strcmp($curpwddb,md5($curpwd))){
+                echo "error";
+            header("location:/thoga.lk/driver/profile?error=1");
+        }else{
+            echo"db ok";
+            if(strcmp($confirmpwd,$newpwd)){
+                echo "error1";
+                header("location:/thoga.lk/driver/profile?error=1");
+            }else{
+                $out=$this->umodel->editpassword(md5($newpwd),$uid);
+                if($out){
+                    header("location:/thoga.lk/driver/profile?pwderror=0");
+                }else{
+
+                }
+                }
+            }
+        }
+
+    }
+        
 
     public function changeavailability0(){
         $vid=$_GET['vid'];
@@ -243,6 +278,14 @@ class DriverController extends db_model{
         header("location:/thoga.lk/driver/vehicledetails");
 
 
+    }
+    public function changeorder_status(){
+        $orderid=$_POST['orderid'];
+        $status=$_POST['orderstatus'];
+        $this->omodel->changeorder_status($orderid,$status);
+        header("location:/thoga.lk/driver/dashboard?statusupdated=1");
+
+        
     }
     
 

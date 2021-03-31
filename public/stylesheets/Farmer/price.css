@@ -14,10 +14,8 @@
   text-align: center;
   width:70%;
   background:white;
-  position:absolute;
-  top:40%;
-  left:50%;
-  transform:translate(-50%,-50%);
+  margin: auto;
+  margin-bottom: 50px;
   box-sizing:border-box;
   font-size:18px;
   border-radius: 50px;
@@ -83,7 +81,7 @@ table {
 
 }
 th{
-  background-color: #4CAF50;
+  background-color:  #253E30;
     color: white;
 }
 

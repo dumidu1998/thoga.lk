@@ -6,7 +6,7 @@
     </head>
 
     <body>
-    <?php include("navbar_dash.php");?>
+    <?php include("navdriverdashboard.php"); ?>
     <header >
         
         <div class="topic">
@@ -38,8 +38,7 @@
                 foreach($cityy as $keys => $row){
                     $city=$row['name_en'];
                 }
-            ?> 
-                    
+            ?>         
             Order No          : 
             <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
             <br> 
@@ -103,12 +102,9 @@
 
 
             <?php } ?>
-            Order Status  :
-            <!-- Update Status   :  -->
-            <input type="text" name="driver name" value="<?php echo $ordstatus[0]['description']?>" disabled>  
-            
+                           
                 
-        </div>
+        </div> 
     </div>
      
 
@@ -179,7 +175,7 @@
             
         </div>
     </div>
-    <?php include("footer.php"); ?>
+    <?php include("footer.php"); ?> 
     
     </body>
 </html>

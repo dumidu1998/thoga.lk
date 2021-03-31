@@ -7,7 +7,7 @@
 
 </head>
  
-<body background="/thoga.lk/public/images/Farmer/index1.jpg">
+<body>
   <?php include 'navbar_dash.php';?>
 
   
@@ -30,7 +30,7 @@
     </tr>
 
 <?php
-     
+    
      foreach($data as $key => $values){
        $ordid = $values['vege_name'];
        $itype = $values['Item_type'];
@@ -38,6 +38,7 @@
        $minweight = $values['min_weight'];
        $enddate = $values['item_end'];
        $price = $values['total_cost'];
+       $itemid = $values['item_id'];
 
 
 ?>
@@ -51,11 +52,11 @@
 <td><?php echo $enddate; ?></td>
 <td><?php echo $price; ?></td>
 <td>
- <a class="more" href="edit">Edit</a>
+ <a class="more" href="edit?id=<?php echo $itemid; ?>">Edit</a>
  </td>
  
  <td>
- <a class="dele"  href="delete.php">Delete</a>
+ <a class="dele" href="delete_item?id=<?php echo $itemid; ?>" onclick="confirm('Are you sure you want to delete this item ?');">Delete</a>
  </td>
 
  

@@ -78,7 +78,7 @@ class driverModel extends db_model{
 		$result=$this->connection->query($sql);
 		
 		$finale=array();
-		// echo $sql;
+		echo $sql;
 		if($result){
       while($row=mysqli_fetch_assoc($result))
       //print_r($row);
@@ -170,5 +170,6 @@ class driverModel extends db_model{
         return $this->update('driver',array('verified_state'=>'0','reject_reason'=>$reason),array('driver_id'=>$did));
     }
 
+	
 }
  ?>

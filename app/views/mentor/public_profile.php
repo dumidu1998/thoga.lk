@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,25 +5,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/Farmer/farmer_profile.css">
 </head>
-<?php
-$status = "disabled";
-$color = "black";
 
-if(isset($_GET["edit"])){
-    $status = "enabled";
-    $color = "red";
-   
-    
-  
-}
-if(isset($_GET["update"])){
-   
-   echo "Done"; 
-  
-}
-
-
-?>
 
 <body>
 
@@ -42,89 +23,98 @@ if(isset($_GET["update"])){
         
         <div class="user_details">
             <!-- user details -->
-            <form action="profile.php" method="get">
+            <form action="view_public_profile" method="get">
+            <?php
+            foreach($data as $keys =>$row){
+                $fname=$row['firstname'];
+                $lname=$row['lastname'];
+                $email=$row['email'];
+                $mobilenumber1=$row['contactno1'];
+                $mobilenumber2=$row['contactno2'];
+                $farmname=$row['farm_name'];
+                $district=$row['name_en'];
+                $zipcode=$row['zip_code'];
+                $addressline1=$row['address_line1'];
+                $addressline2=$row['address_line2'];
+
+        
+            }
+            ?>
                 <div class="data_wrapper">
-                    <label style="color : <?php echo $color ?>" for="">First name</label>
-                    <input type="text" <?php echo $status ?>> 
+                    <label for="firstname">First name</label>
+                    <input type="text" value="<?php echo $fname?>"disabled> 
                 </div>
 
                 <div class="data_wrapper">
-                    <label style="color : <?php echo $color ?>" for="">Last name</label>
-                    <input type="text" <?php echo $status ?>>
+                    <label for="lastname">Last name</label>
+                    <input type="text"  value="<?php echo $lname?>"disabled>
                 </div>
 
                 <div class="data_wrapper">
-                    <label style="color : <?php echo $color ?>" for="">Email Adress</label>
-                    <input type="text" <?php echo $status ?>>
+                    <label for="email">Email Adress</label>
+                    <input type="text"  value="<?php echo $email?>"disabled>
                 </div>
 
                 <div>
                     <br>
-                    <label for="">Contact Numbers</label>
+                    <label for="contactnumber">Contact Numbers</label>
 
                 </div>
 
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Mobile number</label>
-                        <input type="text" <?php echo $status ?>>
+                        <label for="mobilenumber1">Mobile number</label>
+                        <input type="text"  value="<?php echo $mobilenumber1?>"disabled>
 
                     </div>
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Mobile number</label>
-                        <input type="text" <?php echo $status ?>>
+                        <label for="mobilenumber2">Mobile number</label>
+                        <input type="text"  value="<?php echo $mobilenumber2?>"disabled>
 
                     </div>
                 </div>
                 <div>
                     <br>
-                    <label for="">Location</label>
+                    <label for="location">Location</label>
 
                 </div>
 
 
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Farm no</label>
-                        <input type="text" <?php echo $status ?>>
+                        <label for="farmname">Farm Name</label>
+                        <input type="text"  value="<?php echo $farmname?>"disabled>
 
                     </div>
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">District</label>
-                        <input type="text" <?php echo $status ?>>
+                        <label for="district">City</label>
+                        <input type="text"  value="<?php echo $district?>"disabled>
 
                     </div>
                 </div>
-                
-                
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">City</label>
-                        <input type="text" <?php echo $status ?>>
-                    </div>
+                        <label for="zipcode">Zip Code</label>
+                        <input type="text"  value="<?php echo $zipcode?>"disabled>
 
-                    <div>
-                        <label style="color : <?php echo $color ?>" for="">zip code</label>
-                        <input type="text" <?php echo $status ?>>
                     </div>
                     
-                </div>
+                    </div>
+                
+                
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Nearest City 1</label>
-                        <input type="text" <?php echo $status ?>>
+                        <label for="addressline1">Address Line 1</label>
+                        <input type="text"  value="<?php echo $addressline1?>"disabled>
                     </div>
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">Nearest City 2</label>
-                        <input type="text" <?php echo $status ?>>
+                        <label for="addressline2">Address Line 2</label>
+                        <input type="text"  value="<?php echo $addressline2?>"disabled >
                     </div>
 
                 </div>
 
-                <hr>
-                <br>
-                <button id="myBtn" name="edit">Edit</button>
-                 <button name="update" class="updt_btn" <?php echo $status ?>>Update</button>
+                
 
             </form>
 

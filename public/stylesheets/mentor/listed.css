@@ -41,14 +41,14 @@
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 70%;
+  width: 75%;
   border: 2px solid #ddd;
   margin-top: 30px;
   margin-bottom: 100px;
 
 }
 th{
-	background-color: #098350;
+	background-color: #253E30;
   	color: white;
 }
 
@@ -60,12 +60,12 @@ th, td {
 }
 
 tr:nth-child(even){
-	background-color:#90eea0;
+	background-color:#ffff;
 }
 
 .dele{
 
-  background-color: #eb780d;
+  background-color: #4CAF50;
   width: 80%;
   border-radius: 5px;
   color: white;
@@ -79,7 +79,7 @@ tr:nth-child(even){
 
 .more{
 
-    background-color: #0deb2b;
+    background-color: #2E5F3E;
     width: 80%;
     border-radius: 5px;
     color: white;

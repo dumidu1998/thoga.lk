@@ -8,7 +8,7 @@
 
 <?php include 'navbar_dash.php';?>
 
-<body background= "/thoga.lk/public/images/Farmer/index1.jpg">
+<body>
 
 <h1 class="title">Add your item here....</h1>
 
@@ -27,9 +27,10 @@
           foreach($records as $key =>$values)
           {
             $vegname = $values['vege_name'];
+            $vegId = $values['vege_id'];
          
           ?>
-          <option><?php echo $vegname;?></option>
+          <option value="<?php echo $vegId;?>"><?php echo $vegname;?></option>
 
           <?php
           }
@@ -112,7 +113,23 @@
         <label for="fid">Farmer Name</label>
       </div>
       <div class="right">
-        <input type="text" id="farmername" name="farmername" required>
+      <?php
+         // print_r( $farmers);?>
+      <select class="textt" id="farmername" name="farmername" required>
+        <option>------Farmers------</option>
+          <?php
+          foreach($farmers as $key =>$values)
+          {
+            $farmername = $values['username'];
+            $farmerId = $values['farmer_id'];
+         
+          ?>
+          <option value="<?php echo $farmerId;?>"><?php echo $farmername;?></option>
+
+          <?php
+          }
+          ?>
+        </select>
       </div>
     </div>
 
@@ -143,8 +160,12 @@
     </form>
     
   
-</div>    
+</div>  
+</div>  
 
+
+
+</body>
 <script>
 var today = new Date();
 var dd = today.getDate();
@@ -163,8 +184,7 @@ document.getElementById("startdate").setAttribute("min", today);
 
 </script>
 
-
-</body>
 </html>
+<?php include("footer.php"); ?>
 
 

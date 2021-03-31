@@ -36,7 +36,6 @@
         $date_time=$question[0]['date/time'];
         $vote=$question[0]['vote'];
         $post_id=$question[0]['post_id'];
-        print_r($_SESSION);
     ?>                 
                                                                             
     <div class="container">

@@ -20,10 +20,7 @@ class userModel extends db_model
         return $this->queryfromsql($sql);
     }
 
-    public function  getallbyutypeanduname($utype,$uname){
-        $sql="SELECT * FROM user INNER JOIN usertype on usertype.type_id=USER.usertype_id WHERE usertype.user_type='".$utype."' AND user.username LIKE '%".$uname."%'";           
-        return $this->queryfromsql($sql);
-    }
+    
     
     public function  getAlldetailsforprofile($id){
         $sql="SELECT a.*, b.user_type, c.*, 
@@ -63,6 +60,27 @@ class userModel extends db_model
 	}
 
 
+
+
+    public function  getallbyutypeanduname($utype,$uname){
+        $sql="SELECT * FROM user INNER JOIN usertype on usertype.type_id=USER.usertype_id WHERE usertype.user_type='".$utype."' AND user.username LIKE '%".$uname."%'";           
+        return $this->queryfromsql($sql);
+    }
+    
+    
+
+    public function editpassword($pwd,$uid){
+        return $this->update('user',array('password'=>$pwd),array('user_id'=>$uid));
+    }
+
+    public function obtainpassword($uid){
+		return $this->read('user',array('password'),array('user_id'=>$uid));
+    }
+    
+    public function getmentorid($uid){
+		return $this->read('farmer',array('mentor_id'),array('user_id'=>$uid));
+        
+    }
 
 }
 ?>
