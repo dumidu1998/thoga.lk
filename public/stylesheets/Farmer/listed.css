@@ -71,6 +71,7 @@ tr:nth-child(even){
   color: white;
   padding: 10px 18px;
   opacity: 0.9;
+  text-decoration: none;
 
 }
 .dele:hover{
@@ -85,6 +86,7 @@ tr:nth-child(even){
   color: white;
   padding: 10px 18px;
   opacity: 0.9;
+  text-decoration: none;
 
 }
 .more:hover{
