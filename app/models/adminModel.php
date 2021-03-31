@@ -88,8 +88,9 @@ class AdminModel extends db_model
 		$uname = $data['username'];
 		$pwd = md5($data['password']);
 		$name = $data['name'];
-		$tel = $dataa['tel'];
+		$tel = $data['tel'];
 		$sql = "INSERT INTO admin(user_name,password,name,tel_no) VALUES ('" . $uname . "','" . $pwd . "','" . $name . "','" . $tel . "')";
+		echo $sql;
 		$result = $this->connection->query($sql);
 		if ($result) {
 			return 1;
@@ -175,7 +176,7 @@ class AdminModel extends db_model
 	}
 
 	function getactiveproducts(){
-		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end<DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
+		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end>DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
 		return $this->queryfromsql($sql);
 	}
 

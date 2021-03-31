@@ -22,38 +22,34 @@ class FarmerController{
         $this->userModel = new userModel();
         $this->oModel = new orderModel();
         $this->vegeModel = new vegetablesModel();
-
-
-
     }
 
     
     public function listed_items()
     {
+        session_start();
        
         $view = new view("Farmer/listed_items");
         $result = $this->fmodel->get_info();
         $view ->assign('data',$result);
-
-       
-         
-        
     }
 
     public function upcoming()
     {
+        session_start();
+
+        $farmeruserid=$_SESSION['user'][0]['user_id'];
+
+        $farmerid=$this->fmodel->read_id($farmeruserid);
+        // print_r($farmerid[0]['farmer_id']);
+
         $view = new View("Farmer/upcoming");
-        $result = $this->fmodel->get_details();
+        $result = $this->fmodel->get_details($farmerid[0]['farmer_id']);
         $view ->assign('data',$result);
-             
-        
     }
 
-    
-   
     //upcoming
 
-    
     public function add_item()
     {
         $view = new view("Farmer/add_item");
@@ -76,7 +72,7 @@ class FarmerController{
         $farmerid=$this->fmodel->read_id($farmeruserid);
         // print_r ($farmerid[0]['mentor_id']);
         $mentorid=$farmerid[0]['mentor_id'];
-        // print_r($farmerid[0]['farmer_id']);
+        print_r($farmerid[0]['farmer_id']);
         $result = $this->fmodel-> getfarmerallbyid($farmerid[0]['farmer_id']);
 
         $result2 = $this->oModel->getOrderHistory($farmerid[0]['farmer_id']);
@@ -93,7 +89,7 @@ class FarmerController{
         $view->assign('mentor',$mentordetails[0]);
         $view->assign('all',$result[0]);
         $view->assign('fid',$farmerid[0]['farmer_id']);
-       $view->assign('data',$result2[0]);
+        $view->assign('data',$result2);
 
     }
 
@@ -149,7 +145,7 @@ class FarmerController{
             $file_type=$_FILES['profpic']['type'];
             $temp=explode('.',$_FILES['profpic']['name']);
             $file_ext=end($temp);
-            $extensions= array("jpeg","jpg","png");
+            $extensions= array("jpeg","jpg","png","JPG","JPEG");
 
             if(in_array($file_ext,$extensions)=== false){
                 $errors[]="extension not allowed, please choose a JPEG or PNG file.";

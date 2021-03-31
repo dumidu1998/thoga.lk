@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Application</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/admin/application.css">
+	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 <body>
 <?php  
+// print_r( $basic);
     $user_id=$basic[0]['user_id'];
     $driver_id=$basic[0]['driver_id'];
+    echo $driver_id;
     if(file_exists("/thoga.lk/public/uploads/$user_id.jpg")){
         $fileName = "/thoga.lk/public/uploads/$user_id.jpg";
         echo $fileName;

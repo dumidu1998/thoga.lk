@@ -5,6 +5,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/b_user_profile.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
+	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 <?php
 $status = "disabled";
@@ -40,7 +42,7 @@ if(isset($_GET["edit"])){
     <div class="wrapper5">
         <div class="user_pp">
            
-            <img width="300px" src="/thoga.lk/public/uploads/buyerpropic/<?php echo $_SESSION['buyer_id'][0]['user_id'].'.jpg'?>" alt="">
+            <img width="300px" src="/thoga.lk/public/uploads/buyerpropic/<?php echo $_SESSION['user'][0]['user_id'].'.jpg'?>" alt="">
             <br><br>
             <form action="updateprofilepic" method="post" enctype="multipart/form-data">
             <input type="file" name="profpic" value="upload image">

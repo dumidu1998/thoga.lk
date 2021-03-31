@@ -4,6 +4,8 @@
 <title>Add Item</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/Farmer/add_item.css">
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 
 </head>
 
@@ -111,8 +113,8 @@
       </div>
       <div class="right">
         <select class="textt" id="itemtype" name="itemtype"  required>
-          <option value="organic">Organic</option>
-          <option value="inorganic">Non-organic</option>
+          <option value="org">Organic</option>
+          <option value="non">Non-organic</option>
           
         </select>
       </div>
@@ -126,18 +128,6 @@
       </div>
       <div class="right">
         <input type="text" id="ides" name="ides" >
-      </div>
-    </div>
-    
-    
-   
-    
-    <div class="row">
-      <div class="left">
-        <label for="pic">Item Image</label>
-      </div>
-      <div class="right">
-        <input type="file" id="itemimage" name="itemimage">
       </div>
     </div>
     

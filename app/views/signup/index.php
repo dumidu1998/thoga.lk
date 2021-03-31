@@ -189,7 +189,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="agreement">
           <input type="checkbox" id="Bcbox" class="cbox" onClick="buttonOnbuyer()">
-          I have read and Agree to the follow <a href="#">User Agreement (Buyer)</a>
+          I have read and Agree to the follow <a target="_blank" href="/thoga.lk/app/views/signup/privacy.php">User Agreement (Buyer)</a>
         </div>
         <div class="signupbtn">
           <input type="hidden" name="usertype" value="1">
@@ -338,7 +338,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="row">
           <div class="lable">Farm Name(optional)</div>
-            <input type="text" class="inpbox"  name="Ffarmname"  required>
+            <input type="text" class="inpbox"  name="Ffarmname" >
         </div>
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
