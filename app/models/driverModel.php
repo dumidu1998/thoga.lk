@@ -159,6 +159,11 @@ class driverModel extends db_model{
 	}
 
 	
+	function driverUnavailabel_order($driver_data){
+		return $this->create('unavailable_dates',$driver_data);
+
+	}
+	
 	function accept($did){
         return $this->update('driver',array('verified_state'=>'1'),array('driver_id'=>$did));
     }
@@ -171,5 +176,6 @@ class driverModel extends db_model{
 		return $this->create('unavailable_dates',$driver_data);
 
 	}
+	
 }
  ?>

@@ -129,15 +129,14 @@
                         </tr>
     
                     </table>
-                    <button name="order" class="confirm_btn">Confirm Order</button>
+                    <button type="button" name="order" class="confirm_btn" onclick="sendOTP()" id="confirm">Confirm Order</button>
 
-                    <form action="/lib/OTP.php" method="GET">
-                        <input type="text" class="otp" name="otp" id="" placeholder="OTP">
-                        <button name="order" class="checkout_btn_sum">Place Order</button>
+                        <input type="text" class="otp" name="otp" id="otp" placeholder="OTP">
+                        <input type="hidden" name="token" value="" id="token">
+                        <button name="order" id="place" class="checkout_btn_sum" style="display:none;">Place Order</button>
 
                     </form>
                     <a href="home"><button class="checkout_btn_back">Back to shopping</button></a>
-                </form>
             </div>
         </div> 
     </div> 
@@ -154,10 +153,7 @@ if(!empty($driv)){
             <div class="container-2">
                 <?php
                     foreach($details as $keys=>$values){
-                        
-                    
                 ?>
-                
                 <h4><b><?php echo $values['firstname'] ?> <?php echo $values['lastname'] ?></b></h4> 
                 <p><b>Vehicle No: </b><?php echo $values['vehicle_no'] ?></p> 
                 <p><b>Contact No 1: </b><?php echo $values['contactno1'] ?></p> 
@@ -165,7 +161,7 @@ if(!empty($driv)){
             </div>
         </div>
         <?php
-                    }
+        }
         ?>
 
     </div>
@@ -179,6 +175,30 @@ if(!empty($driv)){
     
     
 <?php include("footer.php"); ?>
+<script>
+    function sendOTP(){
+        var c = confirm("Are you sure You want to confirm order?")
+        var x = document.getElementById("otp");
+        var y = document.getElementById("place");
+        var z = document.getElementById("confirm");
+
+        x.style.display = "block";
+        y.style.display = "block";
+        z.style.display = "none";
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange=function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var out=JSON.parse(this.responseText);
+                document.getElementById("token").value = out.token;
+            }
+        };
+        xhttp.open("GET", "sendotp", true);
+        xhttp.send();
+
+
+    }
+</script>
     
 </body>
 </html>

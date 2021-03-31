@@ -19,12 +19,6 @@ class userModel extends db_model
         return $this->queryfromsql($sql);
     }
 
-    public function  getallbyutypeanduname($utype,$uname){
-        $sql="SELECT * FROM user INNER JOIN usertype on usertype.type_id=USER.usertype_id WHERE usertype.user_type='".$utype."' AND user.username LIKE '%".$uname."%'";           
-        return $this->queryfromsql($sql);
-    }
-    
-    
     public function  getAlldetailsforprofile($id){
         $sql="SELECT a.*, b.user_type, c.*, 
 		d.name_en AS c_name, 
@@ -43,11 +37,34 @@ class userModel extends db_model
 		WHERE a.user_id = " . $id;        
         return $this->queryfromsql($sql);
     }
-
+    
     public function  gettypedetails($uid,$utype){
         $sql="SELECT * FROM ".$utype." WHERE user_id=".$uid;           
         return $this->queryfromsql($sql);
     }
+    function updatedetails($data){
+		session_start();
+		$firstname=$data['fname'];
+        $lastname=$data['lname'];
+        $mobile1=$data['mobileno1'];
+        $mobile2=$data['mobileno2'];
+		$user_id=$_SESSION['user'][0]['user_id'];
+
+
+		$sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
+		$result=$this->connection->query($sql);
+		if($result){ return true;}else{return false;}
+	}
+
+
+
+
+    public function  getallbyutypeanduname($utype,$uname){
+        $sql="SELECT * FROM user INNER JOIN usertype on usertype.type_id=USER.usertype_id WHERE usertype.user_type='".$utype."' AND user.username LIKE '%".$uname."%'";           
+        return $this->queryfromsql($sql);
+    }
+    
+    
 
     public function editpassword($pwd,$uid){
         return $this->update('user',array('password'=>$pwd),array('user_id'=>$uid));
@@ -60,19 +77,22 @@ class userModel extends db_model
     public function getmentorid($uid){
 		return $this->read('farmer',array('mentor_id'),array('user_id'=>$uid));
     }
+    
+    public function gettel($uid){
+		return $this->read('user',array('contactno1'),array('user_id'=>$uid));
+        
+    }
 
-    function updatedetails($data){
-		session_start();
-		$firstname=$data['fname'];
-        $lastname=$data['lname'];
-        $mobile1=$data['mobileno1'];
-        $mobile2=$data['mobileno2'];
-		$user_id=$_SESSION['user'][0]['user_id'];
+    public function addotp($token,$otp,$contact){
+		return $this->create('otp',array('token'=>$token,'otp'=>$otp,'phone'=>$contact));
+    }
 
-		$sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
-		$result=$this->connection->query($sql);
-		if($result){ return true;}else{return false;}
-	}
+    public function confirmotp($otp,$token){
+        $sql="SELECT * FROM otp WHERE token='".$token."' AND otp='".$otp."'";
+        $result=$this->connection->query($sql);
+        $row=mysqli_num_rows($result);
+        return $row;
+    }
 
 }
 ?>
