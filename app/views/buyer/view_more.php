@@ -109,7 +109,8 @@ foreach($driver_details as $keys => $values)
       
     </div>
 
-<?php include("rate.php"); ?>
+<?php 
+// include("rate.php"); ?>
 
 <?php
 }
