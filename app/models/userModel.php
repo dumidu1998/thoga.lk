@@ -81,6 +81,22 @@ class userModel extends db_model
 		return $this->read('farmer',array('mentor_id'),array('user_id'=>$uid));
         
     }
+    
+    public function gettel($uid){
+		return $this->read('user',array('contactno1'),array('user_id'=>$uid));
+        
+    }
+
+    public function addotp($token,$otp,$contact){
+		return $this->create('otp',array('token'=>$token,'otp'=>$otp,'phone'=>$contact));
+    }
+
+    public function confirmotp($otp,$token){
+        $sql="SELECT * FROM otp WHERE token='".$token."' AND otp='".$otp."'";
+        $result=$this->connection->query($sql);
+        $row=mysqli_num_rows($result);
+        return $row;
+    }
 
 }
 ?>

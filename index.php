@@ -136,6 +136,9 @@ $routes = [
     'logout'=>'LoginController@logout',
     'buyer/editprofile' => 'BuyerController@editprofile',
 
+    'buyer/sendotp' => 'BuyerController@sendotp', /////******** */
+    'buyer/confirmotp' => 'BuyerController@confirmotp',//////////***** */
+
 
 
     'driver/test'=>'DriverController@showbutton' //test button
