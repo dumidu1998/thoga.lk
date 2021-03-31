@@ -1,7 +1,6 @@
 <?php
 require_once(__DIR__ . '/../../core/db_model.php');
 
-
 class userModel extends db_model
 {
     
@@ -45,8 +44,6 @@ class userModel extends db_model
         return $this->queryfromsql($sql);
     }
 
-    
-    
     public function  gettypedetails($uid,$utype){
         $sql="SELECT * FROM ".$utype." WHERE user_id=".$uid;           
         return $this->queryfromsql($sql);
@@ -62,7 +59,6 @@ class userModel extends db_model
     
     public function getmentorid($uid){
 		return $this->read('farmer',array('mentor_id'),array('user_id'=>$uid));
-        
     }
 
     function updatedetails($data){
