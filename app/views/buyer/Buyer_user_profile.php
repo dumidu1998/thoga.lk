@@ -18,14 +18,6 @@ if(isset($_GET["edit"])){
     $color = "red";
     $method="editprofile";
 }
-// if(isset($_GET["update"])){
-//     // header("location:/thoga.lk/driver/profile?done");
-//     $method="posjt";
-//     echo "Done";
-//    echo "Done"; 
-//     echo "Done";
-   
-// }
 
 ?>
 
