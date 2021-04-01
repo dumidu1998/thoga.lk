@@ -29,16 +29,14 @@
                     $pickdate = $row['pickup_date'];
                     $add1= $row['d_addline1'];
                     $add2=$row['d_addline2'];
+                    $city=$row['city'];
+
                     
 
                 }         
                             
             ?>   
-            <?php
-                foreach($cityy as $keys => $row){
-                    $city=$row['name_en'];
-                }
-            ?> 
+           
                     
             Order No          : 
             <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
@@ -126,7 +124,7 @@
 			
 			<?php
                 $sum=0;
-				
+				//print_r($items);
                  foreach($items as $keys => $row){
 
                    

@@ -36,6 +36,7 @@
   <table align="center">
     <tr>
       <th>Order Id</th>
+      <th>Item Name</th>
       <th>Pickup Date</th>
       <th>Total Weight</th>
       <th>Price</th>
@@ -49,11 +50,16 @@
     
 
 <?php
+if (isset($data[0])){
+
+
 foreach($data[0] as $key => $values){
+  $itemid= $values['item_id'];
   $ordid= $values['order_id'];
+  $vegname= $values['vege_name'];
   $pdate= $values['pickup_date'];
   $tweight= $values['weight'];
-  $cost= $values['total_cost'];
+  $cost= $values['total_cost'] *  $values['weight'];
   $bname= $values['firstname'].' '.$values['lastname'];
   
 
@@ -62,20 +68,21 @@ foreach($data[0] as $key => $values){
 
 ?>
  <tr>
- <td><?php echo $ordid;?></td>
+ <td><?php echo $itemid;?></td>
+ <td><?php echo $vegname;?></td>
  <td><?php echo $pdate;?></td>
- <td><?php echo $tweight;?></td>
- <td><?php echo $cost;?></td>
+ <td><?php echo number_format($tweight,0).' kg'?></td>
+ <td><?php echo number_format($cost,2);?></td>
  <td><?php echo $bname;?></td>
  
  <td>
- <a class ="more" href="viewmore.php">view more</a>
+ <a class="more" name='link' onclick="" href="viewmore?id=<?php echo $ordid;?>">view more</a>
  </td>
 </tr>
     
 
 <?php
-}
+}}
 ?>
 
 

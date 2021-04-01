@@ -111,6 +111,12 @@ class BuyerController {
         $class="org_active";
         $view->assign('data', $result); 
         $view->assign('class', $class); 
+        if(isset($_GET['search'])){
+            $vegeSet = $this->model->get_vegeItem($_GET['search']);
+            $view->assign('data', $vegeSet);
+
+
+        }
         
         
     }

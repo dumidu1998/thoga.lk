@@ -14,7 +14,6 @@ if(!empty($_SESSION['e_dateArray'])){
   }
 
 }
-print_r($vegeSet);
 
     ?>
 <head>

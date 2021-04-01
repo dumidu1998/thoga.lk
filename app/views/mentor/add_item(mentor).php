@@ -55,6 +55,7 @@
         <input type="text" id="minweight" name="minweight" required>
       </div>
     </div>
+    <div>
     <div class="price_d">
     <div class="row">
       <div class="left">
@@ -65,15 +66,7 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="left">
-        <label for="price">Market Price (Rs)</label>
-      </div>
-      <div class="right">
-        
-        <p class="price2">30</p>
-      </div>
-    </div>
+        </div>
     
         </div>
     <div class="date">

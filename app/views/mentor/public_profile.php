@@ -130,57 +130,7 @@
 
     </div>
 
-    <h1 align="center">Order History</h1>
-    <hr>
-
-    <div class="container">
-        <!-- order history -->
-        <table>
-
-            <thead>
-                <tr>
-                <th scope="col">Order id</th>
-                <th scope="col">Buyer Name</th>
-                <th scope="col">Pickup date</th>
-                <th scope="col">Total weight</th>
-                <th scope="col">Total Price</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
-
-                </tr>
-
-                <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td data-label> <button type="submit">view more</button> </td>
-
-                </tr>
-                
-                <tr>
-                <td data-label="Order id">Visa - 3412</td>
-                <td data-label="Buyer Name">Akila de silva</td>
-                <td data-label="Pickup date">01/11/2020</td>
-                <td data-label="Total Weight">2500kg</td>
-                <td data-label= "Total Price">$1,190</td>
-                <td> <button type="submit">view more</button> </td>
-
-                </tr>
-            </tbody>
-        </table>
-
-
-    </div>
+    
     
 
     </body>

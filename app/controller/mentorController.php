@@ -127,9 +127,11 @@ class mentorController{
 
     public function listed_items()
     {
-       
+        session_start();
+        $mentoruserid=$_SESSION['user'][0]['user_id'];
+        $mentorid = $this->mModel->get($mentoruserid);
         $view = new view("mentor/listed_item(mentor)");
-        $result = $this->imodel->get_info();
+        $result = $this->imodel->get_info($mentorid[0]['mentor_id']);
         $view ->assign('data',$result);
 
        
@@ -228,6 +230,26 @@ class mentorController{
         $view = new View("mentor/verticalnavbar");
         $view->assign('data',$result);
 
+    }
+
+    public function viewmore(){
+        if(isset($_GET['id'])){
+            $order_id=$_GET['id'];
+            $res = $this->oModel->order_drivername($order_id);
+            $buyer = $this->oModel->order_buyername($order_id);
+            $items = $this->oModel->orderdetails_total($order_id);
+            $city= $this->oModel->order_city($order_id);
+            $ordstatus=$this->oModel->getstatus($order_id);
+        }
+        $result = $this->oModel->get_order_details($order_id);
+        $view = new View("Farmer/view_more");
+        $view->assign('order_id',$order_id);
+        $view->assign('view',$result);
+        $view->assign('res',$res);
+        $view->assign('buyer',$buyer);
+        $view->assign('cityy',$city);
+        $view->assign('items',$items);
+        $view->assign('ordstatus',$ordstatus);
     }
 }
 

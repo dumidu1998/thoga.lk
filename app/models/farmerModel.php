@@ -25,7 +25,7 @@ class farmerModel extends db_model{
     }
 
     function get_details($farmerid){
-       $sql="SELECT order_details.order_id,order_details.farmer_id, orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,  buyer.buyer_id,buyer.user_id,user.user_id,user.firstname,user.lastname FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON user.user_id=buyer.user_id INNER JOIN order_details ON order_details.order_id=orders.order_id where orders.pickup_date >= CURDATE() AND order_details.farmer_id = '".$farmerid."'
+       $sql="SELECT order_details.item_id, order_details.order_id,order_details.farmer_id, orders.order_id, item.item_id,item.total_cost, vegetable.vege_name, orders.pickup_date,order_details.weight,orders.buyer_id,  buyer.buyer_id,buyer.user_id,user.user_id,user.firstname,user.lastname FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON user.user_id=buyer.user_id INNER JOIN order_details ON order_details.order_id=orders.order_id INNER JOIN item ON item.item_id=order_details.item_id INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id where orders.pickup_date >= CURDATE() AND order_details.farmer_id = '".$farmerid."'
        ";
        $result=$this->connection->query($sql);
        $arr=array();
@@ -58,8 +58,8 @@ class farmerModel extends db_model{
 
     }
 
-    function get_info(){
-        $sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,vegetable.vege_name FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id where item.item_end >= CURDATE()
+    function get_info($farmerid){
+        $sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,vegetable.vege_name,item.farmer_id FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id where item.item_end >= CURDATE() AND item.farmer_id='".$farmerid."'
         ";
         $result=$this->connection->query($sql);
         $arr=array();
