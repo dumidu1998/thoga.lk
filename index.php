@@ -136,6 +136,8 @@ $routes = [
     'forum/unlikep'=>'ForumController@unlikep',
     'logout'=>'LoginController@logout',
     'buyer/editprofile' => 'BuyerController@editprofile',
+    'mentor/viewmore' => 'mentorController@viewmore',
+
 
     'buyer/sendotp' => 'BuyerController@sendotp', /////******** */
     'buyer/confirmotp' => 'BuyerController@confirmotp',//////////***** */
@@ -143,7 +145,7 @@ $routes = [
 
 
     'driver/test'=>'DriverController@showbutton' //test button
-
+    
 
 
 ];

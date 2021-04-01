@@ -145,8 +145,8 @@ public function insert_databymentor($itemname,$avaiweight,$minweight,$price,$sta
 
 
 }
-function get_info(){
-	$sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,item.farmer_id,vegetable.vege_name, user.user_id, farmer.user_id,farmer.farmer_id,user.firstname , user.lastname FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id INNER JOIN farmer on item.farmer_id=farmer.farmer_id INNER JOIN user ON farmer.user_id=user.user_id where item.item_end >= CURDATE()";
+function get_info($mentorid){
+	$sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,item.farmer_id,vegetable.vege_name, user.user_id,item.mentor_Id, farmer.user_id,farmer.farmer_id,user.firstname , user.lastname FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id INNER JOIN farmer on item.farmer_id=farmer.farmer_id INNER JOIN user ON farmer.user_id=user.user_id where item.item_end >= CURDATE() AND item.mentor_Id='".$mentorid."'";
 	$result=$this->connection->query($sql);
 	$arr=array();
 	if($result){
