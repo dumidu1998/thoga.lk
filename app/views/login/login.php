@@ -61,7 +61,7 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
-<img src="/thoga.lk/public/images/login/d.jpg" style="width:100%">
+<!-- <img src="/thoga.lk/public/images/login/d.jpg" style="width:100%"> -->
 <div class="text"> 
     <img width="25%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
     <h1>Freshness, Delivered!!</h1> 
