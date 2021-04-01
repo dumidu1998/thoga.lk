@@ -55,6 +55,7 @@
         <input type="text" id="minweight" name="minweight" required>
       </div>
     </div>
+    <div>
     <div class="price_d">
     <div class="row">
       <div class="left">
@@ -65,7 +66,7 @@
       </div>
     </div>
 
-    
+        </div>
     
         </div>
     <div class="date">
