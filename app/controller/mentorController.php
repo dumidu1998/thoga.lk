@@ -140,7 +140,9 @@ class mentorController{
     }
 
     public function view_price(){
+        $market=$this->vegeModel->getmprices();
         $view = new view("mentor/mentor_price");
+        $view->assign('marketp',$market);
     }
     public function about(){
         $view = new view("mentor/aboutus");
@@ -149,7 +151,6 @@ class mentorController{
         session_start();
         $id=$_SESSION['user'][0]['user_id'];
         echo $id;
-
         $result = $this->mModel->getmentorallbyid($id);
         $view = new view("mentor/profile");
         $view->assign('all',$result[0]);

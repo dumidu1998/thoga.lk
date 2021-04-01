@@ -151,10 +151,10 @@ if(isset($_GET['error']) && $_GET['error']==1){
                 <div class="data_wrapper adress_data">
                     <div>
                         <label style="color : <?php echo $color ?>" for="">Mentor Name</label>
-                        <input type="text" name="nr1" disabled  value="<?php echo $mentor['firstname']." ".$mentor['lastname'] ?>">
+                        <input type="text" name="nr1" disabled  value="<?php echo isset($mentor['username'])?$mentor['username']:'No mentor.';?>">
                         <br>
                         <br>
-                        <a class= "dele" href="removementor?fid=<?php echo $fid; ?>">Unassign Mentor</a>
+                        <a class= "dele" href="removementor?fid=<?php echo $fid; ?>" >Unassign Mentor</a>
 
                     </div>
                 </div>
