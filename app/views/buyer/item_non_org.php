@@ -123,15 +123,15 @@ foreach($data as $key => $value){
                       <label for="qnty">Quantity</label>
                         <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />
 
-                      <?php 
+                        <?php 
                         if(isset($_SESSION['user'])){
                             if(!empty($_SESSION['shopping_cart'])){
                                 if($_SESSION['shopping_cart'][0]['disctrict'] != $value['distric']){
                                  echo "<button onclick = 'error_differentdis()' class='checkout_btn'>Add to cart</button>";
       
                                 }else{
-                                  echo "<button name='add_to_cart' class='checkout_btn'>Add to cart</button>";
-                              }
+                                    echo "<button name='add_to_cart' class='checkout_btn'>Add to cart</button>";
+                                }
                             
                             }
                             else{

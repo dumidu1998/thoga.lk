@@ -63,14 +63,12 @@ function googleTranslateElementInit() {
 
 <img src="/thoga.lk/public/images/login/d.jpg" style="width:100%">
 <div class="text"> 
-    <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
+    <img width="25%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
     <h1>Freshness, Delivered!!</h1> 
    <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
    <div class="login_logos" id="click">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/driver.png" alt="">
    </div>
 
   </div>
