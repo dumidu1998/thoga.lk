@@ -83,11 +83,10 @@ class FarmerController{
        // print_r($result2);
         $view = new View("Farmer/farmer_profile");
         if((int)$mentorid>0){
-            // echo  $mentorid;
             $mentordetails=$this->model3->getMentor_details($mentorid);
-            // print_r($mentordetails);
             $view->assign('mentor',$mentordetails[0]);
         }
+        
         $mentordetails[0]['firstname']='No Mentor ';
         $mentordetails[0]['lastname']='Requested';
         $view->assign('mentor',$mentordetails[0]);

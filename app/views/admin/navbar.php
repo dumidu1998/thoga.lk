@@ -21,7 +21,7 @@
   }
 ?>
 <div class="topnav" id="myTopnav">
-  <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class = "logo"></a>
+  <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
   <a href="/thoga.lk/admin" class="<?php echo ($url=='/thoga.lk/admin')?'active':'';?>">Dashboard</a>
   <a href="/thoga.lk/admin#dapplications" >Requests</a>
   <a href="/thoga.lk/admin/admanager" class="<?php echo ($url=='/thoga.lk/admin/admanager')?'active':'';?>">Ad Management</a>

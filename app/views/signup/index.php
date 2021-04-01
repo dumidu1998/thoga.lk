@@ -18,7 +18,7 @@ $_SESSION['temp']=1;
 </head>
 <body style="padding: 20px">
     
-<img src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class="logo" />
+<img src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class="logo" />
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
     <div class="buttonContainer">
@@ -360,7 +360,7 @@ $_SESSION['temp']=1;
         </div>
         <div class="agreement">
           <input type="checkbox" id="Fcbox" class="cbox" onClick="buttonOnfarmer()">
-          I have read and Agree to the follow <a href="#">User Agreement (Farmer)</a>
+          I have read and Agree to the follow <a target="_blank" href="/thoga.lk/app/views/signup/privacy.php">User Agreement (Farmer)</a>
         </div>
         <div class="signupbtn"> 
           <input type="hidden" name="usertype" value="2">
@@ -592,7 +592,7 @@ $_SESSION['temp']=1;
         <div class="agreement">
           Your account will activated within 24hrs. We will notify you with a SMS.<br><br>
           <input type="checkbox"  id="Dcbox" class="cbox" onClick="buttonOndriver()">
-          I have read and Agree to the follow <a href="#">User Agreement (Driver)</a>
+          I have read and Agree to the follow <a target="_blank" href="/thoga.lk/app/views/signup/privacy.php">User Agreement (Driver)</a>
         </div>
         <div class="signupbtn">
           <input type="hidden" name="usertype" value="3">
@@ -765,7 +765,7 @@ $_SESSION['temp']=1;
         <div class="agreement">
           Your account will activated within 24hrs. We will notify you with a SMS.<br><br>
           <input type="checkbox" id="Mcbox" class="cbox" onClick="buttonOnmentor()">
-          I have read and Agree to the follow <a href="#">User Agreement (Mentor)</a>
+          I have read and Agree to the follow <a target="_blank" href="/thoga.lk/app/views/signup/privacy.php">User Agreement (Mentor)</a>
         </div>
         <div class="signupbtn">
         <input type="hidden" name="usertype" value="4">

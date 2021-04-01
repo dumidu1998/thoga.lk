@@ -20,8 +20,7 @@
 
     }
     if(isset($_GET['mentor_assigned'])){
-        echo "<script>swal('SUCCESS!', Mentor Assigned Successfully!', 'success')</script>";
-
+        echo "<script>swal('SUCCESS!', 'Mentor Assigned Successfully!', 'success')</script>";
     }
     ?>
 
