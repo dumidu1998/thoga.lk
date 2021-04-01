@@ -1,5 +1,6 @@
 body{
     margin: 0%;
+    background-color: #bbb;
 }
 .mySlides {
 display: none;
@@ -15,6 +16,7 @@ margin-top: 0%;
   max-width: 100%;
   position: relative;
   top: 0%;
+  background-color: #65c05d;
   
 }
 .text img{
