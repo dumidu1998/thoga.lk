@@ -136,7 +136,7 @@ class orderModel extends db_model{
 		$sql = "SELECT vegetable.vege_name,item.item_id, item.total_cost, order_details.weight, order_details.farmer_id, order_details.details_id, order_details.order_id,orders.weight,orders.pickup_date,orders.buyer_id,buyer.buyer_id,buyer.b_name, cities.name_en AS city, farmer.farm_name, districts.name_en AS district, provinces.name_en AS province, address.zip_code, address.address_line1, address.address_line2, user.firstname , user.lastname, user.contactno1 ,user.contactno2 FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN orders ON order_details.order_id=orders.order_id INNER JOIN buyer ON buyer.buyer_id=orders.buyer_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id INNER JOIN farmer on farmer.farmer_id=order_details.farmer_id INNER JOIN address ON address.user_id=farmer.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN user ON farmer.user_id=user.user_id INNER JOIN districts ON districts.id=address.district INNER JOIN provinces ON provinces.id=address.province where order_details.order_id='".$orderId."'";
 		$result=$this->connection->query($sql);
 		$finale=array();
-    // echo $sql;
+    //echo $sql;
 		if($result){
            while($row=mysqli_fetch_assoc($result)){
 			array_push($finale,$row);

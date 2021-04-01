@@ -28,9 +28,13 @@ class FarmerController{
     public function listed_items()
     {
         session_start();
+
+        $farmeruserid=$_SESSION['user'][0]['user_id'];
+
+        $farmerid=$this->fmodel->read_id($farmeruserid);
        
         $view = new view("Farmer/listed_items");
-        $result = $this->fmodel->get_info();
+        $result = $this->fmodel->get_info($farmerid[0]['farmer_id']);
         $view ->assign('data',$result);
     }
 

@@ -22,7 +22,6 @@
         <table>
             <tr>
                 <th>Driver name</th>
-                <th>Rate</th>
                 <th>vehicle Name</th>
                 <th>Driver City</th>
                 <th>Price/km</th>
@@ -39,7 +38,7 @@ if($data){
             <tr>
             
                 <td><?php echo $value['firstname'] ?> <?php echo $value['lastname'] ?></td>
-                <td>5 star</td>
+
                 <td><?php echo $value['vehicle_type'] ?></td>
                 <td><?php echo $value['city_name'] ?></td>
                 <td><?php echo $value['cost_km'] ?></td>

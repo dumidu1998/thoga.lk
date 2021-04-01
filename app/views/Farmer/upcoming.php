@@ -24,7 +24,8 @@
 <div style="overflow-x:auto;height: 50%;min-height:0px">
   <table align="center">
     <tr>
-      <th>Order Id</th>
+      <th>Item Id</th>
+      <th>Item Name</th>
       <th>Pickup Date</th>
       <th>Total Weight</th>
       <th>Price</th>
@@ -36,17 +37,20 @@
 
 <?php
 foreach($data as $key => $values){
+  $itemid= $values['item_id'];
   $ordid= $values['order_id'];
+  $vegname= $values['vege_name'];
   $pdate= $values['pickup_date'];
   $tweight= $values['weight'];
-  $cost= $values['total_cost'];
+  $cost= $values['total_cost'] * $values['weight'];
   $bname= $values['firstname']." ".$values['lastname'];
 
 
 
 ?>
  <tr>
- <td><?php echo $ordid;?></td>
+ <td><?php echo $itemid;?></td>
+ <td><?php echo $vegname;?></td>
  <td><?php echo $pdate;?></td>
  <td><?php echo number_format($tweight,0).' kg';?></td>
  <td>Rs. <?php echo number_format($cost,2);?></td>
