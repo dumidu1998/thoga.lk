@@ -14,7 +14,7 @@
 
 <div>
 <?php 
- //print_r($data[0]);
+//  print_r($_SESSION['user']);
  
 $count=0;
 $length = sizeof($data_city1);

@@ -21,7 +21,13 @@
     <a href="/thoga.lk/buyer/home" class="navlogo"><img  width=100px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
     <a href="/thoga.lk/buyer/home" <?php echo (($url== "/thoga.lk/buyer/home")?( "class='active'"):("")); ?>>Home</a>
     <a href="/thoga.lk/forum" <?php echo (($url== "/thoga.lk/buyer/forum")?( "class='active'"):("")); ?>>Forum</a>
+    <?php
+    if(isset($_SESSION['user'])){
+      ?>
     <a href="/thoga.lk/buyer/orders" <?php echo (($url== "/thoga.lk/buyer/orders")?( "class='active'"):("")); ?>>Orders</a>
+    <?php
+    }
+    ?>
     <a href="/thoga.lk/buyer/about_us" <?php echo (($url== "/thoga.lk/buyer/about_us")?( "class='active'"):("")); ?>>About Thoga.lk</a>
      <a id="google_translate_element"></a> 
   </div>
