@@ -187,23 +187,25 @@ class signupModel extends db_model{
         $result5=$this->connection->query($sql5);
         $row=mysqli_fetch_assoc($result5);
         $did=$row['driver_id'];
+        echo $did;
 
         $sql2="INSERT INTO driver (user_id, current_location, license_no, verified_state)
          Values('".$uid."','".$curlocation."','".$DLnumber."','".$verified."')";
         $result2=$this->connection->query($sql2);
-        if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp');</script>";
+        if($result2){$return+=$result2;}else echo "<script>alert('error in SignUp2');</script>";
 
 
-        $sql4="INSERT INTO vehicles (driver_id, vehicle_no, cost_km, vehcle_type, maximum_weight, availability)
-         Values('".$did."','".$vehicleno."','".$costkm."','".$vehiclemodel."','".$maxweight."','1')";
+        $sql4="INSERT INTO vehicles (driver_id, vehicle_no, cost_km, vehicle_type, maximum_weight, availability,verified_state)
+         Values('".$did."','".$vehicleno."','".$costkm."','".$vehiclemodel."','".$maxweight."','1',0)";
+         echo $sql4;
         $result4=$this->connection->query($sql4);
-        if($result4){}else echo "<script>alert('error in SignUp');</script>";
+        if($result4){}else echo "<script>alert('error in SignUp455');</script>";
         
 
         $sql3="INSERT INTO address(`user_id`, address_line1, address_line2, city,district,	province, zip_code) VALUES ('".$uid."','"
         .$addressline1."','".$addressline2."','".$hometown."','".$district."','".$province."','".$postalcode."')";
         $result3=$this->connection->query($sql3);
-        if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp');</script>";
+        if($result3){$return+=$result3;}else echo "<script>alert('error in SignUp3');</script>";
 
         $return+=1;
 
@@ -270,6 +272,14 @@ class signupModel extends db_model{
 
     public function getmaxDid(){
         $sql = "SELECT MAX(driver_id) AS maxid FROM driver";
+        $result=$this->connection->query($sql);
+        $row=mysqli_fetch_assoc($result);
+        $uid=$row['maxid'];
+        return $uid;
+    }
+
+    public function getmaxVid(){
+        $sql = "SELECT MAX(vehicle_id) AS maxid FROM vehicles";
         $result=$this->connection->query($sql);
         $row=mysqli_fetch_assoc($result);
         $uid=$row['maxid'];

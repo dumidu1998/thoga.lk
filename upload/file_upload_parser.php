@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$connection = new mysqli('localhost', 'root', '' , 'thoga.lk');
+$connection = new mysqli('db.learnia.xyz', 'root', 'chata', 'thoga.lk');
 $sql = "SELECT MAX(driver_id) AS maxid FROM driver";
 $result=$connection->query($sql);
 $row=mysqli_fetch_assoc($result);
@@ -23,7 +23,7 @@ if (!$fileTmpLoc) { // if file not chosen
     exit();
 }
 
-if(move_uploaded_file($fileTmpLoc, "../public/uploads/tmpuploads/$fileName")){
+if(move_uploaded_file($fileTmpLoc, $_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/tmpuploads/$fileName")){
     echo "File upload is complete";
     $_SESSION['temp']++;
 } else {
