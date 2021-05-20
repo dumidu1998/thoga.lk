@@ -58,6 +58,7 @@ class DriverController extends db_model{
         $all= json_encode(array_merge($orderdates,$dates));
         $view = new View("driver/showcalendar");
         $view->assign('alldates',$all);
+
     }
 
     public function unavailabledates(){
@@ -66,7 +67,7 @@ class DriverController extends db_model{
         
             $startdate=$_POST['startdate'];
             $enddate=$_POST['enddate'];
-            // $driver_id=1;//$_SESSION['driverid'];
+            // $driver_id=1; // $_SESSION['driverid'];
             session_start();
             $driver_id=$_SESSION['driver']['driver_id'];
 
@@ -289,11 +290,7 @@ class DriverController extends db_model{
     }
     
 
-    public function showbutton(){
-        session_start();
-        $view = new View("driver/test");
-        
-    }
+   
 
 
 
