@@ -35,11 +35,7 @@ class DriverController extends db_model{
             $items = $this->omodel->orderdetails_total($order_id);
             $city= $this->omodel->order_city($order_id);
             $ordstatus=$this->omodel->getstatus($order_id);
-            
-
-        
         }
-
         $result = $this->omodel->get_order_details($order_id);
         $view = new View("driver/viewmore");
         $view->assign('order_id',$order_id);

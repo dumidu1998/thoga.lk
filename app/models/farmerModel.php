@@ -24,8 +24,8 @@ class farmerModel extends db_model{
       echo "error";        
     }
 
-    function get_details(){
-       $sql="SELECT orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,buyer.b_name FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id
+    function get_details($farmerid){
+       $sql="SELECT order_details.item_id, order_details.order_id,order_details.farmer_id, orders.order_id, item.item_id,item.total_cost, vegetable.vege_name, orders.pickup_date,order_details.weight,orders.buyer_id,  buyer.buyer_id,buyer.user_id,user.user_id,user.firstname,user.lastname FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON user.user_id=buyer.user_id INNER JOIN order_details ON order_details.order_id=orders.order_id INNER JOIN item ON item.item_id=order_details.item_id INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id where orders.pickup_date >= CURDATE() AND order_details.farmer_id = '".$farmerid."'
        ";
        $result=$this->connection->query($sql);
        $arr=array();
@@ -41,8 +41,25 @@ class farmerModel extends db_model{
 
     }
 
-    function get_info(){
-        $sql="SELECT item.veg_Id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,vegetable.vege_name FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id
+    function get_detailsbymid($mentorid){
+       $sql="SELECT order_details.order_id,order_details.farmer_id, orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,  buyer.buyer_id,buyer.user_id,user.user_id,user.firstname,user.lastname FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id INNER JOIN user ON user.user_id=buyer.user_id INNER JOIN order_details ON order_details.order_id=orders.order_id where orders.pickup_date >= CURDATE() AND order_details.farmer_id = '".$farmerid."'
+       ";
+       $result=$this->connection->query($sql);
+       $arr=array();
+       if($result){
+        while($row=mysqli_fetch_assoc($result))
+        array_push($arr,$row);
+      return $arr;
+    
+
+        }else
+        echo "error";
+         
+
+    }
+
+    function get_info($farmerid){
+        $sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,vegetable.vege_name,item.farmer_id FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id where item.item_end >= CURDATE() AND item.farmer_id='".$farmerid."'
         ";
         $result=$this->connection->query($sql);
         $arr=array();
@@ -59,6 +76,26 @@ class farmerModel extends db_model{
     function get_records(){
         return $this->read('vegetable',array('*'),null);
     }
+
+    function updatedetails($data){
+      session_start();
+      $firstname=$data['fname'];
+          $lastname=$data['lname'];
+          $mobile1=$data['mobileno1'];
+          $mobile2=$data['mobileno2'];
+        $user_id=$_SESSION['user'][0]['user_id'];;
+  
+  
+      $sql="UPDATE user SET firstname='".$firstname."', lastname='".$lastname."',contactno1='".$mobile1."',contactno2='".$mobile2."' WHERE user_id='".$user_id."'";
+      $result=$this->connection->query($sql);
+      if($result){ return true;}else{return false;}
+    }
+  
+    public function get_all_orders($id){
+		  return $this->read('orders', array('*'), array('farmer_id'=>$id));
+    }
+
+
     
     function getfarmerallbyid($id){
       $sql="SELECT farmer.* ,user.*,address.district as disid, districts.name_en AS district, cities.name_en AS city, address.zip_code, 
@@ -70,6 +107,38 @@ class farmerModel extends db_model{
       
 		  return $this->queryfromsql($sql);
     }
+    function view_public_profile($farmerid){
+      $sql= "SELECT *,address.address_id,address.address_line1,address.address_line2,address.city,address.zip_code,cities.id,farmer.user_id,farmer.mentor_id,mentor.mentor_id FROM user INNER JOIN address ON user.user_id = address.user_id INNER JOIN cities ON address.city = cities.id INNER JOIN farmer ON user.user_id=farmer.user_id INNER JOIN mentor ON farmer.mentor_id=mentor.mentor_id WHERE farmer.farmer_id = '".$farmerid."' ";
+      $result=$this->connection->query($sql);
+      $finale=array();
+    
+      if($result){
+        while($row=mysqli_fetch_assoc($result))
+        array_push($finale,$row);
+        return $finale;
+        
+      
+      }else echo "error";
+    }
+    
+public function read_id($id){
+  return $this->read('farmer', array('*'), array('user_id'=>$id));
+
+}
+
+public function requestmentor($id){
+  return $this->update('farmer', array('mentor_id'=>'0'), array('user_id'=>$id));
+
+}
+
+public function removementor($id){
+  return $this->update('farmer', array('mentor_id'=>'-1'), array('farmer_id'=>$id));
+
+}
+
+
+
+    
 }
 
 

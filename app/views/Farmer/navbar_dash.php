@@ -23,7 +23,7 @@
  
   <div class = "nav-right">
     <a href ="aboutus">About Us</a>
-    <a href="#logout">Logout</a>
+    <a href="../logout">Logout</a>
     
     <a href='profile'> <img width=50px src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" > </a>
 

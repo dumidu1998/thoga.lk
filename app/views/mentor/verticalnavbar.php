@@ -10,12 +10,17 @@
 <div class="dropdown">
   <button class="dropbtn">Farmer List</button>
   <div class="dropdown-content">
-    <a href="#">Kamal Dissanayake</a>
-    <a href="#">Nihal Silva</a>
-    <a href="#">Nimal Perera</a>
-    <a href="#">Silva</a>
-    <a href="#">Perera</a>
-    <a href="#">Bandara</a>
+<?php
+
+  foreach($data as $keys => $row){
+    $farmername = $row['firstname']." ".$row['lastname'];
+    //$fid=$row['farmer_id'];
+    
+
+  }
+  ?>
+    <a href="#"><?php echo $farmername; ?></a>
+    
   </div>
 </div>
 </body>

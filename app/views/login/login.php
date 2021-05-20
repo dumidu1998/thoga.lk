@@ -9,24 +9,66 @@
 </head>
 <body>
 
-<ul>
-  <li><a href="#"><img width="100px" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt=""></a></li>
-  <li><a href="about_us">Contact Us</a></li>
-  <li style="float:right"><a class="active" href="#login" id="login">Login</a></li>
-  <li style="float:right"><a class="active" href="/thoga.lk/buyer/home">Continue as guest</a></li>
+<div class="topnav" id="myTopnav" style="z-index : 1;">
+  <div class="nav-left">
 
-</ul>
+    <a href="/thoga.lk" class="navlogo"><img  width=100px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
+    <a href="/thoga.lk/forum">Forum</a>
+    <a href="../buyer/aboutus.php">About Us</a>
 
-<img src="/thoga.lk/public/images/login/d.jpg" style="width:100%">
+     <a id="google_translate_element"></a> 
+  </div>
+
+  <div class = "nav-right">
+        
+             
+  <a class="right" href="#login" id="login">Login</a>
+  <a class="right" href="/thoga.lk/buyer/home">Continue as guest</a>
+    
+
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+</div>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav" ) {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+// function myFunction() {
+//   var x = document.getElementById("nav-right");
+//   if (x.className === "nav-right") {
+//     x.className += " responsive";
+//   } else {
+//     x.className = "nav-right";
+//   }
+// }
+</script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'en,si,ta'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<!-- <img src="/thoga.lk/public/images/login/d.jpg" style="width:100%"> -->
 <div class="text"> 
-    <img width="25%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
+    <img width="25%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
     <h1>Freshness, Delivered!!</h1> 
    <h3>Find the best quality and deals with us, new in<br> Cyber Market </h3>
    <h4>Sign up here and start trading</h4>
    <div class="login_logos" id="click">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/logo thoga.png" alt="">
     <img width="10%" src="/thoga.lk/public/images/buyer/logo/farmer logo.png" alt="">
-    <img width="10%" src="/thoga.lk/public/images/buyer/logo/driver.png" alt="">
    </div>
 
   </div>

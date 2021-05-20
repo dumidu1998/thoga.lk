@@ -15,7 +15,6 @@ if(!empty($_SESSION['e_dateArray'])){
 
 }
 
-
     ?>
 <head>
   <meta charset="UTF-8">
@@ -59,12 +58,26 @@ if(!empty($_SESSION['e_dateArray'])){
            
     </div>
     <div class="search">
-        <form action="" method="post">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
-      </div>
+        
+        <input type="text" id="myInput" onkeyup="search()" placeholder="Search for names.." title="Type in a name">
+
+        <ul id="myUL" style="display: none;">
+          <?php
+          foreach($vege_names as $keys => $values){
+            
+            echo "<li><a href='home?search=".$values['vege_id']."'>".$values['vege_name']."</a></li>";
+          }
+          ?>
+         
+        </ul>
+        
+    </div>
       <?php
+      if(isset($_GET['search'])){
+
+      }else{
+
+      
       if(isset($_SESSION['user'])){
         foreach($_SESSION['user'] as $key => $values){
 
@@ -86,6 +99,7 @@ if(!empty($_SESSION['e_dateArray'])){
       <?php
       }
     }
+  }
       ?>
       <center>
       <h2 style = "color : #253e30">All island</h2>
@@ -204,6 +218,7 @@ function closeModal(id) {
 
 
 
+
 function openModal(id) {
   var mod = document.querySelector("#myModal"+id);
   mod.style.display = 'block';
@@ -241,6 +256,32 @@ btn.onclick = function(){
 }
 close.onclick= function(){
   model.style.display="none";
+}
+</script>
+
+
+<script>
+function search() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    ul.style.display = 'block';
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+    function cancelSearch(){
+      ul = document.getElementById("myUL");
+      ul.style.display="none";
+  
+}
 }
 </script>
 

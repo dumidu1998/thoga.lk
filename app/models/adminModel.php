@@ -88,8 +88,9 @@ class AdminModel extends db_model
 		$uname = $data['username'];
 		$pwd = md5($data['password']);
 		$name = $data['name'];
-		$tel = $dataa['tel'];
+		$tel = $data['tel'];
 		$sql = "INSERT INTO admin(user_name,password,name,tel_no) VALUES ('" . $uname . "','" . $pwd . "','" . $name . "','" . $tel . "')";
+		echo $sql;
 		$result = $this->connection->query($sql);
 		if ($result) {
 			return 1;
@@ -165,7 +166,7 @@ class AdminModel extends db_model
 	}
 
 	function get30days(){
-		$sql="SELECT COUNT(orders.order_id) AS ordcount, SUM(orders.total_cost) as totalsales FROM orders WHERE orders.order_date<DATE_SUB(CURDATE(),INTERVAL 0 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY)";
+		$sql="SELECT COUNT(orders.order_id) AS ordcount, SUM(orders.total_cost) as totalsales FROM orders WHERE orders.order_date<DATE_ADD(CURDATE(),INTERVAL 2 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY)";
 		return $this->queryfromsql($sql);
 	}
 
@@ -175,7 +176,7 @@ class AdminModel extends db_model
 	}
 
 	function getactiveproducts(){
-		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end<DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
+		$sql="SELECT count(item.item_id) as itemcount FROM item WHERE item.item_end>DATE_SUB(CURDATE(),INTERVAL 0 DAY)";
 		return $this->queryfromsql($sql);
 	}
 

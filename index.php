@@ -29,7 +29,8 @@ $routes = [
     'farmer/view_price' => 'FarmerController@view_price',
     'farmer/profile' => 'FarmerController@profile',
     'mentor/add_item' => 'mentorController@add_item',
-    'mentor/insert' => 'mentorController@insert_success',
+    'mentor/insert' => 'mentorController@insert_items',
+    'mentor/insert_sucess' => 'mentorController@insert_success',
     'mentor/dash' => 'mentorController@upcoming',
     'mentor/listed' => 'mentorController@listed_items',
     'mentor/view_price' => 'mentorController@view_price',
@@ -99,14 +100,33 @@ $routes = [
     'driver/changeav0' => 'DriverController@changeavailability0',
     'driver/changeav1' => 'DriverController@changeavailability1',
     'buyer/submitstatus' => 'BuyerController@statusUpdate',
+    'farmer/delete_item' => 'FarmerController@delete_item',
+    'farmer/edit_item' => 'FarmerController@edit_item',
     'driver/changecost' => 'DriverController@changevehicle_cost',
     'driver/addunavail'=>'DriverController@addunavailability',
     'driver/removeunavail'=>'DriverController@removeunavailability',
+    'farmer/add_item2' => 'FarmerController@add_item2',
     'driver/updateprofilepic'=>'DriverController@updateprofilepic',
+    'farmer/updateprofilepic'=>'FarmerController@updateprofilepic',
+    'buyer/updateprofilepic'=>'BuyerController@updateprofilepic',
     'driver/logout' => 'DriverController@logout',
+    'buyer/cancelOrder' => 'BuyerController@cancelOrder',
     'driver/addvehicle'=> 'DriverController@addvehicle',
     'driver/addVehicleController'=> 'DriverController@addnewvehicle',
     'driver/removevehicle'=> 'DriverController@removevehicle',
+    'mentor/delete_item' => 'mentorController@delete_item',
+    'mentor/edit_item' => 'mentorController@edit_item',
+    'mentor/public_profile' => 'mentorController@public_profile',
+    'mentor/verticalnavbar' => 'mentorController@view_farmerlist',
+    'farmer/editprofile' => 'FarmerController@editprofile',
+    'farmer/removementor' => 'FarmerController@removementor',
+    'farmer/changepwd' => 'FarmerController@changepwd',
+    'farmer/requestmentor' => 'FarmerController@requestmentor',
+    'mentor/editprofile' => 'mentorController@editprofile',
+    'mentor/updateprofilepic' => 'mentorController@updateprofilepic',
+    'farmer/viewmore' => 'FarmerController@viewmore',
+    
+    
     'driver/changestatus' => 'DriverController@changeorder_status',
     'driver/changepwd' => 'DriverController@changepwd',
 
@@ -115,11 +135,17 @@ $routes = [
     'forum/likep'=>'ForumController@likep',
     'forum/unlikep'=>'ForumController@unlikep',
     'logout'=>'LoginController@logout',
+    'buyer/editprofile' => 'BuyerController@editprofile',
+    'mentor/viewmore' => 'mentorController@viewmore',
+
+
+    'buyer/sendotp' => 'BuyerController@sendotp', /////******** */
+    'buyer/confirmotp' => 'BuyerController@confirmotp',//////////***** */
 
 
 
     'driver/test'=>'DriverController@showbutton' //test button
-
+    
 
 
 ];

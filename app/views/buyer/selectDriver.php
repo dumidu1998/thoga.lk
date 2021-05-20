@@ -22,7 +22,6 @@
         <table>
             <tr>
                 <th>Driver name</th>
-                <th>Rate</th>
                 <th>vehicle Name</th>
                 <th>Driver City</th>
                 <th>Price/km</th>
@@ -31,14 +30,15 @@
             <?php
 
 // print_r($data);
-foreach($data as $keys => $value){
+if($data){
+    foreach($data as $keys => $value){
     
     
     ?>
             <tr>
             
                 <td><?php echo $value['firstname'] ?> <?php echo $value['lastname'] ?></td>
-                <td>5 star</td>
+
                 <td><?php echo $value['vehicle_type'] ?></td>
                 <td><?php echo $value['city_name'] ?></td>
                 <td><?php echo $value['cost_km'] ?></td>
@@ -48,6 +48,13 @@ foreach($data as $keys => $value){
             </tr>
             <?php
             }
+        }else{
+            echo "<center>
+            <h3 style='color:red' > Sorry!! </h3>
+            <p style='font-weight:lighter'>we dont have any available Drivers.</p>
+            <p> If you continue you will pickup by your self </p>
+            </center>";
+        }
             ?>
            
             </table>

@@ -91,7 +91,7 @@
 
     btn.onchange = function(e){
         if(e.target.checked) {
-            // modal.style.display = "block";
+            modal.style.display = "block";
             var id=document.getElementById('ord_id').innerHTML;
             //console.log(xxx);
             $.ajax({

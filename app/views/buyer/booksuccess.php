@@ -18,6 +18,9 @@
         <img src="/thoga.lk/public/images/buyer/icons/Tick.png" width="180" height="180">
     </div>
     </center>
+    <?php
+  // print_r($result);
+    ?>
     
   <script>
   var myVar;

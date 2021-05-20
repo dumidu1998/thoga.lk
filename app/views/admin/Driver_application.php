@@ -10,6 +10,7 @@
 </head>
 <body>
 <?php  
+// print_r( $basic);
     $user_id=$basic[0]['user_id'];
     $driver_id=$basic[0]['driver_id'];
     if(file_exists("/thoga.lk/public/uploads/$user_id.jpg")){
@@ -144,7 +145,7 @@
             </tr>
             <tr>
                 <td>Revenue License</td>
-                <td><a href="/thoga.lk/public/uploads/driveruploads/vehicleregistration/<?php echo $vehicle[0]['vehicle_id'];?>.jpg" target="_blank" >RL <?php printf('%03d',  $vehicle[0]['vehicle_id']);?></a></td>
+                <td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleregistration/<?php echo $vehicle[0]['vehicle_id'];?>.jpg" target="_blank" >RL <?php printf('%03d',  $vehicle[0]['vehicle_id']);?></a></td>
             </tr>
             <tr>
                 <td>Vehicle Insurance</td>

@@ -114,12 +114,12 @@ foreach($data_city2 as $key => $value){
   
                           <label for="price">Price/kg</label>
                         <input type="number" id="price" name="price" value="<?php echo $price ?>" disabled/> 
-                        <label for="qnty">Quantity</label>
-                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
                         <label for="s_date">Start Date</label>
                         <input type="date" id="s_date"  name="s_date" value="<?php echo $s_date ?>" readonly="readonly" />
                         <label for="e_date">End Date</label>
-                        <input type="date" id="e_Date" name="e_date" value="<?php echo $e_date ?>"  />
+                        <input type="date" id="e_Date" name="e_date" value="<?php echo $e_date ?>"  readonly="readonly" />
+                        <label for="qnty">Quantity</label>
+                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
                       </div>
 
                       <?php 
@@ -175,7 +175,7 @@ if($count%3==0){
 }
 if($count==0)
 {
-echo"<center><p style='font-weight:lighter; font-size:12px;'> Sorry Currently items are not available in this are </p></center>";
+echo"<center><p style='font-weight:lighter; font-size:12px;'> Sorry Currently items are not available in this area </p></center>";
 }
 ?>
 

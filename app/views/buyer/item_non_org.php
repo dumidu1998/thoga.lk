@@ -114,24 +114,24 @@ foreach($data as $key => $value){
 
   
                         <label for="price">Price/kg</label>
-                        <input type="number" id="price" name="price" value="<?php echo $price ?>" disabled/> 
-                        <label for="qnty">Quantity</label>
-                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
+                        <input type="number" id="price" name="price" value="<?php echo $price ?>" disabled/>   
                         <label for="s_date">Start Date</label>
                         <input type="date" id="s_date"  name="s_date" value="<?php echo $s_date ?>" readonly="readonly" />
                         <label for="e_date">End Date</label>
-                        <input type="date" id="e_Date" name="e_date" value="<?php echo $e_date ?>"  />
+                        <input type="date" id="e_Date" name="e_date" value="<?php echo $e_date ?>"  readonly="readonly"/>
                       </div>
+                      <label for="qnty">Quantity</label>
+                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />
 
-                      <?php 
+                        <?php 
                         if(isset($_SESSION['user'])){
                             if(!empty($_SESSION['shopping_cart'])){
                                 if($_SESSION['shopping_cart'][0]['disctrict'] != $value['distric']){
                                  echo "<button onclick = 'error_differentdis()' class='checkout_btn'>Add to cart</button>";
       
                                 }else{
-                                  echo "<button name='add_to_cart' class='checkout_btn'>Add to cart</button>";
-                              }
+                                    echo "<button name='add_to_cart' class='checkout_btn'>Add to cart</button>";
+                                }
                             
                             }
                             else{
@@ -176,7 +176,7 @@ if($count%3==0){
 }
 if($count==0)
 {
-echo"<center><p style='font-weight:lighter; font-size:12px;'> Sorry Currently items are not available in this are </p></center>";
+echo"<center><p style='font-weight:lighter; font-size:12px;'> Sorry Currently items are not available in this area </p></center>";
 }
 ?>
 </div>

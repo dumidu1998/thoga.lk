@@ -47,6 +47,9 @@ class vehicleModel extends driverModel{
         }else{echo "error";}
     }
 
+    function getdriverandvehicle($vid){
+        return $this->join3tables(array('driver.*','vehicles.*','user.*'),'vehicles','driver','driver.driver_id=vehicles.driver_id','user','driver.user_id=user.user_id',array('vehicles.vehicle_id'=>$vid));
+    }
     function addnewvehicle($get){
         session_start();
         $vno=$get['vehicleno'];

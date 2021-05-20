@@ -102,7 +102,7 @@ class db_model{
 			return $finale;
 		}
 		else
-			return 'Error at db_MODEL/join2tables';
+			return 'Error at db_MODEL/join3tables';
 	}
 
 	function countrows($sql){
@@ -162,7 +162,7 @@ class db_model{
 	   if($whereArgs)
 		$sql= $this->where($sql,$whereArgs);	
 		$sql=$this->appendSemicolon($sql);
-    	// echo $sql.'<br>';
+    	echo $sql.'<br>';
 	  $result = $this->connection->query($sql);
 
 		if($result)

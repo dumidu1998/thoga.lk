@@ -7,7 +7,7 @@
 
 
 
-.container {
+/*.container {
   padding: 20px;
   color: white;
   text-align: center;
@@ -25,15 +25,15 @@
   margin-top: 150px;
 
 
-}
+}*/
 
 
 @media screen and (max-width:768px){
-  .container{
+  /*.container{
     
     width: 60%;
     margin-top: 120%
-    }
+    }*/
 
   
 }
@@ -48,7 +48,7 @@ table {
  
 }
 th{
-	background-color: #4CAF50;
+	background-color: #253E30;
   	color: white;
 }
 
@@ -65,12 +65,13 @@ tr:nth-child(even){
 
 .dele{
 
-  background-color: #eb780d;
+  background-color: #4CAF50;
   width: 80%;
   border-radius: 5px;
   color: white;
   padding: 10px 18px;
   opacity: 0.9;
+  text-decoration: none;
 
 }
 .dele:hover{
@@ -79,12 +80,13 @@ tr:nth-child(even){
 
 .more{
 
-  background-color: #ebd50d;
+  background-color:#2E5F3E;
   width: 80%;
   border-radius: 5px;
   color: white;
   padding: 10px 18px;
   opacity: 0.9;
+  text-decoration: none;
 
 }
 .more:hover{
