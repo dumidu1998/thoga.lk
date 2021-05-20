@@ -3,121 +3,86 @@
 <title>Mentor Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/mentor/upcoming.css">
+<link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/mentor/vertical.css">
 
 
 </head>
  
-<body background="/thoga.lk/public/stylesheets/Farmer/index1.jpg">
+<body>
    <?php 
-   include 'navbar_dash.php';
+   include  'navbar_dash.php';
    
    ?>
 
 
  <h1 class="title">Upcoming Orders</h1>
- <?php include 'verticalnavbar.php';?>
-<div  style="height:auto;">
+ <div class="dropdown">
+  <button class="dropbtn">Farmer List</button>
+  <div class="dropdown-content">
+<?php
+  foreach($data1 as $keys => $row){
+    $farmername = $row['firstname']." ".$row['lastname'];
+    $fid=$row['farmer_id'];?>
+    <a href="public_profile?id=<?php echo $fid; ?>"><?php echo $farmername; ?></a>
+<?php
+  }
+  ?>
+    
+  </div>
+</div>
+<div  style="height:auto;height: 50%;min-height:0px">
 
 <div style="overflow-x:auto;">
   <table align="center">
     <tr>
       <th>Order Id</th>
+      <th>Item Name</th>
       <th>Pickup Date</th>
       <th>Total Weight</th>
       <th>Price</th>
       <th>Buyer Name</th>
-      <th>Farmer Name</th>
+      
       <th>More Details</th>
       
       
     </tr>
 
-    <tr>
-        <td>1</td>
-        <td>2020-11-17</td>
-        <td>100</td>
-        <td>50</td>
-        <td>Nimal</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>2</td>
-        <td>2020-11-10</td>
-        <td>210</td>
-        <td>60</td>
-        <td>Lal</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>2020-11-20</td>
-        <td>150</td>
-        <td>55</td>
-        <td>Nimal</td>
-        <td>Nihal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>4</td>
-        <td>2020-11-21</td>
-        <td>260</td>
-        <td>50</td>
-        <td>Nimal</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>5</td>
-        <td>2020-11-25</td>
-        <td>140</td>
-        <td>65</td>
-        <td>Sunil</td>
-        <td>Kamal</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
-
-    <tr>
-        <td>6</td>
-        <td>2020-11-17</td>
-        <td>300</td>
-        <td>50</td>
-        <td>Nimal</td>
-        <td>Sunil</td>
-        <td><a class="more" href="viewmore">view more</a></td>
-    </tr>
+    
 
 <?php
-/*
-foreach($data as $key => $values){
+if (isset($data[0])){
+
+
+foreach($data[0] as $key => $values){
+  $itemid= $values['item_id'];
   $ordid= $values['order_id'];
+  $vegname= $values['vege_name'];
   $pdate= $values['pickup_date'];
   $tweight= $values['weight'];
-  $cost= $values['total_cost'];
-  $bname= $values['buyer_name'];
+  $cost= $values['total_cost'] *  $values['weight'];
+  $bname= $values['firstname'].' '.$values['lastname'];
+  
+
 
 
 
 ?>
  <tr>
- <td><?php echo $ordid;?></td>
+ <td><?php echo $itemid;?></td>
+ <td><?php echo $vegname;?></td>
  <td><?php echo $pdate;?></td>
- <td><?php echo $tweight;?></td>
- <td><?php echo $cost;?></td>
+ <td><?php echo number_format($tweight,0).' kg'?></td>
+ <td><?php echo number_format($cost,2);?></td>
  <td><?php echo $bname;?></td>
+ 
  <td>
- <a href="viewmore.php">view more</a>
+ <a class="more" name='link' onclick="" href="viewmore?id=<?php echo $ordid;?>">view more</a>
  </td>
 </tr>
     
 
 <?php
-}*/
+}}
 ?>
 
 

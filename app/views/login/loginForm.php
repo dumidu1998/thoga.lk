@@ -37,6 +37,11 @@
                 Do not have an account ? <a href="signup">Sign Up</a>
 
             </div>
+            <div class = "signup_text">
+                 <a onclick="alert('Please contact Admin to reset password  0764229830')">Reset Password</a>
+
+            </div>
+
 
         </form>
 

@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/userprofile.css">
+	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
 </head>
 <?php
@@ -16,17 +18,7 @@ if(isset($_GET["edit"])){
     $color = "red";
     $method="editprofile";
 }
-// if(isset($_GET["update"])){
-//     // header("location:/thoga.lk/driver/profile?done");
-//     $method="posjt";
-//     echo "Done";
-//    echo "Done"; 
-//     echo "Done";
-   
-// }
-if(isset($_GET['error']) && $_GET['error']==1){
-    echo"<script>alert('Error Occured!. Try again');</script>";
-}
+
 ?>
 
 <body>
@@ -52,7 +44,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
         </div>
         
         <div class="user_details">
-          
+          <div>
             <form action="<?php echo $method ?>" method="get">
                 <div class="data_wrapper">
                     <label style="color : <?php echo $color ?>" for="">First name</label>
@@ -141,16 +133,43 @@ if(isset($_GET['error']) && $_GET['error']==1){
                 ?>
                 
                 <button type='submit' name='update' class='updt_btn' <?php echo $status ?>>Update</button>
-
+                
             </form>
-
+            </div>
+                
+                <button type='button' name='update' class='updt_btn' style="width:160px"  onclick='openModal()'>Update Password</button>
         </div>
-
-        <div>
+                
+                
+            <div>
             
-            <img src="/thoga.lk/public/images/driver/index.jpg" alt="" width="210" height="430">
+                <img src="/thoga.lk/public/images/driver/index.jpg" alt="" width="210" height="430">
 
-        </div>
+            </div>
+            <div class="model1" id="myModal">
+                    <div class="modal-content" style="height:280px;">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <form action="changepwd" style="float:left" method="POST" autocomplete="new-password"  >
+                            <input type="hidden" value="<?php echo $all['user_id']?>" name="id">
+                            Current Password          : 
+                            <input type="password" style="width:60%"  name="currentpwd" required >
+                            <br>
+                            New Password          : 
+                            <input type="password" style="width:60%"  name="newpwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$">
+                            <br>
+                            
+                            Confirm New Password          : 
+                            <input type="password"  name="confirmpwd" style="width:60%" required  >
+                            <br>
+                            <center>
+                                <span>password should contain minimum 8 characters and with Digits and Letters including Capital Letter</span>
+                                <br>
+                                <button type='submit' name='changepwd' method="post" class='updt_btn'>Submit</button>
+                                <br>
+                            </center>
+                        </form>   
+                    </div>
+                </div>
 
     </div>
 
@@ -162,7 +181,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
     <table align="center">
 					
 					<tr>
-						<th>Order ID</th>
+						<th>Order No</th>
 						<th>Pickup Date</th>
 						<th>Price</th>
 						<th>Action</th>
@@ -209,11 +228,35 @@ function error(){
 
 </script>
 <?php
-if ($_GET['error']==0 && isset($_GET['error'])){
+if (isset($_GET['error']) && $_GET['error']==0 ){
     echo "<script>success();</script>";
-}else if ($_GET['error']==1 && isset($_GET['error'])){
+}
+if (isset($_GET['pwderror']) && $_GET['pwderror']==0 ){
+    echo "<script>swal('SUCCESS!', 'Password updated successfully!', 'success');</script>";
+}
+if(isset($_GET['error']) && $_GET['error']==1){
     echo "<script>error();</script>";
 }
 ?>
 
 </html>
+
+<script>
+    function closeModal() {
+        var mod = document.querySelector("#myModal");
+        mod.style.display = 'none';
+        
+    }
+
+    function openModal() {
+        var mod = document.querySelector("#myModal");
+        mod.style.display = 'block';
+
+    }
+
+    window.onclick = function(event) {
+        if (event.target == mod) {
+        mod.style.display = "none";
+        }
+    }
+</script>

@@ -8,7 +8,7 @@
 
 <?php include 'navbar_dash.php';?>
 
-<body background= "/thoga.lk/public/images/Farmer/index1.jpg">
+<body>
 
 <h1 class="title">Add your item here....</h1>
 
@@ -27,9 +27,10 @@
           foreach($records as $key =>$values)
           {
             $vegname = $values['vege_name'];
+            $vegId = $values['vege_id'];
          
           ?>
-          <option><?php echo $vegname;?></option>
+          <option value="<?php echo $vegId;?>"><?php echo $vegname;?></option>
 
           <?php
           }
@@ -54,6 +55,7 @@
         <input type="text" id="minweight" name="minweight" required>
       </div>
     </div>
+    <div>
     <div class="price_d">
     <div class="row">
       <div class="left">
@@ -64,15 +66,7 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="left">
-        <label for="price">Market Price (Rs)</label>
-      </div>
-      <div class="right">
-        
-        <p class="price2">30</p>
-      </div>
-    </div>
+        </div>
     
         </div>
     <div class="date">
@@ -112,7 +106,23 @@
         <label for="fid">Farmer Name</label>
       </div>
       <div class="right">
-        <input type="text" id="farmername" name="farmername" required>
+      <?php
+         // print_r( $farmers);?>
+      <select class="textt" id="farmername" name="farmername" required>
+        <option>------Farmers------</option>
+          <?php
+          foreach($farmers as $key =>$values)
+          {
+            $farmername = $values['firstname'].' '.$values['lastname'];
+            $farmerId = $values['farmer_id'];
+         
+          ?>
+          <option value="<?php echo $farmerId;?>"><?php echo $farmername;?></option>
+
+          <?php
+          }
+          ?>
+        </select>
       </div>
     </div>
 
@@ -126,14 +136,6 @@
     </div>
     
     
-    <div class="row">
-      <div class="left">
-        <label for="pic">Item Image</label>
-      </div>
-      <div class="right">
-        <input type="file" id="itemimage" name="itemimage">
-      </div>
-    </div>
     
     <div class="clearfix">
       <button type="button" class="cancelbtn" onClick="window.location.href='add_item'">Cancel</button>
@@ -143,8 +145,12 @@
     </form>
     
   
-</div>    
+</div>  
+</div>  
 
+
+
+</body>
 <script>
 var today = new Date();
 var dd = today.getDate();
@@ -163,8 +169,7 @@ document.getElementById("startdate").setAttribute("min", today);
 
 </script>
 
-
-</body>
 </html>
+<?php include("footer.php"); ?>
 
 

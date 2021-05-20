@@ -4,6 +4,8 @@
     <title>Booking Successful</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/buyer/booksuc.css">
+  <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 
 <body class="bodyclass2" onload="myFunction()" style="margin:0;">
@@ -16,6 +18,9 @@
         <img src="/thoga.lk/public/images/buyer/icons/Tick.png" width="180" height="180">
     </div>
     </center>
+    <?php
+  // print_r($result);
+    ?>
     
   <script>
   var myVar;

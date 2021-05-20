@@ -3,6 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/viewmore.css">
+		<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
     </head>
 
     <body>
@@ -29,16 +31,14 @@
                     $pickdate = $row['pickup_date'];
                     $add1= $row['d_addline1'];
                     $add2=$row['d_addline2'];
+                    $city=$row['city'];
                     
 
                 }         
                             
             ?>   
-            <?php
-                foreach($cityy as $keys => $row){
-                    $city=$row['name_en'];
-                }
-            ?>         
+            
+                    
             Order No          : 
             <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
             <br> 
@@ -102,9 +102,22 @@
 
 
             <?php } ?>
-                           
+            <form action="changestatus" method="post" >
+            <input type="hidden" name="orderid" value="<?php echo $ordid?>">
+            Order Status  :
+            <!-- Update Status   :  -->
+            <select name="orderstatus">
+                <option value="" selected hidden><?php echo ($ordstatus[0]['description']);?></option>
+                <option disabled value="0">Upcoming </option>
+                <option value="3">Collected from Farmer</option>
+                <option value="2">On the way</option>
+                <option value="1">Completed</option>
+            </select>
+            <br>
+                <button type="submit" name="updatestatus" class="button2">Update Status</button>
+            </form>          
                 
-        </div> 
+        </div>
     </div>
      
 

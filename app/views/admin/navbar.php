@@ -6,6 +6,8 @@
 
 <link href="/thoga.lk/public/stylesheets/font-awesome.min.css" rel="stylesheet">	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 <body>
 <div>
@@ -19,7 +21,7 @@
   }
 ?>
 <div class="topnav" id="myTopnav">
-  <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/admin/logo thoga.png" alt="" class = "logo"></a>
+  <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
   <a href="/thoga.lk/admin" class="<?php echo ($url=='/thoga.lk/admin')?'active':'';?>">Dashboard</a>
   <a href="/thoga.lk/admin#dapplications" >Requests</a>
   <a href="/thoga.lk/admin/admanager" class="<?php echo ($url=='/thoga.lk/admin/admanager')?'active':'';?>">Ad Management</a>

@@ -5,6 +5,8 @@
 	<title>Vehicles</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/vehicles.css">
+	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
 
 <body>
@@ -93,7 +95,7 @@
 							<td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleregistration/<?php echo $vehicleid;?>.jpg" target="_blank" >VR <?php echo $vehicleid;?></a></td>
 						</tr>
 					</table>
-					<a href="removevehicle?vid=<?php echo $vehicleid?>"> <button class="button2" > Remove Vehicle</button></a>	
+					<a href="removevehicle?vid=<?php echo $vehicleid?>" onclick="return confirm('Are you sure you want to remove?')"> <button class="button2" > Remove Vehicle</button></a>	
 
 			</div>
 		    

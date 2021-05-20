@@ -19,12 +19,22 @@ header{
 .button1{
     cursor: pointer;
     background-color: #44925b91;
-    border: none;
+    border: 1px;
     text-decoration: overline;
     font-size: 16px;
     font-weight: bold;
-    /* color: #ffffff; */
+    /* color: #ffffff; */               
 
+}
+.button2{
+  cursor: pointer;
+  background-color: #44925b91;
+  border: none;
+  text-decoration: overline;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left:100px;
+  
 }
 
 .left{
@@ -115,7 +125,19 @@ input[type=text] {
     background-color: white;
     font-size: 16px;
 }
-
+select{
+  margin-top:10px;
+    margin-bottom:10px;
+    padding: 2px;
+    height: 30px;
+    position: relative;
+    color:black;
+    left: 0;
+    outline: none;
+    border: 1px solid darkblue ; 
+    background-color: white;
+    font-size: 16px;
+}
 .advancedSearchTextbox {
     width: 500px;
     

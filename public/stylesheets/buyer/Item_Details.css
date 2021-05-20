@@ -106,7 +106,7 @@ input{
     text-align: center;
     font-family: fantasy;
     border: 1px solid darkseagreen;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .item_data input:disabled{
     background-color: #fff;
@@ -116,4 +116,9 @@ input{
     font-family: fantasy;
     padding: 10px;
     font-size: large;
+}
+.form-control{
+    margin-top: 15px;
+    padding: 10px;
+    width: 100px;
 }

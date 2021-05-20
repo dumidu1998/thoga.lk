@@ -98,10 +98,7 @@ button:hover {
   text-align: center;
   width:70%;
   background:white;
-  position: absolute;
-  top:54%;
-  left:50%;
-  transform:translate(-50%,-50%);
+  margin: auto;
   box-sizing:border-box;
   font-size:18px;
   border-radius: 50px;

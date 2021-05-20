@@ -5,6 +5,10 @@ require_once(__DIR__.'/../../core/View.php');
 require_once(__DIR__.'/../models/forumModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/driverModel.php');
+require_once(__DIR__.'/../models/vehicleModel.php');
+require_once(__DIR__.'/../models/buyerModel.php');
+require_once(__DIR__.'/../models/userModel.php');
+require_once(__DIR__.'/../models/vegetablesModel.php');
 
 
 class BuyerController {
@@ -14,16 +18,31 @@ class BuyerController {
         $this->forum = new forumModel();
         $this->order = new orderModel();
         $this->drivers = new driverModel();
+        $this->vehicles = new vehicleModel();
+        $this->buyer = new buyerModel();
+        $this->user = new userModel();
+        $this->vege = new vegetablesModel();
     }
 
     function getAll_get(){
         $result = $this->model->get_all();
-        print_r($result);
+        ($result);
         
     }
     public function index(){
          session_start();
-        $view = new View("buyer/index");
+         if(!empty($_SESSION['user'][0]['user_id'])){
+             $id = $_SESSION['user'][0]['user_id'];
+             $result = $this->buyer->get_id($id);
+             $_SESSION['buyer_id'] = $result;
+
+         }
+         $vege_names = $this->vege->get_all_vegetables();
+
+         $view = new View("buyer/index");
+
+
+
 
         if(isset($_SESSION['user'])){
             foreach ($_SESSION['user'] as $keys=>$values){
@@ -47,12 +66,18 @@ class BuyerController {
             $view->assign('data', $result);
             
         }
-
+        
         $class="org_active";
         $view->assign('data', $result);
+        $view->assign('vege_names', $vege_names);
 
         $view->assign('class', $class); 
-        
+        if(isset($_GET['search'])){
+            $vegeSet = $this->model->get_vegeItem($_GET['search']);
+            $view->assign('data', $vegeSet);
+
+
+        }
         
     }
     public function organic(){
@@ -86,6 +111,12 @@ class BuyerController {
         $class="org_active";
         $view->assign('data', $result); 
         $view->assign('class', $class); 
+        if(isset($_GET['search'])){
+            $vegeSet = $this->model->get_vegeItem($_GET['search']);
+            $view->assign('data', $vegeSet);
+
+
+        }
         
         
     }
@@ -94,20 +125,7 @@ class BuyerController {
         $view = new View("buyer/item_non_org");
         
     }
-    public function book(){
-        session_start();
-
-        foreach($_SESSION["shopping_cart"] as $keys => $values)  
-                    {  
-                       
-                    unset($_SESSION["shopping_cart"][$keys]);  
-                          
-                    }  
-        $view = new View("buyer/booksuccess");
-        
-
-        
-    }
+    
 
     public function selectDriver( ){
         session_start();
@@ -228,9 +246,13 @@ class BuyerController {
         // echo "ddd";
         $view = new View("buyer/summary");
         if(isset($_GET['vehicle_id'])){
-            echo "ddd";
+            // echo "ddd";
             $vehicle_id = $_GET['vehicle_id'];
             $view->assign('driv',$vehicle_id);
+            $drivervehicle=$this->vehicles->getdriverandvehicle($vehicle_id);
+            // print_r($drivervehicle) ;
+            $view->assign('details',$drivervehicle);
+
 
         }
         
@@ -245,8 +267,9 @@ class BuyerController {
     }
     public function profile(){
         session_start();
-
+        $result = $this->order->get_all_orders($_SESSION['buyer_id'][0]['buyer_id']);
         $view = new View("buyer/Buyer_user_profile");
+        $view->assign('details', $result);
     }
 
     public function forum(){
@@ -255,15 +278,26 @@ class BuyerController {
     }
     public function orders(){
         session_start();
+        $result = $this->order->get_buyer_upcoming($_SESSION['buyer_id'][0]['buyer_id']);
+        $his_result = $this->order->getbuyer_orderhistory($_SESSION['buyer_id'][0]['buyer_id']);
+        $pickup = $this->order->get_buyer_upcoming_pick($_SESSION['buyer_id'][0]['buyer_id']);
         $view = new View("buyer/orders");
+        $view->assign('upcoming_orders',$result);
+        $view->assign('previous_orders',$his_result);
+        $view->assign('pickup',$pickup);
     }
     public function viewmore(){
         session_start();
+        $id=$_GET['id'];
         $view = new View("buyer/view_more");
-        $details = $this->order->viewmore_farmer(1);
-        $driver_details = $this->order->viewmore_driver(1);
+        $details = $this->order->viewmore_farmer($id);
+        $driver_details = $this->order->viewmore_driver($id);
+        $buyer_details = $this->order->get_order_details($id);
+        $farmer_details = $this->order->orderdetails_total($id);
         $view->assign('details', $details);
         $view->assign('driver_details', $driver_details);
+        $view->assign('buyer_details', $buyer_details);
+        $view->assign('farmer_details', $farmer_details);
 
 
     }
@@ -271,6 +305,35 @@ class BuyerController {
         session_start();
         $view = new View("buyer/aboutus");
     }
+
+    public function updateprofilepic(){
+        session_start();
+        print_r($_FILES['profpic']);
+        if(isset($_FILES['profpic'])){
+            $errors= array();
+            $file_name = $_FILES['profpic']['name'];
+            $file_tmp =$_FILES['profpic']['tmp_name'];        
+            $file_type=$_FILES['profpic']['type'];
+            $temp=explode('.',$_FILES['profpic']['name']);
+            $file_ext=end($temp);
+            $extensions= array("jpeg","jpg","png");
+
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            $id=$_SESSION['user'][0]['user_id'];
+            if(empty($errors)==true){
+                move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/thoga.lk/public/uploads/buyerpropic/".$id.".jpg");
+                echo "Success";
+                header("location:/thoga.lk/buyer/profile");
+             }else{
+                print_r($errors);
+             }
+        }else{
+            echo "file Upload Failed";
+        }
+        
+    }  
 
     public function postForum(){
         session_start();
@@ -313,7 +376,6 @@ class BuyerController {
             $view->assign('address', $arr);
                 $vehicle_id=0;
                 $view->assign('driv',$vehicle_id);
-            
     
        
 
@@ -345,7 +407,142 @@ class BuyerController {
 
         echo $result;
     }
+    public function book(){
+        session_start();
+        $arr = array();
+        if($this->confirmotp($_POST)){
 
+        
+        
+
+        
+        if(isset($_POST['order'])){
+           
+
+            if($_SESSION['driver']){
+                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'driver_id'=>$_SESSION['driver'],'status'=>0);
+
+            }else{
+                $data = array('weight'=>$_POST['total_weight'],'total_cost'=>$_POST['total_cost'],'pickup_date'=>$_SESSION['pickup_date'],'d_addline1'=>$_SESSION['delivery_add']['add1'],'d_addline2'=>$_SESSION['delivery_add']['add2'],'total_cost'=>$_POST['total_cost'],'city'=>$_SESSION['delivery_add']['city'],'district'=>$_SESSION['delivery_add']['district'],'province'=>$_SESSION['delivery_add']['province'],'contact1'=>$_SESSION['delivery_add']['contact1'],'contact2'=>$_SESSION['delivery_add']['contact2'],'buyer_id'=>$_SESSION['buyer_id'][0]['buyer_id'],'status'=>0);
+            }
+            $result = $this->order->insert_order($data);
+            $newid=$this->order->getneworderid();
+
+            foreach($_SESSION['shopping_cart'] as $keys=>$values){
+                // print_r($values['item_id']);
+                $result = $this->model->get_farmer($values['item_id']);
+                // echo"--";
+                // print_r($result);
+
+                $order_details = array('farmer_id'=>$result[0]['farmer_id'],'item_id'=>$values['item_id'],'weight'=>$values['item_quantity'],'order_id'=>$newid);
+                 $this->order->insert_order_details($order_details);
+                 $this->model->reduce_avail($values['item_id'],$values['item_quantity']);
+            }
+
+
+            foreach($_SESSION["shopping_cart"] as $keys => $values)  
+                        {  
+                           
+                        unset($_SESSION["shopping_cart"][$keys]);  
+                              
+                        } 
+    
+                        if($_SESSION['driver']){
+                            $driver_data = array('driver_id'=>$_SESSION['driver'],'startdate' =>$_SESSION['pickup_date'] ,'enddate' =>$_SESSION['pickup_date'] );
+                            $result = $this->drivers->driverUnavailabel_order($driver_data);
+                        } 
+        }
+        $view = new View("buyer/booksuccess");
+    }
+    else {
+        header('location:summery?errorotp=1');
+    }
+        
+
+
+    }
+
+    public function cancelOrder(){
+        $id = $_GET['id'];
+        $this->order->cancelOrder($id);
+        header("location:/thoga.lk/buyer/orders");
+        
+    }
+
+    public function editprofile(){
+        $out= $this->user->updatedetails($_GET);
+        if($out){
+            header("location:/thoga.lk/buyer/profile?error=0");
+        }else{
+            header("location:/thoga.lk/buyer/profile?error=1");
+        }
+
+    }
+
+    public function confirmotp($a){
+        // if(isset($_POST['token'],$_POST['otp'])){
+            $otp=$a['otp'];
+            $token=$a['token'];
+            // $otp='1752';
+            // $token='Q2WXYJ5FKE';
+            $rows=$this->user->confirmotp($otp,$token);
+            if($rows==1){
+                echo "Accepted";
+                return 1;
+            }else{
+                echo "Error";
+                return 0;
+            }
+        // }
+
+
+    }
+    public function sendotp(){
+        session_start();
+        $user_id=$_SESSION['user'][0]['user_id'];
+        $mobilenumber=$this->user->gettel($user_id);
+        $mobilenumber=$mobilenumber[0]['contactno1'];
+        $token = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 10);
+        $OTP = substr(str_shuffle('0123456789'), 1, 4);
+        $time = time();
+        $mobilenumber= '94'.substr($mobilenumber,1);
+        $smsText="Please use this OTP to confirm the Order : ".$OTP." \nThank you for Ordering with Thoga.lk";
+        $text = urlencode($smsText);
+        $to = $mobilenumber;
+        $user = "94764229830";
+        $password = "2055";
+        $baseurl = "http://www.textit.biz/sendmsg";
+        $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+        $ret = file($url);
+        $res = explode(":", $ret[0]);
+        // print_r ($res);
+        if (trim($res[0]) == "OK") {
+            //Add token to database
+            $result=$this->user->addotp($token,$OTP,$mobilenumber);
+            if ($result) {
+                header("HTTP/1.1 200 OK");
+                http_response_code(200);
+                $smsString = '{"token": "' . $token . '"}';
+                $message = json_decode($smsString);
+                echo stripslashes(json_encode($message));
+                return $token;
+            } else {
+                header("HTTP/1.1 400 Bad Request");
+                http_response_code(400);
+                $message = json_decode('{"message": "Error Communicating with server. Please try again in a few minutes."}');
+                echo stripslashes(json_encode($message));
+                return 0;
+            }
+        } else {
+            header("HTTP/1.1 400 Bad Request");
+            http_response_code(400);
+            $message = '{"message": "Failed to send OTP"}';
+            echo stripslashes(json_encode($message));
+            return 0;
+        }
+    }
+
+    
     
 
 }

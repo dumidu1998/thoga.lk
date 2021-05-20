@@ -78,6 +78,7 @@ class driverModel extends db_model{
 		$result=$this->connection->query($sql);
 		
 		$finale=array();
+		echo $sql;
 		if($result){
       while($row=mysqli_fetch_assoc($result))
       //print_r($row);
@@ -157,6 +158,12 @@ class driverModel extends db_model{
 		if($result){ return true;}else{return false;}
 	}
 
+	
+	function driverUnavailabel_order($driver_data){
+		return $this->create('unavailable_dates',$driver_data);
+
+	}
+	
 	function accept($did){
         return $this->update('driver',array('verified_state'=>'1'),array('driver_id'=>$did));
     }
@@ -165,5 +172,6 @@ class driverModel extends db_model{
         return $this->update('driver',array('verified_state'=>'0','reject_reason'=>$reason),array('driver_id'=>$did));
     }
 
+	
 }
  ?>

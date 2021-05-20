@@ -5,7 +5,7 @@
     <?php 
     //session_start(); 
     //print_r ($_SESSION["shopping_cart"]);
-//print_r($_SESSION['user']);
+    //print_r($_SESSION['user']);
 
     
     ?>
@@ -13,8 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>summary</title>
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/chckout.css">
+	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
 </head>
-<body style="background-image: url('/thoga.lk/public/images/buyer/background.jpg');">
+<body>
 <?php include("navbar.php"); ?>
  
     <div class="container">
@@ -42,9 +44,9 @@
                         ?>  
                     <tr>
                         <td class="item_name"><?php echo $values["item_name"]; ?>  </td>
-                        <td> Rs.<?php echo $values["item_price"]?></td>
+                        <td> Rs.<?php echo number_format($values["item_price"],2) ?></td>
                         <td><?php echo $values["item_quantity"]?>kg</td>
-                        <td>Rs. <?php echo $subtot?></td>
+                        <td>Rs. <?php echo number_format($subtot,2) ?></td>
                         <td>
                         <form action="/thoga.lk/buyer/cart" method="post">
                             <input type="hidden" name="id" value="<?php echo $values["item_id"];?>">
@@ -80,7 +82,7 @@
                         <td colspan=2></td>
                        
                         <td class="td_summary">Total Amount</td>
-                        <td class="item_name"><?php echo $total ?></td>
+                        <td class="item_name"><?php echo number_format($total,2)  ?></td>
                     </tr>
                 </table>
             </div>
@@ -99,7 +101,7 @@
                     </tr>  -->
                     <tr>                       
                         <td class="td_summary">Total Amount</td>
-                        <td class="item_name"><?php echo $total ?></td>
+                        <td class="item_name"><?php echo number_format($total,2) ?></td>
                     </tr>
 
                 </table>
