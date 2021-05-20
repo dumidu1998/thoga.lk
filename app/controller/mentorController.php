@@ -7,6 +7,7 @@ require_once(__DIR__.'/../models/userModel.php');
 require_once(__DIR__.'/../models/mentorModel.php');
 require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../models/orderModel.php');
+require_once(__DIR__.'/../models/vegetablesModel.php');
 
 
 
@@ -19,6 +20,7 @@ class mentorController{
         $this->userModel = new userModel();
         $this->mModel = new mentorModel();
         $this->oModel = new orderModel();
+        $this->vegeModel = new vegetablesModel();
 
 
        
