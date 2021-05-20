@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/login/login.css">
     <title>Log in</title>
 </head>
-<body>
+<body class="loginbody">
 
 <div class="topnav" id="myTopnav" style="z-index : 1;">
   <div class="nav-left">
@@ -16,19 +16,20 @@
     <a href="/thoga.lk/forum">Forum</a>
     <a href="../buyer/aboutus.php">About Us</a>
 
-     <a id="google_translate_element"></a> 
+     <a id="google_translate_element" ></a> 
   </div>
 
   <div class = "nav-right">
         
              
-  <a class="right" href="#login" id="login">Login</a>
-  <a class="right" href="/thoga.lk/buyer/home">Continue as guest</a>
-    
+    <a class="right" href="#login" id="login">Login</a>
+    <a class="right" href="/thoga.lk/buyer/home">Continue as guest</a>
+      
 
   </div>
+
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
+  <i class="fa fa-bars"></i>
   </a>
 </div>
 </div>
@@ -36,14 +37,14 @@
 
 
 <script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav" ) {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav" ) {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
   }
-}
 // function myFunction() {
 //   var x = document.getElementById("nav-right");
 //   if (x.className === "nav-right") {
@@ -53,11 +54,13 @@ function myFunction() {
 //   }
 // }
 </script>
+
 <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'en,si,ta'}, 'google_translate_element');
-}
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'en,si,ta'}, 'google_translate_element');
+  }
 </script>
+
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
