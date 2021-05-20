@@ -21,9 +21,6 @@ class mentorController{
         $this->mModel = new mentorModel();
         $this->oModel = new orderModel();
         $this->vegeModel = new vegetablesModel();
-
-
-       
     }
 
     public function updateprofilepic(){
