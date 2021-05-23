@@ -20,13 +20,14 @@
 
 <div class="container">
   <form action="insert_item" method="post">
+  <!-- <form action="" method="get"> -->
 
     <div class="row">
       <div class="left">
         <label for="iname">Item Name</label>
       </div>
       <div class="right">
-        <select class="textt" id="itemname" name="itemname"  required >
+        <select class="textt" id="itemname" name="itemname" onchange="getvege()"  required >
           <option>-------- Select Vegetables --------- </option>
           <?php
           foreach($records as $key =>$values)
@@ -45,7 +46,15 @@
     </div>
     
 
-    <div class="row">
+    <div class="row" id="otherdiv" style="display: none">
+      <div class="left">
+        <label for="other">Other Vegetable Type</label>
+      </div>
+      <div class="right">
+        <input type="text" id="other" name="othertype" >
+      </div>
+    </div>
+    <div class="row" >
       <div class="left">
         <label for="aw">Available Weight (kg)</label>
       </div>
@@ -75,17 +84,9 @@
 
     
     </div>
-        </div>
+        
 
-    <div class="date">
-      <div class="row">
-        <div class="left">
-          <label for="sdate">Starting Date</label>
-        </div>
-        <div class="right">
-          <input type="date" id="startdate" name="startdate" required>
-        </div>
-      </div>
+    
 
 
       <div class="row">
@@ -148,11 +149,19 @@ var yyyy = today.getFullYear();
 
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("enddate").setAttribute("min", today);
-document.getElementById("startdate").setAttribute("min", today);
+// document.getElementById("startdate").setAttribute("min", today);
   
 
+function getvege(){
+  var item=document.getElementById('itemname');
+  if(item.value==="100"){
+    document.getElementById('otherdiv').style.display="";
+    document.getElementById('otherdiv').required=true;
+  }else{
+    document.getElementById('otherdiv').style.display="none";
 
-
+  }
+}
 
 
 </script>

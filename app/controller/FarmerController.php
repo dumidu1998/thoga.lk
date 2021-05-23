@@ -183,7 +183,7 @@ class FarmerController{
 
     public function insert_items(){
         session_start();
-
+        $f_id=0;
         foreach($_SESSION['user'] as $keys => $values){
             $id = $values['user_id'] ;
             $res = $this->fmodel->read_id($id);
@@ -193,18 +193,25 @@ class FarmerController{
             }
         }
         if(isset($_POST['submit'])){
-
+            
             $itemname = $_POST['itemname'];
             $avaiweight = $_POST['avaiweight'];
             $minweight = $_POST['minweight'];
             $price = $_POST['price'];
-            $startdate = $_POST['startdate'];
             $enddate = $_POST['enddate'];
             $itemtype = $_POST['itemtype'];
             $ides = $_POST['ides'];
             
-            $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
-            header("location: /thoga.lk/farmer/insert");
+            if($itemname!=="100"){
+                $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$enddate,$itemtype,$ides,$f_id);
+                header("location: /thoga.lk/farmer/insert");
+            }else{
+                $othername=$_POST['othertype'];
+                $this->itemModel->insert_data_other($itemname,$othername,$avaiweight,$minweight,$price,$enddate,$itemtype,$ides,$f_id);
+               header("location: /thoga.lk/farmer/insert");
+                
+            }
+
         }
     }
 
