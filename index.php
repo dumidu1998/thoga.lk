@@ -94,6 +94,7 @@ $routes = [
     'buyer/summary' => 'BuyerController@summary',
     'admin/addveg' => 'AdminController@addnewveg',
     'admin/forummanager' =>'AdminController@forummanager',
+    'admin/activeitems' =>'AdminController@activeitems',
     'admin/deletereply' =>'AdminController@deletereply',
     'admin/deletepost' =>'AdminController@deletepost',
     'buyer/addr' => 'BuyerController@addr',

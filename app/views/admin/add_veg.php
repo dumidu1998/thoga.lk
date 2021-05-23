@@ -17,9 +17,9 @@
 //  print_r($vegetables)
 if(isset($_GET['success'])){
   echo "<script>swal('SUCCESS!', 'Vegetable Updated Successfully!', 'success');</script>";
-
 }
  ?>
+ 
  <div class="veg_container">
      <!-- veg list container -->
 
