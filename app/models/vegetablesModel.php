@@ -26,4 +26,37 @@ class vegetablesModel extends db_model{
     public function getmprices(){
         return $this->read('vegetable',array('*'),null);
     }
+
+    
+	function get_other(){
+		$sql = "SELECT vegetable.vege_name, item.item_id,item.other_name, item.item_type, item.item_des,user.username,user.user_id, item.min_weight, item.avail_weight, item.item_start, item.item_end, item.total_cost FROM item INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id INNER JOIN farmer ON item.farmer_Id=farmer.farmer_id INNER JOIN user ON farmer.user_id=user.user_id WHERE item.veg_id='100'";
+        $result=$this->connection->query($sql);
+		
+		$finale=array();
+		
+		if($result){
+			while($row=mysqli_fetch_assoc($result))
+					array_push($finale,$row);
+		  return $finale;
+		}
+	}
+
+	function get_all_vege(){
+		$sql = "SELECT vegetable.vege_name, item.item_id,item.other_name, item.item_type, item.item_des,user.username,user.user_id, item.min_weight, item.avail_weight, item.item_start, item.item_end, item.total_cost FROM item INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id INNER JOIN farmer ON item.farmer_Id=farmer.farmer_id INNER JOIN user ON farmer.user_id=user.user_id ORDER BY item.item_end DESC";
+        $result=$this->connection->query($sql);
+		
+		$finale=array();
+		
+		if($result){
+			while($row=mysqli_fetch_assoc($result))
+					array_push($finale,$row);
+		  return $finale;
+		}
+	}
+
+    function update_category($vegid,$itemid){
+		$sql = "UPDATE item SET veg_Id= ".$vegid." ,other_name='' WHERE item_id=".$itemid;
+        $result = $this->connection->query($sql);
+    }
+
 }

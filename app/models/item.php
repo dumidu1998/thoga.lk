@@ -171,7 +171,7 @@ function edit_itembyid($id){
 		  array_push($finale,$row);
 		return $finale;
 		}
-  }
+  	}
 
 
 
@@ -188,10 +188,12 @@ function edit_itembyid($id){
 		echo "error";
 
 	}
+
 	function reduce_avail($id, $quantity){
 		$sql4="UPDATE item SET avail_weight= avail_weight -'".$quantity."' WHERE item_id ='".$id."'" ;
 		return $result=$this->connection->query($sql4);
 	}
+
     function get_vegeItem($id){
 		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province=h.id WHERE a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.avail_weight> 0 AND a.veg_id='".$id."'";
 		
@@ -207,4 +209,7 @@ function edit_itembyid($id){
 		}else
 		echo "error";
 	}
+
+	
+
 }

@@ -8,6 +8,7 @@ require_once(__DIR__.'/../models/mentorModel.php');
 require_once(__DIR__.'/../models/farmerModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
+require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../models/userModel.php');
 require_once(__DIR__.'/../models/forumModel.php');
 
@@ -22,6 +23,7 @@ class AdminController {
         $this->farmers = new farmerModel();
         $this->orders = new orderModel();
         $this->vehicles = new vehicleModel();
+        $this->item = new item();
         $this->users = new userModel();
         $this->forum = new forumModel();
     }
@@ -406,8 +408,29 @@ class AdminController {
     }
 
     public function activeitems(){
+        $others= $this->vegetables->get_other();
+        $all= $this->vegetables->get_all_vege();
+        $veg= $this->vegetables->get_all_vegetables();
+        
         $view = new View("admin/activeItems");
+        $view->assign('other', $others);
+        $view->assign('all', $all);
+        $view->assign('veg', $veg);
+        
+    }
+    
+    
+    public function edititem(){
+        $itemid=$_POST['itemid'];
+        $vegid=$_POST['vegeid'];
+        $this->vegetables->update_category($vegid,$itemid);
+        header("location: activeitems?done=1");
+    }
 
+    public function delete_item(){
+        $itemid=$_GET['itemid'];
+        $this->item->delete_item($itemid);
+        header("location: activeitems?done=1");
     }
 
 }
