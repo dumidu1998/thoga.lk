@@ -30,8 +30,9 @@ class mentorModel extends db_model{
 	}
 	
 	public function getallmentorsindistrict($id){
-		$sql="SELECT mentor.*,user.*,address.*,cities.name_en as city FROM mentor INNER JOIN user ON mentor.user_id=user.user_id 
-		INNER JOIN address ON address.user_id=user.user_id INNER JOIN cities ON address.city=cities.id WHERE address.district=".$id;
+		$sql="SELECT mentor.*,user.*,address.*, districts.name_en as city FROM mentor INNER JOIN user ON mentor.user_id=user.user_id 
+		INNER JOIN address ON address.user_id=user.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN districts ON 
+		districts.id=address.district  WHERE address.district=".$id;
 		return $this->queryfromsql($sql);
 	}
     
