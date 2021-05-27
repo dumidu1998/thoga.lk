@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/b_user_profile.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
-
 </head>
 <?php
 $status = "disabled";
@@ -48,17 +47,17 @@ if(isset($_GET["edit"])){
           <div>
             <form action="<?php echo $method ?>" method="get">
                 <div class="data_wrapper">
-                    <label style="color : <?php echo $color ?>" for="">First name</label>
+                    <label style="color : <?php echo $color ?>" for="">First name </label>
                     <input type="text" name="fname" <?php echo $status ?> value="<?php echo $_SESSION['user'][0]['firstname'] ?>"> 
                 </div>
 
                 <div class="data_wrapper">
-                    <label style="color : <?php echo $color ?>" for="">Last name</label>
+                    <label style="color : <?php echo $color ?>" for="">Last name&nbsp</label>
                     <input type="text" name="lname" <?php echo $status ?> value="<?php echo $_SESSION['user'][0]['lastname'] ?>" >
                 </div>
 
                 <div class="data_wrapper">
-                    <label style="color : <?php echo $color ?>" for="">Email Adress</label>
+                    <label style="color : <?php echo $color ?>" for="">Email &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
                     <input type="text" name="email" disabled value="<?php echo $_SESSION['user'][0]['email'] ?>">
                 </div>
 
@@ -103,11 +102,11 @@ if(isset($_GET["edit"])){
                 
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">City</label>
+                        <label style="color : <?php echo $color ?>;margin-right:130px" for="">City</label>
                         <input type="text" name="city" disabled value="<?php echo $_SESSION['user'][0]['c_name'] ?>">
                     </div>
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">District</label>
+                        <label style="color : <?php echo $color ?>;margin-right:110px" for="">District</label>
                         <input type="text" name="district" disabled value="<?php echo $_SESSION['user'][0]['d_name'] ?>">
     
                     </div>
@@ -116,7 +115,7 @@ if(isset($_GET["edit"])){
                 </div>
                 <div class="data_wrapper adress_data">
                     <div>
-                        <label style="color : <?php echo $color ?>" for="">zip code</label>
+                        <label style="color : <?php echo $color ?> ;margin-right:100px" for="">zip code</label>
                         <input type="text" name="zip" disabled  value="<?php echo $_SESSION['user'][0]['zip_code'] ?>">
                     </div>
                    
@@ -140,13 +139,6 @@ if(isset($_GET["edit"])){
                 
                 <button type='button' name='update' class='updt_btn' style="width:160px"  onclick='openModal()'>Update Password</button>
         </div>
-                
-                
-            <div>
-            
-                <img src="/thoga.lk/public/images/driver/index.jpg" alt="" width="210" height="430">
-
-            </div>
             <div class="model1" id="myModal">
                     <div class="modal-content" style="height:280px;">
                         <span class="close" onclick="closeModal()">&times;</span>

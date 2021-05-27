@@ -92,7 +92,7 @@ input[type="submit"]
   }
   
   input:checked + .slider {
-    background-color: white;
+    background-color: rgb(18, 231, 82);
   }
   
   input:focus + .slider {

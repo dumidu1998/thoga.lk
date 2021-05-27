@@ -14,7 +14,7 @@ body {
 .wrapper5{
   margin-top: 60px;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   grid-gap: 90px ;
   
 }
@@ -37,14 +37,14 @@ h1{
 .user_details label{
   font-size: large;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-right: 10px;
+  margin-right: 50px;
 
 
 }
 .adress_data label{
   font-size: medium;
   font-family: sans-serif;
-  margin-right: 10px;
+  margin-right: 60px;
 
 
 }
@@ -290,4 +290,6 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+
 

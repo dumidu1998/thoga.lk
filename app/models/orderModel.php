@@ -160,12 +160,6 @@ class orderModel extends db_model{
 		echo "error";
 	}
   
-
-  // function cancelOrder($id){
-  //   return $this->update('orders',array('status' => 4),array('order_id' => $id));
-
-  // }
-
   function  order_all($id){
     $sql= "SELECT b.*,a.description FROM orders AS b INNER JOIN status as a ON b.status=a.status_id where b.order_id='".$id."'";
 		
@@ -179,12 +173,11 @@ class orderModel extends db_model{
 		}else
 		echo "error";
 	}
+
   function insert_order($data){
-    // $sql = "INSERT INTO orders(weight,total_cost,order_date,pickup_date,d_addline1,d_addline2,city,district,province,contact1,contact2,buyer_id,driver_id,status) VALUES(123,5000,CURRENT_DATE,'2020-11-17',123,'reid avenur', 'Colombo', 'Colombo', 'western prov','077123456','071123456',2,1,1);";
     return $this->create('orders',$data);
-
-
   }
+
   function getneworderid(){
     $sql="SELECT LAST_INSERT_ID() as id";
     $newvid=$this->queryfromsql($sql);
@@ -235,8 +228,6 @@ class orderModel extends db_model{
         return $finale;
     }else
     echo "error";
-  
-
   }
   
   function  getrating($id){
@@ -266,14 +257,10 @@ class orderModel extends db_model{
          }
         //  print_r($final);
        return $final;
-     
- 
          }else
          echo "error";
-          
- 
-     
   }
+
   function get_details(){
     $sql="SELECT orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,buyer.b_name, FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id where orders.pickup_date >= CURDATE() 
     ";
@@ -282,14 +269,10 @@ class orderModel extends db_model{
     if($result){
      while($row=mysqli_fetch_assoc($result))
      array_push($arr,$row);
-   return $arr;
- 
-
+    return $arr;
      }else
      echo "error";
-      
-
- }
+  }
 
     function changeorder_status($orderid,$status){
       return $this->update('orders',array('status'=>$status),array('order_id'=>$orderid));
@@ -298,5 +281,11 @@ class orderModel extends db_model{
     function getstatus($order_id){
       return $this->join2tables(array('status.description'),'orders','status','orders.status=status.status_id',array('orders.order_id'=>$order_id));
     }
+
+    function getnewid(){
+      return $this->queryfromsql("select MAX(order_id)+1 AS next_id FROM orders");
+    }
+
+
     
 }

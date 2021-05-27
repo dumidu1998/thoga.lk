@@ -244,16 +244,19 @@ class BuyerController {
     public function summery(){
         session_start();
         // echo "ddd";
+        $newid=$this->order->getnewid();
+        print_r($newid);   
         $view = new View("buyer/summary");
+        $view->assign('nextid',$newid[0]['next_id']);
         if(isset($_GET['vehicle_id'])){
             // echo "ddd";
+            
+            echo "ddd";
             $vehicle_id = $_GET['vehicle_id'];
             $view->assign('driv',$vehicle_id);
             $drivervehicle=$this->vehicles->getdriverandvehicle($vehicle_id);
-            // print_r($drivervehicle) ;
+            
             $view->assign('details',$drivervehicle);
-
-
         }
         
     }
@@ -367,12 +370,14 @@ class BuyerController {
             
            
             //print_r( $_SESSION['del']);
-                   
+                echo "ddd";   
             // header("location:/thoga.lk/buyer/home");
             session_start();
+            $newid=$this->order->getnewid();
+            // print_r($newid);
             $_SESSION['delivery_add']=$arr;
-
             $view = new View("buyer/summary");
+            $view->assign('nextid',$newid[0]['next_id']);
             $view->assign('address', $arr);
                 $vehicle_id=0;
                 $view->assign('driv',$vehicle_id);
