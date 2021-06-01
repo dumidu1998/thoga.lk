@@ -101,14 +101,7 @@
 		    
 		</div>
 	</div>
-	<div class="right">
-		<div class="transbox">
-			
-				<img src="/thoga.lk/public/images/driver/index.jpg" alt="order" width="240" height="450" >
-			
-			
-		</div>	
-	</div>
+	
 	
 	<?php include("footer.php"); ?> 
 </body>
