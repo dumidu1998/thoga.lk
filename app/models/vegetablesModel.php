@@ -26,4 +26,8 @@ class vegetablesModel extends db_model{
     public function getmprices(){
         return $this->read('vegetable',array('*'),null);
     }
+
+    public function getmpricebyid($id){
+        return $this->read('vegetable',array('*'),array('vege_id'=>$id));
+    }
 }

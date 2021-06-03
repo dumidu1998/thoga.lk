@@ -72,7 +72,7 @@
       </div>
 
         </div>
-      <div style="color:gray;display:none;" id="pricedisplay">Thoga.lk Average Price is Rs. </div>
+      <div style="color:gray;display:none;" id="Pricedisplay">Thoga.lk Average Price is Rs. <span id="pricedisplayprice"></span></div>
     
       <div class="row">
         <div class="left">
@@ -174,17 +174,18 @@ function getvege(){
 
   }
 
-  var price=document.getElementById('pricedisplay');
+  var price=document.getElementById('Pricedisplay');
 
   price.style.display="";
-  price.innerHTML+="750.00"
   var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-				alert("marked as available.");
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById('pricedisplayprice').innerHTML=parseFloat(this.responseText).toFixed(2);
+      // document.getElementById('pricedisplayprice').innerHTML=toFixed(2);
+        // console.log(this.responseText);
 				}
 			};
-			xhttp.open("GET", "/thoga.lk/driver/changeav1?vid="+vid, true);
+			xhttp.open("GET", "/thoga.lk/farmer/getthogarprice?vegid="+item.value, true);
 			xhttp.send();
 
 }
