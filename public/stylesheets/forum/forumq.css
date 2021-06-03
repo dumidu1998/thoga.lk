@@ -3,10 +3,12 @@
 .container{
     margin: 80px 10px;
     display: grid;
-    grid-template-columns: 80% auto;
+    grid-template-columns: auto;
     grid-gap: 10px;
     font-family:  Merriweather;
     font-weight: 540;
+    margin-left: 50px;
+    margin-top: 130px;
 
 }
 

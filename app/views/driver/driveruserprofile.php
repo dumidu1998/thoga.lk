@@ -141,11 +141,7 @@ if(isset($_GET["edit"])){
         </div>
                 
                 
-            <div>
             
-                <img src="/thoga.lk/public/images/driver/index.jpg" alt="" width="210" height="430">
-
-            </div>
             <div class="model1" id="myModal">
                     <div class="modal-content" style="height:280px;">
                         <span class="close" onclick="closeModal()">&times;</span>

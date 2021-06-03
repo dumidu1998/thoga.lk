@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/forum/forumq.css" type='text/css'>
-
+    <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
     <title>Problem #<?php echo $post_id;?></title>
 </head>
 <body>
@@ -107,9 +107,7 @@
                 </div>
         </div>
 
-        <div class="adcontainer">
-            <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
-        </div>
+        
 
     </div>
     <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>

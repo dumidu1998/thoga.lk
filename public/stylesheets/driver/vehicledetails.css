@@ -20,24 +20,14 @@ h1{
 }
 .menu {
     float:left;
-    width:70%;
+    width:95%;
     text-align:center;
     padding-top:10px;
     margin-left:20px;
     margin-top:5px;
     padding-bottom: 30px;
 }
-.right{
-    float:left;
-    width:22%;
-    padding-top:0px;
-    text-align:center;
-    font-size:25px;
-    color:black;
-    margin-left:50px;
-    margin-bottom:10px;
 
-}
 .transboxx {
    
     padding: 0px;
