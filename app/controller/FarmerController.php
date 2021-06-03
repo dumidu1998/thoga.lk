@@ -277,6 +277,11 @@ class FarmerController{
         header("location: /thoga.lk/farmer/profile");
     }
 
+    public function getthogarprice(){
+        $vegeid=$_GET['vegid'];
+        $result=$this->vegeModel->getmpricebyid($vegeid);
+        echo $result[0]['current_price'];
+    }
 
 }
 

@@ -72,7 +72,7 @@
       </div>
 
         </div>
-      <div style="color:gray;display:none;" id="pricedisplay">Thoga.lk Average Price is Rs. </div>
+      <div style="color:gray;display:none;" id="Pricedisplay">Thoga.lk Market Price is Rs. <span id="pricedisplayprice"></span></div>
     
       <div class="row">
         <div class="left">
@@ -168,17 +168,31 @@ function getvege(){
   if(item.value==="100"){
     document.getElementById('otherdiv').style.display="";
     document.getElementById('other').setAttribute('required','');
+    hideprice();
   }else{
     document.getElementById('otherdiv').style.display="none";
-
+    showprice();
 
   }
+}
 
-  var price=document.getElementById('pricedisplay');
+function hideprice(){
+  var price=document.getElementById('Pricedisplay');
+  price.style.display="none";
+}
 
+function showprice(){
+  var price=document.getElementById('Pricedisplay');
   price.style.display="";
-  price.innerHTML+="750.00"
 
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById('pricedisplayprice').innerHTML=parseFloat(this.responseText).toFixed(2);
+		}
+	};
+	xhttp.open("GET", "/thoga.lk/farmer/getthogarprice?vegid="+item.value, true);
+	xhttp.send();
 }
 
 

@@ -27,6 +27,11 @@ class vegetablesModel extends db_model{
         return $this->read('vegetable',array('*'),null);
     }
 
+
+    public function getmpricebyid($id){
+        return $this->read('vegetable',array('*'),array('vege_id'=>$id));
+    }
+
     
 	function get_other(){
 		$sql = "SELECT vegetable.vege_name, item.item_id,item.other_name, item.item_type, item.item_des,user.username,user.user_id, item.min_weight, item.avail_weight, item.item_start, item.item_end, item.total_cost FROM item INNER JOIN vegetable ON item.veg_Id=vegetable.vege_id INNER JOIN farmer ON item.farmer_Id=farmer.farmer_id INNER JOIN user ON farmer.user_id=user.user_id WHERE item.veg_id='100'";
@@ -58,5 +63,6 @@ class vegetablesModel extends db_model{
 		$sql = "UPDATE item SET veg_Id= ".$vegid." ,other_name='' WHERE item_id=".$itemid;
         $result = $this->connection->query($sql);
     }
+
 
 }

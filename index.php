@@ -40,6 +40,7 @@ $routes = [
     'mentor/profile' => 'mentorController@profile',
     'mentor/forum' => 'mentorController@forum',
     'farmer/viewmore' => 'FarmerController@view_more',
+    'farmer/getthogarprice' => 'FarmerController@getthogarprice',
     'mentor/viewmore' => 'mentorController@view_more',
     'farmer/edit' => 'FarmerController@edit',
     'mentor/edit' => 'mentorController@edit',

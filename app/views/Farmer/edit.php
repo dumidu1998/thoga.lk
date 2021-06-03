@@ -13,7 +13,7 @@
 <body>
 <?php include 'navbar_dash.php';?>
 
-<h1 class="title">Edit item here....</h1>
+<h1 class="title">Edit Item here....</h1>
 
 
 
@@ -55,7 +55,7 @@
       </div>
       <div class="right">
       <!-- <p class ="price2"> 200</p> -->
-      <input type="text" class ="price2" name="availweight" value="<?php echo $availweight?>" >
+      <input type="number" class ="price2" min="1" name="availweight" value="<?php echo $availweight?>" >
       </div>
     </div>
     <div class="row">
@@ -64,32 +64,21 @@
       </div>
       <div class="right">
       <!-- <p class ="price2"> 50</p> -->
-      <input type="text" class ="price2" name="minweight" value="<?php echo $minweight?>" >
+      <input type="number" min="1" class ="price2" name="minweight" value="<?php echo $minweight?>" >
       </div>
     </div>
 
 
-<div class="price_d">
     <div class="row">
       <div class="left">
-        <label for="price">Price (Rs)</label>
+        <label for="price">Price per kg (Rs.)</label>
       </div>
       <div class="right">
       <!-- <p class ="price2"> 25</p> -->
-      <input type="text" class ="price2" name="price" value="<?php echo $price?>" >
+      <input type="number" min="1" class ="price2" name="price" value="<?php echo $price?>" >
       </div>
     </div>
 
-    <div class="row">
-      <div class="left">
-        <label for="price">Market Price (Rs)</label>
-      </div>
-      <div class="right">
-        
-        <p class="price2">30</p>
-      </div>
-    </div>
-</div>
 
 
     
@@ -135,7 +124,6 @@
         <label for="ides">Item Description</label>
       </div>
       <div class="right">
-      <!-- <p class ="price2"> good </p> -->
       <input type="text" class ="price2" name="ides" value="<?php echo $itemdes?>" >
       </div>
     </div>
@@ -144,16 +132,6 @@
     <br>
     
    
-    
-    <!-- <div class="row">
-      <div class="left">
-        <label for="pic">Item Image</label>
-      </div>
-      <div class="right">
-      <image width=150px src="/thoga.lk/public/images/Farmer/tomato.jpg">
-      </div>
-    </div> -->
-    
     <div class="clearfix">
       <button type="button" class="cancelbtn" onClick="window.location.href='edit_item'" >Cancel</button>
       <button type="submit" class="submitbtn" name="submit">Submit</button>
