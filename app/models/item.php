@@ -136,16 +136,13 @@ class item extends db_model{
 	}
 
 
+public function insert_databymentor($itemname,$avaiweight,$minweight,$price,$enddate,$itemtype,$farmername,$ides,$m_id){
 
-	
-	
-public function insert_databymentor($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$ides,$m_id){
-
-
-	$query = "INSERT into item (veg_Id,avail_weight,min_weight,total_cost,item_start,item_end,item_type,farmer_id,item_des,mentor_id) values ('".$itemname."','".$avaiweight."','".$minweight."','".$price."','".$startdate."','".$enddate."','".$itemtype."','".$farmername."','".$ides."','".$m_id."')";
+	$query = "INSERT into item (veg_Id,avail_weight,min_weight,total_cost,item_start,item_end,item_type,farmer_id,item_des,mentor_id) 
+	values('".$itemname."','".$avaiweight."','".$minweight."','".$price."',CURDATE(),'".$enddate."','".$itemtype."','".$farmername."','"
+	 .$ides."','".$m_id."')";
 	echo $query;
 	$result =$this->connection->query($query);
-   
 
 	if($result){
 	echo "Insert Data Successfully.";
@@ -153,12 +150,26 @@ public function insert_databymentor($itemname,$avaiweight,$minweight,$price,$sta
 	else{
 		echo "Error...!";
 	}
-
-
-
-
-
 }
+
+public function insert_otherdatabymentor($itemname,$avaiweight,$minweight,$price,$enddate,$itemtype,$farmername,$ides,$m_id,$othername){
+
+	$query = "INSERT into item (veg_Id,avail_weight,min_weight,total_cost,item_start,item_end,item_type,farmer_id,item_des,mentor_id,other_name) 
+	values('".$itemname."','".$avaiweight."','".$minweight."','".$price."',CURDATE(),'".$enddate."','".$itemtype."','".$farmername."','"
+	 .$ides."','".$m_id."','".$othername."')";
+	echo $query;
+	$result =$this->connection->query($query);
+
+	if($result){
+	echo "Insert Data Successfully.";
+	}
+	else{
+		echo "Error...!";
+	}
+}
+
+
+
 function get_info($mentorid){
 	$sql="SELECT item.veg_Id,item.item_id,item.Item_type,item.avail_weight,item.item_end,item.total_cost,item.min_weight,item.farmer_id,vegetable.vege_name, user.user_id,item.mentor_Id, farmer.user_id,farmer.farmer_id,user.firstname , user.lastname FROM item INNER JOIN vegetable on item.veg_Id=vegetable.vege_id INNER JOIN farmer on item.farmer_id=farmer.farmer_id INNER JOIN user ON farmer.user_id=user.user_id where item.item_end >= CURDATE() AND item.mentor_Id='".$mentorid."'";
 	$result=$this->connection->query($sql);
