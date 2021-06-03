@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.css" type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
-
+    <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">    
 
     <title>Forum</title>
 </head>
@@ -132,13 +132,7 @@
             ?>
             <!-- *************** -->
         </div>
-        <div >
-            <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
-                <br>
-            <img class="ad ad2" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
-                
-
-        </div>
+        
     </div>
 
     <script>

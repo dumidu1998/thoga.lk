@@ -63,7 +63,7 @@
 <h1 align="center">Upcoming Orders</h1>
     <hr>
         <!-- Upcoming Orders -->
-        <table>
+        <table style="margin:auto;width:90%">
 
             <thead>
                 <tr>

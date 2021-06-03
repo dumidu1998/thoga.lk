@@ -14,7 +14,7 @@
     <div class="container">
         <center>
 
-            <h2>Invoice no : 12345</h2>
+            <h2>Invoice no : <?php echo $nextid;?></h2>
         </center>
         <br>
 

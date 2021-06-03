@@ -24,7 +24,7 @@
   <a href="/thoga.lk/admin" class="navlogo"><img  width=100px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
   <a href="/thoga.lk/admin" class="<?php echo ($url=='/thoga.lk/admin')?'active':'';?>">Dashboard</a>
   <a href="/thoga.lk/admin#dapplications" >Requests</a>
-  <a href="/thoga.lk/admin/admanager" class="<?php echo ($url=='/thoga.lk/admin/admanager')?'active':'';?>">Ad Management</a>
+  <a href="/thoga.lk/admin/activeitems" class="<?php echo ($url=='/thoga.lk/admin/activeitems')?'active':'';?>">Active Vegetable List</a>
   <a href="/thoga.lk/forum" target="_blank">Forum</a>
   <div class = "nav-right">
     <a href="/thoga.lk/logout">Log Out</a>

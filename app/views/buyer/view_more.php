@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/v_more.css">
+    <link rel="stylesheet" href="/thoga.lk/public/stylesheets/buyer/rating_style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <title>View more</title>
 <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
 
@@ -12,28 +15,33 @@
 <body >
 <?php include("navbar.php"); ?>
 
-<?php
-//  print_r($details);
-// echo"</br>";
-// print_r($farmer_details);
-
-?>
-
 <div class="container">
 <?php
 foreach($driver_details as $keys => $values)  
 {  
-    ?>
-        <h3>Order no : <?php echo $values['order_id'] ?> </h3>
+    ?>  <center>
+        <h2>Order No : <?php echo $values['order_id'] ?> </h2></center>
         <br>
-        <h4>Delivery address : </h4> <p> <?php echo $values['d_addline1']?> <?php echo $values['d_addline2']?></p> 
-        <p><?php echo $buyer_details[0]['city'] ?>, <?php echo $buyer_details[0]['district'] ?>, </p>
-        <p><?php echo $buyer_details[0]['province'] ?>.</p>
-        <!-- need to be done -->
+        <div style="display:flex">
+            
+            <h4>Delivery address : </h4> 
+            <div style="margin-left:10px;margin-top:7px">
+            <p> <?php echo $values['d_addline1']?> <?php echo $values['d_addline2']?></p> 
+            <p><?php echo $buyer_details[0]['city'] ?>, <?php echo $buyer_details[0]['district'] ?>, </p>
+            <p><?php echo $buyer_details[0]['province'] ?>.</p>
+            </div>
+        </div>
         <br>
-        <h4>Telephone no</h4>
+        <div style="display:flex">
+
+        <h4>Telephone no:</h4>
+        <div style="margin-left:10px;margin-top:7px">
+
         <p><?php echo $values['contact1']?></p>
         <p><?php echo $values['contact2']?></p>
+        </div>
+        </div>
+
         <div class="check">
             <!-- grid -->
             <div class="tbl">
@@ -92,7 +100,6 @@ foreach($driver_details as $keys => $values)
                             <span class="slider round"></span>
                             <?php
                             }else{
-
                             ?>
                             <input type="checkbox" id="toggle">
                             <span class="slider round"></span>
@@ -202,8 +209,9 @@ foreach($driver_details as $keys => $values)
 
 </div>
 <script>
+    var mod;
     function closeModal(id) {
-        var mod = document.querySelector("#farmPro"+id);
+        mod = document.querySelector("#farmPro"+id);
         mod.style.display = 'none';
         
     }
@@ -217,6 +225,26 @@ foreach($driver_details as $keys => $values)
     window.onclick = function(event) {
         if (event.target == mod) {
         mod.style.display = "none";
+        }
+    }
+</script>
+<script>
+    var btn=document.getElementById("toggle");
+
+    btn.onchange = function(e){
+        if(e.target.checked) {
+            var id=document.getElementById('ord_id').innerHTML;
+            //console.log(xxx);
+            $.ajax({
+            url:"/thoga.lk/buyer/submitstatus",    //the page containing php script
+            type: "post",    //request type,
+            data: { ord_id : id},
+            success:function(result){
+                console.log(result);
+                
+            }
+        });
+            btn.disabled = this.checked;
         }
     }
 </script>

@@ -125,15 +125,7 @@ if(isset($_GET["update"])){
                 <button name="update" class="updt_btn" <?php echo $status ?>>Update</button>
 
             </form>
-
         </div>
-
-        <div>
-            <!-- Advertistment -->
-            <img width="300px" src="../imgs/ads/a.jpg" alt="">
-
-        </div>
-
     </div>
 
 

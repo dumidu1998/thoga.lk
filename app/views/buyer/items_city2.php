@@ -103,7 +103,11 @@ foreach($data_city2 as $key => $value){
                          <?php echo $item_description ?> 
                          </p>               
                       </div>
-
+                      <?php 
+                          if($min_val >= $avail_we){
+                            $min_val=$avail_we;
+                          }
+                        ?>
                       <!-- quantity/price -->
                       <div class="item_data">
                         
@@ -120,6 +124,7 @@ foreach($data_city2 as $key => $value){
                         <input type="date" id="e_Date" name="e_date" value="<?php echo $e_date ?>"  readonly="readonly" />
                         <label for="qnty">Quantity</label>
                         <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
+                        <p style="color:gray">Min. Quantity: <?php echo $min_val ?> kg | Available Quantity: <?php echo $avail_we ?> kg</p>
                       </div>
 
                       <?php 
