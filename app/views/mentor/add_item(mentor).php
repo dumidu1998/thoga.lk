@@ -168,26 +168,31 @@ function getvege(){
   if(item.value==="100"){
     document.getElementById('otherdiv').style.display="";
     document.getElementById('other').setAttribute('required','');
+    hideprice();
   }else{
     document.getElementById('otherdiv').style.display="none";
-
+    showprice();
 
   }
+}
 
+function hideprice(){
   var price=document.getElementById('Pricedisplay');
+  price.style.display="none";
+}
 
+function showprice(){
+  var price=document.getElementById('Pricedisplay');
   price.style.display="";
+  
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById('pricedisplayprice').innerHTML=parseFloat(this.responseText).toFixed(2);
-      // document.getElementById('pricedisplayprice').innerHTML=toFixed(2);
-        // console.log(this.responseText);
-				}
-			};
-			xhttp.open("GET", "/thoga.lk/farmer/getthogarprice?vegid="+item.value, true);
-			xhttp.send();
-
+		}
+	};
+	xhttp.open("GET", "/thoga.lk/farmer/getthogarprice?vegid="+item.value, true);
+	xhttp.send();
 }
 
 
