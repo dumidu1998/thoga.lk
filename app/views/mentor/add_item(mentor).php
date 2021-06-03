@@ -178,6 +178,14 @@ function getvege(){
 
   price.style.display="";
   price.innerHTML+="750.00"
+  var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				alert("marked as available.");
+				}
+			};
+			xhttp.open("GET", "/thoga.lk/driver/changeav1?vid="+vid, true);
+			xhttp.send();
 
 }
 
