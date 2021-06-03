@@ -82,7 +82,7 @@
 
         </div>
         
-        <div style="color:gray;display:none;" id="Pricedisplay">Thoga.lk Average Price is Rs. <span id="pricedisplayprice"></span></div>
+        <div style="color:gray;display:none;" id="Pricedisplay">Thoga.lk Market Price is Rs. <span id="pricedisplayprice"></span></div>
 
     
 
