@@ -145,7 +145,26 @@ tr td{
     width: 35px;
     background-color: #4caf4f93;
   }
+
+  .checkmarkreject{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 35px;
+    width: 35px;
+    background-color: #ec1a0b8e;
+  }
   
+
+  
+  .CBcontainer:hover input ~ .checkmarkreject {
+    background-color: #bd110585;
+  }
+  
+  .CBcontainer input:checked ~ .checkmarkreject {
+    background-color: #b3150ae0;
+  }
+
   .CBcontainer:hover input ~ .checkmark {
     background-color: #4caf4fd8;
   }
@@ -154,6 +173,28 @@ tr td{
     background-color: #2E5F3E;
   }
   
+  .checkmarkreject:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .CBcontainer input:checked ~ .checkmarkreject:after {
+    display: block;
+  }
+  
+  .CBcontainer .checkmarkreject:after {
+    left: 10px;
+    top: 1px;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  /*  */
   .checkmark:after {
     content: "";
     position: absolute;

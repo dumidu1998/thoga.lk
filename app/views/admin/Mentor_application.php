@@ -103,7 +103,7 @@
         </label>
         <label class="CBcontainer">&nbsp Reject
             <input type="checkbox" id="reject" name="rejected" onchange="checkfunc(this.id)" >
-            <span class="checkmark"></span>
+            <span class="checkmarkreject"></span>
         </label>
         <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection" style="display:none;margin-left:30%" ></textarea>
        <input type="submit" class="accept-btn" value="Submit    ">
