@@ -59,7 +59,7 @@
         <label for="aw">Available Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="avaiweight" name="avaiweight" required>
+        <input type="number" id="avaiweight" min="1" name="avaiweight" required>
       </div>
     </div>
     <div class="row">
@@ -67,7 +67,7 @@
         <label for="mw">Minimum Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="minweight" name="minweight" required>
+        <input type="number" id="minweight" min="1" name="minweight" required>
       </div>
     </div>
 
@@ -78,7 +78,7 @@
         <label for="price">Price (Rs)</label>
       </div>
       <div class="right">
-        <input type="text" id="price" name="price" required>
+        <input type="number" id="price" min="10" name="price" required>
       </div>
     </div>
 
