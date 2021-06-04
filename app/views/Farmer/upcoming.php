@@ -65,9 +65,8 @@ foreach($data as $key => $values){
   </table>
 </div>
 </div>
-
-
-<?php include 'footer.php'; ?>
+<!-- TODO add cards to view stat -->
+  <?php include 'footer.php'; ?>
 </body>
 
 </html>
