@@ -5,21 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/Farmer/upcoming.css">
 <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
-
-
 </head>
- 
    <?php 
-   include 'navbar_dash.php';
-   
+    include 'navbar_dash.php';
    ?>
 <body >
-
-
- <h1 class="title">Upcoming Orders</h1>
  <?php include 'verticalnavbar.php';
  ?>
-
+  <div class="cardcontainer">
+    <div>Active Items
+    <center><h1><?php echo $statdata1['count'];?></h1></center>
+    </div>
+    
+    <div>Orders <span>(30 Days)</span>
+    <center><h1><?php echo $statdata2;?></h1></center>
+    </div>
+    
+    <div>Sales <span>(30 Days)</span>
+    <center><h1>Rs. <?php echo number_format($statdata3,2);?></h1></center>
+    </div>
+  </div>
+ <h1 class="title">Upcoming Orders</h1>
 <div class = "container">
 <div style="overflow-x:auto;height: 50%;min-height:0px">
   <table align="center">
@@ -64,9 +70,32 @@ foreach($data as $key => $values){
 ?>
   </table>
 </div>
+<div id="piechart_3d" style="width: 900px; height: 500px;" class="mychart"></div>
+
 </div>
 <!-- TODO add cards to view stat -->
   <?php include 'footer.php'; ?>
 </body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Carrot',     6],
+          ['Potato',      2],
+          ['Brinjals',  2]
+          
+        ]);
 
+        var options = {
+          title: 'Item Performance (Last 30 Days)',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
 </html>

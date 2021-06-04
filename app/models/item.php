@@ -219,6 +219,18 @@ function edit_itembyid($id){
 		return $result=$this->connection->query($sql4);
 	}
 
+	function getallitems($fid){
+		$sql4="SELECT count(item_id) as count FROM item where item.item_end >= CURDATE() AND item.farmer_id='".$fid."'"; //TODO
+		$result=$this->connection->query($sql4);
+		$finale=array();
+		if($result){
+      	while($row=mysqli_fetch_assoc($result))
+			array_push($finale,$row);
+		  return $finale[0];
+		}else
+		echo "error";
+	}
+
     function get_vegeItem($id){
 		$sql = "SELECT a.*, b.vege_name, c.user_id, d.*, e.*,f.name_en AS city, g.name_en AS distric, h.name_en AS province FROM item as a INNER JOIN vegetable AS b ON a.veg_Id = b.vege_id INNER JOIN farmer as c ON a.farmer_Id = c.farmer_id INNER JOIN user as d ON c.user_id = d.user_id INNER JOIN address as e ON c.user_id=e.user_id INNER JOIN cities AS f ON e.city=f.id INNER JOIN districts AS g ON e.district=g.id INNER JOIN provinces AS h ON e.province=h.id WHERE a.item_end > DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.item_start < DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND a.avail_weight> 0 AND a.veg_id='".$id."'";
 		

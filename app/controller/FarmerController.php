@@ -45,11 +45,16 @@ class FarmerController{
         $farmeruserid=$_SESSION['user'][0]['user_id'];
 
         $farmerid=$this->fmodel->read_id($farmeruserid);
-        // print_r($farmerid[0]['farmer_id']);
 
+        $statdata1 = $this->itemModel->getallitems($farmerid[0]['farmer_id']); 
+        $statdata2 = $this->oModel->getorders30($farmerid[0]['farmer_id']); 
+        $statdata3 = $this->oModel->getsales30($farmerid[0]['farmer_id']); 
         $view = new View("Farmer/upcoming");
         $result = $this->fmodel->get_details($farmerid[0]['farmer_id']);
         $view ->assign('data',$result);
+        $view ->assign('statdata1',$statdata1);
+        $view ->assign('statdata2',$statdata2[0]['count']);
+        $view ->assign('statdata3',$statdata3[0]['sum']);
     }
 
     //upcoming

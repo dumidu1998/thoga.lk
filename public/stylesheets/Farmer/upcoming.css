@@ -156,3 +156,22 @@ tr:nth-child(even){
   font-weight: bold;
   letter-spacing: 1.2px;
 }
+
+
+.cardcontainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-left: 220px;
+  padding-top: 30px;
+  margin-top: 100px;
+  margin-right: 10px;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+
+.mychart{
+  margin-left: 30%;
+  margin-top: -50px;
+}

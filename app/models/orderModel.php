@@ -274,6 +274,34 @@ class orderModel extends db_model{
      echo "error";
   }
 
+  function getorders30($fid){
+    $sql="SELECT COUNT(*) as count FROM `orders` INNER JOIN order_details ON orders.order_id=order_details.order_id WHERE
+     orders.order_date<DATE_ADD(CURDATE(),INTERVAL 2 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY) 
+     AND order_details.farmer_id='".$fid."'";
+    $result=$this->connection->query($sql);
+    $arr=array();
+    if($result){
+     while($row=mysqli_fetch_assoc($result))
+     array_push($arr,$row);
+    return $arr;
+     }else
+     echo "error";
+  }
+
+  function getsales30($fid){
+    $sql="SELECT SUM(total_cost) as sum FROM `orders` INNER JOIN order_details ON orders.order_id=order_details.order_id WHERE
+     orders.order_date<DATE_ADD(CURDATE(),INTERVAL 2 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY) 
+     AND order_details.farmer_id='".$fid."'";
+    $result=$this->connection->query($sql);
+    $arr=array();
+    if($result){
+     while($row=mysqli_fetch_assoc($result))
+     array_push($arr,$row);
+    return $arr;
+     }else
+     echo "error";
+  }
+
     function changeorder_status($orderid,$status){
       return $this->update('orders',array('status'=>$status),array('order_id'=>$orderid));
     }
