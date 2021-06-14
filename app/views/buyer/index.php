@@ -194,8 +194,8 @@ if(!empty($_SESSION['e_dateArray'])){
 
       <?php
     }else{
-      echo "<img class='home_ad' style='margin-top:80px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
-      echo "<img class='home_ad' style='margin-top:100px;' width='300px' src='/thoga.lk/public/images/buyer/ads/b.jpg' alt=>";
+      // echo "<img class='home_ad' style='margin-top:80px;' width='300px' src='/thoga.lk/public/images/buyer/ads/a.jpg' alt=>";
+      // echo "<img class='home_ad' style='margin-top:100px;' width='300px' src='/thoga.lk/public/images/buyer/ads/b.jpg' alt=>";
       
     }
       ?>
