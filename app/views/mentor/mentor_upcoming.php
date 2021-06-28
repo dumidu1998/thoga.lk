@@ -10,26 +10,13 @@
  
 <body>
    <?php 
-   include  'navbar_dash.php';
+  // include  'navbar_dash.php';
    
    ?>
 
-
+<div class ="split left">
  <h1 class="title">Upcoming Orders</h1>
- <div class="dropdown">
-  <button class="dropbtn">Farmer List</button>
-  <div class="dropdown-content">
-<?php
-  foreach($data1 as $keys => $row){
-    $farmername = $row['firstname']." ".$row['lastname'];
-    $fid=$row['farmer_id'];?>
-    <a href="public_profile?id=<?php echo $fid; ?>"><?php echo $farmername; ?></a>
-<?php
-  }
-  ?>
-    
-  </div>
-</div>
+ 
 <div  style="height:auto;height: 50%;min-height:0px">
 
 <div style="overflow-x:auto;">
@@ -87,9 +74,31 @@ foreach($data[0] as $key => $values){
 
 
 
-  </table>
+</table>
 </div>
 </div>
+</div>
+
+<div class = "split right">
+
+<h1 class="title2"> Farmer List </h2>
+<div class="card">
+  
+  <div class="container2">
+<?php
+  foreach($data1 as $keys => $row){
+    $farmername = $row['firstname']." ".$row['lastname'];
+    $fid=$row['farmer_id'];?>
+   <h3> <a class = "topic" href="public_profile?id=<?php echo $fid; ?>"><?php echo $farmername; ?></a> </h3>
+<?php
+  }
+  ?>
+    
+</div>
+</div>
+</div>
+
 <?php include("footer.php"); ?>
 </body>
+
 </html>
