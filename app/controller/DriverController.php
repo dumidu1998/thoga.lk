@@ -246,8 +246,15 @@ class DriverController extends db_model{
 
     }  
 
+    public function getvehidata(){
+        $allv=$this->vmodel->getvehidetails($_GET['id']);
+        echo json_encode($allv[0]);
+    }
+
     public function addvehicle(){
+        $allv=$this->vmodel->getalltypes();
         $view = new View("driver/addvehicle");
+        $view->assign('all',$allv);
     }    
 
     public function logout(){
