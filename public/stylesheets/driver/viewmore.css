@@ -16,16 +16,19 @@ header{
     padding-top:75px;
 }
 
-.button1{
-    cursor: pointer;
-    background-color: #44925b91;
-    border: 1px;
-    text-decoration: overline;
-    font-size: 16px;
-    font-weight: bold;
-    /* color: #ffffff; */               
-
+.button1 {
+  color:white;
+  text-decoration: none;
+  background: #4CAF50;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
 }
+
 .button2{
   cursor: pointer;
   background-color: #44925b91;
@@ -58,7 +61,6 @@ header{
     width:40%;
     padding:18px;
     padding-top:30px;
-    text-align:center;
     margin-left:10px;
     margin-bottom:15px;
     font-size:18px;
@@ -83,7 +85,9 @@ header{
 }
 
 .address{
-    padding-left:120px;
+    /* padding-left:120px; */
+    /* margin-left: 120; */
+    width:80%;
  
 }
 .transbox {

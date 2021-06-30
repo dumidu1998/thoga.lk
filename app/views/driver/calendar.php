@@ -16,6 +16,7 @@
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+      dayMaxEventRows:true,
       nextDayThreshold:'00:00',
       headerToolbar: {
         left: 'prev,next today',
@@ -28,6 +29,7 @@
       selectMirror: true,
       select: function(arg) {
         var title = 'Unavailable';
+        if(checkdate(arg.startStr))return;
         var go=confirm('Are you sure to make unavailable?');
         type='a';
         var tt= type=='a'?'#d00000':'';
@@ -44,6 +46,7 @@
         calendar.unselect();
       },
       eventClick: function(arg) {
+        if(arg.event.title.startsWith('O'))return;
         if (confirm('Are you sure you want to mark '+convert(arg.event.start)+' as available?')) {
           arg.event.remove();
           removeunavailability(arg.event.start);
@@ -56,7 +59,6 @@
 
     calendar.render();
   });
-
 
 function removeunavailability(x){
   var xhttp = new XMLHttpRequest();
@@ -87,6 +89,16 @@ function convert(str) {
     mnth = ("0" + (date.getMonth() + 1)).slice(-2),
     day = ("0" + date.getDate()).slice(-2);
   return [date.getFullYear(), mnth, day].join("-");
+}
+
+function checkdate(date){
+  var ii = <?php echo $alldates;?>;
+  for (var i=0; i < ii.length; i++) {
+        if (ii[i].start === date) {
+            return true;
+        }
+    }
+  return false;
 }
 
 </script>

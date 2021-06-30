@@ -12,7 +12,7 @@
     <header >
         
         <div class="topic">
-            <h1>Order details of Order No - <mark>   <?php echo $order_id ?>  </mark></h1>
+            <h1>Order details of Reference No - <mark>   <?php echo $order_id ?>  </mark></h1>
         </div>
         <hr>
 
@@ -39,29 +39,44 @@
             ?>   
             
                     
-            Order No          : 
+            Reference No : 
+            <div class="address">
             <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
-            <br> 
+            </div>
+            <br>
+
                                  
 
             Weight             :
-            <input type="text" name="weight" value="<?php echo $wght?>" disabled>
-            <br>     
+            <div class="address">
+            <input type="text"  name="weight" value="<?php echo $wght?>" disabled>
+            </div>
+            <br>
+
 
             Total Cost         :
-            <input type="text" name="total cost" value="Rs. <?php echo number_format($totcost,2);?>" disabled>
-            <br> 
+            <div class="address">
+            <input type="text"  name="total cost" value="Rs. <?php echo number_format($totcost,2);?>" disabled>
+            </div>
+            <br>
+
 
            
 
             Order Date          :
-            <input type="text" name="order date" value="<?php echo $date?>" disabled>
+            <div class="address">
+            <input type="text"  name="order date" value="<?php echo $date?>" disabled>
+            </div>
             <br>
 
+            
+
             Pickup Date          :
-            <input type="text" name="pickup date" value="<?php echo $pickdate?>" disabled>
-            <br> 
-            <br>     
+            <div class="address">
+            <input type="text"  name="pickup date" value="<?php echo $pickdate?>" disabled>
+            </div>
+            <br>
+
 
             Delivery Address  :
              <div class="address">
@@ -84,8 +99,11 @@
                 foreach($buyer as $keys => $row){
                 $bname=$row['username'];
             ?>
+
             Buyer Name :
+            <div class="address">
             <input type="text" name="buyer name" value="<?php echo $bname?>" disabled>
+            </div>
             <br>
                 
             <?php } ?>
@@ -97,7 +115,9 @@
 
             ?>       
             Driver Name  :
+            <div class="address">
             <input type="text" name="driver name" value="<?php echo $dname?>" disabled>  
+            </div>
             <br>
 
 
@@ -106,6 +126,7 @@
             <input type="hidden" name="orderid" value="<?php echo $ordid?>">
             Order Status  :
             <!-- Update Status   :  -->
+            <div class="address">
             <select name="orderstatus">
                 <option value="" selected hidden><?php echo ($ordstatus[0]['description']);?></option>
                 <option disabled value="0">Upcoming </option>
@@ -113,8 +134,9 @@
                 <option value="2">On the way</option>
                 <option value="1">Completed</option>
             </select>
+            </div>
             <br>
-                <button type="submit" name="updatestatus" class="button2">Update Status</button>
+                <button type="submit" name="updatestatus" class="button1">Update Status</button>
             </form>          
                 
         </div>

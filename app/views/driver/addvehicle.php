@@ -19,7 +19,6 @@
 		</div>
 	</header>
 	<div class="menu">
-		
 		<div class="transboxx">
 		
 					<?php
@@ -44,17 +43,28 @@
                                     <td><label>Vehicle No   :</label></td>
                                     <td><input type="text" placeholder="SP PL-0285" class= "textboxnew" name="vehicleno" required></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td><label>Vehicle Type   :</label></td>
                                     <td><input type="text" placeholder="Lorry" class="textboxnew" name="vehicletype" required ></td>
+                                </tr> -->
+					  <tr>
+                                    <td><label>Vehicle Type   :</label></td>
+                                    <td> 
+							<select name="vehicletype" onchange="getdetails(this)">
+							<option selected hidden>--Select One</option>
+							<?php foreach($all as $keys => $row){ ?>
+								<option value="<?php echo $row['type_id'];?>"><?php echo $row['vehicletype'];?></option>
+								<?php } ?>
+							</select>
+						 </td>
                                 </tr>
                                 <tr>
                                     <td><label>Maximum Weight   :</label></td>
-                                    <td><input type="text" placeholder="1000" class="textboxnew" name="maxweight" required ></td>
+                                    <td><input type="text" id="weight" placeholder="1000" class="textboxnew" name="maxweight" required ></td>
                                 </tr>
                                 <tr>
                                     <td><label>Cost/km (Rs.)   :</label></td>
-                                    <td><input type="text" placeholder="80" class="textboxnew" name="vehiclecost" required ></td>
+                                    <td><input type="text" id="cost" placeholder="80" class="textboxnew" name="vehiclecost" required ></td>
                                 </tr>
                                 <tr>	
                                     <td><label>Photo of Vehicle:</label></td>
@@ -77,4 +87,18 @@
 	
 	<?php include("footer.php"); ?> 
 </body>
+<script>
+function getdetails(a){
+	var xhttp = new XMLHttpRequest();
+  	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		var i = JSON.parse(this.responseText);
+		document.getElementById("weight").value = i.maxweight;
+		document.getElementById("cost").value = i.cost;
+	}
+	};
+	xhttp.open("GET", "/thoga.lk/driver/getvdata?id="+a.value , true);
+	xhttp.send();
+}
+</script>
 </html>
