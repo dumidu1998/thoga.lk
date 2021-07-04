@@ -22,14 +22,14 @@ $_SESSION['temp']=1;
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
     <div class="buttonContainer">
-        <button onclick="showPanel(0,'#92bb00b6')">Buyer</button>
-        <button onclick="showPanel(1,'#92bb00b6')">Farmer</button>
-        <button onclick="showPanel(2,'#92bb00b6')">Driver</button>
-        <button onclick="showPanel(3,'#92bb00b6')">Mentor</button>
+        <button onclick="showPanel(0,'#fff')">Buyer</button>
+        <button onclick="showPanel(1,'#fff')">Farmer</button>
+        <button onclick="showPanel(2,'#fff')">Driver</button>
+        <button onclick="showPanel(3,'#fff')">Mentor</button>
     </div> 
     <!-- Buyer -->
     <div class="tabPanel">
-      <form method="POST" action="signup/buyer">
+      <form method="POST" autocomplete="off" action="signup/buyer">
       <div style="font-size:15px;float:right;margin-right:3%;font-color:red;">* Mandatory fields</div>
         <div class="row">
           <div class="lable" style="margin-top: 25px;">First Name *</div>

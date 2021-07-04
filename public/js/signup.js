@@ -2,19 +2,29 @@ var tabButtons = document.querySelectorAll(".tabContainer .buttonContainer butto
 var tabPanels = document.querySelectorAll(".tabContainer  .tabPanel");
 
 function showPanel(panelIndex, colorCode) {
-    tabButtons.forEach(function(node) {
+    tabButtons.forEach(function (node) {
         node.style.backgroundColor = "";
         node.style.color = "";
+        node.style.borderRadius = '2%';
+        node.style.borderTopLeftRadius = '10px';
+        node.style.borderTopRightRadius = '10px';
+        node
     });
     tabButtons[panelIndex].style.backgroundColor = colorCode;
-    tabButtons[panelIndex].style.color = "white";
-    tabPanels.forEach(function(node) {
+    tabButtons[panelIndex].style.color = "black";
+    // tabButtons[panelIndex].style.borderRadius = '1%';
+    tabPanels.forEach(function (node) {
         node.style.display = "none";
     });
     tabPanels[panelIndex].style.display = "block";
     tabPanels[panelIndex].style.backgroundColor = colorCode;
+    // tabPanels[panelIndex].style.padding = '10px';
+    tabPanels[panelIndex].style.borderRadius = '1%';
+    tabPanels[panelIndex].style.borderTopLeftRadius = '0';
+    tabPanels[panelIndex].style.borderTopRightRadius = '0';
+
 }
-showPanel(0, ' #92bb00b6');
+showPanel(0, ' #fff');
 
 function _(el) {
     return document.getElementById(el);
@@ -345,7 +355,7 @@ function mselectvalidate4() { if (document.getElementById('Mncity1').value == 0)
 
 function mselectvalidate5() { if (document.getElementById('Mncity2').value == 0) alert("Please Select your Province"); }
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('.js-example-responsive').select2({
         allowClear: true,
         placeholder: {
@@ -356,7 +366,7 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('.s2').select2({
         allowClear: true,
         placeholder: {
