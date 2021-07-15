@@ -1,4 +1,4 @@
-# thoga.lk
+# Thoga.lk
 
 Repo for the 2nd year group project Thoga.lk
 
