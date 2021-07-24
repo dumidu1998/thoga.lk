@@ -8,6 +8,8 @@ $_SESSION['temp']=1;
   <meta charset="UTF-8">
   <title>Sign Up</title>
   <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/signup/style.css">
+  <link rel="stylesheet" href="/thoga.lk/public/stylesheets/login/login.css">
+
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
   crossorigin="anonymous"></script>
@@ -22,10 +24,10 @@ $_SESSION['temp']=1;
 <h1 class="title">Sign Up</h1>
 <div class="tabContainer">
     <div class="buttonContainer">
-        <button onclick="showPanel(0,'#92bb00b6')">Buyer</button>
-        <button onclick="showPanel(1,'#92bb00b6')">Farmer</button>
-        <button onclick="showPanel(2,'#92bb00b6')">Driver</button>
-        <button onclick="showPanel(3,'#92bb00b6')">Mentor</button>
+        <button onclick="showPanel(0,'#fff')">Buyer</button>
+        <button onclick="showPanel(1,'#fff')">Farmer</button>
+        <button onclick="showPanel(2,'#fff')">Driver</button>
+        <button onclick="showPanel(3,'#fff')">Mentor</button>
     </div> 
     <!-- Buyer -->
     <div class="tabPanel">
@@ -46,10 +48,10 @@ $_SESSION['temp']=1;
               <option value="female">Female</option>
             </select>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Date of Birth *</div>
             <input type="date" class="inpbox"  name="Bdob" max="2002-12-31" required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">NIC Number *</div>
             <input type="text" class="inpbox"  name="Bnic" 
@@ -61,19 +63,19 @@ $_SESSION['temp']=1;
             <input type="tel" class="inpbox"  name="Bcontactno1" 
             pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989"  required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Mobile Number 2</div>
             <input type="tel" class="inpbox"  name="Bcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989" >
-        </div>
+        </div> -->
 		    <div class="row">
           <div class="lable">Address Line 1*</div>
             <input type="text" class="inpbox"  name="Baddressline1" placeholder="No.155" required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox" placeholder="Nilwaththa Mawatha"  name="Baddressline2">
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Bprovince" id="BProvince" onchange="bselectvalidate1()" required>
@@ -82,17 +84,17 @@ $_SESSION['temp']=1;
                   foreach($provinces as $key => $values){
                     $province = $values['name_en'];
                     $provinceid = $values['id'];
-                ?>
-                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
-                <?php
-                  }
-                ?>
+          ?>
+          <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+          <?php
+            }
+          ?>
         </select>
         </div>
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">District *</div>
-            <select class="s2" name="Bdistrict" id="Bdistrict" onchange="bselectvalidate2()" required>
+            <select class="s2 test" name="Bdistrict" id="Bdistrict" onchange="bselectvalidate2()" required>
               <option value="0"></option>
                 <?php
                   foreach($districts as $key => $values){
@@ -121,10 +123,10 @@ $_SESSION['temp']=1;
             </select>
           </div>
         </div> <!-- grid end -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Postal Code *</div>
             <input type="text" class="inpbox"  name="Bpostalcode" placeholder="50000"  required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Email *</div>
             <input type="text" class="inpbox"  name="Bemail" placeholder="malika@gmail.com"  required>
@@ -161,14 +163,14 @@ $_SESSION['temp']=1;
             </select>
         </div>
         <div class="desc">If you have a Business</div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Business Name</div>
             <input type="text" class="inpbox"  name="Bussinessname"  >
         </div>
         <div class="row">
           <div class="lable">BR No.</div>
             <input type="text" class="inpbox"  name="BrNo"  >
-        </div>
+        </div> -->
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
@@ -196,6 +198,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Bsignupbtn">
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 
     <!-- Farmer -->
@@ -217,10 +224,10 @@ $_SESSION['temp']=1;
               <option value="female">Female</option>
             </select>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Date of Birth *</div>
             <input type="date" class="inpbox"  name="Fdob" max="2002-12-31" required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">NIC Number *</div>
             <input type="text" class="inpbox"  name="Fnic" 
@@ -232,19 +239,19 @@ $_SESSION['temp']=1;
             <input type="tel" class="inpbox"  name="Fcontactno1"
             pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989" required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Mobile Number 2</div>
             <input type="tel" class="inpbox"  name="Fcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989" >
-        </div>
+        </div> -->
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
             <input type="text" class="inpbox"  name="Faddressline1" placeholder="No.15"  required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox" placeholder="Medawatta Paara" name="Faddressline2">
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Fprovince" id="FProvince" onchange="fselectvalidate1()" required>
@@ -292,10 +299,10 @@ $_SESSION['temp']=1;
             </select>
             </div>
         </div> <!-- grid end -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Postal Code *</div>
             <input type="text" class="inpbox"  name="Fpostalcode" placeholder="20000" required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Email</div>
             <input type="text" class="inpbox"  name="Femail" placeholder="tikiri@gmail.com" >
@@ -367,6 +374,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Fsignupbtn">
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 
 
@@ -389,10 +401,10 @@ $_SESSION['temp']=1;
               <option value="female">Female</option>
             </select>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Date of Birth *</div>
             <input type="date" class="inpbox"  name="Ddob" max="2002-12-31" required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">NIC Number *</div>
             <input type="text" class="inpbox"  name="Dnic" 
@@ -404,19 +416,19 @@ $_SESSION['temp']=1;
             <input type="tel" class="inpbox"  name="Dcontactno1"   
             pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0715455989"  required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Mobile Number 2</div>
             <input type="tel" class="inpbox"  name="Dcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989">
-        </div>
+        </div> -->
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
             <input type="text" class="inpbox"  name="Daddressline1" placeholder="No. 5"  required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox"  name="Daddressline2" placeholder="Abaya Mawatha">
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Dprovince" id="DProvince" onchange="dselectvalidate1()" required>
@@ -464,10 +476,10 @@ $_SESSION['temp']=1;
             </select>
           </div>
         </div> <!-- grid end -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Postal Code *</div>
             <input type="text" class="inpbox"  name="Dpostalcode" placeholder="10000" required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Email *</div>
             <input type="text" class="inpbox"  name="Demail" placeholder="nimal@gmail.com" required>
@@ -503,8 +515,8 @@ $_SESSION['temp']=1;
                 ?>
             </select>
           </div>
-        <div class="desc">Details of Your Vehicle</div>
-        <div class="row">
+        <!-- <div class="desc">Details of Your Vehicle</div> -->
+        <!-- <div class="row">
           <div class="lable">Vehicle Model *</div>
             <input type="text" class="inpbox"  name="DVmodel" placeholder="Dimo Batta / Bolero / Maximo" required>
         </div>
@@ -529,7 +541,7 @@ $_SESSION['temp']=1;
         <div class="row">
           <div class="lable">Maximum Weight *</div>
             <input type="text" class="inpbox"  name="maxweight" placeholder="1000 kg"  required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Driving License No. *</div>
             <input type="text" class="inpbox"  name="DLno" placeholder="17546315"  required>
@@ -553,7 +565,7 @@ $_SESSION['temp']=1;
             <u id="loaded_n_total2" style="font-size:10px"></u>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Revenue License  </div>
           <div style="display:inline" class="inpbox">
             <input type="file" name="file3" id="file3" onchange="uploadFile3()">
@@ -570,7 +582,7 @@ $_SESSION['temp']=1;
             <u id="status4" style="font-size:10px"></u>
             <u id="loaded_n_total4" style="font-size:10px"></u>
           </div>
-        </div>
+        </div> -->
         <div class="desc">Enter a Username and Password </div>
         <div class="row">
           <div class="lable">Username</div>
@@ -599,6 +611,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Dsignupbtn">
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 
 
@@ -621,10 +638,10 @@ $_SESSION['temp']=1;
               <option value="female">Female</option>
             </select>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Date of Birth *</div>
             <input type="date" class="inpbox"  name="Mdob" max="2002-12-31" required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">NIC Number *</div>
             <input type="text" class="inpbox"  name="Mnic" 
@@ -636,19 +653,19 @@ $_SESSION['temp']=1;
             <input type="tel" class="inpbox"  name="Mcontactno1" 
             pattern="^((?:\+94|94)|0)(\d{9})$" title="Format Should be 0766344989 or 766344989" placeholder="0766355989"  required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Mobile Number 2</div>
             <input type="tel" class="inpbox"  name="Mcontactno2" pattern="^((?:\+94|94)|0)(\d{9})$" 
             title="Format Should be 0766344989 or 766344989" placeholder="0766355989">
-        </div>
+        </div> -->
 		        <div class="row">
           <div class="lable">Address Line 1*</div>
             <input type="text" class="inpbox"  name="Maddressline1" placeholder="No.155" required>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Address Line 2</div>
             <input type="text" class="inpbox"  name="Maddressline2" placeholder="Nilwaththa Mawatha">
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Province *</div>
           <select class="js-example-responsive" name="Mprovince" id="MProvince" onchange="mselectvalidate1()" required>
@@ -696,10 +713,10 @@ $_SESSION['temp']=1;
             </select>
            </div>
         </div> <!-- grid end -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="lable">Postal Code *</div>
             <input type="text" class="inpbox"  name="Mpostalcode" placeholder="50000"  required>
-        </div>
+        </div> -->
         <div class="row">
           <div class="lable">Email *</div>
             <input type="text" class="inpbox"  name="Memail" placeholder="malika@gmail.com"  required>
@@ -772,6 +789,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn" >
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 </div>
 

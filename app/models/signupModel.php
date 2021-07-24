@@ -286,6 +286,16 @@ class signupModel extends db_model{
         return $uid;
     }
 
+    public function getdistricts($id){
+        $sql = "SELECT * FROM districts WHERE province_id=".$id;
+        return $this->queryfromsql($sql);
+    }
+
+    public function getcities($id){
+        $sql = "SELECT * FROM cities WHERE district_id=".$id;
+        return $this->queryfromsql($sql);
+    }
+
 
 }
 ?>

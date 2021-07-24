@@ -15,6 +15,14 @@ class vehicleModel extends driverModel{
 
         
 	}
+
+    function getalltypes(){
+        return $this->read('vehicle_type', array('*'), array(''));
+    }
+
+    function getvehidetails($id){
+        return $this->read('vehicle_type', array('*'), array('type_id'=>$id));
+	}
 	
 	function getdriver_vehicles($id){
 
@@ -53,13 +61,13 @@ class vehicleModel extends driverModel{
     function addnewvehicle($get){
         session_start();
         $vno=$get['vehicleno'];
-        $vtype=$get['vehicletype'];
-        $maxweight=$get['maxweight'];
-        $vcost=$get['vehiclecost'];
+        // $vtype=$get['vehicletype'];
+        // $maxweight=$get['maxweight'];
+        // $vcost=$get['vehiclecost'];
         $vtype=$get['vehicletype'];
         $driverid=$_SESSION['driver']['driver_id'];
 
-        $sql ="INSERT INTO vehicles (vehicle_id, driver_id, vehicle_no, cost_km, vehicle_type, maximum_weight, availability, verified_state) VALUES (NULL, '".$driverid."', '".$vno."','".$vcost."', '".$vtype."', '".$maxweight."', '0', '0')";
+        $sql ="INSERT INTO vehicles (vehicle_id, driver_id, vehicle_no, vehicle_type, availability, verified_state) VALUES (NULL, '".$driverid."', '".$vno."','".$vcost."', '".$vtype."', '".$maxweight."', '0', '0')";
         $result=$this->connection->query($sql);
         if($result){
             echo "done";

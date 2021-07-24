@@ -2,19 +2,29 @@ var tabButtons = document.querySelectorAll(".tabContainer .buttonContainer butto
 var tabPanels = document.querySelectorAll(".tabContainer  .tabPanel");
 
 function showPanel(panelIndex, colorCode) {
-    tabButtons.forEach(function(node) {
+    tabButtons.forEach(function (node) {
         node.style.backgroundColor = "";
         node.style.color = "";
+        node.style.borderRadius = '2%';
+        node.style.borderTopLeftRadius = '10px';
+        node.style.borderTopRightRadius = '10px';
+        node
     });
     tabButtons[panelIndex].style.backgroundColor = colorCode;
-    tabButtons[panelIndex].style.color = "white";
-    tabPanels.forEach(function(node) {
+    tabButtons[panelIndex].style.color = "black";
+    // tabButtons[panelIndex].style.borderRadius = '1%';
+    tabPanels.forEach(function (node) {
         node.style.display = "none";
     });
     tabPanels[panelIndex].style.display = "block";
     tabPanels[panelIndex].style.backgroundColor = colorCode;
+    // tabPanels[panelIndex].style.padding = '10px';
+    tabPanels[panelIndex].style.borderRadius = '1%';
+    tabPanels[panelIndex].style.borderTopLeftRadius = '0';
+    tabPanels[panelIndex].style.borderTopRightRadius = '0';
+
 }
-showPanel(0, ' #92bb00b6');
+showPanel(0, ' #fff');
 
 function _(el) {
     return document.getElementById(el);
@@ -305,9 +315,61 @@ function buttonOnmentor() {
     }
 }
 
-function bselectvalidate1() { if (document.getElementById('BProvince').value == 0) alert("Please Select your Province"); }
+function appendtoselect(id, obj) {
+    document.getElementById(id).options.length = 0; //clear all 
+    var select = document.getElementById(id);
+    var opt0 = document.createElement("option");
+    opt0.value = "0";
+    opt0.textContent = "";
+    select.appendChild(opt0);
+    obj.forEach(function (arrayItem) {
+        var optt = document.createElement("option");
+        optt.value = arrayItem.id;
+        optt.textContent = arrayItem.name_en;
+        select.appendChild(optt);
+    });
+}
 
-function bselectvalidate2() { if (document.getElementById('Bdistrict').value == 0) alert("Please Select your Province"); }
+function getdistricts(pid, elem) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var out = JSON.parse(this.responseText);
+            appendtoselect(elem, out);
+            return out;
+        }
+    };
+    xhttp.open("GET", "signup/getdistricts?pid=" + pid, true);
+    xhttp.send();
+}
+
+function getcities(did, elem) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var pt = this.responseText
+            var out = JSON.parse(pt);
+            appendtoselect(elem, out);
+            return out;
+        }
+    };
+    xhttp.open("GET", "signup/getcities?did=" + did);
+    xhttp.send();
+}
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+function bselectvalidate1() {
+    if (document.getElementById('BProvince').value == 0) alert("Please Select your Province");
+    getdistricts(document.getElementById('BProvince').value, "Bdistrict");
+}
+
+function bselectvalidate2() {
+    if (document.getElementById('Bdistrict').value == 0) alert("Please Select your Province");
+    getcities(document.getElementById('Bdistrict').value, "Bcity");
+    getcities(document.getElementById('Bdistrict').value, "Bncity1");
+    getcities(document.getElementById('Bdistrict').value, "Bncity2");
+}
 
 function bselectvalidate3() { if (document.getElementById('Bcity').value == 0) alert("Please Select your Province"); }
 
@@ -315,9 +377,17 @@ function bselectvalidate4() { if (document.getElementById('Bncity1').value == 0)
 
 function bselectvalidate5() { if (document.getElementById('Bncity2').value == 0) alert("Please Select your Province"); }
 
-function fselectvalidate1() { if (document.getElementById('FProvince').value == 0) alert("Please Select your Province"); }
+function fselectvalidate1() {
+    if (document.getElementById('FProvince').value == 0) alert("Please Select your Province");
+    getdistricts(document.getElementById('FProvince').value, "Fdistrict");
+}
 
-function fselectvalidate2() { if (document.getElementById('Fdistrict').value == 0) alert("Please Select your Province"); }
+function fselectvalidate2() {
+    if (document.getElementById('Fdistrict').value == 0) alert("Please Select your Province");
+    getcities(document.getElementById('Fdistrict').value, "Fcity");
+    getcities(document.getElementById('Fdistrict').value, "Fncity1");
+    getcities(document.getElementById('Fdistrict').value, "Fncity2");
+}
 
 function fselectvalidate3() { if (document.getElementById('Fcity').value == 0) alert("Please Select your Province"); }
 
@@ -325,9 +395,17 @@ function fselectvalidate4() { if (document.getElementById('Fncity1').value == 0)
 
 function fselectvalidate5() { if (document.getElementById('Fncity2').value == 0) alert("Please Select your Province"); }
 
-function dselectvalidate1() { if (document.getElementById('DProvince').value == 0) alert("Please Select your Province"); }
+function dselectvalidate1() {
+    if (document.getElementById('DProvince').value == 0) alert("Please Select your Province");
+    getdistricts(document.getElementById('DProvince').value, "Ddistrict");
+}
 
-function dselectvalidate2() { if (document.getElementById('Ddistrict').value == 0) alert("Please Select your Province"); }
+function dselectvalidate2() {
+    if (document.getElementById('Ddistrict').value == 0) alert("Please Select your Province");
+    getcities(document.getElementById('Ddistrict').value, "Dcity");
+    getcities(document.getElementById('Ddistrict').value, "Dncity1");
+    getcities(document.getElementById('Ddistrict').value, "Dncity2");
+}
 
 function dselectvalidate3() { if (document.getElementById('Dcity').value == 0) alert("Please Select your Province"); }
 
@@ -335,9 +413,17 @@ function dselectvalidate4() { if (document.getElementById('Dncity1').value == 0)
 
 function dselectvalidate5() { if (document.getElementById('Dncity2').value == 0) alert("Please Select your Province"); }
 
-function mselectvalidate1() { if (document.getElementById('MProvince').value == 0) alert("Please Select your Province"); }
+function mselectvalidate1() {
+    if (document.getElementById('MProvince').value == 0) alert("Please Select your Province");
+    getdistricts(document.getElementById('MProvince').value, "Mdistrict");
+}
 
-function mselectvalidate2() { if (document.getElementById('Mdistrict').value == 0) alert("Please Select your Province"); }
+function mselectvalidate2() {
+    if (document.getElementById('Mdistrict').value == 0) alert("Please Select your Province");
+    getcities(document.getElementById('Mdistrict').value, "Mcity");
+    getcities(document.getElementById('Mdistrict').value, "Mncity1");
+    getcities(document.getElementById('Mdistrict').value, "Mncity2");
+}
 
 function mselectvalidate3() { if (document.getElementById('Mcity').value == 0) alert("Please Select your Province"); }
 
@@ -345,7 +431,7 @@ function mselectvalidate4() { if (document.getElementById('Mncity1').value == 0)
 
 function mselectvalidate5() { if (document.getElementById('Mncity2').value == 0) alert("Please Select your Province"); }
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('.js-example-responsive').select2({
         allowClear: true,
         placeholder: {
@@ -356,7 +442,7 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('.s2').select2({
         allowClear: true,
         placeholder: {

@@ -27,7 +27,7 @@
 				<table align="center">
 					
 					<tr>
-						<th>Order No</th>
+						<th>Reference No</th>
 						<th>Pickup Date</th>
 						<th>Price</th>
 						<th>Action</th>

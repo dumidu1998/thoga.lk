@@ -1,8 +1,5 @@
 body{
-  background: url(/thoga.lk/public/images/admin/signupbg.jpg);
-  background-size:  cover;
-  background-repeat: no-repeat;
-  background-attachment:fixed ;
+  background-color:rgb(230, 228, 228);
 }
 
 .title{
@@ -168,8 +165,14 @@ input[type="file"] {
 
 .select2.select2-container {
   width: 45% !important;
+  height: 145% !important;
   margin-top: 7px !important;
   font-size: 15px !important;
+}
+
+.select2-container .select2-selection--single {
+  height: 37px !important;
+  padding-top: 4px !important;
 }
 
 .s2 {
@@ -241,4 +244,9 @@ input[type="file"] {
 .back-button:hover {
   box-shadow: none;
   background: rgba(3, 168, 66, 0.8);
+}
+
+
+.test{
+  width: 100 px !important;
 }
