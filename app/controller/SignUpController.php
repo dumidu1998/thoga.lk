@@ -69,6 +69,23 @@ class SignUpController {
             header ("Location: /thoga.lk");
         }
     }
+
+
+    public function getdistricts(){
+        $status = $this->model->getdistricts($_GET['pid']);
+        // return "aaaa";
+        // echo "aaaa";
+        print_r(json_encode($status));
+        return $status;
+    }
+
+    public function getcities(){
+        $status = $this->model->getcities($_GET['did']);
+        // return "aaaa";
+        // echo "aaaa";
+        print_r(json_encode($status));
+        return $status;
+    }
     
 }
 

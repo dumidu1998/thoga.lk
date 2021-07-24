@@ -82,17 +82,17 @@ $_SESSION['temp']=1;
                   foreach($provinces as $key => $values){
                     $province = $values['name_en'];
                     $provinceid = $values['id'];
-                ?>
-                <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
-                <?php
-                  }
-                ?>
+          ?>
+          <option class="dl" value="<?php echo $provinceid; ?>"><?php echo $province . " Province"; ?></option>
+          <?php
+            }
+          ?>
         </select>
         </div>
         <div class="grid"> <!--grid added-->
           <div class="row">
             <div class="lable1">District *</div>
-            <select class="s2" name="Bdistrict" id="Bdistrict" onchange="bselectvalidate2()" required>
+            <select class="s2 test" name="Bdistrict" id="Bdistrict" onchange="bselectvalidate2()" required>
               <option value="0"></option>
                 <?php
                   foreach($districts as $key => $values){
