@@ -73,8 +73,8 @@ foreach($data as $key => $values){
 <div id="piechart_3d" style="width: 900px; height: 500px;" class="mychart"></div>
 
 </div>
-<!-- TODO add cards to view stat -->
-  <?php include 'footer.php'; ?>
+  <?php 
+  include 'footer.php'; ?>
 </body>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -83,15 +83,17 @@ foreach($data as $key => $values){
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Carrot',     6],
-          ['Potato',      2],
-          ['Brinjals',  2]
-          
+          <?php
+          foreach($piedata as $key => $value){
+            echo "['".$value['name'] . "'," . $value['total']."],";
+          }
+          ?>
         ]);
 
         var options = {
-          title: 'Item Performance (Last 30 Days)',
+          title: 'Item Performance in kg (Last 30 Days)',
           is3D: true,
+          pieSliceText: 'value'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));

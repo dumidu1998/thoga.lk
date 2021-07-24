@@ -109,6 +109,14 @@ class ForumController{
 
     }
 
+    public function getsuggestions(){
+        
+        $result=$this->forum->getsuggestions($_GET['keyword']);
+
+        print_r(json_encode($result));
+        return $result;
+    }
+
 
 
 }

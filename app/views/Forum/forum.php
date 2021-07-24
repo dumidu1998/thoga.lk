@@ -80,10 +80,17 @@
                         </div>
                     <div>
                             <form action="/thoga.lk/forum/postForum" method="POST" class="newforum">
-                                <input type="text" name="topic" id="" placeholder="Title for Your Question" required>
+                                <input type="text" name="topic" id="" placeholder="Title for Your Question" required onkeyup="showsuggestions(this.value)">
+                                <div class="suggcontainer" id="suggestioncontainer" style="display:none">
+                                    <h3 style="margin-top:0px">Suggestions</h3>
+                                    <ul class="mul" id="ul">
+                                        <!-- <li class="mli">asdasd <span class="mlispan"><a href="">Visit</a></span></li> -->
+                                    </ul>
+                                </div>
+                                <input type="text" value="" placeholder="Add Tags with comma seperated eg- potato, bugs" />
                                 <textarea name="description" id="" class="description" cols="30" rows="50" placeholder="Description" oninput="auto_grow(this)" required></textarea> 
                                 <hr>
-                                <input type="submit" class="fsubmit-btn" value="Post" name="post_forum">
+                                <input type="submit" class="fsubmit-btn" value="Post" name="post_forum" id="subbtn">
                             </form>
                         </div>
                     </div>
@@ -185,4 +192,36 @@
         }
         ?>
 </body>
+<script>
+function showsuggestions(val){
+   document.getElementById('suggestioncontainer').style.display ="";
+    getsuggestions(val);
+   
+}
+
+
+function getsuggestions(keyword){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var out = JSON.parse(this.responseText);
+            if(out.length==0){
+                document.getElementById('suggestioncontainer').style.display ="none";
+            }else{
+                document.getElementById('subbtn').disabled=true;
+            }
+            var output=" ";
+            out.forEach(function (arrayItem) {
+                var str = "<li class='mli'>"+arrayItem.title+"<span class='mlispan'><a href='forum/fullview?post_id="+arrayItem.post_id+"'>Visit</a></span></li> ";
+                console.log(arrayItem);
+                output += str;
+            });
+            console.log(output);
+            document.getElementById('ul').innerHTML=output;
+        }
+    };
+    xhttp.open("GET", "forum/getsuggestions?keyword=" + keyword, true);
+    xhttp.send();
+}
+</script>
 </html>
