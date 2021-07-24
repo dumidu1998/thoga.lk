@@ -51,7 +51,9 @@ class FarmerController{
         $statdata3 = $this->oModel->getsales30($farmerid[0]['farmer_id']); 
         $view = new View("Farmer/upcoming");
         $result = $this->fmodel->get_details($farmerid[0]['farmer_id']);
+        $piedata = $this->fmodel->getdataforpie($farmerid[0]['farmer_id']);
         $view ->assign('data',$result);
+        $view ->assign('piedata',$piedata);
         $view ->assign('statdata1',$statdata1);
         $view ->assign('statdata2',$statdata2[0]['count']);
         $view ->assign('statdata3',$statdata3[0]['sum']);
