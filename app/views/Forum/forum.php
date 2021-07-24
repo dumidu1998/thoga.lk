@@ -41,7 +41,7 @@
 
     <div class="container">
         <div class="grid-item0">
-            <form action="">
+            <!-- <form action="">
             <div class="filter-topic"> Added by </div>
             <div class="filter-items" id="1"><span>Driver<input type="checkbox" name="" id="1"></span></div>
             <div class="filter-items">Farmer<input type="checkbox" name="" id="1"></a></div>
@@ -52,7 +52,7 @@
             <div class="filter-items">Votes<input type="checkbox" name="" id="1"></a></div>
             <br>
             <button type="submit" class="fbtn">Filter</button>
-            </form>
+            </form> -->
             <!-- <div class="filter-items"><a href="">Buyers</a></div><br> -->
         </div>
 

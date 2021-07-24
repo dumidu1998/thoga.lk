@@ -2,7 +2,7 @@
     height: 300px;
     margin: 80px 0px;
     display: grid;
-    grid-template-columns: 15% auto;
+    grid-template-columns: 5% auto;
     grid-gap: 50px;
     font-family:  Merriweather;
     margin-right: 50px;
