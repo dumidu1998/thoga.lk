@@ -234,6 +234,7 @@ class FarmerController{
             $order_id=$_GET['id'];
             $res = $this->oModel->order_drivername($order_id);
             $buyer = $this->oModel->order_buyername($order_id);
+          
             $items = $this->oModel->orderdetails_total($order_id);
             $city= $this->oModel->order_city($order_id);
             $ordstatus=$this->oModel->getstatus($order_id);
@@ -244,6 +245,7 @@ class FarmerController{
         $view->assign('view',$result);
         $view->assign('res',$res);
         $view->assign('buyer',$buyer);
+      
         $view->assign('cityy',$city);
         $view->assign('items',$items);
         $view->assign('ordstatus',$ordstatus);

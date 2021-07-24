@@ -182,6 +182,8 @@ function hideprice(){
 }
 
 function showprice(){
+  // alert("aaa");
+  var item=document.getElementById('itemname');
   var price=document.getElementById('Pricedisplay');
   price.style.display="";
 

@@ -1,92 +1,108 @@
-
-.title{
-    font-family: sans-serif;
-    color: #070607;
-    text-align: center;
-    margin-top: 120px;
+.title {
+  font-family: sans-serif;
+  color: #070607;
+  text-align: center;
+  margin-top: 120px;
 }
 
+.title2 {
+  font-family: sans-serif;
+  color: #070607;
+  text-align: center;
+  margin-top: 120px;
+}
 
-
-.container {
+/* .container {
   padding: 20px;
   color: white;
   text-align: center;
-  width:60%;
-  background:white;
-  position:absolute;
-  top:40%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  box-sizing:border-box;
-  font-size:18px;
+  width: 60%;
+  background: white;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  font-size: 18px;
   border-radius: 50px;
-  box-shadow:0 5px 15px rgba(0,0,0,.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   font-style: bold;
   margin-top: 150px;
+} */
 
-
-}
-
-
-@media screen and (max-width:768px){
-  .container{
-    
+@media screen and (max-width: 768px) {
+  .container {
     width: 60%;
-    margin-top: 120%
-    }
-
-  
+    margin-top: 120%;
+  }
+}
+.split {
+  height: 100%;
+  /* width: 50%; */
+  /*position: absolute;*/
+  /* z-index: -10; */
+  top: 0;
+  /* overflow-x: hidden; */
+  padding-top: 20px;
 }
 
+.containernew {
+  margin-top: 100vh;
+  position: absolute;
+}
+
+.left {
+  left: 0;
+  width: 70%;
+  background-color: white;
+}
+.right {
+  right: 0;
+  width: 30%;
+  background-color: white;
+}
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 70%;
+  width: 90%;
   border: 2px solid #ddd;
   margin-top: 30px;
   margin-bottom: 100px;
-
+  font-family: sans-serif;
 }
-th{
-	background-color: #253E30;
-  	color: white;
+th {
+  background-color: #253e30;
+  color: white;
 }
 
-
-
-th, td {
+th,
+td {
   text-align: center;
   padding: 15px;
 }
 
-tr:nth-child(even){
-	background-color:   #f1f1f1;
+tr:nth-child(even) {
+  background-color: #f1f1f1;
 }
 
-.more{
-
-  background-color:#2E5F3E;
+.more {
+  background-color: #2e5f3e;
   width: 80%;
   border-radius: 5px;
   color: white;
   padding: 10px 18px;
   opacity: 0.9;
   text-decoration: none;
-
 }
-.more:hover{
+.more:hover {
   opacity: 2;
 }
 
-
-
-@media screen and (max-width: 768px){
-	table{
-		margin-top: 40px;
-	}
-	.title{
-		margin-top: 120px
-	}
-	
+@media screen and (max-width: 768px) {
+  table {
+    margin-top: 40px;
+  }
+  .title {
+    margin-top: 120px;
+  }
 }

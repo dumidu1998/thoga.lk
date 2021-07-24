@@ -82,9 +82,9 @@ class mentorModel extends db_model{
 		else echo "error";
 	  }
 
-	  function get($id){
+	public function get($id){
 		return $this->read('mentor', array('mentor_id'), array('user_id'=>$id));
- }
+	}
  public function join_get($mentorid){
 	$sql = "SELECT *,user.firstname,user.lastname from farmer INNER join mentor on farmer.mentor_id=mentor.mentor_id inner join user on farmer.user_id=user.user_id WHERE mentor.mentor_id = '".$mentorid."'  ";
 	$result=$this->connection->query($sql);

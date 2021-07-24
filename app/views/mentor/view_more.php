@@ -6,7 +6,7 @@
     </head>
 
     <body>
-    <?php include("navbar_dash.php");?>
+    <?php //include("\thoga.lk\app\views\mentor\navbar_dash.php");?>
     <header >
         
         <div class="topic">
@@ -77,7 +77,8 @@
         
     
     <div class="right" >
-        <div class="transbox">      
+        <div class="transbox">    
+        
             <?php
                 
                 foreach($buyer as $keys => $row){
