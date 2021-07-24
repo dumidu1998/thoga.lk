@@ -8,6 +8,8 @@ $_SESSION['temp']=1;
   <meta charset="UTF-8">
   <title>Sign Up</title>
   <link rel="stylesheet" type="text/css" href="/thoga.lk/public/stylesheets/signup/style.css">
+  <link rel="stylesheet" href="/thoga.lk/public/stylesheets/login/login.css">
+
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
   crossorigin="anonymous"></script>
@@ -196,6 +198,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Bsignupbtn">
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 
     <!-- Farmer -->
@@ -367,6 +374,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Fsignupbtn">
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 
 
@@ -599,6 +611,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Dsignupbtn">
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 
 
@@ -772,6 +789,11 @@ $_SESSION['temp']=1;
           <input type="submit" value="Sign Up" name="submit" disabled id="Msignupbtn" >
         </div>
       </form>
+      <center>
+        <div class = "signup_text" style="margin-top:50px">
+          Already have an account ? <a href="/thoga.lk/">Log In</a>
+        </div>
+      </center>
     </div>
 </div>
 
