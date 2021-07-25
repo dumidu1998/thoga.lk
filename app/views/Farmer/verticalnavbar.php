@@ -1,5 +1,3 @@
-
-
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +8,7 @@
 <div class="sidebar">
 <a  href="add_item">Add Items</a>
   <a href="listed">Listed Items</a>
+  <div class="mentor">
   <?php $disabled='a';$status='Request Mentor';if(isset($_SESSION['farmer']['mentor_id'])&& $_SESSION['farmer']['mentor_id']==0){
     $status=' Mentor Requested';
     $disabled='b';
@@ -18,6 +17,7 @@
     $disabled='b';
   }?>
   <?php echo "<".$disabled." href='#' onclick='reqestmentor(".$_SESSION['user'][0]['user_id'].")'>".(isset($status)?$status:'')."</".$disabled.">";?>
+</div>
 </div>
 </body>
 <script>

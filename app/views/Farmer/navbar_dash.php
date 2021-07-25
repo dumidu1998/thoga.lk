@@ -15,7 +15,7 @@
   <a href="/thoga.lk/farmer/dash" class="active">Dashboard</a>
   <a href="/thoga.lk/farmer/view_price">Price List</a>
   <a href="/thoga.lk/forum">Forum</a>
-  <a id="google_translate_element" ></a>
+  <!-- <a id="google_translate_element" ></a> -->
 
 
   

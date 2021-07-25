@@ -13,8 +13,12 @@
   include  'navbar_dash.php';
    
    ?>
-<div class="containernew">
-      <div class ="split left">
+
+      
+        
+        <div class = "flex-container">
+        
+        <div class="flex-item-left">
         <h1 class="title">Upcoming Orders</h1>
       
           <div  style="height:auto;height: 50%;min-height:0px">
@@ -76,13 +80,13 @@
 
             </table>
           </div>
-        </div>
+            </div>
       </div>
 
-      <div class = "split right">
+       <div class="flex-item-right" >
 
           <h1 class="title2"> Farmer List </h2>
-            <div class="card">
+            <!-- <div class="card"> -->
         
               <div class="container2">
                 <?php
@@ -95,8 +99,9 @@
                   ?>
           
               </div>
-            </div>
-      </div>
+            <!-- </div> -->
+      </div> 
+
 </div>
 <?php include("footer.php"); ?>
 

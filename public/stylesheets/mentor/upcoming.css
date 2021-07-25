@@ -2,73 +2,33 @@
   font-family: sans-serif;
   color: #070607;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 80px;
+  margin-left: 100px;
 }
 
 .title2 {
   font-family: sans-serif;
   color: #070607;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 80px;
 }
-
-/* .container {
-  padding: 20px;
-  color: white;
-  text-align: center;
-  width: 60%;
-  background: white;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  font-size: 18px;
-  border-radius: 50px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  font-style: bold;
-  margin-top: 150px;
-} */
 
 @media screen and (max-width: 768px) {
   .container {
-    width: 60%;
-    margin-top: 120%;
+    width: 100%;
+    margin-top: 80%;
   }
 }
-.split {
-  height: 100%;
-  /* width: 50%; */
-  /*position: absolute;*/
-  /* z-index: -10; */
-  top: 0;
-  /* overflow-x: hidden; */
-  padding-top: 20px;
-}
 
-.containernew {
-  margin-top: 100vh;
-  position: absolute;
-}
-
-.left {
-  left: 0;
-  width: 70%;
-  background-color: white;
-}
-.right {
-  right: 0;
-  width: 30%;
-  background-color: white;
-}
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 90%;
+  width: 88%;
   border: 2px solid #ddd;
   margin-top: 30px;
   margin-bottom: 100px;
   font-family: sans-serif;
+  margin-left: 100px;
 }
 th {
   background-color: #253e30;
@@ -98,11 +58,42 @@ tr:nth-child(even) {
   opacity: 2;
 }
 
+.topic {
+  background-color: whitesmoke;
+  width: 80%;
+  border-radius: 5px;
+
+  padding: 10px 18px;
+  opacity: 0.9;
+  text-decoration: none;
+}
+.topic:hover {
+  opacity: 2;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-item-left {
+  padding: 10px;
+  flex: 100%;
+}
+
+.flex-item-right {
+  padding: 10px;
+  flex: 50%;
+}
+
 @media screen and (max-width: 768px) {
   table {
     margin-top: 40px;
   }
   .title {
-    margin-top: 120px;
+    margin-top: 60px;
+  }
+  .flex-item-right,
+  .flex-item-left {
+    flex: 100%;
   }
 }
