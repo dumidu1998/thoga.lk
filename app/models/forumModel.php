@@ -56,6 +56,12 @@ class forumModel extends db_model{
 		  return $this->queryfromsql($sql);
     }
 
+
+    function getsuggestions($keyword){
+        $sql = "SELECT * FROM forum_post WHERE title LIKE '%".$keyword."%' OR description LIKE '%".$keyword."%';";
+        return $this->queryfromsql($sql);
+    }
+
 }
 
 ?>

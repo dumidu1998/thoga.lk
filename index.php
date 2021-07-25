@@ -55,6 +55,7 @@ $routes = [
     'login' => 'LoginController@login',
     'forum' => 'ForumController@forum',
     'forum/addreply' => 'ForumController@addreply',
+    'forum/getsuggestions' => 'ForumController@getsuggestions',
     'forum/postForum' => 'ForumController@postForum',
     'forum/fullview' => 'ForumController@viewfull',
     'driver/dashboard' => 'DriverController@driverdashboard',
