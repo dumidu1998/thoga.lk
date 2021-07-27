@@ -59,7 +59,7 @@
 
         <div class="grid-item1">
             <div>
-                <div class="wrap">
+                <div class="wrap" style="margin-left: 10%">
                     <form action="" method="get">
                     <div class="search">
                         <input type="text" class="searchTerm" name="search" value="<?php echo isset($_GET['search'])?$_GET['search']:''?>" placeholder="Search for Topic...">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div>
-                <button class="admin-btn" id="myBtn" >Post New</button>
+                <button class="admin-btn" style="margin-left: 50px" id="myBtn" >Post New</button>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <div class="mheader">
