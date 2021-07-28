@@ -37,7 +37,7 @@ class mentorModel extends db_model{
 	}
     
 	public function rejectassignmentor($mid,$fid){
-		return $this->update('farmer',array('mentor_id'=>'-1'),array('farmer_id'=>$fid));
+		return $this->update('farmer',array('mentor_id'=>'-2'),array('farmer_id'=>$fid));
 	}
 
 	public function assignmentor($mid,$fid){

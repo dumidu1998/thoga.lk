@@ -159,9 +159,15 @@
                 <?php
                     foreach($farmers as $keys => $row){
                         $farmer_id=$row['farmer_id'];
-                        $name=$row['firstname'] ." ".$row['lastname'] ;
                         $city=$row['city'];
                         $district=$row['district'];
+                        $status=$row['mentor_id'];
+                        if($status==-2){
+                            $status="(snoozed)";
+                        }else{
+                            $status="";
+                        }
+                        $name=$row['firstname'] ." ".$row['lastname'] . " " . $status ;
                 ?>
 
                 <tr>

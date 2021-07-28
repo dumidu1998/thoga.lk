@@ -433,6 +433,34 @@ class AdminController {
         header("location: activeitems?done=1");
     }
 
+    public function sendotp(){
+        // $mobilenumber=$mobilenumber[0]['contactno1'];
+        $mobilenumber=$_GET['contact1'];
+        $MSG = $_GET['msg'];
+        $mobilenumber= '94'.substr($mobilenumber,1);
+        $smsText= $MSG . " \nThoga.lk";
+        $text = urlencode($smsText);
+        $to = $mobilenumber;
+        $user = "94764229830";
+        $password = "2055";
+        $baseurl = "http://www.textit.biz/sendmsg";
+        $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+        $ret = file($url);
+        $res = explode(":", $ret[0]);
+        print_r($res);
+        // print_r ($res);
+        if (trim($res[0]) == "OK") {
+            echo "Message Sent";
+            return 1;
+        } else {
+            header("HTTP/1.1 400 Bad Request");
+            http_response_code(400);
+            $message = '{"message": "Failed to send OTP"}';
+            echo stripslashes(json_encode($message));
+            return 0;
+        }
+    }
+
 }
 
 

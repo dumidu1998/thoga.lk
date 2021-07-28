@@ -86,6 +86,7 @@ $routes = [
     'admin/driveraccept' => 'AdminController@driveraccept',
     'admin/acceptmentor' => 'AdminController@acceptmentor',
     'admin/assignmentor' => 'AdminController@assignmentor',
+    'admin/sendotp' => 'AdminController@sendotp',
     'admin/adsubmit' => 'AdminController@adsubmit',
     'admin/disablead' => 'AdminController@disablead',
     'admin/deletead' => 'AdminController@deletead',
