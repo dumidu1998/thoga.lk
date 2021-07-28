@@ -51,7 +51,7 @@ class loginModel extends db_model
   }
 
   function get_driver_id($uid){
-    $sql = "SELECT driver_id FROM driver WHERE user_id = '$uid'";
+    $sql = "SELECT driver_id,verified_state FROM driver WHERE user_id = '$uid'";
     $result = $this->connection->query($sql);
     $finale = array();
     if ($result) {
