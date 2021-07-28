@@ -44,10 +44,10 @@
                 <td><?php echo $basic[0]['address_line1'] ?></td>
 
             </tr>
-            <tr>
+            <!-- <tr>
                 <td> </td>
                 <td><?php echo $basic[0]['address_line2'] ?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td> </td>
                 <td><?php echo $basic[0]['city'] ?></td>
@@ -64,10 +64,10 @@
                 <td>Contact No.1:</td>
                 <td><?php printf("%s - %s %s %s",substr($basic[0]['contactno1'], 0, 3), substr($basic[0]['contactno1'], 3, 3), substr($basic[0]['contactno1'], 6,2), substr($basic[0]['contactno1'], 8)); ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Contact No.2:</td>
                 <td><?php printf("%s - %s %s %s",substr($basic[0]['contactno2'], 0, 3), substr($basic[0]['contactno2'], 3, 3), substr($basic[0]['contactno2'], 6,2), substr($basic[0]['contactno2'], 8)); ?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>NIC</td>
                 <td><?php echo $basic[0]['NIC']  ?></td>

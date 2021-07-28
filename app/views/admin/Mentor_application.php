@@ -36,10 +36,6 @@
             </tr>
             <tr>
                 <td> </td>
-                <td><?php echo $all['address_line2'] ;?></td>
-            </tr>
-            <tr>
-                <td> </td>
                 <td><?php echo $all['city'] ;?></td>
             </tr>
             <tr>
@@ -50,10 +46,10 @@
                 <td>Contact No.1:</td>
                 <td><?php printf("%s - %s %s %s",substr($all['contactno1'], 0, 3), substr($all['contactno1'], 3, 3), substr($all['contactno1'], 6,2), substr($all['contactno1'], 8)); ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Contact No.2:</td>
                 <td><?php printf("%s - %s %s %s",substr($all['contactno2'], 0, 3), substr($all['contactno2'], 3, 3), substr($all['contactno2'], 6,2), substr($all['contactno2'], 8)); ?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>NIC</td>
                 <td><?php echo $all['NIC'] ;?></td>
@@ -95,7 +91,7 @@
     <div class="Bcontainer">
         <h1>Accept or Reject</h1>
         <br>
-        <form action="acceptmentor" method="post">
+        <form action="acceptmentor" method="post" onsubmit="sendotp()">
             <input type="hidden" name="mentor_id" value="<?php echo $all['mentor_id'];?>">
         <label class="CBcontainer">&nbsp Accept
             <input type="checkbox" name="accpted" id="accept" onchange="checkfunc(this.id)" >
@@ -133,4 +129,11 @@ function checkfunc(id){
 
 
 }
+
+function sendotp(){
+
+
+
+}
+
 </script>

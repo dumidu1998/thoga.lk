@@ -433,15 +433,12 @@ class AdminController {
         header("location: activeitems?done=1");
     }
 
-    public function sendotp(){ //TODO
-        $user_id=$_SESSION['user'][0]['user_id'];
-        $mobilenumber=$this->user->gettel($user_id);
+    public function sendotp(){
         $mobilenumber=$mobilenumber[0]['contactno1'];
-        $token = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 10);
-        $OTP = substr(str_shuffle('0123456789'), 1, 4);
-        $time = time();
+        $mobilenumber=$_GET['contact1'];
+        $MSG = $_GET['msg'];
         $mobilenumber= '94'.substr($mobilenumber,1);
-        $smsText="Please use this OTP to confirm the Order : ".$OTP." \nThank you for Ordering with Thoga.lk";
+        $smsText= $MSG . " \nThoga.lk";
         $text = urlencode($smsText);
         $to = $mobilenumber;
         $user = "94764229830";
@@ -453,7 +450,7 @@ class AdminController {
         // print_r ($res);
         if (trim($res[0]) == "OK") {
             //Add token to database
-            $result=$this->user->addotp($token,$OTP,$mobilenumber);
+            // $result=$this->user->addotp($token,$OTP,$mobilenumber);
             if ($result) {
                 header("HTTP/1.1 200 OK");
                 http_response_code(200);

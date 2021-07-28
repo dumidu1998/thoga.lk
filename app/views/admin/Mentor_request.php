@@ -38,10 +38,10 @@
                 <td >Address:</td>
                 <td><?php echo $alldetails['address_line1'];?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td> </td>
                 <td><?php echo $alldetails['address_line2'];?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td> </td>
                 <td><?php echo $alldetails['city'];?></td>
@@ -54,10 +54,10 @@
                 <td>Contact No.1:</td>
                 <td><?php printf("%s - %s %s %s",substr($alldetails['contactno1'], 0, 3), substr($alldetails['contactno1'], 3, 3), substr($alldetails['contactno1'], 6,2), substr($alldetails['contactno1'], 8)); ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Contact No.2:</td>
                 <td><?php printf("%s - %s %s %s",substr($alldetails['contactno2'], 0, 3), substr($alldetails['contactno2'], 3, 3), substr($alldetails['contactno2'], 6,2), substr($alldetails['contactno2'], 8)); ?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>NIC</td>
                 <td>982790182 V</td>
