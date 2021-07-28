@@ -9,12 +9,12 @@
 
 <div class="topnav" id="myTopnav">
   <a href="dash" class="navlogo"><img width=80px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
-  <a href="/thoa.lk/mentor/dash" class="active">Dashboard</a>
-  <a href="/thoa.lk/mentor/view_price">Price List</a>
-  <a href="/thoa.lk/mentor/forum">Forum</a>
-  <a href="/thoa.lk/mentor/add_item">Add Item</a>
-  <a href="/thoa.lk/mentor/listed">Listed Items</a>
-  <a id="google_translate_element" ></a>
+  <a href="/thoga.lk/mentor/dash" class="active">Dashboard</a>
+  <a href="/thoga.lk/mentor/view_price">Price List</a>
+  <a href="/thoga.lk/forum">Forum</a>
+  <a href="/thoga.lk/mentor/add_item">Add Item</a>
+  <a href="/thoga.lk/mentor/listed">Listed Items</a>
+  <!-- <a id="google_translate_element" ></a> -->
 
 
   
