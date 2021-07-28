@@ -154,6 +154,21 @@ function sendotp(){
         xhttp.open("GET", "sendotp?contact1=" + contact+"&msg="+msg, true);
         xhttp.send();
 
+    }else{
+        var contact = document.getElementById("contactno").value;
+        var msg = "This is From thoga.lk admin panel. Your application accepted! Now you can log in with your credentials!";
+        console.log(contact);
+        console.log(msg);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // var out = JSON.parse(this.responseText);
+            console.log(this.responseText);
+        }
+        };
+        xhttp.open("GET", "sendotp?contact1=" + contact+"&msg="+msg, true);
+        xhttp.send();
     }
 
 }
