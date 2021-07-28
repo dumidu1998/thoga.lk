@@ -90,11 +90,18 @@
             <input type="checkbox" name="accpted" id="accept" onchange="checkfunc(this.id)" >
             <span class="checkmark"></span>
         </label>
-        <label class="CBcontainer">&nbsp Reject
+        <label class="CBcontainer">&nbsp Snooze
             <input type="checkbox" id="reject" name="rejected" onchange="checkfunc(this.id)" >
             <span class="checkmarkreject"></span>
         </label>
-        <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection" style="display:none;margin-left:30%" ></textarea>
+        <input list="reasons" name="reason" id="textarea" placeholder="Reason (required)" class="description" style="display:none;margin-left:30%;width:30%"/>
+        <datalist id="reasons">
+            <option value="We are Currently unavailable for mentor your area! We will assign u soon!">
+            <option value="Our mentors are full with Farmers. We will assign you a mentor soon once a new mentor added!">
+            <!-- <option value="Sorry Your vehicle is not with our Standards to add our delivery fleet!"> -->
+        </datalist>
+
+        <!-- <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection" style="display:none;margin-left:30%" ></textarea> -->
        <input type="submit" class="accept-btn" value="Submit    ">
         </form>
     </div>

@@ -105,7 +105,12 @@
             <input type="checkbox" id="reject" name="rejected" onchange="checkfunc(this.id)" >
             <span class="checkmarkreject"></span>
         </label>
-        <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection" style="display:none;margin-left:30%" ></textarea>
+        <input list="reasons" name="reason" id="textarea" placeholder="Reason for Rejection (required)" class="description" style="display:none;margin-left:30%;width:30%"/>
+        <datalist id="reasons">
+            <option value="Data Are inccurate. Please signup again with clear details!">
+            <option value="Sorry You are not fit for our mentor team!">
+        </datalist>
+        <!-- <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection" style="display:none;margin-left:30%" ></textarea> -->
        <input type="submit" class="accept-btn" value="Submit    ">
         </form>
     </div>

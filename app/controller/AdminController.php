@@ -433,6 +433,50 @@ class AdminController {
         header("location: activeitems?done=1");
     }
 
+    public function sendotp(){ //TODO
+        $user_id=$_SESSION['user'][0]['user_id'];
+        $mobilenumber=$this->user->gettel($user_id);
+        $mobilenumber=$mobilenumber[0]['contactno1'];
+        $token = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 10);
+        $OTP = substr(str_shuffle('0123456789'), 1, 4);
+        $time = time();
+        $mobilenumber= '94'.substr($mobilenumber,1);
+        $smsText="Please use this OTP to confirm the Order : ".$OTP." \nThank you for Ordering with Thoga.lk";
+        $text = urlencode($smsText);
+        $to = $mobilenumber;
+        $user = "94764229830";
+        $password = "2055";
+        $baseurl = "http://www.textit.biz/sendmsg";
+        $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+        $ret = file($url);
+        $res = explode(":", $ret[0]);
+        // print_r ($res);
+        if (trim($res[0]) == "OK") {
+            //Add token to database
+            $result=$this->user->addotp($token,$OTP,$mobilenumber);
+            if ($result) {
+                header("HTTP/1.1 200 OK");
+                http_response_code(200);
+                $smsString = '{"token": "' . $token . '"}';
+                $message = json_decode($smsString);
+                echo stripslashes(json_encode($message));
+                return $token;
+            } else {
+                header("HTTP/1.1 400 Bad Request");
+                http_response_code(400);
+                $message = json_decode('{"message": "Error Communicating with server. Please try again in a few minutes."}');
+                echo stripslashes(json_encode($message));
+                return 0;
+            }
+        } else {
+            header("HTTP/1.1 400 Bad Request");
+            http_response_code(400);
+            $message = '{"message": "Failed to send OTP"}';
+            echo stripslashes(json_encode($message));
+            return 0;
+        }
+    }
+
 }
 
 

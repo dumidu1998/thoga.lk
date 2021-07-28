@@ -72,6 +72,13 @@
                 <td>NIC</td>
                 <td><?php echo $basic[0]['NIC']  ?></td>
             </tr>
+            <?php if($status== "Adding New Vehicle"){ }else{?>
+                <tr>
+                    <td>DL No.</td>
+                    <td><?php echo $basic[0]['license_no']  ?></td>
+                </tr>
+
+            <?php } ?>
             
         </table>    
     </div>
@@ -101,28 +108,30 @@
         </tr>
     </table>
    
+    <?php if($status== "Adding New Vehicle"){ ?>
     <table style="float:left;" class="t2">
-        <tr>
-            <td>DL No</td>
-            <td><?php echo $basic[0]['license_no']  ?></td>
-        </tr>
-        <tr>
-            <td>Vehicle Model</td>
-            <td><?php echo $vehicle[0]['vehicle_type']  ?></td>
-        </tr>
-        <tr>
-            <td>Vehicle Number</td>
-            <td><?php echo $vehicle[0]['vehicle_no']  ?></td>
-        </tr>
-        <tr>
-            <td>Cost / km</td>
-            <td>Rs. <?php echo $vehicle[0]['cost_km']  ?></td>
-        </tr>
-        <tr>
-            <td>Max Weight</td>
-            <td><?php echo $vehicle[0]['maximum_weight']  ?> kg</td>
-        </tr>
-    </table>
+            <tr>
+                <td>DL No</td>
+                <td><?php echo $basic[0]['license_no']  ?></td>
+            </tr>
+            <tr>
+                <td>Vehicle Model</td>
+                <td><?php echo $vehicle[0]['vehicle_type']  ?></td>
+            </tr>
+            <tr>
+                <td>Vehicle Number</td>
+                <td><?php echo $vehicle[0]['vehicle_no']  ?></td>
+            </tr>
+            <tr>
+                <td>Cost / km</td>
+                <td>Rs. <?php echo $vehicle[0]['cost_km']  ?></td>
+            </tr>
+            <tr>
+                <td>Max Weight</td>
+                <td><?php echo $vehicle[0]['maximum_weight']  ?> kg</td>
+            </tr>
+        </table>
+        <?php }else { } ?>
 </div>
 </div>
 <div class="docscontainer">
@@ -139,6 +148,7 @@
                 <td>Driving License - Back</td>
                 <td><a href="/thoga.lk/public/uploads/driverdocuments/drivinglicenseback/<?php echo $driver_id;?>.jpg" target="_blank" >DLB <?php printf('%03d',  $driver_id);?></a></td>
             </tr>
+            <?php if($status== "Adding New Vehicle"){ ?>
             <tr>
                 <td>Vehicle</td>
                 <td><a href="/thoga.lk/public/uploads/drivervehicles/<?php echo $vehicle[0]['vehicle_id'];?>.jpg" target="_blank" >V <?php printf('%03d',  $vehicle[0]['vehicle_id']);?></a></td>
@@ -151,6 +161,7 @@
                 <td>Vehicle Insurance</td>
                 <td><a href="/thoga.lk/public/uploads/driverdocuments/vehicleinsuarance/<?php echo $vehicle[0]['vehicle_id'];?>.jpg" target="_blank" >VI <?php printf('%03d',  $vehicle[0]['vehicle_id']);?></a></td>
             </tr>
+            <?php }else { } ?>
         </table>
     </div>
 
@@ -173,7 +184,14 @@
             <input type="checkbox" id="reject" name="rejected" onchange="checkfunc(this.id)" >
             <span class="checkmarkreject"></span>
         </label>
-        <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection (required)" style="display:none;margin-left:30%" ></textarea>
+        <input list="reasons" name="reason" id="textarea" placeholder="Reason for Rejection (required)" class="description" style="display:none;margin-left:30%;width:30%"/>
+        <datalist id="reasons">
+            <option value="Data Are inccurate. Please signup again with clear details!">
+            <option value="Photoes are not clear.  Please signup again with clear photoes!">
+            <option value="Sorry Your vehicle is not with our Standards to add our delivery fleet!">
+        </datalist>
+        <!-- <textarea name="reason" id="textarea" class="description" cols="40" rows="6" placeholder="Reason for Rejection (required)" style="display:none;margin-left:30%" ></textarea> -->
+        
        <input type="submit" class="accept-btn" value="Submit    ">
         </form>
     </div>
