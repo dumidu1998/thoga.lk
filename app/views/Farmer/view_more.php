@@ -2,15 +2,17 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/thoga.lk/public/stylesheets/driver/viewmore.css">
+        <link rel="stylesheet" href="/thoga.lk/public/stylesheets/Farmer/v_more.css">
+		<link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">
+
     </head>
 
     <body>
-    <?php include("navbar_dash.php");?>
+    <?php include("navbar_dash.php"); ?>
     <header >
         
         <div class="topic">
-            <h1>Order details of Order No - <mark>   <?php echo $order_id ?>  </mark></h1>
+            <h1>Order details of Reference No - <mark>   <?php echo $order_id ?>  </mark></h1>
         </div>
         <hr>
 
@@ -30,37 +32,51 @@
                     $add1= $row['d_addline1'];
                     $add2=$row['d_addline2'];
                     $city=$row['city'];
-
                     
 
                 }         
                             
             ?>   
-           
+            
                     
-            Order No          : 
+            Reference No : 
+            <div class="address">
             <input type="text"  name="orderid" value="<?php echo $ordid?>" disabled>
-            <br> 
+            </div>
+            <br>
+
                                  
 
             Weight             :
-            <input type="text" name="weight" value="<?php echo $wght?>" disabled>
-            <br>     
+            <div class="address">
+            <input type="text"  name="weight" value="<?php echo $wght?>" disabled>
+            </div>
+            <br>
+
 
             Total Cost         :
-            <input type="text" name="total cost" value="Rs. <?php echo number_format($totcost,2);?>" disabled>
-            <br> 
+            <div class="address">
+            <input type="text"  name="total cost" value="Rs. <?php echo number_format($totcost,2);?>" disabled>
+            </div>
+            <br>
+
 
            
 
             Order Date          :
-            <input type="text" name="order date" value="<?php echo $date?>" disabled>
+            <div class="address">
+            <input type="text"  name="order date" value="<?php echo $date?>" disabled>
+            </div>
             <br>
 
+            
+
             Pickup Date          :
-            <input type="text" name="pickup date" value="<?php echo $pickdate?>" disabled>
-            <br> 
-            <br>     
+            <div class="address">
+            <input type="text"  name="pickup date" value="<?php echo $pickdate?>" disabled>
+            </div>
+            <br>
+
 
             Delivery Address  :
              <div class="address">
@@ -83,8 +99,11 @@
                 foreach($buyer as $keys => $row){
                 $bname=$row['username'];
             ?>
+
             Buyer Name :
+            <div class="address">
             <input type="text" name="buyer name" value="<?php echo $bname?>" disabled>
+            </div>
             <br>
                 
             <?php } ?>
@@ -96,15 +115,23 @@
 
             ?>       
             Driver Name  :
+            <div class="address">
             <input type="text" name="driver name" value="<?php echo $dname?>" disabled>  
+            </div>
             <br>
 
 
             <?php } ?>
+            <form action="changestatus" method="post" >
+            <input type="hidden" name="orderid" value="<?php echo $ordid?>">
             Order Status  :
             <!-- Update Status   :  -->
-            <input type="text" name="driver name" value="<?php echo $ordstatus[0]['description']?>" disabled>  
-            
+            <div class="address">
+            <input type="text" name="driver name" value="<?php echo $ordstatus[0]['description']?>" disabled> 
+            </div>
+            <br>
+                <!-- <button type="submit" name="updatestatus" class="button1">Update Status</button> -->
+            </form>          
                 
         </div>
     </div>
@@ -124,7 +151,7 @@
 			
 			<?php
                 $sum=0;
-				//print_r($items);
+				
                  foreach($items as $keys => $row){
 
                    
@@ -177,7 +204,7 @@
             
         </div>
     </div>
-    <?php include("footer.php"); ?>
+    <?php include("footer.php"); ?> 
     
     </body>
 </html>

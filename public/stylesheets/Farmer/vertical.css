@@ -1,8 +1,6 @@
-
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
-  
 }
 
 .sidebar {
@@ -21,9 +19,9 @@ body {
   padding: 16px;
   text-decoration: none;
 }
- 
+
 .sidebar a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
@@ -37,6 +35,10 @@ div.content {
   padding: 1px 16px;
   height: 1000px;
 }
+.mentor {
+  padding: 15px;
+  color: red;
+}
 
 @media screen and (max-width: 700px) {
   .sidebar {
@@ -44,8 +46,12 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
