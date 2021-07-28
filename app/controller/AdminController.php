@@ -434,7 +434,7 @@ class AdminController {
     }
 
     public function sendotp(){
-        $mobilenumber=$mobilenumber[0]['contactno1'];
+        // $mobilenumber=$mobilenumber[0]['contactno1'];
         $mobilenumber=$_GET['contact1'];
         $MSG = $_GET['msg'];
         $mobilenumber= '94'.substr($mobilenumber,1);
@@ -447,24 +447,11 @@ class AdminController {
         $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
         $ret = file($url);
         $res = explode(":", $ret[0]);
+        print_r($res);
         // print_r ($res);
         if (trim($res[0]) == "OK") {
-            //Add token to database
-            // $result=$this->user->addotp($token,$OTP,$mobilenumber);
-            if ($result) {
-                header("HTTP/1.1 200 OK");
-                http_response_code(200);
-                $smsString = '{"token": "' . $token . '"}';
-                $message = json_decode($smsString);
-                echo stripslashes(json_encode($message));
-                return $token;
-            } else {
-                header("HTTP/1.1 400 Bad Request");
-                http_response_code(400);
-                $message = json_decode('{"message": "Error Communicating with server. Please try again in a few minutes."}');
-                echo stripslashes(json_encode($message));
-                return 0;
-            }
+            echo "Message Sent";
+            return 1;
         } else {
             header("HTTP/1.1 400 Bad Request");
             http_response_code(400);

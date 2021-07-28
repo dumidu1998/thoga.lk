@@ -54,9 +54,10 @@
                 <td>Contact No.1:</td>
                 <td><?php printf("%s - %s %s %s",substr($alldetails['contactno1'], 0, 3), substr($alldetails['contactno1'], 3, 3), substr($alldetails['contactno1'], 6,2), substr($alldetails['contactno1'], 8)); ?></td>
             </tr>
+            <input type="hidden" id="contactno" value="<?php echo $alldetails['contactno1'];?>">
             <!-- <tr>
                 <td>Contact No.2:</td>
-                <td><?php printf("%s - %s %s %s",substr($alldetails['contactno2'], 0, 3), substr($alldetails['contactno2'], 3, 3), substr($alldetails['contactno2'], 6,2), substr($alldetails['contactno2'], 8)); ?></td>
+                <td><?php //printf("%s - %s %s %s",substr($alldetails['contactno2'], 0, 3), substr($alldetails['contactno2'], 3, 3), substr($alldetails['contactno2'], 6,2), substr($alldetails['contactno2'], 8)); ?></td>
             </tr> -->
             <tr>
                 <td>NIC</td>
@@ -68,7 +69,7 @@
 </div>
 <div class="selectcontainer">
     
-    <form action="assignmentor" method="post">
+    <form action="assignmentor" method="post" onsubmit="sendotp()">
     <input type="hidden" name="farmer_id" value="<?php echo $alldetails['farmer_id'];?>">
     <h1>Select a Mentor</h1>
     <h3>Select mentor from suggestion list</h3>
@@ -123,8 +124,30 @@ function checkfunc(id){
     if (document.getElementById("reject").checked==false) document.getElementById("textarea").style.display='none';
     if (document.getElementById("reject").checked==true) document.getElementById("selectmentor").disabled = true;
     if (document.getElementById("reject").checked==false) document.getElementById("selectmentor").disabled = false;
+}
 
+function sendotp(){
+    var reject = document.getElementById("reject").checked;
+    
+    if(reject){
 
+        var contact = document.getElementById("contactno").value;
+        var msg = "This is From thoga.lk admin panel. ";
+        msg+=document.getElementById("textarea").value;
+        console.log(contact);
+        console.log(msg);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // var out = JSON.parse(this.responseText);
+                console.log(this.responseText);
+            }
+        };
+        xhttp.open("GET", "sendotp?contact1=" + contact+"&msg="+msg, true);
+        xhttp.send();
+
+    }
 
 }
 </script>

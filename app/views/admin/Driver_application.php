@@ -66,8 +66,9 @@
             </tr>
             <!-- <tr>
                 <td>Contact No.2:</td>
-                <td><?php printf("%s - %s %s %s",substr($basic[0]['contactno2'], 0, 3), substr($basic[0]['contactno2'], 3, 3), substr($basic[0]['contactno2'], 6,2), substr($basic[0]['contactno2'], 8)); ?></td>
+                <td><?php //printf("%s - %s %s %s",substr($basic[0]['contactno2'], 0, 3), substr($basic[0]['contactno2'], 3, 3), substr($basic[0]['contactno2'], 6,2), substr($basic[0]['contactno2'], 8)); ?></td>
             </tr> -->
+            <input type="hidden" id="contactno" value="<?php echo $basic[0]['contactno1'];?>">
             <tr>
                 <td>NIC</td>
                 <td><?php echo $basic[0]['NIC']  ?></td>
@@ -212,6 +213,31 @@ function checkfunc(id){
     if (document.getElementById("accept").checked==true) document.getElementById("textarea").style.display='none';
     if (document.getElementById("reject").checked==false) document.getElementById("textarea").style.display='none';
 
+}
+
+function sendotp(){
+    var reject = document.getElementById("reject").checked;
+    
+    if(reject){
+
+        var contact = document.getElementById("contactno").value;
+        var msg = "This is From thoga.lk admin panel. ";
+        msg+=document.getElementById("textarea").value;
+        console.log(contact);
+        console.log(msg);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // var out = JSON.parse(this.responseText);
+            console.log(this.responseText);
+        }
+        };
+        xhttp.open("GET", "sendotp?contact1=" + contact+"&msg="+msg, true);
+        xhttp.send();
+
+    }
 
 }
+
 </script>
