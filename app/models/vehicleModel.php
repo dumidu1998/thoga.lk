@@ -90,6 +90,11 @@ class vehicleModel extends driverModel{
 		$sql = "SELECT driver.driver_id ,user.firstname,user.lastname, districts.name_en, vehicles.vehicle_id FROM driver INNER JOIN user ON driver.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON address.district=districts.id INNER JOIN vehicles ON driver.driver_id=vehicles.driver_id WHERE driver.verified_state=1 AND vehicles.verified_state=0 AND vehicles.reject_reason IS NULL";
         return $this->queryfromsql($sql);
 	}
+
+    function getnumvehicles($id){
+		$sql = "SELECT count(*) as count FROM vehicles where driver_id=".$id;
+        return $this->queryfromsql($sql);
+	}
     
     function accept($vid){
         return $this->update('vehicles',array('verified_state'=>'1'),array('driver_id'=>$vid));
