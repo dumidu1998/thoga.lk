@@ -50,8 +50,8 @@
 					  <tr>
                                     <td><label>Vehicle Type   :</label></td>
                                     <td> 
-							<select name="vehicletype" onchange="getdetails(this)">
-							<option selected hidden>--Select One</option>
+							<select name="vehicletype" class="selectbox" onchange="getdetails(this)" required>
+							<option selected hidden >--Select--</option>
 							<?php foreach($all as $keys => $row){ ?>
 								<option value="<?php echo $row['type_id'];?>"><?php echo $row['vehicletype'];?></option>
 								<?php } ?>
