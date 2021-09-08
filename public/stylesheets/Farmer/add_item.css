@@ -1,33 +1,35 @@
-body{
-  height:500px;
+body {
+  height: 500px;
 }
-.title{
-    font-family: sans-serif;
-    color: #181617;
-    text-align: center;
-    margin-top: 100px;
-   
-
+.title {
+  font-family: sans-serif;
+  color: #181617;
+  text-align: center;
+  margin-top: 100px;
 }
 
-.date{
+.date {
   display: inline-flex;
 }
 
-.price_d{
+.price_d {
   display: inline-flex;
 }
 
-input[type=text],input[type=date],input[type=file],input[type=number], select .textt, textarea {
+input[type="text"],
+input[type="date"],
+input[type="file"],
+input[type="number"],
+select .textt,
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 4px;
   resize: vertical;
-
 }
-.price2{
+.price2 {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -40,11 +42,10 @@ label {
   padding: 12px 12px 12px 0;
   display: inline-block;
   margin-right: 40px;
-  
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -55,32 +56,29 @@ button {
 }
 
 button:hover {
-  opacity:1;
+  opacity: 1;
 }
-.textt{
+.textt {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 4px;
-  resize:vertical;
+  resize: vertical;
   font-size: 18px;
 }
-
 
 .cancelbtn {
   padding: 14px 20px;
   background-color: #f44336;
-
 }
 
-
-.cancelbtn, .submitbtn {
+.cancelbtn,
+.submitbtn {
   float: center;
   width: 30%;
   border-radius: 10px;
   margin-top: 10px;
-
 }
 
 .clearfix::after {
@@ -90,44 +88,41 @@ button:hover {
 }
 
 .container {
-  margin-top:100px;
+  margin-top: 100px;
   padding: 20px;
   color: black;
   text-align: center;
-  width:70%;
-  background:white;
+  width: 70%;
+  background: white;
   margin: auto;
-  box-sizing:border-box;
-  font-size:18px;
+  box-sizing: border-box;
+  font-size: 18px;
   border-radius: 50px;
-  box-shadow:0 5px 15px rgba(0,0,0,.9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
   font-style: bold;
   margin-bottom: 100px;
-  
-  
 }
 
-
-@media screen and (max-width:768px){
-  .container{
+@media screen and (max-width: 768px) {
+  .container {
     margin-top: 50px;
     width: 90%;
-
   }
-  .date{
-    display: block;
-
-  }
-  .id{
+  .date {
     display: block;
   }
-  label{
+  .id {
+    display: block;
+  }
+  label {
     margin-right: 100px;
   }
-  input[type=text],input[type=date],input[type=file], select .textt{
+  input[type="text"],
+  input[type="date"],
+  input[type="file"],
+  select .textt {
     margin-left: 40px;
   }
-
 }
 
 .left {
@@ -142,47 +137,26 @@ button:hover {
   margin-top: 10px;
 }
 
-
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-
 @media screen and (max-width: 600px) {
-  .left, .right {
+  .left,
+  .right {
     width: 100%;
     margin-top: 5px;
   }
-  .title{
+  .title {
     margin-top: 40%;
   }
 }
 
 @media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-     width: 100%;
+  .cancelbtn,
+  .signupbtn {
+    width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

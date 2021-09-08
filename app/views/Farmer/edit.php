@@ -94,16 +94,7 @@
     </div>
 
 
-    <div class="date">
-      <div class="row">
-        <div class="left">
-          <label for="sdate">Starting Date</label>
-        </div>
-        <div class="right">
-        <!-- <p class ="price2"type="date"> 2020-11-11</p> -->
-        <input type="date" class ="price2" name="startdate" value="<?php echo $itemstart?>" readonly="readonly" >
-        </div>
-      </div>
+    
 
 
       <div class="row">
@@ -115,7 +106,7 @@
         <input type="date" class ="price2" name="enddate" value="<?php echo $itemend?>" >
         </div>
       </div>
-    </div>
+    
 
     
 
@@ -144,9 +135,11 @@
 <br>
 <br>
 
-<?php // include("footer.php"); ?>
+
 
 
 
 </body>
 </html>
+
+<?php  include("footer.php"); ?>

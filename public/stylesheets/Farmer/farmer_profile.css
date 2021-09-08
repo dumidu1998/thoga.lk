@@ -1,22 +1,17 @@
-
-.wrapper{
-    margin-top: 100px;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-gap: 100px ;
-    
+.wrapper {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 100px;
 }
-.user_details{
-   margin-top: auto;
-
-
-
+.user_details {
+  margin-top: auto;
 }
 
 .button2 {
-  color:white;
+  color: white;
   text-decoration: none;
-  background:  #4CAF50;
+  background: #4caf50;
   padding: 8px;
   font-size: 14px;
   font-weight: bold;
@@ -27,256 +22,233 @@
   margin: 10px;
 }
 
-.user_details label{
-    font-size: large;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin-right: 20px;
-
-
+.user_details label {
+  font-size: large;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin-right: 20px;
 }
-.adress_data label{
-    font-size: medium;
-    font-family: sans-serif;
-    margin-right: 20px;
-
-
+.adress_data label {
+  font-size: medium;
+  font-family: sans-serif;
+  margin-right: 20px;
 }
-@media screen and (max-width:768px){
-    .wrapper{
-        display: block;
-    }
-    .wrapper img{
-        width: 100%;
-    }
-   
+@media screen and (max-width: 768px) {
+  .wrapper {
+    display: block;
+  }
+  .wrapper img {
+    width: 100%;
+  }
 }
-.data_wrapper{
-    margin: 30px;
+.data_wrapper {
+  margin: 30px;
 }
-input[type = password]{
+input[type="password"] {
   width: 75%;
   padding: 10px 15px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-
 }
-.adress_data input[type = text]{
+.adress_data input[type="text"] {
   width: auto;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-
 }
 
-.container{
-    width: 90%;
-    margin: auto;
-    margin-top: 50px;
+.container {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
 }
 
-  
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table tr {
+  background-color: white;
+  padding: 0.35em;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
   table {
-    
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
+    border: 0;
   }
-  
-  table tr {
-    background-color:white;
-    padding: .35em;
-  }
-  
-  table th,
-  table td {
-    padding: .625em;
-    text-align: center;
-  }
-  
-  table th {
-    font-size: .85em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    text-decoration:underline ;
 
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
-  
-  @media screen and (max-width: 600px) {
-    table {
-      border: 0;
-    }
-  
-    table thead {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-    
-    table tr {
-      border-bottom: 3px solid #ddd;
-      display: block;
-      margin-bottom: .625em;
-    }
-    
-    table td {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: .8em;
-      text-align: right;
-    }
-    
-    table td::before {
-      /*
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
       * aria-label has no advantage, it won't be read inside a table
       content: attr(aria-label);
       */
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    
-    table td:last-child {
-      border-bottom: 0;
-    }
-  }
-
-  .modal {
-    display: none; /* Hidden by default */
-    z-index: 1; /* Sit on top */
-    position: fixed;
-    padding-bottom: 20%;
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; 
-    overflow: scroll; 
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); 
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
+    content: attr(data-label);
+    float: left;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .adress_data{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      justify-content: center;
-  }
-  @media screen and (max-width:768px){
-    .adress_data{
-        display: block;
-    }
-  }
-  button {
-    background-color: white;
-    color: red;
-    border: 2px solid #555555;
-    padding: 10px;
-    width: 100px;
-   
-
-  }
-  
-  button:hover {
-    background-color: #555555;
-    color: white;
-  }
-  .updt_btn{
-    background-color: white;
-    color: green;
-    border: 2px solid #555555;
-    padding: 10px;
-    width: 100px;
-
-  }
-  .dele{
-
-    background-color: white;
-    color:red;
-    border: 2px solid #555555;
-    padding: 10px;
-    width: 70px;
-    
-    
-  
-  }
-  .dele:hover{
-    background-color: #555555;
-    color: white;
+    text-transform: uppercase;
   }
 
-  .more{
-
-    background-color: white;
-    color:blue;
-    border: 2px solid #555555;
-    padding: 10px;
-    width: 70px;
-    
-    
-  
+  table td:last-child {
+    border-bottom: 0;
   }
-  .more:hover{
-    background-color: #555555;
-    color: white;
-  }
+}
 
-
-  
-
-.model1{
-  display: none; 
+.modal {
+  display: none; /* Hidden by default */
+  z-index: 1; /* Sit on top */
   position: fixed;
-  z-index: 1; 
-  padding-top: 100px; 
+  padding-bottom: 20%;
+  padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  overflow: scroll;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.adress_data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .adress_data {
+    display: block;
+  }
+}
+button {
+  background-color: white;
+  color: red;
+  border: 2px solid #555555;
+  padding: 10px;
+  width: 100px;
+}
+
+button:hover {
+  background-color: #555555;
+  color: white;
+}
+.updt_btn {
+  background-color: white;
+  color: green;
+  border: 2px solid #555555;
+  padding: 10px;
+  width: 100px;
+}
+.dele {
+  background-color: white;
+  color: red;
+  border: 2px solid #555555;
+  padding: 10px;
+  width: 70px;
+  text-decoration: none;
+}
+.dele:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.more {
+  background-color: white;
+  color: blue;
+  border: 2px solid #555555;
+  padding: 10px;
+  width: 70px;
+}
+.more:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.model1 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .modal-content {
   background-color: #fefefe;
   margin: auto;
   text-align: center;
   padding-bottom: 25px;
-  border: 8px solid #4CAF50;
-  outline: 8px solid #2E5F3E;
-  font-size:12px;
+  border: 8px solid #4caf50;
+  outline: 8px solid #2e5f3e;
+  font-size: 12px;
   width: 45%;
 }
 
@@ -293,4 +265,3 @@ input[type = password]{
   text-decoration: none;
   cursor: pointer;
 }
-
