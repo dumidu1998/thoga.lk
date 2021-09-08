@@ -28,8 +28,7 @@
     <?php
     }
     ?>
-    <a href="/thoga.lk/buyer/about_us" <?php echo (($url== "/thoga.lk/buyer/about_us")?( "class='active'"):("")); ?>>About Thoga.lk</a>
-     <a id="google_translate_element"></a> 
+    <!-- <a href="/thoga.lk/buyer/about_us" <?php echo (($url== "/thoga.lk/buyer/about_us")?( "class='active'"):("")); ?>>About Thoga.lk</a> -->
   </div>
 
   <div class = "nav-right" id="right">

@@ -26,7 +26,6 @@
           <div style="overflow-x:auto;">
               <table align="center">
                 <tr>
-                  <th>Order Id</th>
                   <th>Item Name</th>
                   <th>Pickup Date</th>
                   <th>Total Weight</th>
@@ -59,7 +58,6 @@
 
             ?>
             <tr>
-            <td><?php echo $itemid;?></td>
             <td><?php echo $vegname;?></td>
             <td><?php echo $pdate;?></td>
             <td><?php echo number_format($tweight,0).' kg'?></td>

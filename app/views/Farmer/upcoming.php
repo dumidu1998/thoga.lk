@@ -30,7 +30,6 @@
 <div style="overflow-x:auto;height: 50%;min-height:0px">
   <table align="center">
     <tr>
-      <th>Item Id</th>
       <th>Item Name</th>
       <th>Pickup Date</th>
       <th>Total Weight</th>
@@ -55,7 +54,6 @@ foreach($data as $key => $values){
 
 ?>
  <tr>
- <td><?php echo $itemid;?></td>
  <td><?php echo $vegname;?></td>
  <td><?php echo $pdate;?></td>
  <td><?php echo number_format($tweight,0).' kg';?></td>

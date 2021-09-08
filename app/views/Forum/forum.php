@@ -79,7 +79,7 @@
                             <span class="modeltopic">New Forum Post</span>
                         </div>
                     <div>
-                            <form action="/thoga.lk/forum/postForum" method="POST" class="newforum">
+                            <form action="forum/postForum" method="POST" class="newforum">
                                 <input type="text" name="topic" id="" placeholder="Title for Your Question" required onkeyup="showsuggestions(this.value)">
                                 <div class="suggcontainer" id="suggestioncontainer" style="display:none">
                                     <h3 style="margin-top:0px">Suggestions</h3>

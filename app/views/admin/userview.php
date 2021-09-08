@@ -32,7 +32,7 @@
             <input type="hidden" id="pwd" name="pwd" value="" >
             <button type="button" id="a" class="Criticalbtn" onclick="actiona(this)" name="rstpwd">Reset Password</button>
             <button type="button" class="Criticalbtn" onclick="actiona(this)" name="deleteuser">Delete User</button>
-            <button type="button" class="Criticalbtn" onclick="actiona(this)" name="block">Block</button>
+            <!-- <button type="button" class="Criticalbtn" onclick="actiona(this)" name="block">Block</button> -->
         </form>
     </div>
     <div class="grid">
