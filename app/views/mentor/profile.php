@@ -155,11 +155,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
 
         </div>
 
-        <div>
-            <!-- Advertistment -->
-            <img width="400px" src="/thoga.lk/public/images/Farmer/add.jpg" alt="">
-
-        </div>
+        
 
     </div>
 

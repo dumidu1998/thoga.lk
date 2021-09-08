@@ -177,11 +177,7 @@ if(isset($_GET['error']) && $_GET['error']==1){
 
         </div>
 
-        <div>
-            <!-- Advertistment -->
-            <img width="400px" src="/thoga.lk/public/images/Farmer/add.jpg" alt="">
-
-        </div>
+        
         <div class="model1" id="myModal">
                     <div class="modal-content" style="height:280px;">
                         <span class="close" onclick="closeModal()">&times;</span>
