@@ -3,7 +3,7 @@
 class db_connection{
 
 	function getConnection(){
-		// $conn = new mysqli('db.learnia.xyz', 'root', 'chata', 'thoga.lk');
+		// $conn = new mysqli('157.230.37.100', 'root', 'root', 'thoga.lk');
 		$conn = new mysqli('localhost', 'root', '' , 'thoga.lk');
 
 		if($conn->connect_error){

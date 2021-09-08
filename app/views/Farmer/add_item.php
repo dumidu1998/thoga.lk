@@ -59,7 +59,7 @@
         <label for="aw">Available Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="avaiweight" min="1" name="avaiweight" required>
+        <input type="number" id="avaiweight" min="1" name="avaiweight" onchange="setmax()" required>
       </div>
     </div>
     <div class="row">
@@ -67,7 +67,7 @@
         <label for="mw">Minimum Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="minweight" min="1" name="minweight" required>
+        <input type="number" id="minweight" min="1"  name="minweight" required>
       </div>
     </div>
 
@@ -187,6 +187,9 @@ function showprice(){
 
 }
 
+function setmax(){
+  document.getElementById('minweight').max= document.getElementById('avaiweight').value;
+}
 
 </script>
 
