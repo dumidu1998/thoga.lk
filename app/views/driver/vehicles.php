@@ -71,7 +71,6 @@
 									<label>Cost/km (Rs.):</label>
 									<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo number_format($cost_km,2); ?>" disabled>
 									<br> 
-									<input type="submit" value="Edit Cost/km" class="button2" name="vehicledetails">	
 								</form>			
 			</div>
 			<div class="bottom">

@@ -264,7 +264,8 @@ class BuyerController {
     public function logout(){
         session_start();
         session_destroy();
-        $View = new View("login/login");
+        header("location:/thoga.lk/");
+        // $View = new View("login/login");
         
         
     }
