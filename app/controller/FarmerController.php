@@ -45,11 +45,18 @@ class FarmerController{
         $farmeruserid=$_SESSION['user'][0]['user_id'];
 
         $farmerid=$this->fmodel->read_id($farmeruserid);
-        // print_r($farmerid[0]['farmer_id']);
 
+        $statdata1 = $this->itemModel->getallitems($farmerid[0]['farmer_id']); 
+        $statdata2 = $this->oModel->getorders30($farmerid[0]['farmer_id']); 
+        $statdata3 = $this->oModel->getsales30($farmerid[0]['farmer_id']); 
         $view = new View("Farmer/upcoming");
         $result = $this->fmodel->get_details($farmerid[0]['farmer_id']);
+        $piedata = $this->fmodel->getdataforpie($farmerid[0]['farmer_id']);
         $view ->assign('data',$result);
+        $view ->assign('piedata',$piedata);
+        $view ->assign('statdata1',$statdata1);
+        $view ->assign('statdata2',$statdata2[0]['count']);
+        $view ->assign('statdata3',$statdata3[0]['sum']);
     }
 
     //upcoming
@@ -183,7 +190,7 @@ class FarmerController{
 
     public function insert_items(){
         session_start();
-
+        $f_id=0;
         foreach($_SESSION['user'] as $keys => $values){
             $id = $values['user_id'] ;
             $res = $this->fmodel->read_id($id);
@@ -193,18 +200,25 @@ class FarmerController{
             }
         }
         if(isset($_POST['submit'])){
-
+            
             $itemname = $_POST['itemname'];
             $avaiweight = $_POST['avaiweight'];
             $minweight = $_POST['minweight'];
             $price = $_POST['price'];
-            $startdate = $_POST['startdate'];
             $enddate = $_POST['enddate'];
             $itemtype = $_POST['itemtype'];
             $ides = $_POST['ides'];
             
-            $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$ides,$f_id);
-            header("location: /thoga.lk/farmer/insert");
+            if($itemname!=="100"){
+                $this->itemModel->insert_data($itemname,$avaiweight,$minweight,$price,$enddate,$itemtype,$ides,$f_id);
+                header("location: /thoga.lk/farmer/insert");
+            }else{
+                $othername=$_POST['othertype'];
+                $this->itemModel->insert_data_other($itemname,$othername,$avaiweight,$minweight,$price,$enddate,$itemtype,$ides,$f_id);
+               header("location: /thoga.lk/farmer/insert");
+                
+            }
+
         }
     }
 
@@ -222,6 +236,7 @@ class FarmerController{
             $order_id=$_GET['id'];
             $res = $this->oModel->order_drivername($order_id);
             $buyer = $this->oModel->order_buyername($order_id);
+          
             $items = $this->oModel->orderdetails_total($order_id);
             $city= $this->oModel->order_city($order_id);
             $ordstatus=$this->oModel->getstatus($order_id);
@@ -232,6 +247,7 @@ class FarmerController{
         $view->assign('view',$result);
         $view->assign('res',$res);
         $view->assign('buyer',$buyer);
+      
         $view->assign('cityy',$city);
         $view->assign('items',$items);
         $view->assign('ordstatus',$ordstatus);
@@ -270,6 +286,11 @@ class FarmerController{
         header("location: /thoga.lk/farmer/profile");
     }
 
+    public function getthogarprice(){
+        $vegeid=$_GET['vegid'];
+        $result=$this->vegeModel->getmpricebyid($vegeid);
+        echo $result[0]['current_price'];
+    }
 
 }
 

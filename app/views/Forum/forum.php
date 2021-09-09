@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/thoga.lk/public/stylesheets/font-awesome.css" type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
-
+    <link rel="shortcut icon" href="/thoga.lk/images/thoga.jpg" type="image/x-icon">    
 
     <title>Forum</title>
 </head>
@@ -41,7 +41,7 @@
 
     <div class="container">
         <div class="grid-item0">
-            <form action="">
+            <!-- <form action="">
             <div class="filter-topic"> Added by </div>
             <div class="filter-items" id="1"><span>Driver<input type="checkbox" name="" id="1"></span></div>
             <div class="filter-items">Farmer<input type="checkbox" name="" id="1"></a></div>
@@ -52,14 +52,14 @@
             <div class="filter-items">Votes<input type="checkbox" name="" id="1"></a></div>
             <br>
             <button type="submit" class="fbtn">Filter</button>
-            </form>
+            </form> -->
             <!-- <div class="filter-items"><a href="">Buyers</a></div><br> -->
         </div>
 
 
         <div class="grid-item1">
             <div>
-                <div class="wrap">
+                <div class="wrap" style="margin-left: 10%">
                     <form action="" method="get">
                     <div class="search">
                         <input type="text" class="searchTerm" name="search" value="<?php echo isset($_GET['search'])?$_GET['search']:''?>" placeholder="Search for Topic...">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div>
-                <button class="admin-btn" id="myBtn" >Post New</button>
+                <button class="admin-btn" style="margin-left: 50px" id="myBtn" >Post New</button>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <div class="mheader">
@@ -79,11 +79,18 @@
                             <span class="modeltopic">New Forum Post</span>
                         </div>
                     <div>
-                            <form action="/thoga.lk/forum/postForum" method="POST" class="newforum">
-                                <input type="text" name="topic" id="" placeholder="Title for Your Question" required>
+                            <form action="forum/postForum" method="POST" class="newforum">
+                                <input type="text" name="topic" id="" placeholder="Title for Your Question" required onkeyup="showsuggestions(this.value)">
+                                <div class="suggcontainer" id="suggestioncontainer" style="display:none">
+                                    <h3 style="margin-top:0px">Suggestions</h3>
+                                    <ul class="mul" id="ul">
+                                        <!-- <li class="mli">asdasd <span class="mlispan"><a href="">Visit</a></span></li> -->
+                                    </ul>
+                                </div>
+                                <input type="text" value="" placeholder="Add Tags with comma seperated eg- potato, bugs" />
                                 <textarea name="description" id="" class="description" cols="30" rows="50" placeholder="Description" oninput="auto_grow(this)" required></textarea> 
                                 <hr>
-                                <input type="submit" class="fsubmit-btn" value="Post" name="post_forum">
+                                <input type="submit" class="fsubmit-btn" value="Post" name="post_forum" id="subbtn">
                             </form>
                         </div>
                     </div>
@@ -132,13 +139,7 @@
             ?>
             <!-- *************** -->
         </div>
-        <div >
-            <img class="ad" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
-                <br>
-            <img class="ad ad2" src="/thoga.lk/public/images/ads/a.jpg" alt="ad">
-                
-
-        </div>
+        
     </div>
 
     <script>
@@ -191,4 +192,36 @@
         }
         ?>
 </body>
+<script>
+function showsuggestions(val){
+   document.getElementById('suggestioncontainer').style.display ="";
+    getsuggestions(val);
+   
+}
+
+
+function getsuggestions(keyword){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var out = JSON.parse(this.responseText);
+            if(out.length==0){
+                document.getElementById('suggestioncontainer').style.display ="none";
+            }else{
+                document.getElementById('subbtn').disabled=true;
+            }
+            var output=" ";
+            out.forEach(function (arrayItem) {
+                var str = "<li class='mli'>"+arrayItem.title+"<span class='mlispan'><a href='forum/fullview?post_id="+arrayItem.post_id+"'>Visit</a></span></li> ";
+                console.log(arrayItem);
+                output += str;
+            });
+            console.log(output);
+            document.getElementById('ul').innerHTML=output;
+        }
+    };
+    xhttp.open("GET", "forum/getsuggestions?keyword=" + keyword, true);
+    xhttp.send();
+}
+</script>
 </html>

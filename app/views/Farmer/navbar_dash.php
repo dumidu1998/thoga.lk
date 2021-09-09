@@ -15,14 +15,14 @@
   <a href="/thoga.lk/farmer/dash" class="active">Dashboard</a>
   <a href="/thoga.lk/farmer/view_price">Price List</a>
   <a href="/thoga.lk/forum">Forum</a>
-  <a id="google_translate_element" ></a>
+  <!-- <a id="google_translate_element" ></a> -->
 
 
   
   
  
   <div class = "nav-right">
-    <a href ="aboutus">About Us</a>
+    <!-- <a href ="aboutus">About Us</a> -->
     <a href="../logout">Logout</a>
     
     <a href='profile'> <img width=50px src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" > </a>

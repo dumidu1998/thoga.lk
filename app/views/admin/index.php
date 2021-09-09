@@ -28,7 +28,7 @@
         <div class="top_grid_item">
             <a href="admin/vieworders"><button class="admin-btn" >View Orders</button></a>
             <a href="admin/usermanager"><button class="admin-btn" >Manage Users</button></a>
-            <a href="admin/admanager"><button class="admin-btn" >Manage Advertisements</button></a>
+            <a href="admin/activeitems"><button class="admin-btn" >Active Vegetable List</button></a>
             <a href="/thoga.lk/admin/showadmin"><button class="admin-btn">Add New Admin</button></a>
             <a href="/thoga.lk/admin/vegetables"><button class="admin-btn">Vegetable List</button></a>
             <a href="/thoga.lk/admin/forummanager"><button class="admin-btn">Forum Manager</button></a>
@@ -159,9 +159,15 @@
                 <?php
                     foreach($farmers as $keys => $row){
                         $farmer_id=$row['farmer_id'];
-                        $name=$row['firstname'] ." ".$row['lastname'] ;
                         $city=$row['city'];
                         $district=$row['district'];
+                        $status=$row['mentor_id'];
+                        if($status==-2){
+                            $status="(snoozed)";
+                        }else{
+                            $status="";
+                        }
+                        $name=$row['firstname'] ." ".$row['lastname'] . " " . $status ;
                 ?>
 
                 <tr>

@@ -20,7 +20,7 @@ h1{
 }
 .menu {
     float:left;
-    width:70%;
+    width:90%;
     text-align:center;
     padding-top:10px;
     margin-left:20px;
@@ -28,17 +28,7 @@ h1{
     padding-bottom: 30px;
     margin-bottom:30px;
 }
-.right{
-    float:left;
-    width:22%;
-    padding-top:0px;
-    text-align:center;
-    font-size:25px;
-    color:black;
-    margin-left:50px;
-    margin-bottom:30px;
 
-}
 .transboxx {
     
     padding: 15px;
@@ -181,7 +171,15 @@ input[type=text],input[type=file] {
       outline: none;
       font-size: 16px;
 }
+.selectbox{
+  /* padding-left:120px; */
+  width:28%;
+  height: 30;
+  margin-top: 10;
+  margin-bottom: 10;
+  margin-left: 10;
 
+}
 
 .advancedSearchTextbox1 {
   width: 150px;

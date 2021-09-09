@@ -15,6 +15,14 @@ class vehicleModel extends driverModel{
 
         
 	}
+
+    function getalltypes(){
+        return $this->read('vehicle_type', array('*'), array(''));
+    }
+
+    function getvehidetails($id){
+        return $this->read('vehicle_type', array('*'), array('type_id'=>$id));
+	}
 	
 	function getdriver_vehicles($id){
 
@@ -53,13 +61,14 @@ class vehicleModel extends driverModel{
     function addnewvehicle($get){
         session_start();
         $vno=$get['vehicleno'];
-        $vtype=$get['vehicletype'];
+        // $vtype=$get['vehicletype'];
         $maxweight=$get['maxweight'];
         $vcost=$get['vehiclecost'];
-        $vtype=$get['vehicletype'];
+        $vtype=$get['vehicle'];
         $driverid=$_SESSION['driver']['driver_id'];
 
-        $sql ="INSERT INTO vehicles (vehicle_id, driver_id, vehicle_no, cost_km, vehicle_type, maximum_weight, availability, verified_state) VALUES (NULL, '".$driverid."', '".$vno."','".$vcost."', '".$vtype."', '".$maxweight."', '0', '0')";
+        $sql ="INSERT INTO vehicles (vehicle_id, driver_id, vehicle_no, cost_km, vehicle_type, maximum_weight, availability, verified_state) VALUES (NULL, '".$driverid."', '".$vno."','".$vcost."', '".$vtype."', '".$maxweight."', '0','0')";
+        echo($sql);
         $result=$this->connection->query($sql);
         if($result){
             echo "done";
@@ -80,6 +89,11 @@ class vehicleModel extends driverModel{
 
     function get_pending(){
 		$sql = "SELECT driver.driver_id ,user.firstname,user.lastname, districts.name_en, vehicles.vehicle_id FROM driver INNER JOIN user ON driver.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON address.district=districts.id INNER JOIN vehicles ON driver.driver_id=vehicles.driver_id WHERE driver.verified_state=1 AND vehicles.verified_state=0 AND vehicles.reject_reason IS NULL";
+        return $this->queryfromsql($sql);
+	}
+
+    function getnumvehicles($id){
+		$sql = "SELECT count(*) as count FROM vehicles where driver_id=".$id;
         return $this->queryfromsql($sql);
 	}
     

@@ -9,19 +9,20 @@
 
 <div class="topnav" id="myTopnav">
   <a href="dash" class="navlogo"><img width=80px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
-  <a href="dash" class="active">Dashboard</a>
-  <a href="view_price">Price List</a>
-  <a href="forum">Forum</a>
-  <a href="add_item">Add Item</a>
-  <a href="listed">Listed Items</a>
-  <a id="google_translate_element" ></a>
+  <a href="/thoga.lk/mentor/dash" class="active">Dashboard</a>
+  <a href="/thoga.lk/mentor/view_price">Price List</a>
+  <a href="/thoga.lk/forum">Forum</a>
+  <a href="/thoga.lk/mentor/add_item">Add Item</a>
+  <a href="/thoga.lk/mentor/listed">Listed Items</a>
+
+  <!-- <a id="google_translate_element" ></a> -->
 
 
   
   
  
   <div class = "nav-right">
-    <a href ="aboutus">About Us</a>
+    <!-- <a href ="aboutus">About Us</a> -->
     <a href="../logout">Logout</a>
     
     <a href='profile'> <img width=40px src="/thoga.lk/public/images/Farmer/profile.png" alt="" class = "user_pic" > </a>

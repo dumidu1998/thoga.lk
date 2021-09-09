@@ -17,6 +17,14 @@ header{
 h1{
     text-align:center;
 }
+
+.addfirstvehcle{
+  margin-left: 20px;
+  font-size:18px;
+  font-weight:bold; 
+  color:red;
+}
+
 .menu {
     float:left;
     width:70%;

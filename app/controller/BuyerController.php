@@ -241,30 +241,33 @@ class BuyerController {
 
         }
     }
+
     public function summery(){
         session_start();
         // echo "ddd";
+        $newid=$this->order->getnewid();
+        print_r($newid);   
         $view = new View("buyer/summary");
+        $view->assign('nextid',$newid[0]['next_id']);
         if(isset($_GET['vehicle_id'])){
             // echo "ddd";
+            
+            echo "ddd";
             $vehicle_id = $_GET['vehicle_id'];
             $view->assign('driv',$vehicle_id);
             $drivervehicle=$this->vehicles->getdriverandvehicle($vehicle_id);
-            // print_r($drivervehicle) ;
+            
             $view->assign('details',$drivervehicle);
-
-
         }
-        
     }
 
     public function logout(){
         session_start();
         session_destroy();
-        $View = new View("login/login");
-        
-        
+        header("location:/thoga.lk/");
+        // $View = new View("login/login");
     }
+
     public function profile(){
         session_start();
         $result = $this->order->get_all_orders($_SESSION['buyer_id'][0]['buyer_id']);
@@ -276,6 +279,7 @@ class BuyerController {
         session_start();
         $view = new View("buyer/forum");
     }
+
     public function orders(){
         session_start();
         $result = $this->order->get_buyer_upcoming($_SESSION['buyer_id'][0]['buyer_id']);
@@ -286,6 +290,7 @@ class BuyerController {
         $view->assign('previous_orders',$his_result);
         $view->assign('pickup',$pickup);
     }
+
     public function viewmore(){
         session_start();
         $id=$_GET['id'];
@@ -298,9 +303,8 @@ class BuyerController {
         $view->assign('driver_details', $driver_details);
         $view->assign('buyer_details', $buyer_details);
         $view->assign('farmer_details', $farmer_details);
-
-
     }
+
     public function aboutus(){
         session_start();
         $view = new View("buyer/aboutus");
@@ -332,12 +336,10 @@ class BuyerController {
         }else{
             echo "file Upload Failed";
         }
-        
     }  
 
     public function postForum(){
         session_start();
-
         if(isset($_POST['post_forum'])){
             $title= $_POST['topic'];
             $description = $_POST['description'];
@@ -349,10 +351,9 @@ class BuyerController {
             $result = $this->forum->insertForum($forum_array);
 
             header("location: forum");
-
-            
         }
     } 
+
     public function summary(){
         if(isset($_POST['continue'])){
             $address_line1 = $_POST['address_line1'];
@@ -367,17 +368,17 @@ class BuyerController {
             
            
             //print_r( $_SESSION['del']);
-                   
+                echo "ddd";   
             // header("location:/thoga.lk/buyer/home");
             session_start();
+            $newid=$this->order->getnewid();
+            // print_r($newid);
             $_SESSION['delivery_add']=$arr;
-
             $view = new View("buyer/summary");
+            $view->assign('nextid',$newid[0]['next_id']);
             $view->assign('address', $arr);
                 $vehicle_id=0;
                 $view->assign('driv',$vehicle_id);
-    
-       
 
         }else if(isset($_POST['selectDriver'])){
 
@@ -395,11 +396,10 @@ class BuyerController {
                 session_start();
                 $_SESSION['delivery_add']=$arr;
 
-                
             header("location:/thoga.lk/buyer/select-driver");
         }
-        
     }
+
     public function statusUpdate(){
         $id = $_POST['ord_id'];
 
@@ -407,14 +407,11 @@ class BuyerController {
 
         echo $result;
     }
+
     public function book(){
         session_start();
         $arr = array();
         if($this->confirmotp($_POST)){
-
-        
-        
-
         
         if(isset($_POST['order'])){
            

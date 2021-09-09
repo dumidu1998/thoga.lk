@@ -69,9 +69,8 @@
 									<br>
 
 									<label>Cost/km (Rs.):</label>
-									<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo number_format($cost_km,2); ?>">
+									<input type="text" class="advancedSearchTextbox1" name="cost" value="<?php echo number_format($cost_km,2); ?>" disabled>
 									<br> 
-									<input type="submit" value="Edit Cost/km" class="button2" name="vehicledetails">	
 								</form>			
 			</div>
 			<div class="bottom">
@@ -101,14 +100,7 @@
 		    
 		</div>
 	</div>
-	<div class="right">
-		<div class="transbox">
-			
-				<img src="/thoga.lk/public/images/driver/index.jpg" alt="order" width="240" height="450" >
-			
-			
-		</div>	
-	</div>
+	
 	
 	<?php include("footer.php"); ?> 
 </body>

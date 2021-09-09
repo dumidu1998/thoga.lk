@@ -132,6 +132,8 @@ class orderModel extends db_model{
 
 	}
 
+  
+
   function  orderdetails_total($orderId){
 		$sql = "SELECT vegetable.vege_name,item.item_id, item.total_cost, order_details.weight, order_details.farmer_id, order_details.details_id, order_details.order_id,orders.weight,orders.pickup_date,orders.buyer_id,buyer.buyer_id,buyer.b_name, cities.name_en AS city, farmer.farm_name, districts.name_en AS district, provinces.name_en AS province, address.zip_code, address.address_line1, address.address_line2, user.firstname , user.lastname, user.contactno1 ,user.contactno2 FROM order_details INNER JOIN item on item.item_id = order_details.item_id INNER JOIN orders ON order_details.order_id=orders.order_id INNER JOIN buyer ON buyer.buyer_id=orders.buyer_id INNER JOIN vegetable ON vegetable.vege_id= item.veg_id INNER JOIN farmer on farmer.farmer_id=order_details.farmer_id INNER JOIN address ON address.user_id=farmer.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN user ON farmer.user_id=user.user_id INNER JOIN districts ON districts.id=address.district INNER JOIN provinces ON provinces.id=address.province where order_details.order_id='".$orderId."'";
 		$result=$this->connection->query($sql);
@@ -160,12 +162,6 @@ class orderModel extends db_model{
 		echo "error";
 	}
   
-
-  // function cancelOrder($id){
-  //   return $this->update('orders',array('status' => 4),array('order_id' => $id));
-
-  // }
-
   function  order_all($id){
     $sql= "SELECT b.*,a.description FROM orders AS b INNER JOIN status as a ON b.status=a.status_id where b.order_id='".$id."'";
 		
@@ -179,12 +175,11 @@ class orderModel extends db_model{
 		}else
 		echo "error";
 	}
+
   function insert_order($data){
-    // $sql = "INSERT INTO orders(weight,total_cost,order_date,pickup_date,d_addline1,d_addline2,city,district,province,contact1,contact2,buyer_id,driver_id,status) VALUES(123,5000,CURRENT_DATE,'2020-11-17',123,'reid avenur', 'Colombo', 'Colombo', 'western prov','077123456','071123456',2,1,1);";
     return $this->create('orders',$data);
-
-
   }
+
   function getneworderid(){
     $sql="SELECT LAST_INSERT_ID() as id";
     $newvid=$this->queryfromsql($sql);
@@ -224,7 +219,7 @@ class orderModel extends db_model{
   }
 
   function getbuyer_orderhistory($id){
-    $sql= "SELECT a.*,b.*,c.* FROM  orders AS a INNER JOIN driver AS b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id  where a.pickup_date < CURRENT_TIMESTAMP AND buyer_id='".$id."'";
+    $sql= "SELECT a.*,b.*,c.* FROM  orders AS a INNER JOIN driver AS b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id  where (a.pickup_date < CURRENT_TIMESTAMP OR a.status=1) AND buyer_id='".$id."'";
   
     $result=$this->connection->query($sql);
     
@@ -235,8 +230,6 @@ class orderModel extends db_model{
         return $finale;
     }else
     echo "error";
-  
-
   }
   
   function  getrating($id){
@@ -266,14 +259,10 @@ class orderModel extends db_model{
          }
         //  print_r($final);
        return $final;
-     
- 
          }else
          echo "error";
-          
- 
-     
   }
+
   function get_details(){
     $sql="SELECT orders.order_id, orders.pickup_date,orders.total_cost,orders.weight,orders.buyer_id,buyer.b_name, FROM orders INNER JOIN buyer ON orders.buyer_id=buyer.buyer_id where orders.pickup_date >= CURDATE() 
     ";
@@ -282,14 +271,38 @@ class orderModel extends db_model{
     if($result){
      while($row=mysqli_fetch_assoc($result))
      array_push($arr,$row);
-   return $arr;
- 
-
+    return $arr;
      }else
      echo "error";
-      
+  }
 
- }
+  function getorders30($fid){
+    $sql="SELECT COUNT(*) as count FROM `orders` INNER JOIN order_details ON orders.order_id=order_details.order_id WHERE
+     orders.order_date<DATE_ADD(CURDATE(),INTERVAL 2 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY) 
+     AND order_details.farmer_id='".$fid."'";
+    $result=$this->connection->query($sql);
+    $arr=array();
+    if($result){
+     while($row=mysqli_fetch_assoc($result))
+     array_push($arr,$row);
+    return $arr;
+     }else
+     echo "error";
+  }
+
+  function getsales30($fid){
+    $sql="SELECT SUM(total_cost) as sum FROM `orders` INNER JOIN order_details ON orders.order_id=order_details.order_id WHERE
+     orders.order_date<DATE_ADD(CURDATE(),INTERVAL 2 DAY) AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY) 
+     AND order_details.farmer_id='".$fid."'";
+    $result=$this->connection->query($sql);
+    $arr=array();
+    if($result){
+     while($row=mysqli_fetch_assoc($result))
+     array_push($arr,$row);
+    return $arr;
+     }else
+     echo "error";
+  }
 
     function changeorder_status($orderid,$status){
       return $this->update('orders',array('status'=>$status),array('order_id'=>$orderid));
@@ -298,5 +311,11 @@ class orderModel extends db_model{
     function getstatus($order_id){
       return $this->join2tables(array('status.description'),'orders','status','orders.status=status.status_id',array('orders.order_id'=>$order_id));
     }
+
+    function getnewid(){
+      return $this->queryfromsql("select MAX(order_id)+1 AS next_id FROM orders");
+    }
+
+
     
 }

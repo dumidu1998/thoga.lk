@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2021 at 06:55 AM
+-- Generation Time: Jul 30, 2021 at 05:31 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -44,13 +44,10 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `user_id`, `address_line1`, `address_line2`, `city`, `district`, `province`, `zip_code`) VALUES
-(1, 1, 'No. 12', 'Main Street', 22, 1, 8, 50000),
 (2, 2, 'No ,1', 'Reid Avenue', 1841, 5, 1, 10000),
-(4, 4, 'No.12', 'Parana Rd', 21, 1, 8, 10000),
-(5, 5, 'No. 12', 'Amala Rd', 6, 1, 4, 10000),
-(6, 6, 'No 12', 'Abala Mw', 5, 1, 5, 1231),
-(7, 7, 'No 1/5', 'Gallella Road', 6, 1, 5, 45010),
-(8, 8, 'No 1/5', 'Gella Road', 199, 3, 5, 45000);
+(4, 4, 'No.12', 'Parana Rd', 1841, 5, 1, 10000),
+(7, 7, 'No 1/5', 'Gallella Road', 1841, 5, 1, 45010),
+(8, 8, 'No 1/5', 'Gella Road', 1032, 11, 2, 45000);
 
 -- --------------------------------------------------------
 
@@ -71,7 +68,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `user_name`, `password`, `name`, `tel_no`) VALUES
-(1, 'ucsc', 'd32934b31349d77e70957e057b1bcd28', 'Dumidu', '0766358125');
+(1, 'ucsc', 'd32934b31349d77e70957e057b1bcd28', 'Dumidu', '0766358125'),
+(3, 'dumidu', 'd32934b31349d77e70957e057b1bcd28', 'dumidu', '0766344989');
 
 -- --------------------------------------------------------
 
@@ -80,11 +78,11 @@ INSERT INTO `admin` (`admin_id`, `user_name`, `password`, `name`, `tel_no`) VALU
 --
 
 CREATE TABLE `advertisement` (
-  `ad_id` int(11) NOT NULL,
+  `ad_id` int(10) NOT NULL,
   `ad_caption` varchar(100) NOT NULL,
   `company` varchar(20) NOT NULL,
   `position` varchar(50) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -92,9 +90,9 @@ CREATE TABLE `advertisement` (
 --
 
 INSERT INTO `advertisement` (`ad_id`, `ad_caption`, `company`, `position`, `status`) VALUES
-(1, 'Insects Killer', 'Baurs LTD', 'Horizontal', '1'),
-(2, 'Ad-Crofix', 'DAWN', 'Horizontal', '1'),
-(3, 'Leasing Ad', 'CDB Leasing', 'Horizontal', '1');
+(1, 'Insects Killer', 'Baurs LTD', 'Vertical', 0),
+(2, 'Ad-Crofix', 'DAWN', 'Vertical', 1),
+(3, 'Leasing Ad', 'CDB Leasing', 'Horizontal', 1);
 
 -- --------------------------------------------------------
 
@@ -114,8 +112,7 @@ CREATE TABLE `buyer` (
 --
 
 INSERT INTO `buyer` (`buyer_id`, `user_id`, `br_no`, `b_name`) VALUES
-(1, 1, 'manthi vegi', '0098260182'),
-(2, 2, 'ucsc', '123ucsc123');
+(2, 2, '17853642', 'ucsc');
 
 -- --------------------------------------------------------
 
@@ -2048,17 +2045,16 @@ CREATE TABLE `driver` (
   `user_id` int(11) NOT NULL,
   `current_location` varchar(50) NOT NULL,
   `license_no` varchar(10) NOT NULL,
-  `verified_state` varchar(20) NOT NULL
+  `verified_state` varchar(20) NOT NULL,
+  `reject_reason` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`driver_id`, `user_id`, `current_location`, `license_no`, `verified_state`) VALUES
-(1, 5, '0', '458712569', '0'),
-(2, 6, '0', '23123123', '0'),
-(3, 7, '0', '1242123', '0');
+INSERT INTO `driver` (`driver_id`, `user_id`, `current_location`, `license_no`, `verified_state`, `reject_reason`) VALUES
+(3, 7, '0', '1242123', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -2071,7 +2067,7 @@ CREATE TABLE `farmer` (
   `user_id` int(100) NOT NULL,
   `farmer's_idNo` int(11) NOT NULL,
   `farm_name` varchar(20) NOT NULL,
-  `mentor_id` int(11) NOT NULL COMMENT '-1 -> no mentor, 0 - requested, 1+ - mentor id'
+  `mentor_id` int(11) NOT NULL COMMENT '-2 -> snoozed -1 -> no mentor, 0 - requested, 1+ - mentor id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -2079,7 +2075,7 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`farmer_id`, `user_id`, `farmer's_idNo`, `farm_name`, `mentor_id`) VALUES
-(2, 4, 123123, 'QW123', 0);
+(2, 4, 123123, 'QW123', 1);
 
 -- --------------------------------------------------------
 
@@ -2119,10 +2115,7 @@ CREATE TABLE `forum_post` (
 --
 
 INSERT INTO `forum_post` (`post_id`, `user_id`, `title`, `description`, `tags`, `date/time`, `views`, `category`, `vote`) VALUES
-(1, 1, 'My carrot plants are attactd  by insects', 'My carrot plants are attactd  by insects and eating all the leaves of it. Plant is nnot growing well because of it.', NULL, '2020-11-11 20:35:52', NULL, 'buyer', '1'),
-(2, 1, 'Seeds are small', 'Seeds of my mangoes are small. Wht can I do?', NULL, '2020-11-11 20:35:57', NULL, 'buyer', '0'),
-(3, 1, 'i have a problem with crops', 'there are some insects harming my food', NULL, '2020-11-11 20:37:59', NULL, 'buyer', '0'),
-(5, 2, 'My mango tree is dying', 'My mango tree leaves getting pale and it is going to die. What can I do?', NULL, '2020-11-19 11:03:17', NULL, 'buyer', '0');
+(5, 2, 'My tomato plants are damaged by insects', 'My Problem is that I have an insect that eats the leaves of my tomato plant. It is a small insect difficult to see using the eye. \r\n                    Can someone help me to get rid of that insect. <br>\r\n                    Thank you.', NULL, '2020-11-19 11:03:17', NULL, 'buyer', '2');
 
 -- --------------------------------------------------------
 
@@ -2134,7 +2127,7 @@ CREATE TABLE `forum_replies` (
   `reply_id` int(11) NOT NULL,
   `user_id` int(10) NOT NULL,
   `reply` varchar(500) NOT NULL,
-  `date_time` datetime NOT NULL,
+  `date_time` datetime NOT NULL DEFAULT current_timestamp(),
   `vote` varchar(20) NOT NULL,
   `post_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2149,6 +2142,7 @@ CREATE TABLE `item` (
   `item_id` int(11) NOT NULL,
   `Item_type` varchar(20) NOT NULL,
   `veg_Id` int(11) NOT NULL,
+  `other_name` varchar(50) NOT NULL,
   `item_des` varchar(200) DEFAULT NULL,
   `min_weight` varchar(20) NOT NULL,
   `avail_weight` varchar(20) NOT NULL,
@@ -2158,20 +2152,6 @@ CREATE TABLE `item` (
   `farmer_Id` int(11) NOT NULL,
   `mentor_Id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `item`
---
-
-INSERT INTO `item` (`item_id`, `Item_type`, `veg_Id`, `item_des`, `min_weight`, `avail_weight`, `item_start`, `item_end`, `total_cost`, `farmer_Id`, `mentor_Id`) VALUES
-(3, 'org', 3, NULL, '100', '1000', '2020-10-08', '2020-11-20', '29', 2, 1),
-(4, 'org', 6, 'This is fresh vegetables from anuradhapura.', '100', '1000', '2020-10-08', '2020-11-20', '29', 2, 1),
-(5, 'org', 2, NULL, '100', '1000', '2020-10-08', '2020-11-20', '29', 2, 1),
-(9, 'organic', 8, '', '10', '100', '2020-11-19', '2020-11-30', '50', 2, NULL),
-(10, 'organic', 6, '', '10', '100', '2020-11-27', '2020-12-02', '50', 2, NULL),
-(11, 'organic', 8, '', '10', '100', '2020-12-04', '2020-12-12', '50', 2, NULL),
-(12, 'organic', 8, '', '10', '100', '2020-11-20', '2020-11-27', '50', 2, NULL),
-(13, 'organic', 6, '', '10', '500', '2020-11-20', '2020-11-26', '50', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -2185,15 +2165,17 @@ CREATE TABLE `mentor` (
   `why` text NOT NULL,
   `Skills` text NOT NULL,
   `verified_state` varchar(20) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp()
+  `reject_reason` varchar(100) DEFAULT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `farmer_count` int(100) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mentor`
 --
 
-INSERT INTO `mentor` (`mentor_id`, `user_id`, `why`, `Skills`, `verified_state`, `date`) VALUES
-(1, 8, 'I have good skills needed for be a mentor', 'Good', '0', '2021-01-20');
+INSERT INTO `mentor` (`mentor_id`, `user_id`, `why`, `Skills`, `verified_state`, `reject_reason`, `date`, `farmer_count`) VALUES
+(1, 8, 'I have good skills needed for be a mentor', 'Good', '1', NULL, '2021-01-20', 4);
 
 -- --------------------------------------------------------
 
@@ -2220,24 +2202,15 @@ CREATE TABLE `orders` (
   `pickup_date` date NOT NULL,
   `d_addline1` varchar(100) NOT NULL,
   `d_addline2` varchar(100) NOT NULL,
-  `city` int(10) NOT NULL,
-  `district` int(10) NOT NULL,
-  `province` int(10) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `district` varchar(50) NOT NULL,
+  `province` varchar(50) NOT NULL,
   `contact1` varchar(50) NOT NULL,
   `contact2` varchar(50) NOT NULL,
   `buyer_id` int(11) NOT NULL,
   `driver_id` int(11) DEFAULT NULL,
   `status` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `weight`, `total_cost`, `order_date`, `pickup_date`, `d_addline1`, `d_addline2`, `city`, `district`, `province`, `contact1`, `contact2`, `buyer_id`, `driver_id`, `status`) VALUES
-(1, 100, 12345, '2020-10-31 18:30:00', '2020-11-17', '', '', 1, 1, 1, '', '', 2, 2, 1),
-(2, 2333, 194, '2020-11-17 08:40:28', '2020-11-18', '', '', 1, 1, 1, '', '', 1, 1, 2),
-(3, 200, 1114, '2020-11-18 09:55:50', '2020-11-19', '', '', 1, 1, 1, '', '', 2, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -2253,18 +2226,40 @@ CREATE TABLE `order_details` (
   `order_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `order_details`
+-- Table structure for table `otp`
 --
 
-INSERT INTO `order_details` (`details_id`, `farmer_id`, `item_id`, `weight`, `order_id`) VALUES
-(1, 2, 3, 4, 1),
-(2, 2, 3, 5, 1),
-(3, 2, 4, 3, 2),
-(4, 2, 5, 4, 2),
-(5, 2, 4, 3, 3),
-(6, 2, 3, 11, 3),
-(7, 2, 3, 50, 3);
+CREATE TABLE `otp` (
+  `token` varchar(100) NOT NULL,
+  `otp` varchar(5) NOT NULL,
+  `phone` varchar(200) NOT NULL,
+  `timeStamp` varchar(200) NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `otp`
+--
+
+INSERT INTO `otp` (`token`, `otp`, `phone`, `timeStamp`) VALUES
+('2XML54W67S', '6840', '94764229830', '2021-04-01 04:32:58'),
+('32L5J8AMQ1', '8397', '94764229830', '2021-03-31 20:08:29'),
+('5QDHZFUMPR', '5014', '94764229830', '2021-03-31 11:19:55'),
+('6H0NMEV2TX', '9387', '94764229830', '2021-03-31 20:25:55'),
+('BSFACGXM6Y', '7514', '94764229830', '2021-03-31 12:23:02'),
+('C03QA6FE1N', '1462', '94764229830', '2021-03-31 11:22:04'),
+('IS1EVNTDQJ', '6458', '94764229830', '2021-04-01 15:03:32'),
+('NHMI9RV2O6', '8947', '94764229830', '2021-04-01 08:26:08'),
+('NTDM0WQ8AF', '9786', '94764229830', '2021-03-31 11:24:54'),
+('OLZERABQI0', '5814', '94764229830', '2021-04-01 08:23:45'),
+('PAIV4Q63Y8', '2038', '94764229830', '2021-04-01 14:37:31'),
+('QB534IMUE9', '9246', '94764229830', '2021-05-19 18:08:11'),
+('QZNAFTS51U', '8910', '94764229830', '2021-04-01 04:32:28'),
+('W8A4M0GZUX', '2370', '94764229830', '2021-05-27 12:33:34'),
+('Y1QSBPC94T', '7386', '94764229830', '2021-05-27 12:32:03'),
+('YXB4OJLGC9', '7142', '94764229830', '2021-03-31 18:50:35');
 
 -- --------------------------------------------------------
 
@@ -2334,18 +2329,17 @@ CREATE TABLE `unavailable_dates` (
 --
 
 INSERT INTO `unavailable_dates` (`date_id`, `driver_id`, `startdate`, `enddate`) VALUES
-(1, 1, '2020-11-17', '2020-11-17'),
-(3, 1, '2020-11-20', '2020-11-20'),
-(4, 1, '2020-11-24', '2020-11-24'),
-(5, 1, '2020-11-27', '2020-11-28'),
-(6, 1, '2020-11-30', '2020-12-01'),
-(7, 1, '2020-12-02', '2020-12-02'),
-(8, 1, '2020-12-04', '2020-12-04'),
-(9, 1, '2020-12-10', '2020-12-11'),
-(10, 1, '2020-12-18', '2020-12-18'),
-(11, 1, '2020-12-16', '2020-11-16'),
-(37, 1, '2020-12-05', '2020-12-05'),
-(45, 1, '2020-12-09', '2020-12-09');
+(75, 3, '2021-03-26', '2021-03-26'),
+(83, 3, '2021-04-14', '2021-04-14'),
+(84, 3, '2021-04-24', '2021-04-24'),
+(85, 3, '2021-04-08', '2021-04-08'),
+(86, 3, '2021-04-13', '2021-04-13'),
+(88, 3, '2021-04-15', '2021-04-18'),
+(92, 3, '2021-06-16', '2021-06-16'),
+(94, 3, '2021-06-15', '2021-06-15'),
+(97, 3, '2021-06-18', '2021-06-18'),
+(98, 3, '2021-06-19', '2021-06-19'),
+(99, 3, '2021-06-12', '2021-06-12');
 
 -- --------------------------------------------------------
 
@@ -2379,13 +2373,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `username`, `password`, `NIC`, `email`, `contactno1`, `contactno2`, `dob`, `gender`, `cancel_count`, `hometown`, `nearestcity1`, `nearestcity2`, `GPS_Logitude`, `GPS_latitude`, `usertype_id`) VALUES
-(1, 'Manthila', 'Bandara', 'manthila', '591911fb634a9e044813198b701aca55', '985790182V', 'manthilab@gmail.com', '0766344989', '0715591197', '2008-12-09', 'male', 0, 44, 112, 1297, '0', '0', 1),
-(2, 'ucsc', 'Buyer', 'ucsc_b', 'd32934b31349d77e70957e057b1bcd28', '985790122V', 'ucsc@ucsc.com', '0766399452', '0715698452', '2008-12-19', 'male', 0, 1841, 4, 5, '0', '0', 1),
-(4, 'ucsc', 'Farmer', 'ucsc_f', 'd32934b31349d77e70957e057b1bcd28', '982791182v', 'farmer2@gmail.com', '0766322249', '0761331989', '2008-12-26', 'male', 0, 44, 2, 4, '0', '0', 2),
-(5, 'Dumidu', 'Kasunn', 'Kasun', 'c4434ec1f349c3b6a902cc30345473d6', '982142075V', 'Amala@gmail.com', '0715191563', '0761325381', '2008-12-11', 'male', 0, 6, 5, 6, '0', '0', 3),
-(6, 'Anuradha', 'Kumara', 'kumara', '50c86ebf006738ff7aef7da5bf5f92d2', '982141075V', 'N@gmail.com', '0715591563', '0761325381', '2008-12-18', 'male', 0, 5, 3, 3, '0', '0', 3),
-(7, 'ucsc', 'Driver', 'ucsc_d', 'd32934b31349d77e70957e057b1bcd28', '982141075V', 'kumaraa@gmail.com', '0715597563', '0761325381', '2008-12-10', 'male', 0, 6, 5, 6, '0', '0', 3),
-(8, 'ucsc', 'mentor', 'ucsc_m', 'd32934b31349d77e70957e057b1bcd28', '595817545V', 'kumara@gmail.com', '0715478165', '0713198458', '2002-12-19', 'male', 0, 3, 5, 7, '0', '0', 4);
+(2, 'ucsc', 'Buyer', 'ucsc_b', 'd32934b31349d77e70957e057b1bcd28', '985790122V', 'ucsc@ucsc.com', '0764229830', '0715698452', '2008-12-19', 'male', 0, 1841, 381, 331, '0', '0', 1),
+(4, 'ucsc', 'Farmer', 'ucsc_f', 'd32934b31349d77e70957e057b1bcd28', '982791182v', 'farmer2@gmail.com', '0766322241', '0761331989', '2008-12-26', 'male', 0, 1841, 381, 331, '0', '0', 2),
+(7, 'ucsc', 'Driver', 'ucsc_d', 'd32934b31349d77e70957e057b1bcd28', '982141075V', 'kumaraa@gmail.com', '0715597565', '0761325381', '2008-12-10', 'male', 0, 1841, 381, 331, '0', '0', 3),
+(8, 'ucsc', 'mentor', 'ucsc_m', 'd32934b31349d77e70957e057b1bcd28', '595817545V', 'kumara@gmail.com', '0715478166', '0713198458', '2002-12-19', 'male', 0, 1841, 381, 331, '0', '0', 4);
 
 -- --------------------------------------------------------
 
@@ -2406,7 +2397,8 @@ INSERT INTO `usertype` (`type_id`, `user_type`) VALUES
 (1, 'buyer'),
 (2, 'farmer'),
 (3, 'driver'),
-(4, 'mentor');
+(4, 'mentor'),
+(100, 'blocked');
 
 -- --------------------------------------------------------
 
@@ -2427,12 +2419,12 @@ CREATE TABLE `vegetable` (
 --
 
 INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`, `current_price`, `prev_price`) VALUES
-(1, 'Tomato', 'tomato.png', 150, 0),
-(2, 'Potato', 'potato.png', 120, 0),
-(3, 'Beans', 'beans.png', 80, 0),
+(1, 'Tomato', 'tomato.png', 150, 1),
+(2, 'Potato', 'potato.png', 112.5, 110),
+(3, 'Beans', 'beans.png', 152.5, 150),
 (4, 'BitterGourd', 'bittergourd.png', 125, 0),
 (5, 'Brinjal', 'brinjal.png', 60, 0),
-(6, 'Carrot', 'carrot.png', 120, 0),
+(6, 'Carrot', 'carrot.png', 122, 120),
 (7, 'ChickenPeas', 'chickenpeas.png', 110, 0),
 (8, 'Cucumber', 'cucumber.png', 75, 0),
 (9, 'Garlic', 'garlic.png', 60, 0),
@@ -2448,11 +2440,12 @@ INSERT INTO `vegetable` (`vege_id`, `vege_name`, `image`, `current_price`, `prev
 (19, 'Capsicum', 'capsicum.png', 156, 0),
 (20, 'CauliFlower', 'cauliflower.png', 182, 0),
 (21, 'Coriander', 'coriander.png', 165, 0),
-(22, 'DrumStick', 'drumstick.png', 210, 0),
+(22, 'DrumStick', 'drumstick.png', 200.5, 204),
 (23, 'Ginger', 'ginger.png', 380, 0),
 (24, 'LadysFinger', 'ladysfinger.png', 180, 0),
-(25, 'Methi', 'methi.png', 852, 0),
-(26, 'Spinach', 'spinach.png', 170, 0);
+(25, 'Methi', 'methi.png', 858, 852),
+(26, 'Spinach', 'spinach.png', 180, 170),
+(100, 'Other', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2467,17 +2460,53 @@ CREATE TABLE `vehicles` (
   `cost_km` varchar(20) NOT NULL,
   `vehicle_type` varchar(20) NOT NULL,
   `maximum_weight` varchar(20) NOT NULL,
-  `availability` tinyint(1) DEFAULT NULL
+  `availability` tinyint(1) DEFAULT NULL,
+  `verified_state` tinyint(1) NOT NULL COMMENT ' 0 - unverified, 1- verified',
+  `reject_reason` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `vehicles`
 --
 
-INSERT INTO `vehicles` (`vehicle_id`, `driver_id`, `vehicle_no`, `cost_km`, `vehicle_type`, `maximum_weight`, `availability`) VALUES
-(1, 1, 'PD 1122', '60', 'lorry', '1000', 1),
-(2, 1, 'PL 5256', '80', 'lorry', '1000', 1),
-(3, 3, 'PI 1122', '60', 'lorry', '1000', 0);
+INSERT INTO `vehicles` (`vehicle_id`, `driver_id`, `vehicle_no`, `cost_km`, `vehicle_type`, `maximum_weight`, `availability`, `verified_state`, `reject_reason`) VALUES
+(3, 3, 'PI 1122', '90.00', 'lorry', '1000', 1, 1, NULL),
+(12, 3, 'PD 0438 ', '70.00', 'Lorry', '1000', 1, 1, NULL),
+(15, 3, 'NW L_1298', '60.00', 'Lorry', '1500', 0, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle_type`
+--
+
+CREATE TABLE `vehicle_type` (
+  `type_id` int(10) NOT NULL,
+  `vehicletype` varchar(255) NOT NULL,
+  `cost` int(10) NOT NULL,
+  `maxweight` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `vehicle_type`
+--
+
+INSERT INTO `vehicle_type` (`type_id`, `vehicletype`, `cost`, `maxweight`) VALUES
+(1, 'Dimo Batta', 50, 750),
+(2, 'Dimo Lokka', 60, 1200),
+(3, 'Tata Lorry', 120, 4000),
+(4, 'Isuzu Lorry', 75, 3150),
+(5, 'Mahindra Bolero', 60, 1800),
+(6, 'Daihutsu hijet truck', 55, 750),
+(7, 'Nissan UD truck', 70, 1500),
+(8, 'Changan buddy truck', 55, 750),
+(9, 'Mahindra maxi truck', 60, 1500),
+(10, 'Nissan freezer truck', 80, 2300),
+(11, 'Mazda dump truck', 70, 2000),
+(12, 'Mitsubishi mini truck', 50, 700),
+(13, 'Suzuki mini truck', 50, 500),
+(14, 'Nissan atlas lorry', 80, 3000),
+(15, 'Isuzu elf truck', 70, 1800);
 
 --
 -- Indexes for dumped tables
@@ -2604,6 +2633,12 @@ ALTER TABLE `order_details`
   ADD KEY `order_id` (`order_id`);
 
 --
+-- Indexes for table `otp`
+--
+ALTER TABLE `otp`
+  ADD PRIMARY KEY (`token`);
+
+--
 -- Indexes for table `provinces`
 --
 ALTER TABLE `provinces`
@@ -2652,6 +2687,12 @@ ALTER TABLE `vehicles`
   ADD KEY `driver_id` (`driver_id`);
 
 --
+-- Indexes for table `vehicle_type`
+--
+ALTER TABLE `vehicle_type`
+  ADD PRIMARY KEY (`type_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -2659,25 +2700,19 @@ ALTER TABLE `vehicles`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `address_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `advertisement`
---
-ALTER TABLE `advertisement`
-  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1032;
 
 --
 -- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `buyer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `buyer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -2695,37 +2730,43 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `farmer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `farmer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `forum_post`
 --
 ALTER TABLE `forum_post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `forum_replies`
+--
+ALTER TABLE `forum_replies`
+  MODIFY `reply_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `mentor`
 --
 ALTER TABLE `mentor`
-  MODIFY `mentor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mentor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -2737,13 +2778,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `details_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `details_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -2761,31 +2802,37 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `unavailable_dates`
 --
 ALTER TABLE `unavailable_dates`
-  MODIFY `date_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `date_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `usertype`
 --
 ALTER TABLE `usertype`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `vegetable`
 --
 ALTER TABLE `vegetable`
-  MODIFY `vege_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `vege_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `vehicles`
 --
 ALTER TABLE `vehicles`
-  MODIFY `vehicle_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `vehicle_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `vehicle_type`
+--
+ALTER TABLE `vehicle_type`
+  MODIFY `type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
@@ -2795,7 +2842,7 @@ ALTER TABLE `vehicles`
 -- Constraints for table `address`
 --
 ALTER TABLE `address`
-  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `address_ibfk_2` FOREIGN KEY (`district`) REFERENCES `districts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `address_ibfk_3` FOREIGN KEY (`province`) REFERENCES `provinces` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `address_ibfk_4` FOREIGN KEY (`city`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -2871,9 +2918,6 @@ ALTER TABLE `mentor`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`buyer_id`) REFERENCES `buyer` (`buyer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`city`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_4` FOREIGN KEY (`district`) REFERENCES `districts` (`id`),
-  ADD CONSTRAINT `orders_ibfk_5` FOREIGN KEY (`province`) REFERENCES `provinces` (`id`),
   ADD CONSTRAINT `orders_ibfk_6` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

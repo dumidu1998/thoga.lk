@@ -8,6 +8,7 @@ require_once(__DIR__.'/../models/mentorModel.php');
 require_once(__DIR__.'/../models/farmerModel.php');
 require_once(__DIR__.'/../models/orderModel.php');
 require_once(__DIR__.'/../models/vehicleModel.php');
+require_once(__DIR__.'/../models/item.php');
 require_once(__DIR__.'/../models/userModel.php');
 require_once(__DIR__.'/../models/forumModel.php');
 
@@ -22,6 +23,7 @@ class AdminController {
         $this->farmers = new farmerModel();
         $this->orders = new orderModel();
         $this->vehicles = new vehicleModel();
+        $this->item = new item();
         $this->users = new userModel();
         $this->forum = new forumModel();
     }
@@ -216,11 +218,13 @@ class AdminController {
         $mentor_id=$_POST['mentor_id'];
         if(isset($_POST['rejected'])&&isset($_POST['reason'])){
             $output=$this->mentors->reject($mentor_id,$_POST['reason']);
+            $this->sendmsg("0766344989","Your application has been rejected. Reason: ".$_POST['reason']);
             header("location: ../admin?acceptm=0");
             
         }
         if(isset($_POST['accpted'])){
             $output=$this->mentors->accept($mentor_id);
+            $this->sendmsg("0766344989","Your application has been accepted.Plase login with your credetials!");
             header("location: ../admin?acceptd=1");
 
         }
@@ -402,6 +406,88 @@ class AdminController {
             $this->vehicles->reject($_POST['vid'],$_POST['reason']);
             echo "rejected";
             header("location: ../admin?acceptd=0");
+        }
+    }
+
+    public function activeitems(){
+        $others= $this->vegetables->get_other();
+        $all= $this->vegetables->get_all_vege();
+        $veg= $this->vegetables->get_all_vegetables();
+        
+        $view = new View("admin/activeItems");
+        $view->assign('other', $others);
+        $view->assign('all', $all);
+        $view->assign('veg', $veg);
+        
+    }
+    
+    
+    public function edititem(){
+        $itemid=$_POST['itemid'];
+        $vegid=$_POST['vegeid'];
+        $this->vegetables->update_category($vegid,$itemid);
+        header("location: activeitems?done=1");
+    }
+
+    public function delete_item(){
+        $itemid=$_GET['itemid'];
+        $this->item->delete_item($itemid);
+        header("location: activeitems?done=1");
+    }
+
+    public function sendotp(){
+        // $mobilenumber=$mobilenumber[0]['contactno1'];
+        $mobilenumber=$_GET['contact1'];
+        $MSG = $_GET['msg'];
+        $mobilenumber= '94'.substr($mobilenumber,1);
+        $smsText= $MSG . " \nThoga.lk";
+        $text = urlencode($smsText);
+        $to = $mobilenumber;
+        $user = "94764229830";
+        $password = "2055";
+        $baseurl = "http://www.textit.biz/sendmsg";
+        $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+        $ret = file($url);
+        $res = explode(":", $ret[0]);
+        print_r($res);
+        // print_r ($res);
+        if (trim($res[0]) == "OK") {
+            echo "Message Sent";
+            return 1;
+        } else {
+            header("HTTP/1.1 400 Bad Request");
+            http_response_code(400);
+            $message = '{"message": "Failed to send OTP"}';
+            echo stripslashes(json_encode($message));
+            return 0;
+        }
+    }
+
+    public function sendmsg($mobilenumber,$MSG){
+        // $mobilenumber=$mobilenumber[0]['contactno1'];
+        // $mobilenumber=$_GET['contact1'];
+        // $MSG = $_GET['msg'];
+        $mobilenumber= '94'.substr($mobilenumber,1);
+        $smsText= $MSG . " \nThoga.lk";
+        $text = urlencode($smsText);
+        $to = $mobilenumber;
+        $user = "94764229830";
+        $password = "2055";
+        $baseurl = "http://www.textit.biz/sendmsg";
+        $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+        $ret = file($url);
+        $res = explode(":", $ret[0]);
+        print_r($res);
+        // print_r ($res);
+        if (trim($res[0]) == "OK") {
+            echo "Message Sent";
+            return 1;
+        } else {
+            header("HTTP/1.1 400 Bad Request");
+            http_response_code(400);
+            $message = '{"message": "Failed to send OTP"}';
+            echo stripslashes(json_encode($message));
+            return 0;
         }
     }
 

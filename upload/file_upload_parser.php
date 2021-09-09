@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$connection = new mysqli('db.learnia.xyz', 'root', 'chata', 'thoga.lk');
+// $connection = new mysqli('db.learnia.xyz', 'root', 'chata', 'thoga.lk');
+$connection = new mysqli('localhost', 'root', '', 'thoga.lk');
 $sql = "SELECT MAX(driver_id) AS maxid FROM driver";
 $result=$connection->query($sql);
 $row=mysqli_fetch_assoc($result);

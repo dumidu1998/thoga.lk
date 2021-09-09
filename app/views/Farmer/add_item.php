@@ -20,13 +20,14 @@
 
 <div class="container">
   <form action="insert_item" method="post">
+  <!-- <form action="" method="get"> -->
 
     <div class="row">
       <div class="left">
         <label for="iname">Item Name</label>
       </div>
       <div class="right">
-        <select class="textt" id="itemname" name="itemname"  required >
+        <select class="textt" id="itemname" name="itemname" onchange="getvege()"  required >
           <option>-------- Select Vegetables --------- </option>
           <?php
           foreach($records as $key =>$values)
@@ -45,12 +46,20 @@
     </div>
     
 
-    <div class="row">
+    <div class="row" id="otherdiv" style="display: none">
+      <div class="left">
+        <label for="other">Other Vegetable Type</label>
+      </div>
+      <div class="right">
+        <input type="text" id="other" name="othertype" >
+      </div>
+    </div>
+    <div class="row" >
       <div class="left">
         <label for="aw">Available Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="avaiweight" name="avaiweight" required>
+        <input type="number" id="avaiweight" min="1" name="avaiweight" onchange="setmax()" required>
       </div>
     </div>
     <div class="row">
@@ -58,34 +67,24 @@
         <label for="mw">Minimum Weight (kg)</label>
       </div>
       <div class="right">
-        <input type="number" id="minweight" name="minweight" required>
+        <input type="number" id="minweight" min="1"  name="minweight" required>
       </div>
     </div>
 
 <div>
-    <div class="price_d">
     <div class="row">
       <div class="left">
-        <label for="price">Price (Rs)</label>
+        <label for="price">Price Per kg (Rs)</label>
       </div>
       <div class="right">
-        <input type="text" id="price" name="price" required>
+        <input type="number" id="price" min="10" name="price" required>
       </div>
-    </div>
+
+        </div>
+        
+        <div style="color:gray;display:none;" id="Pricedisplay">Thoga.lk Market Price is Rs. <span id="pricedisplayprice"></span></div>
 
     
-    </div>
-        </div>
-
-    <div class="date">
-      <div class="row">
-        <div class="left">
-          <label for="sdate">Starting Date</label>
-        </div>
-        <div class="right">
-          <input type="date" id="startdate" name="startdate" required>
-        </div>
-      </div>
 
 
       <div class="row">
@@ -148,12 +147,49 @@ var yyyy = today.getFullYear();
 
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("enddate").setAttribute("min", today);
-document.getElementById("startdate").setAttribute("min", today);
+// document.getElementById("startdate").setAttribute("min", today);
   
 
+function getvege(){
+  var item=document.getElementById('itemname');
+  if(item.value==="100"){
+    document.getElementById('otherdiv').style.display="";
+    document.getElementById('otherdiv').required=true;
+    hideprice();
+  }else{
+    document.getElementById('otherdiv').style.display="none";
+    showprice();
+  }
+
+  
+}
+
+function hideprice(){
+  var price=document.getElementById('Pricedisplay');
+  price.style.display="none";
+}
+
+function showprice(){
+  var price=document.getElementById('Pricedisplay');
+  var item=document.getElementById('itemname');
+
+  price.style.display="";
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById('pricedisplayprice').innerHTML=parseFloat(this.responseText).toFixed(2);
+      
+				}
+			};
+			xhttp.open("GET", "/thoga.lk/farmer/getthogarprice?vegid="+item.value, true);
+			xhttp.send();
 
 
+}
 
+function setmax(){
+  document.getElementById('minweight').max= document.getElementById('avaiweight').value;
+}
 
 </script>
 

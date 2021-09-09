@@ -71,9 +71,7 @@ class mentorController{
     
 
     public function insert_items(){
-
         session_start();
-
         foreach($_SESSION['user'] as $keys => $values){
             $id = $values['user_id'] ;
             $res = $this->mModel->read_id($id);
@@ -89,14 +87,22 @@ class mentorController{
             $avaiweight = $_POST['avaiweight'];
             $minweight = $_POST['minweight'];
             $price = $_POST['price'];
-            $startdate = $_POST['startdate'];
             $enddate = $_POST['enddate'];
             $itemtype = $_POST['itemtype'];
             $farmername = $_POST['farmername'];
             $ides = $_POST['ides'];
 
-            $this->imodel->insert_databymentor($itemname,$avaiweight,$minweight,$price,$startdate,$enddate,$itemtype,$farmername,$ides,$m_id);
-            header("location: /thoga.lk/mentor/insert_sucess");
+            if($itemname!=="100"){
+                $this->imodel->insert_databymentor($itemname,$avaiweight,$minweight,
+                $price,$enddate,$itemtype,$farmername,$ides,$m_id);
+                header("location: /thoga.lk/mentor/insert_sucess");
+            }else{
+                $othername=$_POST['othertype'];
+                $this->imodel->insert_otherdatabymentor($itemname,$avaiweight,$minweight,
+                $price,$enddate,$itemtype,$farmername,$ides,$m_id,$othername);
+                header("location: /thoga.lk/mentor/insert_sucess");
+            }
+
         }
 
         
@@ -242,7 +248,7 @@ class mentorController{
             $ordstatus=$this->oModel->getstatus($order_id);
         }
         $result = $this->oModel->get_order_details($order_id);
-        $view = new View("Farmer/view_more");
+        $view = new View("mentor/view_more");
         $view->assign('order_id',$order_id);
         $view->assign('view',$result);
         $view->assign('res',$res);

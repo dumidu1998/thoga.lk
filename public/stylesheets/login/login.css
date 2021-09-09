@@ -2,6 +2,11 @@ body{
     margin: 0%;
     background-color: rgba(187, 187, 187, 0.404);
 }
+
+.loginbody{
+  overflow: hidden;
+}
+
 .mySlides {
 display: none;
 margin-top: 0%;
@@ -164,3 +169,4 @@ h4{
   color: white !important;
   height: 20px;
 }
+

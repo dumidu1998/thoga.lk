@@ -30,13 +30,14 @@ class mentorModel extends db_model{
 	}
 	
 	public function getallmentorsindistrict($id){
-		$sql="SELECT mentor.*,user.*,address.*,cities.name_en as city FROM mentor INNER JOIN user ON mentor.user_id=user.user_id 
-		INNER JOIN address ON address.user_id=user.user_id INNER JOIN cities ON address.city=cities.id WHERE address.district=".$id;
+		$sql="SELECT mentor.*,user.*,address.*, districts.name_en as city FROM mentor INNER JOIN user ON mentor.user_id=user.user_id 
+		INNER JOIN address ON address.user_id=user.user_id INNER JOIN cities ON address.city=cities.id INNER JOIN districts ON 
+		districts.id=address.district  WHERE address.district=".$id;
 		return $this->queryfromsql($sql);
 	}
     
 	public function rejectassignmentor($mid,$fid){
-		return $this->update('farmer',array('mentor_id'=>'-1'),array('farmer_id'=>$fid));
+		return $this->update('farmer',array('mentor_id'=>'-2'),array('farmer_id'=>$fid));
 	}
 
 	public function assignmentor($mid,$fid){
@@ -81,9 +82,9 @@ class mentorModel extends db_model{
 		else echo "error";
 	  }
 
-	  function get($id){
+	public function get($id){
 		return $this->read('mentor', array('mentor_id'), array('user_id'=>$id));
- }
+	}
  public function join_get($mentorid){
 	$sql = "SELECT *,user.firstname,user.lastname from farmer INNER join mentor on farmer.mentor_id=mentor.mentor_id inner join user on farmer.user_id=user.user_id WHERE mentor.mentor_id = '".$mentorid."'  ";
 	$result=$this->connection->query($sql);

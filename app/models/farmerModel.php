@@ -9,9 +9,9 @@ class farmerModel extends db_model{
     }
 
     function get_mentor_requests(){
-      $sql = "SELECT farmer.farmer_id ,user.firstname,user.lastname, districts.name_en AS district, cities.name_en AS city FROM farmer INNER JOIN user ON 
+      $sql = "SELECT farmer.farmer_id, farmer.mentor_id, user.firstname, user.lastname, districts.name_en AS district, cities.name_en AS city FROM farmer INNER JOIN user ON 
       farmer.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON
-      address.district=districts.id INNER JOIN cities ON address.city=cities.id where farmer.mentor_id=0";
+      address.district=districts.id INNER JOIN cities ON address.city=cities.id where farmer.mentor_id=0 OR farmer.mentor_id=-2";
       $result=$this->connection->query($sql);
       $finale=array();
       if($result){
@@ -134,6 +134,14 @@ public function requestmentor($id){
 public function removementor($id){
   return $this->update('farmer', array('mentor_id'=>'-1'), array('farmer_id'=>$id));
 
+}
+
+function getdataforpie($fid){
+  $sql = "SELECT vegetable.vege_name AS name, SUM(order_details.weight) AS total FROM order_details INNER JOIN orders 
+  ON orders.order_id=order_details.order_id INNER JOIN item on order_details.item_id=item.item_id INNER JOIN vegetable 
+  on item.veg_Id=vegetable.vege_id AND orders.order_date>DATE_SUB(CURDATE(),INTERVAL 30 DAY) 
+  WHERE order_details.farmer_id=".$fid." GROUP BY vegetable.vege_name";
+  return $this->queryfromsql($sql);
 }
 
 
