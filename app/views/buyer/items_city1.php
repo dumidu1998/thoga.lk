@@ -119,7 +119,12 @@ foreach($data_city1 as $key => $value){
                         <label for="e_date">End Date</label>
                         <input type="date" id="e_Date" name="e_date" value="<?php echo $e_date ?>"  readonly="readonly"/>
                         <label for="qnty">Quantity</label>
+<<<<<<< Updated upstream
                         <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />  
+=======
+                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />kg  
+                        <p style="color:gray">Min. Quantity: <?php echo $min_val ?> kg | Available Quantity: <?php echo $avail_we ?> kg</p>
+>>>>>>> Stashed changes
                       </div>
 
                       <?php 
