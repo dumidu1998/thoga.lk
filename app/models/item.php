@@ -111,7 +111,6 @@ class item extends db_model{
 		
 		$result =$this->connection->query($query);
 	   
-
 		if($result){
 	   echo "Insert Data Successfully.";
 		}
