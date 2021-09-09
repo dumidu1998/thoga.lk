@@ -51,7 +51,7 @@ foreach($data as $key => $value){
       <div class="container">
         <h2><b><?php echo $name ?></b></h2> 
         <p>Selling by farmer <?php echo $farmer_name ?>.</p>   
-        <h4>Price - Rs. <?php echo $price ?></h4>
+        <h4>Price - Rs. <?php echo $price . '/kg' ?></h4>
       </div>
       <?php
         if($type=="org"){
@@ -126,8 +126,11 @@ foreach($data as $key => $value){
                           }
                         ?>
                       <label for="qnty">Quantity</label>
-                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />
+
+                        <input type="number" id="qnty" name="quantity" min="<?php echo $min_val ?>" max= "<?php echo $avail_we ?>"step= "10" class="form-control" value="<?php echo $min_val ?>" />kg
                         <p style="color:gray">Min. Quantity: <?php echo $min_val ?> kg | Available Quantity: <?php echo $avail_we ?> kg</p>
+
+
                         <?php 
                         if(isset($_SESSION['user'])){
                             if(!empty($_SESSION['shopping_cart'])){

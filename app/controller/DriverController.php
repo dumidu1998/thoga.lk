@@ -23,8 +23,10 @@ class DriverController extends db_model{
         session_start();
         $id=$_SESSION['driver']['driver_id'];
         $result = $this->omodel->getdriver_upcomingorders($id);//driver id
+        $numvehicles = $this->vmodel->getnumvehicles($id);//driver id
         $view = new View("driver/driverdashboard");
         $view->assign('details',$result);
+        $view->assign('numvehicles',$numvehicles);
     }
 
     public function viewmore(){
@@ -264,6 +266,7 @@ class DriverController extends db_model{
     } 
     
     public function addnewvehicle(){
+        print_r($_POST);
         $result= $this->vmodel->addnewvehicle($_POST);
         $newvid=$this->vmodel->getnewvehicleid();
         print_r($_FILES);

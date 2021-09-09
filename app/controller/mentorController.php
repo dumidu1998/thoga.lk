@@ -248,7 +248,7 @@ class mentorController{
             $ordstatus=$this->oModel->getstatus($order_id);
         }
         $result = $this->oModel->get_order_details($order_id);
-        $view = new View("Farmer/view_more");
+        $view = new View("mentor/view_more");
         $view->assign('order_id',$order_id);
         $view->assign('view',$result);
         $view->assign('res',$res);

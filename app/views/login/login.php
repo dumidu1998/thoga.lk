@@ -15,8 +15,6 @@
     <a href="/thoga.lk" class="navlogo"><img  width=100px src="/thoga.lk/public/images/Farmer/logo1.png" alt="" class = "logo"></a>
     <a href="/thoga.lk/forum">Forum</a>
     <a href="../buyer/aboutus.php">About Us</a>
-
-     <a id="google_translate_element" ></a> 
   </div>
 
   <div class = "nav-right">

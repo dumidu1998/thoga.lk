@@ -32,6 +32,11 @@ class LoginController{
                             header("location:farmer/dash");
                         }elseif($values['user_type'] == 'driver'){
                             $id=$this->user->get_driver_id($_SESSION['user'][0]['user_id']);
+                            if($id[0]['verified_state']!=1){
+                                $_SESSION['loginerror']=1;
+                                header("location: /thoga.lk");
+                                return;
+                            }
                             $_SESSION['driver']['driver_id']=$id[0]['driver_id'];
                             $_SESSION['driver']['user_id']=$_SESSION['user'][0]['user_id'];
                             header("location:driver/dashboard");

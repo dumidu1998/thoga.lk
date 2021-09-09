@@ -32,7 +32,7 @@
             <input type="hidden" id="pwd" name="pwd" value="" >
             <button type="button" id="a" class="Criticalbtn" onclick="actiona(this)" name="rstpwd">Reset Password</button>
             <button type="button" class="Criticalbtn" onclick="actiona(this)" name="deleteuser">Delete User</button>
-            <button type="button" class="Criticalbtn" onclick="actiona(this)" name="block">Block</button>
+            <!-- <button type="button" class="Criticalbtn" onclick="actiona(this)" name="block">Block</button> -->
         </form>
     </div>
     <div class="grid">
@@ -58,10 +58,10 @@
                 <td><?php echo $userdetails['address_line1'];?></td>
 
             </tr>
-            <tr>
+            <!-- <tr>
                 <td> </td>
                 <td><?php echo $userdetails['address_line2'];?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td> </td>
                 <td><?php echo $userdetails['c_name'];?></td>
@@ -78,10 +78,10 @@
                 <td>Contact No.1:</td>
                 <td><?php printf("%s - %s %s %s",substr($userdetails['contactno1'], 0, 3), substr($userdetails['contactno1'], 3, 3), substr($userdetails['contactno1'], 6,2), substr($userdetails['contactno1'], 8)); ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Contact No.2:</td>
                 <td><?php printf("%s - %s %s %s",substr($userdetails['contactno2'], 0, 3), substr($userdetails['contactno2'], 3, 3), substr($userdetails['contactno2'], 6,2), substr($userdetails['contactno2'], 8)); ?></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>NIC</td>
                 <td><?php echo $userdetails['NIC'];?></td>

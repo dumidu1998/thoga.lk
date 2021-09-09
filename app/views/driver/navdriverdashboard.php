@@ -24,8 +24,7 @@
   <a href="/thoga.lk/driver/dashboard" <?php echo (($url== "/thoga.lk/driver/dashboard")?( "class='active'"):("")); ?> >Dashboard</a>
   <a href="/thoga.lk/driver/calendar" <?php echo (($url== "/thoga.lk/driver/calendar")?( "class='active'"):("")); ?> >Calendar</a>
   <a href="/thoga.lk/forum" <?php echo (($url== "/thoga.lk/forum")?( "class='active'"):("")); ?> >Forum</a>
-  <a href="/thoga.lk/driver/about_us" <?php echo (($url== "/thoga.lk/driver/about_us")?( "class='active'"):("")); ?> >About</a>
-  <a id="google_translate_element"></a>
+  <!-- <a id="google_translate_element"></a> -->
   <div class = "nav-right">
     <a href="logout">Logout</a>
     

@@ -238,7 +238,8 @@ input[type="checkbox"]{
     /* Modal Content */
     .modal-content {
     background-color: #fefefe;
-    background-image: url(/thoga.lk/public/images/forum/forum-bg4.jpg);
+    background-image: url(/thoga.lk/public/images/forum/forum-bg4.jpg);  
+    /* TODO */
     background-size: cover; 
     margin: auto;
     padding: 10px 25px 0px 25px;
@@ -319,7 +320,7 @@ input[type="checkbox"]{
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-left: 35%;
+    margin-left: 50%;
   }
 
   @media screen and (max-width: 768px) {

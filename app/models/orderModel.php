@@ -219,7 +219,7 @@ class orderModel extends db_model{
   }
 
   function getbuyer_orderhistory($id){
-    $sql= "SELECT a.*,b.*,c.* FROM  orders AS a INNER JOIN driver AS b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id  where a.pickup_date < CURRENT_TIMESTAMP AND buyer_id='".$id."'";
+    $sql= "SELECT a.*,b.*,c.* FROM  orders AS a INNER JOIN driver AS b ON a.driver_id=b.driver_id INNER JOIN user as c ON b.user_id=c.user_id  where (a.pickup_date < CURRENT_TIMESTAMP OR a.status=1) AND buyer_id='".$id."'";
   
     $result=$this->connection->query($sql);
     

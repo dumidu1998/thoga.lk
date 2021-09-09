@@ -1,5 +1,3 @@
-
-
 <html>
 	<head>
 		<title>Driver Dashboard</title>
@@ -20,12 +18,16 @@
 		</header>
 			<div class ="vehicle">
 				<a href="vehicledetails"><button class="button2">Vehicle details</button></a>
+				<?php if($numvehicles[0]['count']==0){
+					?>
+					<span class="addfirstvehcle">Add your First Vehicle <a href="/thoga.lk/driver/addvehicle">Here</a></span>					
+					<?php
+				}; ?>	
 			</div>
 		<div class="menu">
 			
 			<div class="transboxx">
 				<table align="center">
-					
 					<tr>
 						<th>Reference No</th>
 						<th>Pickup Date</th>

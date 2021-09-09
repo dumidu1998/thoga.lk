@@ -69,6 +69,7 @@ class FarmerController{
         
         
     }
+
     public function view_price(){
         $market=$this->vegeModel->getmprices();
         $view = new view("Farmer/price");

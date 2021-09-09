@@ -9,9 +9,9 @@ class farmerModel extends db_model{
     }
 
     function get_mentor_requests(){
-      $sql = "SELECT farmer.farmer_id ,user.firstname,user.lastname, districts.name_en AS district, cities.name_en AS city FROM farmer INNER JOIN user ON 
+      $sql = "SELECT farmer.farmer_id, farmer.mentor_id, user.firstname, user.lastname, districts.name_en AS district, cities.name_en AS city FROM farmer INNER JOIN user ON 
       farmer.user_id = user.user_id INNER JOIN address ON address.user_id= user.user_id INNER JOIN districts ON
-      address.district=districts.id INNER JOIN cities ON address.city=cities.id where farmer.mentor_id=0";
+      address.district=districts.id INNER JOIN cities ON address.city=cities.id where farmer.mentor_id=0 OR farmer.mentor_id=-2";
       $result=$this->connection->query($sql);
       $finale=array();
       if($result){

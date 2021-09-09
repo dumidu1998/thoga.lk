@@ -123,7 +123,13 @@
                         </tr>
                         <tr>                       
                             <td class="td_summary">Service Charge</td>
-                            <td>00</td>
+                            <td><?php
+                                if($_SESSION['driver']){
+                                    echo "200";
+                                }else{
+                                    echo "0";
+                                }
+                            ?></td>
                         </tr>
                         <tr>                       
                             <td class="td_summary">Total Amount</td>

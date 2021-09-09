@@ -171,7 +171,15 @@ input[type=text],input[type=file] {
       outline: none;
       font-size: 16px;
 }
+.selectbox{
+  /* padding-left:120px; */
+  width:28%;
+  height: 30;
+  margin-top: 10;
+  margin-bottom: 10;
+  margin-left: 10;
 
+}
 
 .advancedSearchTextbox1 {
   width: 150px;

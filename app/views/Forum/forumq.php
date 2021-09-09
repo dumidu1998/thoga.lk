@@ -78,7 +78,7 @@
                             <input type="image" class="like-unlike" id="lbtn" src="/thoga.lk/public/images/forum/thumbs-up-solid.svg" style="margin-right:20px;margin-left:19px"  onclick="likerep('<?php echo $reply_id;?>','<?php echo $post_id;?>')">
                             <input type="image" class="like-unlike" id="ulbtn" src="/thoga.lk/public/images/forum/thumbs-down-solid.svg" onclick="unlikerep('<?php echo $reply_id;?>','<?php echo $post_id;?>')"> 
                         </div>
-                        <img src="../public/uploads/userprofilepictures/<?php echo $userid?>.jpg" alt="" class="profile"> 
+                        <img src="../public/uploads/userprofilepictures/<?php echo "2"?>.jpg" alt="" class="profile"> 
                         <span class="rname">By <?php echo $addeduser ?> on <?php echo $date_time;?></span>
                     </div>
                     <div class="reply-content">
