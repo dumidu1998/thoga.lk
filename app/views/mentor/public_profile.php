@@ -124,7 +124,7 @@
 
         <div>
             <!-- Advertistment -->
-            <img width="400px" src="/thoga.lk/public/images/Farmer/add.jpg" alt="">
+            <!-- <img width="400px" src="/thoga.lk/public/images/Farmer/add.jpg" alt=""> -->
 
         </div>
 

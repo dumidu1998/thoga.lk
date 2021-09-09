@@ -377,9 +377,11 @@ class AdminController {
             header("location: ../admin?mentor_assigned=1");
         }else if(isset($_POST['rejected']) && isset($_POST['reason'])){
             $out=$this->mentors->rejectassignmentor($_POST['mentor_id'],$_POST['farmer_id']);
+            $this->sendmsg("0766344989","Your application has been rejected. Reason: ".$_POST['reason']);
             //send email/sms with reason
             header("location: ../admin?mentor_assigned=1");
         }else{
+            $this->sendmsg("0766344989","Mentor assigned succesfully!!");
             header("location: ../admin?mentor_assign_error=1");
         }
     }
@@ -394,16 +396,19 @@ class AdminController {
             header("location: ../admin?acceptd=1");
         }else if(isset($_POST['rejected']) && isset($_POST['existing_driver'])){
             $this->vehicles->reject($_POST['vid'],$_POST['reason']);
+            $this->sendmsg("0766344989","Your application has been rejected. Reason: ".$_POST['reason']);
             echo "rejected";
             header("location: ../admin?acceptd=0");
         }else if(isset($_POST['accepted']) && !isset($_POST['existing_driver'])){
             $this->drivers->accept($_POST['driverid']);
             $this->vehicles->accept($_POST['vid']);
+            $this->sendmsg("0766344989","Your application has been accepted.Plase login with your credetials!");
             echo "accepted";
             header("location: ../admin?acceptd=1");
         }else if(isset($_POST['rejected']) && !isset($_POST['existing_driver'])){
             $this->drivers->reject($_POST['driverid'],$_POST['reason']);
             $this->vehicles->reject($_POST['vid'],$_POST['reason']);
+            $this->sendmsg("0766344989","Your application has been rejected. Reason: ".$_POST['reason']);
             echo "rejected";
             header("location: ../admin?acceptd=0");
         }
