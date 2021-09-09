@@ -218,11 +218,13 @@ class AdminController {
         $mentor_id=$_POST['mentor_id'];
         if(isset($_POST['rejected'])&&isset($_POST['reason'])){
             $output=$this->mentors->reject($mentor_id,$_POST['reason']);
+            $this->sendmsg("0766344989","Your application has been rejected. Reason: ".$_POST['reason']);
             header("location: ../admin?acceptm=0");
             
         }
         if(isset($_POST['accpted'])){
             $output=$this->mentors->accept($mentor_id);
+            $this->sendmsg("0766344989","Your application has been accepted.Plase login with your credetials!");
             header("location: ../admin?acceptd=1");
 
         }
@@ -437,6 +439,34 @@ class AdminController {
         // $mobilenumber=$mobilenumber[0]['contactno1'];
         $mobilenumber=$_GET['contact1'];
         $MSG = $_GET['msg'];
+        $mobilenumber= '94'.substr($mobilenumber,1);
+        $smsText= $MSG . " \nThoga.lk";
+        $text = urlencode($smsText);
+        $to = $mobilenumber;
+        $user = "94764229830";
+        $password = "2055";
+        $baseurl = "http://www.textit.biz/sendmsg";
+        $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+        $ret = file($url);
+        $res = explode(":", $ret[0]);
+        print_r($res);
+        // print_r ($res);
+        if (trim($res[0]) == "OK") {
+            echo "Message Sent";
+            return 1;
+        } else {
+            header("HTTP/1.1 400 Bad Request");
+            http_response_code(400);
+            $message = '{"message": "Failed to send OTP"}';
+            echo stripslashes(json_encode($message));
+            return 0;
+        }
+    }
+
+    public function sendmsg($mobilenumber,$MSG){
+        // $mobilenumber=$mobilenumber[0]['contactno1'];
+        // $mobilenumber=$_GET['contact1'];
+        // $MSG = $_GET['msg'];
         $mobilenumber= '94'.substr($mobilenumber,1);
         $smsText= $MSG . " \nThoga.lk";
         $text = urlencode($smsText);

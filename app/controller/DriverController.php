@@ -266,6 +266,7 @@ class DriverController extends db_model{
     } 
     
     public function addnewvehicle(){
+        print_r($_POST);
         $result= $this->vmodel->addnewvehicle($_POST);
         $newvid=$this->vmodel->getnewvehicleid();
         print_r($_FILES);
