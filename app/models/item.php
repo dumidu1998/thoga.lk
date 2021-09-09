@@ -120,7 +120,7 @@ class item extends db_model{
 	}
 
 	public function insert_data_other($itemname,$othername,$avaiweight,$minweight,$price,$enddate,$itemtype,$ides,$f_id){
-		echo $f_id;
+		//echo $f_id;
 		$query = "INSERT into item (veg_Id,other_name,avail_weight,min_weight,total_cost,item_start,item_end,item_type,item_des,farmer_id) values ('".$itemname."','".$othername."','".$avaiweight."','".$minweight."','".$price."',CURDATE(),'".$enddate."','".$itemtype."','".$ides."','".$f_id."')";
 		echo $query;
 		
