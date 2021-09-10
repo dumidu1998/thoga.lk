@@ -103,7 +103,7 @@
         </div>
         <div class="right">
         <!-- <p class ="price2"type="date"> 2020-11-21</p> -->
-        <input type="date" class ="price2" name="enddate" value="<?php echo $itemend?>" >
+        <input type="date" class ="price2" name="enddate" value="<?php echo $itemend?>" disabled >
         </div>
       </div>
     
