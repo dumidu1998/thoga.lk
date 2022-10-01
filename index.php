@@ -7,6 +7,7 @@ $path = substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($dir_na
 //echo __DIR__;
 // echo file_exists(__DIR__ . "/app/views/buyer/selectDriver.php");
 // die();
+// test
 
 $routes = [
     'buyer/select-driver' => 'BuyerController@selectDriver',
